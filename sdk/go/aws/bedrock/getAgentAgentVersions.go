@@ -69,12 +69,8 @@ type GetAgentAgentVersionsResult struct {
 }
 
 func GetAgentAgentVersionsOutput(ctx *pulumi.Context, args GetAgentAgentVersionsOutputArgs, opts ...pulumi.InvokeOption) GetAgentAgentVersionsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAgentAgentVersionsResultOutput, error) {
-			args := v.(GetAgentAgentVersionsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:bedrock/getAgentAgentVersions:getAgentAgentVersions", args, GetAgentAgentVersionsResultOutput{}, options).(GetAgentAgentVersionsResultOutput), nil
-		}).(GetAgentAgentVersionsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:bedrock/getAgentAgentVersions:getAgentAgentVersions", args, GetAgentAgentVersionsResultOutput{}, options).(GetAgentAgentVersionsResultOutput)
 }
 
 // A collection of arguments for invoking getAgentAgentVersions.

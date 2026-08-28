@@ -80,12 +80,8 @@ type GetComponentsResult struct {
 }
 
 func GetComponentsOutput(ctx *pulumi.Context, args GetComponentsOutputArgs, opts ...pulumi.InvokeOption) GetComponentsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetComponentsResultOutput, error) {
-			args := v.(GetComponentsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:imagebuilder/getComponents:getComponents", args, GetComponentsResultOutput{}, options).(GetComponentsResultOutput), nil
-		}).(GetComponentsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:imagebuilder/getComponents:getComponents", args, GetComponentsResultOutput{}, options).(GetComponentsResultOutput)
 }
 
 // A collection of arguments for invoking getComponents.

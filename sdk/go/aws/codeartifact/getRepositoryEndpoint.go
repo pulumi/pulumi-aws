@@ -78,12 +78,8 @@ type GetRepositoryEndpointResult struct {
 }
 
 func GetRepositoryEndpointOutput(ctx *pulumi.Context, args GetRepositoryEndpointOutputArgs, opts ...pulumi.InvokeOption) GetRepositoryEndpointResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRepositoryEndpointResultOutput, error) {
-			args := v.(GetRepositoryEndpointArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:codeartifact/getRepositoryEndpoint:getRepositoryEndpoint", args, GetRepositoryEndpointResultOutput{}, options).(GetRepositoryEndpointResultOutput), nil
-		}).(GetRepositoryEndpointResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:codeartifact/getRepositoryEndpoint:getRepositoryEndpoint", args, GetRepositoryEndpointResultOutput{}, options).(GetRepositoryEndpointResultOutput)
 }
 
 // A collection of arguments for invoking getRepositoryEndpoint.

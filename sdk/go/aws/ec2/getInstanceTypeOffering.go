@@ -87,12 +87,8 @@ type GetInstanceTypeOfferingResult struct {
 }
 
 func GetInstanceTypeOfferingOutput(ctx *pulumi.Context, args GetInstanceTypeOfferingOutputArgs, opts ...pulumi.InvokeOption) GetInstanceTypeOfferingResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetInstanceTypeOfferingResultOutput, error) {
-			args := v.(GetInstanceTypeOfferingArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getInstanceTypeOffering:getInstanceTypeOffering", args, GetInstanceTypeOfferingResultOutput{}, options).(GetInstanceTypeOfferingResultOutput), nil
-		}).(GetInstanceTypeOfferingResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getInstanceTypeOffering:getInstanceTypeOffering", args, GetInstanceTypeOfferingResultOutput{}, options).(GetInstanceTypeOfferingResultOutput)
 }
 
 // A collection of arguments for invoking getInstanceTypeOffering.

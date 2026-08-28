@@ -46,12 +46,8 @@ func ArnParseOutput(ctx *pulumi.Context, arn pulumi.StringInput, opts ...pulumi.
 	args := arnParseOutputArgs{
 		Arn: arn,
 	}
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (ArnParseResultOutput, error) {
-			args := v.(arnParseArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:index/arnParse:arnParse", args, ArnParseResultOutput{}, options).(ArnParseResultOutput), nil
-		}).(ArnParseResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:index/arnParse:arnParse", args, ArnParseResultOutput{}, options).(ArnParseResultOutput)
 }
 
 type arnParseOutputArgs struct {

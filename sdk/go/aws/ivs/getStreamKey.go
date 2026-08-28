@@ -75,12 +75,8 @@ type GetStreamKeyResult struct {
 }
 
 func GetStreamKeyOutput(ctx *pulumi.Context, args GetStreamKeyOutputArgs, opts ...pulumi.InvokeOption) GetStreamKeyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetStreamKeyResultOutput, error) {
-			args := v.(GetStreamKeyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ivs/getStreamKey:getStreamKey", args, GetStreamKeyResultOutput{}, options).(GetStreamKeyResultOutput), nil
-		}).(GetStreamKeyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ivs/getStreamKey:getStreamKey", args, GetStreamKeyResultOutput{}, options).(GetStreamKeyResultOutput)
 }
 
 // A collection of arguments for invoking getStreamKey.

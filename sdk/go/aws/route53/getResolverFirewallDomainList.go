@@ -87,12 +87,8 @@ type LookupResolverFirewallDomainListResult struct {
 }
 
 func LookupResolverFirewallDomainListOutput(ctx *pulumi.Context, args LookupResolverFirewallDomainListOutputArgs, opts ...pulumi.InvokeOption) LookupResolverFirewallDomainListResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupResolverFirewallDomainListResultOutput, error) {
-			args := v.(LookupResolverFirewallDomainListArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList", args, LookupResolverFirewallDomainListResultOutput{}, options).(LookupResolverFirewallDomainListResultOutput), nil
-		}).(LookupResolverFirewallDomainListResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList", args, LookupResolverFirewallDomainListResultOutput{}, options).(LookupResolverFirewallDomainListResultOutput)
 }
 
 // A collection of arguments for invoking getResolverFirewallDomainList.

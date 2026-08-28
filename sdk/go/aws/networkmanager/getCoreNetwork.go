@@ -80,12 +80,8 @@ type LookupCoreNetworkResult struct {
 }
 
 func LookupCoreNetworkOutput(ctx *pulumi.Context, args LookupCoreNetworkOutputArgs, opts ...pulumi.InvokeOption) LookupCoreNetworkResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCoreNetworkResultOutput, error) {
-			args := v.(LookupCoreNetworkArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:networkmanager/getCoreNetwork:getCoreNetwork", args, LookupCoreNetworkResultOutput{}, options).(LookupCoreNetworkResultOutput), nil
-		}).(LookupCoreNetworkResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:networkmanager/getCoreNetwork:getCoreNetwork", args, LookupCoreNetworkResultOutput{}, options).(LookupCoreNetworkResultOutput)
 }
 
 // A collection of arguments for invoking getCoreNetwork.

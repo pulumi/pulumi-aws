@@ -122,12 +122,8 @@ type LookupResolverEndpointResult struct {
 }
 
 func LookupResolverEndpointOutput(ctx *pulumi.Context, args LookupResolverEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupResolverEndpointResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupResolverEndpointResultOutput, error) {
-			args := v.(LookupResolverEndpointArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:route53/getResolverEndpoint:getResolverEndpoint", args, LookupResolverEndpointResultOutput{}, options).(LookupResolverEndpointResultOutput), nil
-		}).(LookupResolverEndpointResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:route53/getResolverEndpoint:getResolverEndpoint", args, LookupResolverEndpointResultOutput{}, options).(LookupResolverEndpointResultOutput)
 }
 
 // A collection of arguments for invoking getResolverEndpoint.

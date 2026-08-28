@@ -53,10 +53,8 @@ type LookupOutboundWebIdentityFederationResult struct {
 }
 
 func LookupOutboundWebIdentityFederationOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupOutboundWebIdentityFederationResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (LookupOutboundWebIdentityFederationResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws:iam/getOutboundWebIdentityFederation:getOutboundWebIdentityFederation", nil, LookupOutboundWebIdentityFederationResultOutput{}, options).(LookupOutboundWebIdentityFederationResultOutput), nil
-	}).(LookupOutboundWebIdentityFederationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:iam/getOutboundWebIdentityFederation:getOutboundWebIdentityFederation", nil, LookupOutboundWebIdentityFederationResultOutput{}, options).(LookupOutboundWebIdentityFederationResultOutput)
 }
 
 // A collection of values returned by getOutboundWebIdentityFederation.

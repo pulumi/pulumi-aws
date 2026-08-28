@@ -70,12 +70,8 @@ type GetServiceUpdatesResult struct {
 }
 
 func GetServiceUpdatesOutput(ctx *pulumi.Context, args GetServiceUpdatesOutputArgs, opts ...pulumi.InvokeOption) GetServiceUpdatesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetServiceUpdatesResultOutput, error) {
-			args := v.(GetServiceUpdatesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:elasticache/getServiceUpdates:getServiceUpdates", args, GetServiceUpdatesResultOutput{}, options).(GetServiceUpdatesResultOutput), nil
-		}).(GetServiceUpdatesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:elasticache/getServiceUpdates:getServiceUpdates", args, GetServiceUpdatesResultOutput{}, options).(GetServiceUpdatesResultOutput)
 }
 
 // A collection of arguments for invoking getServiceUpdates.

@@ -111,12 +111,8 @@ type LookupFileSystemResult struct {
 }
 
 func LookupFileSystemOutput(ctx *pulumi.Context, args LookupFileSystemOutputArgs, opts ...pulumi.InvokeOption) LookupFileSystemResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFileSystemResultOutput, error) {
-			args := v.(LookupFileSystemArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:efs/getFileSystem:getFileSystem", args, LookupFileSystemResultOutput{}, options).(LookupFileSystemResultOutput), nil
-		}).(LookupFileSystemResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:efs/getFileSystem:getFileSystem", args, LookupFileSystemResultOutput{}, options).(LookupFileSystemResultOutput)
 }
 
 // A collection of arguments for invoking getFileSystem.

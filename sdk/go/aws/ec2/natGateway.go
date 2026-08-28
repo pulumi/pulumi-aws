@@ -217,7 +217,6 @@ import (
 //			var exampleEip []*ec2.Eip
 //			for index := 0; index < 3; index++ {
 //				key0 := index
-//				_ := index
 //				__res, err := ec2.NewEip(ctx, fmt.Sprintf("example-%v", key0), &ec2.EipArgs{
 //					Domain: pulumi.String("vpc"),
 //				})

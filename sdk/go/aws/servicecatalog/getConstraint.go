@@ -87,12 +87,8 @@ type LookupConstraintResult struct {
 }
 
 func LookupConstraintOutput(ctx *pulumi.Context, args LookupConstraintOutputArgs, opts ...pulumi.InvokeOption) LookupConstraintResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupConstraintResultOutput, error) {
-			args := v.(LookupConstraintArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:servicecatalog/getConstraint:getConstraint", args, LookupConstraintResultOutput{}, options).(LookupConstraintResultOutput), nil
-		}).(LookupConstraintResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:servicecatalog/getConstraint:getConstraint", args, LookupConstraintResultOutput{}, options).(LookupConstraintResultOutput)
 }
 
 // A collection of arguments for invoking getConstraint.

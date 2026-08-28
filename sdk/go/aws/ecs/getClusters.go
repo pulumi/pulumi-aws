@@ -62,12 +62,8 @@ type GetClustersResult struct {
 }
 
 func GetClustersOutput(ctx *pulumi.Context, args GetClustersOutputArgs, opts ...pulumi.InvokeOption) GetClustersResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetClustersResultOutput, error) {
-			args := v.(GetClustersArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ecs/getClusters:getClusters", args, GetClustersResultOutput{}, options).(GetClustersResultOutput), nil
-		}).(GetClustersResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ecs/getClusters:getClusters", args, GetClustersResultOutput{}, options).(GetClustersResultOutput)
 }
 
 // A collection of arguments for invoking getClusters.

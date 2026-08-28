@@ -71,12 +71,8 @@ type LookupTrackerAssociationResult struct {
 }
 
 func LookupTrackerAssociationOutput(ctx *pulumi.Context, args LookupTrackerAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupTrackerAssociationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTrackerAssociationResultOutput, error) {
-			args := v.(LookupTrackerAssociationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:location/getTrackerAssociation:getTrackerAssociation", args, LookupTrackerAssociationResultOutput{}, options).(LookupTrackerAssociationResultOutput), nil
-		}).(LookupTrackerAssociationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:location/getTrackerAssociation:getTrackerAssociation", args, LookupTrackerAssociationResultOutput{}, options).(LookupTrackerAssociationResultOutput)
 }
 
 // A collection of arguments for invoking getTrackerAssociation.

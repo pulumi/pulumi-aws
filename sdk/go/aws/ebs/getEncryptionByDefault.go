@@ -62,12 +62,8 @@ type LookupEncryptionByDefaultResult struct {
 }
 
 func LookupEncryptionByDefaultOutput(ctx *pulumi.Context, args LookupEncryptionByDefaultOutputArgs, opts ...pulumi.InvokeOption) LookupEncryptionByDefaultResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEncryptionByDefaultResultOutput, error) {
-			args := v.(LookupEncryptionByDefaultArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", args, LookupEncryptionByDefaultResultOutput{}, options).(LookupEncryptionByDefaultResultOutput), nil
-		}).(LookupEncryptionByDefaultResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", args, LookupEncryptionByDefaultResultOutput{}, options).(LookupEncryptionByDefaultResultOutput)
 }
 
 // A collection of arguments for invoking getEncryptionByDefault.

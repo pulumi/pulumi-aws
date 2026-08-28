@@ -77,12 +77,8 @@ type LookupContactChannelResult struct {
 }
 
 func LookupContactChannelOutput(ctx *pulumi.Context, args LookupContactChannelOutputArgs, opts ...pulumi.InvokeOption) LookupContactChannelResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupContactChannelResultOutput, error) {
-			args := v.(LookupContactChannelArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ssmcontacts/getContactChannel:getContactChannel", args, LookupContactChannelResultOutput{}, options).(LookupContactChannelResultOutput), nil
-		}).(LookupContactChannelResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ssmcontacts/getContactChannel:getContactChannel", args, LookupContactChannelResultOutput{}, options).(LookupContactChannelResultOutput)
 }
 
 // A collection of arguments for invoking getContactChannel.

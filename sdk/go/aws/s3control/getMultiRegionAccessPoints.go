@@ -66,12 +66,8 @@ type GetMultiRegionAccessPointsResult struct {
 }
 
 func GetMultiRegionAccessPointsOutput(ctx *pulumi.Context, args GetMultiRegionAccessPointsOutputArgs, opts ...pulumi.InvokeOption) GetMultiRegionAccessPointsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetMultiRegionAccessPointsResultOutput, error) {
-			args := v.(GetMultiRegionAccessPointsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:s3control/getMultiRegionAccessPoints:getMultiRegionAccessPoints", args, GetMultiRegionAccessPointsResultOutput{}, options).(GetMultiRegionAccessPointsResultOutput), nil
-		}).(GetMultiRegionAccessPointsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:s3control/getMultiRegionAccessPoints:getMultiRegionAccessPoints", args, GetMultiRegionAccessPointsResultOutput{}, options).(GetMultiRegionAccessPointsResultOutput)
 }
 
 // A collection of arguments for invoking getMultiRegionAccessPoints.

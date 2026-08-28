@@ -130,7 +130,6 @@ import (
 //			var conditional []*lambda.Function
 //			for index := 0; index < tmp0; index++ {
 //				key0 := index
-//				_ := index
 //				__res, err := lambda.NewFunction(ctx, fmt.Sprintf("conditional-%v", key0), &lambda.FunctionArgs{
 //					Code:                 pulumi.NewFileArchive("function.zip"),
 //					Name:                 pulumi.String("conditional-function"),
@@ -241,12 +240,8 @@ type LookupCodeSigningConfigResult struct {
 }
 
 func LookupCodeSigningConfigOutput(ctx *pulumi.Context, args LookupCodeSigningConfigOutputArgs, opts ...pulumi.InvokeOption) LookupCodeSigningConfigResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCodeSigningConfigResultOutput, error) {
-			args := v.(LookupCodeSigningConfigArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:lambda/getCodeSigningConfig:getCodeSigningConfig", args, LookupCodeSigningConfigResultOutput{}, options).(LookupCodeSigningConfigResultOutput), nil
-		}).(LookupCodeSigningConfigResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:lambda/getCodeSigningConfig:getCodeSigningConfig", args, LookupCodeSigningConfigResultOutput{}, options).(LookupCodeSigningConfigResultOutput)
 }
 
 // A collection of arguments for invoking getCodeSigningConfig.

@@ -74,12 +74,8 @@ type GetLocalDiskResult struct {
 }
 
 func GetLocalDiskOutput(ctx *pulumi.Context, args GetLocalDiskOutputArgs, opts ...pulumi.InvokeOption) GetLocalDiskResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetLocalDiskResultOutput, error) {
-			args := v.(GetLocalDiskArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:storagegateway/getLocalDisk:getLocalDisk", args, GetLocalDiskResultOutput{}, options).(GetLocalDiskResultOutput), nil
-		}).(GetLocalDiskResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:storagegateway/getLocalDisk:getLocalDisk", args, GetLocalDiskResultOutput{}, options).(GetLocalDiskResultOutput)
 }
 
 // A collection of arguments for invoking getLocalDisk.

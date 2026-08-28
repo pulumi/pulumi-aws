@@ -73,12 +73,8 @@ type GetLbsResult struct {
 }
 
 func GetLbsOutput(ctx *pulumi.Context, args GetLbsOutputArgs, opts ...pulumi.InvokeOption) GetLbsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetLbsResultOutput, error) {
-			args := v.(GetLbsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:lb/getLbs:getLbs", args, GetLbsResultOutput{}, options).(GetLbsResultOutput), nil
-		}).(GetLbsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:lb/getLbs:getLbs", args, GetLbsResultOutput{}, options).(GetLbsResultOutput)
 }
 
 // A collection of arguments for invoking getLbs.

@@ -141,12 +141,8 @@ type GetResourcesResult struct {
 }
 
 func GetResourcesOutput(ctx *pulumi.Context, args GetResourcesOutputArgs, opts ...pulumi.InvokeOption) GetResourcesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetResourcesResultOutput, error) {
-			args := v.(GetResourcesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:resourcegroupstaggingapi/getResources:getResources", args, GetResourcesResultOutput{}, options).(GetResourcesResultOutput), nil
-		}).(GetResourcesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:resourcegroupstaggingapi/getResources:getResources", args, GetResourcesResultOutput{}, options).(GetResourcesResultOutput)
 }
 
 // A collection of arguments for invoking getResources.

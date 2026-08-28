@@ -84,12 +84,8 @@ type LookupConnectionGroupResult struct {
 }
 
 func LookupConnectionGroupOutput(ctx *pulumi.Context, args LookupConnectionGroupOutputArgs, opts ...pulumi.InvokeOption) LookupConnectionGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupConnectionGroupResultOutput, error) {
-			args := v.(LookupConnectionGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:cloudfront/getConnectionGroup:getConnectionGroup", args, LookupConnectionGroupResultOutput{}, options).(LookupConnectionGroupResultOutput), nil
-		}).(LookupConnectionGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:cloudfront/getConnectionGroup:getConnectionGroup", args, LookupConnectionGroupResultOutput{}, options).(LookupConnectionGroupResultOutput)
 }
 
 // A collection of arguments for invoking getConnectionGroup.

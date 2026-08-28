@@ -112,12 +112,8 @@ type LookupNetworkResult struct {
 }
 
 func LookupNetworkOutput(ctx *pulumi.Context, args LookupNetworkOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupNetworkResultOutput, error) {
-			args := v.(LookupNetworkArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:odb/getNetwork:getNetwork", args, LookupNetworkResultOutput{}, options).(LookupNetworkResultOutput), nil
-		}).(LookupNetworkResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:odb/getNetwork:getNetwork", args, LookupNetworkResultOutput{}, options).(LookupNetworkResultOutput)
 }
 
 // A collection of arguments for invoking getNetwork.

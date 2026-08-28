@@ -212,12 +212,8 @@ type GetObjectResult struct {
 }
 
 func GetObjectOutput(ctx *pulumi.Context, args GetObjectOutputArgs, opts ...pulumi.InvokeOption) GetObjectResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetObjectResultOutput, error) {
-			args := v.(GetObjectArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:s3/getObject:getObject", args, GetObjectResultOutput{}, options).(GetObjectResultOutput), nil
-		}).(GetObjectResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:s3/getObject:getObject", args, GetObjectResultOutput{}, options).(GetObjectResultOutput)
 }
 
 // A collection of arguments for invoking getObject.

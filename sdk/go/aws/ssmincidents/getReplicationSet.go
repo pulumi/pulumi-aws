@@ -82,12 +82,8 @@ type LookupReplicationSetResult struct {
 }
 
 func LookupReplicationSetOutput(ctx *pulumi.Context, args LookupReplicationSetOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationSetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupReplicationSetResultOutput, error) {
-			args := v.(LookupReplicationSetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ssmincidents/getReplicationSet:getReplicationSet", args, LookupReplicationSetResultOutput{}, options).(LookupReplicationSetResultOutput), nil
-		}).(LookupReplicationSetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ssmincidents/getReplicationSet:getReplicationSet", args, LookupReplicationSetResultOutput{}, options).(LookupReplicationSetResultOutput)
 }
 
 // A collection of arguments for invoking getReplicationSet.

@@ -114,12 +114,8 @@ type LookupOntapFileSystemResult struct {
 }
 
 func LookupOntapFileSystemOutput(ctx *pulumi.Context, args LookupOntapFileSystemOutputArgs, opts ...pulumi.InvokeOption) LookupOntapFileSystemResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupOntapFileSystemResultOutput, error) {
-			args := v.(LookupOntapFileSystemArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:fsx/getOntapFileSystem:getOntapFileSystem", args, LookupOntapFileSystemResultOutput{}, options).(LookupOntapFileSystemResultOutput), nil
-		}).(LookupOntapFileSystemResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:fsx/getOntapFileSystem:getOntapFileSystem", args, LookupOntapFileSystemResultOutput{}, options).(LookupOntapFileSystemResultOutput)
 }
 
 // A collection of arguments for invoking getOntapFileSystem.

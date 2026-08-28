@@ -71,12 +71,8 @@ type GetDbServersResult struct {
 }
 
 func GetDbServersOutput(ctx *pulumi.Context, args GetDbServersOutputArgs, opts ...pulumi.InvokeOption) GetDbServersResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetDbServersResultOutput, error) {
-			args := v.(GetDbServersArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:odb/getDbServers:getDbServers", args, GetDbServersResultOutput{}, options).(GetDbServersResultOutput), nil
-		}).(GetDbServersResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:odb/getDbServers:getDbServers", args, GetDbServersResultOutput{}, options).(GetDbServersResultOutput)
 }
 
 // A collection of arguments for invoking getDbServers.

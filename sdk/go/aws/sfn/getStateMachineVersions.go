@@ -69,12 +69,8 @@ type GetStateMachineVersionsResult struct {
 }
 
 func GetStateMachineVersionsOutput(ctx *pulumi.Context, args GetStateMachineVersionsOutputArgs, opts ...pulumi.InvokeOption) GetStateMachineVersionsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetStateMachineVersionsResultOutput, error) {
-			args := v.(GetStateMachineVersionsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:sfn/getStateMachineVersions:getStateMachineVersions", args, GetStateMachineVersionsResultOutput{}, options).(GetStateMachineVersionsResultOutput), nil
-		}).(GetStateMachineVersionsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:sfn/getStateMachineVersions:getStateMachineVersions", args, GetStateMachineVersionsResultOutput{}, options).(GetStateMachineVersionsResultOutput)
 }
 
 // A collection of arguments for invoking getStateMachineVersions.

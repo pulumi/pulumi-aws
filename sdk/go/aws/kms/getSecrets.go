@@ -49,12 +49,8 @@ type GetSecretsResult struct {
 }
 
 func GetSecretsOutput(ctx *pulumi.Context, args GetSecretsOutputArgs, opts ...pulumi.InvokeOption) GetSecretsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetSecretsResultOutput, error) {
-			args := v.(GetSecretsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:kms/getSecrets:getSecrets", args, GetSecretsResultOutput{}, options).(GetSecretsResultOutput), nil
-		}).(GetSecretsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:kms/getSecrets:getSecrets", args, GetSecretsResultOutput{}, options).(GetSecretsResultOutput)
 }
 
 // A collection of arguments for invoking getSecrets.

@@ -67,12 +67,8 @@ type GetDbSystemShapesResult struct {
 }
 
 func GetDbSystemShapesOutput(ctx *pulumi.Context, args GetDbSystemShapesOutputArgs, opts ...pulumi.InvokeOption) GetDbSystemShapesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetDbSystemShapesResultOutput, error) {
-			args := v.(GetDbSystemShapesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:odb/getDbSystemShapes:getDbSystemShapes", args, GetDbSystemShapesResultOutput{}, options).(GetDbSystemShapesResultOutput), nil
-		}).(GetDbSystemShapesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:odb/getDbSystemShapes:getDbSystemShapes", args, GetDbSystemShapesResultOutput{}, options).(GetDbSystemShapesResultOutput)
 }
 
 // A collection of arguments for invoking getDbSystemShapes.

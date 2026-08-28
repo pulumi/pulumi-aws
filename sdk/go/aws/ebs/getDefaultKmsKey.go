@@ -70,12 +70,8 @@ type LookupDefaultKmsKeyResult struct {
 }
 
 func LookupDefaultKmsKeyOutput(ctx *pulumi.Context, args LookupDefaultKmsKeyOutputArgs, opts ...pulumi.InvokeOption) LookupDefaultKmsKeyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDefaultKmsKeyResultOutput, error) {
-			args := v.(LookupDefaultKmsKeyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", args, LookupDefaultKmsKeyResultOutput{}, options).(LookupDefaultKmsKeyResultOutput), nil
-		}).(LookupDefaultKmsKeyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", args, LookupDefaultKmsKeyResultOutput{}, options).(LookupDefaultKmsKeyResultOutput)
 }
 
 // A collection of arguments for invoking getDefaultKmsKey.

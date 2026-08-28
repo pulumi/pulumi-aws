@@ -133,12 +133,8 @@ type GetAssetsResult struct {
 }
 
 func GetAssetsOutput(ctx *pulumi.Context, args GetAssetsOutputArgs, opts ...pulumi.InvokeOption) GetAssetsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAssetsResultOutput, error) {
-			args := v.(GetAssetsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:outposts/getAssets:getAssets", args, GetAssetsResultOutput{}, options).(GetAssetsResultOutput), nil
-		}).(GetAssetsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:outposts/getAssets:getAssets", args, GetAssetsResultOutput{}, options).(GetAssetsResultOutput)
 }
 
 // A collection of arguments for invoking getAssets.

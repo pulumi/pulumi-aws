@@ -217,12 +217,8 @@ type GetTrafficPolicyDocumentResult struct {
 }
 
 func GetTrafficPolicyDocumentOutput(ctx *pulumi.Context, args GetTrafficPolicyDocumentOutputArgs, opts ...pulumi.InvokeOption) GetTrafficPolicyDocumentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetTrafficPolicyDocumentResultOutput, error) {
-			args := v.(GetTrafficPolicyDocumentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:route53/getTrafficPolicyDocument:getTrafficPolicyDocument", args, GetTrafficPolicyDocumentResultOutput{}, options).(GetTrafficPolicyDocumentResultOutput), nil
-		}).(GetTrafficPolicyDocumentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:route53/getTrafficPolicyDocument:getTrafficPolicyDocument", args, GetTrafficPolicyDocumentResultOutput{}, options).(GetTrafficPolicyDocumentResultOutput)
 }
 
 // A collection of arguments for invoking getTrafficPolicyDocument.

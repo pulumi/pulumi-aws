@@ -84,12 +84,8 @@ type LookupDataSetResult struct {
 }
 
 func LookupDataSetOutput(ctx *pulumi.Context, args LookupDataSetOutputArgs, opts ...pulumi.InvokeOption) LookupDataSetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDataSetResultOutput, error) {
-			args := v.(LookupDataSetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:quicksight/getDataSet:getDataSet", args, LookupDataSetResultOutput{}, options).(LookupDataSetResultOutput), nil
-		}).(LookupDataSetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:quicksight/getDataSet:getDataSet", args, LookupDataSetResultOutput{}, options).(LookupDataSetResultOutput)
 }
 
 // A collection of arguments for invoking getDataSet.

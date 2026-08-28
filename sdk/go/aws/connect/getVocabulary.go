@@ -120,12 +120,8 @@ type LookupVocabularyResult struct {
 }
 
 func LookupVocabularyOutput(ctx *pulumi.Context, args LookupVocabularyOutputArgs, opts ...pulumi.InvokeOption) LookupVocabularyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVocabularyResultOutput, error) {
-			args := v.(LookupVocabularyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:connect/getVocabulary:getVocabulary", args, LookupVocabularyResultOutput{}, options).(LookupVocabularyResultOutput), nil
-		}).(LookupVocabularyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:connect/getVocabulary:getVocabulary", args, LookupVocabularyResultOutput{}, options).(LookupVocabularyResultOutput)
 }
 
 // A collection of arguments for invoking getVocabulary.

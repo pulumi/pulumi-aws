@@ -94,12 +94,8 @@ type GetQuicksightUserResult struct {
 }
 
 func GetQuicksightUserOutput(ctx *pulumi.Context, args GetQuicksightUserOutputArgs, opts ...pulumi.InvokeOption) GetQuicksightUserResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetQuicksightUserResultOutput, error) {
-			args := v.(GetQuicksightUserArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:quicksight/getQuicksightUser:getQuicksightUser", args, GetQuicksightUserResultOutput{}, options).(GetQuicksightUserResultOutput), nil
-		}).(GetQuicksightUserResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:quicksight/getQuicksightUser:getQuicksightUser", args, GetQuicksightUserResultOutput{}, options).(GetQuicksightUserResultOutput)
 }
 
 // A collection of arguments for invoking getQuicksightUser.

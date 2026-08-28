@@ -135,12 +135,8 @@ type GetConnectionResult struct {
 }
 
 func GetConnectionOutput(ctx *pulumi.Context, args GetConnectionOutputArgs, opts ...pulumi.InvokeOption) GetConnectionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetConnectionResultOutput, error) {
-			args := v.(GetConnectionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:vpn/getConnection:getConnection", args, GetConnectionResultOutput{}, options).(GetConnectionResultOutput), nil
-		}).(GetConnectionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:vpn/getConnection:getConnection", args, GetConnectionResultOutput{}, options).(GetConnectionResultOutput)
 }
 
 // A collection of arguments for invoking getConnection.

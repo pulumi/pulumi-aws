@@ -80,12 +80,8 @@ type GetImageRecipesResult struct {
 }
 
 func GetImageRecipesOutput(ctx *pulumi.Context, args GetImageRecipesOutputArgs, opts ...pulumi.InvokeOption) GetImageRecipesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetImageRecipesResultOutput, error) {
-			args := v.(GetImageRecipesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:imagebuilder/getImageRecipes:getImageRecipes", args, GetImageRecipesResultOutput{}, options).(GetImageRecipesResultOutput), nil
-		}).(GetImageRecipesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:imagebuilder/getImageRecipes:getImageRecipes", args, GetImageRecipesResultOutput{}, options).(GetImageRecipesResultOutput)
 }
 
 // A collection of arguments for invoking getImageRecipes.

@@ -70,12 +70,8 @@ type LookupDelegationSetResult struct {
 }
 
 func LookupDelegationSetOutput(ctx *pulumi.Context, args LookupDelegationSetOutputArgs, opts ...pulumi.InvokeOption) LookupDelegationSetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDelegationSetResultOutput, error) {
-			args := v.(LookupDelegationSetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:route53/getDelegationSet:getDelegationSet", args, LookupDelegationSetResultOutput{}, options).(LookupDelegationSetResultOutput), nil
-		}).(LookupDelegationSetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:route53/getDelegationSet:getDelegationSet", args, LookupDelegationSetResultOutput{}, options).(LookupDelegationSetResultOutput)
 }
 
 // A collection of arguments for invoking getDelegationSet.

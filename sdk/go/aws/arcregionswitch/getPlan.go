@@ -90,12 +90,8 @@ type LookupPlanResult struct {
 }
 
 func LookupPlanOutput(ctx *pulumi.Context, args LookupPlanOutputArgs, opts ...pulumi.InvokeOption) LookupPlanResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPlanResultOutput, error) {
-			args := v.(LookupPlanArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:arcregionswitch/getPlan:getPlan", args, LookupPlanResultOutput{}, options).(LookupPlanResultOutput), nil
-		}).(LookupPlanResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:arcregionswitch/getPlan:getPlan", args, LookupPlanResultOutput{}, options).(LookupPlanResultOutput)
 }
 
 // A collection of arguments for invoking getPlan.

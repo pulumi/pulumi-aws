@@ -93,12 +93,8 @@ type GetUserPoolsResult struct {
 }
 
 func GetUserPoolsOutput(ctx *pulumi.Context, args GetUserPoolsOutputArgs, opts ...pulumi.InvokeOption) GetUserPoolsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetUserPoolsResultOutput, error) {
-			args := v.(GetUserPoolsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:cognito/getUserPools:getUserPools", args, GetUserPoolsResultOutput{}, options).(GetUserPoolsResultOutput), nil
-		}).(GetUserPoolsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:cognito/getUserPools:getUserPools", args, GetUserPoolsResultOutput{}, options).(GetUserPoolsResultOutput)
 }
 
 // A collection of arguments for invoking getUserPools.

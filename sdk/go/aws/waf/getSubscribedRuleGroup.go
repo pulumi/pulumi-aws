@@ -90,12 +90,8 @@ type GetSubscribedRuleGroupResult struct {
 }
 
 func GetSubscribedRuleGroupOutput(ctx *pulumi.Context, args GetSubscribedRuleGroupOutputArgs, opts ...pulumi.InvokeOption) GetSubscribedRuleGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetSubscribedRuleGroupResultOutput, error) {
-			args := v.(GetSubscribedRuleGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:waf/getSubscribedRuleGroup:getSubscribedRuleGroup", args, GetSubscribedRuleGroupResultOutput{}, options).(GetSubscribedRuleGroupResultOutput), nil
-		}).(GetSubscribedRuleGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:waf/getSubscribedRuleGroup:getSubscribedRuleGroup", args, GetSubscribedRuleGroupResultOutput{}, options).(GetSubscribedRuleGroupResultOutput)
 }
 
 // A collection of arguments for invoking getSubscribedRuleGroup.

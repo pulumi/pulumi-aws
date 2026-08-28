@@ -64,12 +64,8 @@ type GetCloudAutonomousVmClustersResult struct {
 }
 
 func GetCloudAutonomousVmClustersOutput(ctx *pulumi.Context, args GetCloudAutonomousVmClustersOutputArgs, opts ...pulumi.InvokeOption) GetCloudAutonomousVmClustersResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetCloudAutonomousVmClustersResultOutput, error) {
-			args := v.(GetCloudAutonomousVmClustersArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:odb/getCloudAutonomousVmClusters:getCloudAutonomousVmClusters", args, GetCloudAutonomousVmClustersResultOutput{}, options).(GetCloudAutonomousVmClustersResultOutput), nil
-		}).(GetCloudAutonomousVmClustersResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:odb/getCloudAutonomousVmClusters:getCloudAutonomousVmClusters", args, GetCloudAutonomousVmClustersResultOutput{}, options).(GetCloudAutonomousVmClustersResultOutput)
 }
 
 // A collection of arguments for invoking getCloudAutonomousVmClusters.

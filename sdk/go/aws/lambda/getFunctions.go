@@ -128,12 +128,8 @@ type GetFunctionsResult struct {
 }
 
 func GetFunctionsOutput(ctx *pulumi.Context, args GetFunctionsOutputArgs, opts ...pulumi.InvokeOption) GetFunctionsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetFunctionsResultOutput, error) {
-			args := v.(GetFunctionsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:lambda/getFunctions:getFunctions", args, GetFunctionsResultOutput{}, options).(GetFunctionsResultOutput), nil
-		}).(GetFunctionsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:lambda/getFunctions:getFunctions", args, GetFunctionsResultOutput{}, options).(GetFunctionsResultOutput)
 }
 
 // A collection of arguments for invoking getFunctions.

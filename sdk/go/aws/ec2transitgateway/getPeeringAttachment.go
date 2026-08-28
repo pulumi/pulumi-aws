@@ -119,12 +119,8 @@ type LookupPeeringAttachmentResult struct {
 }
 
 func LookupPeeringAttachmentOutput(ctx *pulumi.Context, args LookupPeeringAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupPeeringAttachmentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPeeringAttachmentResultOutput, error) {
-			args := v.(LookupPeeringAttachmentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2transitgateway/getPeeringAttachment:getPeeringAttachment", args, LookupPeeringAttachmentResultOutput{}, options).(LookupPeeringAttachmentResultOutput), nil
-		}).(LookupPeeringAttachmentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2transitgateway/getPeeringAttachment:getPeeringAttachment", args, LookupPeeringAttachmentResultOutput{}, options).(LookupPeeringAttachmentResultOutput)
 }
 
 // A collection of arguments for invoking getPeeringAttachment.

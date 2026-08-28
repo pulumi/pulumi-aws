@@ -102,12 +102,8 @@ type GetModelsResult struct {
 }
 
 func GetModelsOutput(ctx *pulumi.Context, args GetModelsOutputArgs, opts ...pulumi.InvokeOption) GetModelsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetModelsResultOutput, error) {
-			args := v.(GetModelsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:bedrockfoundation/getModels:getModels", args, GetModelsResultOutput{}, options).(GetModelsResultOutput), nil
-		}).(GetModelsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:bedrockfoundation/getModels:getModels", args, GetModelsResultOutput{}, options).(GetModelsResultOutput)
 }
 
 // A collection of arguments for invoking getModels.

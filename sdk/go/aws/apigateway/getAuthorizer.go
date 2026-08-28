@@ -87,12 +87,8 @@ type LookupAuthorizerResult struct {
 }
 
 func LookupAuthorizerOutput(ctx *pulumi.Context, args LookupAuthorizerOutputArgs, opts ...pulumi.InvokeOption) LookupAuthorizerResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAuthorizerResultOutput, error) {
-			args := v.(LookupAuthorizerArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:apigateway/getAuthorizer:getAuthorizer", args, LookupAuthorizerResultOutput{}, options).(LookupAuthorizerResultOutput), nil
-		}).(LookupAuthorizerResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:apigateway/getAuthorizer:getAuthorizer", args, LookupAuthorizerResultOutput{}, options).(LookupAuthorizerResultOutput)
 }
 
 // A collection of arguments for invoking getAuthorizer.

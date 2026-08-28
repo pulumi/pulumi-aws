@@ -74,12 +74,8 @@ type LookupNamedQueryResult struct {
 }
 
 func LookupNamedQueryOutput(ctx *pulumi.Context, args LookupNamedQueryOutputArgs, opts ...pulumi.InvokeOption) LookupNamedQueryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupNamedQueryResultOutput, error) {
-			args := v.(LookupNamedQueryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:athena/getNamedQuery:getNamedQuery", args, LookupNamedQueryResultOutput{}, options).(LookupNamedQueryResultOutput), nil
-		}).(LookupNamedQueryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:athena/getNamedQuery:getNamedQuery", args, LookupNamedQueryResultOutput{}, options).(LookupNamedQueryResultOutput)
 }
 
 // A collection of arguments for invoking getNamedQuery.

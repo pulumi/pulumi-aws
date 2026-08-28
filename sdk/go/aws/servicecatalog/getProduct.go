@@ -100,12 +100,8 @@ type LookupProductResult struct {
 }
 
 func LookupProductOutput(ctx *pulumi.Context, args LookupProductOutputArgs, opts ...pulumi.InvokeOption) LookupProductResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupProductResultOutput, error) {
-			args := v.(LookupProductArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:servicecatalog/getProduct:getProduct", args, LookupProductResultOutput{}, options).(LookupProductResultOutput), nil
-		}).(LookupProductResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:servicecatalog/getProduct:getProduct", args, LookupProductResultOutput{}, options).(LookupProductResultOutput)
 }
 
 // A collection of arguments for invoking getProduct.

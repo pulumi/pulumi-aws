@@ -79,12 +79,8 @@ type GetPortfolioConstraintsResult struct {
 }
 
 func GetPortfolioConstraintsOutput(ctx *pulumi.Context, args GetPortfolioConstraintsOutputArgs, opts ...pulumi.InvokeOption) GetPortfolioConstraintsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetPortfolioConstraintsResultOutput, error) {
-			args := v.(GetPortfolioConstraintsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints", args, GetPortfolioConstraintsResultOutput{}, options).(GetPortfolioConstraintsResultOutput), nil
-		}).(GetPortfolioConstraintsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints", args, GetPortfolioConstraintsResultOutput{}, options).(GetPortfolioConstraintsResultOutput)
 }
 
 // A collection of arguments for invoking getPortfolioConstraints.

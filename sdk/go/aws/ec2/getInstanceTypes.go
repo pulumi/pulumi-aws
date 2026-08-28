@@ -93,12 +93,8 @@ type GetInstanceTypesResult struct {
 }
 
 func GetInstanceTypesOutput(ctx *pulumi.Context, args GetInstanceTypesOutputArgs, opts ...pulumi.InvokeOption) GetInstanceTypesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetInstanceTypesResultOutput, error) {
-			args := v.(GetInstanceTypesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getInstanceTypes:getInstanceTypes", args, GetInstanceTypesResultOutput{}, options).(GetInstanceTypesResultOutput), nil
-		}).(GetInstanceTypesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getInstanceTypes:getInstanceTypes", args, GetInstanceTypesResultOutput{}, options).(GetInstanceTypesResultOutput)
 }
 
 // A collection of arguments for invoking getInstanceTypes.

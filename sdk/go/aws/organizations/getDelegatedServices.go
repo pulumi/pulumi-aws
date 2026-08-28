@@ -64,12 +64,8 @@ type GetDelegatedServicesResult struct {
 }
 
 func GetDelegatedServicesOutput(ctx *pulumi.Context, args GetDelegatedServicesOutputArgs, opts ...pulumi.InvokeOption) GetDelegatedServicesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetDelegatedServicesResultOutput, error) {
-			args := v.(GetDelegatedServicesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:organizations/getDelegatedServices:getDelegatedServices", args, GetDelegatedServicesResultOutput{}, options).(GetDelegatedServicesResultOutput), nil
-		}).(GetDelegatedServicesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:organizations/getDelegatedServices:getDelegatedServices", args, GetDelegatedServicesResultOutput{}, options).(GetDelegatedServicesResultOutput)
 }
 
 // A collection of arguments for invoking getDelegatedServices.

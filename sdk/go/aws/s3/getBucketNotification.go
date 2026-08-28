@@ -97,7 +97,6 @@ import (
 //			var s3ObjectCreated []*cloudwatch.EventRule
 //			for index := 0; index < tmp0; index++ {
 //				key0 := index
-//				_ := index
 //				__res, err := cloudwatch.NewEventRule(ctx, fmt.Sprintf("s3_object_created-%v", key0), &cloudwatch.EventRuleArgs{
 //					Name:         pulumi.String("shared-bucket-object-created"),
 //					Description:  pulumi.String("S3 object-created events from the shared bucket."),
@@ -187,12 +186,8 @@ type LookupBucketNotificationResult struct {
 }
 
 func LookupBucketNotificationOutput(ctx *pulumi.Context, args LookupBucketNotificationOutputArgs, opts ...pulumi.InvokeOption) LookupBucketNotificationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupBucketNotificationResultOutput, error) {
-			args := v.(LookupBucketNotificationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:s3/getBucketNotification:getBucketNotification", args, LookupBucketNotificationResultOutput{}, options).(LookupBucketNotificationResultOutput), nil
-		}).(LookupBucketNotificationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:s3/getBucketNotification:getBucketNotification", args, LookupBucketNotificationResultOutput{}, options).(LookupBucketNotificationResultOutput)
 }
 
 // A collection of arguments for invoking getBucketNotification.

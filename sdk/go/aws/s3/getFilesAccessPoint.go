@@ -85,12 +85,8 @@ type LookupFilesAccessPointResult struct {
 }
 
 func LookupFilesAccessPointOutput(ctx *pulumi.Context, args LookupFilesAccessPointOutputArgs, opts ...pulumi.InvokeOption) LookupFilesAccessPointResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFilesAccessPointResultOutput, error) {
-			args := v.(LookupFilesAccessPointArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:s3/getFilesAccessPoint:getFilesAccessPoint", args, LookupFilesAccessPointResultOutput{}, options).(LookupFilesAccessPointResultOutput), nil
-		}).(LookupFilesAccessPointResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:s3/getFilesAccessPoint:getFilesAccessPoint", args, LookupFilesAccessPointResultOutput{}, options).(LookupFilesAccessPointResultOutput)
 }
 
 // A collection of arguments for invoking getFilesAccessPoint.

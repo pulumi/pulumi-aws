@@ -117,12 +117,8 @@ type LookupVirtualServiceResult struct {
 }
 
 func LookupVirtualServiceOutput(ctx *pulumi.Context, args LookupVirtualServiceOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualServiceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVirtualServiceResultOutput, error) {
-			args := v.(LookupVirtualServiceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:appmesh/getVirtualService:getVirtualService", args, LookupVirtualServiceResultOutput{}, options).(LookupVirtualServiceResultOutput), nil
-		}).(LookupVirtualServiceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:appmesh/getVirtualService:getVirtualService", args, LookupVirtualServiceResultOutput{}, options).(LookupVirtualServiceResultOutput)
 }
 
 // A collection of arguments for invoking getVirtualService.

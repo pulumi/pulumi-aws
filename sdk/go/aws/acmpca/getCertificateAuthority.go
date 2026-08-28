@@ -91,12 +91,8 @@ type LookupCertificateAuthorityResult struct {
 }
 
 func LookupCertificateAuthorityOutput(ctx *pulumi.Context, args LookupCertificateAuthorityOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateAuthorityResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCertificateAuthorityResultOutput, error) {
-			args := v.(LookupCertificateAuthorityArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:acmpca/getCertificateAuthority:getCertificateAuthority", args, LookupCertificateAuthorityResultOutput{}, options).(LookupCertificateAuthorityResultOutput), nil
-		}).(LookupCertificateAuthorityResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:acmpca/getCertificateAuthority:getCertificateAuthority", args, LookupCertificateAuthorityResultOutput{}, options).(LookupCertificateAuthorityResultOutput)
 }
 
 // A collection of arguments for invoking getCertificateAuthority.

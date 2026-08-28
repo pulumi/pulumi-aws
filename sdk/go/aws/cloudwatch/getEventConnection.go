@@ -75,12 +75,8 @@ type LookupEventConnectionResult struct {
 }
 
 func LookupEventConnectionOutput(ctx *pulumi.Context, args LookupEventConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupEventConnectionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEventConnectionResultOutput, error) {
-			args := v.(LookupEventConnectionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:cloudwatch/getEventConnection:getEventConnection", args, LookupEventConnectionResultOutput{}, options).(LookupEventConnectionResultOutput), nil
-		}).(LookupEventConnectionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:cloudwatch/getEventConnection:getEventConnection", args, LookupEventConnectionResultOutput{}, options).(LookupEventConnectionResultOutput)
 }
 
 // A collection of arguments for invoking getEventConnection.

@@ -71,12 +71,8 @@ type GetAppregistryAttributeGroupAssociationsResult struct {
 }
 
 func GetAppregistryAttributeGroupAssociationsOutput(ctx *pulumi.Context, args GetAppregistryAttributeGroupAssociationsOutputArgs, opts ...pulumi.InvokeOption) GetAppregistryAttributeGroupAssociationsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAppregistryAttributeGroupAssociationsResultOutput, error) {
-			args := v.(GetAppregistryAttributeGroupAssociationsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:servicecatalog/getAppregistryAttributeGroupAssociations:getAppregistryAttributeGroupAssociations", args, GetAppregistryAttributeGroupAssociationsResultOutput{}, options).(GetAppregistryAttributeGroupAssociationsResultOutput), nil
-		}).(GetAppregistryAttributeGroupAssociationsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:servicecatalog/getAppregistryAttributeGroupAssociations:getAppregistryAttributeGroupAssociations", args, GetAppregistryAttributeGroupAssociationsResultOutput{}, options).(GetAppregistryAttributeGroupAssociationsResultOutput)
 }
 
 // A collection of arguments for invoking getAppregistryAttributeGroupAssociations.

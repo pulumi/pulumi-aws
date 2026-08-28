@@ -64,12 +64,8 @@ type GetDelegatedAdministratorsResult struct {
 }
 
 func GetDelegatedAdministratorsOutput(ctx *pulumi.Context, args GetDelegatedAdministratorsOutputArgs, opts ...pulumi.InvokeOption) GetDelegatedAdministratorsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetDelegatedAdministratorsResultOutput, error) {
-			args := v.(GetDelegatedAdministratorsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:organizations/getDelegatedAdministrators:getDelegatedAdministrators", args, GetDelegatedAdministratorsResultOutput{}, options).(GetDelegatedAdministratorsResultOutput), nil
-		}).(GetDelegatedAdministratorsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:organizations/getDelegatedAdministrators:getDelegatedAdministrators", args, GetDelegatedAdministratorsResultOutput{}, options).(GetDelegatedAdministratorsResultOutput)
 }
 
 // A collection of arguments for invoking getDelegatedAdministrators.

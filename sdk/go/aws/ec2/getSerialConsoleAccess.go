@@ -62,12 +62,8 @@ type LookupSerialConsoleAccessResult struct {
 }
 
 func LookupSerialConsoleAccessOutput(ctx *pulumi.Context, args LookupSerialConsoleAccessOutputArgs, opts ...pulumi.InvokeOption) LookupSerialConsoleAccessResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSerialConsoleAccessResultOutput, error) {
-			args := v.(LookupSerialConsoleAccessArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess", args, LookupSerialConsoleAccessResultOutput{}, options).(LookupSerialConsoleAccessResultOutput), nil
-		}).(LookupSerialConsoleAccessResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess", args, LookupSerialConsoleAccessResultOutput{}, options).(LookupSerialConsoleAccessResultOutput)
 }
 
 // A collection of arguments for invoking getSerialConsoleAccess.

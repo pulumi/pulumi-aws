@@ -99,12 +99,8 @@ type LookupBotResult struct {
 }
 
 func LookupBotOutput(ctx *pulumi.Context, args LookupBotOutputArgs, opts ...pulumi.InvokeOption) LookupBotResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupBotResultOutput, error) {
-			args := v.(LookupBotArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:lex/getBot:getBot", args, LookupBotResultOutput{}, options).(LookupBotResultOutput), nil
-		}).(LookupBotResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:lex/getBot:getBot", args, LookupBotResultOutput{}, options).(LookupBotResultOutput)
 }
 
 // A collection of arguments for invoking getBot.

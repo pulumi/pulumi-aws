@@ -150,12 +150,8 @@ type LookupZoneResult struct {
 }
 
 func LookupZoneOutput(ctx *pulumi.Context, args LookupZoneOutputArgs, opts ...pulumi.InvokeOption) LookupZoneResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupZoneResultOutput, error) {
-			args := v.(LookupZoneArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:route53/getZone:getZone", args, LookupZoneResultOutput{}, options).(LookupZoneResultOutput), nil
-		}).(LookupZoneResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:route53/getZone:getZone", args, LookupZoneResultOutput{}, options).(LookupZoneResultOutput)
 }
 
 // A collection of arguments for invoking getZone.

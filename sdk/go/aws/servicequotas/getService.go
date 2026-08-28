@@ -69,12 +69,8 @@ type GetServiceResult struct {
 }
 
 func GetServiceOutput(ctx *pulumi.Context, args GetServiceOutputArgs, opts ...pulumi.InvokeOption) GetServiceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetServiceResultOutput, error) {
-			args := v.(GetServiceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:servicequotas/getService:getService", args, GetServiceResultOutput{}, options).(GetServiceResultOutput), nil
-		}).(GetServiceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:servicequotas/getService:getService", args, GetServiceResultOutput{}, options).(GetServiceResultOutput)
 }
 
 // A collection of arguments for invoking getService.

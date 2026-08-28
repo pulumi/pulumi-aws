@@ -122,12 +122,8 @@ type GetIpRangesResult struct {
 }
 
 func GetIpRangesOutput(ctx *pulumi.Context, args GetIpRangesOutputArgs, opts ...pulumi.InvokeOption) GetIpRangesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetIpRangesResultOutput, error) {
-			args := v.(GetIpRangesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:index/getIpRanges:getIpRanges", args, GetIpRangesResultOutput{}, options).(GetIpRangesResultOutput), nil
-		}).(GetIpRangesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:index/getIpRanges:getIpRanges", args, GetIpRangesResultOutput{}, options).(GetIpRangesResultOutput)
 }
 
 // A collection of arguments for invoking getIpRanges.

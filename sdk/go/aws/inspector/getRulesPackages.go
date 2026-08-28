@@ -98,12 +98,8 @@ type GetRulesPackagesResult struct {
 }
 
 func GetRulesPackagesOutput(ctx *pulumi.Context, args GetRulesPackagesOutputArgs, opts ...pulumi.InvokeOption) GetRulesPackagesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRulesPackagesResultOutput, error) {
-			args := v.(GetRulesPackagesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:inspector/getRulesPackages:getRulesPackages", args, GetRulesPackagesResultOutput{}, options).(GetRulesPackagesResultOutput), nil
-		}).(GetRulesPackagesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:inspector/getRulesPackages:getRulesPackages", args, GetRulesPackagesResultOutput{}, options).(GetRulesPackagesResultOutput)
 }
 
 // A collection of arguments for invoking getRulesPackages.

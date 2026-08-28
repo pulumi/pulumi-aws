@@ -50,7 +50,6 @@ import (
 //			var example []*neptune.ClusterInstance
 //			for index := 0; index < 2; index++ {
 //				key0 := index
-//				_ := index
 //				__res, err := neptune.NewClusterInstance(ctx, fmt.Sprintf("example-%v", key0), &neptune.ClusterInstanceArgs{
 //					ClusterIdentifier: _default.ID().ToIDOutput().ToStringOutput(),
 //					Engine:            pulumi.String("neptune"),

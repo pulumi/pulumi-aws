@@ -69,12 +69,8 @@ type GetQueuesResult struct {
 }
 
 func GetQueuesOutput(ctx *pulumi.Context, args GetQueuesOutputArgs, opts ...pulumi.InvokeOption) GetQueuesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetQueuesResultOutput, error) {
-			args := v.(GetQueuesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:sqs/getQueues:getQueues", args, GetQueuesResultOutput{}, options).(GetQueuesResultOutput), nil
-		}).(GetQueuesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:sqs/getQueues:getQueues", args, GetQueuesResultOutput{}, options).(GetQueuesResultOutput)
 }
 
 // A collection of arguments for invoking getQueues.

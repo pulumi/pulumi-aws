@@ -64,12 +64,8 @@ type GetDataSharesResult struct {
 }
 
 func GetDataSharesOutput(ctx *pulumi.Context, args GetDataSharesOutputArgs, opts ...pulumi.InvokeOption) GetDataSharesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetDataSharesResultOutput, error) {
-			args := v.(GetDataSharesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:redshift/getDataShares:getDataShares", args, GetDataSharesResultOutput{}, options).(GetDataSharesResultOutput), nil
-		}).(GetDataSharesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:redshift/getDataShares:getDataShares", args, GetDataSharesResultOutput{}, options).(GetDataSharesResultOutput)
 }
 
 // A collection of arguments for invoking getDataShares.

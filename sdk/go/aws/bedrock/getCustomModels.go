@@ -61,12 +61,8 @@ type GetCustomModelsResult struct {
 }
 
 func GetCustomModelsOutput(ctx *pulumi.Context, args GetCustomModelsOutputArgs, opts ...pulumi.InvokeOption) GetCustomModelsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetCustomModelsResultOutput, error) {
-			args := v.(GetCustomModelsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:bedrock/getCustomModels:getCustomModels", args, GetCustomModelsResultOutput{}, options).(GetCustomModelsResultOutput), nil
-		}).(GetCustomModelsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:bedrock/getCustomModels:getCustomModels", args, GetCustomModelsResultOutput{}, options).(GetCustomModelsResultOutput)
 }
 
 // A collection of arguments for invoking getCustomModels.

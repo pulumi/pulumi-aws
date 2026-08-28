@@ -90,12 +90,8 @@ type LookupReportDefinitionResult struct {
 }
 
 func LookupReportDefinitionOutput(ctx *pulumi.Context, args LookupReportDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupReportDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupReportDefinitionResultOutput, error) {
-			args := v.(LookupReportDefinitionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:cur/getReportDefinition:getReportDefinition", args, LookupReportDefinitionResultOutput{}, options).(LookupReportDefinitionResultOutput), nil
-		}).(LookupReportDefinitionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:cur/getReportDefinition:getReportDefinition", args, LookupReportDefinitionResultOutput{}, options).(LookupReportDefinitionResultOutput)
 }
 
 // A collection of arguments for invoking getReportDefinition.

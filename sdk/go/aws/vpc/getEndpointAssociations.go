@@ -67,12 +67,8 @@ type GetEndpointAssociationsResult struct {
 }
 
 func GetEndpointAssociationsOutput(ctx *pulumi.Context, args GetEndpointAssociationsOutputArgs, opts ...pulumi.InvokeOption) GetEndpointAssociationsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetEndpointAssociationsResultOutput, error) {
-			args := v.(GetEndpointAssociationsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:vpc/getEndpointAssociations:getEndpointAssociations", args, GetEndpointAssociationsResultOutput{}, options).(GetEndpointAssociationsResultOutput), nil
-		}).(GetEndpointAssociationsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:vpc/getEndpointAssociations:getEndpointAssociations", args, GetEndpointAssociationsResultOutput{}, options).(GetEndpointAssociationsResultOutput)
 }
 
 // A collection of arguments for invoking getEndpointAssociations.

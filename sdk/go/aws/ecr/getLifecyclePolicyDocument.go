@@ -83,12 +83,8 @@ type GetLifecyclePolicyDocumentResult struct {
 }
 
 func GetLifecyclePolicyDocumentOutput(ctx *pulumi.Context, args GetLifecyclePolicyDocumentOutputArgs, opts ...pulumi.InvokeOption) GetLifecyclePolicyDocumentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetLifecyclePolicyDocumentResultOutput, error) {
-			args := v.(GetLifecyclePolicyDocumentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ecr/getLifecyclePolicyDocument:getLifecyclePolicyDocument", args, GetLifecyclePolicyDocumentResultOutput{}, options).(GetLifecyclePolicyDocumentResultOutput), nil
-		}).(GetLifecyclePolicyDocumentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ecr/getLifecyclePolicyDocument:getLifecyclePolicyDocument", args, GetLifecyclePolicyDocumentResultOutput{}, options).(GetLifecyclePolicyDocumentResultOutput)
 }
 
 // A collection of arguments for invoking getLifecyclePolicyDocument.

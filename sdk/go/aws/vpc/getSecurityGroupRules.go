@@ -77,12 +77,8 @@ type GetSecurityGroupRulesResult struct {
 }
 
 func GetSecurityGroupRulesOutput(ctx *pulumi.Context, args GetSecurityGroupRulesOutputArgs, opts ...pulumi.InvokeOption) GetSecurityGroupRulesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetSecurityGroupRulesResultOutput, error) {
-			args := v.(GetSecurityGroupRulesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:vpc/getSecurityGroupRules:getSecurityGroupRules", args, GetSecurityGroupRulesResultOutput{}, options).(GetSecurityGroupRulesResultOutput), nil
-		}).(GetSecurityGroupRulesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:vpc/getSecurityGroupRules:getSecurityGroupRules", args, GetSecurityGroupRulesResultOutput{}, options).(GetSecurityGroupRulesResultOutput)
 }
 
 // A collection of arguments for invoking getSecurityGroupRules.

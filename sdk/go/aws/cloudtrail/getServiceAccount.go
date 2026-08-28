@@ -125,12 +125,8 @@ type GetServiceAccountResult struct {
 }
 
 func GetServiceAccountOutput(ctx *pulumi.Context, args GetServiceAccountOutputArgs, opts ...pulumi.InvokeOption) GetServiceAccountResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetServiceAccountResultOutput, error) {
-			args := v.(GetServiceAccountArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:cloudtrail/getServiceAccount:getServiceAccount", args, GetServiceAccountResultOutput{}, options).(GetServiceAccountResultOutput), nil
-		}).(GetServiceAccountResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:cloudtrail/getServiceAccount:getServiceAccount", args, GetServiceAccountResultOutput{}, options).(GetServiceAccountResultOutput)
 }
 
 // A collection of arguments for invoking getServiceAccount.

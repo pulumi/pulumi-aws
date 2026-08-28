@@ -72,12 +72,8 @@ type GetPermissionSetsResult struct {
 }
 
 func GetPermissionSetsOutput(ctx *pulumi.Context, args GetPermissionSetsOutputArgs, opts ...pulumi.InvokeOption) GetPermissionSetsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetPermissionSetsResultOutput, error) {
-			args := v.(GetPermissionSetsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ssoadmin/getPermissionSets:getPermissionSets", args, GetPermissionSetsResultOutput{}, options).(GetPermissionSetsResultOutput), nil
-		}).(GetPermissionSetsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ssoadmin/getPermissionSets:getPermissionSets", args, GetPermissionSetsResultOutput{}, options).(GetPermissionSetsResultOutput)
 }
 
 // A collection of arguments for invoking getPermissionSets.

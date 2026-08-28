@@ -70,12 +70,8 @@ type GetBucketReplicationConfigurationResult struct {
 }
 
 func GetBucketReplicationConfigurationOutput(ctx *pulumi.Context, args GetBucketReplicationConfigurationOutputArgs, opts ...pulumi.InvokeOption) GetBucketReplicationConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetBucketReplicationConfigurationResultOutput, error) {
-			args := v.(GetBucketReplicationConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:s3/getBucketReplicationConfiguration:getBucketReplicationConfiguration", args, GetBucketReplicationConfigurationResultOutput{}, options).(GetBucketReplicationConfigurationResultOutput), nil
-		}).(GetBucketReplicationConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:s3/getBucketReplicationConfiguration:getBucketReplicationConfiguration", args, GetBucketReplicationConfigurationResultOutput{}, options).(GetBucketReplicationConfigurationResultOutput)
 }
 
 // A collection of arguments for invoking getBucketReplicationConfiguration.

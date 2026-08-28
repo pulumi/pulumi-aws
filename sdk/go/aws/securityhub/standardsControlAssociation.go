@@ -65,6 +65,51 @@ import (
 //
 // ### Disabling security control in all standards
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := securityhub.NewAccount(ctx, "example", nil)
+// if err != nil {
+// return err
+// }
+// iam1, err := securityhub.GetStandardsControlAssociations(ctx, &securityhub.GetStandardsControlAssociationsArgs{
+// SecurityControlId: "IAM.1",
+// }, nil);
+// if err != nil {
+// return err
+// }
+// forResult0 := map[string]*string{}
+// for _, entry := range %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:10,28-77) {
+// forResult0[entry] = entry
+// }
+// var iam1StandardsControlAssociation []*securityhub.StandardsControlAssociation
+// for key0, _ := range forResult0 {
+// __res, err := securityhub.NewStandardsControlAssociation(ctx, fmt.Sprintf("iam_1-%v", key0), &securityhub.StandardsControlAssociationArgs{
+// StandardsArn: pulumi.String(key0),
+// SecurityControlId: pulumi.String(iam1.SecurityControlId),
+// AssociationStatus: pulumi.String("DISABLED"),
+// UpdatedReason: pulumi.String("Not needed"),
+// })
+// if err != nil {
+// return err
+// }
+// iam1StandardsControlAssociation = append(iam1StandardsControlAssociation, __res)
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
 // ### Identity Schema

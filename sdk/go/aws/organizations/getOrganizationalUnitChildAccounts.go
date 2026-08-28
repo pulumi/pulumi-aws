@@ -68,12 +68,8 @@ type GetOrganizationalUnitChildAccountsResult struct {
 }
 
 func GetOrganizationalUnitChildAccountsOutput(ctx *pulumi.Context, args GetOrganizationalUnitChildAccountsOutputArgs, opts ...pulumi.InvokeOption) GetOrganizationalUnitChildAccountsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetOrganizationalUnitChildAccountsResultOutput, error) {
-			args := v.(GetOrganizationalUnitChildAccountsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:organizations/getOrganizationalUnitChildAccounts:getOrganizationalUnitChildAccounts", args, GetOrganizationalUnitChildAccountsResultOutput{}, options).(GetOrganizationalUnitChildAccountsResultOutput), nil
-		}).(GetOrganizationalUnitChildAccountsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:organizations/getOrganizationalUnitChildAccounts:getOrganizationalUnitChildAccounts", args, GetOrganizationalUnitChildAccountsResultOutput{}, options).(GetOrganizationalUnitChildAccountsResultOutput)
 }
 
 // A collection of arguments for invoking getOrganizationalUnitChildAccounts.

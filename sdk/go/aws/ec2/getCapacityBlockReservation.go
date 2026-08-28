@@ -194,12 +194,8 @@ type LookupCapacityBlockReservationResult struct {
 }
 
 func LookupCapacityBlockReservationOutput(ctx *pulumi.Context, args LookupCapacityBlockReservationOutputArgs, opts ...pulumi.InvokeOption) LookupCapacityBlockReservationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCapacityBlockReservationResultOutput, error) {
-			args := v.(LookupCapacityBlockReservationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getCapacityBlockReservation:getCapacityBlockReservation", args, LookupCapacityBlockReservationResultOutput{}, options).(LookupCapacityBlockReservationResultOutput), nil
-		}).(LookupCapacityBlockReservationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getCapacityBlockReservation:getCapacityBlockReservation", args, LookupCapacityBlockReservationResultOutput{}, options).(LookupCapacityBlockReservationResultOutput)
 }
 
 // A collection of arguments for invoking getCapacityBlockReservation.

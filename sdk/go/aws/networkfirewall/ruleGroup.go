@@ -63,6 +63,75 @@ import (
 //
 // ### Stateful Inspection for permitting packets from a source IP address
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			ips := []string{
+//				"1.1.1.1/32",
+//				"1.0.0.1/32",
+//			}
+//			var forResult0 []map[string]interface{}
+//			for _, entry := range ips {
+//				forResult0 = append(forResult0, map[string]interface{}{
+//					"header": map[string]string{
+//						"destination":     "ANY",
+//						"destinationPort": "ANY",
+//						"protocol":        "HTTP",
+//						"direction":       "ANY",
+//						"sourcePort":      "ANY",
+//						"source":          entry,
+//					},
+//					"ruleOptions": []map[string]interface{}{
+//						map[string]interface{}{
+//							"keyword": "sid",
+//							"settings": []string{
+//								"1",
+//							},
+//						},
+//					},
+//					"action": "PASS",
+//				})
+//			}
+//			_, err := networkfirewall.NewRuleGroup(ctx, "example", &networkfirewall.RuleGroupArgs{
+//				RuleGroup: &networkfirewall.RuleGroupRuleGroupArgs{
+//					RulesSource: &networkfirewall.RuleGroupRuleGroupRulesSourceArgs{
+//						StatefulRules: toPulumiMapArray(forResult0),
+//					},
+//				},
+//				Capacity:    pulumi.Int(50),
+//				Description: pulumi.String("Permits http traffic from source"),
+//				Name:        pulumi.String("example"),
+//				Type:        pulumi.String("STATEFUL"),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("permit HTTP from source"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+//	func toPulumiMapArray(arr []Map) pulumi.MapArray {
+//		var pulumiArr pulumi.MapArray
+//		for _, v := range arr {
+//			pulumiArr = append(pulumiArr, pulumi.Map(v))
+//		}
+//		return pulumiArr
+//	}
+//
+// ```
+//
 // ### Stateful Inspection for blocking packets from going to an intended destination
 //
 // ```go

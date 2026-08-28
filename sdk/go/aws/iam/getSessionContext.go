@@ -109,12 +109,8 @@ type GetSessionContextResult struct {
 }
 
 func GetSessionContextOutput(ctx *pulumi.Context, args GetSessionContextOutputArgs, opts ...pulumi.InvokeOption) GetSessionContextResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetSessionContextResultOutput, error) {
-			args := v.(GetSessionContextArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:iam/getSessionContext:getSessionContext", args, GetSessionContextResultOutput{}, options).(GetSessionContextResultOutput), nil
-		}).(GetSessionContextResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:iam/getSessionContext:getSessionContext", args, GetSessionContextResultOutput{}, options).(GetSessionContextResultOutput)
 }
 
 // A collection of arguments for invoking getSessionContext.

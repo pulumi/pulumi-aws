@@ -68,12 +68,8 @@ type GetOrganizationalUnitsResult struct {
 }
 
 func GetOrganizationalUnitsOutput(ctx *pulumi.Context, args GetOrganizationalUnitsOutputArgs, opts ...pulumi.InvokeOption) GetOrganizationalUnitsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetOrganizationalUnitsResultOutput, error) {
-			args := v.(GetOrganizationalUnitsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:organizations/getOrganizationalUnits:getOrganizationalUnits", args, GetOrganizationalUnitsResultOutput{}, options).(GetOrganizationalUnitsResultOutput), nil
-		}).(GetOrganizationalUnitsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:organizations/getOrganizationalUnits:getOrganizationalUnits", args, GetOrganizationalUnitsResultOutput{}, options).(GetOrganizationalUnitsResultOutput)
 }
 
 // A collection of arguments for invoking getOrganizationalUnits.

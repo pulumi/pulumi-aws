@@ -93,12 +93,8 @@ type GetBootstrapBrokersResult struct {
 }
 
 func GetBootstrapBrokersOutput(ctx *pulumi.Context, args GetBootstrapBrokersOutputArgs, opts ...pulumi.InvokeOption) GetBootstrapBrokersResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetBootstrapBrokersResultOutput, error) {
-			args := v.(GetBootstrapBrokersArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:msk/getBootstrapBrokers:getBootstrapBrokers", args, GetBootstrapBrokersResultOutput{}, options).(GetBootstrapBrokersResultOutput), nil
-		}).(GetBootstrapBrokersResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:msk/getBootstrapBrokers:getBootstrapBrokers", args, GetBootstrapBrokersResultOutput{}, options).(GetBootstrapBrokersResultOutput)
 }
 
 // A collection of arguments for invoking getBootstrapBrokers.

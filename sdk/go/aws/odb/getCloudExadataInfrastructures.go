@@ -64,12 +64,8 @@ type GetCloudExadataInfrastructuresResult struct {
 }
 
 func GetCloudExadataInfrastructuresOutput(ctx *pulumi.Context, args GetCloudExadataInfrastructuresOutputArgs, opts ...pulumi.InvokeOption) GetCloudExadataInfrastructuresResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetCloudExadataInfrastructuresResultOutput, error) {
-			args := v.(GetCloudExadataInfrastructuresArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:odb/getCloudExadataInfrastructures:getCloudExadataInfrastructures", args, GetCloudExadataInfrastructuresResultOutput{}, options).(GetCloudExadataInfrastructuresResultOutput), nil
-		}).(GetCloudExadataInfrastructuresResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:odb/getCloudExadataInfrastructures:getCloudExadataInfrastructures", args, GetCloudExadataInfrastructuresResultOutput{}, options).(GetCloudExadataInfrastructuresResultOutput)
 }
 
 // A collection of arguments for invoking getCloudExadataInfrastructures.

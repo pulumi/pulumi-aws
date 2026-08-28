@@ -73,12 +73,8 @@ type GetConnectionsResult struct {
 }
 
 func GetConnectionsOutput(ctx *pulumi.Context, args GetConnectionsOutputArgs, opts ...pulumi.InvokeOption) GetConnectionsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetConnectionsResultOutput, error) {
-			args := v.(GetConnectionsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:networkmanager/getConnections:getConnections", args, GetConnectionsResultOutput{}, options).(GetConnectionsResultOutput), nil
-		}).(GetConnectionsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:networkmanager/getConnections:getConnections", args, GetConnectionsResultOutput{}, options).(GetConnectionsResultOutput)
 }
 
 // A collection of arguments for invoking getConnections.

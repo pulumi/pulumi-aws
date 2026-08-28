@@ -143,12 +143,8 @@ type LookupControlResult struct {
 }
 
 func LookupControlOutput(ctx *pulumi.Context, args LookupControlOutputArgs, opts ...pulumi.InvokeOption) LookupControlResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupControlResultOutput, error) {
-			args := v.(LookupControlArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:auditmanager/getControl:getControl", args, LookupControlResultOutput{}, options).(LookupControlResultOutput), nil
-		}).(LookupControlResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:auditmanager/getControl:getControl", args, LookupControlResultOutput{}, options).(LookupControlResultOutput)
 }
 
 // A collection of arguments for invoking getControl.

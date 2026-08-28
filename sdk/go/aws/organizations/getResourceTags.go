@@ -66,12 +66,8 @@ type GetResourceTagsResult struct {
 }
 
 func GetResourceTagsOutput(ctx *pulumi.Context, args GetResourceTagsOutputArgs, opts ...pulumi.InvokeOption) GetResourceTagsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetResourceTagsResultOutput, error) {
-			args := v.(GetResourceTagsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:organizations/getResourceTags:getResourceTags", args, GetResourceTagsResultOutput{}, options).(GetResourceTagsResultOutput), nil
-		}).(GetResourceTagsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:organizations/getResourceTags:getResourceTags", args, GetResourceTagsResultOutput{}, options).(GetResourceTagsResultOutput)
 }
 
 // A collection of arguments for invoking getResourceTags.

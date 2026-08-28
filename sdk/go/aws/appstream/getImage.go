@@ -105,12 +105,8 @@ type GetImageResult struct {
 }
 
 func GetImageOutput(ctx *pulumi.Context, args GetImageOutputArgs, opts ...pulumi.InvokeOption) GetImageResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetImageResultOutput, error) {
-			args := v.(GetImageArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:appstream/getImage:getImage", args, GetImageResultOutput{}, options).(GetImageResultOutput), nil
-		}).(GetImageResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:appstream/getImage:getImage", args, GetImageResultOutput{}, options).(GetImageResultOutput)
 }
 
 // A collection of arguments for invoking getImage.

@@ -74,12 +74,8 @@ type GetStandardsControlAssociationsResult struct {
 }
 
 func GetStandardsControlAssociationsOutput(ctx *pulumi.Context, args GetStandardsControlAssociationsOutputArgs, opts ...pulumi.InvokeOption) GetStandardsControlAssociationsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetStandardsControlAssociationsResultOutput, error) {
-			args := v.(GetStandardsControlAssociationsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:securityhub/getStandardsControlAssociations:getStandardsControlAssociations", args, GetStandardsControlAssociationsResultOutput{}, options).(GetStandardsControlAssociationsResultOutput), nil
-		}).(GetStandardsControlAssociationsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:securityhub/getStandardsControlAssociations:getStandardsControlAssociations", args, GetStandardsControlAssociationsResultOutput{}, options).(GetStandardsControlAssociationsResultOutput)
 }
 
 // A collection of arguments for invoking getStandardsControlAssociations.

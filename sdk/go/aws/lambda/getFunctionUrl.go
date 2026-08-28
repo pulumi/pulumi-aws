@@ -115,7 +115,7 @@ import (
 //			corsConfig := len(example.Cors).ApplyT(func(length int) (lambda.GetFunctionUrlCor, error) {
 //				var tmp0 lambda.GetFunctionUrlCor
 //				if length > 0 {
-//					tmp0 = lambda.GetFunctionUrlCor(example.Cors[0])
+//					tmp0 = example.Cors[0].(lambda.GetFunctionUrlCor)
 //				} else {
 //					tmp0 = nil
 //				}
@@ -182,12 +182,8 @@ type LookupFunctionUrlResult struct {
 }
 
 func LookupFunctionUrlOutput(ctx *pulumi.Context, args LookupFunctionUrlOutputArgs, opts ...pulumi.InvokeOption) LookupFunctionUrlResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFunctionUrlResultOutput, error) {
-			args := v.(LookupFunctionUrlArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:lambda/getFunctionUrl:getFunctionUrl", args, LookupFunctionUrlResultOutput{}, options).(LookupFunctionUrlResultOutput), nil
-		}).(LookupFunctionUrlResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:lambda/getFunctionUrl:getFunctionUrl", args, LookupFunctionUrlResultOutput{}, options).(LookupFunctionUrlResultOutput)
 }
 
 // A collection of arguments for invoking getFunctionUrl.

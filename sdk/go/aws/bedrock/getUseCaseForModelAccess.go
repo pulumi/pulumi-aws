@@ -55,10 +55,8 @@ type LookupUseCaseForModelAccessResult struct {
 }
 
 func LookupUseCaseForModelAccessOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupUseCaseForModelAccessResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (LookupUseCaseForModelAccessResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws:bedrock/getUseCaseForModelAccess:getUseCaseForModelAccess", nil, LookupUseCaseForModelAccessResultOutput{}, options).(LookupUseCaseForModelAccessResultOutput), nil
-	}).(LookupUseCaseForModelAccessResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:bedrock/getUseCaseForModelAccess:getUseCaseForModelAccess", nil, LookupUseCaseForModelAccessResultOutput{}, options).(LookupUseCaseForModelAccessResultOutput)
 }
 
 // A collection of values returned by getUseCaseForModelAccess.

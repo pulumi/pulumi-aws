@@ -63,12 +63,8 @@ type GetEnabledStandardsResult struct {
 }
 
 func GetEnabledStandardsOutput(ctx *pulumi.Context, args GetEnabledStandardsOutputArgs, opts ...pulumi.InvokeOption) GetEnabledStandardsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetEnabledStandardsResultOutput, error) {
-			args := v.(GetEnabledStandardsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:securityhub/getEnabledStandards:getEnabledStandards", args, GetEnabledStandardsResultOutput{}, options).(GetEnabledStandardsResultOutput), nil
-		}).(GetEnabledStandardsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:securityhub/getEnabledStandards:getEnabledStandards", args, GetEnabledStandardsResultOutput{}, options).(GetEnabledStandardsResultOutput)
 }
 
 // A collection of arguments for invoking getEnabledStandards.

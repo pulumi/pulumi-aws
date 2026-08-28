@@ -164,12 +164,8 @@ type GetCoreNetworkPolicyDocumentResult struct {
 }
 
 func GetCoreNetworkPolicyDocumentOutput(ctx *pulumi.Context, args GetCoreNetworkPolicyDocumentOutputArgs, opts ...pulumi.InvokeOption) GetCoreNetworkPolicyDocumentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetCoreNetworkPolicyDocumentResultOutput, error) {
-			args := v.(GetCoreNetworkPolicyDocumentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument", args, GetCoreNetworkPolicyDocumentResultOutput{}, options).(GetCoreNetworkPolicyDocumentResultOutput), nil
-		}).(GetCoreNetworkPolicyDocumentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument", args, GetCoreNetworkPolicyDocumentResultOutput{}, options).(GetCoreNetworkPolicyDocumentResultOutput)
 }
 
 // A collection of arguments for invoking getCoreNetworkPolicyDocument.

@@ -133,12 +133,8 @@ type LookupVpcPeeringConnectionResult struct {
 }
 
 func LookupVpcPeeringConnectionOutput(ctx *pulumi.Context, args LookupVpcPeeringConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupVpcPeeringConnectionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVpcPeeringConnectionResultOutput, error) {
-			args := v.(LookupVpcPeeringConnectionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", args, LookupVpcPeeringConnectionResultOutput{}, options).(LookupVpcPeeringConnectionResultOutput), nil
-		}).(LookupVpcPeeringConnectionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", args, LookupVpcPeeringConnectionResultOutput{}, options).(LookupVpcPeeringConnectionResultOutput)
 }
 
 // A collection of arguments for invoking getVpcPeeringConnection.

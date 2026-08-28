@@ -138,12 +138,8 @@ type LookupFleetResult struct {
 }
 
 func LookupFleetOutput(ctx *pulumi.Context, args LookupFleetOutputArgs, opts ...pulumi.InvokeOption) LookupFleetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFleetResultOutput, error) {
-			args := v.(LookupFleetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:codebuild/getFleet:getFleet", args, LookupFleetResultOutput{}, options).(LookupFleetResultOutput), nil
-		}).(LookupFleetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:codebuild/getFleet:getFleet", args, LookupFleetResultOutput{}, options).(LookupFleetResultOutput)
 }
 
 // A collection of arguments for invoking getFleet.

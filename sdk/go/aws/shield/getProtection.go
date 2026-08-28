@@ -98,12 +98,8 @@ type LookupProtectionResult struct {
 }
 
 func LookupProtectionOutput(ctx *pulumi.Context, args LookupProtectionOutputArgs, opts ...pulumi.InvokeOption) LookupProtectionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupProtectionResultOutput, error) {
-			args := v.(LookupProtectionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:shield/getProtection:getProtection", args, LookupProtectionResultOutput{}, options).(LookupProtectionResultOutput), nil
-		}).(LookupProtectionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:shield/getProtection:getProtection", args, LookupProtectionResultOutput{}, options).(LookupProtectionResultOutput)
 }
 
 // A collection of arguments for invoking getProtection.
