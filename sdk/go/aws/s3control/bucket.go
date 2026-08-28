@@ -51,7 +51,7 @@ import (
 //
 // - `arn` (String) ARN of the bucket.
 //
-// Using `pulumi import`, import S3 Control Buckets using Amazon Resource Name (ARN). For example:
+// Using `pulumi import`, import S3 Control Buckets using ARN. For example:
 //
 // ```sh
 // $ pulumi import aws:s3control/bucket:Bucket example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
@@ -59,7 +59,7 @@ import (
 type Bucket struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the bucket.
+	// ARN of the bucket.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name of the bucket.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
@@ -113,7 +113,7 @@ func GetBucket(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Bucket resources.
 type bucketState struct {
-	// Amazon Resource Name (ARN) of the bucket.
+	// ARN of the bucket.
 	Arn *string `pulumi:"arn"`
 	// Name of the bucket.
 	Bucket *string `pulumi:"bucket"`
@@ -132,7 +132,7 @@ type bucketState struct {
 }
 
 type BucketState struct {
-	// Amazon Resource Name (ARN) of the bucket.
+	// ARN of the bucket.
 	Arn pulumi.StringPtrInput
 	// Name of the bucket.
 	Bucket pulumi.StringPtrInput
@@ -264,7 +264,7 @@ func (o BucketOutput) ToBucketOutputWithContext(ctx context.Context) BucketOutpu
 	return o
 }
 
-// Amazon Resource Name (ARN) of the bucket.
+// ARN of the bucket.
 func (o BucketOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

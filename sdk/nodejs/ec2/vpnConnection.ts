@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+ * Manages a Site-to-Site VPN connection. A Site-to-Site VPN connection is an IP security (IPsec) VPN connection between a VPC and an on-premises network.
  * Any new Site-to-Site VPN connection that you create is an [AWS VPN connection](https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-categories.html).
  *
  * > **Note:** The CIDR blocks in the arguments `tunnel1InsideCidr` and `tunnel2InsideCidr` must have a prefix of /30 and be a part of a specific range.
@@ -137,7 +137,7 @@ export class VpnConnection extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the VPN Connection.
+     * ARN of the VPN Connection.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -633,7 +633,7 @@ export class VpnConnection extends pulumi.CustomResource {
  */
 export interface VpnConnectionState {
     /**
-     * Amazon Resource Name (ARN) of the VPN Connection.
+     * ARN of the VPN Connection.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

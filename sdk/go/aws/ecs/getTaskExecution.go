@@ -66,7 +66,7 @@ type GetTaskExecutionArgs struct {
 	CapacityProviderStrategies []GetTaskExecutionCapacityProviderStrategy `pulumi:"capacityProviderStrategies"`
 	// Identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
 	ClientToken *string `pulumi:"clientToken"`
-	// Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
+	// Short name or full ARN of the cluster to run the task on.
 	Cluster string `pulumi:"cluster"`
 	// Number of instantiations of the specified task to place on your cluster. You can specify up to 10 tasks for each call.
 	DesiredCount *int `pulumi:"desiredCount"`
@@ -142,7 +142,7 @@ type GetTaskExecutionOutputArgs struct {
 	CapacityProviderStrategies GetTaskExecutionCapacityProviderStrategyArrayInput `pulumi:"capacityProviderStrategies"`
 	// Identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
 	ClientToken pulumi.StringPtrInput `pulumi:"clientToken"`
-	// Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
+	// Short name or full ARN of the cluster to run the task on.
 	Cluster pulumi.StringInput `pulumi:"cluster"`
 	// Number of instantiations of the specified task to place on your cluster. You can specify up to 10 tasks for each call.
 	DesiredCount pulumi.IntPtrInput `pulumi:"desiredCount"`

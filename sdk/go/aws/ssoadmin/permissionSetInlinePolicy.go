@@ -88,9 +88,9 @@ type PermissionSetInlinePolicy struct {
 
 	// The IAM inline policy to attach to a Permission Set.
 	InlinePolicy pulumi.StringOutput `pulumi:"inlinePolicy"`
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+	// ARN of the SSO Instance under which the operation will be executed.
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
-	// The Amazon Resource Name (ARN) of the Permission Set.
+	// ARN of the Permission Set.
 	PermissionSetArn pulumi.StringOutput `pulumi:"permissionSetArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -137,9 +137,9 @@ func GetPermissionSetInlinePolicy(ctx *pulumi.Context,
 type permissionSetInlinePolicyState struct {
 	// The IAM inline policy to attach to a Permission Set.
 	InlinePolicy *string `pulumi:"inlinePolicy"`
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+	// ARN of the SSO Instance under which the operation will be executed.
 	InstanceArn *string `pulumi:"instanceArn"`
-	// The Amazon Resource Name (ARN) of the Permission Set.
+	// ARN of the Permission Set.
 	PermissionSetArn *string `pulumi:"permissionSetArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -148,9 +148,9 @@ type permissionSetInlinePolicyState struct {
 type PermissionSetInlinePolicyState struct {
 	// The IAM inline policy to attach to a Permission Set.
 	InlinePolicy pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+	// ARN of the SSO Instance under which the operation will be executed.
 	InstanceArn pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the Permission Set.
+	// ARN of the Permission Set.
 	PermissionSetArn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -163,9 +163,9 @@ func (PermissionSetInlinePolicyState) ElementType() reflect.Type {
 type permissionSetInlinePolicyArgs struct {
 	// The IAM inline policy to attach to a Permission Set.
 	InlinePolicy string `pulumi:"inlinePolicy"`
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+	// ARN of the SSO Instance under which the operation will be executed.
 	InstanceArn string `pulumi:"instanceArn"`
-	// The Amazon Resource Name (ARN) of the Permission Set.
+	// ARN of the Permission Set.
 	PermissionSetArn string `pulumi:"permissionSetArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -175,9 +175,9 @@ type permissionSetInlinePolicyArgs struct {
 type PermissionSetInlinePolicyArgs struct {
 	// The IAM inline policy to attach to a Permission Set.
 	InlinePolicy pulumi.StringInput
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+	// ARN of the SSO Instance under which the operation will be executed.
 	InstanceArn pulumi.StringInput
-	// The Amazon Resource Name (ARN) of the Permission Set.
+	// ARN of the Permission Set.
 	PermissionSetArn pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -275,12 +275,12 @@ func (o PermissionSetInlinePolicyOutput) InlinePolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *PermissionSetInlinePolicy) pulumi.StringOutput { return v.InlinePolicy }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+// ARN of the SSO Instance under which the operation will be executed.
 func (o PermissionSetInlinePolicyOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PermissionSetInlinePolicy) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Permission Set.
+// ARN of the Permission Set.
 func (o PermissionSetInlinePolicyOutput) PermissionSetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PermissionSetInlinePolicy) pulumi.StringOutput { return v.PermissionSetArn }).(pulumi.StringOutput)
 }

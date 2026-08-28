@@ -87,14 +87,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:finspace/kxDataview:KxDataview")
 public class KxDataview extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) identifier of the KX dataview.
+     * ARN identifier of the KX dataview.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) identifier of the KX dataview.
+     * @return ARN identifier of the KX dataview.
      * 
      */
     public Output<String> arn() {

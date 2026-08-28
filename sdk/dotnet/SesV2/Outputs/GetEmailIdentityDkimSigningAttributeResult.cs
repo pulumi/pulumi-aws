@@ -17,7 +17,13 @@ namespace Pulumi.Aws.SesV2.Outputs
         /// [Easy DKIM] The key length of the DKIM key pair in use.
         /// </summary>
         public readonly string CurrentSigningKeyLength;
+        /// <summary>
+        /// [Bring Your Own DKIM] Private key used to generate DKIM signatures.
+        /// </summary>
         public readonly string DomainSigningPrivateKey;
+        /// <summary>
+        /// [Bring Your Own DKIM] Selector added to the DNS configuration for the domain.
+        /// </summary>
         public readonly string DomainSigningSelector;
         /// <summary>
         /// [Easy DKIM] The last time a key pair was generated for this identity.
@@ -28,11 +34,11 @@ namespace Pulumi.Aws.SesV2.Outputs
         /// </summary>
         public readonly string NextSigningKeyLength;
         /// <summary>
-        /// A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+        /// String that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
         /// </summary>
         public readonly string SigningAttributesOrigin;
         /// <summary>
-        /// Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+        /// Whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
         /// </summary>
         public readonly string Status;
         /// <summary>

@@ -90,14 +90,14 @@ public class LocalGatewayRouteTableVirtualInterfaceGroupAssociation extends com.
         return this.localGatewayId;
     }
     /**
-     * Amazon Resource Name (ARN) of the EC2 Local Gateway Route Table.
+     * ARN of the EC2 Local Gateway Route Table.
      * 
      */
     @Export(name="localGatewayRouteTableArn", refs={String.class}, tree="[0]")
     private Output<String> localGatewayRouteTableArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the EC2 Local Gateway Route Table.
+     * @return ARN of the EC2 Local Gateway Route Table.
      * 
      */
     public Output<String> localGatewayRouteTableArn() {

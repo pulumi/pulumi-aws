@@ -316,14 +316,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:networkfirewall/firewallPolicy:FirewallPolicy")
 public class FirewallPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) that identifies the firewall policy.
+     * ARN that identifies the firewall policy.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) that identifies the firewall policy.
+     * @return ARN that identifies the firewall policy.
      * 
      */
     public Output<String> arn() {

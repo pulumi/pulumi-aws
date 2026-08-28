@@ -56,7 +56,7 @@ type Account struct {
 	FindingPublishingFrequency pulumi.StringOutput `pulumi:"findingPublishingFrequency"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
+	// ARN of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
 	ServiceRole pulumi.StringOutput `pulumi:"serviceRole"`
 	// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -100,7 +100,7 @@ type accountState struct {
 	FindingPublishingFrequency *string `pulumi:"findingPublishingFrequency"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
+	// ARN of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
 	ServiceRole *string `pulumi:"serviceRole"`
 	// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
 	Status *string `pulumi:"status"`
@@ -115,7 +115,7 @@ type AccountState struct {
 	FindingPublishingFrequency pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
+	// ARN of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
 	ServiceRole pulumi.StringPtrInput
 	// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
 	Status pulumi.StringPtrInput
@@ -248,7 +248,7 @@ func (o AccountOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
+// ARN of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
 func (o AccountOutput) ServiceRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.ServiceRole }).(pulumi.StringOutput)
 }

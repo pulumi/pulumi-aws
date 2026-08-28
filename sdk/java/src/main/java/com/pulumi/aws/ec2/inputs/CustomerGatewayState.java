@@ -62,14 +62,14 @@ public final class CustomerGatewayState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the customer gateway certificate.
+     * ARN for the customer gateway certificate.
      * 
      */
     @Import(name="certificateArn")
     private @Nullable Output<String> certificateArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the customer gateway certificate.
+     * @return ARN for the customer gateway certificate.
      * 
      */
     public Optional<Output<String>> certificateArn() {
@@ -265,7 +265,7 @@ public final class CustomerGatewayState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param certificateArn The Amazon Resource Name (ARN) for the customer gateway certificate.
+         * @param certificateArn ARN for the customer gateway certificate.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class CustomerGatewayState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param certificateArn The Amazon Resource Name (ARN) for the customer gateway certificate.
+         * @param certificateArn ARN for the customer gateway certificate.
          * 
          * @return builder
          * 

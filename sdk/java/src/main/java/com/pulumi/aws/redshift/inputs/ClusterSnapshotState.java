@@ -18,14 +18,14 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
     public static final ClusterSnapshotState Empty = new ClusterSnapshotState();
 
     /**
-     * Amazon Resource Name (ARN) of the snapshot.
+     * ARN of the snapshot.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the snapshot.
+     * @return ARN of the snapshot.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -48,14 +48,14 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
+     * KMS key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
+     * @return KMS key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -185,7 +185,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the snapshot.
+         * @param arn ARN of the snapshot.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the snapshot.
+         * @param arn ARN of the snapshot.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param kmsKeyId The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
+         * @param kmsKeyId KMS key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param kmsKeyId The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
+         * @param kmsKeyId KMS key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
          * 
          * @return builder
          * 

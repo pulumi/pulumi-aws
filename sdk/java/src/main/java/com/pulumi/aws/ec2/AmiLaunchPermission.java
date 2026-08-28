@@ -15,7 +15,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Adds a launch permission to an Amazon Machine Image (AMI).
+ * Adds a launch permission to an AMI.
  * 
  * ## Example Usage
  * 

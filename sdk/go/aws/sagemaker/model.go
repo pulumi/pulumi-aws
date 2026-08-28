@@ -89,7 +89,7 @@ import (
 type Model struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) assigned by AWS to this model.
+	// ARN assigned by AWS to this model.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
 	Containers ModelContainerArrayOutput `pulumi:"containers"`
@@ -146,7 +146,7 @@ func GetModel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Model resources.
 type modelState struct {
-	// Amazon Resource Name (ARN) assigned by AWS to this model.
+	// ARN assigned by AWS to this model.
 	Arn *string `pulumi:"arn"`
 	// Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
 	Containers []ModelContainer `pulumi:"containers"`
@@ -171,7 +171,7 @@ type modelState struct {
 }
 
 type ModelState struct {
-	// Amazon Resource Name (ARN) assigned by AWS to this model.
+	// ARN assigned by AWS to this model.
 	Arn pulumi.StringPtrInput
 	// Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
 	Containers ModelContainerArrayInput
@@ -329,7 +329,7 @@ func (o ModelOutput) ToModelOutputWithContext(ctx context.Context) ModelOutput {
 	return o
 }
 
-// Amazon Resource Name (ARN) assigned by AWS to this model.
+// ARN assigned by AWS to this model.
 func (o ModelOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

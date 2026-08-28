@@ -63,7 +63,7 @@ import (
 type XssMatchSet struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN)
+	// ARN
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name or description of the SizeConstraintSet.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -101,7 +101,7 @@ func GetXssMatchSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering XssMatchSet resources.
 type xssMatchSetState struct {
-	// Amazon Resource Name (ARN)
+	// ARN
 	Arn *string `pulumi:"arn"`
 	// The name or description of the SizeConstraintSet.
 	Name *string `pulumi:"name"`
@@ -110,7 +110,7 @@ type xssMatchSetState struct {
 }
 
 type XssMatchSetState struct {
-	// Amazon Resource Name (ARN)
+	// ARN
 	Arn pulumi.StringPtrInput
 	// The name or description of the SizeConstraintSet.
 	Name pulumi.StringPtrInput
@@ -224,7 +224,7 @@ func (o XssMatchSetOutput) ToXssMatchSetOutputWithContext(ctx context.Context) X
 	return o
 }
 
-// Amazon Resource Name (ARN)
+// ARN
 func (o XssMatchSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *XssMatchSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

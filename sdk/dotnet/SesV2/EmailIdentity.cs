@@ -117,19 +117,19 @@ namespace Pulumi.Aws.SesV2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+        /// Configuration set to use by default when sending from this identity. Any configuration set defined in the email sending request takes precedence.
         /// </summary>
         [Output("configurationSetName")]
         public Output<string?> ConfigurationSetName { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration of the DKIM authentication settings for an email domain identity.
+        /// Configuration block for the DKIM authentication settings for an email domain identity. See `DkimSigningAttributes` Block below.
         /// </summary>
         [Output("dkimSigningAttributes")]
         public Output<Outputs.EmailIdentityDkimSigningAttributes> DkimSigningAttributes { get; private set; } = null!;
 
         /// <summary>
-        /// The email address or domain to verify.
+        /// Email address or domain to verify.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.SesV2
         public Output<string> EmailIdentityDetails { get; private set; } = null!;
 
         /// <summary>
-        /// The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
+        /// Email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
         /// </summary>
         [Output("identityType")]
         public Output<string> IdentityType { get; private set; } = null!;
@@ -161,13 +161,13 @@ namespace Pulumi.Aws.SesV2
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+        /// Verification status of the identity. One of `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
         /// </summary>
         [Output("verificationStatus")]
         public Output<string> VerificationStatus { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether or not the identity is verified.
+        /// Whether the identity is verified.
         /// </summary>
         [Output("verifiedForSendingStatus")]
         public Output<bool> VerifiedForSendingStatus { get; private set; } = null!;
@@ -219,19 +219,19 @@ namespace Pulumi.Aws.SesV2
     public sealed class EmailIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+        /// Configuration set to use by default when sending from this identity. Any configuration set defined in the email sending request takes precedence.
         /// </summary>
         [Input("configurationSetName")]
         public Input<string>? ConfigurationSetName { get; set; }
 
         /// <summary>
-        /// The configuration of the DKIM authentication settings for an email domain identity.
+        /// Configuration block for the DKIM authentication settings for an email domain identity. See `DkimSigningAttributes` Block below.
         /// </summary>
         [Input("dkimSigningAttributes")]
         public Input<Inputs.EmailIdentityDkimSigningAttributesArgs>? DkimSigningAttributes { get; set; }
 
         /// <summary>
-        /// The email address or domain to verify.
+        /// Email address or domain to verify.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -271,19 +271,19 @@ namespace Pulumi.Aws.SesV2
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+        /// Configuration set to use by default when sending from this identity. Any configuration set defined in the email sending request takes precedence.
         /// </summary>
         [Input("configurationSetName")]
         public Input<string>? ConfigurationSetName { get; set; }
 
         /// <summary>
-        /// The configuration of the DKIM authentication settings for an email domain identity.
+        /// Configuration block for the DKIM authentication settings for an email domain identity. See `DkimSigningAttributes` Block below.
         /// </summary>
         [Input("dkimSigningAttributes")]
         public Input<Inputs.EmailIdentityDkimSigningAttributesGetArgs>? DkimSigningAttributes { get; set; }
 
         /// <summary>
-        /// The email address or domain to verify.
+        /// Email address or domain to verify.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -291,7 +291,7 @@ namespace Pulumi.Aws.SesV2
         public Input<string>? EmailIdentityDetails { get; set; }
 
         /// <summary>
-        /// The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
+        /// Email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
         /// </summary>
         [Input("identityType")]
         public Input<string>? IdentityType { get; set; }
@@ -327,13 +327,13 @@ namespace Pulumi.Aws.SesV2
         }
 
         /// <summary>
-        /// The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+        /// Verification status of the identity. One of `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
         /// </summary>
         [Input("verificationStatus")]
         public Input<string>? VerificationStatus { get; set; }
 
         /// <summary>
-        /// Specifies whether or not the identity is verified.
+        /// Whether the identity is verified.
         /// </summary>
         [Input("verifiedForSendingStatus")]
         public Input<bool>? VerifiedForSendingStatus { get; set; }

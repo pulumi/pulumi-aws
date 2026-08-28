@@ -68,7 +68,7 @@ export class ServiceQuota extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly adjustable: pulumi.Output<boolean>;
     /**
-     * Amazon Resource Name (ARN) of the service quota.
+     * ARN of the service quota.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -169,7 +169,7 @@ export interface ServiceQuotaState {
      */
     adjustable?: pulumi.Input<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the service quota.
+     * ARN of the service quota.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

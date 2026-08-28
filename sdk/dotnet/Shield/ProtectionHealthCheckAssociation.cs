@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Shield
     public partial class ProtectionHealthCheckAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+        /// ARN of the Route53 Health Check resource which will be associated to the protected resource.
         /// </summary>
         [Output("healthCheckArn")]
         public Output<string> HealthCheckArn { get; private set; } = null!;
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.Shield
     public sealed class ProtectionHealthCheckAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+        /// ARN of the Route53 Health Check resource which will be associated to the protected resource.
         /// </summary>
         [Input("healthCheckArn", required: true)]
         public Input<string> HealthCheckArn { get; set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Shield
     public sealed class ProtectionHealthCheckAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+        /// ARN of the Route53 Health Check resource which will be associated to the protected resource.
         /// </summary>
         [Input("healthCheckArn")]
         public Input<string>? HealthCheckArn { get; set; }

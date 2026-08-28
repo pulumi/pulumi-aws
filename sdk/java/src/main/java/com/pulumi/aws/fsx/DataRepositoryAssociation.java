@@ -109,14 +109,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation")
 public class DataRepositoryAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name of the file system.
+     * @return ARN of the file system.
      * 
      */
     public Output<String> arn() {

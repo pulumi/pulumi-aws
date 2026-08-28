@@ -85,7 +85,7 @@ namespace Pulumi.Aws.VpcLattice
     public sealed class GetListenerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the listener
+        /// ID or ARN of the listener
         /// </summary>
         [Input("listenerIdentifier", required: true)]
         public string ListenerIdentifier { get; set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.Aws.VpcLattice
         public string? Region { get; set; }
 
         /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the service network
+        /// ID or ARN of the service network
         /// </summary>
         [Input("serviceIdentifier", required: true)]
         public string ServiceIdentifier { get; set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.Aws.VpcLattice
     public sealed class GetListenerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the listener
+        /// ID or ARN of the listener
         /// </summary>
         [Input("listenerIdentifier", required: true)]
         public Input<string> ListenerIdentifier { get; set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the service network
+        /// ID or ARN of the service network
         /// </summary>
         [Input("serviceIdentifier", required: true)]
         public Input<string> ServiceIdentifier { get; set; } = null!;

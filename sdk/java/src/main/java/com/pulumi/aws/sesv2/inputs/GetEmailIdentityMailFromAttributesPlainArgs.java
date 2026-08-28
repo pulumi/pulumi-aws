@@ -16,14 +16,14 @@ public final class GetEmailIdentityMailFromAttributesPlainArgs extends com.pulum
     public static final GetEmailIdentityMailFromAttributesPlainArgs Empty = new GetEmailIdentityMailFromAttributesPlainArgs();
 
     /**
-     * The name of the email identity.
+     * Name of the email identity.
      * 
      */
     @Import(name="emailIdentity", required=true)
     private String emailIdentity;
 
     /**
-     * @return The name of the email identity.
+     * @return Name of the email identity.
      * 
      */
     public String emailIdentity() {
@@ -71,7 +71,7 @@ public final class GetEmailIdentityMailFromAttributesPlainArgs extends com.pulum
         }
 
         /**
-         * @param emailIdentity The name of the email identity.
+         * @param emailIdentity Name of the email identity.
          * 
          * @return builder
          * 

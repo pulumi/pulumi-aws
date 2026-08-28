@@ -30,7 +30,7 @@ public final class GetProtectionPlainArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * ARN (Amazon Resource Name) of the resource being protected.
+     * ARN of the resource being protected.
      * 
      * &gt; Exactly one of `protectionId` or `resourceArn` is required.
      * 
@@ -39,7 +39,7 @@ public final class GetProtectionPlainArgs extends com.pulumi.resources.InvokeArg
     private @Nullable String resourceArn;
 
     /**
-     * @return ARN (Amazon Resource Name) of the resource being protected.
+     * @return ARN of the resource being protected.
      * 
      * &gt; Exactly one of `protectionId` or `resourceArn` is required.
      * 
@@ -85,7 +85,7 @@ public final class GetProtectionPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param resourceArn ARN (Amazon Resource Name) of the resource being protected.
+         * @param resourceArn ARN of the resource being protected.
          * 
          * &gt; Exactly one of `protectionId` or `resourceArn` is required.
          * 

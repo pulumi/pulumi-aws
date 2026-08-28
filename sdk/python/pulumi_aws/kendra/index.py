@@ -245,7 +245,7 @@ class _IndexState:
         """
         Input properties used for looking up and filtering Index resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Index.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Index.
         :param pulumi.Input['IndexCapacityUnitsArgs'] capacity_units: A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         :param pulumi.Input[_builtins.str] created_at: The Unix datetime that the index was created.
         :param pulumi.Input[_builtins.str] description: The description of the Index.
@@ -309,7 +309,7 @@ class _IndexState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the Index.
+        ARN of the Index.
         """
         return pulumi.get(self, "arn")
 
@@ -1825,7 +1825,7 @@ class Index(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Index.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Index.
         :param pulumi.Input[Union['IndexCapacityUnitsArgs', 'IndexCapacityUnitsArgsDict']] capacity_units: A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         :param pulumi.Input[_builtins.str] created_at: The Unix datetime that the index was created.
         :param pulumi.Input[_builtins.str] description: The description of the Index.
@@ -1875,7 +1875,7 @@ class Index(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the Index.
+        ARN of the Index.
         """
         return pulumi.get(self, "arn")
 

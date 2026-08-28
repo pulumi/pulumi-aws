@@ -52,14 +52,14 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
     }
 
     /**
-     * Set of protocols to inspect for, specified using the protocol&#39;s assigned internet protocol number (IANA). If not specified, this matches with any protocol.
+     * Set of protocols to inspect for, specified using the protocol&#39;s assigned IP number (IANA). If not specified, this matches with any protocol.
      * 
      */
     @Import(name="protocols")
     private @Nullable Output<List<Integer>> protocols;
 
     /**
-     * @return Set of protocols to inspect for, specified using the protocol&#39;s assigned internet protocol number (IANA). If not specified, this matches with any protocol.
+     * @return Set of protocols to inspect for, specified using the protocol&#39;s assigned IP number (IANA). If not specified, this matches with any protocol.
      * 
      */
     public Optional<Output<List<Integer>>> protocols() {
@@ -203,7 +203,7 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
         }
 
         /**
-         * @param protocols Set of protocols to inspect for, specified using the protocol&#39;s assigned internet protocol number (IANA). If not specified, this matches with any protocol.
+         * @param protocols Set of protocols to inspect for, specified using the protocol&#39;s assigned IP number (IANA). If not specified, this matches with any protocol.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
         }
 
         /**
-         * @param protocols Set of protocols to inspect for, specified using the protocol&#39;s assigned internet protocol number (IANA). If not specified, this matches with any protocol.
+         * @param protocols Set of protocols to inspect for, specified using the protocol&#39;s assigned IP number (IANA). If not specified, this matches with any protocol.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
         }
 
         /**
-         * @param protocols Set of protocols to inspect for, specified using the protocol&#39;s assigned internet protocol number (IANA). If not specified, this matches with any protocol.
+         * @param protocols Set of protocols to inspect for, specified using the protocol&#39;s assigned IP number (IANA). If not specified, this matches with any protocol.
          * 
          * @return builder
          * 

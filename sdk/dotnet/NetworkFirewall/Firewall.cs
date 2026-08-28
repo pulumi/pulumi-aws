@@ -101,7 +101,7 @@ namespace Pulumi.Aws.NetworkFirewall
     public partial class Firewall : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) that identifies the firewall.
+        /// ARN that identifies the firewall.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Output<Outputs.FirewallEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the VPC Firewall policy.
+        /// ARN of the VPC Firewall policy.
         /// </summary>
         [Output("firewallPolicyArn")]
         public Output<string> FirewallPolicyArn { get; private set; } = null!;
@@ -315,7 +315,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Input<Inputs.FirewallEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the VPC Firewall policy.
+        /// ARN of the VPC Firewall policy.
         /// </summary>
         [Input("firewallPolicyArn", required: true)]
         public Input<string> FirewallPolicyArn { get; set; } = null!;
@@ -389,7 +389,7 @@ namespace Pulumi.Aws.NetworkFirewall
     public sealed class FirewallState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) that identifies the firewall.
+        /// ARN that identifies the firewall.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -443,7 +443,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Input<Inputs.FirewallEncryptionConfigurationGetArgs>? EncryptionConfiguration { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the VPC Firewall policy.
+        /// ARN of the VPC Firewall policy.
         /// </summary>
         [Input("firewallPolicyArn")]
         public Input<string>? FirewallPolicyArn { get; set; }

@@ -59,7 +59,7 @@ export class TrafficPolicyInstance extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the traffic policy instance.
+     * ARN of the traffic policy instance.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -133,7 +133,7 @@ export class TrafficPolicyInstance extends pulumi.CustomResource {
  */
 export interface TrafficPolicyInstanceState {
     /**
-     * Amazon Resource Name (ARN) of the traffic policy instance.
+     * ARN of the traffic policy instance.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

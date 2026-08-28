@@ -17,14 +17,14 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
     public static final VirtualMfaDeviceState Empty = new VirtualMfaDeviceState();
 
     /**
-     * Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
+     * ARN, which is also the serial number, of the virtual MFA device.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
+     * @return ARN, which is also the serial number, of the virtual MFA device.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -200,7 +200,7 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
+         * @param arn ARN, which is also the serial number, of the virtual MFA device.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
+         * @param arn ARN, which is also the serial number, of the virtual MFA device.
          * 
          * @return builder
          * 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.VerifiedAccess
 {
     /// <summary>
-    /// Resource for managing an AWS EC2 (Elastic Compute Cloud) Verified Access Endpoint.
+    /// Resource for managing an AWS EC2 Verified Access Endpoint.
     /// 
     /// ## Example Usage
     /// 

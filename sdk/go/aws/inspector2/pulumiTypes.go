@@ -30,7 +30,7 @@ type FilterFilterCriteria struct {
 	ComponentIds []FilterFilterCriteriaComponentId `pulumi:"componentIds"`
 	// (Optional) The type of the component. Documented below.
 	ComponentTypes []FilterFilterCriteriaComponentType `pulumi:"componentTypes"`
-	// (Optional) The ID of the Amazon Machine Image (AMI). Documented below.
+	// (Optional) ID of the AMI. Documented below.
 	Ec2InstanceImageIds []FilterFilterCriteriaEc2InstanceImageId `pulumi:"ec2InstanceImageIds"`
 	// (Optional) The ID of the subnet. Documented below.
 	Ec2InstanceSubnetIds []FilterFilterCriteriaEc2InstanceSubnetId `pulumi:"ec2InstanceSubnetIds"`
@@ -136,7 +136,7 @@ type FilterFilterCriteriaArgs struct {
 	ComponentIds FilterFilterCriteriaComponentIdArrayInput `pulumi:"componentIds"`
 	// (Optional) The type of the component. Documented below.
 	ComponentTypes FilterFilterCriteriaComponentTypeArrayInput `pulumi:"componentTypes"`
-	// (Optional) The ID of the Amazon Machine Image (AMI). Documented below.
+	// (Optional) ID of the AMI. Documented below.
 	Ec2InstanceImageIds FilterFilterCriteriaEc2InstanceImageIdArrayInput `pulumi:"ec2InstanceImageIds"`
 	// (Optional) The ID of the subnet. Documented below.
 	Ec2InstanceSubnetIds FilterFilterCriteriaEc2InstanceSubnetIdArrayInput `pulumi:"ec2InstanceSubnetIds"`
@@ -315,7 +315,7 @@ func (o FilterFilterCriteriaOutput) ComponentTypes() FilterFilterCriteriaCompone
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaComponentType { return v.ComponentTypes }).(FilterFilterCriteriaComponentTypeArrayOutput)
 }
 
-// (Optional) The ID of the Amazon Machine Image (AMI). Documented below.
+// (Optional) ID of the AMI. Documented below.
 func (o FilterFilterCriteriaOutput) Ec2InstanceImageIds() FilterFilterCriteriaEc2InstanceImageIdArrayOutput {
 	return o.ApplyT(func(v FilterFilterCriteria) []FilterFilterCriteriaEc2InstanceImageId { return v.Ec2InstanceImageIds }).(FilterFilterCriteriaEc2InstanceImageIdArrayOutput)
 }

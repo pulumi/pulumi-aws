@@ -211,14 +211,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:odb/cloudVmCluster:CloudVmCluster")
 public class CloudVmCluster extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) for the cloud vm cluster.
+     * ARN for the cloud vm cluster.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) for the cloud vm cluster.
+     * @return ARN for the cloud vm cluster.
      * 
      */
     public Output<String> arn() {

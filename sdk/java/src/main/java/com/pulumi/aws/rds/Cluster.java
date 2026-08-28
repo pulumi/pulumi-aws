@@ -367,6 +367,66 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Disabling Master Password Rotation
+ * 
+ * &gt; **Note:** The `aws.secretsmanager.SecretRotation` resource must depend on a cluster instance, otherwise AWS re-enables rotation once the instance finishes provisioning. Use `dependsOn` as shown below when the cluster and its instance are created together.
+ * 
+ * When `manageMasterUserPassword` is enabled, Secrets Manager rotates the master user password automatically (every 7 days by default). To disable that rotation while keeping the managed secret, manage the secret&#39;s rotation with `aws.secretsmanager.SecretRotation` and set `rotationEnabled = false`.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.rds.Cluster;
+ * import com.pulumi.aws.rds.ClusterArgs;
+ * import com.pulumi.aws.rds.ClusterInstance;
+ * import com.pulumi.aws.rds.ClusterInstanceArgs;
+ * import com.pulumi.aws.secretsmanager.SecretRotation;
+ * import com.pulumi.aws.secretsmanager.SecretRotationArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Cluster("test", ClusterArgs.builder()
+ *             .clusterIdentifier("example")
+ *             .databaseName("test")
+ *             .manageMasterUserPassword(true)
+ *             .masterUsername("test")
+ *             .build());
+ * 
+ *         var testClusterInstance = new ClusterInstance("testClusterInstance", ClusterInstanceArgs.builder()
+ *             .clusterIdentifier(test.id())
+ *             .identifier("example-1")
+ *             .instanceClass("db.r6g.large")
+ *             .engine(test.engine())
+ *             .engineVersion(test.engineVersion())
+ *             .build());
+ * 
+ *         var testSecretRotation = new SecretRotation("testSecretRotation", SecretRotationArgs.builder()
+ *             .secretId(test.masterUserSecrets().applyValue(_masterUserSecrets -> _masterUserSecrets[0].secretArn()))
+ *             .rotationEnabled(false)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(testClusterInstance)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### Global Cluster Restored From Snapshot
  * 
  * <pre>
@@ -486,14 +546,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.applyImmediately;
     }
     /**
-     * Amazon Resource Name (ARN) of cluster
+     * ARN of cluster
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of cluster
+     * @return ARN of cluster
      * 
      */
     public Output<String> arn() {

@@ -95,14 +95,14 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfig
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
+     * ARN of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
      * 
      */
     @Import(name="sourceArn", required=true)
     private Output<String> sourceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
+     * @return ARN of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
      * 
      */
     public Output<String> sourceArn() {
@@ -244,7 +244,7 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfig
         }
 
         /**
-         * @param sourceArn The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
+         * @param sourceArn ARN of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfig
         }
 
         /**
-         * @param sourceArn The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
+         * @param sourceArn ARN of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
          * 
          * @return builder
          * 

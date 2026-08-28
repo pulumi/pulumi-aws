@@ -193,14 +193,14 @@ public class ListenerRule extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * ID or Amazon Resource Name (ARN) of the listener.
+     * ID or ARN of the listener.
      * 
      */
     @Export(name="listenerIdentifier", refs={String.class}, tree="[0]")
     private Output<String> listenerIdentifier;
 
     /**
-     * @return ID or Amazon Resource Name (ARN) of the listener.
+     * @return ID or ARN of the listener.
      * 
      */
     public Output<String> listenerIdentifier() {
@@ -277,7 +277,7 @@ public class ListenerRule extends com.pulumi.resources.CustomResource {
         return this.ruleId;
     }
     /**
-     * ID or Amazon Resource Name (ARN) of the service.
+     * ID or ARN of the service.
      * 
      * The following arguments are optional:
      * 
@@ -286,7 +286,7 @@ public class ListenerRule extends com.pulumi.resources.CustomResource {
     private Output<String> serviceIdentifier;
 
     /**
-     * @return ID or Amazon Resource Name (ARN) of the service.
+     * @return ID or ARN of the service.
      * 
      * The following arguments are optional:
      * 

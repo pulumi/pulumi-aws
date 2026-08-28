@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Networkflowmonitor
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the scope.
+        /// ARN of the scope.
         /// </summary>
         [Output("scopeArn")]
         public Output<string> ScopeArn { get; private set; } = null!;
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.Networkflowmonitor
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the scope.
+        /// ARN of the scope.
         /// </summary>
         [Input("scopeArn")]
         public Input<string>? ScopeArn { get; set; }

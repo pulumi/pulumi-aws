@@ -17,14 +17,14 @@ public final class ClusterPolicyArgs extends com.pulumi.resources.ResourceArgs {
     public static final ClusterPolicyArgs Empty = new ClusterPolicyArgs();
 
     /**
-     * The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+     * ARN that uniquely identifies the cluster.
      * 
      */
     @Import(name="clusterArn", required=true)
     private Output<String> clusterArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+     * @return ARN that uniquely identifies the cluster.
      * 
      */
     public Output<String> clusterArn() {
@@ -88,7 +88,7 @@ public final class ClusterPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterArn The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+         * @param clusterArn ARN that uniquely identifies the cluster.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ClusterPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterArn The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+         * @param clusterArn ARN that uniquely identifies the cluster.
          * 
          * @return builder
          * 

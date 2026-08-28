@@ -59,7 +59,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the BCM Data Exports export.
+ * - `arn` (String) ARN of the BCM Data Exports export.
  *
  * Using `pulumi import`, import BCM Data Exports Export using the export ARN. For example:
  *
@@ -96,8 +96,8 @@ export class Export extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) for this export.
-     * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+     * ARN for this export.
+     * * `export[0].export_arn` - ARN for this export.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -147,8 +147,8 @@ export class Export extends pulumi.CustomResource {
  */
 export interface ExportState {
     /**
-     * Amazon Resource Name (ARN) for this export.
-     * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+     * ARN for this export.
+     * * `export[0].export_arn` - ARN for this export.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

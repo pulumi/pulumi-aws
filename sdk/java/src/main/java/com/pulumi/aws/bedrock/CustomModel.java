@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `jobArn` (String) Amazon Resource Name (ARN) of the Bedrock custom model job.
+ * - `jobArn` (String) ARN of the Bedrock custom model job.
  * 
  * Using `pulumi import`, import Bedrock custom model using the `jobArn`. For example:
  * 
@@ -113,14 +113,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:bedrock/customModel:CustomModel")
 public class CustomModel extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the base model.
+     * ARN of the base model.
      * 
      */
     @Export(name="baseModelIdentifier", refs={String.class}, tree="[0]")
     private Output<String> baseModelIdentifier;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the base model.
+     * @return ARN of the base model.
      * 
      */
     public Output<String> baseModelIdentifier() {
@@ -267,14 +267,14 @@ public class CustomModel extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
+     * ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
+     * @return ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
      * 
      */
     public Output<String> roleArn() {
@@ -371,14 +371,14 @@ public class CustomModel extends com.pulumi.resources.CustomResource {
         return this.validationMetrics;
     }
     /**
-     * Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
+     * Configuration parameters for the private VPC that contains the resources you are using for this job.
      * 
      */
     @Export(name="vpcConfig", refs={CustomModelVpcConfig.class}, tree="[0]")
     private Output</* @Nullable */ CustomModelVpcConfig> vpcConfig;
 
     /**
-     * @return Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
+     * @return Configuration parameters for the private VPC that contains the resources you are using for this job.
      * 
      */
     public Output<Optional<CustomModelVpcConfig>> vpcConfig() {

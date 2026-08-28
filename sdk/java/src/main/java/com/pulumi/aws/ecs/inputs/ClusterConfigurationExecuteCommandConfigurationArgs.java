@@ -17,14 +17,14 @@ public final class ClusterConfigurationExecuteCommandConfigurationArgs extends c
     public static final ClusterConfigurationExecuteCommandConfigurationArgs Empty = new ClusterConfigurationExecuteCommandConfigurationArgs();
 
     /**
-     * AWS Key Management Service key ID to encrypt the data between the local client and the container.
+     * KMS key ID to encrypt the data between the local client and the container.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return AWS Key Management Service key ID to encrypt the data between the local client and the container.
+     * @return KMS key ID to encrypt the data between the local client and the container.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -88,7 +88,7 @@ public final class ClusterConfigurationExecuteCommandConfigurationArgs extends c
         }
 
         /**
-         * @param kmsKeyId AWS Key Management Service key ID to encrypt the data between the local client and the container.
+         * @param kmsKeyId KMS key ID to encrypt the data between the local client and the container.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ClusterConfigurationExecuteCommandConfigurationArgs extends c
         }
 
         /**
-         * @param kmsKeyId AWS Key Management Service key ID to encrypt the data between the local client and the container.
+         * @param kmsKeyId KMS key ID to encrypt the data between the local client and the container.
          * 
          * @return builder
          * 

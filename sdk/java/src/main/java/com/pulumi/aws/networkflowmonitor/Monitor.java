@@ -102,14 +102,14 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return this.localResources;
     }
     /**
-     * The Amazon Resource Name (ARN) of the monitor.
+     * ARN of the monitor.
      * 
      */
     @Export(name="monitorArn", refs={String.class}, tree="[0]")
     private Output<String> monitorArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the monitor.
+     * @return ARN of the monitor.
      * 
      */
     public Output<String> monitorArn() {
@@ -158,7 +158,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.remoteResources);
     }
     /**
-     * The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
+     * ARN of the scope for the monitor. Cannot be changed after creation.
      * 
      * The following arguments are optional:
      * 
@@ -167,7 +167,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
     private Output<String> scopeArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
+     * @return ARN of the scope for the monitor. Cannot be changed after creation.
      * 
      * The following arguments are optional:
      * 

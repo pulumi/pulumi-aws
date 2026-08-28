@@ -160,14 +160,14 @@ public class StackSet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.administrationRoleArn);
     }
     /**
-     * Amazon Resource Name (ARN) of the StackSet.
+     * ARN of the StackSet.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the StackSet.
+     * @return ARN of the StackSet.
      * 
      */
     public Output<String> arn() {

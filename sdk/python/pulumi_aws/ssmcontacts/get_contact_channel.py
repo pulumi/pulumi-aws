@@ -70,7 +70,7 @@ class GetContactChannelResult:
     @pulumi.getter(name="contactId")
     def contact_id(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
+        ARN of the AWS SSM Contact that the contact channel belongs to.
         """
         return pulumi.get(self, "contact_id")
 
@@ -146,7 +146,7 @@ def get_contact_channel(arn: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str arn: Amazon Resource Name (ARN) of the contact channel.
+    :param _builtins.str arn: ARN of the contact channel.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -182,7 +182,7 @@ def get_contact_channel_output(arn: pulumi.Input[Optional[_builtins.str]] = None
     ```
 
 
-    :param _builtins.str arn: Amazon Resource Name (ARN) of the contact channel.
+    :param _builtins.str arn: ARN of the contact channel.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

@@ -89,14 +89,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:opensearch/serverlessCollectionGroup:ServerlessCollectionGroup")
 public class ServerlessCollectionGroup extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the collection group.
+     * ARN of the collection group.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the collection group.
+     * @return ARN of the collection group.
      * 
      */
     public Output<String> arn() {

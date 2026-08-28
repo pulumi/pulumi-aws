@@ -182,14 +182,14 @@ public final class FilterFilterCriteriaArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * (Optional) The ID of the Amazon Machine Image (AMI). Documented below.
+     * (Optional) ID of the AMI. Documented below.
      * 
      */
     @Import(name="ec2InstanceImageIds")
     private @Nullable Output<List<FilterFilterCriteriaEc2InstanceImageIdArgs>> ec2InstanceImageIds;
 
     /**
-     * @return (Optional) The ID of the Amazon Machine Image (AMI). Documented below.
+     * @return (Optional) ID of the AMI. Documented below.
      * 
      */
     public Optional<Output<List<FilterFilterCriteriaEc2InstanceImageIdArgs>>> ec2InstanceImageIds() {
@@ -1069,7 +1069,7 @@ public final class FilterFilterCriteriaArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ec2InstanceImageIds (Optional) The ID of the Amazon Machine Image (AMI). Documented below.
+         * @param ec2InstanceImageIds (Optional) ID of the AMI. Documented below.
          * 
          * @return builder
          * 
@@ -1080,7 +1080,7 @@ public final class FilterFilterCriteriaArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ec2InstanceImageIds (Optional) The ID of the Amazon Machine Image (AMI). Documented below.
+         * @param ec2InstanceImageIds (Optional) ID of the AMI. Documented below.
          * 
          * @return builder
          * 
@@ -1090,7 +1090,7 @@ public final class FilterFilterCriteriaArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ec2InstanceImageIds (Optional) The ID of the Amazon Machine Image (AMI). Documented below.
+         * @param ec2InstanceImageIds (Optional) ID of the AMI. Documented below.
          * 
          * @return builder
          * 

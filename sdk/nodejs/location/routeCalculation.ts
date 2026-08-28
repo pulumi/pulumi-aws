@@ -56,7 +56,7 @@ export class RouteCalculation extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
+     * ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.
      */
     declare public /*out*/ readonly calculatorArn: pulumi.Output<string>;
     /**
@@ -144,7 +144,7 @@ export class RouteCalculation extends pulumi.CustomResource {
  */
 export interface RouteCalculationState {
     /**
-     * The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
+     * ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.
      */
     calculatorArn?: pulumi.Input<string | undefined>;
     /**

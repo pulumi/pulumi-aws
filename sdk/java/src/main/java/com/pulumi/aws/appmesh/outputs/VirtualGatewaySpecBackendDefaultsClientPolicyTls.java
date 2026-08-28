@@ -32,7 +32,7 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTls {
      */
     private @Nullable List<Integer> ports;
     /**
-     * @return Listener&#39;s Transport Layer Security (TLS) validation context.
+     * @return Listener&#39;s TLS validation context.
      * 
      */
     private VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation validation;
@@ -60,7 +60,7 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTls {
         return this.ports == null ? List.of() : this.ports;
     }
     /**
-     * @return Listener&#39;s Transport Layer Security (TLS) validation context.
+     * @return Listener&#39;s TLS validation context.
      * 
      */
     public VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation validation() {

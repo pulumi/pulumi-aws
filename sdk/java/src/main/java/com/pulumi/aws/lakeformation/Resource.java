@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:lakeformation/resource:Resource")
 public class Resource extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the resource.
+     * ARN of the resource.
      * 
      * The following arguments are optional:
      * 
@@ -75,7 +75,7 @@ public class Resource extends com.pulumi.resources.CustomResource {
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the resource.
+     * @return ARN of the resource.
      * 
      * The following arguments are optional:
      * 

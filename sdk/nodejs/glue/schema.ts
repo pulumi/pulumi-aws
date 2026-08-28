@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the Glue schema.
+ * - `arn` (String) ARN of the Glue schema.
  *
  * Using `pulumi import`, import Glue Registries using `arn`. For example:
  *
@@ -65,7 +65,7 @@ export class Schema extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the schema.
+     * ARN of the schema.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -187,7 +187,7 @@ export class Schema extends pulumi.CustomResource {
  */
 export interface SchemaState {
     /**
-     * Amazon Resource Name (ARN) of the schema.
+     * ARN of the schema.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

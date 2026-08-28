@@ -54,7 +54,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the Device Farm device pool.
+// - `arn` (String) ARN of the Device Farm device pool.
 //
 // Using `pulumi import`, import DeviceFarm Device Pools using their ARN. For example:
 //
@@ -64,7 +64,7 @@ import (
 type DevicePool struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name of this Device Pool
+	// ARN of this Device Pool
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The device pool's description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -121,7 +121,7 @@ func GetDevicePool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DevicePool resources.
 type devicePoolState struct {
-	// The Amazon Resource Name of this Device Pool
+	// ARN of this Device Pool
 	Arn *string `pulumi:"arn"`
 	// The device pool's description.
 	Description *string `pulumi:"description"`
@@ -143,7 +143,7 @@ type devicePoolState struct {
 }
 
 type DevicePoolState struct {
-	// The Amazon Resource Name of this Device Pool
+	// ARN of this Device Pool
 	Arn pulumi.StringPtrInput
 	// The device pool's description.
 	Description pulumi.StringPtrInput
@@ -290,7 +290,7 @@ func (o DevicePoolOutput) ToDevicePoolOutputWithContext(ctx context.Context) Dev
 	return o
 }
 
-// The Amazon Resource Name of this Device Pool
+// ARN of this Device Pool
 func (o DevicePoolOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevicePool) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

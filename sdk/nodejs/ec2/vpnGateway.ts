@@ -62,7 +62,7 @@ export class VpnGateway extends pulumi.CustomResource {
      */
     declare public readonly amazonSideAsn: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the VPN Gateway.
+     * ARN of the VPN Gateway.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -130,7 +130,7 @@ export interface VpnGatewayState {
      */
     amazonSideAsn?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the VPN Gateway.
+     * ARN of the VPN Gateway.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

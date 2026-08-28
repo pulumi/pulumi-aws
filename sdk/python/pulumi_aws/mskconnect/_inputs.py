@@ -791,7 +791,7 @@ class ConnectorPluginArgs:
 class ConnectorPluginCustomPluginArgsDict(TypedDict):
     arn: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the custom plugin.
+    ARN of the custom plugin.
     """
     revision: pulumi.Input[_builtins.int]
     """
@@ -804,7 +804,7 @@ class ConnectorPluginCustomPluginArgs:
                  arn: pulumi.Input[_builtins.str],
                  revision: pulumi.Input[_builtins.int]):
         """
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the custom plugin.
+        :param pulumi.Input[_builtins.str] arn: ARN of the custom plugin.
         :param pulumi.Input[_builtins.int] revision: The revision of the custom plugin.
         """
         pulumi.set(__self__, "arn", arn)
@@ -814,7 +814,7 @@ class ConnectorPluginCustomPluginArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the custom plugin.
+        ARN of the custom plugin.
         """
         return pulumi.get(self, "arn")
 
@@ -838,7 +838,7 @@ class ConnectorPluginCustomPluginArgs:
 class ConnectorWorkerConfigurationArgsDict(TypedDict):
     arn: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the worker configuration.
+    ARN of the worker configuration.
     """
     revision: pulumi.Input[_builtins.int]
     """
@@ -851,7 +851,7 @@ class ConnectorWorkerConfigurationArgs:
                  arn: pulumi.Input[_builtins.str],
                  revision: pulumi.Input[_builtins.int]):
         """
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the worker configuration.
+        :param pulumi.Input[_builtins.str] arn: ARN of the worker configuration.
         :param pulumi.Input[_builtins.int] revision: The revision of the worker configuration.
         """
         pulumi.set(__self__, "arn", arn)
@@ -861,7 +861,7 @@ class ConnectorWorkerConfigurationArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the worker configuration.
+        ARN of the worker configuration.
         """
         return pulumi.get(self, "arn")
 
@@ -913,7 +913,7 @@ class CustomPluginLocationArgs:
 class CustomPluginLocationS3ArgsDict(TypedDict):
     bucket_arn: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of an S3 bucket.
+    ARN of an S3 bucket.
     """
     file_key: pulumi.Input[_builtins.str]
     """
@@ -931,7 +931,7 @@ class CustomPluginLocationS3Args:
                  file_key: pulumi.Input[_builtins.str],
                  object_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] bucket_arn: The Amazon Resource Name (ARN) of an S3 bucket.
+        :param pulumi.Input[_builtins.str] bucket_arn: ARN of an S3 bucket.
         :param pulumi.Input[_builtins.str] file_key: The file key for an object in an S3 bucket.
         :param pulumi.Input[_builtins.str] object_version: The version of an object in an S3 bucket.
         """
@@ -944,7 +944,7 @@ class CustomPluginLocationS3Args:
     @pulumi.getter(name="bucketArn")
     def bucket_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of an S3 bucket.
+        ARN of an S3 bucket.
         """
         return pulumi.get(self, "bucket_arn")
 

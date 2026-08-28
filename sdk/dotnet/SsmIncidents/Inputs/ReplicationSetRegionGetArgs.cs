@@ -13,7 +13,7 @@ namespace Pulumi.Aws.SsmIncidents.Inputs
     public sealed class ReplicationSetRegionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
+        /// ARN of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }

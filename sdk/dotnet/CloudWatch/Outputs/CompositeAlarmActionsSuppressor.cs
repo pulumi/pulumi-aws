@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     public sealed class CompositeAlarmActionsSuppressor
     {
         /// <summary>
-        /// Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+        /// Can be an AlarmName or an ARN from an existing alarm.
         /// </summary>
         public readonly string Alarm;
         /// <summary>

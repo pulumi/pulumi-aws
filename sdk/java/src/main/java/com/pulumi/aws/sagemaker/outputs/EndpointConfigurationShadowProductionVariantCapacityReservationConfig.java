@@ -17,7 +17,7 @@ public final class EndpointConfigurationShadowProductionVariantCapacityReservati
      */
     private @Nullable String capacityReservationPreference;
     /**
-     * @return The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
+     * @return ARN that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
      * 
      */
     private @Nullable String mlReservationArn;
@@ -31,7 +31,7 @@ public final class EndpointConfigurationShadowProductionVariantCapacityReservati
         return Optional.ofNullable(this.capacityReservationPreference);
     }
     /**
-     * @return The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
+     * @return ARN that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
      * 
      */
     public Optional<String> mlReservationArn() {

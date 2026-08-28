@@ -26,9 +26,9 @@ class TenantResourceAssociationArgs:
         The set of arguments for constructing a TenantResourceAssociation resource.
 
         :param pulumi.Input[_builtins.str] resource_arn: ARN of the SES resource to associate with the tenant.
+        :param pulumi.Input[_builtins.str] tenant_name: Name of SES Tenant.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] tenant_name: Name of SES Tenant.
         :param pulumi.Input[_builtins.str] region: AWS region for SESv2 operations. If not specified, the default provider region is used.
         """
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -41,8 +41,6 @@ class TenantResourceAssociationArgs:
     def resource_arn(self) -> pulumi.Input[_builtins.str]:
         """
         ARN of the SES resource to associate with the tenant.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "resource_arn")
 
@@ -55,6 +53,8 @@ class TenantResourceAssociationArgs:
     def tenant_name(self) -> pulumi.Input[_builtins.str]:
         """
         Name of SES Tenant.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "tenant_name")
 
@@ -86,9 +86,9 @@ class _TenantResourceAssociationState:
 
         :param pulumi.Input[_builtins.str] region: AWS region for SESv2 operations. If not specified, the default provider region is used.
         :param pulumi.Input[_builtins.str] resource_arn: ARN of the SES resource to associate with the tenant.
+        :param pulumi.Input[_builtins.str] tenant_name: Name of SES Tenant.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] tenant_name: Name of SES Tenant.
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -114,8 +114,6 @@ class _TenantResourceAssociationState:
     def resource_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the SES resource to associate with the tenant.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "resource_arn")
 
@@ -128,6 +126,8 @@ class _TenantResourceAssociationState:
     def tenant_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of SES Tenant.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "tenant_name")
 
@@ -175,9 +175,9 @@ class TenantResourceAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: AWS region for SESv2 operations. If not specified, the default provider region is used.
         :param pulumi.Input[_builtins.str] resource_arn: ARN of the SES resource to associate with the tenant.
+        :param pulumi.Input[_builtins.str] tenant_name: Name of SES Tenant.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] tenant_name: Name of SES Tenant.
         """
         ...
     @overload
@@ -266,9 +266,9 @@ class TenantResourceAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: AWS region for SESv2 operations. If not specified, the default provider region is used.
         :param pulumi.Input[_builtins.str] resource_arn: ARN of the SES resource to associate with the tenant.
+        :param pulumi.Input[_builtins.str] tenant_name: Name of SES Tenant.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] tenant_name: Name of SES Tenant.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -292,8 +292,6 @@ class TenantResourceAssociation(pulumi.CustomResource):
     def resource_arn(self) -> pulumi.Output[_builtins.str]:
         """
         ARN of the SES resource to associate with the tenant.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "resource_arn")
 
@@ -302,6 +300,8 @@ class TenantResourceAssociation(pulumi.CustomResource):
     def tenant_name(self) -> pulumi.Output[_builtins.str]:
         """
         Name of SES Tenant.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "tenant_name")
 

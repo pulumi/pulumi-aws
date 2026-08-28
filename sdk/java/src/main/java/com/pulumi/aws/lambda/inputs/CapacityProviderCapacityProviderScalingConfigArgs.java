@@ -18,14 +18,14 @@ public final class CapacityProviderCapacityProviderScalingConfigArgs extends com
     public static final CapacityProviderCapacityProviderScalingConfigArgs Empty = new CapacityProviderCapacityProviderScalingConfigArgs();
 
     /**
-     * The maximum number of VCPUs for the Capacity Provider.
+     * Maximum number of VCPUs for the Capacity Provider.
      * 
      */
     @Import(name="maxVcpuCount", required=true)
     private Output<Integer> maxVcpuCount;
 
     /**
-     * @return The maximum number of VCPUs for the Capacity Provider.
+     * @return Maximum number of VCPUs for the Capacity Provider.
      * 
      */
     public Output<Integer> maxVcpuCount() {
@@ -33,14 +33,14 @@ public final class CapacityProviderCapacityProviderScalingConfigArgs extends com
     }
 
     /**
-     * The scaling mode for the Capacity Provider. Valid values are `&#34;Auto&#34;` and `&#34;Manual&#34;`. Defaults to `&#34;Auto&#34;`.
+     * Scaling mode for the Capacity Provider. Valid values are `&#34;Auto&#34;` and `&#34;Manual&#34;`. Defaults to `&#34;Auto&#34;`.
      * 
      */
     @Import(name="scalingMode", required=true)
     private Output<String> scalingMode;
 
     /**
-     * @return The scaling mode for the Capacity Provider. Valid values are `&#34;Auto&#34;` and `&#34;Manual&#34;`. Defaults to `&#34;Auto&#34;`.
+     * @return Scaling mode for the Capacity Provider. Valid values are `&#34;Auto&#34;` and `&#34;Manual&#34;`. Defaults to `&#34;Auto&#34;`.
      * 
      */
     public Output<String> scalingMode() {
@@ -89,7 +89,7 @@ public final class CapacityProviderCapacityProviderScalingConfigArgs extends com
         }
 
         /**
-         * @param maxVcpuCount The maximum number of VCPUs for the Capacity Provider.
+         * @param maxVcpuCount Maximum number of VCPUs for the Capacity Provider.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class CapacityProviderCapacityProviderScalingConfigArgs extends com
         }
 
         /**
-         * @param maxVcpuCount The maximum number of VCPUs for the Capacity Provider.
+         * @param maxVcpuCount Maximum number of VCPUs for the Capacity Provider.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class CapacityProviderCapacityProviderScalingConfigArgs extends com
         }
 
         /**
-         * @param scalingMode The scaling mode for the Capacity Provider. Valid values are `&#34;Auto&#34;` and `&#34;Manual&#34;`. Defaults to `&#34;Auto&#34;`.
+         * @param scalingMode Scaling mode for the Capacity Provider. Valid values are `&#34;Auto&#34;` and `&#34;Manual&#34;`. Defaults to `&#34;Auto&#34;`.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class CapacityProviderCapacityProviderScalingConfigArgs extends com
         }
 
         /**
-         * @param scalingMode The scaling mode for the Capacity Provider. Valid values are `&#34;Auto&#34;` and `&#34;Manual&#34;`. Defaults to `&#34;Auto&#34;`.
+         * @param scalingMode Scaling mode for the Capacity Provider. Valid values are `&#34;Auto&#34;` and `&#34;Manual&#34;`. Defaults to `&#34;Auto&#34;`.
          * 
          * @return builder
          * 

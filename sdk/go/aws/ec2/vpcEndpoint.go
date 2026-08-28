@@ -378,7 +378,7 @@ import (
 type VpcEndpoint struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the VPC endpoint.
+	// ARN of the VPC endpoint.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
 	AutoAccept pulumi.BoolPtrOutput `pulumi:"autoAccept"`
@@ -467,7 +467,7 @@ func GetVpcEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcEndpoint resources.
 type vpcEndpointState struct {
-	// The Amazon Resource Name (ARN) of the VPC endpoint.
+	// ARN of the VPC endpoint.
 	Arn *string `pulumi:"arn"`
 	// Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
 	AutoAccept *bool `pulumi:"autoAccept"`
@@ -524,7 +524,7 @@ type vpcEndpointState struct {
 }
 
 type VpcEndpointState struct {
-	// The Amazon Resource Name (ARN) of the VPC endpoint.
+	// ARN of the VPC endpoint.
 	Arn pulumi.StringPtrInput
 	// Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
 	AutoAccept pulumi.BoolPtrInput
@@ -750,7 +750,7 @@ func (o VpcEndpointOutput) ToVpcEndpointOutputWithContext(ctx context.Context) V
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the VPC endpoint.
+// ARN of the VPC endpoint.
 func (o VpcEndpointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

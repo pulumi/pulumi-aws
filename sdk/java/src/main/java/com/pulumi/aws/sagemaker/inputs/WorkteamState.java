@@ -21,14 +21,14 @@ public final class WorkteamState extends com.pulumi.resources.ResourceArgs {
     public static final WorkteamState Empty = new WorkteamState();
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
+     * ARN assigned by AWS to this Workteam.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
+     * @return ARN assigned by AWS to this Workteam.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -220,7 +220,7 @@ public final class WorkteamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
+         * @param arn ARN assigned by AWS to this Workteam.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class WorkteamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
+         * @param arn ARN assigned by AWS to this Workteam.
          * 
          * @return builder
          * 

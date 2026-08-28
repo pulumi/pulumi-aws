@@ -17,14 +17,14 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
     public static final MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs Empty = new MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs();
 
     /**
-     * An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
+     * ARN for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
      * 
      */
     @Import(name="notificationArn")
     private @Nullable Output<String> notificationArn;
 
     /**
-     * @return An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
+     * @return ARN for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
      * 
      */
     public Optional<Output<String>> notificationArn() {
@@ -88,7 +88,7 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
         }
 
         /**
-         * @param notificationArn An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
+         * @param notificationArn ARN for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
         }
 
         /**
-         * @param notificationArn An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
+         * @param notificationArn ARN for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
          * 
          * @return builder
          * 

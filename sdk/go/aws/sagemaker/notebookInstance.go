@@ -101,7 +101,7 @@ type NotebookInstance struct {
 	// An array of up to three Git repositories to associate with the notebook instance.
 	// These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
 	AdditionalCodeRepositories pulumi.StringArrayOutput `pulumi:"additionalCodeRepositories"`
-	// The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
+	// ARN assigned by AWS to this notebook instance.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository.
 	DefaultCodeRepository pulumi.StringPtrOutput `pulumi:"defaultCodeRepository"`
@@ -111,7 +111,7 @@ type NotebookInstance struct {
 	InstanceMetadataServiceConfiguration NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput `pulumi:"instanceMetadataServiceConfiguration"`
 	// The name of ML compute instance type.
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
-	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+	// KMS key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// The name of a lifecycle configuration to associate with the notebook instance.
 	LifecycleConfigName pulumi.StringPtrOutput `pulumi:"lifecycleConfigName"`
@@ -180,7 +180,7 @@ type notebookInstanceState struct {
 	// An array of up to three Git repositories to associate with the notebook instance.
 	// These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
 	AdditionalCodeRepositories []string `pulumi:"additionalCodeRepositories"`
-	// The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
+	// ARN assigned by AWS to this notebook instance.
 	Arn *string `pulumi:"arn"`
 	// The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository.
 	DefaultCodeRepository *string `pulumi:"defaultCodeRepository"`
@@ -190,7 +190,7 @@ type notebookInstanceState struct {
 	InstanceMetadataServiceConfiguration *NotebookInstanceInstanceMetadataServiceConfiguration `pulumi:"instanceMetadataServiceConfiguration"`
 	// The name of ML compute instance type.
 	InstanceType *string `pulumi:"instanceType"`
-	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+	// KMS key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The name of a lifecycle configuration to associate with the notebook instance.
 	LifecycleConfigName *string `pulumi:"lifecycleConfigName"`
@@ -224,7 +224,7 @@ type NotebookInstanceState struct {
 	// An array of up to three Git repositories to associate with the notebook instance.
 	// These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
 	AdditionalCodeRepositories pulumi.StringArrayInput
-	// The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
+	// ARN assigned by AWS to this notebook instance.
 	Arn pulumi.StringPtrInput
 	// The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository.
 	DefaultCodeRepository pulumi.StringPtrInput
@@ -234,7 +234,7 @@ type NotebookInstanceState struct {
 	InstanceMetadataServiceConfiguration NotebookInstanceInstanceMetadataServiceConfigurationPtrInput
 	// The name of ML compute instance type.
 	InstanceType pulumi.StringPtrInput
-	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+	// KMS key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 	KmsKeyId pulumi.StringPtrInput
 	// The name of a lifecycle configuration to associate with the notebook instance.
 	LifecycleConfigName pulumi.StringPtrInput
@@ -280,7 +280,7 @@ type notebookInstanceArgs struct {
 	InstanceMetadataServiceConfiguration *NotebookInstanceInstanceMetadataServiceConfiguration `pulumi:"instanceMetadataServiceConfiguration"`
 	// The name of ML compute instance type.
 	InstanceType string `pulumi:"instanceType"`
-	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+	// KMS key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The name of a lifecycle configuration to associate with the notebook instance.
 	LifecycleConfigName *string `pulumi:"lifecycleConfigName"`
@@ -317,7 +317,7 @@ type NotebookInstanceArgs struct {
 	InstanceMetadataServiceConfiguration NotebookInstanceInstanceMetadataServiceConfigurationPtrInput
 	// The name of ML compute instance type.
 	InstanceType pulumi.StringInput
-	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+	// KMS key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 	KmsKeyId pulumi.StringPtrInput
 	// The name of a lifecycle configuration to associate with the notebook instance.
 	LifecycleConfigName pulumi.StringPtrInput
@@ -434,7 +434,7 @@ func (o NotebookInstanceOutput) AdditionalCodeRepositories() pulumi.StringArrayO
 	return o.ApplyT(func(v *NotebookInstance) pulumi.StringArrayOutput { return v.AdditionalCodeRepositories }).(pulumi.StringArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
+// ARN assigned by AWS to this notebook instance.
 func (o NotebookInstanceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotebookInstance) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -461,7 +461,7 @@ func (o NotebookInstanceOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotebookInstance) pulumi.StringOutput { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+// KMS key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 func (o NotebookInstanceOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotebookInstance) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }

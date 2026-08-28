@@ -33,14 +33,14 @@ public final class StorageLensConfigurationStorageLensConfigurationExpandedPrefi
     }
 
     /**
-     * Amazon Resource Name (ARN) of the bucket.
+     * ARN of the bucket.
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the bucket.
+     * @return ARN of the bucket.
      * 
      */
     public Output<String> arn() {
@@ -158,7 +158,7 @@ public final class StorageLensConfigurationStorageLensConfigurationExpandedPrefi
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the bucket.
+         * @param arn ARN of the bucket.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class StorageLensConfigurationStorageLensConfigurationExpandedPrefi
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the bucket.
+         * @param arn ARN of the bucket.
          * 
          * @return builder
          * 

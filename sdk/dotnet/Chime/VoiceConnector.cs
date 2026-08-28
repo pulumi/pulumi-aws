@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Chime
     public partial class VoiceConnector : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+        /// ARN of the Amazon Chime Voice Connector.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -186,7 +186,7 @@ namespace Pulumi.Aws.Chime
     public sealed class VoiceConnectorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+        /// ARN of the Amazon Chime Voice Connector.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

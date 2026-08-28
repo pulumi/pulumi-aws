@@ -112,7 +112,7 @@ namespace Pulumi.Aws.CloudWatch
     public partial class EventRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the rule.
+        /// ARN of the rule.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
+        /// ARN associated with the role that is used for target invocation.
         /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
@@ -292,7 +292,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
+        /// ARN associated with the role that is used for target invocation.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
@@ -332,7 +332,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class EventRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the rule.
+        /// ARN of the rule.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -386,7 +386,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
+        /// ARN associated with the role that is used for target invocation.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

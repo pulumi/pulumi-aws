@@ -32,7 +32,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolume {
      */
     private @Nullable Integer iops;
     /**
-     * @return Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption.
+     * @return ARN identifier of the Amazon Web Services KMS key to use for Amazon EBS encryption.
      * 
      */
     private @Nullable String kmsKeyId;
@@ -95,7 +95,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolume {
         return Optional.ofNullable(this.iops);
     }
     /**
-     * @return Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption.
+     * @return ARN identifier of the Amazon Web Services KMS key to use for Amazon EBS encryption.
      * 
      */
     public Optional<String> kmsKeyId() {

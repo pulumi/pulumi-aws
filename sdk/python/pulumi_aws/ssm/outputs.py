@@ -1109,7 +1109,7 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters(dict):
         :param _builtins.str output_s3_bucket: The name of the Amazon S3 bucket.
         :param _builtins.str output_s3_key_prefix: The Amazon S3 bucket subfolder.
         :param Sequence['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs'] parameters: The parameters for the RUN_COMMAND task execution. Documented below.
-        :param _builtins.str service_role_arn: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
+        :param _builtins.str service_role_arn: ARN of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
         :param _builtins.int timeout_seconds: If this time is reached and the command has not already started executing, it doesn't run.
         """
         if cloudwatch_config is not None:
@@ -1211,7 +1211,7 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters(dict):
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
+        ARN of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
         """
         return pulumi.get(self, "service_role_arn")
 
@@ -1302,7 +1302,7 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificat
                  notification_events: Optional[Sequence[_builtins.str]] = None,
                  notification_type: Optional[_builtins.str] = None):
         """
-        :param _builtins.str notification_arn: An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
+        :param _builtins.str notification_arn: ARN for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
         :param Sequence[_builtins.str] notification_events: The different events for which you can receive notifications. Valid values: `All`, `InProgress`, `Success`, `TimedOut`, `Cancelled`, and `Failed`
         :param _builtins.str notification_type: When specified with `Command`, receive notification when the status of a command changes. When specified with `Invocation`, for commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. Valid values: `Command` and `Invocation`
         """
@@ -1317,7 +1317,7 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificat
     @pulumi.getter(name="notificationArn")
     def notification_arn(self) -> Optional[_builtins.str]:
         """
-        An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
+        ARN for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
         """
         return pulumi.get(self, "notification_arn")
 

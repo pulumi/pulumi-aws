@@ -68,7 +68,7 @@ export class IngestionDestination extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * ARN of the app bundle to use for the request.
      */
     declare public readonly appBundleArn: pulumi.Output<string>;
     /**
@@ -80,7 +80,7 @@ export class IngestionDestination extends pulumi.CustomResource {
      */
     declare public readonly destinationConfiguration: pulumi.Output<outputs.appfabric.IngestionDestinationDestinationConfiguration>;
     /**
-     * Amazon Resource Name (ARN) of the ingestion to use for the request.
+     * ARN of the ingestion to use for the request.
      */
     declare public readonly ingestionArn: pulumi.Output<string>;
     /**
@@ -159,7 +159,7 @@ export class IngestionDestination extends pulumi.CustomResource {
  */
 export interface IngestionDestinationState {
     /**
-     * Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * ARN of the app bundle to use for the request.
      */
     appBundleArn?: pulumi.Input<string | undefined>;
     /**
@@ -171,7 +171,7 @@ export interface IngestionDestinationState {
      */
     destinationConfiguration?: pulumi.Input<inputs.appfabric.IngestionDestinationDestinationConfiguration | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the ingestion to use for the request.
+     * ARN of the ingestion to use for the request.
      */
     ingestionArn?: pulumi.Input<string | undefined>;
     /**
@@ -200,7 +200,7 @@ export interface IngestionDestinationState {
  */
 export interface IngestionDestinationArgs {
     /**
-     * Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * ARN of the app bundle to use for the request.
      */
     appBundleArn: pulumi.Input<string>;
     /**
@@ -208,7 +208,7 @@ export interface IngestionDestinationArgs {
      */
     destinationConfiguration: pulumi.Input<inputs.appfabric.IngestionDestinationDestinationConfiguration>;
     /**
-     * Amazon Resource Name (ARN) of the ingestion to use for the request.
+     * ARN of the ingestion to use for the request.
      */
     ingestionArn: pulumi.Input<string>;
     /**

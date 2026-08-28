@@ -18,10 +18,14 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConfigurationSetResult {
+    /**
+     * @return ARN of the configuration set.
+     * 
+     */
     private String arn;
     private String configurationSetName;
     /**
-     * @return An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
+     * @return Object that defines the dedicated IP pool used to send emails with the configuration set.
      * 
      */
     private List<GetConfigurationSetDeliveryOption> deliveryOptions;
@@ -32,37 +36,41 @@ public final class GetConfigurationSetResult {
     private String id;
     private String region;
     /**
-     * @return An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
+     * @return Object that defines whether Amazon SES collects reputation metrics for emails sent with the configuration set.
      * 
      */
     private List<GetConfigurationSetReputationOption> reputationOptions;
     /**
-     * @return An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+     * @return Object that defines whether Amazon SES can send email sent with the configuration set.
      * 
      */
     private List<GetConfigurationSetSendingOption> sendingOptions;
     /**
-     * @return An object that contains information about the suppression list preferences for your account.
+     * @return Object that contains information about the suppression list preferences for your account.
      * 
      */
     private List<GetConfigurationSetSuppressionOption> suppressionOptions;
     /**
-     * @return Key-value map of resource tags for the container recipe.
+     * @return Key-value map of resource tags.
      * 
      */
     private Map<String,String> tags;
     /**
-     * @return An object that defines the open and click tracking options for emails that you send using the configuration set.
+     * @return Object that defines the open and click tracking options for emails sent with the configuration set.
      * 
      */
     private List<GetConfigurationSetTrackingOption> trackingOptions;
     /**
-     * @return An object that contains information about the VDM preferences for your configuration set.
+     * @return Object that contains information about the VDM preferences for your configuration set.
      * 
      */
     private List<GetConfigurationSetVdmOption> vdmOptions;
 
     private GetConfigurationSetResult() {}
+    /**
+     * @return ARN of the configuration set.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
@@ -70,7 +78,7 @@ public final class GetConfigurationSetResult {
         return this.configurationSetName;
     }
     /**
-     * @return An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
+     * @return Object that defines the dedicated IP pool used to send emails with the configuration set.
      * 
      */
     public List<GetConfigurationSetDeliveryOption> deliveryOptions() {
@@ -87,42 +95,42 @@ public final class GetConfigurationSetResult {
         return this.region;
     }
     /**
-     * @return An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
+     * @return Object that defines whether Amazon SES collects reputation metrics for emails sent with the configuration set.
      * 
      */
     public List<GetConfigurationSetReputationOption> reputationOptions() {
         return this.reputationOptions;
     }
     /**
-     * @return An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+     * @return Object that defines whether Amazon SES can send email sent with the configuration set.
      * 
      */
     public List<GetConfigurationSetSendingOption> sendingOptions() {
         return this.sendingOptions;
     }
     /**
-     * @return An object that contains information about the suppression list preferences for your account.
+     * @return Object that contains information about the suppression list preferences for your account.
      * 
      */
     public List<GetConfigurationSetSuppressionOption> suppressionOptions() {
         return this.suppressionOptions;
     }
     /**
-     * @return Key-value map of resource tags for the container recipe.
+     * @return Key-value map of resource tags.
      * 
      */
     public Map<String,String> tags() {
         return this.tags;
     }
     /**
-     * @return An object that defines the open and click tracking options for emails that you send using the configuration set.
+     * @return Object that defines the open and click tracking options for emails sent with the configuration set.
      * 
      */
     public List<GetConfigurationSetTrackingOption> trackingOptions() {
         return this.trackingOptions;
     }
     /**
-     * @return An object that contains information about the VDM preferences for your configuration set.
+     * @return Object that contains information about the VDM preferences for your configuration set.
      * 
      */
     public List<GetConfigurationSetVdmOption> vdmOptions() {

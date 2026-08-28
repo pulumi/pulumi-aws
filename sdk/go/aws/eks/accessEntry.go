@@ -68,7 +68,7 @@ import (
 type AccessEntry struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the Access Entry.
+	// ARN of the Access Entry.
 	AccessEntryArn pulumi.StringOutput `pulumi:"accessEntryArn"`
 	// Name of the EKS Cluster.
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
@@ -130,7 +130,7 @@ func GetAccessEntry(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccessEntry resources.
 type accessEntryState struct {
-	// Amazon Resource Name (ARN) of the Access Entry.
+	// ARN of the Access Entry.
 	AccessEntryArn *string `pulumi:"accessEntryArn"`
 	// Name of the EKS Cluster.
 	ClusterName *string `pulumi:"clusterName"`
@@ -157,7 +157,7 @@ type accessEntryState struct {
 }
 
 type AccessEntryState struct {
-	// Amazon Resource Name (ARN) of the Access Entry.
+	// ARN of the Access Entry.
 	AccessEntryArn pulumi.StringPtrInput
 	// Name of the EKS Cluster.
 	ClusterName pulumi.StringPtrInput
@@ -313,7 +313,7 @@ func (o AccessEntryOutput) ToAccessEntryOutputWithContext(ctx context.Context) A
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Access Entry.
+// ARN of the Access Entry.
 func (o AccessEntryOutput) AccessEntryArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessEntry) pulumi.StringOutput { return v.AccessEntryArn }).(pulumi.StringOutput)
 }

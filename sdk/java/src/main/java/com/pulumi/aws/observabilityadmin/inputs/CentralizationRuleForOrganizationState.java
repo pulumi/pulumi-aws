@@ -83,6 +83,36 @@ public final class CentralizationRuleForOrganizationState extends com.pulumi.res
     }
 
     /**
+     * Reason tag propagation is unhealthy, when applicable (for example, `RoleNotAssumable` or `RoleLacksPermissions`).
+     * 
+     */
+    @Import(name="tagPropagationFailureReason")
+    private @Nullable Output<String> tagPropagationFailureReason;
+
+    /**
+     * @return Reason tag propagation is unhealthy, when applicable (for example, `RoleNotAssumable` or `RoleLacksPermissions`).
+     * 
+     */
+    public Optional<Output<String>> tagPropagationFailureReason() {
+        return Optional.ofNullable(this.tagPropagationFailureReason);
+    }
+
+    /**
+     * Health status of tag propagation for the rule (for example, `Healthy` or `Unhealthy`). Independent of the overall rule health.
+     * 
+     */
+    @Import(name="tagPropagationStatus")
+    private @Nullable Output<String> tagPropagationStatus;
+
+    /**
+     * @return Health status of tag propagation for the rule (for example, `Healthy` or `Unhealthy`). Independent of the overall rule health.
+     * 
+     */
+    public Optional<Output<String>> tagPropagationStatus() {
+        return Optional.ofNullable(this.tagPropagationStatus);
+    }
+
+    /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -126,6 +156,8 @@ public final class CentralizationRuleForOrganizationState extends com.pulumi.res
         this.rule = $.rule;
         this.ruleArn = $.ruleArn;
         this.ruleName = $.ruleName;
+        this.tagPropagationFailureReason = $.tagPropagationFailureReason;
+        this.tagPropagationStatus = $.tagPropagationStatus;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.timeouts = $.timeouts;
@@ -235,6 +267,48 @@ public final class CentralizationRuleForOrganizationState extends com.pulumi.res
          */
         public Builder ruleName(String ruleName) {
             return ruleName(Output.of(ruleName));
+        }
+
+        /**
+         * @param tagPropagationFailureReason Reason tag propagation is unhealthy, when applicable (for example, `RoleNotAssumable` or `RoleLacksPermissions`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagPropagationFailureReason(@Nullable Output<String> tagPropagationFailureReason) {
+            $.tagPropagationFailureReason = tagPropagationFailureReason;
+            return this;
+        }
+
+        /**
+         * @param tagPropagationFailureReason Reason tag propagation is unhealthy, when applicable (for example, `RoleNotAssumable` or `RoleLacksPermissions`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagPropagationFailureReason(String tagPropagationFailureReason) {
+            return tagPropagationFailureReason(Output.of(tagPropagationFailureReason));
+        }
+
+        /**
+         * @param tagPropagationStatus Health status of tag propagation for the rule (for example, `Healthy` or `Unhealthy`). Independent of the overall rule health.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagPropagationStatus(@Nullable Output<String> tagPropagationStatus) {
+            $.tagPropagationStatus = tagPropagationStatus;
+            return this;
+        }
+
+        /**
+         * @param tagPropagationStatus Health status of tag propagation for the rule (for example, `Healthy` or `Unhealthy`). Independent of the overall rule health.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagPropagationStatus(String tagPropagationStatus) {
+            return tagPropagationStatus(Output.of(tagPropagationStatus));
         }
 
         /**

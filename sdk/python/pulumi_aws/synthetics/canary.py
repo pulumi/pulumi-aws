@@ -361,7 +361,7 @@ class _CanaryState:
         """
         Input properties used for looking up and filtering Canary resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Canary.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Canary.
         :param pulumi.Input['CanaryArtifactConfigArgs'] artifact_config: configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
         :param pulumi.Input[_builtins.str] artifact_s3_location: Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
         :param pulumi.Input[_builtins.bool] delete_lambda: Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
@@ -444,7 +444,7 @@ class _CanaryState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the Canary.
+        ARN of the Canary.
         """
         return pulumi.get(self, "arn")
 
@@ -983,7 +983,7 @@ class Canary(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Canary.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Canary.
         :param pulumi.Input[Union['CanaryArtifactConfigArgs', 'CanaryArtifactConfigArgsDict']] artifact_config: configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
         :param pulumi.Input[_builtins.str] artifact_s3_location: Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
         :param pulumi.Input[_builtins.bool] delete_lambda: Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
@@ -1046,7 +1046,7 @@ class Canary(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the Canary.
+        ARN of the Canary.
         """
         return pulumi.get(self, "arn")
 

@@ -122,7 +122,7 @@ class _WorkerConfigurationState:
         """
         Input properties used for looking up and filtering WorkerConfiguration resources.
 
-        :param pulumi.Input[_builtins.str] arn: the Amazon Resource Name (ARN) of the worker configuration.
+        :param pulumi.Input[_builtins.str] arn: the ARN of the worker configuration.
         :param pulumi.Input[_builtins.str] description: A summary description of the worker configuration.
         :param pulumi.Input[_builtins.int] latest_revision: an ID of the latest successfully created revision of the worker configuration.
         :param pulumi.Input[_builtins.str] name: The name of the worker configuration.
@@ -154,7 +154,7 @@ class _WorkerConfigurationState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        the Amazon Resource Name (ARN) of the worker configuration.
+        the ARN of the worker configuration.
         """
         return pulumi.get(self, "arn")
 
@@ -395,7 +395,7 @@ class WorkerConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: the Amazon Resource Name (ARN) of the worker configuration.
+        :param pulumi.Input[_builtins.str] arn: the ARN of the worker configuration.
         :param pulumi.Input[_builtins.str] description: A summary description of the worker configuration.
         :param pulumi.Input[_builtins.int] latest_revision: an ID of the latest successfully created revision of the worker configuration.
         :param pulumi.Input[_builtins.str] name: The name of the worker configuration.
@@ -424,7 +424,7 @@ class WorkerConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        the Amazon Resource Name (ARN) of the worker configuration.
+        the ARN of the worker configuration.
         """
         return pulumi.get(self, "arn")
 

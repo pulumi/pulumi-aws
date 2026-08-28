@@ -50,7 +50,7 @@ export interface GetWorkgroupArgs {
  */
 export interface GetWorkgroupResult {
     /**
-     * Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+     * ARN of the Redshift Serverless Workgroup.
      */
     readonly arn: string;
     /**
@@ -58,7 +58,7 @@ export interface GetWorkgroupResult {
      */
     readonly endpoints: outputs.redshiftserverless.GetWorkgroupEndpoint[];
     /**
-     * The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+     * Value that specifies whether to turn on enhanced VPC routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
      */
     readonly enhancedVpcRouting: boolean;
     /**

@@ -20,14 +20,14 @@ public final class HealthCheckState extends com.pulumi.resources.ResourceArgs {
     public static final HealthCheckState Empty = new HealthCheckState();
 
     /**
-     * The Amazon Resource Name (ARN) of the Health Check.
+     * ARN of the Health Check.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Health Check.
+     * @return ARN of the Health Check.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -302,14 +302,14 @@ public final class HealthCheckState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+     * ARN for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
      * 
      */
     @Import(name="routingControlArn")
     private @Nullable Output<String> routingControlArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+     * @return ARN for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
      * 
      */
     public Optional<Output<String>> routingControlArn() {
@@ -439,7 +439,7 @@ public final class HealthCheckState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Health Check.
+         * @param arn ARN of the Health Check.
          * 
          * @return builder
          * 
@@ -450,7 +450,7 @@ public final class HealthCheckState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Health Check.
+         * @param arn ARN of the Health Check.
          * 
          * @return builder
          * 
@@ -849,7 +849,7 @@ public final class HealthCheckState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param routingControlArn The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+         * @param routingControlArn ARN for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
          * 
          * @return builder
          * 
@@ -860,7 +860,7 @@ public final class HealthCheckState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param routingControlArn The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+         * @param routingControlArn ARN for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
          * 
          * @return builder
          * 

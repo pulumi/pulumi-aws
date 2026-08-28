@@ -14,15 +14,15 @@ namespace Pulumi.Aws.SesV2.Outputs
     public sealed class ConfigurationSetDeliveryOptions
     {
         /// <summary>
-        /// The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+        /// Maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must be greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
         /// </summary>
         public readonly int? MaxDeliverySeconds;
         /// <summary>
-        /// The name of the dedicated IP pool to associate with the configuration set.
+        /// Name of the dedicated IP pool to associate with the configuration set.
         /// </summary>
         public readonly string? SendingPoolName;
         /// <summary>
-        /// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). Valid values: `REQUIRE`, `OPTIONAL`.
+        /// Whether messages that use the configuration set are required to use TLS. Valid values: `REQUIRE`, `OPTIONAL`.
         /// </summary>
         public readonly string? TlsPolicy;
 

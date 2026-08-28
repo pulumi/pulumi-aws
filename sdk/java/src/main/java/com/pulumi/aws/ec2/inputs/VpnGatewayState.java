@@ -32,14 +32,14 @@ public final class VpnGatewayState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the VPN Gateway.
+     * ARN of the VPN Gateway.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the VPN Gateway.
+     * @return ARN of the VPN Gateway.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -173,7 +173,7 @@ public final class VpnGatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the VPN Gateway.
+         * @param arn ARN of the VPN Gateway.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class VpnGatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the VPN Gateway.
+         * @param arn ARN of the VPN Gateway.
          * 
          * @return builder
          * 

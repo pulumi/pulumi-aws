@@ -95,14 +95,14 @@ public class ModelCard extends com.pulumi.resources.CustomResource {
         return this.content;
     }
     /**
-     * The Amazon Resource Name (ARN) of the model card.
+     * ARN of the model card.
      * 
      */
     @Export(name="modelCardArn", refs={String.class}, tree="[0]")
     private Output<String> modelCardArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the model card.
+     * @return ARN of the model card.
      * 
      */
     public Output<String> modelCardArn() {

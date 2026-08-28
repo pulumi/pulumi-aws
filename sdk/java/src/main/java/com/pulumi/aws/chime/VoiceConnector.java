@@ -66,14 +66,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:chime/voiceConnector:VoiceConnector")
 public class VoiceConnector extends com.pulumi.resources.CustomResource {
     /**
-     * ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+     * ARN of the Amazon Chime Voice Connector.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+     * @return ARN of the Amazon Chime Voice Connector.
      * 
      */
     public Output<String> arn() {

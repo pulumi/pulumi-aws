@@ -19,14 +19,14 @@ public final class HubState extends com.pulumi.resources.ResourceArgs {
     public static final HubState Empty = new HubState();
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Hub.
+     * ARN assigned by AWS to this Hub.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Hub.
+     * @return ARN assigned by AWS to this Hub.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -186,7 +186,7 @@ public final class HubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Hub.
+         * @param arn ARN assigned by AWS to this Hub.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class HubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Hub.
+         * @param arn ARN assigned by AWS to this Hub.
          * 
          * @return builder
          * 

@@ -139,13 +139,13 @@ namespace Pulumi.Aws.SsoAdmin
     public partial class AccountAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the SSO Instance.
+        /// ARN of the SSO Instance.
         /// </summary>
         [Output("instanceArn")]
         public Output<string> InstanceArn { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+        /// ARN of the Permission Set that the admin wants to grant the principal access to.
         /// </summary>
         [Output("permissionSetArn")]
         public Output<string> PermissionSetArn { get; private set; } = null!;
@@ -227,13 +227,13 @@ namespace Pulumi.Aws.SsoAdmin
     public sealed class AccountAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the SSO Instance.
+        /// ARN of the SSO Instance.
         /// </summary>
         [Input("instanceArn", required: true)]
         public Input<string> InstanceArn { get; set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+        /// ARN of the Permission Set that the admin wants to grant the principal access to.
         /// </summary>
         [Input("permissionSetArn", required: true)]
         public Input<string> PermissionSetArn { get; set; } = null!;
@@ -277,13 +277,13 @@ namespace Pulumi.Aws.SsoAdmin
     public sealed class AccountAssignmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the SSO Instance.
+        /// ARN of the SSO Instance.
         /// </summary>
         [Input("instanceArn")]
         public Input<string>? InstanceArn { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+        /// ARN of the Permission Set that the admin wants to grant the principal access to.
         /// </summary>
         [Input("permissionSetArn")]
         public Input<string>? PermissionSetArn { get; set; }

@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Batch
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the job queue.
+    /// - `Arn` (String) ARN of the job queue.
     /// 
     /// Using `pulumi import`, import Batch Job Queue using the `Arn`. For example:
     /// 
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Batch
     public partial class JobQueue : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name of the job queue.
+        /// ARN of the job queue.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -305,7 +305,7 @@ namespace Pulumi.Aws.Batch
     public sealed class JobQueueState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name of the job queue.
+        /// ARN of the job queue.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

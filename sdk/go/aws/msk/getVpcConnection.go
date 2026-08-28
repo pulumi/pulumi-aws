@@ -72,7 +72,7 @@ type LookupVpcConnectionResult struct {
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Map of key-value pairs assigned to the VPC Connection.
 	Tags map[string]string `pulumi:"tags"`
-	// The Amazon Resource Name (ARN) of the cluster.
+	// ARN of the cluster.
 	TargetClusterArn string `pulumi:"targetClusterArn"`
 	// The VPC ID of the remote client.
 	VpcId string `pulumi:"vpcId"`
@@ -145,7 +145,7 @@ func (o LookupVpcConnectionResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupVpcConnectionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The Amazon Resource Name (ARN) of the cluster.
+// ARN of the cluster.
 func (o LookupVpcConnectionResultOutput) TargetClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcConnectionResult) string { return v.TargetClusterArn }).(pulumi.StringOutput)
 }

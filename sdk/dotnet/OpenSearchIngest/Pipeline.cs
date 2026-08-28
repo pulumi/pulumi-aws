@@ -163,7 +163,7 @@ namespace Pulumi.Aws.OpenSearchIngest
         public Output<int> MinUnits { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the pipeline.
+        /// ARN of the pipeline.
         /// </summary>
         [Output("pipelineArn")]
         public Output<string> PipelineArn { get; private set; } = null!;
@@ -386,7 +386,7 @@ namespace Pulumi.Aws.OpenSearchIngest
         public Input<int>? MinUnits { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the pipeline.
+        /// ARN of the pipeline.
         /// </summary>
         [Input("pipelineArn")]
         public Input<string>? PipelineArn { get; set; }

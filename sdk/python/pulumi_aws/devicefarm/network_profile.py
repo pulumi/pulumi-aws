@@ -270,7 +270,7 @@ class _NetworkProfileState:
         """
         Input properties used for looking up and filtering NetworkProfile resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of this network profile.
+        :param pulumi.Input[_builtins.str] arn: ARN of this network profile.
         :param pulumi.Input[_builtins.str] description: The description of the network profile.
         :param pulumi.Input[_builtins.int] downlink_bandwidth_bits: The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
         :param pulumi.Input[_builtins.int] downlink_delay_ms: Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
@@ -324,7 +324,7 @@ class _NetworkProfileState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name of this network profile.
+        ARN of this network profile.
         """
         return pulumi.get(self, "arn")
 
@@ -557,7 +557,7 @@ class NetworkProfile(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Device Farm network profile.
+        - `arn` (String) ARN of the Device Farm network profile.
 
         Using `pulumi import`, import DeviceFarm Network Profiles using their ARN. For example:
 
@@ -612,7 +612,7 @@ class NetworkProfile(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Device Farm network profile.
+        - `arn` (String) ARN of the Device Farm network profile.
 
         Using `pulumi import`, import DeviceFarm Network Profiles using their ARN. For example:
 
@@ -710,7 +710,7 @@ class NetworkProfile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of this network profile.
+        :param pulumi.Input[_builtins.str] arn: ARN of this network profile.
         :param pulumi.Input[_builtins.str] description: The description of the network profile.
         :param pulumi.Input[_builtins.int] downlink_bandwidth_bits: The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
         :param pulumi.Input[_builtins.int] downlink_delay_ms: Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
@@ -753,7 +753,7 @@ class NetworkProfile(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name of this network profile.
+        ARN of this network profile.
         """
         return pulumi.get(self, "arn")
 

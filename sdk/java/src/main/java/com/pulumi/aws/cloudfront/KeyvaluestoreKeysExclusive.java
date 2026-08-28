@@ -120,7 +120,7 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cloudfront/keyvaluestoreKeysExclusive:KeyvaluestoreKeysExclusive")
 public class KeyvaluestoreKeysExclusive extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the Key Value Store.
+     * ARN of the Key Value Store.
      * 
      * The following arguments are optional:
      * 
@@ -129,7 +129,7 @@ public class KeyvaluestoreKeysExclusive extends com.pulumi.resources.CustomResou
     private Output<String> keyValueStoreArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Key Value Store.
+     * @return ARN of the Key Value Store.
      * 
      * The following arguments are optional:
      * 

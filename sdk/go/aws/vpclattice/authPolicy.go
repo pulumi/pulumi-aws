@@ -87,7 +87,7 @@ type AuthPolicy struct {
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+	// ID or ARN of the service network or service for which the policy is created.
 	ResourceIdentifier pulumi.StringOutput `pulumi:"resourceIdentifier"`
 	// State of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
 	State pulumi.StringPtrOutput `pulumi:"state"`
@@ -133,7 +133,7 @@ type authPolicyState struct {
 	Policy *string `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+	// ID or ARN of the service network or service for which the policy is created.
 	ResourceIdentifier *string `pulumi:"resourceIdentifier"`
 	// State of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
 	State *string `pulumi:"state"`
@@ -144,7 +144,7 @@ type AuthPolicyState struct {
 	Policy pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+	// ID or ARN of the service network or service for which the policy is created.
 	ResourceIdentifier pulumi.StringPtrInput
 	// State of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
 	State pulumi.StringPtrInput
@@ -159,7 +159,7 @@ type authPolicyArgs struct {
 	Policy string `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+	// ID or ARN of the service network or service for which the policy is created.
 	ResourceIdentifier string `pulumi:"resourceIdentifier"`
 	// State of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
 	State *string `pulumi:"state"`
@@ -171,7 +171,7 @@ type AuthPolicyArgs struct {
 	Policy pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+	// ID or ARN of the service network or service for which the policy is created.
 	ResourceIdentifier pulumi.StringInput
 	// State of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
 	State pulumi.StringPtrInput
@@ -274,7 +274,7 @@ func (o AuthPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+// ID or ARN of the service network or service for which the policy is created.
 func (o AuthPolicyOutput) ResourceIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthPolicy) pulumi.StringOutput { return v.ResourceIdentifier }).(pulumi.StringOutput)
 }

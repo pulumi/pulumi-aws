@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the SNS topic.
+ * - `arn` (String) ARN of the SNS topic.
  * 
  * Using `pulumi import`, import SNS Data Protection Topic Policy using the topic ARN. For example:
  * 

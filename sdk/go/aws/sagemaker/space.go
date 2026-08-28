@@ -53,7 +53,7 @@ import (
 type Space struct {
 	pulumi.CustomResourceState
 
-	// The space's Amazon Resource Name (ARN).
+	// Space's ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ID of the associated Domain.
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
@@ -115,7 +115,7 @@ func GetSpace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Space resources.
 type spaceState struct {
-	// The space's Amazon Resource Name (ARN).
+	// Space's ARN.
 	Arn *string `pulumi:"arn"`
 	// The ID of the associated Domain.
 	DomainId *string `pulumi:"domainId"`
@@ -142,7 +142,7 @@ type spaceState struct {
 }
 
 type SpaceState struct {
-	// The space's Amazon Resource Name (ARN).
+	// Space's ARN.
 	Arn pulumi.StringPtrInput
 	// The ID of the associated Domain.
 	DomainId pulumi.StringPtrInput
@@ -298,7 +298,7 @@ func (o SpaceOutput) ToSpaceOutputWithContext(ctx context.Context) SpaceOutput {
 	return o
 }
 
-// The space's Amazon Resource Name (ARN).
+// Space's ARN.
 func (o SpaceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Space) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

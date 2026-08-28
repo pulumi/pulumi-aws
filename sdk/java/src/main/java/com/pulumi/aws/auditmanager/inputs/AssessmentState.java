@@ -22,14 +22,14 @@ public final class AssessmentState extends com.pulumi.resources.ResourceArgs {
     public static final AssessmentState Empty = new AssessmentState();
 
     /**
-     * Amazon Resource Name (ARN) of the assessment.
+     * ARN of the assessment.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the assessment.
+     * @return ARN of the assessment.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -233,7 +233,7 @@ public final class AssessmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the assessment.
+         * @param arn ARN of the assessment.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class AssessmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the assessment.
+         * @param arn ARN of the assessment.
          * 
          * @return builder
          * 

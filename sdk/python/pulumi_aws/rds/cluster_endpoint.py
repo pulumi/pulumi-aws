@@ -156,7 +156,7 @@ class _ClusterEndpointState:
         """
         Input properties used for looking up and filtering ClusterEndpoint resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of cluster
+        :param pulumi.Input[_builtins.str] arn: ARN of cluster
         :param pulumi.Input[_builtins.str] cluster_endpoint_identifier: The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
         :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier.
         :param pulumi.Input[_builtins.str] custom_endpoint_type: The type of the endpoint. One of: READER , ANY .
@@ -195,7 +195,7 @@ class _ClusterEndpointState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of cluster
+        ARN of cluster
         """
         return pulumi.get(self, "arn")
 
@@ -562,7 +562,7 @@ class ClusterEndpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of cluster
+        :param pulumi.Input[_builtins.str] arn: ARN of cluster
         :param pulumi.Input[_builtins.str] cluster_endpoint_identifier: The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
         :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier.
         :param pulumi.Input[_builtins.str] custom_endpoint_type: The type of the endpoint. One of: READER , ANY .
@@ -596,7 +596,7 @@ class ClusterEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of cluster
+        ARN of cluster
         """
         return pulumi.get(self, "arn")
 

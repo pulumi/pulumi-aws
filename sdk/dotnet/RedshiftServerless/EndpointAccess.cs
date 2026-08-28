@@ -49,7 +49,7 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<string> Address { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
+        /// ARN of the Redshift Serverless Endpoint Access.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -211,7 +211,7 @@ namespace Pulumi.Aws.RedshiftServerless
         public Input<string>? Address { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
+        /// ARN of the Redshift Serverless Endpoint Access.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

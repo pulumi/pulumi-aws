@@ -466,7 +466,7 @@ type FileCacheDataRepositoryAssociation struct {
 	ImportedFileChunkSize *int `pulumi:"importedFileChunkSize"`
 	// Configuration for a data repository association linked to an NFS file system. See `nfs` Block below.
 	Nfs []FileCacheDataRepositoryAssociationNf `pulumi:"nfs"`
-	// Amazon Resource Name (ARN) of the data repository association.
+	// ARN of the data repository association.
 	ResourceArn *string `pulumi:"resourceArn"`
 	// Map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -502,7 +502,7 @@ type FileCacheDataRepositoryAssociationArgs struct {
 	ImportedFileChunkSize pulumi.IntPtrInput `pulumi:"importedFileChunkSize"`
 	// Configuration for a data repository association linked to an NFS file system. See `nfs` Block below.
 	Nfs FileCacheDataRepositoryAssociationNfArrayInput `pulumi:"nfs"`
-	// Amazon Resource Name (ARN) of the data repository association.
+	// ARN of the data repository association.
 	ResourceArn pulumi.StringPtrInput `pulumi:"resourceArn"`
 	// Map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -604,7 +604,7 @@ func (o FileCacheDataRepositoryAssociationOutput) Nfs() FileCacheDataRepositoryA
 	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) []FileCacheDataRepositoryAssociationNf { return v.Nfs }).(FileCacheDataRepositoryAssociationNfArrayOutput)
 }
 
-// Amazon Resource Name (ARN) of the data repository association.
+// ARN of the data repository association.
 func (o FileCacheDataRepositoryAssociationOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) *string { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
@@ -887,7 +887,7 @@ func (o FileCacheLustreConfigurationArrayOutput) Index(i pulumi.IntInput) FileCa
 }
 
 type FileCacheLustreConfigurationLogConfiguration struct {
-	// Amazon Resource Name (ARN) of the destination that receives the logs.
+	// ARN of the destination that receives the logs.
 	Destination *string `pulumi:"destination"`
 	// Level of logging that Lustre logs write to the destination.
 	Level *string `pulumi:"level"`
@@ -905,7 +905,7 @@ type FileCacheLustreConfigurationLogConfigurationInput interface {
 }
 
 type FileCacheLustreConfigurationLogConfigurationArgs struct {
-	// Amazon Resource Name (ARN) of the destination that receives the logs.
+	// ARN of the destination that receives the logs.
 	Destination pulumi.StringPtrInput `pulumi:"destination"`
 	// Level of logging that Lustre logs write to the destination.
 	Level pulumi.StringPtrInput `pulumi:"level"`
@@ -962,7 +962,7 @@ func (o FileCacheLustreConfigurationLogConfigurationOutput) ToFileCacheLustreCon
 	return o
 }
 
-// Amazon Resource Name (ARN) of the destination that receives the logs.
+// ARN of the destination that receives the logs.
 func (o FileCacheLustreConfigurationLogConfigurationOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileCacheLustreConfigurationLogConfiguration) *string { return v.Destination }).(pulumi.StringPtrOutput)
 }
@@ -1246,7 +1246,7 @@ func (o LustreFileSystemDataReadCacheConfigurationPtrOutput) SizingMode() pulumi
 }
 
 type LustreFileSystemLogConfiguration struct {
-	// Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
+	// ARN that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
 	Destination *string `pulumi:"destination"`
 	// Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
 	Level *string `pulumi:"level"`
@@ -1264,7 +1264,7 @@ type LustreFileSystemLogConfigurationInput interface {
 }
 
 type LustreFileSystemLogConfigurationArgs struct {
-	// Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
+	// ARN that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
 	Destination pulumi.StringPtrInput `pulumi:"destination"`
 	// Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
 	Level pulumi.StringPtrInput `pulumi:"level"`
@@ -1347,7 +1347,7 @@ func (o LustreFileSystemLogConfigurationOutput) ToLustreFileSystemLogConfigurati
 	}).(LustreFileSystemLogConfigurationPtrOutput)
 }
 
-// Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
+// ARN that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
 func (o LustreFileSystemLogConfigurationOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LustreFileSystemLogConfiguration) *string { return v.Destination }).(pulumi.StringPtrOutput)
 }
@@ -1381,7 +1381,7 @@ func (o LustreFileSystemLogConfigurationPtrOutput) Elem() LustreFileSystemLogCon
 	}).(LustreFileSystemLogConfigurationOutput)
 }
 
-// Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
+// ARN that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
 func (o LustreFileSystemLogConfigurationPtrOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LustreFileSystemLogConfiguration) *string {
 		if v == nil {
@@ -5679,7 +5679,7 @@ func (o OpenZfsVolumeNfsExportsClientConfigurationArrayOutput) Index(i pulumi.In
 type OpenZfsVolumeOriginSnapshot struct {
 	// Specifies the strategy used when copying data from the snapshot to the new volume. Valid values are `CLONE`, `FULL_COPY`, `INCREMENTAL_COPY`.
 	CopyStrategy string `pulumi:"copyStrategy"`
-	// The Amazon Resource Name (ARN) of the origin snapshot.
+	// The ARN of the origin snapshot.
 	SnapshotArn string `pulumi:"snapshotArn"`
 }
 
@@ -5697,7 +5697,7 @@ type OpenZfsVolumeOriginSnapshotInput interface {
 type OpenZfsVolumeOriginSnapshotArgs struct {
 	// Specifies the strategy used when copying data from the snapshot to the new volume. Valid values are `CLONE`, `FULL_COPY`, `INCREMENTAL_COPY`.
 	CopyStrategy pulumi.StringInput `pulumi:"copyStrategy"`
-	// The Amazon Resource Name (ARN) of the origin snapshot.
+	// The ARN of the origin snapshot.
 	SnapshotArn pulumi.StringInput `pulumi:"snapshotArn"`
 }
 
@@ -5783,7 +5783,7 @@ func (o OpenZfsVolumeOriginSnapshotOutput) CopyStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenZfsVolumeOriginSnapshot) string { return v.CopyStrategy }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the origin snapshot.
+// The ARN of the origin snapshot.
 func (o OpenZfsVolumeOriginSnapshotOutput) SnapshotArn() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenZfsVolumeOriginSnapshot) string { return v.SnapshotArn }).(pulumi.StringOutput)
 }
@@ -5822,7 +5822,7 @@ func (o OpenZfsVolumeOriginSnapshotPtrOutput) CopyStrategy() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the origin snapshot.
+// The ARN of the origin snapshot.
 func (o OpenZfsVolumeOriginSnapshotPtrOutput) SnapshotArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenZfsVolumeOriginSnapshot) *string {
 		if v == nil {
@@ -6892,7 +6892,7 @@ func (o S3AccessPointAttachmentTimeoutsPtrOutput) Delete() pulumi.StringPtrOutpu
 }
 
 type WindowsFileSystemAuditLogConfiguration struct {
-	// Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
+	// ARN for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
 	AuditLogDestination *string `pulumi:"auditLogDestination"`
 	// Sets which attempt type is logged by Amazon FSx for file and folder accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
 	FileAccessAuditLogLevel *string `pulumi:"fileAccessAuditLogLevel"`
@@ -6912,7 +6912,7 @@ type WindowsFileSystemAuditLogConfigurationInput interface {
 }
 
 type WindowsFileSystemAuditLogConfigurationArgs struct {
-	// Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
+	// ARN for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
 	AuditLogDestination pulumi.StringPtrInput `pulumi:"auditLogDestination"`
 	// Sets which attempt type is logged by Amazon FSx for file and folder accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
 	FileAccessAuditLogLevel pulumi.StringPtrInput `pulumi:"fileAccessAuditLogLevel"`
@@ -6997,7 +6997,7 @@ func (o WindowsFileSystemAuditLogConfigurationOutput) ToWindowsFileSystemAuditLo
 	}).(WindowsFileSystemAuditLogConfigurationPtrOutput)
 }
 
-// Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
+// ARN for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
 func (o WindowsFileSystemAuditLogConfigurationOutput) AuditLogDestination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsFileSystemAuditLogConfiguration) *string { return v.AuditLogDestination }).(pulumi.StringPtrOutput)
 }
@@ -7036,7 +7036,7 @@ func (o WindowsFileSystemAuditLogConfigurationPtrOutput) Elem() WindowsFileSyste
 	}).(WindowsFileSystemAuditLogConfigurationOutput)
 }
 
-// Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
+// ARN for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
 func (o WindowsFileSystemAuditLogConfigurationPtrOutput) AuditLogDestination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsFileSystemAuditLogConfiguration) *string {
 		if v == nil {
@@ -7225,7 +7225,7 @@ func (o WindowsFileSystemDiskIopsConfigurationPtrOutput) Mode() pulumi.StringPtr
 type WindowsFileSystemSelfManagedActiveDirectory struct {
 	// List of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
 	DnsIps []string `pulumi:"dnsIps"`
-	// Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
+	// ARN for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
 	DomainJoinServiceAccountSecret *string `pulumi:"domainJoinServiceAccountSecret"`
 	// Fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
 	DomainName string `pulumi:"domainName"`
@@ -7258,7 +7258,7 @@ type WindowsFileSystemSelfManagedActiveDirectoryInput interface {
 type WindowsFileSystemSelfManagedActiveDirectoryArgs struct {
 	// List of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
 	DnsIps pulumi.StringArrayInput `pulumi:"dnsIps"`
-	// Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
+	// ARN for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
 	DomainJoinServiceAccountSecret pulumi.StringPtrInput `pulumi:"domainJoinServiceAccountSecret"`
 	// Fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
 	DomainName pulumi.StringInput `pulumi:"domainName"`
@@ -7359,7 +7359,7 @@ func (o WindowsFileSystemSelfManagedActiveDirectoryOutput) DnsIps() pulumi.Strin
 	return o.ApplyT(func(v WindowsFileSystemSelfManagedActiveDirectory) []string { return v.DnsIps }).(pulumi.StringArrayOutput)
 }
 
-// Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
+// ARN for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
 func (o WindowsFileSystemSelfManagedActiveDirectoryOutput) DomainJoinServiceAccountSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsFileSystemSelfManagedActiveDirectory) *string { return v.DomainJoinServiceAccountSecret }).(pulumi.StringPtrOutput)
 }
@@ -7436,7 +7436,7 @@ func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) DnsIps() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
-// Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
+// ARN for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
 func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) DomainJoinServiceAccountSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsFileSystemSelfManagedActiveDirectory) *string {
 		if v == nil {

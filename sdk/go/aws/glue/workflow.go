@@ -85,7 +85,7 @@ import (
 type Workflow struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of Glue Workflow
+	// ARN of Glue Workflow
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
 	DefaultRunProperties pulumi.StringMapOutput `pulumi:"defaultRunProperties"`
@@ -133,7 +133,7 @@ func GetWorkflow(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workflow resources.
 type workflowState struct {
-	// Amazon Resource Name (ARN) of Glue Workflow
+	// ARN of Glue Workflow
 	Arn *string `pulumi:"arn"`
 	// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
 	DefaultRunProperties map[string]string `pulumi:"defaultRunProperties"`
@@ -152,7 +152,7 @@ type workflowState struct {
 }
 
 type WorkflowState struct {
-	// Amazon Resource Name (ARN) of Glue Workflow
+	// ARN of Glue Workflow
 	Arn pulumi.StringPtrInput
 	// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
 	DefaultRunProperties pulumi.StringMapInput
@@ -292,7 +292,7 @@ func (o WorkflowOutput) ToWorkflowOutputWithContext(ctx context.Context) Workflo
 	return o
 }
 
-// Amazon Resource Name (ARN) of Glue Workflow
+// ARN of Glue Workflow
 func (o WorkflowOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

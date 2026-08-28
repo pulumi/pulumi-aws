@@ -262,7 +262,7 @@ class Group(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the X-Ray group.
+        - `arn` (String) ARN of the X-Ray group.
 
         Using `pulumi import`, import XRay Groups using the ARN. For example:
 
@@ -309,7 +309,7 @@ class Group(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the X-Ray group.
+        - `arn` (String) ARN of the X-Ray group.
 
         Using `pulumi import`, import XRay Groups using the ARN. For example:
 

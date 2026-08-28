@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Vpc
     public partial class SecurityGroupEgressRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the security group rule.
+        /// ARN of the security group rule.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.Vpc
     public sealed class SecurityGroupEgressRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the security group rule.
+        /// ARN of the security group rule.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

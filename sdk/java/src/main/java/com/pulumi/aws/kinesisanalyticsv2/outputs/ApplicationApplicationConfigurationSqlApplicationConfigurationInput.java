@@ -48,7 +48,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      */
     private @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput kinesisFirehoseInput;
     /**
-     * @return If the streaming source is a Kinesis data stream, identifies the stream&#39;s Amazon Resource Name (ARN).
+     * @return If the streaming source is a Kinesis data stream, identifies the stream&#39;s ARN.
      * 
      */
     private @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput kinesisStreamsInput;
@@ -102,7 +102,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         return Optional.ofNullable(this.kinesisFirehoseInput);
     }
     /**
-     * @return If the streaming source is a Kinesis data stream, identifies the stream&#39;s Amazon Resource Name (ARN).
+     * @return If the streaming source is a Kinesis data stream, identifies the stream&#39;s ARN.
      * 
      */
     public Optional<ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput> kinesisStreamsInput() {

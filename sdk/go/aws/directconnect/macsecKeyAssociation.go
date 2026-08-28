@@ -105,7 +105,7 @@ type MacsecKeyAssociation struct {
 	ConnectionId pulumi.StringOutput `pulumi:"connectionId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
+	// ARN of the MAC Security (MACsec) secret key to associate with the dedicated connection.
 	//
 	// > **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
 	SecretArn pulumi.StringOutput `pulumi:"secretArn"`
@@ -156,7 +156,7 @@ type macsecKeyAssociationState struct {
 	ConnectionId *string `pulumi:"connectionId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
+	// ARN of the MAC Security (MACsec) secret key to associate with the dedicated connection.
 	//
 	// > **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
 	SecretArn *string `pulumi:"secretArn"`
@@ -175,7 +175,7 @@ type MacsecKeyAssociationState struct {
 	ConnectionId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
+	// ARN of the MAC Security (MACsec) secret key to associate with the dedicated connection.
 	//
 	// > **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
 	SecretArn pulumi.StringPtrInput
@@ -198,7 +198,7 @@ type macsecKeyAssociationArgs struct {
 	ConnectionId string `pulumi:"connectionId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
+	// ARN of the MAC Security (MACsec) secret key to associate with the dedicated connection.
 	//
 	// > **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
 	SecretArn *string `pulumi:"secretArn"`
@@ -214,7 +214,7 @@ type MacsecKeyAssociationArgs struct {
 	ConnectionId pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
+	// ARN of the MAC Security (MACsec) secret key to associate with the dedicated connection.
 	//
 	// > **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
 	SecretArn pulumi.StringPtrInput
@@ -327,7 +327,7 @@ func (o MacsecKeyAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MacsecKeyAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
+// ARN of the MAC Security (MACsec) secret key to associate with the dedicated connection.
 //
 // > **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
 func (o MacsecKeyAssociationOutput) SecretArn() pulumi.StringOutput {

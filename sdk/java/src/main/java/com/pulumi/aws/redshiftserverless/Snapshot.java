@@ -107,14 +107,14 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
         return this.adminUsername;
     }
     /**
-     * The Amazon Resource Name (ARN) of the snapshot.
+     * ARN of the snapshot.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the snapshot.
+     * @return ARN of the snapshot.
      * 
      */
     public Output<String> arn() {
@@ -135,14 +135,14 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
         return this.kmsKeyId;
     }
     /**
-     * The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
+     * ARN of the namespace the snapshot was created from.
      * 
      */
     @Export(name="namespaceArn", refs={String.class}, tree="[0]")
     private Output<String> namespaceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
+     * @return ARN of the namespace the snapshot was created from.
      * 
      */
     public Output<String> namespaceArn() {

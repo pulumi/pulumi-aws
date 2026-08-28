@@ -62,7 +62,7 @@ public final class StandardsControlAssociationArgs extends com.pulumi.resources.
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the standard in which you want to update the control&#39;s enablement status.
+     * ARN of the standard in which you want to update the control&#39;s enablement status.
      * 
      * The following arguments are optional:
      * 
@@ -71,7 +71,7 @@ public final class StandardsControlAssociationArgs extends com.pulumi.resources.
     private Output<String> standardsArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the standard in which you want to update the control&#39;s enablement status.
+     * @return ARN of the standard in which you want to update the control&#39;s enablement status.
      * 
      * The following arguments are optional:
      * 
@@ -187,7 +187,7 @@ public final class StandardsControlAssociationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param standardsArn The Amazon Resource Name (ARN) of the standard in which you want to update the control&#39;s enablement status.
+         * @param standardsArn ARN of the standard in which you want to update the control&#39;s enablement status.
          * 
          * The following arguments are optional:
          * 
@@ -200,7 +200,7 @@ public final class StandardsControlAssociationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param standardsArn The Amazon Resource Name (ARN) of the standard in which you want to update the control&#39;s enablement status.
+         * @param standardsArn ARN of the standard in which you want to update the control&#39;s enablement status.
          * 
          * The following arguments are optional:
          * 

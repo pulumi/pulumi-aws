@@ -15,14 +15,14 @@ public final class ConfigurationSetEventDestinationEventDestinationEventBridgeDe
     public static final ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs Empty = new ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
+     * ARN of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
      * 
      */
     @Import(name="eventBusArn", required=true)
     private Output<String> eventBusArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
+     * @return ARN of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
      * 
      */
     public Output<String> eventBusArn() {
@@ -54,7 +54,7 @@ public final class ConfigurationSetEventDestinationEventDestinationEventBridgeDe
         }
 
         /**
-         * @param eventBusArn The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
+         * @param eventBusArn ARN of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ConfigurationSetEventDestinationEventDestinationEventBridgeDe
         }
 
         /**
-         * @param eventBusArn The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
+         * @param eventBusArn ARN of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
          * 
          * @return builder
          * 

@@ -75,7 +75,7 @@ type LookupMountTargetResult struct {
 	AvailabilityZoneName string `pulumi:"availabilityZoneName"`
 	// DNS name for the EFS file system.
 	DnsName string `pulumi:"dnsName"`
-	// Amazon Resource Name of the file system for which the mount target is intended.
+	// ARN of the file system for which the mount target is intended.
 	FileSystemArn string `pulumi:"fileSystemArn"`
 	FileSystemId  string `pulumi:"fileSystemId"`
 	// The provider-assigned unique ID for this managed resource.
@@ -155,7 +155,7 @@ func (o LookupMountTargetResultOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMountTargetResult) string { return v.DnsName }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name of the file system for which the mount target is intended.
+// ARN of the file system for which the mount target is intended.
 func (o LookupMountTargetResultOutput) FileSystemArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMountTargetResult) string { return v.FileSystemArn }).(pulumi.StringOutput)
 }

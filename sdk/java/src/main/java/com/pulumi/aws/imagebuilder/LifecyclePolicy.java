@@ -121,9 +121,9 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Image Builder lifecycle policy.
+ * - `arn` (String) ARN of the Image Builder lifecycle policy.
  * 
- * Using `pulumi import`, import `aws.imagebuilder.LifecyclePolicy` using the Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.imagebuilder.LifecyclePolicy` using the ARN. For example:
  * 
  * ```sh
  * $ pulumi import aws:imagebuilder/lifecyclePolicy:LifecyclePolicy example arn:aws:imagebuilder:us-east-1:123456789012:lifecycle-policy/example
@@ -133,14 +133,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:imagebuilder/lifecyclePolicy:LifecyclePolicy")
 public class LifecyclePolicy extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the lifecycle policy.
+     * ARN of the lifecycle policy.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the lifecycle policy.
+     * @return ARN of the lifecycle policy.
      * 
      */
     public Output<String> arn() {
@@ -161,14 +161,14 @@ public class LifecyclePolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
+     * ARN for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
      * 
      */
     @Export(name="executionRole", refs={String.class}, tree="[0]")
     private Output<String> executionRole;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
+     * @return ARN for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
      * 
      */
     public Output<String> executionRole() {

@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Inspector filter.
+ * - `arn` (String) ARN of the Inspector filter.
  * 
  * Using `pulumi import`, import Inspector Filter using the `arn`. For example:
  * 

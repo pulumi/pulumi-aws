@@ -63,7 +63,7 @@ export class CustomDataIdentifier extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the custom data identifier.
+     * ARN of the custom data identifier.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -161,7 +161,7 @@ export class CustomDataIdentifier extends pulumi.CustomResource {
  */
 export interface CustomDataIdentifierState {
     /**
-     * The Amazon Resource Name (ARN) of the custom data identifier.
+     * ARN of the custom data identifier.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

@@ -41,7 +41,7 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfig
      */
     private @Nullable String replyTo;
     /**
-     * @return The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
+     * @return ARN of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
      * 
      */
     private String sourceArn;
@@ -83,7 +83,7 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfig
         return Optional.ofNullable(this.replyTo);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
+     * @return ARN of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
      * 
      */
     public String sourceArn() {

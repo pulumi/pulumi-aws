@@ -18,7 +18,7 @@ import java.util.Objects;
 @CustomType
 public final class GetCloudVmClusterResult {
     /**
-     * @return Amazon Resource Name (ARN) for the cloud vm cluster.
+     * @return ARN for the cloud vm cluster.
      * 
      */
     private String arn;
@@ -232,7 +232,7 @@ public final class GetCloudVmClusterResult {
 
     private GetCloudVmClusterResult() {}
     /**
-     * @return Amazon Resource Name (ARN) for the cloud vm cluster.
+     * @return ARN for the cloud vm cluster.
      * 
      */
     public String arn() {

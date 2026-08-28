@@ -105,14 +105,14 @@ public class Profile extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.acceptRoleSessionName);
     }
     /**
-     * Amazon Resource Name (ARN) of the Profile
+     * ARN of the Profile
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Profile
+     * @return ARN of the Profile
      * 
      */
     public Output<String> arn() {

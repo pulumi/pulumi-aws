@@ -71,7 +71,7 @@ export class IdentityPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * Name or Amazon Resource Name (ARN) of the SES Identity.
+     * Name or ARN of the SES Identity.
      */
     declare public readonly identity: pulumi.Output<string>;
     /**
@@ -127,7 +127,7 @@ export class IdentityPolicy extends pulumi.CustomResource {
  */
 export interface IdentityPolicyState {
     /**
-     * Name or Amazon Resource Name (ARN) of the SES Identity.
+     * Name or ARN of the SES Identity.
      */
     identity?: pulumi.Input<string | undefined>;
     /**
@@ -149,7 +149,7 @@ export interface IdentityPolicyState {
  */
 export interface IdentityPolicyArgs {
     /**
-     * Name or Amazon Resource Name (ARN) of the SES Identity.
+     * Name or ARN of the SES Identity.
      */
     identity: pulumi.Input<string>;
     /**

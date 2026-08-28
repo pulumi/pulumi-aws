@@ -96,7 +96,7 @@ export class EventStream extends pulumi.CustomResource {
      */
     declare public readonly applicationId: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+     * ARN of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
      *
      * @deprecated destination_stream_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
      */
@@ -161,7 +161,7 @@ export interface EventStreamState {
      */
     applicationId?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+     * ARN of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
      *
      * @deprecated destination_stream_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
      */
@@ -189,7 +189,7 @@ export interface EventStreamArgs {
      */
     applicationId: pulumi.Input<string>;
     /**
-     * Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+     * ARN of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
      *
      * @deprecated destination_stream_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
      */

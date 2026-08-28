@@ -129,7 +129,7 @@ export class ListenerRule extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * ID or Amazon Resource Name (ARN) of the listener.
+     * ID or ARN of the listener.
      */
     declare public readonly listenerIdentifier: pulumi.Output<string>;
     /**
@@ -153,7 +153,7 @@ export class ListenerRule extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly ruleId: pulumi.Output<string>;
     /**
-     * ID or Amazon Resource Name (ARN) of the service.
+     * ID or ARN of the service.
      *
      * The following arguments are optional:
      */
@@ -238,7 +238,7 @@ export interface ListenerRuleState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * ID or Amazon Resource Name (ARN) of the listener.
+     * ID or ARN of the listener.
      */
     listenerIdentifier?: pulumi.Input<string | undefined>;
     /**
@@ -262,7 +262,7 @@ export interface ListenerRuleState {
      */
     ruleId?: pulumi.Input<string | undefined>;
     /**
-     * ID or Amazon Resource Name (ARN) of the service.
+     * ID or ARN of the service.
      *
      * The following arguments are optional:
      */
@@ -286,7 +286,7 @@ export interface ListenerRuleArgs {
      */
     action: pulumi.Input<inputs.vpclattice.ListenerRuleAction>;
     /**
-     * ID or Amazon Resource Name (ARN) of the listener.
+     * ID or ARN of the listener.
      */
     listenerIdentifier: pulumi.Input<string>;
     /**
@@ -306,7 +306,7 @@ export interface ListenerRuleArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * ID or Amazon Resource Name (ARN) of the service.
+     * ID or ARN of the service.
      *
      * The following arguments are optional:
      */

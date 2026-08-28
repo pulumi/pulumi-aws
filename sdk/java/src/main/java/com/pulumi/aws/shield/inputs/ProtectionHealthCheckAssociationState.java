@@ -16,14 +16,14 @@ public final class ProtectionHealthCheckAssociationState extends com.pulumi.reso
     public static final ProtectionHealthCheckAssociationState Empty = new ProtectionHealthCheckAssociationState();
 
     /**
-     * The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+     * ARN of the Route53 Health Check resource which will be associated to the protected resource.
      * 
      */
     @Import(name="healthCheckArn")
     private @Nullable Output<String> healthCheckArn;
 
     /**
-     * @return The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+     * @return ARN of the Route53 Health Check resource which will be associated to the protected resource.
      * 
      */
     public Optional<Output<String>> healthCheckArn() {
@@ -71,7 +71,7 @@ public final class ProtectionHealthCheckAssociationState extends com.pulumi.reso
         }
 
         /**
-         * @param healthCheckArn The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+         * @param healthCheckArn ARN of the Route53 Health Check resource which will be associated to the protected resource.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ProtectionHealthCheckAssociationState extends com.pulumi.reso
         }
 
         /**
-         * @param healthCheckArn The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+         * @param healthCheckArn ARN of the Route53 Health Check resource which will be associated to the protected resource.
          * 
          * @return builder
          * 

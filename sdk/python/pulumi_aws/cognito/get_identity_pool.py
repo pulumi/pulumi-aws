@@ -135,7 +135,7 @@ class GetIdentityPoolResult:
     @pulumi.getter(name="samlProviderArns")
     def saml_provider_arns(self) -> Sequence[_builtins.str]:
         """
-        An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+        Array of ARNs of the SAML provider for your identity.
         """
         return pulumi.get(self, "saml_provider_arns")
 

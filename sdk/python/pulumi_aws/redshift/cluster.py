@@ -76,13 +76,13 @@ class ClusterArgs:
         :param pulumi.Input[_builtins.str] availability_zone: The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
         :param pulumi.Input[_builtins.bool] availability_zone_relocation_enabled: If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
         :param pulumi.Input[_builtins.str] cluster_parameter_group_name: The name of the parameter group to be associated with this cluster.
-        :param pulumi.Input[_builtins.str] cluster_subnet_group_name: The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+        :param pulumi.Input[_builtins.str] cluster_subnet_group_name: Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
         :param pulumi.Input[_builtins.str] cluster_type: The cluster type to use. Either `single-node` or `multi-node`.
         :param pulumi.Input[_builtins.str] cluster_version: The version of the Amazon Redshift engine software that you want to deploy on the cluster.
                The version selected runs on all the nodes in the cluster.
         :param pulumi.Input[_builtins.str] database_name: The name of the first database to be created when the cluster is created.
                If you do not provide a name, Amazon Redshift will create a default database called `dev`.
-        :param pulumi.Input[_builtins.str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        :param pulumi.Input[_builtins.str] default_iam_role_arn: ARN for the IAM role that was set as default for the cluster when the cluster was created.
         :param pulumi.Input[_builtins.str] elastic_ip: The Elastic IP (EIP) address for the cluster.
         :param pulumi.Input[_builtins.str] encrypted: If true , the data in the cluster is encrypted at rest.
                Default is `true`.
@@ -128,7 +128,7 @@ class ClusterArgs:
                
                For more detailed documentation about each argument, refer to
                the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security groups to be associated with the cluster.
         """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         pulumi.set(__self__, "node_type", node_type)
@@ -329,7 +329,7 @@ class ClusterArgs:
     @pulumi.getter(name="clusterSubnetGroupName")
     def cluster_subnet_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+        Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
         """
         return pulumi.get(self, "cluster_subnet_group_name")
 
@@ -379,7 +379,7 @@ class ClusterArgs:
     @pulumi.getter(name="defaultIamRoleArn")
     def default_iam_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        ARN for the IAM role that was set as default for the cluster when the cluster was created.
         """
         return pulumi.get(self, "default_iam_role_arn")
 
@@ -722,7 +722,7 @@ class ClusterArgs:
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+        List of VPC security groups to be associated with the cluster.
         """
         return pulumi.get(self, "vpc_security_group_ids")
 
@@ -792,23 +792,23 @@ class _ClusterState:
         :param pulumi.Input[_builtins.str] aqua_configuration_status: The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
                No longer supported by the AWS API.
                Always returns `auto`.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of cluster
+        :param pulumi.Input[_builtins.str] arn: ARN of cluster
         :param pulumi.Input[_builtins.int] automated_snapshot_retention_period: The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
         :param pulumi.Input[_builtins.str] availability_zone: The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
         :param pulumi.Input[_builtins.bool] availability_zone_relocation_enabled: If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
         :param pulumi.Input[_builtins.str] cluster_identifier: The Cluster Identifier. Must be a lower case string.
-        :param pulumi.Input[_builtins.str] cluster_namespace_arn: The namespace Amazon Resource Name (ARN) of the cluster
+        :param pulumi.Input[_builtins.str] cluster_namespace_arn: Namespace ARN of the cluster
         :param pulumi.Input[Sequence[pulumi.Input['ClusterClusterNodeArgs']]] cluster_nodes: The nodes in the cluster. Cluster node blocks are documented below
         :param pulumi.Input[_builtins.str] cluster_parameter_group_name: The name of the parameter group to be associated with this cluster.
         :param pulumi.Input[_builtins.str] cluster_public_key: The public key for the cluster
         :param pulumi.Input[_builtins.str] cluster_revision_number: The specific revision number of the database in the cluster
-        :param pulumi.Input[_builtins.str] cluster_subnet_group_name: The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+        :param pulumi.Input[_builtins.str] cluster_subnet_group_name: Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
         :param pulumi.Input[_builtins.str] cluster_type: The cluster type to use. Either `single-node` or `multi-node`.
         :param pulumi.Input[_builtins.str] cluster_version: The version of the Amazon Redshift engine software that you want to deploy on the cluster.
                The version selected runs on all the nodes in the cluster.
         :param pulumi.Input[_builtins.str] database_name: The name of the first database to be created when the cluster is created.
                If you do not provide a name, Amazon Redshift will create a default database called `dev`.
-        :param pulumi.Input[_builtins.str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        :param pulumi.Input[_builtins.str] default_iam_role_arn: ARN for the IAM role that was set as default for the cluster when the cluster was created.
         :param pulumi.Input[_builtins.str] dns_name: The DNS name of the cluster
         :param pulumi.Input[_builtins.str] elastic_ip: The Elastic IP (EIP) address for the cluster.
         :param pulumi.Input[_builtins.str] encrypted: If true , the data in the cluster is encrypted at rest.
@@ -859,7 +859,7 @@ class _ClusterState:
                For more detailed documentation about each argument, refer to
                the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security groups to be associated with the cluster.
         """
         if allow_version_upgrade is not None:
             pulumi.set(__self__, "allow_version_upgrade", allow_version_upgrade)
@@ -1008,7 +1008,7 @@ class _ClusterState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of cluster
+        ARN of cluster
         """
         return pulumi.get(self, "arn")
 
@@ -1068,7 +1068,7 @@ class _ClusterState:
     @pulumi.getter(name="clusterNamespaceArn")
     def cluster_namespace_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The namespace Amazon Resource Name (ARN) of the cluster
+        Namespace ARN of the cluster
         """
         return pulumi.get(self, "cluster_namespace_arn")
 
@@ -1128,7 +1128,7 @@ class _ClusterState:
     @pulumi.getter(name="clusterSubnetGroupName")
     def cluster_subnet_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+        Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
         """
         return pulumi.get(self, "cluster_subnet_group_name")
 
@@ -1178,7 +1178,7 @@ class _ClusterState:
     @pulumi.getter(name="defaultIamRoleArn")
     def default_iam_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        ARN for the IAM role that was set as default for the cluster when the cluster was created.
         """
         return pulumi.get(self, "default_iam_role_arn")
 
@@ -1581,7 +1581,7 @@ class _ClusterState:
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+        List of VPC security groups to be associated with the cluster.
         """
         return pulumi.get(self, "vpc_security_group_ids")
 
@@ -1698,13 +1698,13 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] availability_zone_relocation_enabled: If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
         :param pulumi.Input[_builtins.str] cluster_identifier: The Cluster Identifier. Must be a lower case string.
         :param pulumi.Input[_builtins.str] cluster_parameter_group_name: The name of the parameter group to be associated with this cluster.
-        :param pulumi.Input[_builtins.str] cluster_subnet_group_name: The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+        :param pulumi.Input[_builtins.str] cluster_subnet_group_name: Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
         :param pulumi.Input[_builtins.str] cluster_type: The cluster type to use. Either `single-node` or `multi-node`.
         :param pulumi.Input[_builtins.str] cluster_version: The version of the Amazon Redshift engine software that you want to deploy on the cluster.
                The version selected runs on all the nodes in the cluster.
         :param pulumi.Input[_builtins.str] database_name: The name of the first database to be created when the cluster is created.
                If you do not provide a name, Amazon Redshift will create a default database called `dev`.
-        :param pulumi.Input[_builtins.str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        :param pulumi.Input[_builtins.str] default_iam_role_arn: ARN for the IAM role that was set as default for the cluster when the cluster was created.
         :param pulumi.Input[_builtins.str] elastic_ip: The Elastic IP (EIP) address for the cluster.
         :param pulumi.Input[_builtins.str] encrypted: If true , the data in the cluster is encrypted at rest.
                Default is `true`.
@@ -1751,7 +1751,7 @@ class Cluster(pulumi.CustomResource):
                
                For more detailed documentation about each argument, refer to
                the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security groups to be associated with the cluster.
         """
         ...
     @overload
@@ -2000,23 +2000,23 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] aqua_configuration_status: The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
                No longer supported by the AWS API.
                Always returns `auto`.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of cluster
+        :param pulumi.Input[_builtins.str] arn: ARN of cluster
         :param pulumi.Input[_builtins.int] automated_snapshot_retention_period: The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
         :param pulumi.Input[_builtins.str] availability_zone: The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
         :param pulumi.Input[_builtins.bool] availability_zone_relocation_enabled: If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
         :param pulumi.Input[_builtins.str] cluster_identifier: The Cluster Identifier. Must be a lower case string.
-        :param pulumi.Input[_builtins.str] cluster_namespace_arn: The namespace Amazon Resource Name (ARN) of the cluster
+        :param pulumi.Input[_builtins.str] cluster_namespace_arn: Namespace ARN of the cluster
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterClusterNodeArgs', 'ClusterClusterNodeArgsDict']]]] cluster_nodes: The nodes in the cluster. Cluster node blocks are documented below
         :param pulumi.Input[_builtins.str] cluster_parameter_group_name: The name of the parameter group to be associated with this cluster.
         :param pulumi.Input[_builtins.str] cluster_public_key: The public key for the cluster
         :param pulumi.Input[_builtins.str] cluster_revision_number: The specific revision number of the database in the cluster
-        :param pulumi.Input[_builtins.str] cluster_subnet_group_name: The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+        :param pulumi.Input[_builtins.str] cluster_subnet_group_name: Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
         :param pulumi.Input[_builtins.str] cluster_type: The cluster type to use. Either `single-node` or `multi-node`.
         :param pulumi.Input[_builtins.str] cluster_version: The version of the Amazon Redshift engine software that you want to deploy on the cluster.
                The version selected runs on all the nodes in the cluster.
         :param pulumi.Input[_builtins.str] database_name: The name of the first database to be created when the cluster is created.
                If you do not provide a name, Amazon Redshift will create a default database called `dev`.
-        :param pulumi.Input[_builtins.str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        :param pulumi.Input[_builtins.str] default_iam_role_arn: ARN for the IAM role that was set as default for the cluster when the cluster was created.
         :param pulumi.Input[_builtins.str] dns_name: The DNS name of the cluster
         :param pulumi.Input[_builtins.str] elastic_ip: The Elastic IP (EIP) address for the cluster.
         :param pulumi.Input[_builtins.str] encrypted: If true , the data in the cluster is encrypted at rest.
@@ -2067,7 +2067,7 @@ class Cluster(pulumi.CustomResource):
                For more detailed documentation about each argument, refer to
                the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security groups to be associated with the cluster.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -2156,7 +2156,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of cluster
+        ARN of cluster
         """
         return pulumi.get(self, "arn")
 
@@ -2196,7 +2196,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="clusterNamespaceArn")
     def cluster_namespace_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The namespace Amazon Resource Name (ARN) of the cluster
+        Namespace ARN of the cluster
         """
         return pulumi.get(self, "cluster_namespace_arn")
 
@@ -2236,7 +2236,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="clusterSubnetGroupName")
     def cluster_subnet_group_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+        Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
         """
         return pulumi.get(self, "cluster_subnet_group_name")
 
@@ -2270,7 +2270,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="defaultIamRoleArn")
     def default_iam_role_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        ARN for the IAM role that was set as default for the cluster when the cluster was created.
         """
         return pulumi.get(self, "default_iam_role_arn")
 
@@ -2545,7 +2545,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+        List of VPC security groups to be associated with the cluster.
         """
         return pulumi.get(self, "vpc_security_group_ids")
 

@@ -62,7 +62,7 @@ public final class AwsFunctions {
     /**
      * Builds an ARN from its constituent parts.
      * 
-     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on ARNs.
      * 
      * ## Signature
      * 
@@ -73,7 +73,7 @@ public final class AwsFunctions {
     /**
      * Builds an ARN from its constituent parts.
      * 
-     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on ARNs.
      * 
      * ## Signature
      * 
@@ -84,7 +84,7 @@ public final class AwsFunctions {
     /**
      * Builds an ARN from its constituent parts.
      * 
-     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on ARNs.
      * 
      * ## Signature
      * 
@@ -95,7 +95,7 @@ public final class AwsFunctions {
     /**
      * Builds an ARN from its constituent parts.
      * 
-     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on ARNs.
      * 
      * ## Signature
      * 
@@ -106,7 +106,7 @@ public final class AwsFunctions {
     /**
      * Builds an ARN from its constituent parts.
      * 
-     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on ARNs.
      * 
      * ## Signature
      * 
@@ -117,7 +117,7 @@ public final class AwsFunctions {
     /**
      * Parses an ARN into its constituent parts.
      * 
-     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on ARNs.
      * 
      * ## Signature
      * 
@@ -128,7 +128,7 @@ public final class AwsFunctions {
     /**
      * Parses an ARN into its constituent parts.
      * 
-     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on ARNs.
      * 
      * ## Signature
      * 
@@ -139,7 +139,7 @@ public final class AwsFunctions {
     /**
      * Parses an ARN into its constituent parts.
      * 
-     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on ARNs.
      * 
      * ## Signature
      * 
@@ -150,7 +150,7 @@ public final class AwsFunctions {
     /**
      * Parses an ARN into its constituent parts.
      * 
-     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on ARNs.
      * 
      * ## Signature
      * 
@@ -161,7 +161,7 @@ public final class AwsFunctions {
     /**
      * Parses an ARN into its constituent parts.
      * 
-     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on ARNs.
      * 
      * ## Signature
      * 
@@ -6038,7 +6038,7 @@ public final class AwsFunctions {
         return Deployment.getInstance().invokeAsync("aws:index/getServicePrincipal:getServicePrincipal", TypeShape.of(GetServicePrincipalResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Trims the path prefix from an IAM role Amazon Resource Name (ARN).
+     * Trims the path prefix from an IAM role ARN.
      * This function can be used when services require role ARNs to be passed without a path.
      * 
      * See the [AWS IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsidentityandaccessmanagementiam.html#awsidentityandaccessmanagementiam-resources-for-iam-policies) for additional information on IAM role ARNs.
@@ -6050,7 +6050,7 @@ public final class AwsFunctions {
         return trimIamRolePath(arn, InvokeOptions.Empty);
     }
     /**
-     * Trims the path prefix from an IAM role Amazon Resource Name (ARN).
+     * Trims the path prefix from an IAM role ARN.
      * This function can be used when services require role ARNs to be passed without a path.
      * 
      * See the [AWS IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsidentityandaccessmanagementiam.html#awsidentityandaccessmanagementiam-resources-for-iam-policies) for additional information on IAM role ARNs.
@@ -6062,7 +6062,7 @@ public final class AwsFunctions {
         return trimIamRolePathPlain(arn, InvokeOptions.Empty);
     }
     /**
-     * Trims the path prefix from an IAM role Amazon Resource Name (ARN).
+     * Trims the path prefix from an IAM role ARN.
      * This function can be used when services require role ARNs to be passed without a path.
      * 
      * See the [AWS IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsidentityandaccessmanagementiam.html#awsidentityandaccessmanagementiam-resources-for-iam-policies) for additional information on IAM role ARNs.
@@ -6074,7 +6074,7 @@ public final class AwsFunctions {
         return Deployment.getInstance().invoke("aws:index/trimIamRolePath:trimIamRolePath", TypeShape.of(Void.class), TrimIamRolePathArgs.builder().arn(arn).build(), Utilities.withVersion(options));
     }
     /**
-     * Trims the path prefix from an IAM role Amazon Resource Name (ARN).
+     * Trims the path prefix from an IAM role ARN.
      * This function can be used when services require role ARNs to be passed without a path.
      * 
      * See the [AWS IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsidentityandaccessmanagementiam.html#awsidentityandaccessmanagementiam-resources-for-iam-policies) for additional information on IAM role ARNs.
@@ -6086,7 +6086,7 @@ public final class AwsFunctions {
         return Deployment.getInstance().invoke("aws:index/trimIamRolePath:trimIamRolePath", TypeShape.of(Void.class), TrimIamRolePathArgs.builder().arn(arn).build(), Utilities.withVersion(options));
     }
     /**
-     * Trims the path prefix from an IAM role Amazon Resource Name (ARN).
+     * Trims the path prefix from an IAM role ARN.
      * This function can be used when services require role ARNs to be passed without a path.
      * 
      * See the [AWS IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsidentityandaccessmanagementiam.html#awsidentityandaccessmanagementiam-resources-for-iam-policies) for additional information on IAM role ARNs.

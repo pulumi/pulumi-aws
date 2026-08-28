@@ -60,7 +60,7 @@ namespace Pulumi.Aws.CloudWatch
     public partial class EventApiDestination : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the event API Destination.
+        /// ARN of the event API Destination.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class EventApiDestinationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the event API Destination.
+        /// ARN of the event API Destination.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

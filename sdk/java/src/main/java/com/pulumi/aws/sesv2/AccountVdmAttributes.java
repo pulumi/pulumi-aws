@@ -73,28 +73,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sesv2/accountVdmAttributes:AccountVdmAttributes")
 public class AccountVdmAttributes extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+     * Additional settings for your VDM configuration as applicable to the Dashboard.
      * 
      */
     @Export(name="dashboardAttributes", refs={AccountVdmAttributesDashboardAttributes.class}, tree="[0]")
     private Output<AccountVdmAttributesDashboardAttributes> dashboardAttributes;
 
     /**
-     * @return Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+     * @return Additional settings for your VDM configuration as applicable to the Dashboard.
      * 
      */
     public Output<AccountVdmAttributesDashboardAttributes> dashboardAttributes() {
         return this.dashboardAttributes;
     }
     /**
-     * Specifies additional settings for your VDM configuration as applicable to the Guardian.
+     * Additional settings for your VDM configuration as applicable to the Guardian.
      * 
      */
     @Export(name="guardianAttributes", refs={AccountVdmAttributesGuardianAttributes.class}, tree="[0]")
     private Output<AccountVdmAttributesGuardianAttributes> guardianAttributes;
 
     /**
-     * @return Specifies additional settings for your VDM configuration as applicable to the Guardian.
+     * @return Additional settings for your VDM configuration as applicable to the Guardian.
      * 
      */
     public Output<AccountVdmAttributesGuardianAttributes> guardianAttributes() {
@@ -115,7 +115,7 @@ public class AccountVdmAttributes extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
+     * Status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
      * 
      * The following arguments are optional:
      * 
@@ -124,7 +124,7 @@ public class AccountVdmAttributes extends com.pulumi.resources.CustomResource {
     private Output<String> vdmEnabled;
 
     /**
-     * @return Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
+     * @return Status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
      * 
      * The following arguments are optional:
      * 

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating Amazon Redshift subnet group.
+ * Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing VPC when creating Amazon Redshift subnet group.
  *
  * ## Example Usage
  *
@@ -79,7 +79,7 @@ export class SubnetGroup extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Redshift Subnet group name
+     * ARN of the Redshift Subnet group name
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -150,7 +150,7 @@ export class SubnetGroup extends pulumi.CustomResource {
  */
 export interface SubnetGroupState {
     /**
-     * Amazon Resource Name (ARN) of the Redshift Subnet group name
+     * ARN of the Redshift Subnet group name
      */
     arn?: pulumi.Input<string | undefined>;
     /**

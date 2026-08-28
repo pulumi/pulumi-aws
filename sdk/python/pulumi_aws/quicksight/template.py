@@ -186,7 +186,7 @@ class _TemplateState:
         :param pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArgs']]] permissions: A set of resource permissions on the template. Maximum of 64 items. See permissions.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['TemplateSourceEntityArgs'] source_entity: The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
-        :param pulumi.Input[_builtins.str] source_entity_arn: Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
+        :param pulumi.Input[_builtins.str] source_entity_arn: ARN of an analysis or template that was used to create this template.
         :param pulumi.Input[_builtins.str] status: The template creation status.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -327,7 +327,7 @@ class _TemplateState:
     @pulumi.getter(name="sourceEntityArn")
     def source_entity_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
+        ARN of an analysis or template that was used to create this template.
         """
         return pulumi.get(self, "source_entity_arn")
 
@@ -727,7 +727,7 @@ class Template(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['TemplatePermissionArgs', 'TemplatePermissionArgsDict']]]] permissions: A set of resource permissions on the template. Maximum of 64 items. See permissions.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['TemplateSourceEntityArgs', 'TemplateSourceEntityArgsDict']] source_entity: The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
-        :param pulumi.Input[_builtins.str] source_entity_arn: Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
+        :param pulumi.Input[_builtins.str] source_entity_arn: ARN of an analysis or template that was used to create this template.
         :param pulumi.Input[_builtins.str] status: The template creation status.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -826,7 +826,7 @@ class Template(pulumi.CustomResource):
     @pulumi.getter(name="sourceEntityArn")
     def source_entity_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
+        ARN of an analysis or template that was used to create this template.
         """
         return pulumi.get(self, "source_entity_arn")
 

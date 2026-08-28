@@ -253,14 +253,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:route53/healthCheck:HealthCheck")
 public class HealthCheck extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the Health Check.
+     * ARN of the Health Check.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Health Check.
+     * @return ARN of the Health Check.
      * 
      */
     public Output<String> arn() {
@@ -517,14 +517,14 @@ public class HealthCheck extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.resourcePath);
     }
     /**
-     * The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+     * ARN for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
      * 
      */
     @Export(name="routingControlArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> routingControlArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+     * @return ARN for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
      * 
      */
     public Output<Optional<String>> routingControlArn() {

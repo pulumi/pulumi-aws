@@ -56,7 +56,7 @@ class GetPolicyResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name of the policy.
+        ARN of the policy.
         """
         return pulumi.get(self, "arn")
 

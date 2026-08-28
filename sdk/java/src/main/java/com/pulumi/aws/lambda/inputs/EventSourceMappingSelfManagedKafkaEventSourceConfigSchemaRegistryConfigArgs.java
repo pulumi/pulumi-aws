@@ -19,14 +19,14 @@ public final class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegi
     public static final EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgs Empty = new EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgs();
 
     /**
-     * Configuration block for authentication Lambda uses to access the schema registry.
+     * Configuration block for authentication Lambda uses to access the schema registry. See below.
      * 
      */
     @Import(name="accessConfigs")
     private @Nullable Output<List<EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs>> accessConfigs;
 
     /**
-     * @return Configuration block for authentication Lambda uses to access the schema registry.
+     * @return Configuration block for authentication Lambda uses to access the schema registry. See below.
      * 
      */
     public Optional<Output<List<EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs>>> accessConfigs() {
@@ -64,14 +64,14 @@ public final class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegi
     }
 
     /**
-     * Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+     * Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry. See below.
      * 
      */
     @Import(name="schemaValidationConfigs")
     private @Nullable Output<List<EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs>> schemaValidationConfigs;
 
     /**
-     * @return Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+     * @return Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry. See below.
      * 
      */
     public Optional<Output<List<EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs>>> schemaValidationConfigs() {
@@ -106,7 +106,7 @@ public final class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegi
         }
 
         /**
-         * @param accessConfigs Configuration block for authentication Lambda uses to access the schema registry.
+         * @param accessConfigs Configuration block for authentication Lambda uses to access the schema registry. See below.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegi
         }
 
         /**
-         * @param accessConfigs Configuration block for authentication Lambda uses to access the schema registry.
+         * @param accessConfigs Configuration block for authentication Lambda uses to access the schema registry. See below.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegi
         }
 
         /**
-         * @param accessConfigs Configuration block for authentication Lambda uses to access the schema registry.
+         * @param accessConfigs Configuration block for authentication Lambda uses to access the schema registry. See below.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegi
         }
 
         /**
-         * @param schemaValidationConfigs Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+         * @param schemaValidationConfigs Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry. See below.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegi
         }
 
         /**
-         * @param schemaValidationConfigs Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+         * @param schemaValidationConfigs Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry. See below.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegi
         }
 
         /**
-         * @param schemaValidationConfigs Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+         * @param schemaValidationConfigs Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry. See below.
          * 
          * @return builder
          * 

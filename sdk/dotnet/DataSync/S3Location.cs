@@ -71,9 +71,9 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the DataSync S3 location.
+    /// - `Arn` (String) ARN of the DataSync S3 location.
     /// 
-    /// Using `pulumi import`, import `aws.datasync.S3Location` using the DataSync Task Amazon Resource Name (ARN). For example:
+    /// Using `pulumi import`, import `aws.datasync.S3Location` using the DataSync Task ARN. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:datasync/s3Location:S3Location example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
@@ -83,13 +83,13 @@ namespace Pulumi.Aws.DataSync
     public partial class S3Location : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
+        /// (Amazon S3 on Outposts only) ARN of the DataSync agent on the Outpost.
         /// </summary>
         [Output("agentArns")]
         public Output<ImmutableArray<string>> AgentArns { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the DataSync Location.
+        /// ARN of the DataSync Location.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -101,7 +101,7 @@ namespace Pulumi.Aws.DataSync
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
+        /// ARN of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
         /// </summary>
         [Output("s3BucketArn")]
         public Output<string> S3BucketArn { get; private set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.DataSync
         private InputList<string>? _agentArns;
 
         /// <summary>
-        /// (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
+        /// (Amazon S3 on Outposts only) ARN of the DataSync agent on the Outpost.
         /// </summary>
         public InputList<string> AgentArns
         {
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.DataSync
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
+        /// ARN of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
         /// </summary>
         [Input("s3BucketArn", required: true)]
         public Input<string> S3BucketArn { get; set; } = null!;
@@ -251,7 +251,7 @@ namespace Pulumi.Aws.DataSync
         private InputList<string>? _agentArns;
 
         /// <summary>
-        /// (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
+        /// (Amazon S3 on Outposts only) ARN of the DataSync agent on the Outpost.
         /// </summary>
         public InputList<string> AgentArns
         {
@@ -260,7 +260,7 @@ namespace Pulumi.Aws.DataSync
         }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the DataSync Location.
+        /// ARN of the DataSync Location.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -272,7 +272,7 @@ namespace Pulumi.Aws.DataSync
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
+        /// ARN of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
         /// </summary>
         [Input("s3BucketArn")]
         public Input<string>? S3BucketArn { get; set; }

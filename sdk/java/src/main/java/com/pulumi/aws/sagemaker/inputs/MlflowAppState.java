@@ -34,14 +34,14 @@ public final class MlflowAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the MLflow App.
+     * ARN of the MLflow App.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the MLflow App.
+     * @return ARN of the MLflow App.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -124,14 +124,14 @@ public final class MlflowAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
+     * ARN for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
+     * @return ARN for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -247,7 +247,7 @@ public final class MlflowAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the MLflow App.
+         * @param arn ARN of the MLflow App.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class MlflowAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the MLflow App.
+         * @param arn ARN of the MLflow App.
          * 
          * @return builder
          * 
@@ -383,7 +383,7 @@ public final class MlflowAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn Amazon Resource Name (ARN) for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
+         * @param roleArn ARN for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
          * 
          * @return builder
          * 
@@ -394,7 +394,7 @@ public final class MlflowAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn Amazon Resource Name (ARN) for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
+         * @param roleArn ARN for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
          * 
          * @return builder
          * 

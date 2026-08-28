@@ -16,7 +16,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a resource for managing association between VPC (Virtual Private Cloud) route server and a VPC.
+ * Provides a resource for managing association between VPC route server and a VPC.
  * 
  * ## Example Usage
  * 
@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, to  to import VPC (Virtual Private Cloud) Route Server Association using the associated resource ID and VPC Id separated by a comma (,). For example:
+ * Using `pulumi import`, to  to import VPC Route Server Association using the associated resource ID and VPC Id separated by a comma (,). For example:
  * 
  * ```sh
  * $ pulumi import aws:vpc/routeServerVpcAssociation:RouteServerVpcAssociation example rs-12345678,vpc-0f001273ec18911b1

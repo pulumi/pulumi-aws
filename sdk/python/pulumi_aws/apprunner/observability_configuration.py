@@ -279,7 +279,7 @@ class ObservabilityConfiguration(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the App Runner observability configuration.
+        - `arn` (String) ARN of the App Runner observability configuration.
 
         Using `pulumi import`, import App Runner Observability Configuration using the `arn`. For example:
 
@@ -326,7 +326,7 @@ class ObservabilityConfiguration(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the App Runner observability configuration.
+        - `arn` (String) ARN of the App Runner observability configuration.
 
         Using `pulumi import`, import App Runner Observability Configuration using the `arn`. For example:
 

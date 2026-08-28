@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Glue
     public sealed class GetRegistryResult
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of Glue Registry.
+        /// ARN of Glue Registry.
         /// </summary>
         public readonly string Arn;
         /// <summary>

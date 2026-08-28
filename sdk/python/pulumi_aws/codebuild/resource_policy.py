@@ -184,7 +184,7 @@ class ResourcePolicy(pulumi.CustomResource):
 
         #### Required
 
-        - `resource_arn` (String) Amazon Resource Name (ARN) of the CodeBuild resource.
+        - `resource_arn` (String) ARN of the CodeBuild resource.
 
         Using `pulumi import`, import CodeBuild Resource Policy using the CodeBuild Resource Policy arn. For example:
 
@@ -251,7 +251,7 @@ class ResourcePolicy(pulumi.CustomResource):
 
         #### Required
 
-        - `resource_arn` (String) Amazon Resource Name (ARN) of the CodeBuild resource.
+        - `resource_arn` (String) ARN of the CodeBuild resource.
 
         Using `pulumi import`, import CodeBuild Resource Policy using the CodeBuild Resource Policy arn. For example:
 

@@ -12,14 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class GetFunctionCapacityProviderConfig {
     /**
-     * @return Configuration block for Lambda Managed Instances Capacity Provider.
+     * @return Configuration block for Lambda Managed Instances Capacity Provider. See `lambdaManagedInstancesCapacityProviderConfig` below.
      * 
      */
     private List<GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig> lambdaManagedInstancesCapacityProviderConfigs;
 
     private GetFunctionCapacityProviderConfig() {}
     /**
-     * @return Configuration block for Lambda Managed Instances Capacity Provider.
+     * @return Configuration block for Lambda Managed Instances Capacity Provider. See `lambdaManagedInstancesCapacityProviderConfig` below.
      * 
      */
     public List<GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig> lambdaManagedInstancesCapacityProviderConfigs() {

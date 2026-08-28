@@ -202,14 +202,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.appSecurityGroupManagement);
     }
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Domain.
+     * ARN assigned by AWS to this Domain.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Domain.
+     * @return ARN assigned by AWS to this Domain.
      * 
      */
     public Output<String> arn() {
@@ -454,7 +454,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return this.url;
     }
     /**
-     * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+     * ID of the VPC that Studio uses for communication.
      * 
      * The following arguments are optional:
      * 
@@ -463,7 +463,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
     private Output<String> vpcId;
 
     /**
-     * @return The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+     * @return ID of the VPC that Studio uses for communication.
      * 
      * The following arguments are optional:
      * 

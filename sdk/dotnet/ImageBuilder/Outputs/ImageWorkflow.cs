@@ -26,7 +26,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ImageWorkflowParameter> Parameters;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Image Builder Workflow.
+        /// ARN of the Image Builder Workflow.
         /// 
         /// The following arguments are optional:
         /// </summary>

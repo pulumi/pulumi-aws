@@ -62,7 +62,7 @@ export class AccessGrantsLocation extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the S3 Access Grants location.
+     * ARN of the S3 Access Grants location.
      */
     declare public /*out*/ readonly accessGrantsLocationArn: pulumi.Output<string>;
     /**
@@ -142,7 +142,7 @@ export class AccessGrantsLocation extends pulumi.CustomResource {
  */
 export interface AccessGrantsLocationState {
     /**
-     * Amazon Resource Name (ARN) of the S3 Access Grants location.
+     * ARN of the S3 Access Grants location.
      */
     accessGrantsLocationArn?: pulumi.Input<string | undefined>;
     /**

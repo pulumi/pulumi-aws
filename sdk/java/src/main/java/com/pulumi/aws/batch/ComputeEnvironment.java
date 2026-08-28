@@ -269,7 +269,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the compute environment.
+ * - `arn` (String) ARN of the compute environment.
  * 
  * Using `pulumi import`, import AWS Batch compute using the `name`. For example:
  * 
@@ -281,14 +281,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:batch/computeEnvironment:ComputeEnvironment")
 public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the compute environment.
+     * ARN of the compute environment.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the compute environment.
+     * @return ARN of the compute environment.
      * 
      */
     public Output<String> arn() {
@@ -309,14 +309,14 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
         return this.computeResources;
     }
     /**
-     * The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
+     * ARN of the underlying Amazon ECS cluster used by the compute environment.
      * 
      */
     @Export(name="ecsClusterArn", refs={String.class}, tree="[0]")
     private Output<String> ecsClusterArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
+     * @return ARN of the underlying Amazon ECS cluster used by the compute environment.
      * 
      */
     public Output<String> ecsClusterArn() {
@@ -379,14 +379,14 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+     * Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      * 
      */
     @Export(name="serviceRole", refs={String.class}, tree="[0]")
     private Output<String> serviceRole;
 
     /**
-     * @return The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+     * @return Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      * 
      */
     public Output<String> serviceRole() {

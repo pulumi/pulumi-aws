@@ -17,14 +17,14 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
     public static final ImageState Empty = new ImageState();
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Image.
+     * ARN assigned by AWS to this Image.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Image.
+     * @return ARN assigned by AWS to this Image.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -92,14 +92,14 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
+     * ARN of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
+     * @return ARN of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -168,7 +168,7 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Image.
+         * @param arn ARN assigned by AWS to this Image.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Image.
+         * @param arn ARN assigned by AWS to this Image.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
+         * @param roleArn ARN of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
+         * @param roleArn ARN of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
          * 
          * @return builder
          * 

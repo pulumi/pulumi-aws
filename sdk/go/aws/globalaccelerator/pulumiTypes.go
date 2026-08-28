@@ -806,7 +806,7 @@ func (o CustomRoutingEndpointGroupDestinationConfigurationArrayOutput) Index(i p
 }
 
 type CustomRoutingEndpointGroupEndpointConfiguration struct {
-	// An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
+	// ID for the endpoint. For custom routing accelerators, this is the VPC subnet ID.
 	EndpointId *string `pulumi:"endpointId"`
 }
 
@@ -822,7 +822,7 @@ type CustomRoutingEndpointGroupEndpointConfigurationInput interface {
 }
 
 type CustomRoutingEndpointGroupEndpointConfigurationArgs struct {
-	// An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
+	// ID for the endpoint. For custom routing accelerators, this is the VPC subnet ID.
 	EndpointId pulumi.StringPtrInput `pulumi:"endpointId"`
 }
 
@@ -877,7 +877,7 @@ func (o CustomRoutingEndpointGroupEndpointConfigurationOutput) ToCustomRoutingEn
 	return o
 }
 
-// An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
+// ID for the endpoint. For custom routing accelerators, this is the VPC subnet ID.
 func (o CustomRoutingEndpointGroupEndpointConfigurationOutput) EndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomRoutingEndpointGroupEndpointConfiguration) *string { return v.EndpointId }).(pulumi.StringPtrOutput)
 }
@@ -1014,7 +1014,7 @@ type EndpointGroupEndpointConfiguration struct {
 	// Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html) for more details. The default value is `false`.
 	// **Note:** When client IP address preservation is enabled, the Global Accelerator service creates an EC2 Security Group in the VPC named `GlobalAccelerator` that must be deleted (potentially outside of the provider) before the VPC will successfully delete. If this EC2 Security Group is not deleted, the provider will retry the VPC deletion for a few minutes before reporting a `DependencyViolation` error. This cannot be resolved by re-running the provider.
 	ClientIpPreservationEnabled *bool `pulumi:"clientIpPreservationEnabled"`
-	// An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
+	// ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the ARN of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
 	EndpointId *string `pulumi:"endpointId"`
 	// The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
 	Weight *int `pulumi:"weight"`
@@ -1037,7 +1037,7 @@ type EndpointGroupEndpointConfigurationArgs struct {
 	// Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html) for more details. The default value is `false`.
 	// **Note:** When client IP address preservation is enabled, the Global Accelerator service creates an EC2 Security Group in the VPC named `GlobalAccelerator` that must be deleted (potentially outside of the provider) before the VPC will successfully delete. If this EC2 Security Group is not deleted, the provider will retry the VPC deletion for a few minutes before reporting a `DependencyViolation` error. This cannot be resolved by re-running the provider.
 	ClientIpPreservationEnabled pulumi.BoolPtrInput `pulumi:"clientIpPreservationEnabled"`
-	// An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
+	// ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the ARN of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
 	EndpointId pulumi.StringPtrInput `pulumi:"endpointId"`
 	// The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
 	Weight pulumi.IntPtrInput `pulumi:"weight"`
@@ -1105,7 +1105,7 @@ func (o EndpointGroupEndpointConfigurationOutput) ClientIpPreservationEnabled() 
 	return o.ApplyT(func(v EndpointGroupEndpointConfiguration) *bool { return v.ClientIpPreservationEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
+// ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the ARN of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
 func (o EndpointGroupEndpointConfigurationOutput) EndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointGroupEndpointConfiguration) *string { return v.EndpointId }).(pulumi.StringPtrOutput)
 }

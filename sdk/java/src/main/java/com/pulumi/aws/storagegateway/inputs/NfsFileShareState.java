@@ -21,14 +21,14 @@ public final class NfsFileShareState extends com.pulumi.resources.ResourceArgs {
     public static final NfsFileShareState Empty = new NfsFileShareState();
 
     /**
-     * Amazon Resource Name (ARN) of the NFS File Share.
+     * ARN of the NFS File Share.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the NFS File Share.
+     * @return ARN of the NFS File Share.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -36,14 +36,14 @@ public final class NfsFileShareState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the storage used for audit logs.
+     * ARN of the storage used for audit logs.
      * 
      */
     @Import(name="auditDestinationArn")
     private @Nullable Output<String> auditDestinationArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the storage used for audit logs.
+     * @return ARN of the storage used for audit logs.
      * 
      */
     public Optional<Output<String>> auditDestinationArn() {
@@ -141,14 +141,14 @@ public final class NfsFileShareState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the file gateway.
+     * ARN of the file gateway.
      * 
      */
     @Import(name="gatewayArn")
     private @Nullable Output<String> gatewayArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the file gateway.
+     * @return ARN of the file gateway.
      * 
      */
     public Optional<Output<String>> gatewayArn() {
@@ -186,14 +186,14 @@ public final class NfsFileShareState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
+     * ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
      * 
      */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
-     * @return Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
+     * @return ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
@@ -444,7 +444,7 @@ public final class NfsFileShareState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the NFS File Share.
+         * @param arn ARN of the NFS File Share.
          * 
          * @return builder
          * 
@@ -455,7 +455,7 @@ public final class NfsFileShareState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the NFS File Share.
+         * @param arn ARN of the NFS File Share.
          * 
          * @return builder
          * 
@@ -465,7 +465,7 @@ public final class NfsFileShareState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param auditDestinationArn The Amazon Resource Name (ARN) of the storage used for audit logs.
+         * @param auditDestinationArn ARN of the storage used for audit logs.
          * 
          * @return builder
          * 
@@ -476,7 +476,7 @@ public final class NfsFileShareState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param auditDestinationArn The Amazon Resource Name (ARN) of the storage used for audit logs.
+         * @param auditDestinationArn ARN of the storage used for audit logs.
          * 
          * @return builder
          * 
@@ -622,7 +622,7 @@ public final class NfsFileShareState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param gatewayArn Amazon Resource Name (ARN) of the file gateway.
+         * @param gatewayArn ARN of the file gateway.
          * 
          * @return builder
          * 
@@ -633,7 +633,7 @@ public final class NfsFileShareState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param gatewayArn Amazon Resource Name (ARN) of the file gateway.
+         * @param gatewayArn ARN of the file gateway.
          * 
          * @return builder
          * 
@@ -685,7 +685,7 @@ public final class NfsFileShareState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyArn Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
+         * @param kmsKeyArn ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
          * 
          * @return builder
          * 
@@ -696,7 +696,7 @@ public final class NfsFileShareState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyArn Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
+         * @param kmsKeyArn ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
          * 
          * @return builder
          * 

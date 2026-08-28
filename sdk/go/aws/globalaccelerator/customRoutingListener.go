@@ -65,7 +65,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator custom routing listener.
+// - `arn` (String) ARN of the Global Accelerator custom routing listener.
 //
 // Using `pulumi import`, import Global Accelerator custom routing listeners using the `id`. For example:
 //
@@ -75,7 +75,7 @@ import (
 type CustomRoutingListener struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of a custom routing accelerator.
+	// ARN of a custom routing accelerator.
 	AcceleratorArn pulumi.StringOutput `pulumi:"acceleratorArn"`
 	Arn            pulumi.StringOutput `pulumi:"arn"`
 	// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
@@ -118,7 +118,7 @@ func GetCustomRoutingListener(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomRoutingListener resources.
 type customRoutingListenerState struct {
-	// The Amazon Resource Name (ARN) of a custom routing accelerator.
+	// ARN of a custom routing accelerator.
 	AcceleratorArn *string `pulumi:"acceleratorArn"`
 	Arn            *string `pulumi:"arn"`
 	// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
@@ -126,7 +126,7 @@ type customRoutingListenerState struct {
 }
 
 type CustomRoutingListenerState struct {
-	// The Amazon Resource Name (ARN) of a custom routing accelerator.
+	// ARN of a custom routing accelerator.
 	AcceleratorArn pulumi.StringPtrInput
 	Arn            pulumi.StringPtrInput
 	// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
@@ -138,7 +138,7 @@ func (CustomRoutingListenerState) ElementType() reflect.Type {
 }
 
 type customRoutingListenerArgs struct {
-	// The Amazon Resource Name (ARN) of a custom routing accelerator.
+	// ARN of a custom routing accelerator.
 	AcceleratorArn string `pulumi:"acceleratorArn"`
 	// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
 	PortRanges []CustomRoutingListenerPortRange `pulumi:"portRanges"`
@@ -146,7 +146,7 @@ type customRoutingListenerArgs struct {
 
 // The set of arguments for constructing a CustomRoutingListener resource.
 type CustomRoutingListenerArgs struct {
-	// The Amazon Resource Name (ARN) of a custom routing accelerator.
+	// ARN of a custom routing accelerator.
 	AcceleratorArn pulumi.StringInput
 	// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
 	PortRanges CustomRoutingListenerPortRangeArrayInput
@@ -239,7 +239,7 @@ func (o CustomRoutingListenerOutput) ToCustomRoutingListenerOutputWithContext(ct
 	return o
 }
 
-// The Amazon Resource Name (ARN) of a custom routing accelerator.
+// ARN of a custom routing accelerator.
 func (o CustomRoutingListenerOutput) AcceleratorArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomRoutingListener) pulumi.StringOutput { return v.AcceleratorArn }).(pulumi.StringOutput)
 }

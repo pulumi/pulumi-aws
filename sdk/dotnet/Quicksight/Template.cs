@@ -208,7 +208,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<Outputs.TemplateSourceEntity?> SourceEntity { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
+        /// ARN of an analysis or template that was used to create this template.
         /// </summary>
         [Output("sourceEntityArn")]
         public Output<string> SourceEntityArn { get; private set; } = null!;
@@ -422,7 +422,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<Inputs.TemplateSourceEntityGetArgs>? SourceEntity { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
+        /// ARN of an analysis or template that was used to create this template.
         /// </summary>
         [Input("sourceEntityArn")]
         public Input<string>? SourceEntityArn { get; set; }

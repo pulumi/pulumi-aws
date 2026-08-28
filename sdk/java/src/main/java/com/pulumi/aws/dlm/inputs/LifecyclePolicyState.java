@@ -18,14 +18,14 @@ public final class LifecyclePolicyState extends com.pulumi.resources.ResourceArg
     public static final LifecyclePolicyState Empty = new LifecyclePolicyState();
 
     /**
-     * Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
+     * ARN of the DLM Lifecycle Policy.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
+     * @return ARN of the DLM Lifecycle Policy.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -185,7 +185,7 @@ public final class LifecyclePolicyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
+         * @param arn ARN of the DLM Lifecycle Policy.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class LifecyclePolicyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
+         * @param arn ARN of the DLM Lifecycle Policy.
          * 
          * @return builder
          * 

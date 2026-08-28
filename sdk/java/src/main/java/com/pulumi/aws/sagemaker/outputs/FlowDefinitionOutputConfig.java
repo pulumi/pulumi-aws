@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlowDefinitionOutputConfig {
     /**
-     * @return The Amazon Key Management Service (KMS) key ARN for server-side encryption.
+     * @return KMS key ARN for server-side encryption.
      * 
      */
     private @Nullable String kmsKeyId;
@@ -25,7 +25,7 @@ public final class FlowDefinitionOutputConfig {
 
     private FlowDefinitionOutputConfig() {}
     /**
-     * @return The Amazon Key Management Service (KMS) key ARN for server-side encryption.
+     * @return KMS key ARN for server-side encryption.
      * 
      */
     public Optional<String> kmsKeyId() {

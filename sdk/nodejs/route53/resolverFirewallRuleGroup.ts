@@ -53,7 +53,7 @@ export class ResolverFirewallRuleGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN (Amazon Resource Name) of the rule group.
+     * ARN of the rule group.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -121,7 +121,7 @@ export class ResolverFirewallRuleGroup extends pulumi.CustomResource {
  */
 export interface ResolverFirewallRuleGroupState {
     /**
-     * The ARN (Amazon Resource Name) of the rule group.
+     * ARN of the rule group.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

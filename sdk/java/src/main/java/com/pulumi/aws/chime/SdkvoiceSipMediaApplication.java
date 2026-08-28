@@ -71,14 +71,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication")
 public class SdkvoiceSipMediaApplication extends com.pulumi.resources.CustomResource {
     /**
-     * ARN (Amazon Resource Name) of the AWS Chime SDK Voice Sip Media Application
+     * ARN of the AWS Chime SDK Voice Sip Media Application
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN (Amazon Resource Name) of the AWS Chime SDK Voice Sip Media Application
+     * @return ARN of the AWS Chime SDK Voice Sip Media Application
      * 
      */
     public Output<String> arn() {
@@ -99,14 +99,14 @@ public class SdkvoiceSipMediaApplication extends com.pulumi.resources.CustomReso
         return this.awsRegion;
     }
     /**
-     * List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
+     * List of endpoints (Lambda ARNs) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
      * 
      */
     @Export(name="endpoints", refs={SdkvoiceSipMediaApplicationEndpoints.class}, tree="[0]")
     private Output<SdkvoiceSipMediaApplicationEndpoints> endpoints;
 
     /**
-     * @return List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
+     * @return List of endpoints (Lambda ARNs) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
      * 
      */
     public Output<SdkvoiceSipMediaApplicationEndpoints> endpoints() {

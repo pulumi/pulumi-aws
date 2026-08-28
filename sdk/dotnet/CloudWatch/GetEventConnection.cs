@@ -136,7 +136,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class GetEventConnectionResult
     {
         /// <summary>
-        /// ARN (Amazon Resource Name) of the connection.
+        /// ARN of the connection.
         /// </summary>
         public readonly string Arn;
         /// <summary>

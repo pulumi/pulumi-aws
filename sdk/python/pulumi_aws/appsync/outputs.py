@@ -2071,7 +2071,7 @@ class GraphQLApiLogConfig(dict):
                  field_log_level: _builtins.str,
                  exclude_verbose_content: Optional[_builtins.bool] = None):
         """
-        :param _builtins.str cloudwatch_logs_role_arn: Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
+        :param _builtins.str cloudwatch_logs_role_arn: ARN of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
         :param _builtins.str field_log_level: Field logging level. Valid values: `ALL`, `ERROR`, `NONE`.
         :param _builtins.bool exclude_verbose_content: Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging  level. Valid values: `true`, `false`. Default value: `false`
         """
@@ -2084,7 +2084,7 @@ class GraphQLApiLogConfig(dict):
     @pulumi.getter(name="cloudwatchLogsRoleArn")
     def cloudwatch_logs_role_arn(self) -> _builtins.str:
         """
-        Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
+        ARN of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
         """
         return pulumi.get(self, "cloudwatch_logs_role_arn")
 

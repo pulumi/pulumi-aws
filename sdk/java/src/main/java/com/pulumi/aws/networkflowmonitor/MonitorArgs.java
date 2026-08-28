@@ -82,7 +82,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
+     * ARN of the scope for the monitor. Cannot be changed after creation.
      * 
      * The following arguments are optional:
      * 
@@ -91,7 +91,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> scopeArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
+     * @return ARN of the scope for the monitor. Cannot be changed after creation.
      * 
      * The following arguments are optional:
      * 
@@ -257,7 +257,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scopeArn The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
+         * @param scopeArn ARN of the scope for the monitor. Cannot be changed after creation.
          * 
          * The following arguments are optional:
          * 
@@ -270,7 +270,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scopeArn The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
+         * @param scopeArn ARN of the scope for the monitor. Cannot be changed after creation.
          * 
          * The following arguments are optional:
          * 

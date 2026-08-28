@@ -220,7 +220,7 @@ import (
 type MulticastDomain struct {
 	pulumi.CustomResourceState
 
-	// EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
+	// EC2 Transit Gateway Multicast Domain ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
 	AutoAcceptSharedAssociations pulumi.StringPtrOutput `pulumi:"autoAcceptSharedAssociations"`
@@ -273,7 +273,7 @@ func GetMulticastDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MulticastDomain resources.
 type multicastDomainState struct {
-	// EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
+	// EC2 Transit Gateway Multicast Domain ARN.
 	Arn *string `pulumi:"arn"`
 	// Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
 	AutoAcceptSharedAssociations *string `pulumi:"autoAcceptSharedAssociations"`
@@ -294,7 +294,7 @@ type multicastDomainState struct {
 }
 
 type MulticastDomainState struct {
-	// EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
+	// EC2 Transit Gateway Multicast Domain ARN.
 	Arn pulumi.StringPtrInput
 	// Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
 	AutoAcceptSharedAssociations pulumi.StringPtrInput
@@ -436,7 +436,7 @@ func (o MulticastDomainOutput) ToMulticastDomainOutputWithContext(ctx context.Co
 	return o
 }
 
-// EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
+// EC2 Transit Gateway Multicast Domain ARN.
 func (o MulticastDomainOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MulticastDomain) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

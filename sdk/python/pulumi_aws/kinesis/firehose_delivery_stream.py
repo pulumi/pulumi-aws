@@ -44,12 +44,12 @@ class FirehoseDeliveryStreamArgs:
         The set of arguments for constructing a FirehoseDeliveryStream resource.
 
         :param pulumi.Input[_builtins.str] destination: This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the Stream
+        :param pulumi.Input[_builtins.str] arn: ARN specifying the Stream
         :param pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationArgs'] elasticsearch_configuration: Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationArgs'] extended_s3_configuration: Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationArgs'] http_endpoint_configuration: Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamIcebergConfigurationArgs'] iceberg_configuration: Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
-        :param pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs'] kinesis_source_configuration: The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
+        :param pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs'] kinesis_source_configuration: Stream and role ARNs for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamMskSourceConfigurationArgs'] msk_source_configuration: The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
         :param pulumi.Input[_builtins.str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
         :param pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationArgs'] opensearch_configuration: Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
@@ -117,7 +117,7 @@ class FirehoseDeliveryStreamArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) specifying the Stream
+        ARN specifying the Stream
         """
         return pulumi.get(self, "arn")
 
@@ -186,7 +186,7 @@ class FirehoseDeliveryStreamArgs:
     @pulumi.getter(name="kinesisSourceConfiguration")
     def kinesis_source_configuration(self) -> pulumi.Input[Optional['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']]:
         """
-        The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
+        Stream and role ARNs for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
         """
         return pulumi.get(self, "kinesis_source_configuration")
 
@@ -352,13 +352,13 @@ class _FirehoseDeliveryStreamState:
         """
         Input properties used for looking up and filtering FirehoseDeliveryStream resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the Stream
+        :param pulumi.Input[_builtins.str] arn: ARN specifying the Stream
         :param pulumi.Input[_builtins.str] destination: This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
         :param pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationArgs'] elasticsearch_configuration: Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationArgs'] extended_s3_configuration: Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationArgs'] http_endpoint_configuration: Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamIcebergConfigurationArgs'] iceberg_configuration: Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
-        :param pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs'] kinesis_source_configuration: The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
+        :param pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs'] kinesis_source_configuration: Stream and role ARNs for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamMskSourceConfigurationArgs'] msk_source_configuration: The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
         :param pulumi.Input[_builtins.str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
         :param pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationArgs'] opensearch_configuration: Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
@@ -418,7 +418,7 @@ class _FirehoseDeliveryStreamState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) specifying the Stream
+        ARN specifying the Stream
         """
         return pulumi.get(self, "arn")
 
@@ -499,7 +499,7 @@ class _FirehoseDeliveryStreamState:
     @pulumi.getter(name="kinesisSourceConfiguration")
     def kinesis_source_configuration(self) -> pulumi.Input[Optional['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']]:
         """
-        The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
+        Stream and role ARNs for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
         """
         return pulumi.get(self, "kinesis_source_configuration")
 
@@ -1315,13 +1315,13 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the Stream
+        :param pulumi.Input[_builtins.str] arn: ARN specifying the Stream
         :param pulumi.Input[_builtins.str] destination: This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
         :param pulumi.Input[Union['FirehoseDeliveryStreamElasticsearchConfigurationArgs', 'FirehoseDeliveryStreamElasticsearchConfigurationArgsDict']] elasticsearch_configuration: Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamExtendedS3ConfigurationArgs', 'FirehoseDeliveryStreamExtendedS3ConfigurationArgsDict']] extended_s3_configuration: Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamHttpEndpointConfigurationArgs', 'FirehoseDeliveryStreamHttpEndpointConfigurationArgsDict']] http_endpoint_configuration: Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamIcebergConfigurationArgs', 'FirehoseDeliveryStreamIcebergConfigurationArgsDict']] iceberg_configuration: Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
-        :param pulumi.Input[Union['FirehoseDeliveryStreamKinesisSourceConfigurationArgs', 'FirehoseDeliveryStreamKinesisSourceConfigurationArgsDict']] kinesis_source_configuration: The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
+        :param pulumi.Input[Union['FirehoseDeliveryStreamKinesisSourceConfigurationArgs', 'FirehoseDeliveryStreamKinesisSourceConfigurationArgsDict']] kinesis_source_configuration: Stream and role ARNs for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamMskSourceConfigurationArgs', 'FirehoseDeliveryStreamMskSourceConfigurationArgsDict']] msk_source_configuration: The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
         :param pulumi.Input[_builtins.str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamOpensearchConfigurationArgs', 'FirehoseDeliveryStreamOpensearchConfigurationArgsDict']] opensearch_configuration: Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
@@ -2079,13 +2079,13 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the Stream
+        :param pulumi.Input[_builtins.str] arn: ARN specifying the Stream
         :param pulumi.Input[_builtins.str] destination: This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
         :param pulumi.Input[Union['FirehoseDeliveryStreamElasticsearchConfigurationArgs', 'FirehoseDeliveryStreamElasticsearchConfigurationArgsDict']] elasticsearch_configuration: Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamExtendedS3ConfigurationArgs', 'FirehoseDeliveryStreamExtendedS3ConfigurationArgsDict']] extended_s3_configuration: Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamHttpEndpointConfigurationArgs', 'FirehoseDeliveryStreamHttpEndpointConfigurationArgsDict']] http_endpoint_configuration: Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamIcebergConfigurationArgs', 'FirehoseDeliveryStreamIcebergConfigurationArgsDict']] iceberg_configuration: Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
-        :param pulumi.Input[Union['FirehoseDeliveryStreamKinesisSourceConfigurationArgs', 'FirehoseDeliveryStreamKinesisSourceConfigurationArgsDict']] kinesis_source_configuration: The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
+        :param pulumi.Input[Union['FirehoseDeliveryStreamKinesisSourceConfigurationArgs', 'FirehoseDeliveryStreamKinesisSourceConfigurationArgsDict']] kinesis_source_configuration: Stream and role ARNs for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamMskSourceConfigurationArgs', 'FirehoseDeliveryStreamMskSourceConfigurationArgsDict']] msk_source_configuration: The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
         :param pulumi.Input[_builtins.str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamOpensearchConfigurationArgs', 'FirehoseDeliveryStreamOpensearchConfigurationArgsDict']] opensearch_configuration: Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
@@ -2130,7 +2130,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) specifying the Stream
+        ARN specifying the Stream
         """
         return pulumi.get(self, "arn")
 
@@ -2183,7 +2183,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     @pulumi.getter(name="kinesisSourceConfiguration")
     def kinesis_source_configuration(self) -> pulumi.Output[Optional['outputs.FirehoseDeliveryStreamKinesisSourceConfiguration']]:
         """
-        The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
+        Stream and role ARNs for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
         """
         return pulumi.get(self, "kinesis_source_configuration")
 

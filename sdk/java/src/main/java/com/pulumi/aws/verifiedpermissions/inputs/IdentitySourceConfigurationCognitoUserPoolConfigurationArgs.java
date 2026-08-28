@@ -49,14 +49,14 @@ public final class IdentitySourceConfigurationCognitoUserPoolConfigurationArgs e
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
+     * ARN of the Amazon Cognito user pool that contains the identities to be authorized.
      * 
      */
     @Import(name="userPoolArn", required=true)
     private Output<String> userPoolArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
+     * @return ARN of the Amazon Cognito user pool that contains the identities to be authorized.
      * 
      */
     public Output<String> userPoolArn() {
@@ -142,7 +142,7 @@ public final class IdentitySourceConfigurationCognitoUserPoolConfigurationArgs e
         }
 
         /**
-         * @param userPoolArn The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
+         * @param userPoolArn ARN of the Amazon Cognito user pool that contains the identities to be authorized.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class IdentitySourceConfigurationCognitoUserPoolConfigurationArgs e
         }
 
         /**
-         * @param userPoolArn The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
+         * @param userPoolArn ARN of the Amazon Cognito user pool that contains the identities to be authorized.
          * 
          * @return builder
          * 

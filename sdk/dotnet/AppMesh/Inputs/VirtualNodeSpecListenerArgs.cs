@@ -43,7 +43,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<Inputs.VirtualNodeSpecListenerTimeoutArgs>? Timeout { get; set; }
 
         /// <summary>
-        /// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+        /// TLS properties for the listener. See `spec.listener.tls` Block for details.
         /// </summary>
         [Input("tls")]
         public Input<Inputs.VirtualNodeSpecListenerTlsArgs>? Tls { get; set; }

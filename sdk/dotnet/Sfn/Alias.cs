@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Sfn
     public partial class Alias : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) identifying your state machine alias.
+        /// ARN identifying your state machine alias.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.Sfn
     public sealed class AliasState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) identifying your state machine alias.
+        /// ARN identifying your state machine alias.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

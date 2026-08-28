@@ -33,7 +33,7 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the stateful rule group.
+        /// ARN of the stateful rule group.
         /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;

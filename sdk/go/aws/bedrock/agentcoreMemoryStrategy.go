@@ -320,31 +320,147 @@ import (
 //
 // ```
 //
+// ### Custom Strategy with Self-Managed Configuration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := bedrock.NewAgentcoreMemoryStrategy(ctx, "self_managed", &bedrock.AgentcoreMemoryStrategyArgs{
+//				Configuration: &bedrock.AgentcoreMemoryStrategyConfigurationArgs{
+//					SelfManaged: []map[string]interface{}{
+//						map[string]interface{}{
+//							"invocationConfiguration": []map[string]interface{}{
+//								map[string]interface{}{
+//									"topicArn":                  example.Arn,
+//									"payloadDeliveryBucketName": exampleAwsS3Bucket.Bucket,
+//								},
+//							},
+//							"triggerConditions": []map[string][]map[string]int{
+//								{
+//									"messageBasedTrigger": []map[string]int{
+//										{
+//											"messageCount": 12,
+//										},
+//									},
+//								},
+//							},
+//							"historicalContextWindowSize": 10,
+//						},
+//					},
+//					Type: pulumi.String("SELF_MANAGED"),
+//				},
+//				Name:                   pulumi.String("self-managed-strategy"),
+//				MemoryId:               pulumi.Any(exampleAwsBedrockagentcoreMemory.Id),
+//				MemoryExecutionRoleArn: pulumi.Any(exampleAwsBedrockagentcoreMemory.MemoryExecutionRoleArn),
+//				Type:                   pulumi.String("CUSTOM"),
+//				Description:            pulumi.String("Self-managed processing strategy"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Custom Strategy with Self-Managed Configuration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := bedrock.NewAgentcoreMemoryStrategy(ctx, "self_managed", &bedrock.AgentcoreMemoryStrategyArgs{
+//				Configuration: &bedrock.AgentcoreMemoryStrategyConfigurationArgs{
+//					SelfManagedConfiguration: &bedrock.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationArgs{
+//						InvocationConfiguration: &bedrock.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationArgs{
+//							TopicArn:                  pulumi.Any(example.Arn),
+//							PayloadDeliveryBucketName: pulumi.Any(exampleAwsS3Bucket.Bucket),
+//						},
+//						TriggerCondition: []map[string][]map[string]int{
+//							{
+//								"messageBasedTrigger": []map[string]int{
+//									{
+//										"messageCount": 12,
+//									},
+//								},
+//							},
+//						},
+//						HistoricalContextWindowSize: pulumi.Int(10),
+//					},
+//					Type: pulumi.String("SELF_MANAGED"),
+//				},
+//				Name:                   pulumi.String("self-managed-strategy"),
+//				MemoryId:               pulumi.Any(exampleAwsBedrockagentcoreMemory.Id),
+//				MemoryExecutionRoleArn: pulumi.Any(exampleAwsBedrockagentcoreMemory.MemoryExecutionRoleArn),
+//				Type:                   pulumi.String("CUSTOM"),
+//				Description:            pulumi.String("Self-managed processing strategy"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
-// Using `pulumi import`, import Bedrock AgentCore Memory Strategy using the `memory_id,strategy_id`. For example:
+// ### Identity Schema
+//
+// #### Required
+//
+// * `memoryId` (String) Memory ID.
+// * `memoryStrategyId` (String) Memory strategy ID.
+//
+// #### Optional
+//
+// * `accountId` (String) Account ID where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
+// Using `pulumi import`, import memory strategies using `memoryId` and `memoryStrategyId` separated by a comma (`,`). For example:
 //
 // ```sh
-// $ pulumi import aws:bedrock/agentcoreMemoryStrategy:AgentcoreMemoryStrategy example MEMORY1234567890,STRATEGY0987654321
+// $ pulumi import aws:bedrock/agentcoreMemoryStrategy:AgentcoreMemoryStrategy example example_memory-5JcvKJ4GP0,example_memory_strategy-pblFzi8VyW
 // ```
 type AgentcoreMemoryStrategy struct {
 	pulumi.CustomResourceState
 
 	// Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` Block below.
 	Configuration AgentcoreMemoryStrategyConfigurationPtrOutput `pulumi:"configuration"`
-	// Description of the memory strategy.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Description of the memory strategy. Once set, a description cannot be removed via update because the service API ignores a null description and retains the previously stored value.
+	Description pulumi.StringOutput `pulumi:"description"`
 	// ARN of the IAM role that the memory service assumes to perform operations.
 	//
 	// Deprecated: memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the bedrock.AgentcoreMemory resource instead.
 	MemoryExecutionRoleArn pulumi.StringPtrOutput `pulumi:"memoryExecutionRoleArn"`
 	// ID of the memory to associate with this strategy. Changing this forces a new resource.
 	MemoryId pulumi.StringOutput `pulumi:"memoryId"`
+	// Schema for metadata fields on records generated by this strategy. Valid for all strategy types. See `memoryRecordSchema` Block below.
+	MemoryRecordSchema AgentcoreMemoryStrategyMemoryRecordSchemaPtrOutput `pulumi:"memoryRecordSchema"`
 	// Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
 	MemoryStrategyId pulumi.StringOutput `pulumi:"memoryStrategyId"`
-	// Name of the memory strategy.
+	// Name of the memory strategy. Changing this forces a new resource, because the service API does not support renaming a strategy.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured.
+	// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured for all strategies except `CUSTOM` strategies using `SELF_MANAGED` configuration.
 	NamespaceTemplates pulumi.StringArrayOutput `pulumi:"namespaceTemplates"`
 	// Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
 	//
@@ -399,7 +515,7 @@ func GetAgentcoreMemoryStrategy(ctx *pulumi.Context,
 type agentcoreMemoryStrategyState struct {
 	// Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` Block below.
 	Configuration *AgentcoreMemoryStrategyConfiguration `pulumi:"configuration"`
-	// Description of the memory strategy.
+	// Description of the memory strategy. Once set, a description cannot be removed via update because the service API ignores a null description and retains the previously stored value.
 	Description *string `pulumi:"description"`
 	// ARN of the IAM role that the memory service assumes to perform operations.
 	//
@@ -407,11 +523,13 @@ type agentcoreMemoryStrategyState struct {
 	MemoryExecutionRoleArn *string `pulumi:"memoryExecutionRoleArn"`
 	// ID of the memory to associate with this strategy. Changing this forces a new resource.
 	MemoryId *string `pulumi:"memoryId"`
+	// Schema for metadata fields on records generated by this strategy. Valid for all strategy types. See `memoryRecordSchema` Block below.
+	MemoryRecordSchema *AgentcoreMemoryStrategyMemoryRecordSchema `pulumi:"memoryRecordSchema"`
 	// Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
 	MemoryStrategyId *string `pulumi:"memoryStrategyId"`
-	// Name of the memory strategy.
+	// Name of the memory strategy. Changing this forces a new resource, because the service API does not support renaming a strategy.
 	Name *string `pulumi:"name"`
-	// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured.
+	// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured for all strategies except `CUSTOM` strategies using `SELF_MANAGED` configuration.
 	NamespaceTemplates []string `pulumi:"namespaceTemplates"`
 	// Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
 	//
@@ -431,7 +549,7 @@ type agentcoreMemoryStrategyState struct {
 type AgentcoreMemoryStrategyState struct {
 	// Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` Block below.
 	Configuration AgentcoreMemoryStrategyConfigurationPtrInput
-	// Description of the memory strategy.
+	// Description of the memory strategy. Once set, a description cannot be removed via update because the service API ignores a null description and retains the previously stored value.
 	Description pulumi.StringPtrInput
 	// ARN of the IAM role that the memory service assumes to perform operations.
 	//
@@ -439,11 +557,13 @@ type AgentcoreMemoryStrategyState struct {
 	MemoryExecutionRoleArn pulumi.StringPtrInput
 	// ID of the memory to associate with this strategy. Changing this forces a new resource.
 	MemoryId pulumi.StringPtrInput
+	// Schema for metadata fields on records generated by this strategy. Valid for all strategy types. See `memoryRecordSchema` Block below.
+	MemoryRecordSchema AgentcoreMemoryStrategyMemoryRecordSchemaPtrInput
 	// Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
 	MemoryStrategyId pulumi.StringPtrInput
-	// Name of the memory strategy.
+	// Name of the memory strategy. Changing this forces a new resource, because the service API does not support renaming a strategy.
 	Name pulumi.StringPtrInput
-	// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured.
+	// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured for all strategies except `CUSTOM` strategies using `SELF_MANAGED` configuration.
 	NamespaceTemplates pulumi.StringArrayInput
 	// Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
 	//
@@ -467,7 +587,7 @@ func (AgentcoreMemoryStrategyState) ElementType() reflect.Type {
 type agentcoreMemoryStrategyArgs struct {
 	// Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` Block below.
 	Configuration *AgentcoreMemoryStrategyConfiguration `pulumi:"configuration"`
-	// Description of the memory strategy.
+	// Description of the memory strategy. Once set, a description cannot be removed via update because the service API ignores a null description and retains the previously stored value.
 	Description *string `pulumi:"description"`
 	// ARN of the IAM role that the memory service assumes to perform operations.
 	//
@@ -475,9 +595,11 @@ type agentcoreMemoryStrategyArgs struct {
 	MemoryExecutionRoleArn *string `pulumi:"memoryExecutionRoleArn"`
 	// ID of the memory to associate with this strategy. Changing this forces a new resource.
 	MemoryId string `pulumi:"memoryId"`
-	// Name of the memory strategy.
+	// Schema for metadata fields on records generated by this strategy. Valid for all strategy types. See `memoryRecordSchema` Block below.
+	MemoryRecordSchema *AgentcoreMemoryStrategyMemoryRecordSchema `pulumi:"memoryRecordSchema"`
+	// Name of the memory strategy. Changing this forces a new resource, because the service API does not support renaming a strategy.
 	Name *string `pulumi:"name"`
-	// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured.
+	// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured for all strategies except `CUSTOM` strategies using `SELF_MANAGED` configuration.
 	NamespaceTemplates []string `pulumi:"namespaceTemplates"`
 	// Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
 	//
@@ -498,7 +620,7 @@ type agentcoreMemoryStrategyArgs struct {
 type AgentcoreMemoryStrategyArgs struct {
 	// Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` Block below.
 	Configuration AgentcoreMemoryStrategyConfigurationPtrInput
-	// Description of the memory strategy.
+	// Description of the memory strategy. Once set, a description cannot be removed via update because the service API ignores a null description and retains the previously stored value.
 	Description pulumi.StringPtrInput
 	// ARN of the IAM role that the memory service assumes to perform operations.
 	//
@@ -506,9 +628,11 @@ type AgentcoreMemoryStrategyArgs struct {
 	MemoryExecutionRoleArn pulumi.StringPtrInput
 	// ID of the memory to associate with this strategy. Changing this forces a new resource.
 	MemoryId pulumi.StringInput
-	// Name of the memory strategy.
+	// Schema for metadata fields on records generated by this strategy. Valid for all strategy types. See `memoryRecordSchema` Block below.
+	MemoryRecordSchema AgentcoreMemoryStrategyMemoryRecordSchemaPtrInput
+	// Name of the memory strategy. Changing this forces a new resource, because the service API does not support renaming a strategy.
 	Name pulumi.StringPtrInput
-	// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured.
+	// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured for all strategies except `CUSTOM` strategies using `SELF_MANAGED` configuration.
 	NamespaceTemplates pulumi.StringArrayInput
 	// Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
 	//
@@ -617,9 +741,9 @@ func (o AgentcoreMemoryStrategyOutput) Configuration() AgentcoreMemoryStrategyCo
 	return o.ApplyT(func(v *AgentcoreMemoryStrategy) AgentcoreMemoryStrategyConfigurationPtrOutput { return v.Configuration }).(AgentcoreMemoryStrategyConfigurationPtrOutput)
 }
 
-// Description of the memory strategy.
-func (o AgentcoreMemoryStrategyOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AgentcoreMemoryStrategy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+// Description of the memory strategy. Once set, a description cannot be removed via update because the service API ignores a null description and retains the previously stored value.
+func (o AgentcoreMemoryStrategyOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategy) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
 // ARN of the IAM role that the memory service assumes to perform operations.
@@ -634,17 +758,24 @@ func (o AgentcoreMemoryStrategyOutput) MemoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreMemoryStrategy) pulumi.StringOutput { return v.MemoryId }).(pulumi.StringOutput)
 }
 
+// Schema for metadata fields on records generated by this strategy. Valid for all strategy types. See `memoryRecordSchema` Block below.
+func (o AgentcoreMemoryStrategyOutput) MemoryRecordSchema() AgentcoreMemoryStrategyMemoryRecordSchemaPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategy) AgentcoreMemoryStrategyMemoryRecordSchemaPtrOutput {
+		return v.MemoryRecordSchema
+	}).(AgentcoreMemoryStrategyMemoryRecordSchemaPtrOutput)
+}
+
 // Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
 func (o AgentcoreMemoryStrategyOutput) MemoryStrategyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreMemoryStrategy) pulumi.StringOutput { return v.MemoryStrategyId }).(pulumi.StringOutput)
 }
 
-// Name of the memory strategy.
+// Name of the memory strategy. Changing this forces a new resource, because the service API does not support renaming a strategy.
 func (o AgentcoreMemoryStrategyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreMemoryStrategy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured.
+// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured for all strategies except `CUSTOM` strategies using `SELF_MANAGED` configuration.
 func (o AgentcoreMemoryStrategyOutput) NamespaceTemplates() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AgentcoreMemoryStrategy) pulumi.StringArrayOutput { return v.NamespaceTemplates }).(pulumi.StringArrayOutput)
 }

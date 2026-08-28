@@ -148,7 +148,7 @@ class _ModelCardState:
         Input properties used for looking up and filtering ModelCard resources.
 
         :param pulumi.Input[_builtins.str] content: Content of the model card in [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema).
-        :param pulumi.Input[_builtins.str] model_card_arn: The Amazon Resource Name (ARN) of the model card.
+        :param pulumi.Input[_builtins.str] model_card_arn: ARN of the model card.
         :param pulumi.Input[_builtins.str] model_card_name: Name of the model card.
         :param pulumi.Input[_builtins.str] model_card_status: Approval status of the model card. Valid values: `Draft`, `PendingReview`, `Approved`, `Archived`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -191,7 +191,7 @@ class _ModelCardState:
     @pulumi.getter(name="modelCardArn")
     def model_card_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the model card.
+        ARN of the model card.
         """
         return pulumi.get(self, "model_card_arn")
 
@@ -457,7 +457,7 @@ class ModelCard(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] content: Content of the model card in [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema).
-        :param pulumi.Input[_builtins.str] model_card_arn: The Amazon Resource Name (ARN) of the model card.
+        :param pulumi.Input[_builtins.str] model_card_arn: ARN of the model card.
         :param pulumi.Input[_builtins.str] model_card_name: Name of the model card.
         :param pulumi.Input[_builtins.str] model_card_status: Approval status of the model card. Valid values: `Draft`, `PendingReview`, `Approved`, `Archived`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -492,7 +492,7 @@ class ModelCard(pulumi.CustomResource):
     @pulumi.getter(name="modelCardArn")
     def model_card_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the model card.
+        ARN of the model card.
         """
         return pulumi.get(self, "model_card_arn")
 

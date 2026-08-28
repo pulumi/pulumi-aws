@@ -64,7 +64,7 @@ export interface GetAuthorizerResult {
      */
     readonly authorizerResultTtlInSeconds: number;
     /**
-     * Authorizer's Uniform Resource Identifier (URI).
+     * Authorizer's URI.
      */
     readonly authorizerUri: string;
     /**

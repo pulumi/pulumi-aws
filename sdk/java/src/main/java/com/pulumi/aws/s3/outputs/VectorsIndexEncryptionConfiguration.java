@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class VectorsIndexEncryptionConfiguration {
     /**
-     * @return AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sseType` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key Amazon Resource Name (ARN).
+     * @return KMS customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sseType` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key ARN.
      * 
      */
     private String kmsKeyArn;
@@ -23,7 +23,7 @@ public final class VectorsIndexEncryptionConfiguration {
 
     private VectorsIndexEncryptionConfiguration() {}
     /**
-     * @return AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sseType` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key Amazon Resource Name (ARN).
+     * @return KMS customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sseType` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key ARN.
      * 
      */
     public String kmsKeyArn() {

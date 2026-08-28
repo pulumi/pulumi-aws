@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetResolverFirewallRuleGroupAssociationResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the firewall rule group association.
+     * @return ARN of the firewall rule group association.
      * 
      */
     private String arn;
@@ -81,7 +81,7 @@ public final class GetResolverFirewallRuleGroupAssociationResult {
 
     private GetResolverFirewallRuleGroupAssociationResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the firewall rule group association.
+     * @return ARN of the firewall rule group association.
      * 
      */
     public String arn() {

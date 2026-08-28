@@ -53,7 +53,7 @@ namespace Pulumi.Aws.VpcLattice
         public Output<Outputs.TargetGroupAttachmentTarget> Target { get; private set; } = null!;
 
         /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the target group.
+        /// ID or ARN of the target group.
         /// </summary>
         [Output("targetGroupIdentifier")]
         public Output<string> TargetGroupIdentifier { get; private set; } = null!;
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<Inputs.TargetGroupAttachmentTargetArgs> Target { get; set; } = null!;
 
         /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the target group.
+        /// ID or ARN of the target group.
         /// </summary>
         [Input("targetGroupIdentifier", required: true)]
         public Input<string> TargetGroupIdentifier { get; set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<Inputs.TargetGroupAttachmentTargetGetArgs>? Target { get; set; }
 
         /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the target group.
+        /// ID or ARN of the target group.
         /// </summary>
         [Input("targetGroupIdentifier")]
         public Input<string>? TargetGroupIdentifier { get; set; }

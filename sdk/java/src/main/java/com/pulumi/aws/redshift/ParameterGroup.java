@@ -80,14 +80,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:redshift/parameterGroup:ParameterGroup")
 public class ParameterGroup extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of parameter group
+     * ARN of parameter group
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of parameter group
+     * @return ARN of parameter group
      * 
      */
     public Output<String> arn() {

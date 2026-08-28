@@ -5648,7 +5648,7 @@ class SecurityConfigurationEncryptionConfigurationCloudwatchEncryption(dict):
                  kms_key_arn: Optional[_builtins.str] = None):
         """
         :param _builtins.str cloudwatch_encryption_mode: Encryption mode to use for CloudWatch data. Valid values: `DISABLED`, `SSE-KMS`. Default value: `DISABLED`.
-        :param _builtins.str kms_key_arn: Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        :param _builtins.str kms_key_arn: ARN of the KMS key to be used to encrypt the data.
         """
         if cloudwatch_encryption_mode is not None:
             pulumi.set(__self__, "cloudwatch_encryption_mode", cloudwatch_encryption_mode)
@@ -5667,7 +5667,7 @@ class SecurityConfigurationEncryptionConfigurationCloudwatchEncryption(dict):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        ARN of the KMS key to be used to encrypt the data.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -5698,7 +5698,7 @@ class SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption(dict):
                  kms_key_arn: Optional[_builtins.str] = None):
         """
         :param _builtins.str job_bookmarks_encryption_mode: Encryption mode to use for job bookmarks data. Valid values: `CSE-KMS`, `DISABLED`. Default value: `DISABLED`.
-        :param _builtins.str kms_key_arn: Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        :param _builtins.str kms_key_arn: ARN of the KMS key to be used to encrypt the data.
         """
         if job_bookmarks_encryption_mode is not None:
             pulumi.set(__self__, "job_bookmarks_encryption_mode", job_bookmarks_encryption_mode)
@@ -5717,7 +5717,7 @@ class SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption(dict):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        ARN of the KMS key to be used to encrypt the data.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -5747,7 +5747,7 @@ class SecurityConfigurationEncryptionConfigurationS3Encryption(dict):
                  kms_key_arn: Optional[_builtins.str] = None,
                  s3_encryption_mode: Optional[_builtins.str] = None):
         """
-        :param _builtins.str kms_key_arn: Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        :param _builtins.str kms_key_arn: ARN of the KMS key to be used to encrypt the data.
         :param _builtins.str s3_encryption_mode: Encryption mode to use for S3 data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-S3`. Default value: `DISABLED`.
         """
         if kms_key_arn is not None:
@@ -5759,7 +5759,7 @@ class SecurityConfigurationEncryptionConfigurationS3Encryption(dict):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        ARN of the KMS key to be used to encrypt the data.
         """
         return pulumi.get(self, "kms_key_arn")
 

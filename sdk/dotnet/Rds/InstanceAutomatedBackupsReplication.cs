@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Rds
     public partial class InstanceAutomatedBackupsReplication : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
+        /// AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the ARN for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.Rds
         public Output<int?> RetentionPeriod { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
+        /// ARN of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
         /// </summary>
         [Output("sourceDbInstanceArn")]
         public Output<string> SourceDbInstanceArn { get; private set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Rds
     public sealed class InstanceAutomatedBackupsReplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
+        /// AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the ARN for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -205,7 +205,7 @@ namespace Pulumi.Aws.Rds
         public Input<int>? RetentionPeriod { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
+        /// ARN of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
         /// </summary>
         [Input("sourceDbInstanceArn", required: true)]
         public Input<string> SourceDbInstanceArn { get; set; } = null!;
@@ -219,7 +219,7 @@ namespace Pulumi.Aws.Rds
     public sealed class InstanceAutomatedBackupsReplicationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
+        /// AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the ARN for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -243,7 +243,7 @@ namespace Pulumi.Aws.Rds
         public Input<int>? RetentionPeriod { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
+        /// ARN of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
         /// </summary>
         [Input("sourceDbInstanceArn")]
         public Input<string>? SourceDbInstanceArn { get; set; }

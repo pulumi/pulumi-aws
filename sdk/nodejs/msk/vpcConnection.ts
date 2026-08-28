@@ -59,7 +59,7 @@ export class VpcConnection extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the VPC connection.
+     * ARN of the VPC connection.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -87,7 +87,7 @@ export class VpcConnection extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The Amazon Resource Name (ARN) of the cluster.
+     * ARN of the cluster.
      */
     declare public readonly targetClusterArn: pulumi.Output<string>;
     /**
@@ -154,7 +154,7 @@ export class VpcConnection extends pulumi.CustomResource {
  */
 export interface VpcConnectionState {
     /**
-     * Amazon Resource Name (ARN) of the VPC connection.
+     * ARN of the VPC connection.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -182,7 +182,7 @@ export interface VpcConnectionState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the cluster.
+     * ARN of the cluster.
      */
     targetClusterArn?: pulumi.Input<string | undefined>;
     /**
@@ -216,7 +216,7 @@ export interface VpcConnectionArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the cluster.
+     * ARN of the cluster.
      */
     targetClusterArn: pulumi.Input<string>;
     /**

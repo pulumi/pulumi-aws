@@ -22,7 +22,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule {
     private @Nullable LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule retainRule;
     private @Nullable String target;
     /**
-     * @return Use only for DLM policies of `policy_type=IMAGE_MANAGEMENT`. The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
+     * @return Use only for DLM policies of `policy_type=IMAGE_MANAGEMENT`. The target Region or the ARN of the target Outpost for the snapshot copies.
      * 
      */
     private @Nullable String targetRegion;
@@ -47,7 +47,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule {
         return Optional.ofNullable(this.target);
     }
     /**
-     * @return Use only for DLM policies of `policy_type=IMAGE_MANAGEMENT`. The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
+     * @return Use only for DLM policies of `policy_type=IMAGE_MANAGEMENT`. The target Region or the ARN of the target Outpost for the snapshot copies.
      * 
      */
     public Optional<String> targetRegion() {

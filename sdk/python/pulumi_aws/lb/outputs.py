@@ -1613,7 +1613,7 @@ class ListenerRuleActionForwardTargetGroup(dict):
                  arn: _builtins.str,
                  weight: Optional[_builtins.int] = None):
         """
-        :param _builtins.str arn: The Amazon Resource Name (ARN) of the target group.
+        :param _builtins.str arn: ARN of the target group.
         :param _builtins.int weight: The weight. The range is 0 to 999.
         """
         pulumi.set(__self__, "arn", arn)
@@ -1624,7 +1624,7 @@ class ListenerRuleActionForwardTargetGroup(dict):
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the target group.
+        ARN of the target group.
         """
         return pulumi.get(self, "arn")
 

@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetEmailIdentityMailFromAttributesResult {
     /**
-     * @return The action to take if the required MX record isn&#39;t found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
+     * @return Action to take if the required MX record isn&#39;t found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
      * 
      */
     private String behaviorOnMxFailure;
@@ -22,7 +22,7 @@ public final class GetEmailIdentityMailFromAttributesResult {
      */
     private String id;
     /**
-     * @return The custom MAIL FROM domain that you want the verified identity to use.
+     * @return Custom MAIL FROM domain that you want the verified identity to use.
      * 
      */
     private String mailFromDomain;
@@ -30,7 +30,7 @@ public final class GetEmailIdentityMailFromAttributesResult {
 
     private GetEmailIdentityMailFromAttributesResult() {}
     /**
-     * @return The action to take if the required MX record isn&#39;t found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
+     * @return Action to take if the required MX record isn&#39;t found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
      * 
      */
     public String behaviorOnMxFailure() {
@@ -47,7 +47,7 @@ public final class GetEmailIdentityMailFromAttributesResult {
         return this.id;
     }
     /**
-     * @return The custom MAIL FROM domain that you want the verified identity to use.
+     * @return Custom MAIL FROM domain that you want the verified identity to use.
      * 
      */
     public String mailFromDomain() {

@@ -136,7 +136,7 @@ class _WorkforceState:
         """
         Input properties used for looking up and filtering Workforce resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this Workforce.
         :param pulumi.Input['WorkforceCognitoConfigArgs'] cognito_config: Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
         :param pulumi.Input['WorkforceOidcConfigArgs'] oidc_config: Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -166,7 +166,7 @@ class _WorkforceState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
+        ARN assigned by AWS to this Workforce.
         """
         return pulumi.get(self, "arn")
 
@@ -464,7 +464,7 @@ class Workforce(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this Workforce.
         :param pulumi.Input[Union['WorkforceCognitoConfigArgs', 'WorkforceCognitoConfigArgsDict']] cognito_config: Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
         :param pulumi.Input[Union['WorkforceOidcConfigArgs', 'WorkforceOidcConfigArgsDict']] oidc_config: Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -491,7 +491,7 @@ class Workforce(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
+        ARN assigned by AWS to this Workforce.
         """
         return pulumi.get(self, "arn")
 

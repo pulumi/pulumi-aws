@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Comprehend
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Comprehend document classifier.
+    /// - `Arn` (String) ARN of the Comprehend document classifier.
     /// 
     /// Using `pulumi import`, import Comprehend Document Classifier using the ARN. For example:
     /// 

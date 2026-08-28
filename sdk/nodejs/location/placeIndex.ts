@@ -75,7 +75,7 @@ export class PlaceIndex extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
+     * ARN for the place index resource. Used to specify a resource across AWS.
      */
     declare public /*out*/ readonly indexArn: pulumi.Output<string>;
     /**
@@ -169,7 +169,7 @@ export interface PlaceIndexState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
+     * ARN for the place index resource. Used to specify a resource across AWS.
      */
     indexArn?: pulumi.Input<string | undefined>;
     /**

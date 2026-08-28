@@ -82,7 +82,7 @@ import (
 type LaunchConfiguration struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name of the launch configuration.
+	// ARN of the launch configuration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Associate a public ip address with an instance in a VPC.
 	AssociatePublicIpAddress pulumi.BoolPtrOutput `pulumi:"associatePublicIpAddress"`
@@ -162,7 +162,7 @@ func GetLaunchConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LaunchConfiguration resources.
 type launchConfigurationState struct {
-	// The Amazon Resource Name of the launch configuration.
+	// ARN of the launch configuration.
 	Arn *string `pulumi:"arn"`
 	// Associate a public ip address with an instance in a VPC.
 	AssociatePublicIpAddress *bool `pulumi:"associatePublicIpAddress"`
@@ -207,7 +207,7 @@ type launchConfigurationState struct {
 }
 
 type LaunchConfigurationState struct {
-	// The Amazon Resource Name of the launch configuration.
+	// ARN of the launch configuration.
 	Arn pulumi.StringPtrInput
 	// Associate a public ip address with an instance in a VPC.
 	AssociatePublicIpAddress pulumi.BoolPtrInput
@@ -429,7 +429,7 @@ func (o LaunchConfigurationOutput) ToLaunchConfigurationOutputWithContext(ctx co
 	return o
 }
 
-// The Amazon Resource Name of the launch configuration.
+// ARN of the launch configuration.
 func (o LaunchConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

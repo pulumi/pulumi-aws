@@ -59,7 +59,7 @@ type TopicRuleDestination struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+	// Configuration of the VPC connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
 	VpcConfiguration TopicRuleDestinationVpcConfigurationOutput `pulumi:"vpcConfiguration"`
 }
 
@@ -102,7 +102,7 @@ type topicRuleDestinationState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+	// Configuration of the VPC connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
 	VpcConfiguration *TopicRuleDestinationVpcConfiguration `pulumi:"vpcConfiguration"`
 }
 
@@ -113,7 +113,7 @@ type TopicRuleDestinationState struct {
 	Enabled pulumi.BoolPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+	// Configuration of the VPC connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
 	VpcConfiguration TopicRuleDestinationVpcConfigurationPtrInput
 }
 
@@ -126,7 +126,7 @@ type topicRuleDestinationArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+	// Configuration of the VPC connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
 	VpcConfiguration TopicRuleDestinationVpcConfiguration `pulumi:"vpcConfiguration"`
 }
 
@@ -136,7 +136,7 @@ type TopicRuleDestinationArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+	// Configuration of the VPC connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
 	VpcConfiguration TopicRuleDestinationVpcConfigurationInput
 }
 
@@ -242,7 +242,7 @@ func (o TopicRuleDestinationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TopicRuleDestination) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+// Configuration of the VPC connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
 func (o TopicRuleDestinationOutput) VpcConfiguration() TopicRuleDestinationVpcConfigurationOutput {
 	return o.ApplyT(func(v *TopicRuleDestination) TopicRuleDestinationVpcConfigurationOutput { return v.VpcConfiguration }).(TopicRuleDestinationVpcConfigurationOutput)
 }

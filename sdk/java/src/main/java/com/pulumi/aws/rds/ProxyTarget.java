@@ -144,14 +144,14 @@ public class ProxyTarget extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
+     * ARN for the DB instance or DB cluster. Currently not returned by the RDS API.
      * 
      */
     @Export(name="targetArn", refs={String.class}, tree="[0]")
     private Output<String> targetArn;
 
     /**
-     * @return Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
+     * @return ARN for the DB instance or DB cluster. Currently not returned by the RDS API.
      * 
      */
     public Output<String> targetArn() {

@@ -32,7 +32,7 @@ public final class ProxyAuth {
      */
     private @Nullable String iamAuth;
     /**
-     * @return Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+     * @return ARN representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
      * 
      */
     private @Nullable String secretArn;
@@ -72,7 +72,7 @@ public final class ProxyAuth {
         return Optional.ofNullable(this.iamAuth);
     }
     /**
-     * @return Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+     * @return ARN representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
      * 
      */
     public Optional<String> secretArn() {

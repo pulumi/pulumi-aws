@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
     public sealed class TemplateSourceEntitySourceAnalysisDataSetReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Dataset Amazon Resource Name (ARN).
+        /// Dataset ARN.
         /// </summary>
         [Input("dataSetArn", required: true)]
         public Input<string> DataSetArn { get; set; } = null!;

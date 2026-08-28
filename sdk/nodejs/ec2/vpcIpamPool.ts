@@ -156,7 +156,7 @@ export class VpcIpamPool extends pulumi.CustomResource {
      */
     declare public readonly allocationResourceTags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Amazon Resource Name (ARN) of IPAM
+     * ARN of IPAM
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -315,7 +315,7 @@ export interface VpcIpamPoolState {
      */
     allocationResourceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Amazon Resource Name (ARN) of IPAM
+     * ARN of IPAM
      */
     arn?: pulumi.Input<string | undefined>;
     /**

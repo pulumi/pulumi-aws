@@ -101,7 +101,7 @@ export class Authorizer extends pulumi.CustomResource {
      */
     declare public readonly authorizerType: pulumi.Output<string>;
     /**
-     * Authorizer's Uniform Resource Identifier (URI). For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `aws.lambda.Function` resource. Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
+     * Authorizer's URI. For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `aws.lambda.Function` resource. Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
      */
     declare public readonly authorizerUri: pulumi.Output<string | undefined>;
     /**
@@ -199,7 +199,7 @@ export interface AuthorizerState {
      */
     authorizerType?: pulumi.Input<string | undefined>;
     /**
-     * Authorizer's Uniform Resource Identifier (URI). For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `aws.lambda.Function` resource. Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
+     * Authorizer's URI. For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `aws.lambda.Function` resource. Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
      */
     authorizerUri?: pulumi.Input<string | undefined>;
     /**
@@ -249,7 +249,7 @@ export interface AuthorizerArgs {
      */
     authorizerType: pulumi.Input<string>;
     /**
-     * Authorizer's Uniform Resource Identifier (URI). For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `aws.lambda.Function` resource. Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
+     * Authorizer's URI. For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `aws.lambda.Function` resource. Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
      */
     authorizerUri?: pulumi.Input<string | undefined>;
     /**

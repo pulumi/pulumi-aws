@@ -68,7 +68,7 @@ class _GeoMatchSetState:
         """
         Input properties used for looking up and filtering GeoMatchSet resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN)
+        :param pulumi.Input[_builtins.str] arn: ARN
         :param pulumi.Input[Sequence[pulumi.Input['GeoMatchSetGeoMatchConstraintArgs']]] geo_match_constraints: The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.
         :param pulumi.Input[_builtins.str] name: The name or description of the GeoMatchSet.
         """
@@ -83,7 +83,7 @@ class _GeoMatchSetState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN)
+        ARN
         """
         return pulumi.get(self, "arn")
 
@@ -249,7 +249,7 @@ class GeoMatchSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN)
+        :param pulumi.Input[_builtins.str] arn: ARN
         :param pulumi.Input[Sequence[pulumi.Input[Union['GeoMatchSetGeoMatchConstraintArgs', 'GeoMatchSetGeoMatchConstraintArgsDict']]]] geo_match_constraints: The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.
         :param pulumi.Input[_builtins.str] name: The name or description of the GeoMatchSet.
         """
@@ -266,7 +266,7 @@ class GeoMatchSet(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN)
+        ARN
         """
         return pulumi.get(self, "arn")
 

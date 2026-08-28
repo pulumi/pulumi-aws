@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Kendra.Outputs
         /// </summary>
         public readonly string KeyLocation;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the secret.
+        /// ARN of the secret.
         /// </summary>
         public readonly string? SecretsManagerArn;
         /// <summary>

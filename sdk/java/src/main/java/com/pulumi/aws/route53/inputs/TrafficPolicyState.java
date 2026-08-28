@@ -17,14 +17,14 @@ public final class TrafficPolicyState extends com.pulumi.resources.ResourceArgs 
     public static final TrafficPolicyState Empty = new TrafficPolicyState();
 
     /**
-     * Amazon Resource Name (ARN) of the traffic policy.
+     * ARN of the traffic policy.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the traffic policy.
+     * @return ARN of the traffic policy.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -140,7 +140,7 @@ public final class TrafficPolicyState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the traffic policy.
+         * @param arn ARN of the traffic policy.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class TrafficPolicyState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the traffic policy.
+         * @param arn ARN of the traffic policy.
          * 
          * @return builder
          * 

@@ -18,14 +18,14 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
     public static final BucketState Empty = new BucketState();
 
     /**
-     * Amazon Resource Name (ARN) of the bucket.
+     * ARN of the bucket.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the bucket.
+     * @return ARN of the bucket.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -169,7 +169,7 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the bucket.
+         * @param arn ARN of the bucket.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the bucket.
+         * @param arn ARN of the bucket.
          * 
          * @return builder
          * 

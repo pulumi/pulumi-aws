@@ -17,14 +17,14 @@ public final class GetListenerPlainArgs extends com.pulumi.resources.InvokeArgs 
     public static final GetListenerPlainArgs Empty = new GetListenerPlainArgs();
 
     /**
-     * ID or Amazon Resource Name (ARN) of the listener
+     * ID or ARN of the listener
      * 
      */
     @Import(name="listenerIdentifier", required=true)
     private String listenerIdentifier;
 
     /**
-     * @return ID or Amazon Resource Name (ARN) of the listener
+     * @return ID or ARN of the listener
      * 
      */
     public String listenerIdentifier() {
@@ -47,14 +47,14 @@ public final class GetListenerPlainArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * ID or Amazon Resource Name (ARN) of the service network
+     * ID or ARN of the service network
      * 
      */
     @Import(name="serviceIdentifier", required=true)
     private String serviceIdentifier;
 
     /**
-     * @return ID or Amazon Resource Name (ARN) of the service network
+     * @return ID or ARN of the service network
      * 
      */
     public String serviceIdentifier() {
@@ -104,7 +104,7 @@ public final class GetListenerPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param listenerIdentifier ID or Amazon Resource Name (ARN) of the listener
+         * @param listenerIdentifier ID or ARN of the listener
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class GetListenerPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param serviceIdentifier ID or Amazon Resource Name (ARN) of the service network
+         * @param serviceIdentifier ID or ARN of the service network
          * 
          * @return builder
          * 

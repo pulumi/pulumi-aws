@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreMemoryStreamDeliveryResources
     {
         /// <summary>
-        /// List of stream delivery resource configurations. See `Resource` below.
+        /// List of stream delivery resource configurations. See `Resource` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreMemoryStreamDeliveryResourcesResource? Resource;
 

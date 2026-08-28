@@ -87,7 +87,7 @@ type SubnetGroup struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+	// VPC identifier (VPC ID) of the cache subnet group.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
@@ -140,7 +140,7 @@ type subnetGroupState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+	// VPC identifier (VPC ID) of the cache subnet group.
 	VpcId *string `pulumi:"vpcId"`
 }
 
@@ -158,7 +158,7 @@ type SubnetGroupState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+	// VPC identifier (VPC ID) of the cache subnet group.
 	VpcId pulumi.StringPtrInput
 }
 
@@ -314,7 +314,7 @@ func (o SubnetGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+// VPC identifier (VPC ID) of the cache subnet group.
 func (o SubnetGroupOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

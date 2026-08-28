@@ -101,14 +101,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cfg/organizationCustomRule:OrganizationCustomRule")
 public class OrganizationCustomRule extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the rule
+     * ARN of the rule
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the rule
+     * @return ARN of the rule
      * 
      */
     public Output<String> arn() {
@@ -157,14 +157,14 @@ public class OrganizationCustomRule extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.inputParameters);
     }
     /**
-     * Amazon Resource Name (ARN) of the rule Lambda Function
+     * ARN of the rule Lambda Function
      * 
      */
     @Export(name="lambdaFunctionArn", refs={String.class}, tree="[0]")
     private Output<String> lambdaFunctionArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the rule Lambda Function
+     * @return ARN of the rule Lambda Function
      * 
      */
     public Output<String> lambdaFunctionArn() {

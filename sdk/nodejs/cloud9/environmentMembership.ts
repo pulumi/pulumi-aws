@@ -74,7 +74,7 @@ export class EnvironmentMembership extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the environment member you want to add.
+     * ARN of the environment member you want to add.
      */
     declare public readonly userArn: pulumi.Output<string>;
     /**
@@ -139,7 +139,7 @@ export interface EnvironmentMembershipState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the environment member you want to add.
+     * ARN of the environment member you want to add.
      */
     userArn?: pulumi.Input<string | undefined>;
     /**
@@ -165,7 +165,7 @@ export interface EnvironmentMembershipArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the environment member you want to add.
+     * ARN of the environment member you want to add.
      */
     userArn: pulumi.Input<string>;
 }

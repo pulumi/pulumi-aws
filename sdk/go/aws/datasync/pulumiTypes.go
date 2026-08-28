@@ -14,9 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type EfsLocationEc2Config struct {
-	// List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
+	// List of ARNs of the EC2 Security Groups that are associated with the EFS Mount Target.
 	SecurityGroupArns []string `pulumi:"securityGroupArns"`
-	// Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
+	// ARN of the EC2 Subnet that is associated with the EFS Mount Target.
 	SubnetArn string `pulumi:"subnetArn"`
 }
 
@@ -32,9 +32,9 @@ type EfsLocationEc2ConfigInput interface {
 }
 
 type EfsLocationEc2ConfigArgs struct {
-	// List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
+	// List of ARNs of the EC2 Security Groups that are associated with the EFS Mount Target.
 	SecurityGroupArns pulumi.StringArrayInput `pulumi:"securityGroupArns"`
-	// Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
+	// ARN of the EC2 Subnet that is associated with the EFS Mount Target.
 	SubnetArn pulumi.StringInput `pulumi:"subnetArn"`
 }
 
@@ -115,12 +115,12 @@ func (o EfsLocationEc2ConfigOutput) ToEfsLocationEc2ConfigPtrOutputWithContext(c
 	}).(EfsLocationEc2ConfigPtrOutput)
 }
 
-// List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
+// List of ARNs of the EC2 Security Groups that are associated with the EFS Mount Target.
 func (o EfsLocationEc2ConfigOutput) SecurityGroupArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EfsLocationEc2Config) []string { return v.SecurityGroupArns }).(pulumi.StringArrayOutput)
 }
 
-// Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
+// ARN of the EC2 Subnet that is associated with the EFS Mount Target.
 func (o EfsLocationEc2ConfigOutput) SubnetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v EfsLocationEc2Config) string { return v.SubnetArn }).(pulumi.StringOutput)
 }
@@ -149,7 +149,7 @@ func (o EfsLocationEc2ConfigPtrOutput) Elem() EfsLocationEc2ConfigOutput {
 	}).(EfsLocationEc2ConfigOutput)
 }
 
-// List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
+// List of ARNs of the EC2 Security Groups that are associated with the EFS Mount Target.
 func (o EfsLocationEc2ConfigPtrOutput) SecurityGroupArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EfsLocationEc2Config) []string {
 		if v == nil {
@@ -159,7 +159,7 @@ func (o EfsLocationEc2ConfigPtrOutput) SecurityGroupArns() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
+// ARN of the EC2 Subnet that is associated with the EFS Mount Target.
 func (o EfsLocationEc2ConfigPtrOutput) SubnetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EfsLocationEc2Config) *string {
 		if v == nil {
@@ -2013,7 +2013,7 @@ func (o NfsLocationMountOptionsPtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 type NfsLocationOnPremConfig struct {
-	// List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
+	// List of ARNs of the DataSync Agents used to connect to the NFS server.
 	AgentArns []string `pulumi:"agentArns"`
 }
 
@@ -2029,7 +2029,7 @@ type NfsLocationOnPremConfigInput interface {
 }
 
 type NfsLocationOnPremConfigArgs struct {
-	// List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
+	// List of ARNs of the DataSync Agents used to connect to the NFS server.
 	AgentArns pulumi.StringArrayInput `pulumi:"agentArns"`
 }
 
@@ -2110,7 +2110,7 @@ func (o NfsLocationOnPremConfigOutput) ToNfsLocationOnPremConfigPtrOutputWithCon
 	}).(NfsLocationOnPremConfigPtrOutput)
 }
 
-// List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
+// List of ARNs of the DataSync Agents used to connect to the NFS server.
 func (o NfsLocationOnPremConfigOutput) AgentArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NfsLocationOnPremConfig) []string { return v.AgentArns }).(pulumi.StringArrayOutput)
 }
@@ -2139,7 +2139,7 @@ func (o NfsLocationOnPremConfigPtrOutput) Elem() NfsLocationOnPremConfigOutput {
 	}).(NfsLocationOnPremConfigOutput)
 }
 
-// List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
+// List of ARNs of the DataSync Agents used to connect to the NFS server.
 func (o NfsLocationOnPremConfigPtrOutput) AgentArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NfsLocationOnPremConfig) []string {
 		if v == nil {
@@ -3573,7 +3573,7 @@ func (o TaskTaskReportConfigReportOverridesPtrOutput) VerifiedOverride() pulumi.
 }
 
 type TaskTaskReportConfigS3Destination struct {
-	// Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
+	// ARN of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
 	BucketAccessRoleArn string `pulumi:"bucketAccessRoleArn"`
 	// Specifies the ARN of the S3 bucket where DataSync uploads your report.
 	S3BucketArn string `pulumi:"s3BucketArn"`
@@ -3593,7 +3593,7 @@ type TaskTaskReportConfigS3DestinationInput interface {
 }
 
 type TaskTaskReportConfigS3DestinationArgs struct {
-	// Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
+	// ARN of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
 	BucketAccessRoleArn pulumi.StringInput `pulumi:"bucketAccessRoleArn"`
 	// Specifies the ARN of the S3 bucket where DataSync uploads your report.
 	S3BucketArn pulumi.StringInput `pulumi:"s3BucketArn"`
@@ -3678,7 +3678,7 @@ func (o TaskTaskReportConfigS3DestinationOutput) ToTaskTaskReportConfigS3Destina
 	}).(TaskTaskReportConfigS3DestinationPtrOutput)
 }
 
-// Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
+// ARN of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
 func (o TaskTaskReportConfigS3DestinationOutput) BucketAccessRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskTaskReportConfigS3Destination) string { return v.BucketAccessRoleArn }).(pulumi.StringOutput)
 }
@@ -3717,7 +3717,7 @@ func (o TaskTaskReportConfigS3DestinationPtrOutput) Elem() TaskTaskReportConfigS
 	}).(TaskTaskReportConfigS3DestinationOutput)
 }
 
-// Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
+// ARN of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
 func (o TaskTaskReportConfigS3DestinationPtrOutput) BucketAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskTaskReportConfigS3Destination) *string {
 		if v == nil {

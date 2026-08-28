@@ -76,7 +76,7 @@ export class KxDataview extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) identifier of the KX dataview.
+     * ARN identifier of the KX dataview.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -218,7 +218,7 @@ export class KxDataview extends pulumi.CustomResource {
  */
 export interface KxDataviewState {
     /**
-     * Amazon Resource Name (ARN) identifier of the KX dataview.
+     * ARN identifier of the KX dataview.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

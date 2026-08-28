@@ -22,14 +22,14 @@ public final class ContainerRecipeState extends com.pulumi.resources.ResourceArg
     public static final ContainerRecipeState Empty = new ContainerRecipeState();
 
     /**
-     * (Required) Amazon Resource Name (ARN) of the container recipe.
+     * (Required) ARN of the container recipe.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return (Required) Amazon Resource Name (ARN) of the container recipe.
+     * @return (Required) ARN of the container recipe.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -385,7 +385,7 @@ public final class ContainerRecipeState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn (Required) Amazon Resource Name (ARN) of the container recipe.
+         * @param arn (Required) ARN of the container recipe.
          * 
          * @return builder
          * 
@@ -396,7 +396,7 @@ public final class ContainerRecipeState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn (Required) Amazon Resource Name (ARN) of the container recipe.
+         * @param arn (Required) ARN of the container recipe.
          * 
          * @return builder
          * 

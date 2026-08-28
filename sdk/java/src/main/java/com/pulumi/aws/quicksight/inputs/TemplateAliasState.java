@@ -32,14 +32,14 @@ public final class TemplateAliasState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Amazon Resource Name (ARN) of the template alias.
+     * ARN of the template alias.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the template alias.
+     * @return ARN of the template alias.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -161,7 +161,7 @@ public final class TemplateAliasState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the template alias.
+         * @param arn ARN of the template alias.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class TemplateAliasState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the template alias.
+         * @param arn ARN of the template alias.
          * 
          * @return builder
          * 

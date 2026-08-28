@@ -127,7 +127,7 @@ export class Domain extends pulumi.CustomResource {
      */
     declare public readonly appSecurityGroupManagement: pulumi.Output<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Domain.
+     * ARN assigned by AWS to this Domain.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -199,7 +199,7 @@ export class Domain extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly url: pulumi.Output<string>;
     /**
-     * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+     * ID of the VPC that Studio uses for communication.
      *
      * The following arguments are optional:
      */
@@ -296,7 +296,7 @@ export interface DomainState {
      */
     appSecurityGroupManagement?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Domain.
+     * ARN assigned by AWS to this Domain.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -368,7 +368,7 @@ export interface DomainState {
      */
     url?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+     * ID of the VPC that Studio uses for communication.
      *
      * The following arguments are optional:
      */
@@ -432,7 +432,7 @@ export interface DomainArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+     * ID of the VPC that Studio uses for communication.
      *
      * The following arguments are optional:
      */

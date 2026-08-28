@@ -88,7 +88,7 @@ namespace Pulumi.Aws.CloudFront
     public sealed class GetDistributionTenantArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ARN (Amazon Resource Name) for the distribution tenant.
+        /// ARN for the distribution tenant.
         /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.CloudFront
     public sealed class GetDistributionTenantInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ARN (Amazon Resource Name) for the distribution tenant.
+        /// ARN for the distribution tenant.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.CloudFront
     public sealed class GetDistributionTenantResult
     {
         /// <summary>
-        /// ARN (Amazon Resource Name) for the distribution tenant.
+        /// ARN for the distribution tenant.
         /// </summary>
         public readonly string Arn;
         /// <summary>

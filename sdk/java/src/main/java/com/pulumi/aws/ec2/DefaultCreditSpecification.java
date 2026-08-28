@@ -16,7 +16,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS EC2 (Elastic Compute Cloud) Default Credit Specification.
+ * Resource for managing an AWS EC2 Default Credit Specification.
  * 
  * ## Example Usage
  * 
@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import EC2 (Elastic Compute Cloud) Default Credit Specification using the `instanceFamily`. For example:
+ * Using `pulumi import`, import EC2 Default Credit Specification using the `instanceFamily`. For example:
  * 
  */
 @ResourceType(type="aws:ec2/defaultCreditSpecification:DefaultCreditSpecification")

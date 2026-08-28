@@ -310,14 +310,14 @@ public final class SubnetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Outpost.
+     * ARN of the Outpost.
      * 
      */
     @Import(name="outpostArn")
     private @Nullable Output<String> outpostArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Outpost.
+     * @return ARN of the Outpost.
      * 
      */
     public Optional<Output<String>> outpostArn() {
@@ -869,7 +869,7 @@ public final class SubnetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param outpostArn The Amazon Resource Name (ARN) of the Outpost.
+         * @param outpostArn ARN of the Outpost.
          * 
          * @return builder
          * 
@@ -880,7 +880,7 @@ public final class SubnetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param outpostArn The Amazon Resource Name (ARN) of the Outpost.
+         * @param outpostArn ARN of the Outpost.
          * 
          * @return builder
          * 

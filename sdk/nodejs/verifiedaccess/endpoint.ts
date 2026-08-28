@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an AWS EC2 (Elastic Compute Cloud) Verified Access Endpoint.
+ * Resource for managing an AWS EC2 Verified Access Endpoint.
  *
  * ## Example Usage
  *

@@ -167,7 +167,7 @@ import (
 type Plan struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the contact or escalation plan.
+	// The ARN of the contact or escalation plan.
 	ContactId pulumi.StringOutput `pulumi:"contactId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -211,7 +211,7 @@ func GetPlan(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Plan resources.
 type planState struct {
-	// The Amazon Resource Name (ARN) of the contact or escalation plan.
+	// The ARN of the contact or escalation plan.
 	ContactId *string `pulumi:"contactId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -220,7 +220,7 @@ type planState struct {
 }
 
 type PlanState struct {
-	// The Amazon Resource Name (ARN) of the contact or escalation plan.
+	// The ARN of the contact or escalation plan.
 	ContactId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -233,7 +233,7 @@ func (PlanState) ElementType() reflect.Type {
 }
 
 type planArgs struct {
-	// The Amazon Resource Name (ARN) of the contact or escalation plan.
+	// The ARN of the contact or escalation plan.
 	ContactId string `pulumi:"contactId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -243,7 +243,7 @@ type planArgs struct {
 
 // The set of arguments for constructing a Plan resource.
 type PlanArgs struct {
-	// The Amazon Resource Name (ARN) of the contact or escalation plan.
+	// The ARN of the contact or escalation plan.
 	ContactId pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -338,7 +338,7 @@ func (o PlanOutput) ToPlanOutputWithContext(ctx context.Context) PlanOutput {
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the contact or escalation plan.
+// The ARN of the contact or escalation plan.
 func (o PlanOutput) ContactId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringOutput { return v.ContactId }).(pulumi.StringOutput)
 }

@@ -273,12 +273,126 @@ namespace Pulumi.Aws.Bedrock
     /// });
     /// ```
     /// 
+    /// ### Custom Strategy with Self-Managed Configuration
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var selfManaged = new Aws.Bedrock.AgentcoreMemoryStrategy("self_managed", new()
+    ///     {
+    ///         Configuration = new Aws.Bedrock.Inputs.AgentcoreMemoryStrategyConfigurationArgs
+    ///         {
+    ///             SelfManaged = new[]
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "invocationConfiguration", new[]
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "topicArn", example.Arn },
+    ///                             { "payloadDeliveryBucketName", exampleAwsS3Bucket.Bucket },
+    ///                         },
+    ///                     } },
+    ///                     { "triggerConditions", new[]
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "messageBasedTrigger", new[]
+    ///                             {
+    ///                                 
+    ///                                 {
+    ///                                     { "messageCount", 12 },
+    ///                                 },
+    ///                             } },
+    ///                         },
+    ///                     } },
+    ///                     { "historicalContextWindowSize", 10 },
+    ///                 },
+    ///             },
+    ///             Type = "SELF_MANAGED",
+    ///         },
+    ///         Name = "self-managed-strategy",
+    ///         MemoryId = exampleAwsBedrockagentcoreMemory.Id,
+    ///         MemoryExecutionRoleArn = exampleAwsBedrockagentcoreMemory.MemoryExecutionRoleArn,
+    ///         Type = "CUSTOM",
+    ///         Description = "Self-managed processing strategy",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Custom Strategy with Self-Managed Configuration
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var selfManaged = new Aws.Bedrock.AgentcoreMemoryStrategy("self_managed", new()
+    ///     {
+    ///         Configuration = new Aws.Bedrock.Inputs.AgentcoreMemoryStrategyConfigurationArgs
+    ///         {
+    ///             SelfManagedConfiguration = new Aws.Bedrock.Inputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationArgs
+    ///             {
+    ///                 InvocationConfiguration = new Aws.Bedrock.Inputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationArgs
+    ///                 {
+    ///                     TopicArn = example.Arn,
+    ///                     PayloadDeliveryBucketName = exampleAwsS3Bucket.Bucket,
+    ///                 },
+    ///                 TriggerCondition = new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "messageBasedTrigger", new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "messageCount", 12 },
+    ///                             },
+    ///                         } },
+    ///                     },
+    ///                 },
+    ///                 HistoricalContextWindowSize = 10,
+    ///             },
+    ///             Type = "SELF_MANAGED",
+    ///         },
+    ///         Name = "self-managed-strategy",
+    ///         MemoryId = exampleAwsBedrockagentcoreMemory.Id,
+    ///         MemoryExecutionRoleArn = exampleAwsBedrockagentcoreMemory.MemoryExecutionRoleArn,
+    ///         Type = "CUSTOM",
+    ///         Description = "Self-managed processing strategy",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Bedrock AgentCore Memory Strategy using the `memory_id,strategy_id`. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `MemoryId` (String) Memory ID.
+    /// * `MemoryStrategyId` (String) Memory strategy ID.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) Account ID where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import memory strategies using `MemoryId` and `MemoryStrategyId` separated by a comma (`,`). For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:bedrock/agentcoreMemoryStrategy:AgentcoreMemoryStrategy example MEMORY1234567890,STRATEGY0987654321
+    /// $ pulumi import aws:bedrock/agentcoreMemoryStrategy:AgentcoreMemoryStrategy example example_memory-5JcvKJ4GP0,example_memory_strategy-pblFzi8VyW
     /// ```
     /// </summary>
     [AwsResourceType("aws:bedrock/agentcoreMemoryStrategy:AgentcoreMemoryStrategy")]
@@ -291,10 +405,10 @@ namespace Pulumi.Aws.Bedrock
         public Output<Outputs.AgentcoreMemoryStrategyConfiguration?> Configuration { get; private set; } = null!;
 
         /// <summary>
-        /// Description of the memory strategy.
+        /// Description of the memory strategy. Once set, a description cannot be removed via update because the service API ignores a null description and retains the previously stored value.
         /// </summary>
         [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
+        public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the IAM role that the memory service assumes to perform operations.
@@ -309,19 +423,25 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> MemoryId { get; private set; } = null!;
 
         /// <summary>
+        /// Schema for metadata fields on records generated by this strategy. Valid for all strategy types. See `MemoryRecordSchema` Block below.
+        /// </summary>
+        [Output("memoryRecordSchema")]
+        public Output<Outputs.AgentcoreMemoryStrategyMemoryRecordSchema?> MemoryRecordSchema { get; private set; } = null!;
+
+        /// <summary>
         /// Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
         /// </summary>
         [Output("memoryStrategyId")]
         public Output<string> MemoryStrategyId { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the memory strategy.
+        /// Name of the memory strategy. Changing this forces a new resource, because the service API does not support renaming a strategy.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `NamespaceTemplates` or `Namespaces` must be configured.
+        /// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `NamespaceTemplates` or `Namespaces` must be configured for all strategies except `CUSTOM` strategies using `SELF_MANAGED` configuration.
         /// </summary>
         [Output("namespaceTemplates")]
         public Output<ImmutableArray<string>> NamespaceTemplates { get; private set; } = null!;
@@ -408,7 +528,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<Inputs.AgentcoreMemoryStrategyConfigurationArgs>? Configuration { get; set; }
 
         /// <summary>
-        /// Description of the memory strategy.
+        /// Description of the memory strategy. Once set, a description cannot be removed via update because the service API ignores a null description and retains the previously stored value.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -426,7 +546,13 @@ namespace Pulumi.Aws.Bedrock
         public Input<string> MemoryId { get; set; } = null!;
 
         /// <summary>
-        /// Name of the memory strategy.
+        /// Schema for metadata fields on records generated by this strategy. Valid for all strategy types. See `MemoryRecordSchema` Block below.
+        /// </summary>
+        [Input("memoryRecordSchema")]
+        public Input<Inputs.AgentcoreMemoryStrategyMemoryRecordSchemaArgs>? MemoryRecordSchema { get; set; }
+
+        /// <summary>
+        /// Name of the memory strategy. Changing this forces a new resource, because the service API does not support renaming a strategy.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -435,7 +561,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<string>? _namespaceTemplates;
 
         /// <summary>
-        /// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `NamespaceTemplates` or `Namespaces` must be configured.
+        /// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `NamespaceTemplates` or `Namespaces` must be configured for all strategies except `CUSTOM` strategies using `SELF_MANAGED` configuration.
         /// </summary>
         public InputList<string> NamespaceTemplates
         {
@@ -494,7 +620,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<Inputs.AgentcoreMemoryStrategyConfigurationGetArgs>? Configuration { get; set; }
 
         /// <summary>
-        /// Description of the memory strategy.
+        /// Description of the memory strategy. Once set, a description cannot be removed via update because the service API ignores a null description and retains the previously stored value.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -512,13 +638,19 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? MemoryId { get; set; }
 
         /// <summary>
+        /// Schema for metadata fields on records generated by this strategy. Valid for all strategy types. See `MemoryRecordSchema` Block below.
+        /// </summary>
+        [Input("memoryRecordSchema")]
+        public Input<Inputs.AgentcoreMemoryStrategyMemoryRecordSchemaGetArgs>? MemoryRecordSchema { get; set; }
+
+        /// <summary>
         /// Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
         /// </summary>
         [Input("memoryStrategyId")]
         public Input<string>? MemoryStrategyId { get; set; }
 
         /// <summary>
-        /// Name of the memory strategy.
+        /// Name of the memory strategy. Changing this forces a new resource, because the service API does not support renaming a strategy.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -527,7 +659,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<string>? _namespaceTemplates;
 
         /// <summary>
-        /// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `NamespaceTemplates` or `Namespaces` must be configured.
+        /// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `NamespaceTemplates` or `Namespaces` must be configured for all strategies except `CUSTOM` strategies using `SELF_MANAGED` configuration.
         /// </summary>
         public InputList<string> NamespaceTemplates
         {

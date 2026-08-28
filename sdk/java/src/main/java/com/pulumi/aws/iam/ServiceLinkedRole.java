@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the IAM service-linked role.
+ * - `arn` (String) ARN of the IAM service-linked role.
  * 
  * Using `pulumi import`, import IAM service-linked roles using role ARN. For example:
  * 
@@ -69,14 +69,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:iam/serviceLinkedRole:ServiceLinkedRole")
 public class ServiceLinkedRole extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) specifying the role.
+     * ARN specifying the role.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) specifying the role.
+     * @return ARN specifying the role.
      * 
      */
     public Output<String> arn() {

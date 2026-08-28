@@ -272,7 +272,7 @@ class _AmiCopyState:
 
         :param pulumi.Input[_builtins.str] architecture: Machine architecture for created instances. Defaults to `x86_64`.
         :param pulumi.Input[_builtins.str] arn: ARN of the AMI.
-        :param pulumi.Input[_builtins.str] boot_mode: Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+        :param pulumi.Input[_builtins.str] boot_mode: Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the EC2 User Guide.
         :param pulumi.Input[_builtins.str] deprecation_time: Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         :param pulumi.Input[_builtins.str] description: Longer, human-readable description for the AMI.
         :param pulumi.Input[_builtins.str] destination_outpost_arn: ARN of the Outpost to which to copy the AMI.
@@ -302,7 +302,7 @@ class _AmiCopyState:
         :param pulumi.Input[_builtins.str] sriov_net_support: When set to "simple" (the default), enables enhanced networking
                for created instances. No other value is supported at this time.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] tpm_support: If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+        :param pulumi.Input[_builtins.str] tpm_support: If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the EC2 User Guide.
         :param pulumi.Input[_builtins.str] uefi_data: Base64 representation of the non-volatile UEFI variable store.
         :param pulumi.Input[_builtins.str] virtualization_type: Keyword to choose what virtualization mode created instances
                will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
@@ -411,7 +411,7 @@ class _AmiCopyState:
     @pulumi.getter(name="bootMode")
     def boot_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+        Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the EC2 User Guide.
         """
         return pulumi.get(self, "boot_mode")
 
@@ -762,7 +762,7 @@ class _AmiCopyState:
     @pulumi.getter(name="tpmSupport")
     def tpm_support(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+        If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the EC2 User Guide.
         """
         return pulumi.get(self, "tpm_support")
 
@@ -826,7 +826,7 @@ class AmiCopy(pulumi.CustomResource):
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        The "AMI copy" resource allows duplication of an Amazon Machine Image (AMI),
+        The "AMI copy" resource allows duplication of an AMI,
         including cross-region copies.
 
         If the source AMI has associated EBS snapshots, those will also be duplicated
@@ -881,7 +881,7 @@ class AmiCopy(pulumi.CustomResource):
                  args: AmiCopyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The "AMI copy" resource allows duplication of an Amazon Machine Image (AMI),
+        The "AMI copy" resource allows duplication of an AMI,
         including cross-region copies.
 
         If the source AMI has associated EBS snapshots, those will also be duplicated
@@ -1042,7 +1042,7 @@ class AmiCopy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] architecture: Machine architecture for created instances. Defaults to `x86_64`.
         :param pulumi.Input[_builtins.str] arn: ARN of the AMI.
-        :param pulumi.Input[_builtins.str] boot_mode: Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+        :param pulumi.Input[_builtins.str] boot_mode: Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the EC2 User Guide.
         :param pulumi.Input[_builtins.str] deprecation_time: Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         :param pulumi.Input[_builtins.str] description: Longer, human-readable description for the AMI.
         :param pulumi.Input[_builtins.str] destination_outpost_arn: ARN of the Outpost to which to copy the AMI.
@@ -1072,7 +1072,7 @@ class AmiCopy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] sriov_net_support: When set to "simple" (the default), enables enhanced networking
                for created instances. No other value is supported at this time.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] tpm_support: If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+        :param pulumi.Input[_builtins.str] tpm_support: If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the EC2 User Guide.
         :param pulumi.Input[_builtins.str] uefi_data: Base64 representation of the non-volatile UEFI variable store.
         :param pulumi.Input[_builtins.str] virtualization_type: Keyword to choose what virtualization mode created instances
                will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
@@ -1141,7 +1141,7 @@ class AmiCopy(pulumi.CustomResource):
     @pulumi.getter(name="bootMode")
     def boot_mode(self) -> pulumi.Output[_builtins.str]:
         """
-        Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+        Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the EC2 User Guide.
         """
         return pulumi.get(self, "boot_mode")
 
@@ -1368,7 +1368,7 @@ class AmiCopy(pulumi.CustomResource):
     @pulumi.getter(name="tpmSupport")
     def tpm_support(self) -> pulumi.Output[_builtins.str]:
         """
-        If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+        If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the EC2 User Guide.
         """
         return pulumi.get(self, "tpm_support")
 

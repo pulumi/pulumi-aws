@@ -137,14 +137,14 @@ public class AssessmentDelegation extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Amazon Resource Name (ARN) of the IAM role.
+     * ARN of the IAM role.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the IAM role.
+     * @return ARN of the IAM role.
      * 
      */
     public Output<String> roleArn() {

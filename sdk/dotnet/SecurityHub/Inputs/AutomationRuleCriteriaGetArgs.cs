@@ -220,7 +220,7 @@ namespace Pulumi.Aws.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleCriteriaProductArnGetArgs>? _productArns;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
+        /// ARN for a third-party product that generated a finding in Security Hub. Documented below.
         /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaProductArnGetArgs> ProductArns
         {
@@ -280,7 +280,7 @@ namespace Pulumi.Aws.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleCriteriaResourceApplicationArnGetArgs>? _resourceApplicationArns;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
+        /// ARN of the application that is related to a finding. Documented below.
         /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaResourceApplicationArnGetArgs> ResourceApplicationArns
         {
@@ -316,7 +316,7 @@ namespace Pulumi.Aws.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleCriteriaResourceIdGetArgs>? _resourceIds;
 
         /// <summary>
-        /// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
+        /// Identifier for the given resource type. For AWS resources that are identified by ARNs, this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
         /// </summary>
         public InputList<Inputs.AutomationRuleCriteriaResourceIdGetArgs> ResourceIds
         {

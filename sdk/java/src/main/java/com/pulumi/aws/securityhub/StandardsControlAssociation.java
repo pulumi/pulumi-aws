@@ -141,7 +141,7 @@ public class StandardsControlAssociation extends com.pulumi.resources.CustomReso
         return this.securityControlId;
     }
     /**
-     * The Amazon Resource Name (ARN) of the standard in which you want to update the control&#39;s enablement status.
+     * ARN of the standard in which you want to update the control&#39;s enablement status.
      * 
      * The following arguments are optional:
      * 
@@ -150,7 +150,7 @@ public class StandardsControlAssociation extends com.pulumi.resources.CustomReso
     private Output<String> standardsArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the standard in which you want to update the control&#39;s enablement status.
+     * @return ARN of the standard in which you want to update the control&#39;s enablement status.
      * 
      * The following arguments are optional:
      * 

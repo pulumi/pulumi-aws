@@ -138,14 +138,14 @@ public class VpcEndpointService extends com.pulumi.resources.CustomResource {
         return this.allowedPrincipals;
     }
     /**
-     * The Amazon Resource Name (ARN) of the VPC endpoint service.
+     * ARN of the VPC endpoint service.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the VPC endpoint service.
+     * @return ARN of the VPC endpoint service.
      * 
      */
     public Output<String> arn() {
@@ -180,14 +180,14 @@ public class VpcEndpointService extends com.pulumi.resources.CustomResource {
         return this.baseEndpointDnsNames;
     }
     /**
-     * Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
+     * ARNs of one or more Gateway Load Balancers for the endpoint service.
      * 
      */
     @Export(name="gatewayLoadBalancerArns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> gatewayLoadBalancerArns;
 
     /**
-     * @return Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
+     * @return ARNs of one or more Gateway Load Balancers for the endpoint service.
      * 
      */
     public Output<Optional<List<String>>> gatewayLoadBalancerArns() {
@@ -208,14 +208,14 @@ public class VpcEndpointService extends com.pulumi.resources.CustomResource {
         return this.managesVpcEndpoints;
     }
     /**
-     * Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
+     * ARNs of one or more Network Load Balancers for the endpoint service.
      * 
      */
     @Export(name="networkLoadBalancerArns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> networkLoadBalancerArns;
 
     /**
-     * @return Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
+     * @return ARNs of one or more Network Load Balancers for the endpoint service.
      * 
      */
     public Output<Optional<List<String>>> networkLoadBalancerArns() {

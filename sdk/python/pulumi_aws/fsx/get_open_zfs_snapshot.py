@@ -67,7 +67,7 @@ class GetOpenZfsSnapshotResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        Amazon Resource Name of the snapshot.
+        ARN of the snapshot.
         """
         return pulumi.get(self, "arn")
 

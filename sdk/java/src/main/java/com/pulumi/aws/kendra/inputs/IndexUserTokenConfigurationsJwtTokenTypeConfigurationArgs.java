@@ -77,14 +77,14 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs ext
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the secret.
+     * ARN of the secret.
      * 
      */
     @Import(name="secretsManagerArn")
     private @Nullable Output<String> secretsManagerArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the secret.
+     * @return ARN of the secret.
      * 
      */
     public Optional<Output<String>> secretsManagerArn() {
@@ -236,7 +236,7 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs ext
         }
 
         /**
-         * @param secretsManagerArn The Amazon Resource Name (ARN) of the secret.
+         * @param secretsManagerArn ARN of the secret.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs ext
         }
 
         /**
-         * @param secretsManagerArn The Amazon Resource Name (ARN) of the secret.
+         * @param secretsManagerArn ARN of the secret.
          * 
          * @return builder
          * 

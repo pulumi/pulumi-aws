@@ -91,7 +91,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the RDS integration.
+ * - `arn` (String) ARN of the RDS integration.
  *
  * Using `pulumi import`, import RDS (Relational Database) Integration using the `arn`. For example:
  *

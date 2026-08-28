@@ -27,7 +27,7 @@ class AssessmentTargetArgs:
 
         :param pulumi.Input[_builtins.str] name: The name of the assessment target.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_group_arn: Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+        :param pulumi.Input[_builtins.str] resource_group_arn: Inspector Resource Group ARN stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -64,7 +64,7 @@ class AssessmentTargetArgs:
     @pulumi.getter(name="resourceGroupArn")
     def resource_group_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+        Inspector Resource Group ARN stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
         """
         return pulumi.get(self, "resource_group_arn")
 
@@ -86,7 +86,7 @@ class _AssessmentTargetState:
         :param pulumi.Input[_builtins.str] arn: The target assessment ARN.
         :param pulumi.Input[_builtins.str] name: The name of the assessment target.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_group_arn: Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+        :param pulumi.Input[_builtins.str] resource_group_arn: Inspector Resource Group ARN stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -137,7 +137,7 @@ class _AssessmentTargetState:
     @pulumi.getter(name="resourceGroupArn")
     def resource_group_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+        Inspector Resource Group ARN stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
         """
         return pulumi.get(self, "resource_group_arn")
 
@@ -180,9 +180,9 @@ class AssessmentTarget(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Inspector assessment target.
+        - `arn` (String) ARN of the Inspector assessment target.
 
-        Using `pulumi import`, import Inspector Classic Assessment Targets using their Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import Inspector Classic Assessment Targets using their ARN. For example:
 
         ```sh
         $ pulumi import aws:inspector/assessmentTarget:AssessmentTarget example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
@@ -193,7 +193,7 @@ class AssessmentTarget(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the assessment target.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_group_arn: Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+        :param pulumi.Input[_builtins.str] resource_group_arn: Inspector Resource Group ARN stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
         """
         ...
     @overload
@@ -225,9 +225,9 @@ class AssessmentTarget(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Inspector assessment target.
+        - `arn` (String) ARN of the Inspector assessment target.
 
-        Using `pulumi import`, import Inspector Classic Assessment Targets using their Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import Inspector Classic Assessment Targets using their ARN. For example:
 
         ```sh
         $ pulumi import aws:inspector/assessmentTarget:AssessmentTarget example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
@@ -289,7 +289,7 @@ class AssessmentTarget(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: The target assessment ARN.
         :param pulumi.Input[_builtins.str] name: The name of the assessment target.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_group_arn: Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+        :param pulumi.Input[_builtins.str] resource_group_arn: Inspector Resource Group ARN stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -329,7 +329,7 @@ class AssessmentTarget(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupArn")
     def resource_group_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+        Inspector Resource Group ARN stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
         """
         return pulumi.get(self, "resource_group_arn")
 

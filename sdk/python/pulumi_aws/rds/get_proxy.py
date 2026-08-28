@@ -166,7 +166,7 @@ class GetProxyResult:
     @pulumi.getter(name="requireTls")
     def require_tls(self) -> _builtins.bool:
         """
-        Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
+        Whether TLS encryption is required for connections to the proxy.
         """
         return pulumi.get(self, "require_tls")
 

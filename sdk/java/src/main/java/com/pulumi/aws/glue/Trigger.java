@@ -270,14 +270,14 @@ public class Trigger extends com.pulumi.resources.CustomResource {
         return this.actions;
     }
     /**
-     * Amazon Resource Name (ARN) of Glue Trigger
+     * ARN of Glue Trigger
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of Glue Trigger
+     * @return ARN of Glue Trigger
      * 
      */
     public Output<String> arn() {

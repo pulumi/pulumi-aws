@@ -14,7 +14,7 @@ namespace Pulumi.Aws.SsmContacts.Outputs
     public sealed class PlanStageTargetContactTargetInfo
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the contact.
+        /// The ARN of the contact.
         /// </summary>
         public readonly string? ContactId;
         /// <summary>

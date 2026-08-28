@@ -16,14 +16,14 @@ public final class AgentcoreMemoryStreamDeliveryResourcesResourceArgs extends co
     public static final AgentcoreMemoryStreamDeliveryResourcesResourceArgs Empty = new AgentcoreMemoryStreamDeliveryResourcesResourceArgs();
 
     /**
-     * Kinesis Data Stream configuration. See `kinesis` below.
+     * Kinesis Data Stream configuration. See `kinesis` Block below.
      * 
      */
     @Import(name="kinesis")
     private @Nullable Output<AgentcoreMemoryStreamDeliveryResourcesResourceKinesisArgs> kinesis;
 
     /**
-     * @return Kinesis Data Stream configuration. See `kinesis` below.
+     * @return Kinesis Data Stream configuration. See `kinesis` Block below.
      * 
      */
     public Optional<Output<AgentcoreMemoryStreamDeliveryResourcesResourceKinesisArgs>> kinesis() {
@@ -55,7 +55,7 @@ public final class AgentcoreMemoryStreamDeliveryResourcesResourceArgs extends co
         }
 
         /**
-         * @param kinesis Kinesis Data Stream configuration. See `kinesis` below.
+         * @param kinesis Kinesis Data Stream configuration. See `kinesis` Block below.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class AgentcoreMemoryStreamDeliveryResourcesResourceArgs extends co
         }
 
         /**
-         * @param kinesis Kinesis Data Stream configuration. See `kinesis` below.
+         * @param kinesis Kinesis Data Stream configuration. See `kinesis` Block below.
          * 
          * @return builder
          * 

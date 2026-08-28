@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> NetworkInterfaceId { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+        /// ARN of the Network Load Balancer that is associated with the target.
         /// </summary>
         [Output("networkLoadBalancerArn")]
         public Output<string?> NetworkLoadBalancerArn { get; private set; } = null!;
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? NetworkInterfaceId { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+        /// ARN of the Network Load Balancer that is associated with the target.
         /// </summary>
         [Input("networkLoadBalancerArn")]
         public Input<string>? NetworkLoadBalancerArn { get; set; }
@@ -236,7 +236,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? NetworkInterfaceId { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+        /// ARN of the Network Load Balancer that is associated with the target.
         /// </summary>
         [Input("networkLoadBalancerArn")]
         public Input<string>? NetworkLoadBalancerArn { get; set; }

@@ -103,7 +103,7 @@ export class OntapStorageVirtualMachine extends pulumi.CustomResource {
      */
     declare public readonly activeDirectoryConfiguration: pulumi.Output<outputs.fsx.OntapStorageVirtualMachineActiveDirectoryConfiguration | undefined>;
     /**
-     * Amazon Resource Name of the storage virtual machine.
+     * ARN of the storage virtual machine.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -206,7 +206,7 @@ export interface OntapStorageVirtualMachineState {
      */
     activeDirectoryConfiguration?: pulumi.Input<inputs.fsx.OntapStorageVirtualMachineActiveDirectoryConfiguration | undefined>;
     /**
-     * Amazon Resource Name of the storage virtual machine.
+     * ARN of the storage virtual machine.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

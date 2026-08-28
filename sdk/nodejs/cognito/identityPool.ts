@@ -118,7 +118,7 @@ export class IdentityPool extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+     * An array of ARNs of the SAML provider for your identity.
      */
     declare public readonly samlProviderArns: pulumi.Output<string[] | undefined>;
     /**
@@ -220,7 +220,7 @@ export interface IdentityPoolState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+     * An array of ARNs of the SAML provider for your identity.
      */
     samlProviderArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -271,7 +271,7 @@ export interface IdentityPoolArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+     * An array of ARNs of the SAML provider for your identity.
      */
     samlProviderArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

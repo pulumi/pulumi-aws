@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the CodeStar notification rule.
+ * - `arn` (String) ARN of the CodeStar notification rule.
  * 
  * Using `pulumi import`, import CodeStar notification rule using the ARN. For example:
  * 

@@ -24,7 +24,7 @@ class ProtectionHealthCheckAssociationArgs:
         """
         The set of arguments for constructing a ProtectionHealthCheckAssociation resource.
 
-        :param pulumi.Input[_builtins.str] health_check_arn: The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+        :param pulumi.Input[_builtins.str] health_check_arn: ARN of the Route53 Health Check resource which will be associated to the protected resource.
         :param pulumi.Input[_builtins.str] shield_protection_id: The ID of the protected resource.
         """
         pulumi.set(__self__, "health_check_arn", health_check_arn)
@@ -34,7 +34,7 @@ class ProtectionHealthCheckAssociationArgs:
     @pulumi.getter(name="healthCheckArn")
     def health_check_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+        ARN of the Route53 Health Check resource which will be associated to the protected resource.
         """
         return pulumi.get(self, "health_check_arn")
 
@@ -63,7 +63,7 @@ class _ProtectionHealthCheckAssociationState:
         """
         Input properties used for looking up and filtering ProtectionHealthCheckAssociation resources.
 
-        :param pulumi.Input[_builtins.str] health_check_arn: The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+        :param pulumi.Input[_builtins.str] health_check_arn: ARN of the Route53 Health Check resource which will be associated to the protected resource.
         :param pulumi.Input[_builtins.str] shield_protection_id: The ID of the protected resource.
         """
         if health_check_arn is not None:
@@ -75,7 +75,7 @@ class _ProtectionHealthCheckAssociationState:
     @pulumi.getter(name="healthCheckArn")
     def health_check_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+        ARN of the Route53 Health Check resource which will be associated to the protected resource.
         """
         return pulumi.get(self, "health_check_arn")
 
@@ -156,7 +156,7 @@ class ProtectionHealthCheckAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] health_check_arn: The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+        :param pulumi.Input[_builtins.str] health_check_arn: ARN of the Route53 Health Check resource which will be associated to the protected resource.
         :param pulumi.Input[_builtins.str] shield_protection_id: The ID of the protected resource.
         """
         ...
@@ -265,7 +265,7 @@ class ProtectionHealthCheckAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] health_check_arn: The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+        :param pulumi.Input[_builtins.str] health_check_arn: ARN of the Route53 Health Check resource which will be associated to the protected resource.
         :param pulumi.Input[_builtins.str] shield_protection_id: The ID of the protected resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -280,7 +280,7 @@ class ProtectionHealthCheckAssociation(pulumi.CustomResource):
     @pulumi.getter(name="healthCheckArn")
     def health_check_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+        ARN of the Route53 Health Check resource which will be associated to the protected resource.
         """
         return pulumi.get(self, "health_check_arn")
 

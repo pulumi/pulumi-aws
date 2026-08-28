@@ -21,14 +21,14 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
     public static final CustomRoutingAcceleratorState Empty = new CustomRoutingAcceleratorState();
 
     /**
-     * The Amazon Resource Name (ARN) of the custom accelerator.
+     * ARN of the custom accelerator.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the custom accelerator.
+     * @return ARN of the custom accelerator.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -224,7 +224,7 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the custom accelerator.
+         * @param arn ARN of the custom accelerator.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the custom accelerator.
+         * @param arn ARN of the custom accelerator.
          * 
          * @return builder
          * 

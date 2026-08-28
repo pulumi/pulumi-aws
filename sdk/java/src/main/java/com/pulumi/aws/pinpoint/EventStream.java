@@ -132,7 +132,7 @@ public class EventStream extends com.pulumi.resources.CustomResource {
         return this.applicationId;
     }
     /**
-     * Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+     * ARN of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
      * 
      * @deprecated
      * destination_stream_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
@@ -143,7 +143,7 @@ public class EventStream extends com.pulumi.resources.CustomResource {
     private Output<String> destinationStreamArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+     * @return ARN of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
      * 
      */
     public Output<String> destinationStreamArn() {

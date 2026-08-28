@@ -138,7 +138,7 @@ namespace Pulumi.Aws.Cfg
     public partial class ConformancePack : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the conformance pack.
+        /// ARN of the conformance pack.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -292,7 +292,7 @@ namespace Pulumi.Aws.Cfg
     public sealed class ConformancePackState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the conformance pack.
+        /// ARN of the conformance pack.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

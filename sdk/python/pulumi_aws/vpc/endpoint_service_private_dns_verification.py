@@ -175,7 +175,7 @@ class EndpointServicePrivateDnsVerification(pulumi.CustomResource):
                  wait_for_verification: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS VPC (Virtual Private Cloud) Endpoint Service Private DNS Verification.
+        Resource for managing an AWS VPC Endpoint Service Private DNS Verification.
         This resource begins the verification process by calling the [`StartVpcEndpointServicePrivateDnsVerification`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_StartVpcEndpointServicePrivateDnsVerification.html) API.
         The service provider should add a record to the DNS server _before_ creating this resource.
 
@@ -214,7 +214,7 @@ class EndpointServicePrivateDnsVerification(pulumi.CustomResource):
                  args: EndpointServicePrivateDnsVerificationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS VPC (Virtual Private Cloud) Endpoint Service Private DNS Verification.
+        Resource for managing an AWS VPC Endpoint Service Private DNS Verification.
         This resource begins the verification process by calling the [`StartVpcEndpointServicePrivateDnsVerification`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_StartVpcEndpointServicePrivateDnsVerification.html) API.
         The service provider should add a record to the DNS server _before_ creating this resource.
 

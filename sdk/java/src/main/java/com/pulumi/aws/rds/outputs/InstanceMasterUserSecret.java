@@ -18,7 +18,7 @@ public final class InstanceMasterUserSecret {
      */
     private @Nullable String kmsKeyId;
     /**
-     * @return The Amazon Resource Name (ARN) of the secret.
+     * @return ARN of the secret.
      * 
      */
     private @Nullable String secretArn;
@@ -38,7 +38,7 @@ public final class InstanceMasterUserSecret {
         return Optional.ofNullable(this.kmsKeyId);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the secret.
+     * @return ARN of the secret.
      * 
      */
     public Optional<String> secretArn() {

@@ -65,7 +65,7 @@ import (
 type ParameterGroup struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of parameter group
+	// ARN of parameter group
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The description of the Redshift parameter group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringOutput `pulumi:"description"`
@@ -121,7 +121,7 @@ func GetParameterGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ParameterGroup resources.
 type parameterGroupState struct {
-	// Amazon Resource Name (ARN) of parameter group
+	// ARN of parameter group
 	Arn *string `pulumi:"arn"`
 	// The description of the Redshift parameter group. Defaults to "Managed by Pulumi".
 	Description *string `pulumi:"description"`
@@ -142,7 +142,7 @@ type parameterGroupState struct {
 }
 
 type ParameterGroupState struct {
-	// Amazon Resource Name (ARN) of parameter group
+	// ARN of parameter group
 	Arn pulumi.StringPtrInput
 	// The description of the Redshift parameter group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringPtrInput
@@ -288,7 +288,7 @@ func (o ParameterGroupOutput) ToParameterGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Amazon Resource Name (ARN) of parameter group
+// ARN of parameter group
 func (o ParameterGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

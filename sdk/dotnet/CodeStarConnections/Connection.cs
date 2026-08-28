@@ -93,7 +93,7 @@ namespace Pulumi.Aws.CodeStarConnections
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the CodeStar connection.
+    /// - `Arn` (String) ARN of the CodeStar connection.
     /// 
     /// Using `pulumi import`, import CodeStar connections using the ARN. For example:
     /// 
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.CodeStarConnections
         public Output<string> ConnectionStatus { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `ProviderType`
+        /// ARN of the host associated with the connection. Conflicts with `ProviderType`
         /// </summary>
         [Output("hostArn")]
         public Output<string?> HostArn { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.Aws.CodeStarConnections
     public sealed class ConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `ProviderType`
+        /// ARN of the host associated with the connection. Conflicts with `ProviderType`
         /// </summary>
         [Input("hostArn")]
         public Input<string>? HostArn { get; set; }
@@ -255,7 +255,7 @@ namespace Pulumi.Aws.CodeStarConnections
         public Input<string>? ConnectionStatus { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `ProviderType`
+        /// ARN of the host associated with the connection. Conflicts with `ProviderType`
         /// </summary>
         [Input("hostArn")]
         public Input<string>? HostArn { get; set; }

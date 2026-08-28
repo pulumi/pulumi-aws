@@ -83,14 +83,14 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+     * ARN of the App Runner service to start the deployment for.
      * 
      */
     @Export(name="serviceArn", refs={String.class}, tree="[0]")
     private Output<String> serviceArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+     * @return ARN of the App Runner service to start the deployment for.
      * 
      */
     public Output<String> serviceArn() {

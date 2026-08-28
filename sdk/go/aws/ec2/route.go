@@ -133,7 +133,7 @@ type Route struct {
 
 	// Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
 	CarrierGatewayId pulumi.StringPtrOutput `pulumi:"carrierGatewayId"`
-	// The Amazon Resource Name (ARN) of a core network.
+	// ARN of a core network.
 	CoreNetworkArn pulumi.StringPtrOutput `pulumi:"coreNetworkArn"`
 	// The destination CIDR block.
 	DestinationCidrBlock pulumi.StringPtrOutput `pulumi:"destinationCidrBlock"`
@@ -157,7 +157,7 @@ type Route struct {
 	NatGatewayId pulumi.StringPtrOutput `pulumi:"natGatewayId"`
 	// Identifier of an EC2 network interface.
 	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
-	// The Amazon Resource Name (ARN) of an ODB network.
+	// ARN of an ODB network.
 	OdbNetworkArn pulumi.StringPtrOutput `pulumi:"odbNetworkArn"`
 	// How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
 	Origin pulumi.StringOutput `pulumi:"origin"`
@@ -214,7 +214,7 @@ func GetRoute(ctx *pulumi.Context,
 type routeState struct {
 	// Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
 	CarrierGatewayId *string `pulumi:"carrierGatewayId"`
-	// The Amazon Resource Name (ARN) of a core network.
+	// ARN of a core network.
 	CoreNetworkArn *string `pulumi:"coreNetworkArn"`
 	// The destination CIDR block.
 	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`
@@ -238,7 +238,7 @@ type routeState struct {
 	NatGatewayId *string `pulumi:"natGatewayId"`
 	// Identifier of an EC2 network interface.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
-	// The Amazon Resource Name (ARN) of an ODB network.
+	// ARN of an ODB network.
 	OdbNetworkArn *string `pulumi:"odbNetworkArn"`
 	// How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
 	Origin *string `pulumi:"origin"`
@@ -263,7 +263,7 @@ type routeState struct {
 type RouteState struct {
 	// Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
 	CarrierGatewayId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of a core network.
+	// ARN of a core network.
 	CoreNetworkArn pulumi.StringPtrInput
 	// The destination CIDR block.
 	DestinationCidrBlock pulumi.StringPtrInput
@@ -287,7 +287,7 @@ type RouteState struct {
 	NatGatewayId pulumi.StringPtrInput
 	// Identifier of an EC2 network interface.
 	NetworkInterfaceId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of an ODB network.
+	// ARN of an ODB network.
 	OdbNetworkArn pulumi.StringPtrInput
 	// How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
 	Origin pulumi.StringPtrInput
@@ -316,7 +316,7 @@ func (RouteState) ElementType() reflect.Type {
 type routeArgs struct {
 	// Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
 	CarrierGatewayId *string `pulumi:"carrierGatewayId"`
-	// The Amazon Resource Name (ARN) of a core network.
+	// ARN of a core network.
 	CoreNetworkArn *string `pulumi:"coreNetworkArn"`
 	// The destination CIDR block.
 	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`
@@ -336,7 +336,7 @@ type routeArgs struct {
 	NatGatewayId *string `pulumi:"natGatewayId"`
 	// Identifier of an EC2 network interface.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
-	// The Amazon Resource Name (ARN) of an ODB network.
+	// ARN of an ODB network.
 	OdbNetworkArn *string `pulumi:"odbNetworkArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -358,7 +358,7 @@ type routeArgs struct {
 type RouteArgs struct {
 	// Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
 	CarrierGatewayId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of a core network.
+	// ARN of a core network.
 	CoreNetworkArn pulumi.StringPtrInput
 	// The destination CIDR block.
 	DestinationCidrBlock pulumi.StringPtrInput
@@ -378,7 +378,7 @@ type RouteArgs struct {
 	NatGatewayId pulumi.StringPtrInput
 	// Identifier of an EC2 network interface.
 	NetworkInterfaceId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of an ODB network.
+	// ARN of an ODB network.
 	OdbNetworkArn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -488,7 +488,7 @@ func (o RouteOutput) CarrierGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.CarrierGatewayId }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of a core network.
+// ARN of a core network.
 func (o RouteOutput) CoreNetworkArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.CoreNetworkArn }).(pulumi.StringPtrOutput)
 }
@@ -545,7 +545,7 @@ func (o RouteOutput) NetworkInterfaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.NetworkInterfaceId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of an ODB network.
+// ARN of an ODB network.
 func (o RouteOutput) OdbNetworkArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.OdbNetworkArn }).(pulumi.StringPtrOutput)
 }

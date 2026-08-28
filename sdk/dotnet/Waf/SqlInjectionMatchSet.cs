@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Waf
     public partial class SqlInjectionMatchSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the SQL injection match set.
+        /// ARN of the SQL injection match set.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.Waf
     public sealed class SqlInjectionMatchSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the SQL injection match set.
+        /// ARN of the SQL injection match set.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

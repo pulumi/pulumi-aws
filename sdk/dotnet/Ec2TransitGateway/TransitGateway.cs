@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Output<int?> AmazonSideAsn { get; private set; } = null!;
 
         /// <summary>
-        /// EC2 Transit Gateway Amazon Resource Name (ARN)
+        /// EC2 Transit Gateway ARN
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -306,7 +306,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Input<int>? AmazonSideAsn { get; set; }
 
         /// <summary>
-        /// EC2 Transit Gateway Amazon Resource Name (ARN)
+        /// EC2 Transit Gateway ARN
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

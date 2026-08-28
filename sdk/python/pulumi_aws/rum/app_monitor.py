@@ -175,7 +175,7 @@ class _AppMonitorState:
 
         :param pulumi.Input['AppMonitorAppMonitorConfigurationArgs'] app_monitor_configuration: configuration data for the app monitor. See app_monitor_configuration below.
         :param pulumi.Input[_builtins.str] app_monitor_id: The unique ID of the app monitor. Useful for JS templates.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the app monitor.
+        :param pulumi.Input[_builtins.str] arn: ARN specifying the app monitor.
         :param pulumi.Input['AppMonitorCustomEventsArgs'] custom_events: Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
         :param pulumi.Input[_builtins.bool] cw_log_enabled: Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
         :param pulumi.Input[_builtins.str] cw_log_group: The name of the log group where the copies are stored.
@@ -239,7 +239,7 @@ class _AppMonitorState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) specifying the app monitor.
+        ARN specifying the app monitor.
         """
         return pulumi.get(self, "arn")
 
@@ -509,7 +509,7 @@ class AppMonitor(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AppMonitorAppMonitorConfigurationArgs', 'AppMonitorAppMonitorConfigurationArgsDict']] app_monitor_configuration: configuration data for the app monitor. See app_monitor_configuration below.
         :param pulumi.Input[_builtins.str] app_monitor_id: The unique ID of the app monitor. Useful for JS templates.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the app monitor.
+        :param pulumi.Input[_builtins.str] arn: ARN specifying the app monitor.
         :param pulumi.Input[Union['AppMonitorCustomEventsArgs', 'AppMonitorCustomEventsArgsDict']] custom_events: Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
         :param pulumi.Input[_builtins.bool] cw_log_enabled: Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
         :param pulumi.Input[_builtins.str] cw_log_group: The name of the log group where the copies are stored.
@@ -558,7 +558,7 @@ class AppMonitor(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) specifying the app monitor.
+        ARN specifying the app monitor.
         """
         return pulumi.get(self, "arn")
 

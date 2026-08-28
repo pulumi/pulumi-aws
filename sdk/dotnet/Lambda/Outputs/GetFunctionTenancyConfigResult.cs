@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Lambda.Outputs
     public sealed class GetFunctionTenancyConfigResult
     {
         /// <summary>
-        /// (Required) Tenant Isolation Mode. Valid values: `PER_TENANT`.
+        /// Tenant Isolation Mode. Valid values: `PER_TENANT`.
         /// </summary>
         public readonly string TenantIsolationMode;
 

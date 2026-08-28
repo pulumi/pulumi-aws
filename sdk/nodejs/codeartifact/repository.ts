@@ -71,7 +71,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the CodeArtifact repository.
+ * - `arn` (String) ARN of the CodeArtifact repository.
  *
  * Using `pulumi import`, import CodeArtifact Repository using the CodeArtifact Repository ARN. For example:
  *

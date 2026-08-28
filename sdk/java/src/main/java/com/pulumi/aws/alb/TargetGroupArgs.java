@@ -382,7 +382,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * Note that you can&#39;t specify targets for a target group using both instance IDs and IP addresses.
      * 
-     * If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can&#39;t specify publicly routable IP addresses.
+     * If the target type is `ip`, specify IP addresses from the subnets of the VPC for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can&#39;t specify publicly routable IP addresses.
      * 
      * Network Load Balancers do not support the `lambda` target type.
      * 
@@ -399,7 +399,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * Note that you can&#39;t specify targets for a target group using both instance IDs and IP addresses.
      * 
-     * If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can&#39;t specify publicly routable IP addresses.
+     * If the target type is `ip`, specify IP addresses from the subnets of the VPC for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can&#39;t specify publicly routable IP addresses.
      * 
      * Network Load Balancers do not support the `lambda` target type.
      * 
@@ -989,7 +989,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * Note that you can&#39;t specify targets for a target group using both instance IDs and IP addresses.
          * 
-         * If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can&#39;t specify publicly routable IP addresses.
+         * If the target type is `ip`, specify IP addresses from the subnets of the VPC for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can&#39;t specify publicly routable IP addresses.
          * 
          * Network Load Balancers do not support the `lambda` target type.
          * 
@@ -1010,7 +1010,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * Note that you can&#39;t specify targets for a target group using both instance IDs and IP addresses.
          * 
-         * If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can&#39;t specify publicly routable IP addresses.
+         * If the target type is `ip`, specify IP addresses from the subnets of the VPC for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can&#39;t specify publicly routable IP addresses.
          * 
          * Network Load Balancers do not support the `lambda` target type.
          * 

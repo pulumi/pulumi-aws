@@ -105,7 +105,7 @@ export class Firewall extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) that identifies the firewall.
+     * ARN that identifies the firewall.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -133,7 +133,7 @@ export class Firewall extends pulumi.CustomResource {
      */
     declare public readonly encryptionConfiguration: pulumi.Output<outputs.networkfirewall.FirewallEncryptionConfiguration | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the VPC Firewall policy.
+     * ARN of the VPC Firewall policy.
      */
     declare public readonly firewallPolicyArn: pulumi.Output<string>;
     /**
@@ -254,7 +254,7 @@ export class Firewall extends pulumi.CustomResource {
  */
 export interface FirewallState {
     /**
-     * The Amazon Resource Name (ARN) that identifies the firewall.
+     * ARN that identifies the firewall.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -282,7 +282,7 @@ export interface FirewallState {
      */
     encryptionConfiguration?: pulumi.Input<inputs.networkfirewall.FirewallEncryptionConfiguration | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the VPC Firewall policy.
+     * ARN of the VPC Firewall policy.
      */
     firewallPolicyArn?: pulumi.Input<string | undefined>;
     /**
@@ -364,7 +364,7 @@ export interface FirewallArgs {
      */
     encryptionConfiguration?: pulumi.Input<inputs.networkfirewall.FirewallEncryptionConfiguration | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the VPC Firewall policy.
+     * ARN of the VPC Firewall policy.
      */
     firewallPolicyArn: pulumi.Input<string>;
     /**

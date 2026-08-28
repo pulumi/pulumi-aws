@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS EC2 (Elastic Compute Cloud) Vpc Endpoint Associations.
+// Data source for managing an AWS EC2 Vpc Endpoint Associations.
 //
 // ## Example Usage
 //

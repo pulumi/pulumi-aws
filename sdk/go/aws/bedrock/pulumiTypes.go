@@ -3770,7 +3770,7 @@ func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConf
 type AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration struct {
 	// The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
 	AuthType string `pulumi:"authType"`
-	// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+	// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
 	CredentialsSecretArn string `pulumi:"credentialsSecretArn"`
 	// The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
 	HostType string `pulumi:"hostType"`
@@ -3792,7 +3792,7 @@ type AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigur
 type AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationArgs struct {
 	// The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
 	AuthType pulumi.StringInput `pulumi:"authType"`
-	// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+	// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
 	CredentialsSecretArn pulumi.StringInput `pulumi:"credentialsSecretArn"`
 	// The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
 	HostType pulumi.StringInput `pulumi:"hostType"`
@@ -3884,7 +3884,7 @@ func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfi
 	}).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
 func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationOutput) CredentialsSecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration) string {
 		return v.CredentialsSecretArn
@@ -3939,7 +3939,7 @@ func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
 func (o AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationPtrOutput) CredentialsSecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration) *string {
 		if v == nil {
@@ -5757,7 +5757,7 @@ func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConf
 type AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration struct {
 	// The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
 	AuthType string `pulumi:"authType"`
-	// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+	// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
 	CredentialsSecretArn string `pulumi:"credentialsSecretArn"`
 	// The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
 	HostUrl string `pulumi:"hostUrl"`
@@ -5777,7 +5777,7 @@ type AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigur
 type AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationArgs struct {
 	// The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
 	AuthType pulumi.StringInput `pulumi:"authType"`
-	// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+	// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
 	CredentialsSecretArn pulumi.StringInput `pulumi:"credentialsSecretArn"`
 	// The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
 	HostUrl pulumi.StringInput `pulumi:"hostUrl"`
@@ -5867,7 +5867,7 @@ func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfi
 	}).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
 func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationOutput) CredentialsSecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration) string {
 		return v.CredentialsSecretArn
@@ -5915,7 +5915,7 @@ func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
 func (o AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationPtrOutput) CredentialsSecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration) *string {
 		if v == nil {
@@ -6609,7 +6609,7 @@ func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConf
 type AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration struct {
 	// The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
 	AuthType string `pulumi:"authType"`
-	// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+	// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
 	CredentialsSecretArn string `pulumi:"credentialsSecretArn"`
 	// The domain of your SharePoint instance or site URL/URLs.
 	Domain string `pulumi:"domain"`
@@ -6635,7 +6635,7 @@ type AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigur
 type AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs struct {
 	// The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
 	AuthType pulumi.StringInput `pulumi:"authType"`
-	// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+	// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
 	CredentialsSecretArn pulumi.StringInput `pulumi:"credentialsSecretArn"`
 	// The domain of your SharePoint instance or site URL/URLs.
 	Domain pulumi.StringInput `pulumi:"domain"`
@@ -6731,7 +6731,7 @@ func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfi
 	}).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
 func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationOutput) CredentialsSecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration) string {
 		return v.CredentialsSecretArn
@@ -6800,7 +6800,7 @@ func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+// ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
 func (o AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationPtrOutput) CredentialsSecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration) *string {
 		if v == nil {
@@ -11840,7 +11840,7 @@ func (o AgentFlowDefinitionNodeConfigurationPtrOutput) Storage() AgentFlowDefini
 }
 
 type AgentFlowDefinitionNodeConfigurationAgent struct {
-	// The Amazon Resource Name (ARN) of the alias of the agent to invoke.
+	// ARN of the alias of the agent to invoke.
 	AgentAliasArn string `pulumi:"agentAliasArn"`
 }
 
@@ -11856,7 +11856,7 @@ type AgentFlowDefinitionNodeConfigurationAgentInput interface {
 }
 
 type AgentFlowDefinitionNodeConfigurationAgentArgs struct {
-	// The Amazon Resource Name (ARN) of the alias of the agent to invoke.
+	// ARN of the alias of the agent to invoke.
 	AgentAliasArn pulumi.StringInput `pulumi:"agentAliasArn"`
 }
 
@@ -11937,7 +11937,7 @@ func (o AgentFlowDefinitionNodeConfigurationAgentOutput) ToAgentFlowDefinitionNo
 	}).(AgentFlowDefinitionNodeConfigurationAgentPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the alias of the agent to invoke.
+// ARN of the alias of the agent to invoke.
 func (o AgentFlowDefinitionNodeConfigurationAgentOutput) AgentAliasArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationAgent) string { return v.AgentAliasArn }).(pulumi.StringOutput)
 }
@@ -11966,7 +11966,7 @@ func (o AgentFlowDefinitionNodeConfigurationAgentPtrOutput) Elem() AgentFlowDefi
 	}).(AgentFlowDefinitionNodeConfigurationAgentOutput)
 }
 
-// The Amazon Resource Name (ARN) of the alias of the agent to invoke.
+// ARN of the alias of the agent to invoke.
 func (o AgentFlowDefinitionNodeConfigurationAgentPtrOutput) AgentAliasArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationAgent) *string {
 		if v == nil {
@@ -13443,7 +13443,7 @@ func (o AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationT
 }
 
 type AgentFlowDefinitionNodeConfigurationLambdaFunction struct {
-	// The Amazon Resource Name (ARN) of the Lambda function to invoke.
+	// ARN of the Lambda function to invoke.
 	LambdaArn string `pulumi:"lambdaArn"`
 }
 
@@ -13459,7 +13459,7 @@ type AgentFlowDefinitionNodeConfigurationLambdaFunctionInput interface {
 }
 
 type AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs struct {
-	// The Amazon Resource Name (ARN) of the Lambda function to invoke.
+	// ARN of the Lambda function to invoke.
 	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
 }
 
@@ -13540,7 +13540,7 @@ func (o AgentFlowDefinitionNodeConfigurationLambdaFunctionOutput) ToAgentFlowDef
 	}).(AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lambda function to invoke.
+// ARN of the Lambda function to invoke.
 func (o AgentFlowDefinitionNodeConfigurationLambdaFunctionOutput) LambdaArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationLambdaFunction) string { return v.LambdaArn }).(pulumi.StringOutput)
 }
@@ -13569,7 +13569,7 @@ func (o AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput) Elem() Agen
 	}).(AgentFlowDefinitionNodeConfigurationLambdaFunctionOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lambda function to invoke.
+// ARN of the Lambda function to invoke.
 func (o AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationLambdaFunction) *string {
 		if v == nil {
@@ -13580,7 +13580,7 @@ func (o AgentFlowDefinitionNodeConfigurationLambdaFunctionPtrOutput) LambdaArn()
 }
 
 type AgentFlowDefinitionNodeConfigurationLex struct {
-	// The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.
+	// ARN of the Amazon Lex bot alias to invoke.
 	BotAliasArn string `pulumi:"botAliasArn"`
 	// The Region to invoke the Amazon Lex bot in
 	LocaleId string `pulumi:"localeId"`
@@ -13598,7 +13598,7 @@ type AgentFlowDefinitionNodeConfigurationLexInput interface {
 }
 
 type AgentFlowDefinitionNodeConfigurationLexArgs struct {
-	// The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.
+	// ARN of the Amazon Lex bot alias to invoke.
 	BotAliasArn pulumi.StringInput `pulumi:"botAliasArn"`
 	// The Region to invoke the Amazon Lex bot in
 	LocaleId pulumi.StringInput `pulumi:"localeId"`
@@ -13681,7 +13681,7 @@ func (o AgentFlowDefinitionNodeConfigurationLexOutput) ToAgentFlowDefinitionNode
 	}).(AgentFlowDefinitionNodeConfigurationLexPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.
+// ARN of the Amazon Lex bot alias to invoke.
 func (o AgentFlowDefinitionNodeConfigurationLexOutput) BotAliasArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationLex) string { return v.BotAliasArn }).(pulumi.StringOutput)
 }
@@ -13715,7 +13715,7 @@ func (o AgentFlowDefinitionNodeConfigurationLexPtrOutput) Elem() AgentFlowDefini
 	}).(AgentFlowDefinitionNodeConfigurationLexOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.
+// ARN of the Amazon Lex bot alias to invoke.
 func (o AgentFlowDefinitionNodeConfigurationLexPtrOutput) BotAliasArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationLex) *string {
 		if v == nil {
@@ -17715,7 +17715,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTempl
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource struct {
-	// The Amazon Resource Name (ARN) of the prompt from Prompt management.
+	// ARN of the prompt from Prompt management.
 	PromptArn string `pulumi:"promptArn"`
 }
 
@@ -17731,7 +17731,7 @@ type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceInput 
 }
 
 type AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs struct {
-	// The Amazon Resource Name (ARN) of the prompt from Prompt management.
+	// ARN of the prompt from Prompt management.
 	PromptArn pulumi.StringInput `pulumi:"promptArn"`
 }
 
@@ -17812,7 +17812,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOut
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the prompt from Prompt management.
+// ARN of the prompt from Prompt management.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutput) PromptArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource) string {
 		return v.PromptArn
@@ -17843,7 +17843,7 @@ func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtr
 	}).(AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceOutput)
 }
 
-// The Amazon Resource Name (ARN) of the prompt from Prompt management.
+// ARN of the prompt from Prompt management.
 func (o AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourcePtrOutput) PromptArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource) *string {
 		if v == nil {
@@ -63746,13 +63746,15 @@ func (o AgentcoreMemoryIndexedKeyArrayOutput) Index(i pulumi.IntInput) Agentcore
 }
 
 type AgentcoreMemoryStrategyConfiguration struct {
-	// Consolidation configuration for the memory strategy. See `consolidation` Block below. Once added, this block cannot be removed without recreating the resource.
+	// Consolidation configuration for the memory strategy. See `consolidation` Block below. Cannot be used with `type` set to `SELF_MANAGED`. Once added, this block cannot be removed without recreating the resource.
 	Consolidation *AgentcoreMemoryStrategyConfigurationConsolidation `pulumi:"consolidation"`
-	// Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+	// Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE` or `SELF_MANAGED`. Once added, this block cannot be removed without recreating the resource.
 	Extraction *AgentcoreMemoryStrategyConfigurationExtraction `pulumi:"extraction"`
 	// Reflection configuration for the memory strategy. See `reflection` Block below. Can only be used, and is required, with `type` set to `EPISODIC_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
 	Reflection *AgentcoreMemoryStrategyConfigurationReflection `pulumi:"reflection"`
-	// Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
+	// Self-managed processing configuration. Required when `type` is `SELF_MANAGED` and only valid for that type. See `selfManagedConfiguration` Block below.
+	SelfManagedConfiguration *AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration `pulumi:"selfManagedConfiguration"`
+	// Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`, `SELF_MANAGED`. Changing this forces a new resource.
 	Type string `pulumi:"type"`
 }
 
@@ -63768,13 +63770,15 @@ type AgentcoreMemoryStrategyConfigurationInput interface {
 }
 
 type AgentcoreMemoryStrategyConfigurationArgs struct {
-	// Consolidation configuration for the memory strategy. See `consolidation` Block below. Once added, this block cannot be removed without recreating the resource.
+	// Consolidation configuration for the memory strategy. See `consolidation` Block below. Cannot be used with `type` set to `SELF_MANAGED`. Once added, this block cannot be removed without recreating the resource.
 	Consolidation AgentcoreMemoryStrategyConfigurationConsolidationPtrInput `pulumi:"consolidation"`
-	// Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+	// Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE` or `SELF_MANAGED`. Once added, this block cannot be removed without recreating the resource.
 	Extraction AgentcoreMemoryStrategyConfigurationExtractionPtrInput `pulumi:"extraction"`
 	// Reflection configuration for the memory strategy. See `reflection` Block below. Can only be used, and is required, with `type` set to `EPISODIC_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
 	Reflection AgentcoreMemoryStrategyConfigurationReflectionPtrInput `pulumi:"reflection"`
-	// Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
+	// Self-managed processing configuration. Required when `type` is `SELF_MANAGED` and only valid for that type. See `selfManagedConfiguration` Block below.
+	SelfManagedConfiguration AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrInput `pulumi:"selfManagedConfiguration"`
+	// Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`, `SELF_MANAGED`. Changing this forces a new resource.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -63855,14 +63859,14 @@ func (o AgentcoreMemoryStrategyConfigurationOutput) ToAgentcoreMemoryStrategyCon
 	}).(AgentcoreMemoryStrategyConfigurationPtrOutput)
 }
 
-// Consolidation configuration for the memory strategy. See `consolidation` Block below. Once added, this block cannot be removed without recreating the resource.
+// Consolidation configuration for the memory strategy. See `consolidation` Block below. Cannot be used with `type` set to `SELF_MANAGED`. Once added, this block cannot be removed without recreating the resource.
 func (o AgentcoreMemoryStrategyConfigurationOutput) Consolidation() AgentcoreMemoryStrategyConfigurationConsolidationPtrOutput {
 	return o.ApplyT(func(v AgentcoreMemoryStrategyConfiguration) *AgentcoreMemoryStrategyConfigurationConsolidation {
 		return v.Consolidation
 	}).(AgentcoreMemoryStrategyConfigurationConsolidationPtrOutput)
 }
 
-// Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+// Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE` or `SELF_MANAGED`. Once added, this block cannot be removed without recreating the resource.
 func (o AgentcoreMemoryStrategyConfigurationOutput) Extraction() AgentcoreMemoryStrategyConfigurationExtractionPtrOutput {
 	return o.ApplyT(func(v AgentcoreMemoryStrategyConfiguration) *AgentcoreMemoryStrategyConfigurationExtraction {
 		return v.Extraction
@@ -63876,7 +63880,14 @@ func (o AgentcoreMemoryStrategyConfigurationOutput) Reflection() AgentcoreMemory
 	}).(AgentcoreMemoryStrategyConfigurationReflectionPtrOutput)
 }
 
-// Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
+// Self-managed processing configuration. Required when `type` is `SELF_MANAGED` and only valid for that type. See `selfManagedConfiguration` Block below.
+func (o AgentcoreMemoryStrategyConfigurationOutput) SelfManagedConfiguration() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyConfiguration) *AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration {
+		return v.SelfManagedConfiguration
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput)
+}
+
+// Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`, `SELF_MANAGED`. Changing this forces a new resource.
 func (o AgentcoreMemoryStrategyConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreMemoryStrategyConfiguration) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -63905,7 +63916,7 @@ func (o AgentcoreMemoryStrategyConfigurationPtrOutput) Elem() AgentcoreMemoryStr
 	}).(AgentcoreMemoryStrategyConfigurationOutput)
 }
 
-// Consolidation configuration for the memory strategy. See `consolidation` Block below. Once added, this block cannot be removed without recreating the resource.
+// Consolidation configuration for the memory strategy. See `consolidation` Block below. Cannot be used with `type` set to `SELF_MANAGED`. Once added, this block cannot be removed without recreating the resource.
 func (o AgentcoreMemoryStrategyConfigurationPtrOutput) Consolidation() AgentcoreMemoryStrategyConfigurationConsolidationPtrOutput {
 	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfiguration) *AgentcoreMemoryStrategyConfigurationConsolidation {
 		if v == nil {
@@ -63915,7 +63926,7 @@ func (o AgentcoreMemoryStrategyConfigurationPtrOutput) Consolidation() Agentcore
 	}).(AgentcoreMemoryStrategyConfigurationConsolidationPtrOutput)
 }
 
-// Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+// Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE` or `SELF_MANAGED`. Once added, this block cannot be removed without recreating the resource.
 func (o AgentcoreMemoryStrategyConfigurationPtrOutput) Extraction() AgentcoreMemoryStrategyConfigurationExtractionPtrOutput {
 	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfiguration) *AgentcoreMemoryStrategyConfigurationExtraction {
 		if v == nil {
@@ -63935,7 +63946,17 @@ func (o AgentcoreMemoryStrategyConfigurationPtrOutput) Reflection() AgentcoreMem
 	}).(AgentcoreMemoryStrategyConfigurationReflectionPtrOutput)
 }
 
-// Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
+// Self-managed processing configuration. Required when `type` is `SELF_MANAGED` and only valid for that type. See `selfManagedConfiguration` Block below.
+func (o AgentcoreMemoryStrategyConfigurationPtrOutput) SelfManagedConfiguration() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfiguration) *AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SelfManagedConfiguration
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput)
+}
+
+// Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`, `SELF_MANAGED`. Changing this forces a new resource.
 func (o AgentcoreMemoryStrategyConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfiguration) *string {
 		if v == nil {
@@ -64432,6 +64453,2609 @@ func (o AgentcoreMemoryStrategyConfigurationReflectionPtrOutput) NamespaceTempla
 	}).(pulumi.StringArrayOutput)
 }
 
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration struct {
+	// Number of historical messages to include in processing context. Valid range: `0` to `50`. Defaults to `4`.
+	HistoricalContextWindowSize *int `pulumi:"historicalContextWindowSize"`
+	// Configuration used to invoke the self-managed memory processing pipeline. See `invocationConfiguration` Block below.
+	InvocationConfiguration AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfiguration `pulumi:"invocationConfiguration"`
+	// Conditions that trigger memory processing. See `triggerConditions` Block below. When omitted, the service supplies the documented defaults for all three trigger types.
+	TriggerConditions *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions `pulumi:"triggerConditions"`
+	// Actual deployed trigger conditions.
+	TriggerConditionsActuals []AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActual `pulumi:"triggerConditionsActuals"`
+}
+
+// AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInput is an input type that accepts AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationArgs and AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInput` via:
+//
+//	AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationArgs{...}
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationOutput
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationOutputWithContext(context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationOutput
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationArgs struct {
+	// Number of historical messages to include in processing context. Valid range: `0` to `50`. Defaults to `4`.
+	HistoricalContextWindowSize pulumi.IntPtrInput `pulumi:"historicalContextWindowSize"`
+	// Configuration used to invoke the self-managed memory processing pipeline. See `invocationConfiguration` Block below.
+	InvocationConfiguration AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationInput `pulumi:"invocationConfiguration"`
+	// Conditions that trigger memory processing. See `triggerConditions` Block below. When omitted, the service supplies the documented defaults for all three trigger types.
+	TriggerConditions AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrInput `pulumi:"triggerConditions"`
+	// Actual deployed trigger conditions.
+	TriggerConditionsActuals AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArrayInput `pulumi:"triggerConditionsActuals"`
+}
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration)(nil)).Elem()
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationOutput)
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationOutput).ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrInput is an input type that accepts AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationArgs, AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtr and AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrInput` via:
+//
+//	        AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutputWithContext(context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput
+}
+
+type agentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrType AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationArgs
+
+func AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtr(v *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationArgs) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrInput {
+	return (*agentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrType)(v)
+}
+
+func (*agentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration)(nil)).Elem()
+}
+
+func (i *agentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrType) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrType) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput {
+	return o.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration) *AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration {
+		return &v
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput)
+}
+
+// Number of historical messages to include in processing context. Valid range: `0` to `50`. Defaults to `4`.
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationOutput) HistoricalContextWindowSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration) *int {
+		return v.HistoricalContextWindowSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// Configuration used to invoke the self-managed memory processing pipeline. See `invocationConfiguration` Block below.
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationOutput) InvocationConfiguration() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfiguration {
+		return v.InvocationConfiguration
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationOutput)
+}
+
+// Conditions that trigger memory processing. See `triggerConditions` Block below. When omitted, the service supplies the documented defaults for all three trigger types.
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationOutput) TriggerConditions() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration) *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions {
+		return v.TriggerConditions
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput)
+}
+
+// Actual deployed trigger conditions.
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationOutput) TriggerConditionsActuals() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArrayOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration) []AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActual {
+		return v.TriggerConditionsActuals
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArrayOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput) Elem() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration) AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration
+		return ret
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationOutput)
+}
+
+// Number of historical messages to include in processing context. Valid range: `0` to `50`. Defaults to `4`.
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput) HistoricalContextWindowSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HistoricalContextWindowSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// Configuration used to invoke the self-managed memory processing pipeline. See `invocationConfiguration` Block below.
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput) InvocationConfiguration() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration) *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.InvocationConfiguration
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutput)
+}
+
+// Conditions that trigger memory processing. See `triggerConditions` Block below. When omitted, the service supplies the documented defaults for all three trigger types.
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput) TriggerConditions() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration) *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions {
+		if v == nil {
+			return nil
+		}
+		return v.TriggerConditions
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput)
+}
+
+// Actual deployed trigger conditions.
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput) TriggerConditionsActuals() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArrayOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration) []AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActual {
+		if v == nil {
+			return nil
+		}
+		return v.TriggerConditionsActuals
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArrayOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfiguration struct {
+	// S3 bucket name for event payload delivery.
+	PayloadDeliveryBucketName string `pulumi:"payloadDeliveryBucketName"`
+	// ARN of the SNS topic for job notifications.
+	TopicArn string `pulumi:"topicArn"`
+}
+
+// AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationInput is an input type that accepts AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationArgs and AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationInput` via:
+//
+//	AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationArgs{...}
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationOutput
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationOutputWithContext(context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationOutput
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationArgs struct {
+	// S3 bucket name for event payload delivery.
+	PayloadDeliveryBucketName pulumi.StringInput `pulumi:"payloadDeliveryBucketName"`
+	// ARN of the SNS topic for job notifications.
+	TopicArn pulumi.StringInput `pulumi:"topicArn"`
+}
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfiguration)(nil)).Elem()
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationOutput)
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationOutput).ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrInput is an input type that accepts AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationArgs, AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtr and AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrInput` via:
+//
+//	        AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutput
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutputWithContext(context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutput
+}
+
+type agentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrType AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationArgs
+
+func AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtr(v *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationArgs) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrInput {
+	return (*agentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrType)(v)
+}
+
+func (*agentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfiguration)(nil)).Elem()
+}
+
+func (i *agentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrType) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrType) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutput {
+	return o.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfiguration) *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfiguration {
+		return &v
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutput)
+}
+
+// S3 bucket name for event payload delivery.
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationOutput) PayloadDeliveryBucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfiguration) string {
+		return v.PayloadDeliveryBucketName
+	}).(pulumi.StringOutput)
+}
+
+// ARN of the SNS topic for job notifications.
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationOutput) TopicArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfiguration) string {
+		return v.TopicArn
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutput) Elem() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfiguration) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfiguration
+		return ret
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationOutput)
+}
+
+// S3 bucket name for event payload delivery.
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutput) PayloadDeliveryBucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PayloadDeliveryBucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the SNS topic for job notifications.
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TopicArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions struct {
+	// Message-based condition. See `messageBasedTrigger` Block below.
+	MessageBasedTrigger *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger `pulumi:"messageBasedTrigger"`
+	// Idle-time condition. See `timeBasedTrigger` Block below.
+	TimeBasedTrigger *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger `pulumi:"timeBasedTrigger"`
+	// Token-based condition. See `tokenBasedTrigger` Block below.
+	TokenBasedTrigger *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger `pulumi:"tokenBasedTrigger"`
+}
+
+// AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsInput is an input type that accepts AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsArgs and AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsInput` via:
+//
+//	AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsArgs{...}
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutput
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutputWithContext(context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutput
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsArgs struct {
+	// Message-based condition. See `messageBasedTrigger` Block below.
+	MessageBasedTrigger AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrInput `pulumi:"messageBasedTrigger"`
+	// Idle-time condition. See `timeBasedTrigger` Block below.
+	TimeBasedTrigger AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrInput `pulumi:"timeBasedTrigger"`
+	// Token-based condition. See `tokenBasedTrigger` Block below.
+	TokenBasedTrigger AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrInput `pulumi:"tokenBasedTrigger"`
+}
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions)(nil)).Elem()
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutput)
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutput).ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutputWithContext(ctx)
+}
+
+// AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrInput is an input type that accepts AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsArgs, AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtr and AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrInput` via:
+//
+//	        AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutputWithContext(context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput
+}
+
+type agentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrType AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsArgs
+
+func AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtr(v *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsArgs) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrInput {
+	return (*agentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrType)(v)
+}
+
+func (*agentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions)(nil)).Elem()
+}
+
+func (i *agentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrType) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrType) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput {
+	return o.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions) *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions {
+		return &v
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput)
+}
+
+// Message-based condition. See `messageBasedTrigger` Block below.
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutput) MessageBasedTrigger() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions) *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger {
+		return v.MessageBasedTrigger
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput)
+}
+
+// Idle-time condition. See `timeBasedTrigger` Block below.
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutput) TimeBasedTrigger() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions) *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger {
+		return v.TimeBasedTrigger
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput)
+}
+
+// Token-based condition. See `tokenBasedTrigger` Block below.
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutput) TokenBasedTrigger() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions) *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger {
+		return v.TokenBasedTrigger
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput) Elem() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions
+		return ret
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutput)
+}
+
+// Message-based condition. See `messageBasedTrigger` Block below.
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput) MessageBasedTrigger() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions) *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger {
+		if v == nil {
+			return nil
+		}
+		return v.MessageBasedTrigger
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput)
+}
+
+// Idle-time condition. See `timeBasedTrigger` Block below.
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput) TimeBasedTrigger() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions) *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger {
+		if v == nil {
+			return nil
+		}
+		return v.TimeBasedTrigger
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput)
+}
+
+// Token-based condition. See `tokenBasedTrigger` Block below.
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput) TokenBasedTrigger() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions) *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger {
+		if v == nil {
+			return nil
+		}
+		return v.TokenBasedTrigger
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActual struct {
+	// Message-based condition.
+	MessageBasedTriggers []AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTrigger `pulumi:"messageBasedTriggers"`
+	// Idle-time condition.
+	TimeBasedTriggers []AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTrigger `pulumi:"timeBasedTriggers"`
+	// Token-based condition.
+	TokenBasedTriggers []AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTrigger `pulumi:"tokenBasedTriggers"`
+}
+
+// AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualInput is an input type that accepts AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArgs and AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualInput` via:
+//
+//	AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArgs{...}
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualOutput
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualOutputWithContext(context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualOutput
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArgs struct {
+	// Message-based condition.
+	MessageBasedTriggers AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArrayInput `pulumi:"messageBasedTriggers"`
+	// Idle-time condition.
+	TimeBasedTriggers AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArrayInput `pulumi:"timeBasedTriggers"`
+	// Token-based condition.
+	TokenBasedTriggers AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArrayInput `pulumi:"tokenBasedTriggers"`
+}
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActual)(nil)).Elem()
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualOutput)
+}
+
+// AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArrayInput is an input type that accepts AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArray and AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArrayOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArrayInput` via:
+//
+//	AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArray{ AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArgs{...} }
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArrayOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArrayOutput
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArrayOutputWithContext(context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArrayOutput
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArray []AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualInput
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActual)(nil)).Elem()
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArray) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArrayOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArrayOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArray) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArrayOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArrayOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActual)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualOutput {
+	return o
+}
+
+// Message-based condition.
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualOutput) MessageBasedTriggers() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArrayOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActual) []AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTrigger {
+		return v.MessageBasedTriggers
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArrayOutput)
+}
+
+// Idle-time condition.
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualOutput) TimeBasedTriggers() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArrayOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActual) []AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTrigger {
+		return v.TimeBasedTriggers
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArrayOutput)
+}
+
+// Token-based condition.
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualOutput) TokenBasedTriggers() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArrayOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActual) []AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTrigger {
+		return v.TokenBasedTriggers
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArrayOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActual)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArrayOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArrayOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArrayOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArrayOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArrayOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArrayOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArrayOutput) Index(i pulumi.IntInput) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActual {
+		return vs[0].([]AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActual)[vs[1].(int)]
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTrigger struct {
+	// Number of messages that trigger memory processing. Accepts values from `1` to `50`.
+	MessageCount int `pulumi:"messageCount"`
+}
+
+// AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerInput is an input type that accepts AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArgs and AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerInput` via:
+//
+//	AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArgs{...}
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerOutput
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerOutputWithContext(context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerOutput
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArgs struct {
+	// Number of messages that trigger memory processing. Accepts values from `1` to `50`.
+	MessageCount pulumi.IntInput `pulumi:"messageCount"`
+}
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTrigger)(nil)).Elem()
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerOutput)
+}
+
+// AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArrayInput is an input type that accepts AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArray and AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArrayOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArrayInput` via:
+//
+//	AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArray{ AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArgs{...} }
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArrayOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArrayOutput
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArrayOutputWithContext(context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArrayOutput
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArray []AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerInput
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTrigger)(nil)).Elem()
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArray) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArrayOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArrayOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArray) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArrayOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArrayOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTrigger)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerOutput {
+	return o
+}
+
+// Number of messages that trigger memory processing. Accepts values from `1` to `50`.
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerOutput) MessageCount() pulumi.IntOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTrigger) int {
+		return v.MessageCount
+	}).(pulumi.IntOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTrigger)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArrayOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArrayOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArrayOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArrayOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArrayOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArrayOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArrayOutput) Index(i pulumi.IntInput) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTrigger {
+		return vs[0].([]AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTrigger)[vs[1].(int)]
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTrigger struct {
+	// Idle session timeout (seconds) that triggers memory processing. Accepts values from `10` to `3000`.
+	IdleSessionTimeout int `pulumi:"idleSessionTimeout"`
+}
+
+// AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerInput is an input type that accepts AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArgs and AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerInput` via:
+//
+//	AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArgs{...}
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerOutput
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerOutputWithContext(context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerOutput
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArgs struct {
+	// Idle session timeout (seconds) that triggers memory processing. Accepts values from `10` to `3000`.
+	IdleSessionTimeout pulumi.IntInput `pulumi:"idleSessionTimeout"`
+}
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTrigger)(nil)).Elem()
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerOutput)
+}
+
+// AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArrayInput is an input type that accepts AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArray and AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArrayOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArrayInput` via:
+//
+//	AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArray{ AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArgs{...} }
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArrayOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArrayOutput
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArrayOutputWithContext(context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArrayOutput
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArray []AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerInput
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTrigger)(nil)).Elem()
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArray) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArrayOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArrayOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArray) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArrayOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArrayOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTrigger)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerOutput {
+	return o
+}
+
+// Idle session timeout (seconds) that triggers memory processing. Accepts values from `10` to `3000`.
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerOutput) IdleSessionTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTrigger) int {
+		return v.IdleSessionTimeout
+	}).(pulumi.IntOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTrigger)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArrayOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArrayOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArrayOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArrayOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArrayOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArrayOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArrayOutput) Index(i pulumi.IntInput) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTrigger {
+		return vs[0].([]AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTrigger)[vs[1].(int)]
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTrigger struct {
+	// Number of tokens that trigger memory processing. Accepts values from `100` to `500000`.
+	TokenCount int `pulumi:"tokenCount"`
+}
+
+// AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerInput is an input type that accepts AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArgs and AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerInput` via:
+//
+//	AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArgs{...}
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerOutput
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerOutputWithContext(context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerOutput
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArgs struct {
+	// Number of tokens that trigger memory processing. Accepts values from `100` to `500000`.
+	TokenCount pulumi.IntInput `pulumi:"tokenCount"`
+}
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTrigger)(nil)).Elem()
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerOutput)
+}
+
+// AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArrayInput is an input type that accepts AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArray and AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArrayOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArrayInput` via:
+//
+//	AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArray{ AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArgs{...} }
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArrayOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArrayOutput
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArrayOutputWithContext(context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArrayOutput
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArray []AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerInput
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTrigger)(nil)).Elem()
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArray) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArrayOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArrayOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArray) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArrayOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArrayOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTrigger)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerOutput {
+	return o
+}
+
+// Number of tokens that trigger memory processing. Accepts values from `100` to `500000`.
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerOutput) TokenCount() pulumi.IntOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTrigger) int {
+		return v.TokenCount
+	}).(pulumi.IntOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTrigger)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArrayOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArrayOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArrayOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArrayOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArrayOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArrayOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArrayOutput) Index(i pulumi.IntInput) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTrigger {
+		return vs[0].([]AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTrigger)[vs[1].(int)]
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger struct {
+	// Number of messages that trigger memory processing. Accepts values from `1` to `50`.
+	MessageCount int `pulumi:"messageCount"`
+}
+
+// AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerInput is an input type that accepts AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerArgs and AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerInput` via:
+//
+//	AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerArgs{...}
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerOutput
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerOutputWithContext(context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerOutput
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerArgs struct {
+	// Number of messages that trigger memory processing. Accepts values from `1` to `50`.
+	MessageCount pulumi.IntInput `pulumi:"messageCount"`
+}
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger)(nil)).Elem()
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerOutput)
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerOutput).ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutputWithContext(ctx)
+}
+
+// AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrInput is an input type that accepts AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerArgs, AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtr and AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrInput` via:
+//
+//	        AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutputWithContext(context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput
+}
+
+type agentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrType AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerArgs
+
+func AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtr(v *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerArgs) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrInput {
+	return (*agentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrType)(v)
+}
+
+func (*agentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger)(nil)).Elem()
+}
+
+func (i *agentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrType) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrType) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput {
+	return o.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger) *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger {
+		return &v
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput)
+}
+
+// Number of messages that trigger memory processing. Accepts values from `1` to `50`.
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerOutput) MessageCount() pulumi.IntOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger) int {
+		return v.MessageCount
+	}).(pulumi.IntOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput) Elem() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger
+		return ret
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerOutput)
+}
+
+// Number of messages that trigger memory processing. Accepts values from `1` to `50`.
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput) MessageCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MessageCount
+	}).(pulumi.IntPtrOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger struct {
+	// Idle session timeout (seconds) that triggers memory processing. Accepts values from `10` to `3000`.
+	IdleSessionTimeout int `pulumi:"idleSessionTimeout"`
+}
+
+// AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerInput is an input type that accepts AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerArgs and AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerInput` via:
+//
+//	AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerArgs{...}
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerOutput
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerOutputWithContext(context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerOutput
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerArgs struct {
+	// Idle session timeout (seconds) that triggers memory processing. Accepts values from `10` to `3000`.
+	IdleSessionTimeout pulumi.IntInput `pulumi:"idleSessionTimeout"`
+}
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger)(nil)).Elem()
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerOutput)
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerOutput).ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutputWithContext(ctx)
+}
+
+// AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrInput is an input type that accepts AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerArgs, AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtr and AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrInput` via:
+//
+//	        AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutputWithContext(context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput
+}
+
+type agentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrType AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerArgs
+
+func AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtr(v *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerArgs) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrInput {
+	return (*agentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrType)(v)
+}
+
+func (*agentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger)(nil)).Elem()
+}
+
+func (i *agentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrType) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrType) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput {
+	return o.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger) *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger {
+		return &v
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput)
+}
+
+// Idle session timeout (seconds) that triggers memory processing. Accepts values from `10` to `3000`.
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerOutput) IdleSessionTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger) int {
+		return v.IdleSessionTimeout
+	}).(pulumi.IntOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput) Elem() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger
+		return ret
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerOutput)
+}
+
+// Idle session timeout (seconds) that triggers memory processing. Accepts values from `10` to `3000`.
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput) IdleSessionTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.IdleSessionTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger struct {
+	// Number of tokens that trigger memory processing. Accepts values from `100` to `500000`.
+	TokenCount int `pulumi:"tokenCount"`
+}
+
+// AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerInput is an input type that accepts AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerArgs and AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerInput` via:
+//
+//	AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerArgs{...}
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerOutput
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerOutputWithContext(context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerOutput
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerArgs struct {
+	// Number of tokens that trigger memory processing. Accepts values from `100` to `500000`.
+	TokenCount pulumi.IntInput `pulumi:"tokenCount"`
+}
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger)(nil)).Elem()
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerOutput)
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerArgs) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerOutput).ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutputWithContext(ctx)
+}
+
+// AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrInput is an input type that accepts AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerArgs, AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtr and AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrInput` via:
+//
+//	        AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutput
+	ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutputWithContext(context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutput
+}
+
+type agentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrType AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerArgs
+
+func AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtr(v *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerArgs) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrInput {
+	return (*agentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrType)(v)
+}
+
+func (*agentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger)(nil)).Elem()
+}
+
+func (i *agentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrType) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutput {
+	return i.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrType) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutput {
+	return o.ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger) *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger {
+		return &v
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutput)
+}
+
+// Number of tokens that trigger memory processing. Accepts values from `100` to `500000`.
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerOutput) TokenCount() pulumi.IntOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger) int {
+		return v.TokenCount
+	}).(pulumi.IntOutput)
+}
+
+type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutput() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutput) ToAgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutput) Elem() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger) AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger
+		return ret
+	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerOutput)
+}
+
+// Number of tokens that trigger memory processing. Accepts values from `100` to `500000`.
+func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutput) TokenCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TokenCount
+	}).(pulumi.IntPtrOutput)
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchema struct {
+	// List of metadata field definitions for records generated by this strategy. See `metadataSchema` Block below.
+	MetadataSchemas []AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchema `pulumi:"metadataSchemas"`
+}
+
+// AgentcoreMemoryStrategyMemoryRecordSchemaInput is an input type that accepts AgentcoreMemoryStrategyMemoryRecordSchemaArgs and AgentcoreMemoryStrategyMemoryRecordSchemaOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyMemoryRecordSchemaInput` via:
+//
+//	AgentcoreMemoryStrategyMemoryRecordSchemaArgs{...}
+type AgentcoreMemoryStrategyMemoryRecordSchemaInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaOutput() AgentcoreMemoryStrategyMemoryRecordSchemaOutput
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaOutputWithContext(context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaOutput
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaArgs struct {
+	// List of metadata field definitions for records generated by this strategy. See `metadataSchema` Block below.
+	MetadataSchemas AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArrayInput `pulumi:"metadataSchemas"`
+}
+
+func (AgentcoreMemoryStrategyMemoryRecordSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchema)(nil)).Elem()
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaArgs) ToAgentcoreMemoryStrategyMemoryRecordSchemaOutput() AgentcoreMemoryStrategyMemoryRecordSchemaOutput {
+	return i.ToAgentcoreMemoryStrategyMemoryRecordSchemaOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaArgs) ToAgentcoreMemoryStrategyMemoryRecordSchemaOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyMemoryRecordSchemaOutput)
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaArgs) ToAgentcoreMemoryStrategyMemoryRecordSchemaPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaPtrOutput {
+	return i.ToAgentcoreMemoryStrategyMemoryRecordSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaArgs) ToAgentcoreMemoryStrategyMemoryRecordSchemaPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyMemoryRecordSchemaOutput).ToAgentcoreMemoryStrategyMemoryRecordSchemaPtrOutputWithContext(ctx)
+}
+
+// AgentcoreMemoryStrategyMemoryRecordSchemaPtrInput is an input type that accepts AgentcoreMemoryStrategyMemoryRecordSchemaArgs, AgentcoreMemoryStrategyMemoryRecordSchemaPtr and AgentcoreMemoryStrategyMemoryRecordSchemaPtrOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyMemoryRecordSchemaPtrInput` via:
+//
+//	        AgentcoreMemoryStrategyMemoryRecordSchemaArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreMemoryStrategyMemoryRecordSchemaPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaPtrOutput
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaPtrOutputWithContext(context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaPtrOutput
+}
+
+type agentcoreMemoryStrategyMemoryRecordSchemaPtrType AgentcoreMemoryStrategyMemoryRecordSchemaArgs
+
+func AgentcoreMemoryStrategyMemoryRecordSchemaPtr(v *AgentcoreMemoryStrategyMemoryRecordSchemaArgs) AgentcoreMemoryStrategyMemoryRecordSchemaPtrInput {
+	return (*agentcoreMemoryStrategyMemoryRecordSchemaPtrType)(v)
+}
+
+func (*agentcoreMemoryStrategyMemoryRecordSchemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyMemoryRecordSchema)(nil)).Elem()
+}
+
+func (i *agentcoreMemoryStrategyMemoryRecordSchemaPtrType) ToAgentcoreMemoryStrategyMemoryRecordSchemaPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaPtrOutput {
+	return i.ToAgentcoreMemoryStrategyMemoryRecordSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreMemoryStrategyMemoryRecordSchemaPtrType) ToAgentcoreMemoryStrategyMemoryRecordSchemaPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyMemoryRecordSchemaPtrOutput)
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyMemoryRecordSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchema)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaOutput() AgentcoreMemoryStrategyMemoryRecordSchemaOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaPtrOutput {
+	return o.ToAgentcoreMemoryStrategyMemoryRecordSchemaPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreMemoryStrategyMemoryRecordSchema) *AgentcoreMemoryStrategyMemoryRecordSchema {
+		return &v
+	}).(AgentcoreMemoryStrategyMemoryRecordSchemaPtrOutput)
+}
+
+// List of metadata field definitions for records generated by this strategy. See `metadataSchema` Block below.
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaOutput) MetadataSchemas() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArrayOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyMemoryRecordSchema) []AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchema {
+		return v.MetadataSchemas
+	}).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArrayOutput)
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyMemoryRecordSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyMemoryRecordSchema)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaPtrOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaPtrOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaPtrOutput) Elem() AgentcoreMemoryStrategyMemoryRecordSchemaOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyMemoryRecordSchema) AgentcoreMemoryStrategyMemoryRecordSchema {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreMemoryStrategyMemoryRecordSchema
+		return ret
+	}).(AgentcoreMemoryStrategyMemoryRecordSchemaOutput)
+}
+
+// List of metadata field definitions for records generated by this strategy. See `metadataSchema` Block below.
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaPtrOutput) MetadataSchemas() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArrayOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyMemoryRecordSchema) []AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchema {
+		if v == nil {
+			return nil
+		}
+		return v.MetadataSchemas
+	}).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArrayOutput)
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchema struct {
+	// Configuration for extracting this metadata value from conversational content. Applicable only when `extractionType` is `LLM_INFERRED`. See `extractionConfig` Block below.
+	ExtractionConfig *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfig `pulumi:"extractionConfig"`
+	// Whether the metadata value is extracted by the LLM or passed through deterministically from the event. Valid values: `LLM_INFERRED`, `STRICTLY_CONSISTENT`.
+	ExtractionType *string `pulumi:"extractionType"`
+	// Metadata field name. Must match an indexed key to be queryable via metadata filters.
+	Key string `pulumi:"key"`
+	// Metadata value type. Valid values: `STRING`, `STRINGLIST`, `NUMBER`.
+	Type *string `pulumi:"type"`
+}
+
+// AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaInput is an input type that accepts AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArgs and AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaInput` via:
+//
+//	AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArgs{...}
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaOutput
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaOutputWithContext(context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaOutput
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArgs struct {
+	// Configuration for extracting this metadata value from conversational content. Applicable only when `extractionType` is `LLM_INFERRED`. See `extractionConfig` Block below.
+	ExtractionConfig AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrInput `pulumi:"extractionConfig"`
+	// Whether the metadata value is extracted by the LLM or passed through deterministically from the event. Valid values: `LLM_INFERRED`, `STRICTLY_CONSISTENT`.
+	ExtractionType pulumi.StringPtrInput `pulumi:"extractionType"`
+	// Metadata field name. Must match an indexed key to be queryable via metadata filters.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Metadata value type. Valid values: `STRING`, `STRINGLIST`, `NUMBER`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchema)(nil)).Elem()
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArgs) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaOutput {
+	return i.ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArgs) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaOutput)
+}
+
+// AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArrayInput is an input type that accepts AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArray and AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArrayOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArrayInput` via:
+//
+//	AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArray{ AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArgs{...} }
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArrayOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArrayOutput
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArrayOutputWithContext(context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArrayOutput
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArray []AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaInput
+
+func (AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchema)(nil)).Elem()
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArray) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArrayOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArrayOutput {
+	return i.ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArray) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArrayOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArrayOutput)
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchema)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaOutput {
+	return o
+}
+
+// Configuration for extracting this metadata value from conversational content. Applicable only when `extractionType` is `LLM_INFERRED`. See `extractionConfig` Block below.
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaOutput) ExtractionConfig() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchema) *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfig {
+		return v.ExtractionConfig
+	}).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutput)
+}
+
+// Whether the metadata value is extracted by the LLM or passed through deterministically from the event. Valid values: `LLM_INFERRED`, `STRICTLY_CONSISTENT`.
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaOutput) ExtractionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchema) *string { return v.ExtractionType }).(pulumi.StringPtrOutput)
+}
+
+// Metadata field name. Must match an indexed key to be queryable via metadata filters.
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchema) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Metadata value type. Valid values: `STRING`, `STRINGLIST`, `NUMBER`.
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchema) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchema)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArrayOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArrayOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArrayOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArrayOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArrayOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArrayOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArrayOutput) Index(i pulumi.IntInput) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchema {
+		return vs[0].([]AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchema)[vs[1].(int)]
+	}).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaOutput)
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfig struct {
+	// Model-based extraction configuration. See `llmExtractionConfig` Block below.
+	LlmExtractionConfig *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfig `pulumi:"llmExtractionConfig"`
+}
+
+// AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigInput is an input type that accepts AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigArgs and AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigInput` via:
+//
+//	AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigArgs{...}
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigOutput
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigOutputWithContext(context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigOutput
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigArgs struct {
+	// Model-based extraction configuration. See `llmExtractionConfig` Block below.
+	LlmExtractionConfig AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrInput `pulumi:"llmExtractionConfig"`
+}
+
+func (AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfig)(nil)).Elem()
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigArgs) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigOutput {
+	return i.ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigArgs) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigOutput)
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigArgs) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutput {
+	return i.ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigArgs) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigOutput).ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutputWithContext(ctx)
+}
+
+// AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrInput is an input type that accepts AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigArgs, AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtr and AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrInput` via:
+//
+//	        AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutput
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutputWithContext(context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutput
+}
+
+type agentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrType AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigArgs
+
+func AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtr(v *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigArgs) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrInput {
+	return (*agentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrType)(v)
+}
+
+func (*agentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfig)(nil)).Elem()
+}
+
+func (i *agentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrType) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutput {
+	return i.ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrType) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutput)
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfig)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutput {
+	return o.ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfig) *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfig {
+		return &v
+	}).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutput)
+}
+
+// Model-based extraction configuration. See `llmExtractionConfig` Block below.
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigOutput) LlmExtractionConfig() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfig) *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfig {
+		return v.LlmExtractionConfig
+	}).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutput)
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfig)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutput) Elem() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfig) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfig
+		return ret
+	}).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigOutput)
+}
+
+// Model-based extraction configuration. See `llmExtractionConfig` Block below.
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutput) LlmExtractionConfig() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfig) *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfig {
+		if v == nil {
+			return nil
+		}
+		return v.LlmExtractionConfig
+	}).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutput)
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfig struct {
+	// Description of what this metadata field represents.
+	Definition string `pulumi:"definition"`
+	// Instructions for extraction. Supports built-in operators like `LATEST_VALUE` or custom natural-language instructions.
+	LlmExtractionInstruction *string `pulumi:"llmExtractionInstruction"`
+	// Validation rules to constrain extracted values. See `validation` Block below.
+	Validation *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidation `pulumi:"validation"`
+}
+
+// AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigInput is an input type that accepts AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigArgs and AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigInput` via:
+//
+//	AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigArgs{...}
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigOutput
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigOutputWithContext(context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigOutput
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigArgs struct {
+	// Description of what this metadata field represents.
+	Definition pulumi.StringInput `pulumi:"definition"`
+	// Instructions for extraction. Supports built-in operators like `LATEST_VALUE` or custom natural-language instructions.
+	LlmExtractionInstruction pulumi.StringPtrInput `pulumi:"llmExtractionInstruction"`
+	// Validation rules to constrain extracted values. See `validation` Block below.
+	Validation AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrInput `pulumi:"validation"`
+}
+
+func (AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfig)(nil)).Elem()
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigArgs) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigOutput {
+	return i.ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigArgs) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigOutput)
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigArgs) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutput {
+	return i.ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigArgs) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigOutput).ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutputWithContext(ctx)
+}
+
+// AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrInput is an input type that accepts AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigArgs, AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtr and AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrInput` via:
+//
+//	        AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutput
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutputWithContext(context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutput
+}
+
+type agentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrType AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigArgs
+
+func AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtr(v *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigArgs) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrInput {
+	return (*agentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrType)(v)
+}
+
+func (*agentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfig)(nil)).Elem()
+}
+
+func (i *agentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrType) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutput {
+	return i.ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrType) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutput)
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfig)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutput {
+	return o.ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfig) *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfig {
+		return &v
+	}).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutput)
+}
+
+// Description of what this metadata field represents.
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigOutput) Definition() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfig) string {
+		return v.Definition
+	}).(pulumi.StringOutput)
+}
+
+// Instructions for extraction. Supports built-in operators like `LATEST_VALUE` or custom natural-language instructions.
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigOutput) LlmExtractionInstruction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfig) *string {
+		return v.LlmExtractionInstruction
+	}).(pulumi.StringPtrOutput)
+}
+
+// Validation rules to constrain extracted values. See `validation` Block below.
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigOutput) Validation() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfig) *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidation {
+		return v.Validation
+	}).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutput)
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfig)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutput) Elem() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfig) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfig
+		return ret
+	}).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigOutput)
+}
+
+// Description of what this metadata field represents.
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutput) Definition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Definition
+	}).(pulumi.StringPtrOutput)
+}
+
+// Instructions for extraction. Supports built-in operators like `LATEST_VALUE` or custom natural-language instructions.
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutput) LlmExtractionInstruction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LlmExtractionInstruction
+	}).(pulumi.StringPtrOutput)
+}
+
+// Validation rules to constrain extracted values. See `validation` Block below.
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutput) Validation() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfig) *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidation {
+		if v == nil {
+			return nil
+		}
+		return v.Validation
+	}).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutput)
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidation struct {
+	// Validation for `NUMBER` fields. See `numberValidation` Block below.
+	NumberValidation *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidation `pulumi:"numberValidation"`
+	// Validation for `STRINGLIST` fields. See `stringListValidation` Block below.
+	StringListValidation *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidation `pulumi:"stringListValidation"`
+	// Validation for `STRING` fields. See `stringValidation` Block below.
+	StringValidation *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidation `pulumi:"stringValidation"`
+}
+
+// AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationInput is an input type that accepts AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationArgs and AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationInput` via:
+//
+//	AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationArgs{...}
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationOutput
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationOutputWithContext(context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationOutput
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationArgs struct {
+	// Validation for `NUMBER` fields. See `numberValidation` Block below.
+	NumberValidation AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrInput `pulumi:"numberValidation"`
+	// Validation for `STRINGLIST` fields. See `stringListValidation` Block below.
+	StringListValidation AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrInput `pulumi:"stringListValidation"`
+	// Validation for `STRING` fields. See `stringValidation` Block below.
+	StringValidation AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrInput `pulumi:"stringValidation"`
+}
+
+func (AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidation)(nil)).Elem()
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationArgs) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationOutput {
+	return i.ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationArgs) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationOutput)
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationArgs) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutput {
+	return i.ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationArgs) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationOutput).ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutputWithContext(ctx)
+}
+
+// AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrInput is an input type that accepts AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationArgs, AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtr and AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrInput` via:
+//
+//	        AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutput
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutputWithContext(context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutput
+}
+
+type agentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrType AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationArgs
+
+func AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtr(v *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationArgs) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrInput {
+	return (*agentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrType)(v)
+}
+
+func (*agentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidation)(nil)).Elem()
+}
+
+func (i *agentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrType) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutput {
+	return i.ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrType) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutput)
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidation)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutput {
+	return o.ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidation) *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidation {
+		return &v
+	}).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutput)
+}
+
+// Validation for `NUMBER` fields. See `numberValidation` Block below.
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationOutput) NumberValidation() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidation) *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidation {
+		return v.NumberValidation
+	}).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutput)
+}
+
+// Validation for `STRINGLIST` fields. See `stringListValidation` Block below.
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationOutput) StringListValidation() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidation) *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidation {
+		return v.StringListValidation
+	}).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutput)
+}
+
+// Validation for `STRING` fields. See `stringValidation` Block below.
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationOutput) StringValidation() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidation) *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidation {
+		return v.StringValidation
+	}).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutput)
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidation)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutput) Elem() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidation) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidation {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidation
+		return ret
+	}).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationOutput)
+}
+
+// Validation for `NUMBER` fields. See `numberValidation` Block below.
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutput) NumberValidation() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidation) *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidation {
+		if v == nil {
+			return nil
+		}
+		return v.NumberValidation
+	}).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutput)
+}
+
+// Validation for `STRINGLIST` fields. See `stringListValidation` Block below.
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutput) StringListValidation() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidation) *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidation {
+		if v == nil {
+			return nil
+		}
+		return v.StringListValidation
+	}).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutput)
+}
+
+// Validation for `STRING` fields. See `stringValidation` Block below.
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutput) StringValidation() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidation) *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidation {
+		if v == nil {
+			return nil
+		}
+		return v.StringValidation
+	}).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutput)
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidation struct {
+	// Maximum allowed value.
+	MaxValue *float64 `pulumi:"maxValue"`
+	// Minimum allowed value.
+	MinValue *float64 `pulumi:"minValue"`
+}
+
+// AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationInput is an input type that accepts AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationArgs and AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationInput` via:
+//
+//	AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationArgs{...}
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationOutput
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationOutputWithContext(context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationOutput
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationArgs struct {
+	// Maximum allowed value.
+	MaxValue pulumi.Float64PtrInput `pulumi:"maxValue"`
+	// Minimum allowed value.
+	MinValue pulumi.Float64PtrInput `pulumi:"minValue"`
+}
+
+func (AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidation)(nil)).Elem()
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationArgs) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationOutput {
+	return i.ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationArgs) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationOutput)
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationArgs) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutput {
+	return i.ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationArgs) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationOutput).ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutputWithContext(ctx)
+}
+
+// AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrInput is an input type that accepts AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationArgs, AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtr and AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrInput` via:
+//
+//	        AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutput
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutputWithContext(context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutput
+}
+
+type agentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrType AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationArgs
+
+func AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtr(v *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationArgs) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrInput {
+	return (*agentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrType)(v)
+}
+
+func (*agentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidation)(nil)).Elem()
+}
+
+func (i *agentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrType) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutput {
+	return i.ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrType) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutput)
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidation)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutput {
+	return o.ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidation) *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidation {
+		return &v
+	}).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutput)
+}
+
+// Maximum allowed value.
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationOutput) MaxValue() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidation) *float64 {
+		return v.MaxValue
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Minimum allowed value.
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationOutput) MinValue() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidation) *float64 {
+		return v.MinValue
+	}).(pulumi.Float64PtrOutput)
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidation)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutput) Elem() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidation) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidation {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidation
+		return ret
+	}).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationOutput)
+}
+
+// Maximum allowed value.
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutput) MaxValue() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidation) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MaxValue
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Minimum allowed value.
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutput) MinValue() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidation) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MinValue
+	}).(pulumi.Float64PtrOutput)
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidation struct {
+	// Allowed values for items in this `STRINGLIST` field.
+	AllowedValues []string `pulumi:"allowedValues"`
+	// Maximum number of items in the string list.
+	MaxItems *int `pulumi:"maxItems"`
+}
+
+// AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationInput is an input type that accepts AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationArgs and AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationInput` via:
+//
+//	AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationArgs{...}
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationOutput
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationOutputWithContext(context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationOutput
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationArgs struct {
+	// Allowed values for items in this `STRINGLIST` field.
+	AllowedValues pulumi.StringArrayInput `pulumi:"allowedValues"`
+	// Maximum number of items in the string list.
+	MaxItems pulumi.IntPtrInput `pulumi:"maxItems"`
+}
+
+func (AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidation)(nil)).Elem()
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationArgs) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationOutput {
+	return i.ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationArgs) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationOutput)
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationArgs) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutput {
+	return i.ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationArgs) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationOutput).ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutputWithContext(ctx)
+}
+
+// AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrInput is an input type that accepts AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationArgs, AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtr and AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrInput` via:
+//
+//	        AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutput
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutputWithContext(context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutput
+}
+
+type agentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrType AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationArgs
+
+func AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtr(v *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationArgs) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrInput {
+	return (*agentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrType)(v)
+}
+
+func (*agentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidation)(nil)).Elem()
+}
+
+func (i *agentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrType) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutput {
+	return i.ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrType) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutput)
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidation)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutput {
+	return o.ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidation) *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidation {
+		return &v
+	}).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutput)
+}
+
+// Allowed values for items in this `STRINGLIST` field.
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationOutput) AllowedValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidation) []string {
+		return v.AllowedValues
+	}).(pulumi.StringArrayOutput)
+}
+
+// Maximum number of items in the string list.
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationOutput) MaxItems() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidation) *int {
+		return v.MaxItems
+	}).(pulumi.IntPtrOutput)
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidation)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutput) Elem() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidation) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidation {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidation
+		return ret
+	}).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationOutput)
+}
+
+// Allowed values for items in this `STRINGLIST` field.
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutput) AllowedValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidation) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedValues
+	}).(pulumi.StringArrayOutput)
+}
+
+// Maximum number of items in the string list.
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutput) MaxItems() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidation) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxItems
+	}).(pulumi.IntPtrOutput)
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidation struct {
+	// Allowed values for this `STRING` field.
+	AllowedValues []string `pulumi:"allowedValues"`
+}
+
+// AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationInput is an input type that accepts AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationArgs and AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationInput` via:
+//
+//	AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationArgs{...}
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationOutput
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationOutputWithContext(context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationOutput
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationArgs struct {
+	// Allowed values for this `STRING` field.
+	AllowedValues pulumi.StringArrayInput `pulumi:"allowedValues"`
+}
+
+func (AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidation)(nil)).Elem()
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationArgs) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationOutput {
+	return i.ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationArgs) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationOutput)
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationArgs) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutput {
+	return i.ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationArgs) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationOutput).ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutputWithContext(ctx)
+}
+
+// AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrInput is an input type that accepts AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationArgs, AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtr and AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutput values.
+// You can construct a concrete instance of `AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrInput` via:
+//
+//	        AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutput
+	ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutputWithContext(context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutput
+}
+
+type agentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrType AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationArgs
+
+func AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtr(v *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationArgs) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrInput {
+	return (*agentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrType)(v)
+}
+
+func (*agentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidation)(nil)).Elem()
+}
+
+func (i *agentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrType) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutput {
+	return i.ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrType) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutput)
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidation)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutput {
+	return o.ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidation) *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidation {
+		return &v
+	}).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutput)
+}
+
+// Allowed values for this `STRING` field.
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationOutput) AllowedValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidation) []string {
+		return v.AllowedValues
+	}).(pulumi.StringArrayOutput)
+}
+
+type AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidation)(nil)).Elem()
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutput() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutput) ToAgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutputWithContext(ctx context.Context) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutput {
+	return o
+}
+
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutput) Elem() AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidation) AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidation {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidation
+		return ret
+	}).(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationOutput)
+}
+
+// Allowed values for this `STRING` field.
+func (o AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutput) AllowedValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidation) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedValues
+	}).(pulumi.StringArrayOutput)
+}
+
 type AgentcoreMemoryStrategyReflectionConfiguration struct {
 	// Namespace templates over which to create reflections. Can be less nested than episode namespaces.
 	NamespaceTemplates []string `pulumi:"namespaceTemplates"`
@@ -64745,7 +67369,7 @@ func (o AgentcoreMemoryStrategyTimeoutsPtrOutput) Update() pulumi.StringPtrOutpu
 }
 
 type AgentcoreMemoryStreamDeliveryResources struct {
-	// List of stream delivery resource configurations. See `resource` below.
+	// List of stream delivery resource configurations. See `resource` Block below.
 	Resource *AgentcoreMemoryStreamDeliveryResourcesResource `pulumi:"resource"`
 }
 
@@ -64761,7 +67385,7 @@ type AgentcoreMemoryStreamDeliveryResourcesInput interface {
 }
 
 type AgentcoreMemoryStreamDeliveryResourcesArgs struct {
-	// List of stream delivery resource configurations. See `resource` below.
+	// List of stream delivery resource configurations. See `resource` Block below.
 	Resource AgentcoreMemoryStreamDeliveryResourcesResourcePtrInput `pulumi:"resource"`
 }
 
@@ -64842,7 +67466,7 @@ func (o AgentcoreMemoryStreamDeliveryResourcesOutput) ToAgentcoreMemoryStreamDel
 	}).(AgentcoreMemoryStreamDeliveryResourcesPtrOutput)
 }
 
-// List of stream delivery resource configurations. See `resource` below.
+// List of stream delivery resource configurations. See `resource` Block below.
 func (o AgentcoreMemoryStreamDeliveryResourcesOutput) Resource() AgentcoreMemoryStreamDeliveryResourcesResourcePtrOutput {
 	return o.ApplyT(func(v AgentcoreMemoryStreamDeliveryResources) *AgentcoreMemoryStreamDeliveryResourcesResource {
 		return v.Resource
@@ -64873,7 +67497,7 @@ func (o AgentcoreMemoryStreamDeliveryResourcesPtrOutput) Elem() AgentcoreMemoryS
 	}).(AgentcoreMemoryStreamDeliveryResourcesOutput)
 }
 
-// List of stream delivery resource configurations. See `resource` below.
+// List of stream delivery resource configurations. See `resource` Block below.
 func (o AgentcoreMemoryStreamDeliveryResourcesPtrOutput) Resource() AgentcoreMemoryStreamDeliveryResourcesResourcePtrOutput {
 	return o.ApplyT(func(v *AgentcoreMemoryStreamDeliveryResources) *AgentcoreMemoryStreamDeliveryResourcesResource {
 		if v == nil {
@@ -64884,7 +67508,7 @@ func (o AgentcoreMemoryStreamDeliveryResourcesPtrOutput) Resource() AgentcoreMem
 }
 
 type AgentcoreMemoryStreamDeliveryResourcesResource struct {
-	// Kinesis Data Stream configuration. See `kinesis` below.
+	// Kinesis Data Stream configuration. See `kinesis` Block below.
 	Kinesis *AgentcoreMemoryStreamDeliveryResourcesResourceKinesis `pulumi:"kinesis"`
 }
 
@@ -64900,7 +67524,7 @@ type AgentcoreMemoryStreamDeliveryResourcesResourceInput interface {
 }
 
 type AgentcoreMemoryStreamDeliveryResourcesResourceArgs struct {
-	// Kinesis Data Stream configuration. See `kinesis` below.
+	// Kinesis Data Stream configuration. See `kinesis` Block below.
 	Kinesis AgentcoreMemoryStreamDeliveryResourcesResourceKinesisPtrInput `pulumi:"kinesis"`
 }
 
@@ -64981,7 +67605,7 @@ func (o AgentcoreMemoryStreamDeliveryResourcesResourceOutput) ToAgentcoreMemoryS
 	}).(AgentcoreMemoryStreamDeliveryResourcesResourcePtrOutput)
 }
 
-// Kinesis Data Stream configuration. See `kinesis` below.
+// Kinesis Data Stream configuration. See `kinesis` Block below.
 func (o AgentcoreMemoryStreamDeliveryResourcesResourceOutput) Kinesis() AgentcoreMemoryStreamDeliveryResourcesResourceKinesisPtrOutput {
 	return o.ApplyT(func(v AgentcoreMemoryStreamDeliveryResourcesResource) *AgentcoreMemoryStreamDeliveryResourcesResourceKinesis {
 		return v.Kinesis
@@ -65012,7 +67636,7 @@ func (o AgentcoreMemoryStreamDeliveryResourcesResourcePtrOutput) Elem() Agentcor
 	}).(AgentcoreMemoryStreamDeliveryResourcesResourceOutput)
 }
 
-// Kinesis Data Stream configuration. See `kinesis` below.
+// Kinesis Data Stream configuration. See `kinesis` Block below.
 func (o AgentcoreMemoryStreamDeliveryResourcesResourcePtrOutput) Kinesis() AgentcoreMemoryStreamDeliveryResourcesResourceKinesisPtrOutput {
 	return o.ApplyT(func(v *AgentcoreMemoryStreamDeliveryResourcesResource) *AgentcoreMemoryStreamDeliveryResourcesResourceKinesis {
 		if v == nil {
@@ -65023,8 +67647,8 @@ func (o AgentcoreMemoryStreamDeliveryResourcesResourcePtrOutput) Kinesis() Agent
 }
 
 type AgentcoreMemoryStreamDeliveryResourcesResourceKinesis struct {
-	// Content configurations for stream delivery. See `contentConfiguration` below.
-	ContentConfiguration *AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfiguration `pulumi:"contentConfiguration"`
+	// Content configurations for stream delivery. See `contentConfiguration` Block below.
+	ContentConfiguration AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfiguration `pulumi:"contentConfiguration"`
 	// ARN of the Kinesis Data Stream.
 	DataStreamArn string `pulumi:"dataStreamArn"`
 }
@@ -65041,8 +67665,8 @@ type AgentcoreMemoryStreamDeliveryResourcesResourceKinesisInput interface {
 }
 
 type AgentcoreMemoryStreamDeliveryResourcesResourceKinesisArgs struct {
-	// Content configurations for stream delivery. See `contentConfiguration` below.
-	ContentConfiguration AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfigurationPtrInput `pulumi:"contentConfiguration"`
+	// Content configurations for stream delivery. See `contentConfiguration` Block below.
+	ContentConfiguration AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfigurationInput `pulumi:"contentConfiguration"`
 	// ARN of the Kinesis Data Stream.
 	DataStreamArn pulumi.StringInput `pulumi:"dataStreamArn"`
 }
@@ -65124,11 +67748,11 @@ func (o AgentcoreMemoryStreamDeliveryResourcesResourceKinesisOutput) ToAgentcore
 	}).(AgentcoreMemoryStreamDeliveryResourcesResourceKinesisPtrOutput)
 }
 
-// Content configurations for stream delivery. See `contentConfiguration` below.
-func (o AgentcoreMemoryStreamDeliveryResourcesResourceKinesisOutput) ContentConfiguration() AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfigurationPtrOutput {
-	return o.ApplyT(func(v AgentcoreMemoryStreamDeliveryResourcesResourceKinesis) *AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfiguration {
+// Content configurations for stream delivery. See `contentConfiguration` Block below.
+func (o AgentcoreMemoryStreamDeliveryResourcesResourceKinesisOutput) ContentConfiguration() AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfigurationOutput {
+	return o.ApplyT(func(v AgentcoreMemoryStreamDeliveryResourcesResourceKinesis) AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfiguration {
 		return v.ContentConfiguration
-	}).(AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfigurationPtrOutput)
+	}).(AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfigurationOutput)
 }
 
 // ARN of the Kinesis Data Stream.
@@ -65160,13 +67784,13 @@ func (o AgentcoreMemoryStreamDeliveryResourcesResourceKinesisPtrOutput) Elem() A
 	}).(AgentcoreMemoryStreamDeliveryResourcesResourceKinesisOutput)
 }
 
-// Content configurations for stream delivery. See `contentConfiguration` below.
+// Content configurations for stream delivery. See `contentConfiguration` Block below.
 func (o AgentcoreMemoryStreamDeliveryResourcesResourceKinesisPtrOutput) ContentConfiguration() AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentcoreMemoryStreamDeliveryResourcesResourceKinesis) *AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfiguration {
 		if v == nil {
 			return nil
 		}
-		return v.ContentConfiguration
+		return &v.ContentConfiguration
 	}).(AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfigurationPtrOutput)
 }
 
@@ -72316,2498 +74940,6 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput)
 }
 
-type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint struct {
-	ManagedVpcResource         *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource         `pulumi:"managedVpcResource"`
-	SelfManagedLatticeResource *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource `pulumi:"selfManagedLatticeResource"`
-}
-
-// AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs and AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput values.
-// You can construct a concrete instance of `AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointInput` via:
-//
-//	AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs{...}
-type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointInput interface {
-	pulumi.Input
-
-	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput
-	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutputWithContext(context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput
-}
-
-type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs struct {
-	ManagedVpcResource         AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrInput         `pulumi:"managedVpcResource"`
-	SelfManagedLatticeResource AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrInput `pulumi:"selfManagedLatticeResource"`
-}
-
-func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint)(nil)).Elem()
-}
-
-func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput {
-	return i.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutputWithContext(context.Background())
-}
-
-func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput)
-}
-
-type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint)(nil)).Elem()
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput {
-	return o
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput {
-	return o
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput) ManagedVpcResource() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput {
-	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint) *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource {
-		return v.ManagedVpcResource
-	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput)
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput) SelfManagedLatticeResource() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint) *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource {
-		return v.SelfManagedLatticeResource
-	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput)
-}
-
-type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource struct {
-	EndpointIpAddressType string            `pulumi:"endpointIpAddressType"`
-	RoutingDomain         *string           `pulumi:"routingDomain"`
-	SecurityGroupIds      []string          `pulumi:"securityGroupIds"`
-	SubnetIds             []string          `pulumi:"subnetIds"`
-	Tags                  map[string]string `pulumi:"tags"`
-	VpcIdentifier         string            `pulumi:"vpcIdentifier"`
-}
-
-// AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs and AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput values.
-// You can construct a concrete instance of `AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceInput` via:
-//
-//	AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs{...}
-type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceInput interface {
-	pulumi.Input
-
-	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput
-	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutputWithContext(context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput
-}
-
-type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs struct {
-	EndpointIpAddressType pulumi.StringInput      `pulumi:"endpointIpAddressType"`
-	RoutingDomain         pulumi.StringPtrInput   `pulumi:"routingDomain"`
-	SecurityGroupIds      pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	SubnetIds             pulumi.StringArrayInput `pulumi:"subnetIds"`
-	Tags                  pulumi.StringMapInput   `pulumi:"tags"`
-	VpcIdentifier         pulumi.StringInput      `pulumi:"vpcIdentifier"`
-}
-
-func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource)(nil)).Elem()
-}
-
-func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput {
-	return i.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutputWithContext(context.Background())
-}
-
-func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput)
-}
-
-func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput {
-	return i.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutputWithContext(context.Background())
-}
-
-func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput).ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutputWithContext(ctx)
-}
-
-// AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs, AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtr and AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput values.
-// You can construct a concrete instance of `AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrInput` via:
-//
-//	        AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs{...}
-//
-//	or:
-//
-//	        nil
-type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrInput interface {
-	pulumi.Input
-
-	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput
-	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutputWithContext(context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput
-}
-
-type agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrType AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs
-
-func AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtr(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrInput {
-	return (*agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrType)(v)
-}
-
-func (*agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource)(nil)).Elem()
-}
-
-func (i *agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrType) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput {
-	return i.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutputWithContext(context.Background())
-}
-
-func (i *agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrType) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput)
-}
-
-type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource)(nil)).Elem()
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput {
-	return o
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput {
-	return o
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput {
-	return o.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutputWithContext(context.Background())
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource {
-		return &v
-	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput)
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) EndpointIpAddressType() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) string {
-		return v.EndpointIpAddressType
-	}).(pulumi.StringOutput)
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) RoutingDomain() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) *string {
-		return v.RoutingDomain
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) []string {
-		return v.SecurityGroupIds
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) []string {
-		return v.SubnetIds
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) map[string]string {
-		return v.Tags
-	}).(pulumi.StringMapOutput)
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) VpcIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) string {
-		return v.VpcIdentifier
-	}).(pulumi.StringOutput)
-}
-
-type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource)(nil)).Elem()
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput {
-	return o
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput {
-	return o
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) Elem() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput {
-	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource {
-		if v != nil {
-			return *v
-		}
-		var ret AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource
-		return ret
-	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput)
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) EndpointIpAddressType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.EndpointIpAddressType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) RoutingDomain() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RoutingDomain
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SecurityGroupIds
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetIds
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.Tags
-	}).(pulumi.StringMapOutput)
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) VpcIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VpcIdentifier
-	}).(pulumi.StringPtrOutput)
-}
-
-type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource struct {
-	ResourceConfigurationIdentifier string `pulumi:"resourceConfigurationIdentifier"`
-}
-
-// AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs and AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput values.
-// You can construct a concrete instance of `AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceInput` via:
-//
-//	AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs{...}
-type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceInput interface {
-	pulumi.Input
-
-	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput
-	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutputWithContext(context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput
-}
-
-type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs struct {
-	ResourceConfigurationIdentifier pulumi.StringInput `pulumi:"resourceConfigurationIdentifier"`
-}
-
-func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
-}
-
-func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput {
-	return i.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutputWithContext(context.Background())
-}
-
-func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput)
-}
-
-func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return i.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(context.Background())
-}
-
-func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput).ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx)
-}
-
-// AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs, AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtr and AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput values.
-// You can construct a concrete instance of `AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrInput` via:
-//
-//	        AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs{...}
-//
-//	or:
-//
-//	        nil
-type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrInput interface {
-	pulumi.Input
-
-	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput
-	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput
-}
-
-type agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrType AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs
-
-func AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtr(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrInput {
-	return (*agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrType)(v)
-}
-
-func (*agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
-}
-
-func (i *agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrType) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return i.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(context.Background())
-}
-
-func (i *agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrType) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput)
-}
-
-type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput {
-	return o
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput {
-	return o
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return o.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(context.Background())
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource) *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource {
-		return &v
-	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput)
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput) ResourceConfigurationIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource) string {
-		return v.ResourceConfigurationIdentifier
-	}).(pulumi.StringOutput)
-}
-
-type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return o
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return o
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput) Elem() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput {
-	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource {
-		if v != nil {
-			return *v
-		}
-		var ret AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource
-		return ret
-	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput)
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput) ResourceConfigurationIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ResourceConfigurationIdentifier
-	}).(pulumi.StringPtrOutput)
-}
-
-type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource struct {
-	ResourceConfigurationIdentifier string `pulumi:"resourceConfigurationIdentifier"`
-}
-
-// AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs and AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput values.
-// You can construct a concrete instance of `AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceInput` via:
-//
-//	AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs{...}
-type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceInput interface {
-	pulumi.Input
-
-	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput
-	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutputWithContext(context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput
-}
-
-type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs struct {
-	ResourceConfigurationIdentifier pulumi.StringInput `pulumi:"resourceConfigurationIdentifier"`
-}
-
-func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
-}
-
-func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput {
-	return i.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutputWithContext(context.Background())
-}
-
-func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput)
-}
-
-func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return i.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(context.Background())
-}
-
-func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput).ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx)
-}
-
-// AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs, AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtr and AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput values.
-// You can construct a concrete instance of `AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrInput` via:
-//
-//	        AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs{...}
-//
-//	or:
-//
-//	        nil
-type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrInput interface {
-	pulumi.Input
-
-	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput
-	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput
-}
-
-type agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrType AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs
-
-func AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtr(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrInput {
-	return (*agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrType)(v)
-}
-
-func (*agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
-}
-
-func (i *agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrType) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return i.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(context.Background())
-}
-
-func (i *agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrType) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput)
-}
-
-type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput {
-	return o
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput {
-	return o
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return o.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(context.Background())
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource) *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
-		return &v
-	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput)
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput) ResourceConfigurationIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource) string {
-		return v.ResourceConfigurationIdentifier
-	}).(pulumi.StringOutput)
-}
-
-type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return o
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput {
-	return o
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput) Elem() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput {
-	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
-		if v != nil {
-			return *v
-		}
-		var ret AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource
-		return ret
-	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput)
-}
-
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput) ResourceConfigurationIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ResourceConfigurationIdentifier
-	}).(pulumi.StringPtrOutput)
-}
-
-type AgentcoreRegistryTimeouts struct {
-	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-	Create *string `pulumi:"create"`
-	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-	Delete *string `pulumi:"delete"`
-	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-	Update *string `pulumi:"update"`
-}
-
-// AgentcoreRegistryTimeoutsInput is an input type that accepts AgentcoreRegistryTimeoutsArgs and AgentcoreRegistryTimeoutsOutput values.
-// You can construct a concrete instance of `AgentcoreRegistryTimeoutsInput` via:
-//
-//	AgentcoreRegistryTimeoutsArgs{...}
-type AgentcoreRegistryTimeoutsInput interface {
-	pulumi.Input
-
-	ToAgentcoreRegistryTimeoutsOutput() AgentcoreRegistryTimeoutsOutput
-	ToAgentcoreRegistryTimeoutsOutputWithContext(context.Context) AgentcoreRegistryTimeoutsOutput
-}
-
-type AgentcoreRegistryTimeoutsArgs struct {
-	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-	Create pulumi.StringPtrInput `pulumi:"create"`
-	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-	Delete pulumi.StringPtrInput `pulumi:"delete"`
-	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-	Update pulumi.StringPtrInput `pulumi:"update"`
-}
-
-func (AgentcoreRegistryTimeoutsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreRegistryTimeouts)(nil)).Elem()
-}
-
-func (i AgentcoreRegistryTimeoutsArgs) ToAgentcoreRegistryTimeoutsOutput() AgentcoreRegistryTimeoutsOutput {
-	return i.ToAgentcoreRegistryTimeoutsOutputWithContext(context.Background())
-}
-
-func (i AgentcoreRegistryTimeoutsArgs) ToAgentcoreRegistryTimeoutsOutputWithContext(ctx context.Context) AgentcoreRegistryTimeoutsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryTimeoutsOutput)
-}
-
-func (i AgentcoreRegistryTimeoutsArgs) ToAgentcoreRegistryTimeoutsPtrOutput() AgentcoreRegistryTimeoutsPtrOutput {
-	return i.ToAgentcoreRegistryTimeoutsPtrOutputWithContext(context.Background())
-}
-
-func (i AgentcoreRegistryTimeoutsArgs) ToAgentcoreRegistryTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreRegistryTimeoutsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryTimeoutsOutput).ToAgentcoreRegistryTimeoutsPtrOutputWithContext(ctx)
-}
-
-// AgentcoreRegistryTimeoutsPtrInput is an input type that accepts AgentcoreRegistryTimeoutsArgs, AgentcoreRegistryTimeoutsPtr and AgentcoreRegistryTimeoutsPtrOutput values.
-// You can construct a concrete instance of `AgentcoreRegistryTimeoutsPtrInput` via:
-//
-//	        AgentcoreRegistryTimeoutsArgs{...}
-//
-//	or:
-//
-//	        nil
-type AgentcoreRegistryTimeoutsPtrInput interface {
-	pulumi.Input
-
-	ToAgentcoreRegistryTimeoutsPtrOutput() AgentcoreRegistryTimeoutsPtrOutput
-	ToAgentcoreRegistryTimeoutsPtrOutputWithContext(context.Context) AgentcoreRegistryTimeoutsPtrOutput
-}
-
-type agentcoreRegistryTimeoutsPtrType AgentcoreRegistryTimeoutsArgs
-
-func AgentcoreRegistryTimeoutsPtr(v *AgentcoreRegistryTimeoutsArgs) AgentcoreRegistryTimeoutsPtrInput {
-	return (*agentcoreRegistryTimeoutsPtrType)(v)
-}
-
-func (*agentcoreRegistryTimeoutsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreRegistryTimeouts)(nil)).Elem()
-}
-
-func (i *agentcoreRegistryTimeoutsPtrType) ToAgentcoreRegistryTimeoutsPtrOutput() AgentcoreRegistryTimeoutsPtrOutput {
-	return i.ToAgentcoreRegistryTimeoutsPtrOutputWithContext(context.Background())
-}
-
-func (i *agentcoreRegistryTimeoutsPtrType) ToAgentcoreRegistryTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreRegistryTimeoutsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryTimeoutsPtrOutput)
-}
-
-type AgentcoreRegistryTimeoutsOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreRegistryTimeoutsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreRegistryTimeouts)(nil)).Elem()
-}
-
-func (o AgentcoreRegistryTimeoutsOutput) ToAgentcoreRegistryTimeoutsOutput() AgentcoreRegistryTimeoutsOutput {
-	return o
-}
-
-func (o AgentcoreRegistryTimeoutsOutput) ToAgentcoreRegistryTimeoutsOutputWithContext(ctx context.Context) AgentcoreRegistryTimeoutsOutput {
-	return o
-}
-
-func (o AgentcoreRegistryTimeoutsOutput) ToAgentcoreRegistryTimeoutsPtrOutput() AgentcoreRegistryTimeoutsPtrOutput {
-	return o.ToAgentcoreRegistryTimeoutsPtrOutputWithContext(context.Background())
-}
-
-func (o AgentcoreRegistryTimeoutsOutput) ToAgentcoreRegistryTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreRegistryTimeoutsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreRegistryTimeouts) *AgentcoreRegistryTimeouts {
-		return &v
-	}).(AgentcoreRegistryTimeoutsPtrOutput)
-}
-
-// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-func (o AgentcoreRegistryTimeoutsOutput) Create() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AgentcoreRegistryTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
-}
-
-// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-func (o AgentcoreRegistryTimeoutsOutput) Delete() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AgentcoreRegistryTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
-}
-
-// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-func (o AgentcoreRegistryTimeoutsOutput) Update() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AgentcoreRegistryTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
-}
-
-type AgentcoreRegistryTimeoutsPtrOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreRegistryTimeoutsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreRegistryTimeouts)(nil)).Elem()
-}
-
-func (o AgentcoreRegistryTimeoutsPtrOutput) ToAgentcoreRegistryTimeoutsPtrOutput() AgentcoreRegistryTimeoutsPtrOutput {
-	return o
-}
-
-func (o AgentcoreRegistryTimeoutsPtrOutput) ToAgentcoreRegistryTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreRegistryTimeoutsPtrOutput {
-	return o
-}
-
-func (o AgentcoreRegistryTimeoutsPtrOutput) Elem() AgentcoreRegistryTimeoutsOutput {
-	return o.ApplyT(func(v *AgentcoreRegistryTimeouts) AgentcoreRegistryTimeouts {
-		if v != nil {
-			return *v
-		}
-		var ret AgentcoreRegistryTimeouts
-		return ret
-	}).(AgentcoreRegistryTimeoutsOutput)
-}
-
-// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-func (o AgentcoreRegistryTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AgentcoreRegistryTimeouts) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Create
-	}).(pulumi.StringPtrOutput)
-}
-
-// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-func (o AgentcoreRegistryTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AgentcoreRegistryTimeouts) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Delete
-	}).(pulumi.StringPtrOutput)
-}
-
-// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-func (o AgentcoreRegistryTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AgentcoreRegistryTimeouts) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Update
-	}).(pulumi.StringPtrOutput)
-}
-
-type AgentcoreTokenVaultCmkKmsConfiguration struct {
-	// Type of KMS key. Valid values: `CustomerManagedKey`, `ServiceManagedKey`.
-	KeyType string `pulumi:"keyType"`
-	// ARN of the KMS key.
-	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-}
-
-// AgentcoreTokenVaultCmkKmsConfigurationInput is an input type that accepts AgentcoreTokenVaultCmkKmsConfigurationArgs and AgentcoreTokenVaultCmkKmsConfigurationOutput values.
-// You can construct a concrete instance of `AgentcoreTokenVaultCmkKmsConfigurationInput` via:
-//
-//	AgentcoreTokenVaultCmkKmsConfigurationArgs{...}
-type AgentcoreTokenVaultCmkKmsConfigurationInput interface {
-	pulumi.Input
-
-	ToAgentcoreTokenVaultCmkKmsConfigurationOutput() AgentcoreTokenVaultCmkKmsConfigurationOutput
-	ToAgentcoreTokenVaultCmkKmsConfigurationOutputWithContext(context.Context) AgentcoreTokenVaultCmkKmsConfigurationOutput
-}
-
-type AgentcoreTokenVaultCmkKmsConfigurationArgs struct {
-	// Type of KMS key. Valid values: `CustomerManagedKey`, `ServiceManagedKey`.
-	KeyType pulumi.StringInput `pulumi:"keyType"`
-	// ARN of the KMS key.
-	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
-}
-
-func (AgentcoreTokenVaultCmkKmsConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreTokenVaultCmkKmsConfiguration)(nil)).Elem()
-}
-
-func (i AgentcoreTokenVaultCmkKmsConfigurationArgs) ToAgentcoreTokenVaultCmkKmsConfigurationOutput() AgentcoreTokenVaultCmkKmsConfigurationOutput {
-	return i.ToAgentcoreTokenVaultCmkKmsConfigurationOutputWithContext(context.Background())
-}
-
-func (i AgentcoreTokenVaultCmkKmsConfigurationArgs) ToAgentcoreTokenVaultCmkKmsConfigurationOutputWithContext(ctx context.Context) AgentcoreTokenVaultCmkKmsConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreTokenVaultCmkKmsConfigurationOutput)
-}
-
-func (i AgentcoreTokenVaultCmkKmsConfigurationArgs) ToAgentcoreTokenVaultCmkKmsConfigurationPtrOutput() AgentcoreTokenVaultCmkKmsConfigurationPtrOutput {
-	return i.ToAgentcoreTokenVaultCmkKmsConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i AgentcoreTokenVaultCmkKmsConfigurationArgs) ToAgentcoreTokenVaultCmkKmsConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreTokenVaultCmkKmsConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreTokenVaultCmkKmsConfigurationOutput).ToAgentcoreTokenVaultCmkKmsConfigurationPtrOutputWithContext(ctx)
-}
-
-// AgentcoreTokenVaultCmkKmsConfigurationPtrInput is an input type that accepts AgentcoreTokenVaultCmkKmsConfigurationArgs, AgentcoreTokenVaultCmkKmsConfigurationPtr and AgentcoreTokenVaultCmkKmsConfigurationPtrOutput values.
-// You can construct a concrete instance of `AgentcoreTokenVaultCmkKmsConfigurationPtrInput` via:
-//
-//	        AgentcoreTokenVaultCmkKmsConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type AgentcoreTokenVaultCmkKmsConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToAgentcoreTokenVaultCmkKmsConfigurationPtrOutput() AgentcoreTokenVaultCmkKmsConfigurationPtrOutput
-	ToAgentcoreTokenVaultCmkKmsConfigurationPtrOutputWithContext(context.Context) AgentcoreTokenVaultCmkKmsConfigurationPtrOutput
-}
-
-type agentcoreTokenVaultCmkKmsConfigurationPtrType AgentcoreTokenVaultCmkKmsConfigurationArgs
-
-func AgentcoreTokenVaultCmkKmsConfigurationPtr(v *AgentcoreTokenVaultCmkKmsConfigurationArgs) AgentcoreTokenVaultCmkKmsConfigurationPtrInput {
-	return (*agentcoreTokenVaultCmkKmsConfigurationPtrType)(v)
-}
-
-func (*agentcoreTokenVaultCmkKmsConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreTokenVaultCmkKmsConfiguration)(nil)).Elem()
-}
-
-func (i *agentcoreTokenVaultCmkKmsConfigurationPtrType) ToAgentcoreTokenVaultCmkKmsConfigurationPtrOutput() AgentcoreTokenVaultCmkKmsConfigurationPtrOutput {
-	return i.ToAgentcoreTokenVaultCmkKmsConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *agentcoreTokenVaultCmkKmsConfigurationPtrType) ToAgentcoreTokenVaultCmkKmsConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreTokenVaultCmkKmsConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreTokenVaultCmkKmsConfigurationPtrOutput)
-}
-
-type AgentcoreTokenVaultCmkKmsConfigurationOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreTokenVaultCmkKmsConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreTokenVaultCmkKmsConfiguration)(nil)).Elem()
-}
-
-func (o AgentcoreTokenVaultCmkKmsConfigurationOutput) ToAgentcoreTokenVaultCmkKmsConfigurationOutput() AgentcoreTokenVaultCmkKmsConfigurationOutput {
-	return o
-}
-
-func (o AgentcoreTokenVaultCmkKmsConfigurationOutput) ToAgentcoreTokenVaultCmkKmsConfigurationOutputWithContext(ctx context.Context) AgentcoreTokenVaultCmkKmsConfigurationOutput {
-	return o
-}
-
-func (o AgentcoreTokenVaultCmkKmsConfigurationOutput) ToAgentcoreTokenVaultCmkKmsConfigurationPtrOutput() AgentcoreTokenVaultCmkKmsConfigurationPtrOutput {
-	return o.ToAgentcoreTokenVaultCmkKmsConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o AgentcoreTokenVaultCmkKmsConfigurationOutput) ToAgentcoreTokenVaultCmkKmsConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreTokenVaultCmkKmsConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreTokenVaultCmkKmsConfiguration) *AgentcoreTokenVaultCmkKmsConfiguration {
-		return &v
-	}).(AgentcoreTokenVaultCmkKmsConfigurationPtrOutput)
-}
-
-// Type of KMS key. Valid values: `CustomerManagedKey`, `ServiceManagedKey`.
-func (o AgentcoreTokenVaultCmkKmsConfigurationOutput) KeyType() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentcoreTokenVaultCmkKmsConfiguration) string { return v.KeyType }).(pulumi.StringOutput)
-}
-
-// ARN of the KMS key.
-func (o AgentcoreTokenVaultCmkKmsConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AgentcoreTokenVaultCmkKmsConfiguration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
-}
-
-type AgentcoreTokenVaultCmkKmsConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreTokenVaultCmkKmsConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreTokenVaultCmkKmsConfiguration)(nil)).Elem()
-}
-
-func (o AgentcoreTokenVaultCmkKmsConfigurationPtrOutput) ToAgentcoreTokenVaultCmkKmsConfigurationPtrOutput() AgentcoreTokenVaultCmkKmsConfigurationPtrOutput {
-	return o
-}
-
-func (o AgentcoreTokenVaultCmkKmsConfigurationPtrOutput) ToAgentcoreTokenVaultCmkKmsConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreTokenVaultCmkKmsConfigurationPtrOutput {
-	return o
-}
-
-func (o AgentcoreTokenVaultCmkKmsConfigurationPtrOutput) Elem() AgentcoreTokenVaultCmkKmsConfigurationOutput {
-	return o.ApplyT(func(v *AgentcoreTokenVaultCmkKmsConfiguration) AgentcoreTokenVaultCmkKmsConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret AgentcoreTokenVaultCmkKmsConfiguration
-		return ret
-	}).(AgentcoreTokenVaultCmkKmsConfigurationOutput)
-}
-
-// Type of KMS key. Valid values: `CustomerManagedKey`, `ServiceManagedKey`.
-func (o AgentcoreTokenVaultCmkKmsConfigurationPtrOutput) KeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AgentcoreTokenVaultCmkKmsConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.KeyType
-	}).(pulumi.StringPtrOutput)
-}
-
-// ARN of the KMS key.
-func (o AgentcoreTokenVaultCmkKmsConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AgentcoreTokenVaultCmkKmsConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KmsKeyArn
-	}).(pulumi.StringPtrOutput)
-}
-
-type CustomModelOutputDataConfig struct {
-	// The S3 URI where the output data is stored.
-	S3Uri string `pulumi:"s3Uri"`
-}
-
-// CustomModelOutputDataConfigInput is an input type that accepts CustomModelOutputDataConfigArgs and CustomModelOutputDataConfigOutput values.
-// You can construct a concrete instance of `CustomModelOutputDataConfigInput` via:
-//
-//	CustomModelOutputDataConfigArgs{...}
-type CustomModelOutputDataConfigInput interface {
-	pulumi.Input
-
-	ToCustomModelOutputDataConfigOutput() CustomModelOutputDataConfigOutput
-	ToCustomModelOutputDataConfigOutputWithContext(context.Context) CustomModelOutputDataConfigOutput
-}
-
-type CustomModelOutputDataConfigArgs struct {
-	// The S3 URI where the output data is stored.
-	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
-}
-
-func (CustomModelOutputDataConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomModelOutputDataConfig)(nil)).Elem()
-}
-
-func (i CustomModelOutputDataConfigArgs) ToCustomModelOutputDataConfigOutput() CustomModelOutputDataConfigOutput {
-	return i.ToCustomModelOutputDataConfigOutputWithContext(context.Background())
-}
-
-func (i CustomModelOutputDataConfigArgs) ToCustomModelOutputDataConfigOutputWithContext(ctx context.Context) CustomModelOutputDataConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomModelOutputDataConfigOutput)
-}
-
-func (i CustomModelOutputDataConfigArgs) ToCustomModelOutputDataConfigPtrOutput() CustomModelOutputDataConfigPtrOutput {
-	return i.ToCustomModelOutputDataConfigPtrOutputWithContext(context.Background())
-}
-
-func (i CustomModelOutputDataConfigArgs) ToCustomModelOutputDataConfigPtrOutputWithContext(ctx context.Context) CustomModelOutputDataConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomModelOutputDataConfigOutput).ToCustomModelOutputDataConfigPtrOutputWithContext(ctx)
-}
-
-// CustomModelOutputDataConfigPtrInput is an input type that accepts CustomModelOutputDataConfigArgs, CustomModelOutputDataConfigPtr and CustomModelOutputDataConfigPtrOutput values.
-// You can construct a concrete instance of `CustomModelOutputDataConfigPtrInput` via:
-//
-//	        CustomModelOutputDataConfigArgs{...}
-//
-//	or:
-//
-//	        nil
-type CustomModelOutputDataConfigPtrInput interface {
-	pulumi.Input
-
-	ToCustomModelOutputDataConfigPtrOutput() CustomModelOutputDataConfigPtrOutput
-	ToCustomModelOutputDataConfigPtrOutputWithContext(context.Context) CustomModelOutputDataConfigPtrOutput
-}
-
-type customModelOutputDataConfigPtrType CustomModelOutputDataConfigArgs
-
-func CustomModelOutputDataConfigPtr(v *CustomModelOutputDataConfigArgs) CustomModelOutputDataConfigPtrInput {
-	return (*customModelOutputDataConfigPtrType)(v)
-}
-
-func (*customModelOutputDataConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomModelOutputDataConfig)(nil)).Elem()
-}
-
-func (i *customModelOutputDataConfigPtrType) ToCustomModelOutputDataConfigPtrOutput() CustomModelOutputDataConfigPtrOutput {
-	return i.ToCustomModelOutputDataConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *customModelOutputDataConfigPtrType) ToCustomModelOutputDataConfigPtrOutputWithContext(ctx context.Context) CustomModelOutputDataConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomModelOutputDataConfigPtrOutput)
-}
-
-type CustomModelOutputDataConfigOutput struct{ *pulumi.OutputState }
-
-func (CustomModelOutputDataConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomModelOutputDataConfig)(nil)).Elem()
-}
-
-func (o CustomModelOutputDataConfigOutput) ToCustomModelOutputDataConfigOutput() CustomModelOutputDataConfigOutput {
-	return o
-}
-
-func (o CustomModelOutputDataConfigOutput) ToCustomModelOutputDataConfigOutputWithContext(ctx context.Context) CustomModelOutputDataConfigOutput {
-	return o
-}
-
-func (o CustomModelOutputDataConfigOutput) ToCustomModelOutputDataConfigPtrOutput() CustomModelOutputDataConfigPtrOutput {
-	return o.ToCustomModelOutputDataConfigPtrOutputWithContext(context.Background())
-}
-
-func (o CustomModelOutputDataConfigOutput) ToCustomModelOutputDataConfigPtrOutputWithContext(ctx context.Context) CustomModelOutputDataConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomModelOutputDataConfig) *CustomModelOutputDataConfig {
-		return &v
-	}).(CustomModelOutputDataConfigPtrOutput)
-}
-
-// The S3 URI where the output data is stored.
-func (o CustomModelOutputDataConfigOutput) S3Uri() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomModelOutputDataConfig) string { return v.S3Uri }).(pulumi.StringOutput)
-}
-
-type CustomModelOutputDataConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (CustomModelOutputDataConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomModelOutputDataConfig)(nil)).Elem()
-}
-
-func (o CustomModelOutputDataConfigPtrOutput) ToCustomModelOutputDataConfigPtrOutput() CustomModelOutputDataConfigPtrOutput {
-	return o
-}
-
-func (o CustomModelOutputDataConfigPtrOutput) ToCustomModelOutputDataConfigPtrOutputWithContext(ctx context.Context) CustomModelOutputDataConfigPtrOutput {
-	return o
-}
-
-func (o CustomModelOutputDataConfigPtrOutput) Elem() CustomModelOutputDataConfigOutput {
-	return o.ApplyT(func(v *CustomModelOutputDataConfig) CustomModelOutputDataConfig {
-		if v != nil {
-			return *v
-		}
-		var ret CustomModelOutputDataConfig
-		return ret
-	}).(CustomModelOutputDataConfigOutput)
-}
-
-// The S3 URI where the output data is stored.
-func (o CustomModelOutputDataConfigPtrOutput) S3Uri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomModelOutputDataConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.S3Uri
-	}).(pulumi.StringPtrOutput)
-}
-
-type CustomModelTimeouts struct {
-	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-	Create *string `pulumi:"create"`
-	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-	Delete *string `pulumi:"delete"`
-}
-
-// CustomModelTimeoutsInput is an input type that accepts CustomModelTimeoutsArgs and CustomModelTimeoutsOutput values.
-// You can construct a concrete instance of `CustomModelTimeoutsInput` via:
-//
-//	CustomModelTimeoutsArgs{...}
-type CustomModelTimeoutsInput interface {
-	pulumi.Input
-
-	ToCustomModelTimeoutsOutput() CustomModelTimeoutsOutput
-	ToCustomModelTimeoutsOutputWithContext(context.Context) CustomModelTimeoutsOutput
-}
-
-type CustomModelTimeoutsArgs struct {
-	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-	Create pulumi.StringPtrInput `pulumi:"create"`
-	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-	Delete pulumi.StringPtrInput `pulumi:"delete"`
-}
-
-func (CustomModelTimeoutsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomModelTimeouts)(nil)).Elem()
-}
-
-func (i CustomModelTimeoutsArgs) ToCustomModelTimeoutsOutput() CustomModelTimeoutsOutput {
-	return i.ToCustomModelTimeoutsOutputWithContext(context.Background())
-}
-
-func (i CustomModelTimeoutsArgs) ToCustomModelTimeoutsOutputWithContext(ctx context.Context) CustomModelTimeoutsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomModelTimeoutsOutput)
-}
-
-func (i CustomModelTimeoutsArgs) ToCustomModelTimeoutsPtrOutput() CustomModelTimeoutsPtrOutput {
-	return i.ToCustomModelTimeoutsPtrOutputWithContext(context.Background())
-}
-
-func (i CustomModelTimeoutsArgs) ToCustomModelTimeoutsPtrOutputWithContext(ctx context.Context) CustomModelTimeoutsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomModelTimeoutsOutput).ToCustomModelTimeoutsPtrOutputWithContext(ctx)
-}
-
-// CustomModelTimeoutsPtrInput is an input type that accepts CustomModelTimeoutsArgs, CustomModelTimeoutsPtr and CustomModelTimeoutsPtrOutput values.
-// You can construct a concrete instance of `CustomModelTimeoutsPtrInput` via:
-//
-//	        CustomModelTimeoutsArgs{...}
-//
-//	or:
-//
-//	        nil
-type CustomModelTimeoutsPtrInput interface {
-	pulumi.Input
-
-	ToCustomModelTimeoutsPtrOutput() CustomModelTimeoutsPtrOutput
-	ToCustomModelTimeoutsPtrOutputWithContext(context.Context) CustomModelTimeoutsPtrOutput
-}
-
-type customModelTimeoutsPtrType CustomModelTimeoutsArgs
-
-func CustomModelTimeoutsPtr(v *CustomModelTimeoutsArgs) CustomModelTimeoutsPtrInput {
-	return (*customModelTimeoutsPtrType)(v)
-}
-
-func (*customModelTimeoutsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomModelTimeouts)(nil)).Elem()
-}
-
-func (i *customModelTimeoutsPtrType) ToCustomModelTimeoutsPtrOutput() CustomModelTimeoutsPtrOutput {
-	return i.ToCustomModelTimeoutsPtrOutputWithContext(context.Background())
-}
-
-func (i *customModelTimeoutsPtrType) ToCustomModelTimeoutsPtrOutputWithContext(ctx context.Context) CustomModelTimeoutsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomModelTimeoutsPtrOutput)
-}
-
-type CustomModelTimeoutsOutput struct{ *pulumi.OutputState }
-
-func (CustomModelTimeoutsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomModelTimeouts)(nil)).Elem()
-}
-
-func (o CustomModelTimeoutsOutput) ToCustomModelTimeoutsOutput() CustomModelTimeoutsOutput {
-	return o
-}
-
-func (o CustomModelTimeoutsOutput) ToCustomModelTimeoutsOutputWithContext(ctx context.Context) CustomModelTimeoutsOutput {
-	return o
-}
-
-func (o CustomModelTimeoutsOutput) ToCustomModelTimeoutsPtrOutput() CustomModelTimeoutsPtrOutput {
-	return o.ToCustomModelTimeoutsPtrOutputWithContext(context.Background())
-}
-
-func (o CustomModelTimeoutsOutput) ToCustomModelTimeoutsPtrOutputWithContext(ctx context.Context) CustomModelTimeoutsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomModelTimeouts) *CustomModelTimeouts {
-		return &v
-	}).(CustomModelTimeoutsPtrOutput)
-}
-
-// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-func (o CustomModelTimeoutsOutput) Create() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomModelTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
-}
-
-// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-func (o CustomModelTimeoutsOutput) Delete() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomModelTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
-}
-
-type CustomModelTimeoutsPtrOutput struct{ *pulumi.OutputState }
-
-func (CustomModelTimeoutsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomModelTimeouts)(nil)).Elem()
-}
-
-func (o CustomModelTimeoutsPtrOutput) ToCustomModelTimeoutsPtrOutput() CustomModelTimeoutsPtrOutput {
-	return o
-}
-
-func (o CustomModelTimeoutsPtrOutput) ToCustomModelTimeoutsPtrOutputWithContext(ctx context.Context) CustomModelTimeoutsPtrOutput {
-	return o
-}
-
-func (o CustomModelTimeoutsPtrOutput) Elem() CustomModelTimeoutsOutput {
-	return o.ApplyT(func(v *CustomModelTimeouts) CustomModelTimeouts {
-		if v != nil {
-			return *v
-		}
-		var ret CustomModelTimeouts
-		return ret
-	}).(CustomModelTimeoutsOutput)
-}
-
-// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-func (o CustomModelTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomModelTimeouts) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Create
-	}).(pulumi.StringPtrOutput)
-}
-
-// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-func (o CustomModelTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomModelTimeouts) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Delete
-	}).(pulumi.StringPtrOutput)
-}
-
-type CustomModelTrainingDataConfig struct {
-	// The S3 URI where the training data is stored.
-	S3Uri string `pulumi:"s3Uri"`
-}
-
-// CustomModelTrainingDataConfigInput is an input type that accepts CustomModelTrainingDataConfigArgs and CustomModelTrainingDataConfigOutput values.
-// You can construct a concrete instance of `CustomModelTrainingDataConfigInput` via:
-//
-//	CustomModelTrainingDataConfigArgs{...}
-type CustomModelTrainingDataConfigInput interface {
-	pulumi.Input
-
-	ToCustomModelTrainingDataConfigOutput() CustomModelTrainingDataConfigOutput
-	ToCustomModelTrainingDataConfigOutputWithContext(context.Context) CustomModelTrainingDataConfigOutput
-}
-
-type CustomModelTrainingDataConfigArgs struct {
-	// The S3 URI where the training data is stored.
-	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
-}
-
-func (CustomModelTrainingDataConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomModelTrainingDataConfig)(nil)).Elem()
-}
-
-func (i CustomModelTrainingDataConfigArgs) ToCustomModelTrainingDataConfigOutput() CustomModelTrainingDataConfigOutput {
-	return i.ToCustomModelTrainingDataConfigOutputWithContext(context.Background())
-}
-
-func (i CustomModelTrainingDataConfigArgs) ToCustomModelTrainingDataConfigOutputWithContext(ctx context.Context) CustomModelTrainingDataConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomModelTrainingDataConfigOutput)
-}
-
-func (i CustomModelTrainingDataConfigArgs) ToCustomModelTrainingDataConfigPtrOutput() CustomModelTrainingDataConfigPtrOutput {
-	return i.ToCustomModelTrainingDataConfigPtrOutputWithContext(context.Background())
-}
-
-func (i CustomModelTrainingDataConfigArgs) ToCustomModelTrainingDataConfigPtrOutputWithContext(ctx context.Context) CustomModelTrainingDataConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomModelTrainingDataConfigOutput).ToCustomModelTrainingDataConfigPtrOutputWithContext(ctx)
-}
-
-// CustomModelTrainingDataConfigPtrInput is an input type that accepts CustomModelTrainingDataConfigArgs, CustomModelTrainingDataConfigPtr and CustomModelTrainingDataConfigPtrOutput values.
-// You can construct a concrete instance of `CustomModelTrainingDataConfigPtrInput` via:
-//
-//	        CustomModelTrainingDataConfigArgs{...}
-//
-//	or:
-//
-//	        nil
-type CustomModelTrainingDataConfigPtrInput interface {
-	pulumi.Input
-
-	ToCustomModelTrainingDataConfigPtrOutput() CustomModelTrainingDataConfigPtrOutput
-	ToCustomModelTrainingDataConfigPtrOutputWithContext(context.Context) CustomModelTrainingDataConfigPtrOutput
-}
-
-type customModelTrainingDataConfigPtrType CustomModelTrainingDataConfigArgs
-
-func CustomModelTrainingDataConfigPtr(v *CustomModelTrainingDataConfigArgs) CustomModelTrainingDataConfigPtrInput {
-	return (*customModelTrainingDataConfigPtrType)(v)
-}
-
-func (*customModelTrainingDataConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomModelTrainingDataConfig)(nil)).Elem()
-}
-
-func (i *customModelTrainingDataConfigPtrType) ToCustomModelTrainingDataConfigPtrOutput() CustomModelTrainingDataConfigPtrOutput {
-	return i.ToCustomModelTrainingDataConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *customModelTrainingDataConfigPtrType) ToCustomModelTrainingDataConfigPtrOutputWithContext(ctx context.Context) CustomModelTrainingDataConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomModelTrainingDataConfigPtrOutput)
-}
-
-type CustomModelTrainingDataConfigOutput struct{ *pulumi.OutputState }
-
-func (CustomModelTrainingDataConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomModelTrainingDataConfig)(nil)).Elem()
-}
-
-func (o CustomModelTrainingDataConfigOutput) ToCustomModelTrainingDataConfigOutput() CustomModelTrainingDataConfigOutput {
-	return o
-}
-
-func (o CustomModelTrainingDataConfigOutput) ToCustomModelTrainingDataConfigOutputWithContext(ctx context.Context) CustomModelTrainingDataConfigOutput {
-	return o
-}
-
-func (o CustomModelTrainingDataConfigOutput) ToCustomModelTrainingDataConfigPtrOutput() CustomModelTrainingDataConfigPtrOutput {
-	return o.ToCustomModelTrainingDataConfigPtrOutputWithContext(context.Background())
-}
-
-func (o CustomModelTrainingDataConfigOutput) ToCustomModelTrainingDataConfigPtrOutputWithContext(ctx context.Context) CustomModelTrainingDataConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomModelTrainingDataConfig) *CustomModelTrainingDataConfig {
-		return &v
-	}).(CustomModelTrainingDataConfigPtrOutput)
-}
-
-// The S3 URI where the training data is stored.
-func (o CustomModelTrainingDataConfigOutput) S3Uri() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomModelTrainingDataConfig) string { return v.S3Uri }).(pulumi.StringOutput)
-}
-
-type CustomModelTrainingDataConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (CustomModelTrainingDataConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomModelTrainingDataConfig)(nil)).Elem()
-}
-
-func (o CustomModelTrainingDataConfigPtrOutput) ToCustomModelTrainingDataConfigPtrOutput() CustomModelTrainingDataConfigPtrOutput {
-	return o
-}
-
-func (o CustomModelTrainingDataConfigPtrOutput) ToCustomModelTrainingDataConfigPtrOutputWithContext(ctx context.Context) CustomModelTrainingDataConfigPtrOutput {
-	return o
-}
-
-func (o CustomModelTrainingDataConfigPtrOutput) Elem() CustomModelTrainingDataConfigOutput {
-	return o.ApplyT(func(v *CustomModelTrainingDataConfig) CustomModelTrainingDataConfig {
-		if v != nil {
-			return *v
-		}
-		var ret CustomModelTrainingDataConfig
-		return ret
-	}).(CustomModelTrainingDataConfigOutput)
-}
-
-// The S3 URI where the training data is stored.
-func (o CustomModelTrainingDataConfigPtrOutput) S3Uri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomModelTrainingDataConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.S3Uri
-	}).(pulumi.StringPtrOutput)
-}
-
-type CustomModelTrainingMetric struct {
-	// Loss metric associated with the customization job.
-	TrainingLoss float64 `pulumi:"trainingLoss"`
-}
-
-// CustomModelTrainingMetricInput is an input type that accepts CustomModelTrainingMetricArgs and CustomModelTrainingMetricOutput values.
-// You can construct a concrete instance of `CustomModelTrainingMetricInput` via:
-//
-//	CustomModelTrainingMetricArgs{...}
-type CustomModelTrainingMetricInput interface {
-	pulumi.Input
-
-	ToCustomModelTrainingMetricOutput() CustomModelTrainingMetricOutput
-	ToCustomModelTrainingMetricOutputWithContext(context.Context) CustomModelTrainingMetricOutput
-}
-
-type CustomModelTrainingMetricArgs struct {
-	// Loss metric associated with the customization job.
-	TrainingLoss pulumi.Float64Input `pulumi:"trainingLoss"`
-}
-
-func (CustomModelTrainingMetricArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomModelTrainingMetric)(nil)).Elem()
-}
-
-func (i CustomModelTrainingMetricArgs) ToCustomModelTrainingMetricOutput() CustomModelTrainingMetricOutput {
-	return i.ToCustomModelTrainingMetricOutputWithContext(context.Background())
-}
-
-func (i CustomModelTrainingMetricArgs) ToCustomModelTrainingMetricOutputWithContext(ctx context.Context) CustomModelTrainingMetricOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomModelTrainingMetricOutput)
-}
-
-// CustomModelTrainingMetricArrayInput is an input type that accepts CustomModelTrainingMetricArray and CustomModelTrainingMetricArrayOutput values.
-// You can construct a concrete instance of `CustomModelTrainingMetricArrayInput` via:
-//
-//	CustomModelTrainingMetricArray{ CustomModelTrainingMetricArgs{...} }
-type CustomModelTrainingMetricArrayInput interface {
-	pulumi.Input
-
-	ToCustomModelTrainingMetricArrayOutput() CustomModelTrainingMetricArrayOutput
-	ToCustomModelTrainingMetricArrayOutputWithContext(context.Context) CustomModelTrainingMetricArrayOutput
-}
-
-type CustomModelTrainingMetricArray []CustomModelTrainingMetricInput
-
-func (CustomModelTrainingMetricArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomModelTrainingMetric)(nil)).Elem()
-}
-
-func (i CustomModelTrainingMetricArray) ToCustomModelTrainingMetricArrayOutput() CustomModelTrainingMetricArrayOutput {
-	return i.ToCustomModelTrainingMetricArrayOutputWithContext(context.Background())
-}
-
-func (i CustomModelTrainingMetricArray) ToCustomModelTrainingMetricArrayOutputWithContext(ctx context.Context) CustomModelTrainingMetricArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomModelTrainingMetricArrayOutput)
-}
-
-type CustomModelTrainingMetricOutput struct{ *pulumi.OutputState }
-
-func (CustomModelTrainingMetricOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomModelTrainingMetric)(nil)).Elem()
-}
-
-func (o CustomModelTrainingMetricOutput) ToCustomModelTrainingMetricOutput() CustomModelTrainingMetricOutput {
-	return o
-}
-
-func (o CustomModelTrainingMetricOutput) ToCustomModelTrainingMetricOutputWithContext(ctx context.Context) CustomModelTrainingMetricOutput {
-	return o
-}
-
-// Loss metric associated with the customization job.
-func (o CustomModelTrainingMetricOutput) TrainingLoss() pulumi.Float64Output {
-	return o.ApplyT(func(v CustomModelTrainingMetric) float64 { return v.TrainingLoss }).(pulumi.Float64Output)
-}
-
-type CustomModelTrainingMetricArrayOutput struct{ *pulumi.OutputState }
-
-func (CustomModelTrainingMetricArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomModelTrainingMetric)(nil)).Elem()
-}
-
-func (o CustomModelTrainingMetricArrayOutput) ToCustomModelTrainingMetricArrayOutput() CustomModelTrainingMetricArrayOutput {
-	return o
-}
-
-func (o CustomModelTrainingMetricArrayOutput) ToCustomModelTrainingMetricArrayOutputWithContext(ctx context.Context) CustomModelTrainingMetricArrayOutput {
-	return o
-}
-
-func (o CustomModelTrainingMetricArrayOutput) Index(i pulumi.IntInput) CustomModelTrainingMetricOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomModelTrainingMetric {
-		return vs[0].([]CustomModelTrainingMetric)[vs[1].(int)]
-	}).(CustomModelTrainingMetricOutput)
-}
-
-type CustomModelValidationDataConfig struct {
-	// Information about the validators.
-	Validators []CustomModelValidationDataConfigValidator `pulumi:"validators"`
-}
-
-// CustomModelValidationDataConfigInput is an input type that accepts CustomModelValidationDataConfigArgs and CustomModelValidationDataConfigOutput values.
-// You can construct a concrete instance of `CustomModelValidationDataConfigInput` via:
-//
-//	CustomModelValidationDataConfigArgs{...}
-type CustomModelValidationDataConfigInput interface {
-	pulumi.Input
-
-	ToCustomModelValidationDataConfigOutput() CustomModelValidationDataConfigOutput
-	ToCustomModelValidationDataConfigOutputWithContext(context.Context) CustomModelValidationDataConfigOutput
-}
-
-type CustomModelValidationDataConfigArgs struct {
-	// Information about the validators.
-	Validators CustomModelValidationDataConfigValidatorArrayInput `pulumi:"validators"`
-}
-
-func (CustomModelValidationDataConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomModelValidationDataConfig)(nil)).Elem()
-}
-
-func (i CustomModelValidationDataConfigArgs) ToCustomModelValidationDataConfigOutput() CustomModelValidationDataConfigOutput {
-	return i.ToCustomModelValidationDataConfigOutputWithContext(context.Background())
-}
-
-func (i CustomModelValidationDataConfigArgs) ToCustomModelValidationDataConfigOutputWithContext(ctx context.Context) CustomModelValidationDataConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomModelValidationDataConfigOutput)
-}
-
-func (i CustomModelValidationDataConfigArgs) ToCustomModelValidationDataConfigPtrOutput() CustomModelValidationDataConfigPtrOutput {
-	return i.ToCustomModelValidationDataConfigPtrOutputWithContext(context.Background())
-}
-
-func (i CustomModelValidationDataConfigArgs) ToCustomModelValidationDataConfigPtrOutputWithContext(ctx context.Context) CustomModelValidationDataConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomModelValidationDataConfigOutput).ToCustomModelValidationDataConfigPtrOutputWithContext(ctx)
-}
-
-// CustomModelValidationDataConfigPtrInput is an input type that accepts CustomModelValidationDataConfigArgs, CustomModelValidationDataConfigPtr and CustomModelValidationDataConfigPtrOutput values.
-// You can construct a concrete instance of `CustomModelValidationDataConfigPtrInput` via:
-//
-//	        CustomModelValidationDataConfigArgs{...}
-//
-//	or:
-//
-//	        nil
-type CustomModelValidationDataConfigPtrInput interface {
-	pulumi.Input
-
-	ToCustomModelValidationDataConfigPtrOutput() CustomModelValidationDataConfigPtrOutput
-	ToCustomModelValidationDataConfigPtrOutputWithContext(context.Context) CustomModelValidationDataConfigPtrOutput
-}
-
-type customModelValidationDataConfigPtrType CustomModelValidationDataConfigArgs
-
-func CustomModelValidationDataConfigPtr(v *CustomModelValidationDataConfigArgs) CustomModelValidationDataConfigPtrInput {
-	return (*customModelValidationDataConfigPtrType)(v)
-}
-
-func (*customModelValidationDataConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomModelValidationDataConfig)(nil)).Elem()
-}
-
-func (i *customModelValidationDataConfigPtrType) ToCustomModelValidationDataConfigPtrOutput() CustomModelValidationDataConfigPtrOutput {
-	return i.ToCustomModelValidationDataConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *customModelValidationDataConfigPtrType) ToCustomModelValidationDataConfigPtrOutputWithContext(ctx context.Context) CustomModelValidationDataConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomModelValidationDataConfigPtrOutput)
-}
-
-type CustomModelValidationDataConfigOutput struct{ *pulumi.OutputState }
-
-func (CustomModelValidationDataConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomModelValidationDataConfig)(nil)).Elem()
-}
-
-func (o CustomModelValidationDataConfigOutput) ToCustomModelValidationDataConfigOutput() CustomModelValidationDataConfigOutput {
-	return o
-}
-
-func (o CustomModelValidationDataConfigOutput) ToCustomModelValidationDataConfigOutputWithContext(ctx context.Context) CustomModelValidationDataConfigOutput {
-	return o
-}
-
-func (o CustomModelValidationDataConfigOutput) ToCustomModelValidationDataConfigPtrOutput() CustomModelValidationDataConfigPtrOutput {
-	return o.ToCustomModelValidationDataConfigPtrOutputWithContext(context.Background())
-}
-
-func (o CustomModelValidationDataConfigOutput) ToCustomModelValidationDataConfigPtrOutputWithContext(ctx context.Context) CustomModelValidationDataConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomModelValidationDataConfig) *CustomModelValidationDataConfig {
-		return &v
-	}).(CustomModelValidationDataConfigPtrOutput)
-}
-
-// Information about the validators.
-func (o CustomModelValidationDataConfigOutput) Validators() CustomModelValidationDataConfigValidatorArrayOutput {
-	return o.ApplyT(func(v CustomModelValidationDataConfig) []CustomModelValidationDataConfigValidator {
-		return v.Validators
-	}).(CustomModelValidationDataConfigValidatorArrayOutput)
-}
-
-type CustomModelValidationDataConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (CustomModelValidationDataConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomModelValidationDataConfig)(nil)).Elem()
-}
-
-func (o CustomModelValidationDataConfigPtrOutput) ToCustomModelValidationDataConfigPtrOutput() CustomModelValidationDataConfigPtrOutput {
-	return o
-}
-
-func (o CustomModelValidationDataConfigPtrOutput) ToCustomModelValidationDataConfigPtrOutputWithContext(ctx context.Context) CustomModelValidationDataConfigPtrOutput {
-	return o
-}
-
-func (o CustomModelValidationDataConfigPtrOutput) Elem() CustomModelValidationDataConfigOutput {
-	return o.ApplyT(func(v *CustomModelValidationDataConfig) CustomModelValidationDataConfig {
-		if v != nil {
-			return *v
-		}
-		var ret CustomModelValidationDataConfig
-		return ret
-	}).(CustomModelValidationDataConfigOutput)
-}
-
-// Information about the validators.
-func (o CustomModelValidationDataConfigPtrOutput) Validators() CustomModelValidationDataConfigValidatorArrayOutput {
-	return o.ApplyT(func(v *CustomModelValidationDataConfig) []CustomModelValidationDataConfigValidator {
-		if v == nil {
-			return nil
-		}
-		return v.Validators
-	}).(CustomModelValidationDataConfigValidatorArrayOutput)
-}
-
-type CustomModelValidationDataConfigValidator struct {
-	// The S3 URI where the validation data is stored.
-	S3Uri string `pulumi:"s3Uri"`
-}
-
-// CustomModelValidationDataConfigValidatorInput is an input type that accepts CustomModelValidationDataConfigValidatorArgs and CustomModelValidationDataConfigValidatorOutput values.
-// You can construct a concrete instance of `CustomModelValidationDataConfigValidatorInput` via:
-//
-//	CustomModelValidationDataConfigValidatorArgs{...}
-type CustomModelValidationDataConfigValidatorInput interface {
-	pulumi.Input
-
-	ToCustomModelValidationDataConfigValidatorOutput() CustomModelValidationDataConfigValidatorOutput
-	ToCustomModelValidationDataConfigValidatorOutputWithContext(context.Context) CustomModelValidationDataConfigValidatorOutput
-}
-
-type CustomModelValidationDataConfigValidatorArgs struct {
-	// The S3 URI where the validation data is stored.
-	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
-}
-
-func (CustomModelValidationDataConfigValidatorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomModelValidationDataConfigValidator)(nil)).Elem()
-}
-
-func (i CustomModelValidationDataConfigValidatorArgs) ToCustomModelValidationDataConfigValidatorOutput() CustomModelValidationDataConfigValidatorOutput {
-	return i.ToCustomModelValidationDataConfigValidatorOutputWithContext(context.Background())
-}
-
-func (i CustomModelValidationDataConfigValidatorArgs) ToCustomModelValidationDataConfigValidatorOutputWithContext(ctx context.Context) CustomModelValidationDataConfigValidatorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomModelValidationDataConfigValidatorOutput)
-}
-
-// CustomModelValidationDataConfigValidatorArrayInput is an input type that accepts CustomModelValidationDataConfigValidatorArray and CustomModelValidationDataConfigValidatorArrayOutput values.
-// You can construct a concrete instance of `CustomModelValidationDataConfigValidatorArrayInput` via:
-//
-//	CustomModelValidationDataConfigValidatorArray{ CustomModelValidationDataConfigValidatorArgs{...} }
-type CustomModelValidationDataConfigValidatorArrayInput interface {
-	pulumi.Input
-
-	ToCustomModelValidationDataConfigValidatorArrayOutput() CustomModelValidationDataConfigValidatorArrayOutput
-	ToCustomModelValidationDataConfigValidatorArrayOutputWithContext(context.Context) CustomModelValidationDataConfigValidatorArrayOutput
-}
-
-type CustomModelValidationDataConfigValidatorArray []CustomModelValidationDataConfigValidatorInput
-
-func (CustomModelValidationDataConfigValidatorArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomModelValidationDataConfigValidator)(nil)).Elem()
-}
-
-func (i CustomModelValidationDataConfigValidatorArray) ToCustomModelValidationDataConfigValidatorArrayOutput() CustomModelValidationDataConfigValidatorArrayOutput {
-	return i.ToCustomModelValidationDataConfigValidatorArrayOutputWithContext(context.Background())
-}
-
-func (i CustomModelValidationDataConfigValidatorArray) ToCustomModelValidationDataConfigValidatorArrayOutputWithContext(ctx context.Context) CustomModelValidationDataConfigValidatorArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomModelValidationDataConfigValidatorArrayOutput)
-}
-
-type CustomModelValidationDataConfigValidatorOutput struct{ *pulumi.OutputState }
-
-func (CustomModelValidationDataConfigValidatorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomModelValidationDataConfigValidator)(nil)).Elem()
-}
-
-func (o CustomModelValidationDataConfigValidatorOutput) ToCustomModelValidationDataConfigValidatorOutput() CustomModelValidationDataConfigValidatorOutput {
-	return o
-}
-
-func (o CustomModelValidationDataConfigValidatorOutput) ToCustomModelValidationDataConfigValidatorOutputWithContext(ctx context.Context) CustomModelValidationDataConfigValidatorOutput {
-	return o
-}
-
-// The S3 URI where the validation data is stored.
-func (o CustomModelValidationDataConfigValidatorOutput) S3Uri() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomModelValidationDataConfigValidator) string { return v.S3Uri }).(pulumi.StringOutput)
-}
-
-type CustomModelValidationDataConfigValidatorArrayOutput struct{ *pulumi.OutputState }
-
-func (CustomModelValidationDataConfigValidatorArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomModelValidationDataConfigValidator)(nil)).Elem()
-}
-
-func (o CustomModelValidationDataConfigValidatorArrayOutput) ToCustomModelValidationDataConfigValidatorArrayOutput() CustomModelValidationDataConfigValidatorArrayOutput {
-	return o
-}
-
-func (o CustomModelValidationDataConfigValidatorArrayOutput) ToCustomModelValidationDataConfigValidatorArrayOutputWithContext(ctx context.Context) CustomModelValidationDataConfigValidatorArrayOutput {
-	return o
-}
-
-func (o CustomModelValidationDataConfigValidatorArrayOutput) Index(i pulumi.IntInput) CustomModelValidationDataConfigValidatorOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomModelValidationDataConfigValidator {
-		return vs[0].([]CustomModelValidationDataConfigValidator)[vs[1].(int)]
-	}).(CustomModelValidationDataConfigValidatorOutput)
-}
-
-type CustomModelValidationMetric struct {
-	// The validation loss associated with the validator.
-	ValidationLoss float64 `pulumi:"validationLoss"`
-}
-
-// CustomModelValidationMetricInput is an input type that accepts CustomModelValidationMetricArgs and CustomModelValidationMetricOutput values.
-// You can construct a concrete instance of `CustomModelValidationMetricInput` via:
-//
-//	CustomModelValidationMetricArgs{...}
-type CustomModelValidationMetricInput interface {
-	pulumi.Input
-
-	ToCustomModelValidationMetricOutput() CustomModelValidationMetricOutput
-	ToCustomModelValidationMetricOutputWithContext(context.Context) CustomModelValidationMetricOutput
-}
-
-type CustomModelValidationMetricArgs struct {
-	// The validation loss associated with the validator.
-	ValidationLoss pulumi.Float64Input `pulumi:"validationLoss"`
-}
-
-func (CustomModelValidationMetricArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomModelValidationMetric)(nil)).Elem()
-}
-
-func (i CustomModelValidationMetricArgs) ToCustomModelValidationMetricOutput() CustomModelValidationMetricOutput {
-	return i.ToCustomModelValidationMetricOutputWithContext(context.Background())
-}
-
-func (i CustomModelValidationMetricArgs) ToCustomModelValidationMetricOutputWithContext(ctx context.Context) CustomModelValidationMetricOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomModelValidationMetricOutput)
-}
-
-// CustomModelValidationMetricArrayInput is an input type that accepts CustomModelValidationMetricArray and CustomModelValidationMetricArrayOutput values.
-// You can construct a concrete instance of `CustomModelValidationMetricArrayInput` via:
-//
-//	CustomModelValidationMetricArray{ CustomModelValidationMetricArgs{...} }
-type CustomModelValidationMetricArrayInput interface {
-	pulumi.Input
-
-	ToCustomModelValidationMetricArrayOutput() CustomModelValidationMetricArrayOutput
-	ToCustomModelValidationMetricArrayOutputWithContext(context.Context) CustomModelValidationMetricArrayOutput
-}
-
-type CustomModelValidationMetricArray []CustomModelValidationMetricInput
-
-func (CustomModelValidationMetricArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomModelValidationMetric)(nil)).Elem()
-}
-
-func (i CustomModelValidationMetricArray) ToCustomModelValidationMetricArrayOutput() CustomModelValidationMetricArrayOutput {
-	return i.ToCustomModelValidationMetricArrayOutputWithContext(context.Background())
-}
-
-func (i CustomModelValidationMetricArray) ToCustomModelValidationMetricArrayOutputWithContext(ctx context.Context) CustomModelValidationMetricArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomModelValidationMetricArrayOutput)
-}
-
-type CustomModelValidationMetricOutput struct{ *pulumi.OutputState }
-
-func (CustomModelValidationMetricOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomModelValidationMetric)(nil)).Elem()
-}
-
-func (o CustomModelValidationMetricOutput) ToCustomModelValidationMetricOutput() CustomModelValidationMetricOutput {
-	return o
-}
-
-func (o CustomModelValidationMetricOutput) ToCustomModelValidationMetricOutputWithContext(ctx context.Context) CustomModelValidationMetricOutput {
-	return o
-}
-
-// The validation loss associated with the validator.
-func (o CustomModelValidationMetricOutput) ValidationLoss() pulumi.Float64Output {
-	return o.ApplyT(func(v CustomModelValidationMetric) float64 { return v.ValidationLoss }).(pulumi.Float64Output)
-}
-
-type CustomModelValidationMetricArrayOutput struct{ *pulumi.OutputState }
-
-func (CustomModelValidationMetricArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomModelValidationMetric)(nil)).Elem()
-}
-
-func (o CustomModelValidationMetricArrayOutput) ToCustomModelValidationMetricArrayOutput() CustomModelValidationMetricArrayOutput {
-	return o
-}
-
-func (o CustomModelValidationMetricArrayOutput) ToCustomModelValidationMetricArrayOutputWithContext(ctx context.Context) CustomModelValidationMetricArrayOutput {
-	return o
-}
-
-func (o CustomModelValidationMetricArrayOutput) Index(i pulumi.IntInput) CustomModelValidationMetricOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomModelValidationMetric {
-		return vs[0].([]CustomModelValidationMetric)[vs[1].(int)]
-	}).(CustomModelValidationMetricOutput)
-}
-
-type CustomModelVpcConfig struct {
-	// VPC configuration security group IDs.
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// VPC configuration subnets.
-	SubnetIds []string `pulumi:"subnetIds"`
-}
-
-// CustomModelVpcConfigInput is an input type that accepts CustomModelVpcConfigArgs and CustomModelVpcConfigOutput values.
-// You can construct a concrete instance of `CustomModelVpcConfigInput` via:
-//
-//	CustomModelVpcConfigArgs{...}
-type CustomModelVpcConfigInput interface {
-	pulumi.Input
-
-	ToCustomModelVpcConfigOutput() CustomModelVpcConfigOutput
-	ToCustomModelVpcConfigOutputWithContext(context.Context) CustomModelVpcConfigOutput
-}
-
-type CustomModelVpcConfigArgs struct {
-	// VPC configuration security group IDs.
-	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// VPC configuration subnets.
-	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
-}
-
-func (CustomModelVpcConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomModelVpcConfig)(nil)).Elem()
-}
-
-func (i CustomModelVpcConfigArgs) ToCustomModelVpcConfigOutput() CustomModelVpcConfigOutput {
-	return i.ToCustomModelVpcConfigOutputWithContext(context.Background())
-}
-
-func (i CustomModelVpcConfigArgs) ToCustomModelVpcConfigOutputWithContext(ctx context.Context) CustomModelVpcConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomModelVpcConfigOutput)
-}
-
-func (i CustomModelVpcConfigArgs) ToCustomModelVpcConfigPtrOutput() CustomModelVpcConfigPtrOutput {
-	return i.ToCustomModelVpcConfigPtrOutputWithContext(context.Background())
-}
-
-func (i CustomModelVpcConfigArgs) ToCustomModelVpcConfigPtrOutputWithContext(ctx context.Context) CustomModelVpcConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomModelVpcConfigOutput).ToCustomModelVpcConfigPtrOutputWithContext(ctx)
-}
-
-// CustomModelVpcConfigPtrInput is an input type that accepts CustomModelVpcConfigArgs, CustomModelVpcConfigPtr and CustomModelVpcConfigPtrOutput values.
-// You can construct a concrete instance of `CustomModelVpcConfigPtrInput` via:
-//
-//	        CustomModelVpcConfigArgs{...}
-//
-//	or:
-//
-//	        nil
-type CustomModelVpcConfigPtrInput interface {
-	pulumi.Input
-
-	ToCustomModelVpcConfigPtrOutput() CustomModelVpcConfigPtrOutput
-	ToCustomModelVpcConfigPtrOutputWithContext(context.Context) CustomModelVpcConfigPtrOutput
-}
-
-type customModelVpcConfigPtrType CustomModelVpcConfigArgs
-
-func CustomModelVpcConfigPtr(v *CustomModelVpcConfigArgs) CustomModelVpcConfigPtrInput {
-	return (*customModelVpcConfigPtrType)(v)
-}
-
-func (*customModelVpcConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomModelVpcConfig)(nil)).Elem()
-}
-
-func (i *customModelVpcConfigPtrType) ToCustomModelVpcConfigPtrOutput() CustomModelVpcConfigPtrOutput {
-	return i.ToCustomModelVpcConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *customModelVpcConfigPtrType) ToCustomModelVpcConfigPtrOutputWithContext(ctx context.Context) CustomModelVpcConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomModelVpcConfigPtrOutput)
-}
-
-type CustomModelVpcConfigOutput struct{ *pulumi.OutputState }
-
-func (CustomModelVpcConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomModelVpcConfig)(nil)).Elem()
-}
-
-func (o CustomModelVpcConfigOutput) ToCustomModelVpcConfigOutput() CustomModelVpcConfigOutput {
-	return o
-}
-
-func (o CustomModelVpcConfigOutput) ToCustomModelVpcConfigOutputWithContext(ctx context.Context) CustomModelVpcConfigOutput {
-	return o
-}
-
-func (o CustomModelVpcConfigOutput) ToCustomModelVpcConfigPtrOutput() CustomModelVpcConfigPtrOutput {
-	return o.ToCustomModelVpcConfigPtrOutputWithContext(context.Background())
-}
-
-func (o CustomModelVpcConfigOutput) ToCustomModelVpcConfigPtrOutputWithContext(ctx context.Context) CustomModelVpcConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomModelVpcConfig) *CustomModelVpcConfig {
-		return &v
-	}).(CustomModelVpcConfigPtrOutput)
-}
-
-// VPC configuration security group IDs.
-func (o CustomModelVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v CustomModelVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
-}
-
-// VPC configuration subnets.
-func (o CustomModelVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v CustomModelVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
-}
-
-type CustomModelVpcConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (CustomModelVpcConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomModelVpcConfig)(nil)).Elem()
-}
-
-func (o CustomModelVpcConfigPtrOutput) ToCustomModelVpcConfigPtrOutput() CustomModelVpcConfigPtrOutput {
-	return o
-}
-
-func (o CustomModelVpcConfigPtrOutput) ToCustomModelVpcConfigPtrOutputWithContext(ctx context.Context) CustomModelVpcConfigPtrOutput {
-	return o
-}
-
-func (o CustomModelVpcConfigPtrOutput) Elem() CustomModelVpcConfigOutput {
-	return o.ApplyT(func(v *CustomModelVpcConfig) CustomModelVpcConfig {
-		if v != nil {
-			return *v
-		}
-		var ret CustomModelVpcConfig
-		return ret
-	}).(CustomModelVpcConfigOutput)
-}
-
-// VPC configuration security group IDs.
-func (o CustomModelVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *CustomModelVpcConfig) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SecurityGroupIds
-	}).(pulumi.StringArrayOutput)
-}
-
-// VPC configuration subnets.
-func (o CustomModelVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *CustomModelVpcConfig) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetIds
-	}).(pulumi.StringArrayOutput)
-}
-
-type EvaluationJobEvaluationConfig struct {
-	// Configuration for an automated evaluation job that computes metrics. See `automated` Block below.
-	Automated *EvaluationJobEvaluationConfigAutomated `pulumi:"automated"`
-	// Configuration for an evaluation job that uses human workers. See `human` Block below.
-	Human *EvaluationJobEvaluationConfigHuman `pulumi:"human"`
-}
-
-// EvaluationJobEvaluationConfigInput is an input type that accepts EvaluationJobEvaluationConfigArgs and EvaluationJobEvaluationConfigOutput values.
-// You can construct a concrete instance of `EvaluationJobEvaluationConfigInput` via:
-//
-//	EvaluationJobEvaluationConfigArgs{...}
-type EvaluationJobEvaluationConfigInput interface {
-	pulumi.Input
-
-	ToEvaluationJobEvaluationConfigOutput() EvaluationJobEvaluationConfigOutput
-	ToEvaluationJobEvaluationConfigOutputWithContext(context.Context) EvaluationJobEvaluationConfigOutput
-}
-
-type EvaluationJobEvaluationConfigArgs struct {
-	// Configuration for an automated evaluation job that computes metrics. See `automated` Block below.
-	Automated EvaluationJobEvaluationConfigAutomatedPtrInput `pulumi:"automated"`
-	// Configuration for an evaluation job that uses human workers. See `human` Block below.
-	Human EvaluationJobEvaluationConfigHumanPtrInput `pulumi:"human"`
-}
-
-func (EvaluationJobEvaluationConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EvaluationJobEvaluationConfig)(nil)).Elem()
-}
-
-func (i EvaluationJobEvaluationConfigArgs) ToEvaluationJobEvaluationConfigOutput() EvaluationJobEvaluationConfigOutput {
-	return i.ToEvaluationJobEvaluationConfigOutputWithContext(context.Background())
-}
-
-func (i EvaluationJobEvaluationConfigArgs) ToEvaluationJobEvaluationConfigOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigOutput)
-}
-
-func (i EvaluationJobEvaluationConfigArgs) ToEvaluationJobEvaluationConfigPtrOutput() EvaluationJobEvaluationConfigPtrOutput {
-	return i.ToEvaluationJobEvaluationConfigPtrOutputWithContext(context.Background())
-}
-
-func (i EvaluationJobEvaluationConfigArgs) ToEvaluationJobEvaluationConfigPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigOutput).ToEvaluationJobEvaluationConfigPtrOutputWithContext(ctx)
-}
-
-// EvaluationJobEvaluationConfigPtrInput is an input type that accepts EvaluationJobEvaluationConfigArgs, EvaluationJobEvaluationConfigPtr and EvaluationJobEvaluationConfigPtrOutput values.
-// You can construct a concrete instance of `EvaluationJobEvaluationConfigPtrInput` via:
-//
-//	        EvaluationJobEvaluationConfigArgs{...}
-//
-//	or:
-//
-//	        nil
-type EvaluationJobEvaluationConfigPtrInput interface {
-	pulumi.Input
-
-	ToEvaluationJobEvaluationConfigPtrOutput() EvaluationJobEvaluationConfigPtrOutput
-	ToEvaluationJobEvaluationConfigPtrOutputWithContext(context.Context) EvaluationJobEvaluationConfigPtrOutput
-}
-
-type evaluationJobEvaluationConfigPtrType EvaluationJobEvaluationConfigArgs
-
-func EvaluationJobEvaluationConfigPtr(v *EvaluationJobEvaluationConfigArgs) EvaluationJobEvaluationConfigPtrInput {
-	return (*evaluationJobEvaluationConfigPtrType)(v)
-}
-
-func (*evaluationJobEvaluationConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EvaluationJobEvaluationConfig)(nil)).Elem()
-}
-
-func (i *evaluationJobEvaluationConfigPtrType) ToEvaluationJobEvaluationConfigPtrOutput() EvaluationJobEvaluationConfigPtrOutput {
-	return i.ToEvaluationJobEvaluationConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *evaluationJobEvaluationConfigPtrType) ToEvaluationJobEvaluationConfigPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigPtrOutput)
-}
-
-type EvaluationJobEvaluationConfigOutput struct{ *pulumi.OutputState }
-
-func (EvaluationJobEvaluationConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EvaluationJobEvaluationConfig)(nil)).Elem()
-}
-
-func (o EvaluationJobEvaluationConfigOutput) ToEvaluationJobEvaluationConfigOutput() EvaluationJobEvaluationConfigOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigOutput) ToEvaluationJobEvaluationConfigOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigOutput) ToEvaluationJobEvaluationConfigPtrOutput() EvaluationJobEvaluationConfigPtrOutput {
-	return o.ToEvaluationJobEvaluationConfigPtrOutputWithContext(context.Background())
-}
-
-func (o EvaluationJobEvaluationConfigOutput) ToEvaluationJobEvaluationConfigPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationJobEvaluationConfig) *EvaluationJobEvaluationConfig {
-		return &v
-	}).(EvaluationJobEvaluationConfigPtrOutput)
-}
-
-// Configuration for an automated evaluation job that computes metrics. See `automated` Block below.
-func (o EvaluationJobEvaluationConfigOutput) Automated() EvaluationJobEvaluationConfigAutomatedPtrOutput {
-	return o.ApplyT(func(v EvaluationJobEvaluationConfig) *EvaluationJobEvaluationConfigAutomated { return v.Automated }).(EvaluationJobEvaluationConfigAutomatedPtrOutput)
-}
-
-// Configuration for an evaluation job that uses human workers. See `human` Block below.
-func (o EvaluationJobEvaluationConfigOutput) Human() EvaluationJobEvaluationConfigHumanPtrOutput {
-	return o.ApplyT(func(v EvaluationJobEvaluationConfig) *EvaluationJobEvaluationConfigHuman { return v.Human }).(EvaluationJobEvaluationConfigHumanPtrOutput)
-}
-
-type EvaluationJobEvaluationConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (EvaluationJobEvaluationConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EvaluationJobEvaluationConfig)(nil)).Elem()
-}
-
-func (o EvaluationJobEvaluationConfigPtrOutput) ToEvaluationJobEvaluationConfigPtrOutput() EvaluationJobEvaluationConfigPtrOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigPtrOutput) ToEvaluationJobEvaluationConfigPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigPtrOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigPtrOutput) Elem() EvaluationJobEvaluationConfigOutput {
-	return o.ApplyT(func(v *EvaluationJobEvaluationConfig) EvaluationJobEvaluationConfig {
-		if v != nil {
-			return *v
-		}
-		var ret EvaluationJobEvaluationConfig
-		return ret
-	}).(EvaluationJobEvaluationConfigOutput)
-}
-
-// Configuration for an automated evaluation job that computes metrics. See `automated` Block below.
-func (o EvaluationJobEvaluationConfigPtrOutput) Automated() EvaluationJobEvaluationConfigAutomatedPtrOutput {
-	return o.ApplyT(func(v *EvaluationJobEvaluationConfig) *EvaluationJobEvaluationConfigAutomated {
-		if v == nil {
-			return nil
-		}
-		return v.Automated
-	}).(EvaluationJobEvaluationConfigAutomatedPtrOutput)
-}
-
-// Configuration for an evaluation job that uses human workers. See `human` Block below.
-func (o EvaluationJobEvaluationConfigPtrOutput) Human() EvaluationJobEvaluationConfigHumanPtrOutput {
-	return o.ApplyT(func(v *EvaluationJobEvaluationConfig) *EvaluationJobEvaluationConfigHuman {
-		if v == nil {
-			return nil
-		}
-		return v.Human
-	}).(EvaluationJobEvaluationConfigHumanPtrOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomated struct {
-	// Configuration for custom metrics to compute for the evaluation job. See `customMetricConfig` Block below.
-	CustomMetricConfig *EvaluationJobEvaluationConfigAutomatedCustomMetricConfig `pulumi:"customMetricConfig"`
-	// One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.automated.dataset_metric_config` Block below.
-	DatasetMetricConfigs []EvaluationJobEvaluationConfigAutomatedDatasetMetricConfig `pulumi:"datasetMetricConfigs"`
-	// Configuration for the evaluator (judge) model. Required for automated jobs that use an LLM-as-judge metric, or that evaluate a knowledge base. See `evaluatorModelConfig` Block below.
-	EvaluatorModelConfig *EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfig `pulumi:"evaluatorModelConfig"`
-}
-
-// EvaluationJobEvaluationConfigAutomatedInput is an input type that accepts EvaluationJobEvaluationConfigAutomatedArgs and EvaluationJobEvaluationConfigAutomatedOutput values.
-// You can construct a concrete instance of `EvaluationJobEvaluationConfigAutomatedInput` via:
-//
-//	EvaluationJobEvaluationConfigAutomatedArgs{...}
-type EvaluationJobEvaluationConfigAutomatedInput interface {
-	pulumi.Input
-
-	ToEvaluationJobEvaluationConfigAutomatedOutput() EvaluationJobEvaluationConfigAutomatedOutput
-	ToEvaluationJobEvaluationConfigAutomatedOutputWithContext(context.Context) EvaluationJobEvaluationConfigAutomatedOutput
-}
-
-type EvaluationJobEvaluationConfigAutomatedArgs struct {
-	// Configuration for custom metrics to compute for the evaluation job. See `customMetricConfig` Block below.
-	CustomMetricConfig EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrInput `pulumi:"customMetricConfig"`
-	// One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.automated.dataset_metric_config` Block below.
-	DatasetMetricConfigs EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayInput `pulumi:"datasetMetricConfigs"`
-	// Configuration for the evaluator (judge) model. Required for automated jobs that use an LLM-as-judge metric, or that evaluate a knowledge base. See `evaluatorModelConfig` Block below.
-	EvaluatorModelConfig EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrInput `pulumi:"evaluatorModelConfig"`
-}
-
-func (EvaluationJobEvaluationConfigAutomatedArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EvaluationJobEvaluationConfigAutomated)(nil)).Elem()
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedArgs) ToEvaluationJobEvaluationConfigAutomatedOutput() EvaluationJobEvaluationConfigAutomatedOutput {
-	return i.ToEvaluationJobEvaluationConfigAutomatedOutputWithContext(context.Background())
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedArgs) ToEvaluationJobEvaluationConfigAutomatedOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigAutomatedOutput)
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedArgs) ToEvaluationJobEvaluationConfigAutomatedPtrOutput() EvaluationJobEvaluationConfigAutomatedPtrOutput {
-	return i.ToEvaluationJobEvaluationConfigAutomatedPtrOutputWithContext(context.Background())
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedArgs) ToEvaluationJobEvaluationConfigAutomatedPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigAutomatedOutput).ToEvaluationJobEvaluationConfigAutomatedPtrOutputWithContext(ctx)
-}
-
-// EvaluationJobEvaluationConfigAutomatedPtrInput is an input type that accepts EvaluationJobEvaluationConfigAutomatedArgs, EvaluationJobEvaluationConfigAutomatedPtr and EvaluationJobEvaluationConfigAutomatedPtrOutput values.
-// You can construct a concrete instance of `EvaluationJobEvaluationConfigAutomatedPtrInput` via:
-//
-//	        EvaluationJobEvaluationConfigAutomatedArgs{...}
-//
-//	or:
-//
-//	        nil
-type EvaluationJobEvaluationConfigAutomatedPtrInput interface {
-	pulumi.Input
-
-	ToEvaluationJobEvaluationConfigAutomatedPtrOutput() EvaluationJobEvaluationConfigAutomatedPtrOutput
-	ToEvaluationJobEvaluationConfigAutomatedPtrOutputWithContext(context.Context) EvaluationJobEvaluationConfigAutomatedPtrOutput
-}
-
-type evaluationJobEvaluationConfigAutomatedPtrType EvaluationJobEvaluationConfigAutomatedArgs
-
-func EvaluationJobEvaluationConfigAutomatedPtr(v *EvaluationJobEvaluationConfigAutomatedArgs) EvaluationJobEvaluationConfigAutomatedPtrInput {
-	return (*evaluationJobEvaluationConfigAutomatedPtrType)(v)
-}
-
-func (*evaluationJobEvaluationConfigAutomatedPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EvaluationJobEvaluationConfigAutomated)(nil)).Elem()
-}
-
-func (i *evaluationJobEvaluationConfigAutomatedPtrType) ToEvaluationJobEvaluationConfigAutomatedPtrOutput() EvaluationJobEvaluationConfigAutomatedPtrOutput {
-	return i.ToEvaluationJobEvaluationConfigAutomatedPtrOutputWithContext(context.Background())
-}
-
-func (i *evaluationJobEvaluationConfigAutomatedPtrType) ToEvaluationJobEvaluationConfigAutomatedPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigAutomatedPtrOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomatedOutput struct{ *pulumi.OutputState }
-
-func (EvaluationJobEvaluationConfigAutomatedOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EvaluationJobEvaluationConfigAutomated)(nil)).Elem()
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedOutput) ToEvaluationJobEvaluationConfigAutomatedOutput() EvaluationJobEvaluationConfigAutomatedOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedOutput) ToEvaluationJobEvaluationConfigAutomatedOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedOutput) ToEvaluationJobEvaluationConfigAutomatedPtrOutput() EvaluationJobEvaluationConfigAutomatedPtrOutput {
-	return o.ToEvaluationJobEvaluationConfigAutomatedPtrOutputWithContext(context.Background())
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedOutput) ToEvaluationJobEvaluationConfigAutomatedPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationJobEvaluationConfigAutomated) *EvaluationJobEvaluationConfigAutomated {
-		return &v
-	}).(EvaluationJobEvaluationConfigAutomatedPtrOutput)
-}
-
-// Configuration for custom metrics to compute for the evaluation job. See `customMetricConfig` Block below.
-func (o EvaluationJobEvaluationConfigAutomatedOutput) CustomMetricConfig() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput {
-	return o.ApplyT(func(v EvaluationJobEvaluationConfigAutomated) *EvaluationJobEvaluationConfigAutomatedCustomMetricConfig {
-		return v.CustomMetricConfig
-	}).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput)
-}
-
-// One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.automated.dataset_metric_config` Block below.
-func (o EvaluationJobEvaluationConfigAutomatedOutput) DatasetMetricConfigs() EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayOutput {
-	return o.ApplyT(func(v EvaluationJobEvaluationConfigAutomated) []EvaluationJobEvaluationConfigAutomatedDatasetMetricConfig {
-		return v.DatasetMetricConfigs
-	}).(EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayOutput)
-}
-
-// Configuration for the evaluator (judge) model. Required for automated jobs that use an LLM-as-judge metric, or that evaluate a knowledge base. See `evaluatorModelConfig` Block below.
-func (o EvaluationJobEvaluationConfigAutomatedOutput) EvaluatorModelConfig() EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutput {
-	return o.ApplyT(func(v EvaluationJobEvaluationConfigAutomated) *EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfig {
-		return v.EvaluatorModelConfig
-	}).(EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomatedPtrOutput struct{ *pulumi.OutputState }
-
-func (EvaluationJobEvaluationConfigAutomatedPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EvaluationJobEvaluationConfigAutomated)(nil)).Elem()
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedPtrOutput) ToEvaluationJobEvaluationConfigAutomatedPtrOutput() EvaluationJobEvaluationConfigAutomatedPtrOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedPtrOutput) ToEvaluationJobEvaluationConfigAutomatedPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedPtrOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedPtrOutput) Elem() EvaluationJobEvaluationConfigAutomatedOutput {
-	return o.ApplyT(func(v *EvaluationJobEvaluationConfigAutomated) EvaluationJobEvaluationConfigAutomated {
-		if v != nil {
-			return *v
-		}
-		var ret EvaluationJobEvaluationConfigAutomated
-		return ret
-	}).(EvaluationJobEvaluationConfigAutomatedOutput)
-}
-
-// Configuration for custom metrics to compute for the evaluation job. See `customMetricConfig` Block below.
-func (o EvaluationJobEvaluationConfigAutomatedPtrOutput) CustomMetricConfig() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput {
-	return o.ApplyT(func(v *EvaluationJobEvaluationConfigAutomated) *EvaluationJobEvaluationConfigAutomatedCustomMetricConfig {
-		if v == nil {
-			return nil
-		}
-		return v.CustomMetricConfig
-	}).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput)
-}
-
-// One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.automated.dataset_metric_config` Block below.
-func (o EvaluationJobEvaluationConfigAutomatedPtrOutput) DatasetMetricConfigs() EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayOutput {
-	return o.ApplyT(func(v *EvaluationJobEvaluationConfigAutomated) []EvaluationJobEvaluationConfigAutomatedDatasetMetricConfig {
-		if v == nil {
-			return nil
-		}
-		return v.DatasetMetricConfigs
-	}).(EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayOutput)
-}
-
-// Configuration for the evaluator (judge) model. Required for automated jobs that use an LLM-as-judge metric, or that evaluate a knowledge base. See `evaluatorModelConfig` Block below.
-func (o EvaluationJobEvaluationConfigAutomatedPtrOutput) EvaluatorModelConfig() EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutput {
-	return o.ApplyT(func(v *EvaluationJobEvaluationConfigAutomated) *EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfig {
-		if v == nil {
-			return nil
-		}
-		return v.EvaluatorModelConfig
-	}).(EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfig struct {
-	// One or more custom metric definitions. See `evaluation_config.automated.custom_metric_config.custom_metric` Block below.
-	CustomMetrics []EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetric `pulumi:"customMetrics"`
-	// Configuration for the evaluator model used to compute the custom metrics. See `evaluatorModelConfig` Block above.
-	EvaluatorModelConfig EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfig `pulumi:"evaluatorModelConfig"`
-}
-
-// EvaluationJobEvaluationConfigAutomatedCustomMetricConfigInput is an input type that accepts EvaluationJobEvaluationConfigAutomatedCustomMetricConfigArgs and EvaluationJobEvaluationConfigAutomatedCustomMetricConfigOutput values.
-// You can construct a concrete instance of `EvaluationJobEvaluationConfigAutomatedCustomMetricConfigInput` via:
-//
-//	EvaluationJobEvaluationConfigAutomatedCustomMetricConfigArgs{...}
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigInput interface {
-	pulumi.Input
-
-	ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigOutput
-	ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigOutputWithContext(context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigOutput
-}
-
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigArgs struct {
-	// One or more custom metric definitions. See `evaluation_config.automated.custom_metric_config.custom_metric` Block below.
-	CustomMetrics EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayInput `pulumi:"customMetrics"`
-	// Configuration for the evaluator model used to compute the custom metrics. See `evaluatorModelConfig` Block above.
-	EvaluatorModelConfig EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigInput `pulumi:"evaluatorModelConfig"`
-}
-
-func (EvaluationJobEvaluationConfigAutomatedCustomMetricConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedCustomMetricConfig)(nil)).Elem()
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedCustomMetricConfigArgs) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigOutput {
-	return i.ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigOutputWithContext(context.Background())
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedCustomMetricConfigArgs) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigOutput)
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedCustomMetricConfigArgs) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput {
-	return i.ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutputWithContext(context.Background())
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedCustomMetricConfigArgs) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigOutput).ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutputWithContext(ctx)
-}
-
-// EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrInput is an input type that accepts EvaluationJobEvaluationConfigAutomatedCustomMetricConfigArgs, EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtr and EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput values.
-// You can construct a concrete instance of `EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrInput` via:
-//
-//	        EvaluationJobEvaluationConfigAutomatedCustomMetricConfigArgs{...}
-//
-//	or:
-//
-//	        nil
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrInput interface {
-	pulumi.Input
-
-	ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput
-	ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutputWithContext(context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput
-}
-
-type evaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrType EvaluationJobEvaluationConfigAutomatedCustomMetricConfigArgs
-
-func EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtr(v *EvaluationJobEvaluationConfigAutomatedCustomMetricConfigArgs) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrInput {
-	return (*evaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrType)(v)
-}
-
-func (*evaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EvaluationJobEvaluationConfigAutomatedCustomMetricConfig)(nil)).Elem()
-}
-
-func (i *evaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrType) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput {
-	return i.ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *evaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrType) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigOutput struct{ *pulumi.OutputState }
-
-func (EvaluationJobEvaluationConfigAutomatedCustomMetricConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedCustomMetricConfig)(nil)).Elem()
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigOutput) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigOutput) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigOutput) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput {
-	return o.ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutputWithContext(context.Background())
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigOutput) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationJobEvaluationConfigAutomatedCustomMetricConfig) *EvaluationJobEvaluationConfigAutomatedCustomMetricConfig {
-		return &v
-	}).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput)
-}
-
-// One or more custom metric definitions. See `evaluation_config.automated.custom_metric_config.custom_metric` Block below.
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigOutput) CustomMetrics() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayOutput {
-	return o.ApplyT(func(v EvaluationJobEvaluationConfigAutomatedCustomMetricConfig) []EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetric {
-		return v.CustomMetrics
-	}).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayOutput)
-}
-
-// Configuration for the evaluator model used to compute the custom metrics. See `evaluatorModelConfig` Block above.
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigOutput) EvaluatorModelConfig() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigOutput {
-	return o.ApplyT(func(v EvaluationJobEvaluationConfigAutomatedCustomMetricConfig) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfig {
-		return v.EvaluatorModelConfig
-	}).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EvaluationJobEvaluationConfigAutomatedCustomMetricConfig)(nil)).Elem()
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput) Elem() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigOutput {
-	return o.ApplyT(func(v *EvaluationJobEvaluationConfigAutomatedCustomMetricConfig) EvaluationJobEvaluationConfigAutomatedCustomMetricConfig {
-		if v != nil {
-			return *v
-		}
-		var ret EvaluationJobEvaluationConfigAutomatedCustomMetricConfig
-		return ret
-	}).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigOutput)
-}
-
-// One or more custom metric definitions. See `evaluation_config.automated.custom_metric_config.custom_metric` Block below.
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput) CustomMetrics() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayOutput {
-	return o.ApplyT(func(v *EvaluationJobEvaluationConfigAutomatedCustomMetricConfig) []EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetric {
-		if v == nil {
-			return nil
-		}
-		return v.CustomMetrics
-	}).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayOutput)
-}
-
-// Configuration for the evaluator model used to compute the custom metrics. See `evaluatorModelConfig` Block above.
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput) EvaluatorModelConfig() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutput {
-	return o.ApplyT(func(v *EvaluationJobEvaluationConfigAutomatedCustomMetricConfig) *EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfig {
-		if v == nil {
-			return nil
-		}
-		return &v.EvaluatorModelConfig
-	}).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigPtrOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetric struct {
-	// Definition of the custom metric. See `customMetricDefinition` Block below.
-	CustomMetricDefinition EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinition `pulumi:"customMetricDefinition"`
-}
-
-// EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricInput is an input type that accepts EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArgs and EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricOutput values.
-// You can construct a concrete instance of `EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricInput` via:
-//
-//	EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArgs{...}
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricInput interface {
-	pulumi.Input
-
-	ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricOutput
-	ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricOutputWithContext(context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricOutput
-}
-
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArgs struct {
-	// Definition of the custom metric. See `customMetricDefinition` Block below.
-	CustomMetricDefinition EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionInput `pulumi:"customMetricDefinition"`
-}
-
-func (EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetric)(nil)).Elem()
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArgs) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricOutput {
-	return i.ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricOutputWithContext(context.Background())
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArgs) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricOutput)
-}
-
-// EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayInput is an input type that accepts EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArray and EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayOutput values.
-// You can construct a concrete instance of `EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayInput` via:
-//
-//	EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArray{ EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArgs{...} }
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayInput interface {
-	pulumi.Input
-
-	ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayOutput
-	ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayOutputWithContext(context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayOutput
-}
-
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArray []EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricInput
-
-func (EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetric)(nil)).Elem()
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArray) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayOutput {
-	return i.ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayOutputWithContext(context.Background())
-}
-
-func (i EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArray) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricOutput struct{ *pulumi.OutputState }
-
-func (EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetric)(nil)).Elem()
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricOutput) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricOutput) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricOutput {
-	return o
-}
-
-// Definition of the custom metric. See `customMetricDefinition` Block below.
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricOutput) CustomMetricDefinition() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionOutput {
-	return o.ApplyT(func(v EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetric) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinition {
-		return v.CustomMetricDefinition
-	}).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionOutput)
-}
-
-type EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayOutput struct{ *pulumi.OutputState }
-
-func (EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetric)(nil)).Elem()
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayOutput) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayOutput() EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayOutput) ToEvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayOutput {
-	return o
-}
-
-func (o EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayOutput) Index(i pulumi.IntInput) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetric {
-		return vs[0].([]EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetric)[vs[1].(int)]
-	}).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupActionGroupExecutorInput)(nil)).Elem(), AgentAgentActionGroupActionGroupExecutorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupActionGroupExecutorPtrInput)(nil)).Elem(), AgentAgentActionGroupActionGroupExecutorArgs{})
@@ -75653,6 +75785,42 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationExtractionPtrInput)(nil)).Elem(), AgentcoreMemoryStrategyConfigurationExtractionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationReflectionInput)(nil)).Elem(), AgentcoreMemoryStrategyConfigurationReflectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationReflectionPtrInput)(nil)).Elem(), AgentcoreMemoryStrategyConfigurationReflectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInput)(nil)).Elem(), AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrInput)(nil)).Elem(), AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationInput)(nil)).Elem(), AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrInput)(nil)).Elem(), AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsInput)(nil)).Elem(), AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrInput)(nil)).Elem(), AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualInput)(nil)).Elem(), AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArrayInput)(nil)).Elem(), AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerInput)(nil)).Elem(), AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArrayInput)(nil)).Elem(), AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerInput)(nil)).Elem(), AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArrayInput)(nil)).Elem(), AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerInput)(nil)).Elem(), AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArrayInput)(nil)).Elem(), AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerInput)(nil)).Elem(), AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrInput)(nil)).Elem(), AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerInput)(nil)).Elem(), AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrInput)(nil)).Elem(), AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerInput)(nil)).Elem(), AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrInput)(nil)).Elem(), AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchemaInput)(nil)).Elem(), AgentcoreMemoryStrategyMemoryRecordSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchemaPtrInput)(nil)).Elem(), AgentcoreMemoryStrategyMemoryRecordSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaInput)(nil)).Elem(), AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArrayInput)(nil)).Elem(), AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigInput)(nil)).Elem(), AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrInput)(nil)).Elem(), AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigInput)(nil)).Elem(), AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrInput)(nil)).Elem(), AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationInput)(nil)).Elem(), AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrInput)(nil)).Elem(), AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationInput)(nil)).Elem(), AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrInput)(nil)).Elem(), AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationInput)(nil)).Elem(), AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrInput)(nil)).Elem(), AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationInput)(nil)).Elem(), AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrInput)(nil)).Elem(), AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyReflectionConfigurationInput)(nil)).Elem(), AgentcoreMemoryStrategyReflectionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyReflectionConfigurationPtrInput)(nil)).Elem(), AgentcoreMemoryStrategyReflectionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreMemoryStrategyTimeoutsInput)(nil)).Elem(), AgentcoreMemoryStrategyTimeoutsArgs{})
@@ -75756,41 +75924,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrInput)(nil)).Elem(), AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideInput)(nil)).Elem(), AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayInput)(nil)).Elem(), AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointInput)(nil)).Elem(), AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceInput)(nil)).Elem(), AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrInput)(nil)).Elem(), AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceInput)(nil)).Elem(), AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrInput)(nil)).Elem(), AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceInput)(nil)).Elem(), AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrInput)(nil)).Elem(), AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryTimeoutsInput)(nil)).Elem(), AgentcoreRegistryTimeoutsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryTimeoutsPtrInput)(nil)).Elem(), AgentcoreRegistryTimeoutsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreTokenVaultCmkKmsConfigurationInput)(nil)).Elem(), AgentcoreTokenVaultCmkKmsConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreTokenVaultCmkKmsConfigurationPtrInput)(nil)).Elem(), AgentcoreTokenVaultCmkKmsConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelOutputDataConfigInput)(nil)).Elem(), CustomModelOutputDataConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelOutputDataConfigPtrInput)(nil)).Elem(), CustomModelOutputDataConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelTimeoutsInput)(nil)).Elem(), CustomModelTimeoutsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelTimeoutsPtrInput)(nil)).Elem(), CustomModelTimeoutsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelTrainingDataConfigInput)(nil)).Elem(), CustomModelTrainingDataConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelTrainingDataConfigPtrInput)(nil)).Elem(), CustomModelTrainingDataConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelTrainingMetricInput)(nil)).Elem(), CustomModelTrainingMetricArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelTrainingMetricArrayInput)(nil)).Elem(), CustomModelTrainingMetricArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelValidationDataConfigInput)(nil)).Elem(), CustomModelValidationDataConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelValidationDataConfigPtrInput)(nil)).Elem(), CustomModelValidationDataConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelValidationDataConfigValidatorInput)(nil)).Elem(), CustomModelValidationDataConfigValidatorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelValidationDataConfigValidatorArrayInput)(nil)).Elem(), CustomModelValidationDataConfigValidatorArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelValidationMetricInput)(nil)).Elem(), CustomModelValidationMetricArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelValidationMetricArrayInput)(nil)).Elem(), CustomModelValidationMetricArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelVpcConfigInput)(nil)).Elem(), CustomModelVpcConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomModelVpcConfigPtrInput)(nil)).Elem(), CustomModelVpcConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigInput)(nil)).Elem(), EvaluationJobEvaluationConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigPtrInput)(nil)).Elem(), EvaluationJobEvaluationConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedInput)(nil)).Elem(), EvaluationJobEvaluationConfigAutomatedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedPtrInput)(nil)).Elem(), EvaluationJobEvaluationConfigAutomatedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedCustomMetricConfigInput)(nil)).Elem(), EvaluationJobEvaluationConfigAutomatedCustomMetricConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrInput)(nil)).Elem(), EvaluationJobEvaluationConfigAutomatedCustomMetricConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricInput)(nil)).Elem(), EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayInput)(nil)).Elem(), EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArray{})
 	pulumi.RegisterOutputType(AgentAgentActionGroupActionGroupExecutorOutput{})
 	pulumi.RegisterOutputType(AgentAgentActionGroupActionGroupExecutorPtrOutput{})
 	pulumi.RegisterOutputType(AgentAgentActionGroupApiSchemaOutput{})
@@ -76635,6 +76768,42 @@ func init() {
 	pulumi.RegisterOutputType(AgentcoreMemoryStrategyConfigurationExtractionPtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreMemoryStrategyConfigurationReflectionOutput{})
 	pulumi.RegisterOutputType(AgentcoreMemoryStrategyConfigurationReflectionPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyMemoryRecordSchemaOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyMemoryRecordSchemaPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationOutput{})
+	pulumi.RegisterOutputType(AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationPtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreMemoryStrategyReflectionConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentcoreMemoryStrategyReflectionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreMemoryStrategyTimeoutsOutput{})
@@ -76738,39 +76907,4 @@ func init() {
 	pulumi.RegisterOutputType(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput{})
 	pulumi.RegisterOutputType(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput{})
-	pulumi.RegisterOutputType(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput{})
-	pulumi.RegisterOutputType(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput{})
-	pulumi.RegisterOutputType(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput{})
-	pulumi.RegisterOutputType(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput{})
-	pulumi.RegisterOutputType(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput{})
-	pulumi.RegisterOutputType(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput{})
-	pulumi.RegisterOutputType(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput{})
-	pulumi.RegisterOutputType(AgentcoreRegistryTimeoutsOutput{})
-	pulumi.RegisterOutputType(AgentcoreRegistryTimeoutsPtrOutput{})
-	pulumi.RegisterOutputType(AgentcoreTokenVaultCmkKmsConfigurationOutput{})
-	pulumi.RegisterOutputType(AgentcoreTokenVaultCmkKmsConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(CustomModelOutputDataConfigOutput{})
-	pulumi.RegisterOutputType(CustomModelOutputDataConfigPtrOutput{})
-	pulumi.RegisterOutputType(CustomModelTimeoutsOutput{})
-	pulumi.RegisterOutputType(CustomModelTimeoutsPtrOutput{})
-	pulumi.RegisterOutputType(CustomModelTrainingDataConfigOutput{})
-	pulumi.RegisterOutputType(CustomModelTrainingDataConfigPtrOutput{})
-	pulumi.RegisterOutputType(CustomModelTrainingMetricOutput{})
-	pulumi.RegisterOutputType(CustomModelTrainingMetricArrayOutput{})
-	pulumi.RegisterOutputType(CustomModelValidationDataConfigOutput{})
-	pulumi.RegisterOutputType(CustomModelValidationDataConfigPtrOutput{})
-	pulumi.RegisterOutputType(CustomModelValidationDataConfigValidatorOutput{})
-	pulumi.RegisterOutputType(CustomModelValidationDataConfigValidatorArrayOutput{})
-	pulumi.RegisterOutputType(CustomModelValidationMetricOutput{})
-	pulumi.RegisterOutputType(CustomModelValidationMetricArrayOutput{})
-	pulumi.RegisterOutputType(CustomModelVpcConfigOutput{})
-	pulumi.RegisterOutputType(CustomModelVpcConfigPtrOutput{})
-	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigOutput{})
-	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigPtrOutput{})
-	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigAutomatedOutput{})
-	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigAutomatedPtrOutput{})
-	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigOutput{})
-	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput{})
-	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricOutput{})
-	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArrayOutput{})
 }

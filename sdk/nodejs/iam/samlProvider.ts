@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the IAM SAML provider.
+ * - `arn` (String) ARN of the IAM SAML provider.
  *
  * Using `pulumi import`, import IAM SAML Providers using the `arn`. For example:
  *

@@ -131,14 +131,14 @@ public class SnapshotCopy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.copyTags);
     }
     /**
-     * The Amazon Resource Name (ARN) for the DB snapshot.
+     * ARN for the DB snapshot.
      * 
      */
     @Export(name="dbSnapshotArn", refs={String.class}, tree="[0]")
     private Output<String> dbSnapshotArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the DB snapshot.
+     * @return ARN for the DB snapshot.
      * 
      */
     public Output<String> dbSnapshotArn() {

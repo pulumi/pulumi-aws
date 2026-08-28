@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * * `clusterArn` (String) Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
+ * * `clusterArn` (String) ARN that uniquely identifies MSK Cluster.
  * * `name` (String) Name of Topic.
  *
  * #### Optional
@@ -85,7 +85,7 @@ export class Topic extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
+     * ARN that uniquely identifies MSK Cluster.
      */
     declare public readonly clusterArn: pulumi.Output<string>;
     /**
@@ -173,7 +173,7 @@ export interface TopicState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
+     * ARN that uniquely identifies MSK Cluster.
      */
     clusterArn?: pulumi.Input<string | undefined>;
     /**
@@ -210,7 +210,7 @@ export interface TopicState {
  */
 export interface TopicArgs {
     /**
-     * Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
+     * ARN that uniquely identifies MSK Cluster.
      */
     clusterArn: pulumi.Input<string>;
     /**

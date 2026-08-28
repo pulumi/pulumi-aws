@@ -960,7 +960,7 @@ type ServiceNetworkConfiguration struct {
 	EgressConfiguration *ServiceNetworkConfigurationEgressConfiguration `pulumi:"egressConfiguration"`
 	// Network configuration settings for inbound network traffic. See `ingressConfiguration` below.
 	IngressConfiguration *ServiceNetworkConfigurationIngressConfiguration `pulumi:"ingressConfiguration"`
-	// App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
+	// App Runner provides you with the option to choose between IP version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
 	IpAddressType *string `pulumi:"ipAddressType"`
 }
 
@@ -980,7 +980,7 @@ type ServiceNetworkConfigurationArgs struct {
 	EgressConfiguration ServiceNetworkConfigurationEgressConfigurationPtrInput `pulumi:"egressConfiguration"`
 	// Network configuration settings for inbound network traffic. See `ingressConfiguration` below.
 	IngressConfiguration ServiceNetworkConfigurationIngressConfigurationPtrInput `pulumi:"ingressConfiguration"`
-	// App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
+	// App Runner provides you with the option to choose between IP version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
 	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
 }
 
@@ -1075,7 +1075,7 @@ func (o ServiceNetworkConfigurationOutput) IngressConfiguration() ServiceNetwork
 	}).(ServiceNetworkConfigurationIngressConfigurationPtrOutput)
 }
 
-// App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
+// App Runner provides you with the option to choose between IP version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
 func (o ServiceNetworkConfigurationOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceNetworkConfiguration) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
@@ -1124,7 +1124,7 @@ func (o ServiceNetworkConfigurationPtrOutput) IngressConfiguration() ServiceNetw
 	}).(ServiceNetworkConfigurationIngressConfigurationPtrOutput)
 }
 
-// App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
+// App Runner provides you with the option to choose between IP version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
 func (o ServiceNetworkConfigurationPtrOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceNetworkConfiguration) *string {
 		if v == nil {
@@ -1137,7 +1137,7 @@ func (o ServiceNetworkConfigurationPtrOutput) IpAddressType() pulumi.StringPtrOu
 type ServiceNetworkConfigurationEgressConfiguration struct {
 	// Type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
 	EgressType *string `pulumi:"egressType"`
-	// Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
+	// ARN of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
 	VpcConnectorArn *string `pulumi:"vpcConnectorArn"`
 }
 
@@ -1155,7 +1155,7 @@ type ServiceNetworkConfigurationEgressConfigurationInput interface {
 type ServiceNetworkConfigurationEgressConfigurationArgs struct {
 	// Type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
 	EgressType pulumi.StringPtrInput `pulumi:"egressType"`
-	// Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
+	// ARN of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
 	VpcConnectorArn pulumi.StringPtrInput `pulumi:"vpcConnectorArn"`
 }
 
@@ -1241,7 +1241,7 @@ func (o ServiceNetworkConfigurationEgressConfigurationOutput) EgressType() pulum
 	return o.ApplyT(func(v ServiceNetworkConfigurationEgressConfiguration) *string { return v.EgressType }).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
+// ARN of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
 func (o ServiceNetworkConfigurationEgressConfigurationOutput) VpcConnectorArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceNetworkConfigurationEgressConfiguration) *string { return v.VpcConnectorArn }).(pulumi.StringPtrOutput)
 }
@@ -1280,7 +1280,7 @@ func (o ServiceNetworkConfigurationEgressConfigurationPtrOutput) EgressType() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
+// ARN of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
 func (o ServiceNetworkConfigurationEgressConfigurationPtrOutput) VpcConnectorArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceNetworkConfigurationEgressConfiguration) *string {
 		if v == nil {

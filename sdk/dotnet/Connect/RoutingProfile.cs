@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Connect
     public partial class RoutingProfile : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Routing Profile.
+        /// ARN of the Routing Profile.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -269,7 +269,7 @@ namespace Pulumi.Aws.Connect
     public sealed class RoutingProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Routing Profile.
+        /// ARN of the Routing Profile.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

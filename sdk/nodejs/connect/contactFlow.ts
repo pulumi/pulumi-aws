@@ -124,7 +124,7 @@ export class ContactFlow extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Contact Flow.
+     * ARN of the Contact Flow.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -225,7 +225,7 @@ export class ContactFlow extends pulumi.CustomResource {
  */
 export interface ContactFlowState {
     /**
-     * The Amazon Resource Name (ARN) of the Contact Flow.
+     * ARN of the Contact Flow.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

@@ -119,7 +119,7 @@ namespace Pulumi.Aws.Quicksight
     public partial class RefreshSchedule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the refresh schedule.
+        /// ARN of the refresh schedule.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -243,7 +243,7 @@ namespace Pulumi.Aws.Quicksight
     public sealed class RefreshScheduleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the refresh schedule.
+        /// ARN of the refresh schedule.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

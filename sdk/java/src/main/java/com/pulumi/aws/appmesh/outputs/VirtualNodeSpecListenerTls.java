@@ -25,7 +25,7 @@ public final class VirtualNodeSpecListenerTls {
      */
     private String mode;
     /**
-     * @return Listener&#39;s Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+     * @return Listener&#39;s TLS validation context. See `spec.listener.tls.validation` Block for details.
      * 
      */
     private @Nullable VirtualNodeSpecListenerTlsValidation validation;
@@ -46,7 +46,7 @@ public final class VirtualNodeSpecListenerTls {
         return this.mode;
     }
     /**
-     * @return Listener&#39;s Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+     * @return Listener&#39;s TLS validation context. See `spec.listener.tls.validation` Block for details.
      * 
      */
     public Optional<VirtualNodeSpecListenerTlsValidation> validation() {

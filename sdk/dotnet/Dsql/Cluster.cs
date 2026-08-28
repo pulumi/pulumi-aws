@@ -38,6 +38,17 @@ namespace Pulumi.Aws.Dsql
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Identifier` (String) Cluster Identifier.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import DSQL Cluster using the `Identifier`. For example:
     /// 
     /// ```sh

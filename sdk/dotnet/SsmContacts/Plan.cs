@@ -152,7 +152,7 @@ namespace Pulumi.Aws.SsmContacts
     public partial class Plan : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the contact or escalation plan.
+        /// The ARN of the contact or escalation plan.
         /// </summary>
         [Output("contactId")]
         public Output<string> ContactId { get; private set; } = null!;
@@ -216,7 +216,7 @@ namespace Pulumi.Aws.SsmContacts
     public sealed class PlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the contact or escalation plan.
+        /// The ARN of the contact or escalation plan.
         /// </summary>
         [Input("contactId", required: true)]
         public Input<string> ContactId { get; set; } = null!;
@@ -248,7 +248,7 @@ namespace Pulumi.Aws.SsmContacts
     public sealed class PlanState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the contact or escalation plan.
+        /// The ARN of the contact or escalation plan.
         /// </summary>
         [Input("contactId")]
         public Input<string>? ContactId { get; set; }

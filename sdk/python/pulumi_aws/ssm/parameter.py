@@ -43,7 +43,7 @@ class ParameterArgs:
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] allowed_pattern: Regular expression used to validate the parameter value.
         :param pulumi.Input[_builtins.str] arn: ARN of the parameter.
-        :param pulumi.Input[_builtins.str] data_type: Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
+        :param pulumi.Input[_builtins.str] data_type: Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for AMI IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
         :param pulumi.Input[_builtins.str] description: Description of the parameter.
         :param pulumi.Input[_builtins.str] insecure_value: Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
         :param pulumi.Input[_builtins.str] key_id: KMS key ID or ARN for encrypting a SecureString.
@@ -131,7 +131,7 @@ class ParameterArgs:
     @pulumi.getter(name="dataType")
     def data_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
+        Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for AMI IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
         """
         return pulumi.get(self, "data_type")
 
@@ -301,7 +301,7 @@ class _ParameterState:
 
         :param pulumi.Input[_builtins.str] allowed_pattern: Regular expression used to validate the parameter value.
         :param pulumi.Input[_builtins.str] arn: ARN of the parameter.
-        :param pulumi.Input[_builtins.str] data_type: Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
+        :param pulumi.Input[_builtins.str] data_type: Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for AMI IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
         :param pulumi.Input[_builtins.str] description: Description of the parameter.
         :param pulumi.Input[_builtins.bool] has_value_wo: Indicates whether the resource has a `value_wo` set.
         :param pulumi.Input[_builtins.str] insecure_value: Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
@@ -388,7 +388,7 @@ class _ParameterState:
     @pulumi.getter(name="dataType")
     def data_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
+        Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for AMI IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
         """
         return pulumi.get(self, "data_type")
 
@@ -674,7 +674,7 @@ class Parameter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] allowed_pattern: Regular expression used to validate the parameter value.
         :param pulumi.Input[_builtins.str] arn: ARN of the parameter.
-        :param pulumi.Input[_builtins.str] data_type: Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
+        :param pulumi.Input[_builtins.str] data_type: Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for AMI IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
         :param pulumi.Input[_builtins.str] description: Description of the parameter.
         :param pulumi.Input[_builtins.str] insecure_value: Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
         :param pulumi.Input[_builtins.str] key_id: KMS key ID or ARN for encrypting a SecureString.
@@ -863,7 +863,7 @@ class Parameter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] allowed_pattern: Regular expression used to validate the parameter value.
         :param pulumi.Input[_builtins.str] arn: ARN of the parameter.
-        :param pulumi.Input[_builtins.str] data_type: Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
+        :param pulumi.Input[_builtins.str] data_type: Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for AMI IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
         :param pulumi.Input[_builtins.str] description: Description of the parameter.
         :param pulumi.Input[_builtins.bool] has_value_wo: Indicates whether the resource has a `value_wo` set.
         :param pulumi.Input[_builtins.str] insecure_value: Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
@@ -929,7 +929,7 @@ class Parameter(pulumi.CustomResource):
     @pulumi.getter(name="dataType")
     def data_type(self) -> pulumi.Output[_builtins.str]:
         """
-        Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
+        Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for AMI IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
         """
         return pulumi.get(self, "data_type")
 

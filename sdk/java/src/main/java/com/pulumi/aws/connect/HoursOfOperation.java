@@ -96,14 +96,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:connect/hoursOfOperation:HoursOfOperation")
 public class HoursOfOperation extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the Hours of Operation.
+     * ARN of the Hours of Operation.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Hours of Operation.
+     * @return ARN of the Hours of Operation.
      * 
      */
     public Output<String> arn() {

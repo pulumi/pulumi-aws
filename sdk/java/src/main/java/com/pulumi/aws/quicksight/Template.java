@@ -263,14 +263,14 @@ public class Template extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sourceEntity);
     }
     /**
-     * Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
+     * ARN of an analysis or template that was used to create this template.
      * 
      */
     @Export(name="sourceEntityArn", refs={String.class}, tree="[0]")
     private Output<String> sourceEntityArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
+     * @return ARN of an analysis or template that was used to create this template.
      * 
      */
     public Output<String> sourceEntityArn() {

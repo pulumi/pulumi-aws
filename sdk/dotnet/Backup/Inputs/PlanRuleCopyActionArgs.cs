@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Backup.Inputs
     public sealed class PlanRuleCopyActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
+        /// ARN that uniquely identifies the destination backup vault for the copied backup.
         /// </summary>
         [Input("destinationVaultArn", required: true)]
         public Input<string> DestinationVaultArn { get; set; } = null!;

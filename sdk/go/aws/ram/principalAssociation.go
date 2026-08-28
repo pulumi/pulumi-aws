@@ -100,7 +100,7 @@ type PrincipalAssociation struct {
 	Principal pulumi.StringOutput `pulumi:"principal"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the resource share.
+	// ARN of the resource share.
 	ResourceShareArn pulumi.StringOutput `pulumi:"resourceShareArn"`
 }
 
@@ -144,7 +144,7 @@ type principalAssociationState struct {
 	Principal *string `pulumi:"principal"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the resource share.
+	// ARN of the resource share.
 	ResourceShareArn *string `pulumi:"resourceShareArn"`
 }
 
@@ -153,7 +153,7 @@ type PrincipalAssociationState struct {
 	Principal pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the resource share.
+	// ARN of the resource share.
 	ResourceShareArn pulumi.StringPtrInput
 }
 
@@ -166,7 +166,7 @@ type principalAssociationArgs struct {
 	Principal string `pulumi:"principal"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the resource share.
+	// ARN of the resource share.
 	ResourceShareArn string `pulumi:"resourceShareArn"`
 }
 
@@ -176,7 +176,7 @@ type PrincipalAssociationArgs struct {
 	Principal pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the resource share.
+	// ARN of the resource share.
 	ResourceShareArn pulumi.StringInput
 }
 
@@ -277,7 +277,7 @@ func (o PrincipalAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrincipalAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the resource share.
+// ARN of the resource share.
 func (o PrincipalAssociationOutput) ResourceShareArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrincipalAssociation) pulumi.StringOutput { return v.ResourceShareArn }).(pulumi.StringOutput)
 }

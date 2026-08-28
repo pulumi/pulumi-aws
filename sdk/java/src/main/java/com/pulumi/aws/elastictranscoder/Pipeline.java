@@ -96,14 +96,14 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
+     * KMS key that you want to use with this pipeline.
      * 
      */
     @Export(name="awsKmsKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> awsKmsKeyArn;
 
     /**
-     * @return The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
+     * @return KMS key that you want to use with this pipeline.
      * 
      */
     public Output<Optional<String>> awsKmsKeyArn() {
@@ -208,14 +208,14 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
+     * IAM ARN for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
      * 
      */
     @Export(name="role", refs={String.class}, tree="[0]")
     private Output<String> role;
 
     /**
-     * @return The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
+     * @return IAM ARN for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
      * 
      */
     public Output<String> role() {

@@ -58,7 +58,7 @@ export class IdentityNotificationTopic extends pulumi.CustomResource {
     }
 
     /**
-     * The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
+     * Identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its ARN.
      */
     declare public readonly identity: pulumi.Output<string>;
     /**
@@ -66,7 +66,7 @@ export class IdentityNotificationTopic extends pulumi.CustomResource {
      */
     declare public readonly includeOriginalHeaders: pulumi.Output<boolean | undefined>;
     /**
-     * The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
+     * Type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
      */
     declare public readonly notificationType: pulumi.Output<string>;
     /**
@@ -74,7 +74,7 @@ export class IdentityNotificationTopic extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
+     * ARN of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
      */
     declare public readonly topicArn: pulumi.Output<string | undefined>;
 
@@ -120,7 +120,7 @@ export class IdentityNotificationTopic extends pulumi.CustomResource {
  */
 export interface IdentityNotificationTopicState {
     /**
-     * The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
+     * Identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its ARN.
      */
     identity?: pulumi.Input<string | undefined>;
     /**
@@ -128,7 +128,7 @@ export interface IdentityNotificationTopicState {
      */
     includeOriginalHeaders?: pulumi.Input<boolean | undefined>;
     /**
-     * The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
+     * Type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
      */
     notificationType?: pulumi.Input<string | undefined>;
     /**
@@ -136,7 +136,7 @@ export interface IdentityNotificationTopicState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
+     * ARN of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
      */
     topicArn?: pulumi.Input<string | undefined>;
 }
@@ -146,7 +146,7 @@ export interface IdentityNotificationTopicState {
  */
 export interface IdentityNotificationTopicArgs {
     /**
-     * The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
+     * Identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its ARN.
      */
     identity: pulumi.Input<string>;
     /**
@@ -154,7 +154,7 @@ export interface IdentityNotificationTopicArgs {
      */
     includeOriginalHeaders?: pulumi.Input<boolean | undefined>;
     /**
-     * The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
+     * Type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
      */
     notificationType: pulumi.Input<string>;
     /**
@@ -162,7 +162,7 @@ export interface IdentityNotificationTopicArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
+     * ARN of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
      */
     topicArn?: pulumi.Input<string | undefined>;
 }

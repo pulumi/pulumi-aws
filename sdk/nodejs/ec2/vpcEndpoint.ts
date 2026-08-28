@@ -232,7 +232,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the VPC endpoint.
+     * ARN of the VPC endpoint.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -419,7 +419,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
  */
 export interface VpcEndpointState {
     /**
-     * The Amazon Resource Name (ARN) of the VPC endpoint.
+     * ARN of the VPC endpoint.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

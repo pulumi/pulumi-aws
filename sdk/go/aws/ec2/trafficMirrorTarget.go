@@ -75,7 +75,7 @@ type TrafficMirrorTarget struct {
 	GatewayLoadBalancerEndpointId pulumi.StringPtrOutput `pulumi:"gatewayLoadBalancerEndpointId"`
 	// The network interface ID that is associated with the target.
 	NetworkInterfaceId pulumi.StringPtrOutput `pulumi:"networkInterfaceId"`
-	// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+	// ARN of the Network Load Balancer that is associated with the target.
 	NetworkLoadBalancerArn pulumi.StringPtrOutput `pulumi:"networkLoadBalancerArn"`
 	// The ID of the AWS account that owns the traffic mirror target.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
@@ -127,7 +127,7 @@ type trafficMirrorTargetState struct {
 	GatewayLoadBalancerEndpointId *string `pulumi:"gatewayLoadBalancerEndpointId"`
 	// The network interface ID that is associated with the target.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
-	// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+	// ARN of the Network Load Balancer that is associated with the target.
 	NetworkLoadBalancerArn *string `pulumi:"networkLoadBalancerArn"`
 	// The ID of the AWS account that owns the traffic mirror target.
 	OwnerId *string `pulumi:"ownerId"`
@@ -150,7 +150,7 @@ type TrafficMirrorTargetState struct {
 	GatewayLoadBalancerEndpointId pulumi.StringPtrInput
 	// The network interface ID that is associated with the target.
 	NetworkInterfaceId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+	// ARN of the Network Load Balancer that is associated with the target.
 	NetworkLoadBalancerArn pulumi.StringPtrInput
 	// The ID of the AWS account that owns the traffic mirror target.
 	OwnerId pulumi.StringPtrInput
@@ -175,7 +175,7 @@ type trafficMirrorTargetArgs struct {
 	GatewayLoadBalancerEndpointId *string `pulumi:"gatewayLoadBalancerEndpointId"`
 	// The network interface ID that is associated with the target.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
-	// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+	// ARN of the Network Load Balancer that is associated with the target.
 	NetworkLoadBalancerArn *string `pulumi:"networkLoadBalancerArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -193,7 +193,7 @@ type TrafficMirrorTargetArgs struct {
 	GatewayLoadBalancerEndpointId pulumi.StringPtrInput
 	// The network interface ID that is associated with the target.
 	NetworkInterfaceId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+	// ARN of the Network Load Balancer that is associated with the target.
 	NetworkLoadBalancerArn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -310,7 +310,7 @@ func (o TrafficMirrorTargetOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrafficMirrorTarget) pulumi.StringPtrOutput { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+// ARN of the Network Load Balancer that is associated with the target.
 func (o TrafficMirrorTargetOutput) NetworkLoadBalancerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrafficMirrorTarget) pulumi.StringPtrOutput { return v.NetworkLoadBalancerArn }).(pulumi.StringPtrOutput)
 }

@@ -82,14 +82,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/vpcIpamScope:VpcIpamScope")
 public class VpcIpamScope extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the scope.
+     * ARN of the scope.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the scope.
+     * @return ARN of the scope.
      * 
      */
     public Output<String> arn() {

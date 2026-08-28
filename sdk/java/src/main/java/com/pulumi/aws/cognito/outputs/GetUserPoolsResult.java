@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetUserPoolsResult {
     /**
-     * @return Set of cognito user pool Amazon Resource Names (ARNs).
+     * @return Set of cognito user pool ARNs.
      * 
      */
     private List<String> arns;
@@ -31,7 +31,7 @@ public final class GetUserPoolsResult {
 
     private GetUserPoolsResult() {}
     /**
-     * @return Set of cognito user pool Amazon Resource Names (ARNs).
+     * @return Set of cognito user pool ARNs.
      * 
      */
     public List<String> arns() {

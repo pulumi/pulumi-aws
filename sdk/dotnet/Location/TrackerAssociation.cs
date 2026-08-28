@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Location
     public partial class TrackerAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
+        /// ARN for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
         /// </summary>
         [Output("consumerArn")]
         public Output<string> ConsumerArn { get; private set; } = null!;
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Location
     public sealed class TrackerAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
+        /// ARN for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
         /// </summary>
         [Input("consumerArn", required: true)]
         public Input<string> ConsumerArn { get; set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.Location
     public sealed class TrackerAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
+        /// ARN for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
         /// </summary>
         [Input("consumerArn")]
         public Input<string>? ConsumerArn { get; set; }

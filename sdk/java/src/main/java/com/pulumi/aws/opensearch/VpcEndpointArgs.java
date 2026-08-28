@@ -18,14 +18,14 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
     public static final VpcEndpointArgs Empty = new VpcEndpointArgs();
 
     /**
-     * Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
+     * ARN of the domain to create the endpoint for
      * 
      */
     @Import(name="domainArn", required=true)
     private Output<String> domainArn;
 
     /**
-     * @return Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
+     * @return ARN of the domain to create the endpoint for
      * 
      */
     public Output<String> domainArn() {
@@ -89,7 +89,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainArn Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
+         * @param domainArn ARN of the domain to create the endpoint for
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainArn Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
+         * @param domainArn ARN of the domain to create the endpoint for
          * 
          * @return builder
          * 

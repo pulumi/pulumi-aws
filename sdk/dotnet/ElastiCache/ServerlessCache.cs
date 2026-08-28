@@ -156,7 +156,7 @@ namespace Pulumi.Aws.ElastiCache
     public partial class ServerlessCache : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the serverless cache.
+        /// ARN of the serverless cache.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -465,7 +465,7 @@ namespace Pulumi.Aws.ElastiCache
     public sealed class ServerlessCacheState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the serverless cache.
+        /// ARN of the serverless cache.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

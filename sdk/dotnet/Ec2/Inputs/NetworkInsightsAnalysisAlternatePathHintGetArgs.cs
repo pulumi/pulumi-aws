@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class NetworkInsightsAnalysisAlternatePathHintGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the component.
+        /// ARN of the component.
         /// </summary>
         [Input("componentArn")]
         public Input<string>? ComponentArn { get; set; }

@@ -276,7 +276,7 @@ namespace Pulumi.Aws.ArcRegionSwitch
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the ARC Region Switch Plan.
+    /// - `Arn` (String) ARN of the ARC Region Switch Plan.
     /// 
     /// Using `pulumi import`, import Application Recovery Controller Region Switch Plan using the `Arn`. For example:
     /// 

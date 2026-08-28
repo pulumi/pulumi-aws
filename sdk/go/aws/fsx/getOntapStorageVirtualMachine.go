@@ -101,7 +101,7 @@ type LookupOntapStorageVirtualMachineArgs struct {
 type LookupOntapStorageVirtualMachineResult struct {
 	// Microsoft Active Directory configuration to which the SVM is joined, if applicable. See Active Directory Configuration below.
 	ActiveDirectoryConfigurations []GetOntapStorageVirtualMachineActiveDirectoryConfiguration `pulumi:"activeDirectoryConfigurations"`
-	// Amazon Resource Name of the SVM.
+	// ARN of the SVM.
 	Arn string `pulumi:"arn"`
 	// Time that the SVM was created.
 	CreationTime string `pulumi:"creationTime"`
@@ -170,7 +170,7 @@ func (o LookupOntapStorageVirtualMachineResultOutput) ActiveDirectoryConfigurati
 	}).(GetOntapStorageVirtualMachineActiveDirectoryConfigurationArrayOutput)
 }
 
-// Amazon Resource Name of the SVM.
+// ARN of the SVM.
 func (o LookupOntapStorageVirtualMachineResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOntapStorageVirtualMachineResult) string { return v.Arn }).(pulumi.StringOutput)
 }

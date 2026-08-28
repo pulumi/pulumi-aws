@@ -57,7 +57,7 @@ export interface GetParametersByPathArgs {
  */
 export interface GetParametersByPathResult {
     /**
-     * A list that contains the Amazon Resource Names (ARNs) of the retrieved parameters.
+     * List that contains the ARNs of the retrieved parameters.
      */
     readonly arns: string[];
     /**

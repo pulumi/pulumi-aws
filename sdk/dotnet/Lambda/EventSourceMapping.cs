@@ -428,7 +428,7 @@ namespace Pulumi.Aws.Lambda
         public Output<ImmutableArray<string>> FunctionResponseTypes { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
+        /// ARN of the KMS customer managed key that Lambda uses to encrypt your function's filter criteria.
         /// </summary>
         [Output("kmsKeyArn")]
         public Output<string?> KmsKeyArn { get; private set; } = null!;
@@ -692,7 +692,7 @@ namespace Pulumi.Aws.Lambda
         }
 
         /// <summary>
-        /// ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
+        /// ARN of the KMS customer managed key that Lambda uses to encrypt your function's filter criteria.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
@@ -912,7 +912,7 @@ namespace Pulumi.Aws.Lambda
         }
 
         /// <summary>
-        /// ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
+        /// ARN of the KMS customer managed key that Lambda uses to encrypt your function's filter criteria.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }

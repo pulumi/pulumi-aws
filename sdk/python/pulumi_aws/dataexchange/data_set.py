@@ -116,7 +116,7 @@ class _DataSetState:
         """
         Input properties used for looking up and filtering DataSet resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of this data set.
+        :param pulumi.Input[_builtins.str] arn: ARN of this data set.
         :param pulumi.Input[_builtins.str] asset_type: The type of asset that is added to a data set. Valid values include `API_GATEWAY_API`, `LAKE_FORMATION_DATA_PERMISSION`, `REDSHIFT_DATA_SHARE`, `S3_DATA_ACCESS`, `S3_SNAPSHOT`.
         :param pulumi.Input[_builtins.str] description: A description for the data set.
         :param pulumi.Input[_builtins.str] name: The name of the data set.
@@ -143,7 +143,7 @@ class _DataSetState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name of this data set.
+        ARN of this data set.
         """
         return pulumi.get(self, "arn")
 
@@ -362,7 +362,7 @@ class DataSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of this data set.
+        :param pulumi.Input[_builtins.str] arn: ARN of this data set.
         :param pulumi.Input[_builtins.str] asset_type: The type of asset that is added to a data set. Valid values include `API_GATEWAY_API`, `LAKE_FORMATION_DATA_PERMISSION`, `REDSHIFT_DATA_SHARE`, `S3_DATA_ACCESS`, `S3_SNAPSHOT`.
         :param pulumi.Input[_builtins.str] description: A description for the data set.
         :param pulumi.Input[_builtins.str] name: The name of the data set.
@@ -387,7 +387,7 @@ class DataSet(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name of this data set.
+        ARN of this data set.
         """
         return pulumi.get(self, "arn")
 

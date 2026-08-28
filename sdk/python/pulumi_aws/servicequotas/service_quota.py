@@ -107,7 +107,7 @@ class _ServiceQuotaState:
         Input properties used for looking up and filtering ServiceQuota resources.
 
         :param pulumi.Input[_builtins.bool] adjustable: Whether the service quota can be increased.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the service quota.
+        :param pulumi.Input[_builtins.str] arn: ARN of the service quota.
         :param pulumi.Input[_builtins.float] default_value: Default value of the service quota.
         :param pulumi.Input[_builtins.str] quota_code: Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
         :param pulumi.Input[_builtins.str] quota_name: Name of the quota.
@@ -158,7 +158,7 @@ class _ServiceQuotaState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the service quota.
+        ARN of the service quota.
         """
         return pulumi.get(self, "arn")
 
@@ -437,7 +437,7 @@ class ServiceQuota(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] adjustable: Whether the service quota can be increased.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the service quota.
+        :param pulumi.Input[_builtins.str] arn: ARN of the service quota.
         :param pulumi.Input[_builtins.float] default_value: Default value of the service quota.
         :param pulumi.Input[_builtins.str] quota_code: Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
         :param pulumi.Input[_builtins.str] quota_name: Name of the quota.
@@ -477,7 +477,7 @@ class ServiceQuota(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the service quota.
+        ARN of the service quota.
         """
         return pulumi.get(self, "arn")
 

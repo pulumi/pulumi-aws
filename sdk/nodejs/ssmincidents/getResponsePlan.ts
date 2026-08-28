@@ -35,7 +35,7 @@ export function getResponsePlan(args: GetResponsePlanArgs, opts?: pulumi.InvokeO
  */
 export interface GetResponsePlanArgs {
     /**
-     * The Amazon Resource Name (ARN) of the response plan.
+     * ARN of the response plan.
      */
     arn: string;
     /**
@@ -66,7 +66,7 @@ export interface GetResponsePlanResult {
      */
     readonly displayName: string;
     /**
-     * The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+     * ARN for the contacts and escalation plans that the response plan engages during an incident.
      */
     readonly engagements: string[];
     /**
@@ -116,7 +116,7 @@ export function getResponsePlanOutput(args: GetResponsePlanOutputArgs, opts?: pu
  */
 export interface GetResponsePlanOutputArgs {
     /**
-     * The Amazon Resource Name (ARN) of the response plan.
+     * ARN of the response plan.
      */
     arn: pulumi.Input<string>;
     /**

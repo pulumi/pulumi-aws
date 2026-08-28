@@ -187,7 +187,7 @@ import (
 type Proxy struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) for the proxy.
+	// ARN for the proxy.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `defaultAuthScheme` is `NONE` or unspecified. See the `auth` block below.
 	Auths ProxyAuthArrayOutput `pulumi:"auths"`
@@ -207,9 +207,9 @@ type Proxy struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
+	// Whether TLS encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
 	RequireTls pulumi.BoolPtrOutput `pulumi:"requireTls"`
-	// Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+	// ARN of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -262,7 +262,7 @@ func GetProxy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Proxy resources.
 type proxyState struct {
-	// Amazon Resource Name (ARN) for the proxy.
+	// ARN for the proxy.
 	Arn *string `pulumi:"arn"`
 	// Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `defaultAuthScheme` is `NONE` or unspecified. See the `auth` block below.
 	Auths []ProxyAuth `pulumi:"auths"`
@@ -282,9 +282,9 @@ type proxyState struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
+	// Whether TLS encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
 	RequireTls *bool `pulumi:"requireTls"`
-	// Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+	// ARN of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
 	RoleArn *string `pulumi:"roleArn"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -299,7 +299,7 @@ type proxyState struct {
 }
 
 type ProxyState struct {
-	// Amazon Resource Name (ARN) for the proxy.
+	// ARN for the proxy.
 	Arn pulumi.StringPtrInput
 	// Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `defaultAuthScheme` is `NONE` or unspecified. See the `auth` block below.
 	Auths ProxyAuthArrayInput
@@ -319,9 +319,9 @@ type ProxyState struct {
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
+	// Whether TLS encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
 	RequireTls pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+	// ARN of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
 	RoleArn pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -356,9 +356,9 @@ type proxyArgs struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
+	// Whether TLS encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
 	RequireTls *bool `pulumi:"requireTls"`
-	// Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+	// ARN of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
 	RoleArn string `pulumi:"roleArn"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -388,9 +388,9 @@ type ProxyArgs struct {
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
+	// Whether TLS encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
 	RequireTls pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+	// ARN of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
 	RoleArn pulumi.StringInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -489,7 +489,7 @@ func (o ProxyOutput) ToProxyOutputWithContext(ctx context.Context) ProxyOutput {
 	return o
 }
 
-// Amazon Resource Name (ARN) for the proxy.
+// ARN for the proxy.
 func (o ProxyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Proxy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -539,12 +539,12 @@ func (o ProxyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Proxy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
+// Whether TLS encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
 func (o ProxyOutput) RequireTls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Proxy) pulumi.BoolPtrOutput { return v.RequireTls }).(pulumi.BoolPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+// ARN of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
 func (o ProxyOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Proxy) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }

@@ -398,7 +398,7 @@ class _CloudAutonomousVmClusterState:
         """
         Input properties used for looking up and filtering CloudAutonomousVmCluster resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) for the Exadata infrastructure.
+        :param pulumi.Input[_builtins.str] arn: ARN for the Exadata infrastructure.
         :param pulumi.Input[_builtins.float] autonomous_data_storage_percentage: Progress of the current operation on the Autonomous VM cluster, as a percentage.
         :param pulumi.Input[_builtins.float] autonomous_data_storage_size_in_tbs: Data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.float] available_autonomous_data_storage_size_in_tbs: Available data storage space for Autonomous Databases in the Autonomous VM cluster, in TB.
@@ -567,7 +567,7 @@ class _CloudAutonomousVmClusterState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) for the Exadata infrastructure.
+        ARN for the Exadata infrastructure.
         """
         return pulumi.get(self, "arn")
 
@@ -1641,7 +1641,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) for the Exadata infrastructure.
+        :param pulumi.Input[_builtins.str] arn: ARN for the Exadata infrastructure.
         :param pulumi.Input[_builtins.float] autonomous_data_storage_percentage: Progress of the current operation on the Autonomous VM cluster, as a percentage.
         :param pulumi.Input[_builtins.float] autonomous_data_storage_size_in_tbs: Data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.float] available_autonomous_data_storage_size_in_tbs: Available data storage space for Autonomous Databases in the Autonomous VM cluster, in TB.
@@ -1761,7 +1761,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) for the Exadata infrastructure.
+        ARN for the Exadata infrastructure.
         """
         return pulumi.get(self, "arn")
 

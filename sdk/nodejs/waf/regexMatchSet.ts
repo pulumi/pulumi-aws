@@ -73,7 +73,7 @@ export class RegexMatchSet extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN)
+     * ARN
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -117,7 +117,7 @@ export class RegexMatchSet extends pulumi.CustomResource {
  */
 export interface RegexMatchSetState {
     /**
-     * Amazon Resource Name (ARN)
+     * ARN
      */
     arn?: pulumi.Input<string | undefined>;
     /**

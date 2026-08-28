@@ -204,7 +204,7 @@ class TableEncryptionSpecification(dict):
                  kms_key_identifier: Optional[_builtins.str] = None,
                  type: Optional[_builtins.str] = None):
         """
-        :param _builtins.str kms_key_identifier: The Amazon Resource Name (ARN) of the customer managed KMS key.
+        :param _builtins.str kms_key_identifier: ARN of the customer managed KMS key.
         :param _builtins.str type: The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
         """
         if kms_key_identifier is not None:
@@ -216,7 +216,7 @@ class TableEncryptionSpecification(dict):
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the customer managed KMS key.
+        ARN of the customer managed KMS key.
         """
         return pulumi.get(self, "kms_key_identifier")
 

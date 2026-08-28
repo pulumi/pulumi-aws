@@ -118,7 +118,7 @@ class _UploadState:
         """
         Input properties used for looking up and filtering Upload resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of this upload.
+        :param pulumi.Input[_builtins.str] arn: ARN of this upload.
         :param pulumi.Input[_builtins.str] category: The upload's category.
         :param pulumi.Input[_builtins.str] content_type: The upload's content type (for example, application/octet-stream).
         :param pulumi.Input[_builtins.str] metadata: The upload's metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
@@ -151,7 +151,7 @@ class _UploadState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name of this upload.
+        ARN of this upload.
         """
         return pulumi.get(self, "arn")
 
@@ -292,7 +292,7 @@ class Upload(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Device Farm upload.
+        - `arn` (String) ARN of the Device Farm upload.
 
         Using `pulumi import`, import DeviceFarm Uploads using their ARN. For example:
 
@@ -339,7 +339,7 @@ class Upload(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Device Farm upload.
+        - `arn` (String) ARN of the Device Farm upload.
 
         Using `pulumi import`, import DeviceFarm Uploads using their ARN. For example:
 
@@ -416,7 +416,7 @@ class Upload(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of this upload.
+        :param pulumi.Input[_builtins.str] arn: ARN of this upload.
         :param pulumi.Input[_builtins.str] category: The upload's category.
         :param pulumi.Input[_builtins.str] content_type: The upload's content type (for example, application/octet-stream).
         :param pulumi.Input[_builtins.str] metadata: The upload's metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
@@ -445,7 +445,7 @@ class Upload(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name of this upload.
+        ARN of this upload.
         """
         return pulumi.get(self, "arn")
 

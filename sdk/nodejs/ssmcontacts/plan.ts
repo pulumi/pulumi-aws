@@ -127,7 +127,7 @@ export class Plan extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the contact or escalation plan.
+     * The ARN of the contact or escalation plan.
      */
     declare public readonly contactId: pulumi.Output<string>;
     /**
@@ -177,7 +177,7 @@ export class Plan extends pulumi.CustomResource {
  */
 export interface PlanState {
     /**
-     * The Amazon Resource Name (ARN) of the contact or escalation plan.
+     * The ARN of the contact or escalation plan.
      */
     contactId?: pulumi.Input<string | undefined>;
     /**
@@ -195,7 +195,7 @@ export interface PlanState {
  */
 export interface PlanArgs {
     /**
-     * The Amazon Resource Name (ARN) of the contact or escalation plan.
+     * The ARN of the contact or escalation plan.
      */
     contactId: pulumi.Input<string>;
     /**

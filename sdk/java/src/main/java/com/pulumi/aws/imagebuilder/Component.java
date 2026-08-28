@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws.imagebuilder.getComponents` resources using the Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.imagebuilder.getComponents` resources using the ARN. For example:
  * 
  * ```sh
  * $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
@@ -72,14 +72,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:imagebuilder/component:Component")
 public class Component extends com.pulumi.resources.CustomResource {
     /**
-     * (Required) Amazon Resource Name (ARN) of the component.
+     * (Required) ARN of the component.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return (Required) Amazon Resource Name (ARN) of the component.
+     * @return (Required) ARN of the component.
      * 
      */
     public Output<String> arn() {
@@ -156,14 +156,14 @@ public class Component extends com.pulumi.resources.CustomResource {
         return this.encrypted;
     }
     /**
-     * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+     * ARN of the KMS Key used to encrypt the component.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyId;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+     * @return ARN of the KMS Key used to encrypt the component.
      * 
      */
     public Output<Optional<String>> kmsKeyId() {

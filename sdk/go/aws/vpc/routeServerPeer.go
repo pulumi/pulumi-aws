@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource for managing a VPC (Virtual Private Cloud) Route Server Peer.
+// Provides a resource for managing a VPC Route Server Peer.
 //
 // ## Example Usage
 //
@@ -122,7 +122,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import VPC (Virtual Private Cloud) Route Server using the `routeServerPeerId`. For example:
+// Using `pulumi import`, import VPC Route Server using the `routeServerPeerId`. For example:
 //
 // ```sh
 // $ pulumi import aws:vpc/routeServerPeer:RouteServerPeer example rsp-12345678

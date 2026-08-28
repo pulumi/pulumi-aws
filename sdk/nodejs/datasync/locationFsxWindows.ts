@@ -58,7 +58,7 @@ export class LocationFsxWindows extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
+     * ARN of the DataSync Location.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -70,7 +70,7 @@ export class LocationFsxWindows extends pulumi.CustomResource {
      */
     declare public readonly domain: pulumi.Output<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the FSx for Windows file system.
+     * ARN for the FSx for Windows file system.
      */
     declare public readonly fsxFilesystemArn: pulumi.Output<string>;
     /**
@@ -82,7 +82,7 @@ export class LocationFsxWindows extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
+     * ARNs of the security groups that are to use to configure the FSx for Windows file system.
      */
     declare public readonly securityGroupArns: pulumi.Output<string[]>;
     /**
@@ -170,7 +170,7 @@ export class LocationFsxWindows extends pulumi.CustomResource {
  */
 export interface LocationFsxWindowsState {
     /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
+     * ARN of the DataSync Location.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -182,7 +182,7 @@ export interface LocationFsxWindowsState {
      */
     domain?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the FSx for Windows file system.
+     * ARN for the FSx for Windows file system.
      */
     fsxFilesystemArn?: pulumi.Input<string | undefined>;
     /**
@@ -194,7 +194,7 @@ export interface LocationFsxWindowsState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
+     * ARNs of the security groups that are to use to configure the FSx for Windows file system.
      */
     securityGroupArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -228,7 +228,7 @@ export interface LocationFsxWindowsArgs {
      */
     domain?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the FSx for Windows file system.
+     * ARN for the FSx for Windows file system.
      */
     fsxFilesystemArn: pulumi.Input<string>;
     /**
@@ -240,7 +240,7 @@ export interface LocationFsxWindowsArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
+     * ARNs of the security groups that are to use to configure the FSx for Windows file system.
      */
     securityGroupArns: pulumi.Input<pulumi.Input<string>[]>;
     /**

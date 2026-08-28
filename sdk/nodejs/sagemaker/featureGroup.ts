@@ -70,7 +70,7 @@ export class FeatureGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
+     * ARN assigned by AWS to this feature_group.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -106,7 +106,7 @@ export class FeatureGroup extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
+     * The ARN of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
@@ -186,7 +186,7 @@ export class FeatureGroup extends pulumi.CustomResource {
  */
 export interface FeatureGroupState {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
+     * ARN assigned by AWS to this feature_group.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -222,7 +222,7 @@ export interface FeatureGroupState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
+     * The ARN of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
@@ -273,7 +273,7 @@ export interface FeatureGroupArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
+     * The ARN of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
      */
     roleArn: pulumi.Input<string>;
     /**

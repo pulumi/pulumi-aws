@@ -29,7 +29,7 @@ public final class EndpointRedisSettings {
      */
     private @Nullable String authUserName;
     /**
-     * @return Transmission Control Protocol (TCP) port for the endpoint.
+     * @return TCP port for the endpoint.
      * 
      */
     private Integer port;
@@ -39,12 +39,12 @@ public final class EndpointRedisSettings {
      */
     private String serverName;
     /**
-     * @return The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+     * @return ARN for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
      * 
      */
     private @Nullable String sslCaCertificateArn;
     /**
-     * @return The plaintext option doesn&#39;t provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
+     * @return The plaintext option doesn&#39;t provide TLS encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
      * 
      */
     private @Nullable String sslSecurityProtocol;
@@ -72,7 +72,7 @@ public final class EndpointRedisSettings {
         return Optional.ofNullable(this.authUserName);
     }
     /**
-     * @return Transmission Control Protocol (TCP) port for the endpoint.
+     * @return TCP port for the endpoint.
      * 
      */
     public Integer port() {
@@ -86,14 +86,14 @@ public final class EndpointRedisSettings {
         return this.serverName;
     }
     /**
-     * @return The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+     * @return ARN for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
      * 
      */
     public Optional<String> sslCaCertificateArn() {
         return Optional.ofNullable(this.sslCaCertificateArn);
     }
     /**
-     * @return The plaintext option doesn&#39;t provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
+     * @return The plaintext option doesn&#39;t provide TLS encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
      * 
      */
     public Optional<String> sslSecurityProtocol() {

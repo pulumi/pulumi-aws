@@ -13,7 +13,7 @@ namespace Pulumi.Aws.VpcLattice.Inputs
     public sealed class ListenerDefaultActionForwardTargetGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the target group.
+        /// ID or ARN of the target group.
         /// </summary>
         [Input("targetGroupIdentifier")]
         public Input<string>? TargetGroupIdentifier { get; set; }

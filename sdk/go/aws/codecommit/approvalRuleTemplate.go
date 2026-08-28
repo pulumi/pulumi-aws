@@ -83,7 +83,7 @@ type ApprovalRuleTemplate struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	LastModifiedDate pulumi.StringOutput `pulumi:"lastModifiedDate"`
-	// The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
+	// ARN of the user who made the most recent changes to the approval rule template.
 	LastModifiedUser pulumi.StringOutput `pulumi:"lastModifiedUser"`
 	// The name for the approval rule template. Maximum of 100 characters.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -136,7 +136,7 @@ type approvalRuleTemplateState struct {
 	Description *string `pulumi:"description"`
 	// The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	LastModifiedDate *string `pulumi:"lastModifiedDate"`
-	// The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
+	// ARN of the user who made the most recent changes to the approval rule template.
 	LastModifiedUser *string `pulumi:"lastModifiedUser"`
 	// The name for the approval rule template. Maximum of 100 characters.
 	Name *string `pulumi:"name"`
@@ -157,7 +157,7 @@ type ApprovalRuleTemplateState struct {
 	Description pulumi.StringPtrInput
 	// The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	LastModifiedDate pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
+	// ARN of the user who made the most recent changes to the approval rule template.
 	LastModifiedUser pulumi.StringPtrInput
 	// The name for the approval rule template. Maximum of 100 characters.
 	Name pulumi.StringPtrInput
@@ -306,7 +306,7 @@ func (o ApprovalRuleTemplateOutput) LastModifiedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApprovalRuleTemplate) pulumi.StringOutput { return v.LastModifiedDate }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
+// ARN of the user who made the most recent changes to the approval rule template.
 func (o ApprovalRuleTemplateOutput) LastModifiedUser() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApprovalRuleTemplate) pulumi.StringOutput { return v.LastModifiedUser }).(pulumi.StringOutput)
 }

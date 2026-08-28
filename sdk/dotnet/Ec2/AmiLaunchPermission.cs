@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2
 {
     /// <summary>
-    /// Adds a launch permission to an Amazon Machine Image (AMI).
+    /// Adds a launch permission to an AMI.
     /// 
     /// ## Example Usage
     /// 

@@ -64,7 +64,7 @@ type Pipeline struct {
 
 	// The ARN of the Elastictranscoder pipeline.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
+	// KMS key that you want to use with this pipeline.
 	AwsKmsKeyArn pulumi.StringPtrOutput `pulumi:"awsKmsKeyArn"`
 	// The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
 	ContentConfig PipelineContentConfigOutput `pulumi:"contentConfig"`
@@ -80,7 +80,7 @@ type Pipeline struct {
 	OutputBucket pulumi.StringOutput `pulumi:"outputBucket"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
+	// IAM ARN for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
 	Role pulumi.StringOutput `pulumi:"role"`
 	// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
 	ThumbnailConfig PipelineThumbnailConfigOutput `pulumi:"thumbnailConfig"`
@@ -135,7 +135,7 @@ func GetPipeline(ctx *pulumi.Context,
 type pipelineState struct {
 	// The ARN of the Elastictranscoder pipeline.
 	Arn *string `pulumi:"arn"`
-	// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
+	// KMS key that you want to use with this pipeline.
 	AwsKmsKeyArn *string `pulumi:"awsKmsKeyArn"`
 	// The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
 	ContentConfig *PipelineContentConfig `pulumi:"contentConfig"`
@@ -151,7 +151,7 @@ type pipelineState struct {
 	OutputBucket *string `pulumi:"outputBucket"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
+	// IAM ARN for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
 	Role *string `pulumi:"role"`
 	// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
 	ThumbnailConfig *PipelineThumbnailConfig `pulumi:"thumbnailConfig"`
@@ -171,7 +171,7 @@ type pipelineState struct {
 type PipelineState struct {
 	// The ARN of the Elastictranscoder pipeline.
 	Arn pulumi.StringPtrInput
-	// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
+	// KMS key that you want to use with this pipeline.
 	AwsKmsKeyArn pulumi.StringPtrInput
 	// The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
 	ContentConfig PipelineContentConfigPtrInput
@@ -187,7 +187,7 @@ type PipelineState struct {
 	OutputBucket pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
+	// IAM ARN for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
 	Role pulumi.StringPtrInput
 	// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
 	ThumbnailConfig PipelineThumbnailConfigPtrInput
@@ -209,7 +209,7 @@ func (PipelineState) ElementType() reflect.Type {
 }
 
 type pipelineArgs struct {
-	// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
+	// KMS key that you want to use with this pipeline.
 	AwsKmsKeyArn *string `pulumi:"awsKmsKeyArn"`
 	// The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
 	ContentConfig *PipelineContentConfig `pulumi:"contentConfig"`
@@ -225,7 +225,7 @@ type pipelineArgs struct {
 	OutputBucket *string `pulumi:"outputBucket"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
+	// IAM ARN for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
 	Role string `pulumi:"role"`
 	// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
 	ThumbnailConfig *PipelineThumbnailConfig `pulumi:"thumbnailConfig"`
@@ -244,7 +244,7 @@ type pipelineArgs struct {
 
 // The set of arguments for constructing a Pipeline resource.
 type PipelineArgs struct {
-	// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
+	// KMS key that you want to use with this pipeline.
 	AwsKmsKeyArn pulumi.StringPtrInput
 	// The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
 	ContentConfig PipelineContentConfigPtrInput
@@ -260,7 +260,7 @@ type PipelineArgs struct {
 	OutputBucket pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
+	// IAM ARN for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
 	Role pulumi.StringInput
 	// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
 	ThumbnailConfig PipelineThumbnailConfigPtrInput
@@ -369,7 +369,7 @@ func (o PipelineOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
+// KMS key that you want to use with this pipeline.
 func (o PipelineOutput) AwsKmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringPtrOutput { return v.AwsKmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -409,7 +409,7 @@ func (o PipelineOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
+// IAM ARN for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
 func (o PipelineOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
 }

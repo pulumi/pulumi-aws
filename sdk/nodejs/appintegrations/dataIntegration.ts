@@ -69,7 +69,7 @@ export class DataIntegration extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Data Integration.
+     * ARN of the Data Integration.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -77,7 +77,7 @@ export class DataIntegration extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * KMS key Amazon Resource Name (ARN) for the Data Integration.
+     * KMS key ARN for the Data Integration.
      */
     declare public readonly kmsKey: pulumi.Output<string>;
     /**
@@ -158,7 +158,7 @@ export class DataIntegration extends pulumi.CustomResource {
  */
 export interface DataIntegrationState {
     /**
-     * Amazon Resource Name (ARN) of the Data Integration.
+     * ARN of the Data Integration.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -166,7 +166,7 @@ export interface DataIntegrationState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * KMS key Amazon Resource Name (ARN) for the Data Integration.
+     * KMS key ARN for the Data Integration.
      */
     kmsKey?: pulumi.Input<string | undefined>;
     /**
@@ -204,7 +204,7 @@ export interface DataIntegrationArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * KMS key Amazon Resource Name (ARN) for the Data Integration.
+     * KMS key ARN for the Data Integration.
      */
     kmsKey: pulumi.Input<string>;
     /**

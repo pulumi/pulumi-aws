@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Rds
         public readonly string Name;
         public readonly string Region;
         /// <summary>
-        /// Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
+        /// Whether TLS encryption is required for connections to the proxy.
         /// </summary>
         public readonly bool RequireTls;
         /// <summary>

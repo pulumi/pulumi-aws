@@ -90,7 +90,7 @@ import (
 type Activity struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the activity.
+	// ARN of the activity.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Date the activity was created.
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
@@ -136,7 +136,7 @@ func GetActivity(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Activity resources.
 type activityState struct {
-	// Amazon Resource Name (ARN) of the activity.
+	// ARN of the activity.
 	Arn *string `pulumi:"arn"`
 	// Date the activity was created.
 	CreationDate *string `pulumi:"creationDate"`
@@ -153,7 +153,7 @@ type activityState struct {
 }
 
 type ActivityState struct {
-	// Amazon Resource Name (ARN) of the activity.
+	// ARN of the activity.
 	Arn pulumi.StringPtrInput
 	// Date the activity was created.
 	CreationDate pulumi.StringPtrInput
@@ -283,7 +283,7 @@ func (o ActivityOutput) ToActivityOutputWithContext(ctx context.Context) Activit
 	return o
 }
 
-// Amazon Resource Name (ARN) of the activity.
+// ARN of the activity.
 func (o ActivityOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Activity) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

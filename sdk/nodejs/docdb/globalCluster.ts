@@ -122,7 +122,7 @@ export class GlobalCluster extends pulumi.CustomResource {
     }
 
     /**
-     * Global Cluster Amazon Resource Name (ARN)
+     * Global Cluster ARN
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -159,7 +159,7 @@ export class GlobalCluster extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value.
      */
     declare public readonly sourceDbClusterIdentifier: pulumi.Output<string>;
     declare public /*out*/ readonly status: pulumi.Output<string>;
@@ -221,7 +221,7 @@ export class GlobalCluster extends pulumi.CustomResource {
  */
 export interface GlobalClusterState {
     /**
-     * Global Cluster Amazon Resource Name (ARN)
+     * Global Cluster ARN
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -258,7 +258,7 @@ export interface GlobalClusterState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value.
      */
     sourceDbClusterIdentifier?: pulumi.Input<string | undefined>;
     status?: pulumi.Input<string | undefined>;
@@ -298,7 +298,7 @@ export interface GlobalClusterArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value.
      */
     sourceDbClusterIdentifier?: pulumi.Input<string | undefined>;
     /**

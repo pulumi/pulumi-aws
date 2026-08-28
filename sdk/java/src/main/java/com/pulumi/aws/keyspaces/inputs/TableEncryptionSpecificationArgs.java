@@ -16,14 +16,14 @@ public final class TableEncryptionSpecificationArgs extends com.pulumi.resources
     public static final TableEncryptionSpecificationArgs Empty = new TableEncryptionSpecificationArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the customer managed KMS key.
+     * ARN of the customer managed KMS key.
      * 
      */
     @Import(name="kmsKeyIdentifier")
     private @Nullable Output<String> kmsKeyIdentifier;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the customer managed KMS key.
+     * @return ARN of the customer managed KMS key.
      * 
      */
     public Optional<Output<String>> kmsKeyIdentifier() {
@@ -71,7 +71,7 @@ public final class TableEncryptionSpecificationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param kmsKeyIdentifier The Amazon Resource Name (ARN) of the customer managed KMS key.
+         * @param kmsKeyIdentifier ARN of the customer managed KMS key.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class TableEncryptionSpecificationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param kmsKeyIdentifier The Amazon Resource Name (ARN) of the customer managed KMS key.
+         * @param kmsKeyIdentifier ARN of the customer managed KMS key.
          * 
          * @return builder
          * 

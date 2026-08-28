@@ -18,14 +18,14 @@ public final class PodIdentityAssociationState extends com.pulumi.resources.Reso
     public static final PodIdentityAssociationState Empty = new PodIdentityAssociationState();
 
     /**
-     * The Amazon Resource Name (ARN) of the association.
+     * ARN of the association.
      * 
      */
     @Import(name="associationArn")
     private @Nullable Output<String> associationArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the association.
+     * @return ARN of the association.
      * 
      */
     public Optional<Output<String>> associationArn() {
@@ -138,14 +138,14 @@ public final class PodIdentityAssociationState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+     * ARN of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+     * @return ARN of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -202,14 +202,14 @@ public final class PodIdentityAssociationState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `roleArn`.
+     * ARN of the IAM role to be chained to the the IAM role specified as `roleArn`.
      * 
      */
     @Import(name="targetRoleArn")
     private @Nullable Output<String> targetRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `roleArn`.
+     * @return ARN of the IAM role to be chained to the the IAM role specified as `roleArn`.
      * 
      */
     public Optional<Output<String>> targetRoleArn() {
@@ -253,7 +253,7 @@ public final class PodIdentityAssociationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param associationArn The Amazon Resource Name (ARN) of the association.
+         * @param associationArn ARN of the association.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class PodIdentityAssociationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param associationArn The Amazon Resource Name (ARN) of the association.
+         * @param associationArn ARN of the association.
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class PodIdentityAssociationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+         * @param roleArn ARN of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
          * 
          * @return builder
          * 
@@ -432,7 +432,7 @@ public final class PodIdentityAssociationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+         * @param roleArn ARN of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
          * 
          * @return builder
          * 
@@ -509,7 +509,7 @@ public final class PodIdentityAssociationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param targetRoleArn The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `roleArn`.
+         * @param targetRoleArn ARN of the IAM role to be chained to the the IAM role specified as `roleArn`.
          * 
          * @return builder
          * 
@@ -520,7 +520,7 @@ public final class PodIdentityAssociationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param targetRoleArn The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `roleArn`.
+         * @param targetRoleArn ARN of the IAM role to be chained to the the IAM role specified as `roleArn`.
          * 
          * @return builder
          * 

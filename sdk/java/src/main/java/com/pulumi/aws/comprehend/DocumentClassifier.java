@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Comprehend document classifier.
+ * - `arn` (String) ARN of the Comprehend document classifier.
  * 
  * Using `pulumi import`, import Comprehend Document Classifier using the ARN. For example:
  * 

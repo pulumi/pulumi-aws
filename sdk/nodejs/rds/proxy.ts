@@ -131,7 +131,7 @@ export class Proxy extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) for the proxy.
+     * ARN for the proxy.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -171,11 +171,11 @@ export class Proxy extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
+     * Whether TLS encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
      */
     declare public readonly requireTls: pulumi.Output<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+     * ARN of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
@@ -268,7 +268,7 @@ export class Proxy extends pulumi.CustomResource {
  */
 export interface ProxyState {
     /**
-     * Amazon Resource Name (ARN) for the proxy.
+     * ARN for the proxy.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -308,11 +308,11 @@ export interface ProxyState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
+     * Whether TLS encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
      */
     requireTls?: pulumi.Input<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+     * ARN of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
@@ -374,11 +374,11 @@ export interface ProxyArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
+     * Whether TLS encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
      */
     requireTls?: pulumi.Input<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+     * ARN of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
      */
     roleArn: pulumi.Input<string>;
     /**

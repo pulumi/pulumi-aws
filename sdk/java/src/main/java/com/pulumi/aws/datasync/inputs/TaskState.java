@@ -22,14 +22,14 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
     public static final TaskState Empty = new TaskState();
 
     /**
-     * Amazon Resource Name (ARN) of the DataSync Task.
+     * ARN of the DataSync Task.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the DataSync Task.
+     * @return ARN of the DataSync Task.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -37,14 +37,14 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
+     * ARN of the CloudWatch Log Group that is used to monitor and log events in the sync task.
      * 
      */
     @Import(name="cloudwatchLogGroupArn")
     private @Nullable Output<String> cloudwatchLogGroupArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
+     * @return ARN of the CloudWatch Log Group that is used to monitor and log events in the sync task.
      * 
      */
     public Optional<Output<String>> cloudwatchLogGroupArn() {
@@ -52,14 +52,14 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of destination DataSync Location.
+     * ARN of destination DataSync Location.
      * 
      */
     @Import(name="destinationLocationArn")
     private @Nullable Output<String> destinationLocationArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of destination DataSync Location.
+     * @return ARN of destination DataSync Location.
      * 
      */
     public Optional<Output<String>> destinationLocationArn() {
@@ -157,14 +157,14 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of source DataSync Location.
+     * ARN of source DataSync Location.
      * 
      */
     @Import(name="sourceLocationArn")
     private @Nullable Output<String> sourceLocationArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of source DataSync Location.
+     * @return ARN of source DataSync Location.
      * 
      */
     public Optional<Output<String>> sourceLocationArn() {
@@ -273,7 +273,7 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the DataSync Task.
+         * @param arn ARN of the DataSync Task.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the DataSync Task.
+         * @param arn ARN of the DataSync Task.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cloudwatchLogGroupArn Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
+         * @param cloudwatchLogGroupArn ARN of the CloudWatch Log Group that is used to monitor and log events in the sync task.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cloudwatchLogGroupArn Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
+         * @param cloudwatchLogGroupArn ARN of the CloudWatch Log Group that is used to monitor and log events in the sync task.
          * 
          * @return builder
          * 
@@ -315,7 +315,7 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinationLocationArn Amazon Resource Name (ARN) of destination DataSync Location.
+         * @param destinationLocationArn ARN of destination DataSync Location.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinationLocationArn Amazon Resource Name (ARN) of destination DataSync Location.
+         * @param destinationLocationArn ARN of destination DataSync Location.
          * 
          * @return builder
          * 
@@ -462,7 +462,7 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceLocationArn Amazon Resource Name (ARN) of source DataSync Location.
+         * @param sourceLocationArn ARN of source DataSync Location.
          * 
          * @return builder
          * 
@@ -473,7 +473,7 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceLocationArn Amazon Resource Name (ARN) of source DataSync Location.
+         * @param sourceLocationArn ARN of source DataSync Location.
          * 
          * @return builder
          * 

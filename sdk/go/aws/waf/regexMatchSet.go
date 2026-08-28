@@ -69,7 +69,7 @@ import (
 type RegexMatchSet struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN)
+	// ARN
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name or description of the Regex Match Set.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -107,7 +107,7 @@ func GetRegexMatchSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RegexMatchSet resources.
 type regexMatchSetState struct {
-	// Amazon Resource Name (ARN)
+	// ARN
 	Arn *string `pulumi:"arn"`
 	// The name or description of the Regex Match Set.
 	Name *string `pulumi:"name"`
@@ -116,7 +116,7 @@ type regexMatchSetState struct {
 }
 
 type RegexMatchSetState struct {
-	// Amazon Resource Name (ARN)
+	// ARN
 	Arn pulumi.StringPtrInput
 	// The name or description of the Regex Match Set.
 	Name pulumi.StringPtrInput
@@ -230,7 +230,7 @@ func (o RegexMatchSetOutput) ToRegexMatchSetOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Amazon Resource Name (ARN)
+// ARN
 func (o RegexMatchSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegexMatchSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

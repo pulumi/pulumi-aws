@@ -43,7 +43,7 @@ public final class VirtualNodeSpecListener {
      */
     private @Nullable VirtualNodeSpecListenerTimeout timeout;
     /**
-     * @return Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+     * @return TLS properties for the listener. See `spec.listener.tls` Block for details.
      * 
      */
     private @Nullable VirtualNodeSpecListenerTls tls;
@@ -85,7 +85,7 @@ public final class VirtualNodeSpecListener {
         return Optional.ofNullable(this.timeout);
     }
     /**
-     * @return Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+     * @return TLS properties for the listener. See `spec.listener.tls` Block for details.
      * 
      */
     public Optional<VirtualNodeSpecListenerTls> tls() {

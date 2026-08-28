@@ -72,7 +72,7 @@ export class MlflowApp extends pulumi.CustomResource {
      */
     declare public readonly accountDefaultStatus: pulumi.Output<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the MLflow App.
+     * ARN of the MLflow App.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -96,7 +96,7 @@ export class MlflowApp extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
+     * ARN for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
@@ -173,7 +173,7 @@ export interface MlflowAppState {
      */
     accountDefaultStatus?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the MLflow App.
+     * ARN of the MLflow App.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -197,7 +197,7 @@ export interface MlflowAppState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
+     * ARN for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
@@ -244,7 +244,7 @@ export interface MlflowAppArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
+     * ARN for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
      */
     roleArn: pulumi.Input<string>;
     /**

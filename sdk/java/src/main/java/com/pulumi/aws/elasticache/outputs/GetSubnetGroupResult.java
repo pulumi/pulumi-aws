@@ -41,7 +41,7 @@ public final class GetSubnetGroupResult {
      */
     private @Nullable Map<String,String> tags;
     /**
-     * @return The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+     * @return VPC identifier (VPC ID) of the cache subnet group.
      * 
      */
     private String vpcId;
@@ -89,7 +89,7 @@ public final class GetSubnetGroupResult {
         return this.tags == null ? Map.of() : this.tags;
     }
     /**
-     * @return The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+     * @return VPC identifier (VPC ID) of the cache subnet group.
      * 
      */
     public String vpcId() {

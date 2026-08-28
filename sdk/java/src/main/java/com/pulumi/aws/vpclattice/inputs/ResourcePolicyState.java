@@ -46,14 +46,14 @@ public final class ResourcePolicyState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     * ID or ARN of the service network or service for which the policy is created.
      * 
      */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
     /**
-     * @return ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     * @return ID or ARN of the service network or service for which the policy is created.
      * 
      */
     public Optional<Output<String>> resourceArn() {
@@ -129,7 +129,7 @@ public final class ResourcePolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceArn ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+         * @param resourceArn ID or ARN of the service network or service for which the policy is created.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ResourcePolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceArn ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+         * @param resourceArn ID or ARN of the service network or service for which the policy is created.
          * 
          * @return builder
          * 

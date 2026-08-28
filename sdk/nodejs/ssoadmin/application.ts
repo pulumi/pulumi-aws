@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the SSO application.
+ * - `arn` (String) ARN of the SSO application.
  *
  * #### Optional
  *

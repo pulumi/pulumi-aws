@@ -33,14 +33,14 @@ public final class AccountSuppressionAttributesArgs extends com.pulumi.resources
     }
 
     /**
-     * A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
+     * Reasons that email addresses are automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
      * 
      */
     @Import(name="suppressedReasons", required=true)
     private Output<List<String>> suppressedReasons;
 
     /**
-     * @return A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
+     * @return Reasons that email addresses are automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
      * 
      */
     public Output<List<String>> suppressedReasons() {
@@ -94,7 +94,7 @@ public final class AccountSuppressionAttributesArgs extends com.pulumi.resources
         }
 
         /**
-         * @param suppressedReasons A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
+         * @param suppressedReasons Reasons that email addresses are automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class AccountSuppressionAttributesArgs extends com.pulumi.resources
         }
 
         /**
-         * @param suppressedReasons A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
+         * @param suppressedReasons Reasons that email addresses are automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class AccountSuppressionAttributesArgs extends com.pulumi.resources
         }
 
         /**
-         * @param suppressedReasons A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
+         * @param suppressedReasons Reasons that email addresses are automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
          * 
          * @return builder
          * 

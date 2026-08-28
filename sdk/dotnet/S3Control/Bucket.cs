@@ -41,7 +41,7 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// - `Arn` (String) ARN of the bucket.
     /// 
-    /// Using `pulumi import`, import S3 Control Buckets using Amazon Resource Name (ARN). For example:
+    /// Using `pulumi import`, import S3 Control Buckets using ARN. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:s3control/bucket:Bucket example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
@@ -51,7 +51,7 @@ namespace Pulumi.Aws.S3Control
     public partial class Bucket : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the bucket.
+        /// ARN of the bucket.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.S3Control
     public sealed class BucketState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the bucket.
+        /// ARN of the bucket.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Lambda.Inputs
         private InputList<Inputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs>? _accessConfigs;
 
         /// <summary>
-        /// Configuration block for authentication Lambda uses to access the schema registry.
+        /// Configuration block for authentication Lambda uses to access the schema registry. See below.
         /// </summary>
         public InputList<Inputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs> AccessConfigs
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Lambda.Inputs
         private InputList<Inputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs>? _schemaValidationConfigs;
 
         /// <summary>
-        /// Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+        /// Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry. See below.
         /// </summary>
         public InputList<Inputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs> SchemaValidationConfigs
         {

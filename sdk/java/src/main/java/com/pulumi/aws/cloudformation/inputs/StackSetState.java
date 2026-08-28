@@ -36,14 +36,14 @@ public final class StackSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the StackSet.
+     * ARN of the StackSet.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the StackSet.
+     * @return ARN of the StackSet.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -353,7 +353,7 @@ public final class StackSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the StackSet.
+         * @param arn ARN of the StackSet.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class StackSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the StackSet.
+         * @param arn ARN of the StackSet.
          * 
          * @return builder
          * 

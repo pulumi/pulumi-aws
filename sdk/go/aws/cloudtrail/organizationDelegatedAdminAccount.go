@@ -59,7 +59,7 @@ type OrganizationDelegatedAdminAccount struct {
 
 	// An organization member account ID that you want to designate as a delegated administrator.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// The Amazon Resource Name (ARN) of the delegated administrator's account.
+	// ARN of the delegated administrator's account.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The email address that is associated with the delegated administrator's AWS account.
 	Email pulumi.StringOutput `pulumi:"email"`
@@ -104,7 +104,7 @@ func GetOrganizationDelegatedAdminAccount(ctx *pulumi.Context,
 type organizationDelegatedAdminAccountState struct {
 	// An organization member account ID that you want to designate as a delegated administrator.
 	AccountId *string `pulumi:"accountId"`
-	// The Amazon Resource Name (ARN) of the delegated administrator's account.
+	// ARN of the delegated administrator's account.
 	Arn *string `pulumi:"arn"`
 	// The email address that is associated with the delegated administrator's AWS account.
 	Email *string `pulumi:"email"`
@@ -117,7 +117,7 @@ type organizationDelegatedAdminAccountState struct {
 type OrganizationDelegatedAdminAccountState struct {
 	// An organization member account ID that you want to designate as a delegated administrator.
 	AccountId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the delegated administrator's account.
+	// ARN of the delegated administrator's account.
 	Arn pulumi.StringPtrInput
 	// The email address that is associated with the delegated administrator's AWS account.
 	Email pulumi.StringPtrInput
@@ -234,7 +234,7 @@ func (o OrganizationDelegatedAdminAccountOutput) AccountId() pulumi.StringOutput
 	return o.ApplyT(func(v *OrganizationDelegatedAdminAccount) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the delegated administrator's account.
+// ARN of the delegated administrator's account.
 func (o OrganizationDelegatedAdminAccountOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationDelegatedAdminAccount) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

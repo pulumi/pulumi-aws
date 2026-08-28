@@ -400,7 +400,65 @@ import (
 //
 // ```
 //
+// ### Disabling Master Password Rotation
+//
+// When `manageMasterUserPassword` is enabled, Secrets Manager rotates the master user password automatically (every 7 days by default). To disable that rotation while keeping the managed secret, manage the secret's rotation with `secretsmanager.SecretRotation` and set `rotationEnabled = false`.
+//
+// Referencing `aws_db_instance.default.master_user_secret[0].secret_arn` (as in the example below) ensures the rotation change is applied after the instance is available. Avoid hardcoding the secret ARN, which would remove that ordering.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_default, err := rds.NewInstance(ctx, "default", &rds.InstanceArgs{
+//				AllocatedStorage:         pulumi.Int(10),
+//				DbName:                   pulumi.String("mydb"),
+//				Engine:                   pulumi.String("mysql"),
+//				EngineVersion:            pulumi.String("8.0"),
+//				InstanceClass:            pulumi.String(rds.InstanceType_T3_Micro),
+//				ManageMasterUserPassword: pulumi.Bool(true),
+//				Username:                 pulumi.String("foo"),
+//				ParameterGroupName:       pulumi.String("default.mysql8.0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = secretsmanager.NewSecretRotation(ctx, "default", &secretsmanager.SecretRotationArgs{
+//				SecretId: _default.MasterUserSecrets.ApplyT(func(masterUserSecrets []rds.InstanceMasterUserSecret) (*string, error) {
+//					return masterUserSecrets[0].SecretArn, nil
+//				}).(pulumi.StringPtrOutput),
+//				RotationEnabled: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
+//
+// ### Identity Schema
+//
+// #### Required
+//
+// * `identifier` (String) Identifier of the DB Instance.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
 //
 // Using `pulumi import`, import DB Instances using the `identifier`. For example:
 //

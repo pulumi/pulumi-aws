@@ -63,7 +63,7 @@ import (
 type LogDestination struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) specifying the log destination.
+	// ARN specifying the log destination.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A name for the log destination.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -115,7 +115,7 @@ func GetLogDestination(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogDestination resources.
 type logDestinationState struct {
-	// The Amazon Resource Name (ARN) specifying the log destination.
+	// ARN specifying the log destination.
 	Arn *string `pulumi:"arn"`
 	// A name for the log destination.
 	Name *string `pulumi:"name"`
@@ -132,7 +132,7 @@ type logDestinationState struct {
 }
 
 type LogDestinationState struct {
-	// The Amazon Resource Name (ARN) specifying the log destination.
+	// ARN specifying the log destination.
 	Arn pulumi.StringPtrInput
 	// A name for the log destination.
 	Name pulumi.StringPtrInput
@@ -266,7 +266,7 @@ func (o LogDestinationOutput) ToLogDestinationOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The Amazon Resource Name (ARN) specifying the log destination.
+// ARN specifying the log destination.
 func (o LogDestinationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDestination) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -625,7 +625,7 @@ class Endpoint(pulumi.CustomResource):
                  verified_access_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS EC2 (Elastic Compute Cloud) Verified Access Endpoint.
+        Resource for managing an AWS EC2 Verified Access Endpoint.
 
         ## Example Usage
 
@@ -733,7 +733,7 @@ class Endpoint(pulumi.CustomResource):
                  args: EndpointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS EC2 (Elastic Compute Cloud) Verified Access Endpoint.
+        Resource for managing an AWS EC2 Verified Access Endpoint.
 
         ## Example Usage
 

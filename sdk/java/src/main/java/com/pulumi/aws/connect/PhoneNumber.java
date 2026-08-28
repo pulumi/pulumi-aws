@@ -280,14 +280,14 @@ public class PhoneNumber extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
+     * ARN for Amazon Connect instances that phone numbers are claimed to.
      * 
      */
     @Export(name="targetArn", refs={String.class}, tree="[0]")
     private Output<String> targetArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
+     * @return ARN for Amazon Connect instances that phone numbers are claimed to.
      * 
      */
     public Output<String> targetArn() {

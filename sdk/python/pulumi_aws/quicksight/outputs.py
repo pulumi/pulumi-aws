@@ -499,7 +499,7 @@ class AnalysisSourceEntitySourceTemplate(dict):
                  arn: _builtins.str,
                  data_set_references: Sequence['outputs.AnalysisSourceEntitySourceTemplateDataSetReference']):
         """
-        :param _builtins.str arn: The Amazon Resource Name (ARN) of the resource.
+        :param _builtins.str arn: ARN of the resource.
         :param Sequence['AnalysisSourceEntitySourceTemplateDataSetReferenceArgs'] data_set_references: List of dataset references. See data_set_references.
         """
         pulumi.set(__self__, "arn", arn)
@@ -509,7 +509,7 @@ class AnalysisSourceEntitySourceTemplate(dict):
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the resource.
+        ARN of the resource.
         """
         return pulumi.get(self, "arn")
 
@@ -547,7 +547,7 @@ class AnalysisSourceEntitySourceTemplateDataSetReference(dict):
                  data_set_arn: _builtins.str,
                  data_set_placeholder: _builtins.str):
         """
-        :param _builtins.str data_set_arn: Dataset Amazon Resource Name (ARN).
+        :param _builtins.str data_set_arn: Dataset ARN.
         :param _builtins.str data_set_placeholder: Dataset placeholder.
         """
         pulumi.set(__self__, "data_set_arn", data_set_arn)
@@ -557,7 +557,7 @@ class AnalysisSourceEntitySourceTemplateDataSetReference(dict):
     @pulumi.getter(name="dataSetArn")
     def data_set_arn(self) -> _builtins.str:
         """
-        Dataset Amazon Resource Name (ARN).
+        Dataset ARN.
         """
         return pulumi.get(self, "data_set_arn")
 
@@ -1702,7 +1702,7 @@ class DashboardSourceEntitySourceTemplate(dict):
                  arn: _builtins.str,
                  data_set_references: Sequence['outputs.DashboardSourceEntitySourceTemplateDataSetReference']):
         """
-        :param _builtins.str arn: The Amazon Resource Name (ARN) of the resource.
+        :param _builtins.str arn: ARN of the resource.
         :param Sequence['DashboardSourceEntitySourceTemplateDataSetReferenceArgs'] data_set_references: List of dataset references. See data_set_references.
         """
         pulumi.set(__self__, "arn", arn)
@@ -1712,7 +1712,7 @@ class DashboardSourceEntitySourceTemplate(dict):
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the resource.
+        ARN of the resource.
         """
         return pulumi.get(self, "arn")
 
@@ -1750,7 +1750,7 @@ class DashboardSourceEntitySourceTemplateDataSetReference(dict):
                  data_set_arn: _builtins.str,
                  data_set_placeholder: _builtins.str):
         """
-        :param _builtins.str data_set_arn: Dataset Amazon Resource Name (ARN).
+        :param _builtins.str data_set_arn: Dataset ARN.
         :param _builtins.str data_set_placeholder: Dataset placeholder.
         """
         pulumi.set(__self__, "data_set_arn", data_set_arn)
@@ -1760,7 +1760,7 @@ class DashboardSourceEntitySourceTemplateDataSetReference(dict):
     @pulumi.getter(name="dataSetArn")
     def data_set_arn(self) -> _builtins.str:
         """
-        Dataset Amazon Resource Name (ARN).
+        Dataset ARN.
         """
         return pulumi.get(self, "data_set_arn")
 
@@ -3810,10 +3810,10 @@ class DataSourceCredentials(dict):
                  credential_pair: Optional['outputs.DataSourceCredentialsCredentialPair'] = None,
                  secret_arn: Optional[_builtins.str] = None):
         """
-        :param _builtins.str copy_source_arn: The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+        :param _builtins.str copy_source_arn: The ARN of a data source that has the credential pair that you want to use.
                When the value is not null, the `credential_pair` from the data source in the ARN is used.
         :param 'DataSourceCredentialsCredentialPairArgs' credential_pair: Credential pair. See Credential Pair below for more details.
-        :param _builtins.str secret_arn: The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
+        :param _builtins.str secret_arn: The ARN of the secret associated with the data source in Amazon Secrets Manager.
         """
         if copy_source_arn is not None:
             pulumi.set(__self__, "copy_source_arn", copy_source_arn)
@@ -3826,7 +3826,7 @@ class DataSourceCredentials(dict):
     @pulumi.getter(name="copySourceArn")
     def copy_source_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+        The ARN of a data source that has the credential pair that you want to use.
         When the value is not null, the `credential_pair` from the data source in the ARN is used.
         """
         return pulumi.get(self, "copy_source_arn")
@@ -3843,7 +3843,7 @@ class DataSourceCredentials(dict):
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
+        The ARN of the secret associated with the data source in Amazon Secrets Manager.
         """
         return pulumi.get(self, "secret_arn")
 
@@ -5070,7 +5070,7 @@ class DataSourcePermission(dict):
                  principal: _builtins.str):
         """
         :param Sequence[_builtins.str] actions: Set of IAM actions to grant or revoke permissions on. Max of 16 items.
-        :param _builtins.str principal: The Amazon Resource Name (ARN) of the principal.
+        :param _builtins.str principal: ARN of the principal.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "principal", principal)
@@ -5087,7 +5087,7 @@ class DataSourcePermission(dict):
     @pulumi.getter
     def principal(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the principal.
+        ARN of the principal.
         """
         return pulumi.get(self, "principal")
 
@@ -5149,7 +5149,7 @@ class DataSourceVpcConnectionProperties(dict):
     def __init__(__self__, *,
                  vpc_connection_arn: _builtins.str):
         """
-        :param _builtins.str vpc_connection_arn: The Amazon Resource Name (ARN) for the VPC connection.
+        :param _builtins.str vpc_connection_arn: ARN for the VPC connection.
         """
         pulumi.set(__self__, "vpc_connection_arn", vpc_connection_arn)
 
@@ -5157,7 +5157,7 @@ class DataSourceVpcConnectionProperties(dict):
     @pulumi.getter(name="vpcConnectionArn")
     def vpc_connection_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) for the VPC connection.
+        ARN for the VPC connection.
         """
         return pulumi.get(self, "vpc_connection_arn")
 
@@ -5589,7 +5589,7 @@ class TemplateSourceEntitySourceAnalysis(dict):
                  arn: _builtins.str,
                  data_set_references: Sequence['outputs.TemplateSourceEntitySourceAnalysisDataSetReference']):
         """
-        :param _builtins.str arn: The Amazon Resource Name (ARN) of the resource.
+        :param _builtins.str arn: ARN of the resource.
         :param Sequence['TemplateSourceEntitySourceAnalysisDataSetReferenceArgs'] data_set_references: A list of dataset references used as placeholders in the template. See data_set_references.
         """
         pulumi.set(__self__, "arn", arn)
@@ -5599,7 +5599,7 @@ class TemplateSourceEntitySourceAnalysis(dict):
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the resource.
+        ARN of the resource.
         """
         return pulumi.get(self, "arn")
 
@@ -5637,7 +5637,7 @@ class TemplateSourceEntitySourceAnalysisDataSetReference(dict):
                  data_set_arn: _builtins.str,
                  data_set_placeholder: _builtins.str):
         """
-        :param _builtins.str data_set_arn: Dataset Amazon Resource Name (ARN).
+        :param _builtins.str data_set_arn: Dataset ARN.
         :param _builtins.str data_set_placeholder: Dataset placeholder.
         """
         pulumi.set(__self__, "data_set_arn", data_set_arn)
@@ -5647,7 +5647,7 @@ class TemplateSourceEntitySourceAnalysisDataSetReference(dict):
     @pulumi.getter(name="dataSetArn")
     def data_set_arn(self) -> _builtins.str:
         """
-        Dataset Amazon Resource Name (ARN).
+        Dataset ARN.
         """
         return pulumi.get(self, "data_set_arn")
 
@@ -5665,7 +5665,7 @@ class TemplateSourceEntitySourceTemplate(dict):
     def __init__(__self__, *,
                  arn: _builtins.str):
         """
-        :param _builtins.str arn: The Amazon Resource Name (ARN) of the resource.
+        :param _builtins.str arn: ARN of the resource.
         """
         pulumi.set(__self__, "arn", arn)
 
@@ -5673,7 +5673,7 @@ class TemplateSourceEntitySourceTemplate(dict):
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the resource.
+        ARN of the resource.
         """
         return pulumi.get(self, "arn")
 

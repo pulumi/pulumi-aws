@@ -54,9 +54,9 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the DataSync NFS location.
+// - `arn` (String) ARN of the DataSync NFS location.
 //
-// Using `pulumi import`, import `datasync.NfsLocation` using the DataSync Task Amazon Resource Name (ARN). For example:
+// Using `pulumi import`, import `datasync.NfsLocation` using the DataSync Task ARN. For example:
 //
 // ```sh
 // $ pulumi import aws:datasync/nfsLocation:NfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
@@ -64,7 +64,7 @@ import (
 type NfsLocation struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the DataSync Location.
+	// ARN of the DataSync Location.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration block containing mount options used by DataSync to access the NFS Server.
 	MountOptions NfsLocationMountOptionsPtrOutput `pulumi:"mountOptions"`
@@ -122,7 +122,7 @@ func GetNfsLocation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NfsLocation resources.
 type nfsLocationState struct {
-	// Amazon Resource Name (ARN) of the DataSync Location.
+	// ARN of the DataSync Location.
 	Arn *string `pulumi:"arn"`
 	// Configuration block containing mount options used by DataSync to access the NFS Server.
 	MountOptions *NfsLocationMountOptions `pulumi:"mountOptions"`
@@ -142,7 +142,7 @@ type nfsLocationState struct {
 }
 
 type NfsLocationState struct {
-	// Amazon Resource Name (ARN) of the DataSync Location.
+	// ARN of the DataSync Location.
 	Arn pulumi.StringPtrInput
 	// Configuration block containing mount options used by DataSync to access the NFS Server.
 	MountOptions NfsLocationMountOptionsPtrInput
@@ -283,7 +283,7 @@ func (o NfsLocationOutput) ToNfsLocationOutputWithContext(ctx context.Context) N
 	return o
 }
 
-// Amazon Resource Name (ARN) of the DataSync Location.
+// ARN of the DataSync Location.
 func (o NfsLocationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NfsLocation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

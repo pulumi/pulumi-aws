@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class GetDistributionTenantCustomizationCertificate {
     /**
-     * @return ARN (Amazon Resource Name) for the distribution tenant.
+     * @return ARN for the distribution tenant.
      * 
      */
     private String arn;
 
     private GetDistributionTenantCustomizationCertificate() {}
     /**
-     * @return ARN (Amazon Resource Name) for the distribution tenant.
+     * @return ARN for the distribution tenant.
      * 
      */
     public String arn() {

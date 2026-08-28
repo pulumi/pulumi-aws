@@ -63,14 +63,14 @@ public final class OrganizationCustomRuleArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Amazon Resource Name (ARN) of the rule Lambda Function
+     * ARN of the rule Lambda Function
      * 
      */
     @Import(name="lambdaFunctionArn", required=true)
     private Output<String> lambdaFunctionArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the rule Lambda Function
+     * @return ARN of the rule Lambda Function
      * 
      */
     public Output<String> lambdaFunctionArn() {
@@ -306,7 +306,7 @@ public final class OrganizationCustomRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param lambdaFunctionArn Amazon Resource Name (ARN) of the rule Lambda Function
+         * @param lambdaFunctionArn ARN of the rule Lambda Function
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class OrganizationCustomRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param lambdaFunctionArn Amazon Resource Name (ARN) of the rule Lambda Function
+         * @param lambdaFunctionArn ARN of the rule Lambda Function
          * 
          * @return builder
          * 

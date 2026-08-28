@@ -78,14 +78,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of cluster
+     * ARN of cluster
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of cluster
+     * @return ARN of cluster
      * 
      */
     public Optional<Output<String>> arn() {
@@ -153,14 +153,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The namespace Amazon Resource Name (ARN) of the cluster
+     * Namespace ARN of the cluster
      * 
      */
     @Import(name="clusterNamespaceArn")
     private @Nullable Output<String> clusterNamespaceArn;
 
     /**
-     * @return The namespace Amazon Resource Name (ARN) of the cluster
+     * @return Namespace ARN of the cluster
      * 
      */
     public Optional<Output<String>> clusterNamespaceArn() {
@@ -228,14 +228,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+     * Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
      * 
      */
     @Import(name="clusterSubnetGroupName")
     private @Nullable Output<String> clusterSubnetGroupName;
 
     /**
-     * @return The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+     * @return Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
      * 
      */
     public Optional<Output<String>> clusterSubnetGroupName() {
@@ -292,14 +292,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+     * ARN for the IAM role that was set as default for the cluster when the cluster was created.
      * 
      */
     @Import(name="defaultIamRoleArn")
     private @Nullable Output<String> defaultIamRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+     * @return ARN for the IAM role that was set as default for the cluster when the cluster was created.
      * 
      */
     public Optional<Output<String>> defaultIamRoleArn() {
@@ -810,14 +810,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+     * List of VPC security groups to be associated with the cluster.
      * 
      */
     @Import(name="vpcSecurityGroupIds")
     private @Nullable Output<List<String>> vpcSecurityGroupIds;
 
     /**
-     * @return A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+     * @return List of VPC security groups to be associated with the cluster.
      * 
      */
     public Optional<Output<List<String>>> vpcSecurityGroupIds() {
@@ -973,7 +973,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of cluster
+         * @param arn ARN of cluster
          * 
          * @return builder
          * 
@@ -984,7 +984,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of cluster
+         * @param arn ARN of cluster
          * 
          * @return builder
          * 
@@ -1078,7 +1078,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterNamespaceArn The namespace Amazon Resource Name (ARN) of the cluster
+         * @param clusterNamespaceArn Namespace ARN of the cluster
          * 
          * @return builder
          * 
@@ -1089,7 +1089,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterNamespaceArn The namespace Amazon Resource Name (ARN) of the cluster
+         * @param clusterNamespaceArn Namespace ARN of the cluster
          * 
          * @return builder
          * 
@@ -1193,7 +1193,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterSubnetGroupName The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+         * @param clusterSubnetGroupName Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
          * 
          * @return builder
          * 
@@ -1204,7 +1204,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterSubnetGroupName The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+         * @param clusterSubnetGroupName Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
          * 
          * @return builder
          * 
@@ -1281,7 +1281,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultIamRoleArn The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+         * @param defaultIamRoleArn ARN for the IAM role that was set as default for the cluster when the cluster was created.
          * 
          * @return builder
          * 
@@ -1292,7 +1292,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultIamRoleArn The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+         * @param defaultIamRoleArn ARN for the IAM role that was set as default for the cluster when the cluster was created.
          * 
          * @return builder
          * 
@@ -2001,7 +2001,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcSecurityGroupIds A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+         * @param vpcSecurityGroupIds List of VPC security groups to be associated with the cluster.
          * 
          * @return builder
          * 
@@ -2012,7 +2012,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcSecurityGroupIds A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+         * @param vpcSecurityGroupIds List of VPC security groups to be associated with the cluster.
          * 
          * @return builder
          * 
@@ -2022,7 +2022,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcSecurityGroupIds A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+         * @param vpcSecurityGroupIds List of VPC security groups to be associated with the cluster.
          * 
          * @return builder
          * 

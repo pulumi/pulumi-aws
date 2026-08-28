@@ -10023,6 +10023,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "pinpoint/smsvoicev2Keyword",
+  "fqn": "pulumi_aws.pinpoint",
+  "classes": {
+   "aws:pinpoint/smsvoicev2Keyword:Smsvoicev2Keyword": "Smsvoicev2Keyword"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "pinpoint/smsvoicev2OptOutList",
   "fqn": "pulumi_aws.pinpoint",
   "classes": {
@@ -12891,6 +12899,14 @@ _utilities.register(
   "fqn": "pulumi_aws.sesv2",
   "classes": {
    "aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy": "EmailIdentityPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "sesv2/multiRegionEndpoint",
+  "fqn": "pulumi_aws.sesv2",
+  "classes": {
+   "aws:sesv2/multiRegionEndpoint:MultiRegionEndpoint": "MultiRegionEndpoint"
   }
  },
  {

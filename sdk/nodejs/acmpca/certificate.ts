@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the ACM PCA certificate.
+ * - `arn` (String) ARN of the ACM PCA certificate.
  *
  * Using `pulumi import`, import ACM PCA Certificates using their ARN. For example:
  *

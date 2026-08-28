@@ -176,7 +176,7 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+        /// VPC identifier (VPC ID) of the cache subnet group.
         /// </summary>
         public readonly string VpcId;
 

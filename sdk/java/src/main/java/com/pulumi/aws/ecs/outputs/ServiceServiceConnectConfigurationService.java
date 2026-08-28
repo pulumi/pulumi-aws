@@ -43,7 +43,7 @@ public final class ServiceServiceConnectConfigurationService {
      */
     private @Nullable ServiceServiceConnectConfigurationServiceTimeout timeout;
     /**
-     * @return Configuration for enabling Transport Layer Security (TLS)
+     * @return Configuration for enabling TLS
      * 
      */
     private @Nullable ServiceServiceConnectConfigurationServiceTls tls;
@@ -85,7 +85,7 @@ public final class ServiceServiceConnectConfigurationService {
         return Optional.ofNullable(this.timeout);
     }
     /**
-     * @return Configuration for enabling Transport Layer Security (TLS)
+     * @return Configuration for enabling TLS
      * 
      */
     public Optional<ServiceServiceConnectConfigurationServiceTls> tls() {

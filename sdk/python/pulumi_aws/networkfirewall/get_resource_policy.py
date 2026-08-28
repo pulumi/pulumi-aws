@@ -96,7 +96,7 @@ def get_resource_policy(region: Optional[_builtins.str] = None,
 
 
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str resource_arn: The Amazon Resource Name (ARN) that identifies the resource policy.
+    :param _builtins.str resource_arn: ARN that identifies the resource policy.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -126,7 +126,7 @@ def get_resource_policy_output(region: pulumi.Input[Optional[Optional[_builtins.
 
 
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str resource_arn: The Amazon Resource Name (ARN) that identifies the resource policy.
+    :param _builtins.str resource_arn: ARN that identifies the resource policy.
     """
     __args__ = dict()
     __args__['region'] = region

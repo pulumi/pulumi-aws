@@ -61,7 +61,7 @@ export class DelegationSet extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Delegation Set.
+     * ARN of the Delegation Set.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -107,7 +107,7 @@ export class DelegationSet extends pulumi.CustomResource {
  */
 export interface DelegationSetState {
     /**
-     * The Amazon Resource Name (ARN) of the Delegation Set.
+     * ARN of the Delegation Set.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

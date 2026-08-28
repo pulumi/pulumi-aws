@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Glue registry.
+ * - `arn` (String) ARN of the Glue registry.
  * 
  * Using `pulumi import`, import Glue Registries using `arn`. For example:
  * 
@@ -69,14 +69,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:glue/registry:Registry")
 public class Registry extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of Glue Registry.
+     * ARN of Glue Registry.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of Glue Registry.
+     * @return ARN of Glue Registry.
      * 
      */
     public Output<String> arn() {

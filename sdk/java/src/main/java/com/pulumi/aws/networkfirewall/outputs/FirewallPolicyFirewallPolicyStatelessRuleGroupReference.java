@@ -17,7 +17,7 @@ public final class FirewallPolicyFirewallPolicyStatelessRuleGroupReference {
      */
     private Integer priority;
     /**
-     * @return The Amazon Resource Name (ARN) of the stateless rule group.
+     * @return ARN of the stateless rule group.
      * 
      */
     private String resourceArn;
@@ -31,7 +31,7 @@ public final class FirewallPolicyFirewallPolicyStatelessRuleGroupReference {
         return this.priority;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the stateless rule group.
+     * @return ARN of the stateless rule group.
      * 
      */
     public String resourceArn() {

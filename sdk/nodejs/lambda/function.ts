@@ -658,7 +658,7 @@ export class Function extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly invokeArn: pulumi.Output<string>;
     /**
-     * ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
+     * ARN of the KMS key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
      */
     declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
     /**
@@ -768,7 +768,7 @@ export class Function extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly sourceCodeSize: pulumi.Output<number>;
     /**
-     * ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `imageUri`.
+     * ARN of the KMS key used to encrypt the function's `.zip` deployment package. Conflicts with `imageUri`.
      */
     declare public readonly sourceKmsKeyArn: pulumi.Output<string | undefined>;
     /**
@@ -1001,7 +1001,7 @@ export interface FunctionState {
      */
     invokeArn?: pulumi.Input<string | undefined>;
     /**
-     * ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
+     * ARN of the KMS key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
      */
     kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
@@ -1111,7 +1111,7 @@ export interface FunctionState {
      */
     sourceCodeSize?: pulumi.Input<number | undefined>;
     /**
-     * ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `imageUri`.
+     * ARN of the KMS key used to encrypt the function's `.zip` deployment package. Conflicts with `imageUri`.
      */
     sourceKmsKeyArn?: pulumi.Input<string | undefined>;
     /**
@@ -1209,7 +1209,7 @@ export interface FunctionArgs {
      */
     imageUri?: pulumi.Input<string | undefined>;
     /**
-     * ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
+     * ARN of the KMS key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
      */
     kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
@@ -1291,7 +1291,7 @@ export interface FunctionArgs {
      */
     sourceCodeHash?: pulumi.Input<string | undefined>;
     /**
-     * ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `imageUri`.
+     * ARN of the KMS key used to encrypt the function's `.zip` deployment package. Conflicts with `imageUri`.
      */
     sourceKmsKeyArn?: pulumi.Input<string | undefined>;
     /**

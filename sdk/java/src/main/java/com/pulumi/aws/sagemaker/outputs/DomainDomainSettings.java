@@ -31,7 +31,7 @@ public final class DomainDomainSettings {
      */
     private @Nullable DomainDomainSettingsRStudioServerProDomainSettings rStudioServerProDomainSettings;
     /**
-     * @return The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+     * @return Security groups for the VPC that the Domain uses for communication between Domain-level apps and user apps.
      * 
      */
     private @Nullable List<String> securityGroupIds;
@@ -64,7 +64,7 @@ public final class DomainDomainSettings {
         return Optional.ofNullable(this.rStudioServerProDomainSettings);
     }
     /**
-     * @return The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+     * @return Security groups for the VPC that the Domain uses for communication between Domain-level apps and user apps.
      * 
      */
     public List<String> securityGroupIds() {

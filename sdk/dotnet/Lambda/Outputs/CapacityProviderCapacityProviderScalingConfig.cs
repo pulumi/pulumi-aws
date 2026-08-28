@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Lambda.Outputs
     public sealed class CapacityProviderCapacityProviderScalingConfig
     {
         /// <summary>
-        /// The maximum number of VCPUs for the Capacity Provider.
+        /// Maximum number of VCPUs for the Capacity Provider.
         /// </summary>
         public readonly int MaxVcpuCount;
         /// <summary>
-        /// The scaling mode for the Capacity Provider. Valid values are `"Auto"` and `"Manual"`. Defaults to `"Auto"`.
+        /// Scaling mode for the Capacity Provider. Valid values are `"Auto"` and `"Manual"`. Defaults to `"Auto"`.
         /// </summary>
         public readonly string ScalingMode;
         /// <summary>

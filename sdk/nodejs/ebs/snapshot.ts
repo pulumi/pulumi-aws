@@ -65,7 +65,7 @@ export class Snapshot extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the EBS Snapshot.
+     * ARN of the EBS Snapshot.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -85,7 +85,7 @@ export class Snapshot extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly kmsKeyId: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+     * ARN of the Outpost on which to create a local snapshot.
      */
     declare public readonly outpostArn: pulumi.Output<string | undefined>;
     /**
@@ -190,7 +190,7 @@ export class Snapshot extends pulumi.CustomResource {
  */
 export interface SnapshotState {
     /**
-     * Amazon Resource Name (ARN) of the EBS Snapshot.
+     * ARN of the EBS Snapshot.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -210,7 +210,7 @@ export interface SnapshotState {
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+     * ARN of the Outpost on which to create a local snapshot.
      */
     outpostArn?: pulumi.Input<string | undefined>;
     /**
@@ -264,7 +264,7 @@ export interface SnapshotArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+     * ARN of the Outpost on which to create a local snapshot.
      */
     outpostArn?: pulumi.Input<string | undefined>;
     /**

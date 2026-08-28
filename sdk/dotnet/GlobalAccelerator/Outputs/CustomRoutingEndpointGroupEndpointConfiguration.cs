@@ -14,7 +14,7 @@ namespace Pulumi.Aws.GlobalAccelerator.Outputs
     public sealed class CustomRoutingEndpointGroupEndpointConfiguration
     {
         /// <summary>
-        /// An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
+        /// ID for the endpoint. For custom routing accelerators, this is the VPC subnet ID.
         /// </summary>
         public readonly string? EndpointId;
 

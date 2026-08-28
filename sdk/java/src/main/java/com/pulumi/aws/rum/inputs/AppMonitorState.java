@@ -51,14 +51,14 @@ public final class AppMonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) specifying the app monitor.
+     * ARN specifying the app monitor.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) specifying the app monitor.
+     * @return ARN specifying the app monitor.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -278,7 +278,7 @@ public final class AppMonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) specifying the app monitor.
+         * @param arn ARN specifying the app monitor.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class AppMonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) specifying the app monitor.
+         * @param arn ARN specifying the app monitor.
          * 
          * @return builder
          * 

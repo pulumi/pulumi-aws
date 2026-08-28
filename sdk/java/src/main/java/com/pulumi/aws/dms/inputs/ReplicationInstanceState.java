@@ -141,14 +141,14 @@ public final class ReplicationInstanceState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      * 
      */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     * @return ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
@@ -231,14 +231,14 @@ public final class ReplicationInstanceState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the replication instance.
+     * ARN of the replication instance.
      * 
      */
     @Import(name="replicationInstanceArn")
     private @Nullable Output<String> replicationInstanceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the replication instance.
+     * @return ARN of the replication instance.
      * 
      */
     public Optional<Output<String>> replicationInstanceArn() {
@@ -580,7 +580,7 @@ public final class ReplicationInstanceState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param kmsKeyArn The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+         * @param kmsKeyArn ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
          * 
          * @return builder
          * 
@@ -591,7 +591,7 @@ public final class ReplicationInstanceState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param kmsKeyArn The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+         * @param kmsKeyArn ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
          * 
          * @return builder
          * 
@@ -706,7 +706,7 @@ public final class ReplicationInstanceState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param replicationInstanceArn The Amazon Resource Name (ARN) of the replication instance.
+         * @param replicationInstanceArn ARN of the replication instance.
          * 
          * @return builder
          * 
@@ -717,7 +717,7 @@ public final class ReplicationInstanceState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param replicationInstanceArn The Amazon Resource Name (ARN) of the replication instance.
+         * @param replicationInstanceArn ARN of the replication instance.
          * 
          * @return builder
          * 

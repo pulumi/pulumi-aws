@@ -25,7 +25,7 @@ class LambdaFunctionAssociationArgs:
         """
         The set of arguments for constructing a LambdaFunctionAssociation resource.
 
-        :param pulumi.Input[_builtins.str] function_arn: Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        :param pulumi.Input[_builtins.str] function_arn: ARN of the Lambda Function, omitting any version or alias qualifier.
         :param pulumi.Input[_builtins.str] instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -38,7 +38,7 @@ class LambdaFunctionAssociationArgs:
     @pulumi.getter(name="functionArn")
     def function_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        ARN of the Lambda Function, omitting any version or alias qualifier.
         """
         return pulumi.get(self, "function_arn")
 
@@ -80,7 +80,7 @@ class _LambdaFunctionAssociationState:
         """
         Input properties used for looking up and filtering LambdaFunctionAssociation resources.
 
-        :param pulumi.Input[_builtins.str] function_arn: Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        :param pulumi.Input[_builtins.str] function_arn: ARN of the Lambda Function, omitting any version or alias qualifier.
         :param pulumi.Input[_builtins.str] instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -95,7 +95,7 @@ class _LambdaFunctionAssociationState:
     @pulumi.getter(name="functionArn")
     def function_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        ARN of the Lambda Function, omitting any version or alias qualifier.
         """
         return pulumi.get(self, "function_arn")
 
@@ -164,7 +164,7 @@ class LambdaFunctionAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] function_arn: Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        :param pulumi.Input[_builtins.str] function_arn: ARN of the Lambda Function, omitting any version or alias qualifier.
         :param pulumi.Input[_builtins.str] instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -252,7 +252,7 @@ class LambdaFunctionAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] function_arn: Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        :param pulumi.Input[_builtins.str] function_arn: ARN of the Lambda Function, omitting any version or alias qualifier.
         :param pulumi.Input[_builtins.str] instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -269,7 +269,7 @@ class LambdaFunctionAssociation(pulumi.CustomResource):
     @pulumi.getter(name="functionArn")
     def function_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        ARN of the Lambda Function, omitting any version or alias qualifier.
         """
         return pulumi.get(self, "function_arn")
 

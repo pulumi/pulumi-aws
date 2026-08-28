@@ -48,14 +48,14 @@ public final class DataQualityJobDefinitionJobResourcesClusterConfigArgs extends
     }
 
     /**
-     * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
+     * KMS key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
      * 
      */
     @Import(name="volumeKmsKeyId")
     private @Nullable Output<String> volumeKmsKeyId;
 
     /**
-     * @return The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
+     * @return KMS key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
      * 
      */
     public Optional<Output<String>> volumeKmsKeyId() {
@@ -147,7 +147,7 @@ public final class DataQualityJobDefinitionJobResourcesClusterConfigArgs extends
         }
 
         /**
-         * @param volumeKmsKeyId The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
+         * @param volumeKmsKeyId KMS key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class DataQualityJobDefinitionJobResourcesClusterConfigArgs extends
         }
 
         /**
-         * @param volumeKmsKeyId The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
+         * @param volumeKmsKeyId KMS key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
          * 
          * @return builder
          * 

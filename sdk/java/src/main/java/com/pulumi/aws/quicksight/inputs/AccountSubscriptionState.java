@@ -227,14 +227,14 @@ public final class AccountSubscriptionState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+     * ARN for the IAM Identity Center instance.
      * 
      */
     @Import(name="iamIdentityCenterInstanceArn")
     private @Nullable Output<String> iamIdentityCenterInstanceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+     * @return ARN for the IAM Identity Center instance.
      * 
      */
     public Optional<Output<String>> iamIdentityCenterInstanceArn() {
@@ -714,7 +714,7 @@ public final class AccountSubscriptionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param iamIdentityCenterInstanceArn The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+         * @param iamIdentityCenterInstanceArn ARN for the IAM Identity Center instance.
          * 
          * @return builder
          * 
@@ -725,7 +725,7 @@ public final class AccountSubscriptionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param iamIdentityCenterInstanceArn The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+         * @param iamIdentityCenterInstanceArn ARN for the IAM Identity Center instance.
          * 
          * @return builder
          * 

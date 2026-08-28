@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws.storagegateway.TapePool` using the volume Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.storagegateway.TapePool` using the volume ARN. For example:
  * 
  * ```sh
  * $ pulumi import aws:storagegateway/tapePool:TapePool example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678
@@ -65,14 +65,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:storagegateway/tapePool:TapePool")
 public class TapePool extends com.pulumi.resources.CustomResource {
     /**
-     * Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
+     * Volume ARN, e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
+     * @return Volume ARN, e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
      * 
      */
     public Output<String> arn() {

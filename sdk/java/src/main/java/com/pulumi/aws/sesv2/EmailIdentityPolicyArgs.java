@@ -17,14 +17,14 @@ public final class EmailIdentityPolicyArgs extends com.pulumi.resources.Resource
     public static final EmailIdentityPolicyArgs Empty = new EmailIdentityPolicyArgs();
 
     /**
-     * The email identity.
+     * Email identity.
      * 
      */
     @Import(name="emailIdentity", required=true)
     private Output<String> emailIdentity;
 
     /**
-     * @return The email identity.
+     * @return Email identity.
      * 
      */
     public Output<String> emailIdentity() {
@@ -104,7 +104,7 @@ public final class EmailIdentityPolicyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param emailIdentity The email identity.
+         * @param emailIdentity Email identity.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class EmailIdentityPolicyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param emailIdentity The email identity.
+         * @param emailIdentity Email identity.
          * 
          * @return builder
          * 

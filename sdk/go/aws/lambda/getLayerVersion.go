@@ -268,19 +268,17 @@ func LookupLayerVersion(ctx *pulumi.Context, args *LookupLayerVersionArgs, opts 
 
 // A collection of arguments for invoking getLayerVersion.
 type LookupLayerVersionArgs struct {
-	// Specific architecture the layer version must support. Conflicts with `version` and `layerVersionArn`. If specified, the latest available layer version supporting the provided architecture will be used.
+	// Specific architecture the layer version must support. Only valid with `layerName`. Conflicts with `version` and `layerVersionArn`. If specified, the latest available layer version supporting the provided architecture will be used.
 	CompatibleArchitecture *string `pulumi:"compatibleArchitecture"`
-	// Specific runtime the layer version must support. Conflicts with `version` and `layerVersionArn`. If specified, the latest available layer version supporting the provided runtime will be used.
+	// Specific runtime the layer version must support. Only valid with `layerName`. Conflicts with `version` and `layerVersionArn`. If specified, the latest available layer version supporting the provided runtime will be used.
 	CompatibleRuntime *string `pulumi:"compatibleRuntime"`
-	// Name of the Lambda layer.
+	// Name of the Lambda layer. One of `layerName` or `layerVersionArn` is required.
 	LayerName *string `pulumi:"layerName"`
-	// ARN of the Lambda layer version. Can be a full ARN with version (e.g., `arn:aws:lambda:region:account:layer:name:1`) or without version (e.g., `arn:aws:lambda:region:account:layer:name`). When the version is omitted, the latest version will be retrieved (requires `lambda:ListLayerVersions` permission). Use the full ARN with version for cross-account layers where you don't have list permissions.
-	//
-	// The following are optional when using `layerName`:
+	// ARN of the Lambda layer version. Can be a full ARN with version (e.g., `arn:aws:lambda:region:account:layer:name:1`) or without version (e.g., `arn:aws:lambda:region:account:layer:name`). When the version is omitted, the latest version will be retrieved (requires `lambda:ListLayerVersions` permission). Use the full ARN with version for cross-account layers where you don't have list permissions. One of `layerName` or `layerVersionArn` is required.
 	LayerVersionArn *string `pulumi:"layerVersionArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Specific layer version. Conflicts with `compatibleRuntime`, `compatibleArchitecture`, and `layerVersionArn`. If omitted, the latest available layer version will be used.
+	// Specific layer version. Only valid with `layerName`. Conflicts with `compatibleRuntime`, `compatibleArchitecture`, and `layerVersionArn`. If omitted, the latest available layer version will be used.
 	Version *int `pulumi:"version"`
 }
 
@@ -329,19 +327,17 @@ func LookupLayerVersionOutput(ctx *pulumi.Context, args LookupLayerVersionOutput
 
 // A collection of arguments for invoking getLayerVersion.
 type LookupLayerVersionOutputArgs struct {
-	// Specific architecture the layer version must support. Conflicts with `version` and `layerVersionArn`. If specified, the latest available layer version supporting the provided architecture will be used.
+	// Specific architecture the layer version must support. Only valid with `layerName`. Conflicts with `version` and `layerVersionArn`. If specified, the latest available layer version supporting the provided architecture will be used.
 	CompatibleArchitecture pulumi.StringPtrInput `pulumi:"compatibleArchitecture"`
-	// Specific runtime the layer version must support. Conflicts with `version` and `layerVersionArn`. If specified, the latest available layer version supporting the provided runtime will be used.
+	// Specific runtime the layer version must support. Only valid with `layerName`. Conflicts with `version` and `layerVersionArn`. If specified, the latest available layer version supporting the provided runtime will be used.
 	CompatibleRuntime pulumi.StringPtrInput `pulumi:"compatibleRuntime"`
-	// Name of the Lambda layer.
+	// Name of the Lambda layer. One of `layerName` or `layerVersionArn` is required.
 	LayerName pulumi.StringPtrInput `pulumi:"layerName"`
-	// ARN of the Lambda layer version. Can be a full ARN with version (e.g., `arn:aws:lambda:region:account:layer:name:1`) or without version (e.g., `arn:aws:lambda:region:account:layer:name`). When the version is omitted, the latest version will be retrieved (requires `lambda:ListLayerVersions` permission). Use the full ARN with version for cross-account layers where you don't have list permissions.
-	//
-	// The following are optional when using `layerName`:
+	// ARN of the Lambda layer version. Can be a full ARN with version (e.g., `arn:aws:lambda:region:account:layer:name:1`) or without version (e.g., `arn:aws:lambda:region:account:layer:name`). When the version is omitted, the latest version will be retrieved (requires `lambda:ListLayerVersions` permission). Use the full ARN with version for cross-account layers where you don't have list permissions. One of `layerName` or `layerVersionArn` is required.
 	LayerVersionArn pulumi.StringPtrInput `pulumi:"layerVersionArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Specific layer version. Conflicts with `compatibleRuntime`, `compatibleArchitecture`, and `layerVersionArn`. If omitted, the latest available layer version will be used.
+	// Specific layer version. Only valid with `layerName`. Conflicts with `compatibleRuntime`, `compatibleArchitecture`, and `layerVersionArn`. If omitted, the latest available layer version will be used.
 	Version pulumi.IntPtrInput `pulumi:"version"`
 }
 

@@ -185,7 +185,7 @@ type LookupBucketObjectResult struct {
 	Region                    string  `pulumi:"region"`
 	// If the object is stored using server-side encryption (KMS or Amazon S3-managed encryption key), this field includes the chosen encryption and algorithm used.
 	ServerSideEncryption string `pulumi:"serverSideEncryption"`
-	// If present, specifies the ID of the Key Management Service (KMS) master encryption key that was used for the object.
+	// If present, specifies the ID of the KMS master encryption key that was used for the object.
 	SseKmsKeyId string `pulumi:"sseKmsKeyId"`
 	// [Storage class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html) information of the object. Available for all objects except for `Standard` storage class objects.
 	StorageClass string `pulumi:"storageClass"`
@@ -351,7 +351,7 @@ func (o LookupBucketObjectResultOutput) ServerSideEncryption() pulumi.StringOutp
 	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.ServerSideEncryption }).(pulumi.StringOutput)
 }
 
-// If present, specifies the ID of the Key Management Service (KMS) master encryption key that was used for the object.
+// If present, specifies the ID of the KMS master encryption key that was used for the object.
 func (o LookupBucketObjectResultOutput) SseKmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.SseKmsKeyId }).(pulumi.StringOutput)
 }

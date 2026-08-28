@@ -105,11 +105,11 @@ import (
 type AgentPrompt struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the prompt.
+	// ARN of the prompt.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Time at which the prompt was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
+	// ARN of the KMS key that you encrypted the prompt with.
 	CustomerEncryptionKeyArn pulumi.StringPtrOutput `pulumi:"customerEncryptionKeyArn"`
 	// Name of the default variant for your prompt.
 	DefaultVariant pulumi.StringPtrOutput `pulumi:"defaultVariant"`
@@ -163,11 +163,11 @@ func GetAgentPrompt(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AgentPrompt resources.
 type agentPromptState struct {
-	// Amazon Resource Name (ARN) of the prompt.
+	// ARN of the prompt.
 	Arn *string `pulumi:"arn"`
 	// Time at which the prompt was created.
 	CreatedAt *string `pulumi:"createdAt"`
-	// Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
+	// ARN of the KMS key that you encrypted the prompt with.
 	CustomerEncryptionKeyArn *string `pulumi:"customerEncryptionKeyArn"`
 	// Name of the default variant for your prompt.
 	DefaultVariant *string `pulumi:"defaultVariant"`
@@ -192,11 +192,11 @@ type agentPromptState struct {
 }
 
 type AgentPromptState struct {
-	// Amazon Resource Name (ARN) of the prompt.
+	// ARN of the prompt.
 	Arn pulumi.StringPtrInput
 	// Time at which the prompt was created.
 	CreatedAt pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
+	// ARN of the KMS key that you encrypted the prompt with.
 	CustomerEncryptionKeyArn pulumi.StringPtrInput
 	// Name of the default variant for your prompt.
 	DefaultVariant pulumi.StringPtrInput
@@ -225,7 +225,7 @@ func (AgentPromptState) ElementType() reflect.Type {
 }
 
 type agentPromptArgs struct {
-	// Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
+	// ARN of the KMS key that you encrypted the prompt with.
 	CustomerEncryptionKeyArn *string `pulumi:"customerEncryptionKeyArn"`
 	// Name of the default variant for your prompt.
 	DefaultVariant *string `pulumi:"defaultVariant"`
@@ -245,7 +245,7 @@ type agentPromptArgs struct {
 
 // The set of arguments for constructing a AgentPrompt resource.
 type AgentPromptArgs struct {
-	// Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
+	// ARN of the KMS key that you encrypted the prompt with.
 	CustomerEncryptionKeyArn pulumi.StringPtrInput
 	// Name of the default variant for your prompt.
 	DefaultVariant pulumi.StringPtrInput
@@ -350,7 +350,7 @@ func (o AgentPromptOutput) ToAgentPromptOutputWithContext(ctx context.Context) A
 	return o
 }
 
-// Amazon Resource Name (ARN) of the prompt.
+// ARN of the prompt.
 func (o AgentPromptOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentPrompt) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -360,7 +360,7 @@ func (o AgentPromptOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentPrompt) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
+// ARN of the KMS key that you encrypted the prompt with.
 func (o AgentPromptOutput) CustomerEncryptionKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentPrompt) pulumi.StringPtrOutput { return v.CustomerEncryptionKeyArn }).(pulumi.StringPtrOutput)
 }

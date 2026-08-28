@@ -58,7 +58,7 @@ export interface GetSecurityGroupRuleArgs {
  */
 export interface GetSecurityGroupRuleResult {
     /**
-     * The Amazon Resource Name (ARN) of the security group rule.
+     * ARN of the security group rule.
      */
     readonly arn: string;
     /**

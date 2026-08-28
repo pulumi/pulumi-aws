@@ -68,7 +68,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Global Accelerator cross-account attachment.
+    /// - `Arn` (String) ARN of the Global Accelerator cross-account attachment.
     /// 
     /// Using `pulumi import`, import Global Accelerator Cross Account Attachment using the `Arn`. For example:
     /// 

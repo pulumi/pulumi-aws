@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Fsx.Inputs
         }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `Username` and `Password`.
+        /// ARN for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `Username` and `Password`.
         /// </summary>
         [Input("domainJoinServiceAccountSecret")]
         public Input<string>? DomainJoinServiceAccountSecret { get; set; }

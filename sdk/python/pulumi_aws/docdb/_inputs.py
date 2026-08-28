@@ -358,7 +358,7 @@ class ElasticClusterTimeoutsArgs:
 class GlobalClusterGlobalClusterMemberArgsDict(TypedDict):
     db_cluster_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Amazon Resource Name (ARN) of member DB Cluster.
+    ARN of member DB Cluster.
     """
     is_writer: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -371,7 +371,7 @@ class GlobalClusterGlobalClusterMemberArgs:
                  db_cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  is_writer: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.str] db_cluster_arn: Amazon Resource Name (ARN) of member DB Cluster.
+        :param pulumi.Input[_builtins.str] db_cluster_arn: ARN of member DB Cluster.
         :param pulumi.Input[_builtins.bool] is_writer: Whether the member is the primary DB Cluster.
         """
         if db_cluster_arn is not None:
@@ -383,7 +383,7 @@ class GlobalClusterGlobalClusterMemberArgs:
     @pulumi.getter(name="dbClusterArn")
     def db_cluster_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of member DB Cluster.
+        ARN of member DB Cluster.
         """
         return pulumi.get(self, "db_cluster_arn")
 

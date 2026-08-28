@@ -218,7 +218,7 @@ export class GlobalCluster extends pulumi.CustomResource {
     }
 
     /**
-     * RDS Global Cluster Amazon Resource Name (ARN).
+     * RDS Global Cluster ARN.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -269,7 +269,7 @@ export class GlobalCluster extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
+     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
      */
     declare public readonly sourceDbClusterIdentifier: pulumi.Output<string>;
     /**
@@ -350,7 +350,7 @@ export class GlobalCluster extends pulumi.CustomResource {
  */
 export interface GlobalClusterState {
     /**
-     * RDS Global Cluster Amazon Resource Name (ARN).
+     * RDS Global Cluster ARN.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -401,7 +401,7 @@ export interface GlobalClusterState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
+     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
      */
     sourceDbClusterIdentifier?: pulumi.Input<string | undefined>;
     /**
@@ -459,7 +459,7 @@ export interface GlobalClusterArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
+     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
      */
     sourceDbClusterIdentifier?: pulumi.Input<string | undefined>;
     /**

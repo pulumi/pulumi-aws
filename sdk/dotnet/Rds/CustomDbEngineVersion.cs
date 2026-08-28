@@ -150,7 +150,7 @@ namespace Pulumi.Aws.Rds
     public partial class CustomDbEngineVersion : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the custom engine version.
+        /// ARN for the custom engine version.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -408,7 +408,7 @@ namespace Pulumi.Aws.Rds
     public sealed class CustomDbEngineVersionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the custom engine version.
+        /// ARN for the custom engine version.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -95,14 +95,14 @@ public final class DeviceFleetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
+     * ARN that has access to AWS Internet of Things (IoT).
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
+     * @return ARN that has access to AWS Internet of Things (IoT).
      * 
      */
     public Output<String> roleArn() {
@@ -260,7 +260,7 @@ public final class DeviceFleetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
+         * @param roleArn ARN that has access to AWS Internet of Things (IoT).
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class DeviceFleetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
+         * @param roleArn ARN that has access to AWS Internet of Things (IoT).
          * 
          * @return builder
          * 

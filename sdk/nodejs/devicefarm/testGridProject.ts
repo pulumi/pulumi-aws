@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the Device Farm test grid project.
+ * - `arn` (String) ARN of the Device Farm test grid project.
  *
  * Using `pulumi import`, import DeviceFarm Test Grid Projects using their ARN. For example:
  *
@@ -71,7 +71,7 @@ export class TestGridProject extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name of this Test Grid Project.
+     * ARN of this Test Grid Project.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -139,7 +139,7 @@ export class TestGridProject extends pulumi.CustomResource {
  */
 export interface TestGridProjectState {
     /**
-     * The Amazon Resource Name of this Test Grid Project.
+     * ARN of this Test Grid Project.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

@@ -15,14 +15,14 @@ public final class ConfigurationSetEventDestinationEventDestinationCloudWatchDes
     public static final ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs Empty = new ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs();
 
     /**
-     * The default value of the dimension that is published to Amazon CloudWatch if you don&#39;t provide the value of the dimension when you send an email.
+     * Default value of the dimension that is published to Amazon CloudWatch if you don&#39;t provide the value of the dimension when you send an email.
      * 
      */
     @Import(name="defaultDimensionValue", required=true)
     private Output<String> defaultDimensionValue;
 
     /**
-     * @return The default value of the dimension that is published to Amazon CloudWatch if you don&#39;t provide the value of the dimension when you send an email.
+     * @return Default value of the dimension that is published to Amazon CloudWatch if you don&#39;t provide the value of the dimension when you send an email.
      * 
      */
     public Output<String> defaultDimensionValue() {
@@ -30,14 +30,14 @@ public final class ConfigurationSetEventDestinationEventDestinationCloudWatchDes
     }
 
     /**
-     * The name of an Amazon CloudWatch dimension associated with an email sending metric.
+     * Name of an Amazon CloudWatch dimension associated with an email sending metric.
      * 
      */
     @Import(name="dimensionName", required=true)
     private Output<String> dimensionName;
 
     /**
-     * @return The name of an Amazon CloudWatch dimension associated with an email sending metric.
+     * @return Name of an Amazon CloudWatch dimension associated with an email sending metric.
      * 
      */
     public Output<String> dimensionName() {
@@ -45,14 +45,14 @@ public final class ConfigurationSetEventDestinationEventDestinationCloudWatchDes
     }
 
     /**
-     * The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
+     * Location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
      * 
      */
     @Import(name="dimensionValueSource", required=true)
     private Output<String> dimensionValueSource;
 
     /**
-     * @return The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
+     * @return Location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
      * 
      */
     public Output<String> dimensionValueSource() {
@@ -86,7 +86,7 @@ public final class ConfigurationSetEventDestinationEventDestinationCloudWatchDes
         }
 
         /**
-         * @param defaultDimensionValue The default value of the dimension that is published to Amazon CloudWatch if you don&#39;t provide the value of the dimension when you send an email.
+         * @param defaultDimensionValue Default value of the dimension that is published to Amazon CloudWatch if you don&#39;t provide the value of the dimension when you send an email.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class ConfigurationSetEventDestinationEventDestinationCloudWatchDes
         }
 
         /**
-         * @param defaultDimensionValue The default value of the dimension that is published to Amazon CloudWatch if you don&#39;t provide the value of the dimension when you send an email.
+         * @param defaultDimensionValue Default value of the dimension that is published to Amazon CloudWatch if you don&#39;t provide the value of the dimension when you send an email.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class ConfigurationSetEventDestinationEventDestinationCloudWatchDes
         }
 
         /**
-         * @param dimensionName The name of an Amazon CloudWatch dimension associated with an email sending metric.
+         * @param dimensionName Name of an Amazon CloudWatch dimension associated with an email sending metric.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class ConfigurationSetEventDestinationEventDestinationCloudWatchDes
         }
 
         /**
-         * @param dimensionName The name of an Amazon CloudWatch dimension associated with an email sending metric.
+         * @param dimensionName Name of an Amazon CloudWatch dimension associated with an email sending metric.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class ConfigurationSetEventDestinationEventDestinationCloudWatchDes
         }
 
         /**
-         * @param dimensionValueSource The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
+         * @param dimensionValueSource Location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class ConfigurationSetEventDestinationEventDestinationCloudWatchDes
         }
 
         /**
-         * @param dimensionValueSource The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
+         * @param dimensionValueSource Location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
          * 
          * @return builder
          * 

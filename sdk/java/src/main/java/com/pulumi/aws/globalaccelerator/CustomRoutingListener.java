@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator custom routing listener.
+ * - `arn` (String) ARN of the Global Accelerator custom routing listener.
  * 
  * Using `pulumi import`, import Global Accelerator custom routing listeners using the `id`. For example:
  * 
@@ -88,14 +88,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:globalaccelerator/customRoutingListener:CustomRoutingListener")
 public class CustomRoutingListener extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of a custom routing accelerator.
+     * ARN of a custom routing accelerator.
      * 
      */
     @Export(name="acceleratorArn", refs={String.class}, tree="[0]")
     private Output<String> acceleratorArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of a custom routing accelerator.
+     * @return ARN of a custom routing accelerator.
      * 
      */
     public Output<String> acceleratorArn() {

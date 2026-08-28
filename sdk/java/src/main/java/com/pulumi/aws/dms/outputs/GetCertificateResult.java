@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetCertificateResult {
     /**
-     * @return The Amazon Resource Name (ARN) for the certificate.
+     * @return ARN for the certificate.
      * 
      */
     private String certificateArn;
@@ -68,7 +68,7 @@ public final class GetCertificateResult {
 
     private GetCertificateResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) for the certificate.
+     * @return ARN for the certificate.
      * 
      */
     public String certificateArn() {

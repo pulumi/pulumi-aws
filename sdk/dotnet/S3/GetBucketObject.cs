@@ -456,7 +456,7 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly string ServerSideEncryption;
         /// <summary>
-        /// If present, specifies the ID of the Key Management Service (KMS) master encryption key that was used for the object.
+        /// If present, specifies the ID of the KMS master encryption key that was used for the object.
         /// </summary>
         public readonly string SseKmsKeyId;
         /// <summary>

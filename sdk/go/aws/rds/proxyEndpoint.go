@@ -62,7 +62,7 @@ import (
 type ProxyEndpoint struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) for the proxy endpoint.
+	// ARN for the proxy endpoint.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
 	DbProxyEndpointName pulumi.StringOutput `pulumi:"dbProxyEndpointName"`
@@ -126,7 +126,7 @@ func GetProxyEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProxyEndpoint resources.
 type proxyEndpointState struct {
-	// The Amazon Resource Name (ARN) for the proxy endpoint.
+	// ARN for the proxy endpoint.
 	Arn *string `pulumi:"arn"`
 	// The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
 	DbProxyEndpointName *string `pulumi:"dbProxyEndpointName"`
@@ -152,7 +152,7 @@ type proxyEndpointState struct {
 }
 
 type ProxyEndpointState struct {
-	// The Amazon Resource Name (ARN) for the proxy endpoint.
+	// ARN for the proxy endpoint.
 	Arn pulumi.StringPtrInput
 	// The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
 	DbProxyEndpointName pulumi.StringPtrInput
@@ -303,7 +303,7 @@ func (o ProxyEndpointOutput) ToProxyEndpointOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The Amazon Resource Name (ARN) for the proxy endpoint.
+// ARN for the proxy endpoint.
 func (o ProxyEndpointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProxyEndpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

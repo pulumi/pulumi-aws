@@ -33,14 +33,14 @@ public final class ProtectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN (Amazon Resource Name) of the resource to be protected.
+     * ARN of the resource to be protected.
      * 
      */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
     /**
-     * @return The ARN (Amazon Resource Name) of the resource to be protected.
+     * @return ARN of the resource to be protected.
      * 
      */
     public Output<String> resourceArn() {
@@ -110,7 +110,7 @@ public final class ProtectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceArn The ARN (Amazon Resource Name) of the resource to be protected.
+         * @param resourceArn ARN of the resource to be protected.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class ProtectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceArn The ARN (Amazon Resource Name) of the resource to be protected.
+         * @param resourceArn ARN of the resource to be protected.
          * 
          * @return builder
          * 

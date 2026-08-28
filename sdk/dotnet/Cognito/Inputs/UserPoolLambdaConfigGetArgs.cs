@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Cognito.Inputs
         public Input<string>? DefineAuthChallenge { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
+        /// ARN of KMS Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }

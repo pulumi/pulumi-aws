@@ -49,7 +49,7 @@ namespace Pulumi.Aws.SsmIncidents.Inputs
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
+        /// The ARN of the role that the automation document assumes when it runs commands.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;

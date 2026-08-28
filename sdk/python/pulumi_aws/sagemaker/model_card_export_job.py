@@ -127,7 +127,7 @@ class _ModelCardExportJobState:
         Input properties used for looking up and filtering ModelCardExportJob resources.
 
         :param pulumi.Input[Sequence[pulumi.Input['ModelCardExportJobExportArtifactArgs']]] export_artifacts: Exported model card artifacts.
-        :param pulumi.Input[_builtins.str] model_card_export_job_arn: The Amazon Resource Name (ARN) of the model card export job.
+        :param pulumi.Input[_builtins.str] model_card_export_job_arn: ARN of the model card export job.
         :param pulumi.Input[_builtins.str] model_card_export_job_name: Name of the model card export job.
         :param pulumi.Input[_builtins.str] model_card_name: Name of the model card.
         :param pulumi.Input['ModelCardExportJobOutputConfigArgs'] output_config: Export output details. Fields are documented below.
@@ -166,7 +166,7 @@ class _ModelCardExportJobState:
     @pulumi.getter(name="modelCardExportJobArn")
     def model_card_export_job_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the model card export job.
+        ARN of the model card export job.
         """
         return pulumi.get(self, "model_card_export_job_arn")
 
@@ -393,7 +393,7 @@ class ModelCardExportJob(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ModelCardExportJobExportArtifactArgs', 'ModelCardExportJobExportArtifactArgsDict']]]] export_artifacts: Exported model card artifacts.
-        :param pulumi.Input[_builtins.str] model_card_export_job_arn: The Amazon Resource Name (ARN) of the model card export job.
+        :param pulumi.Input[_builtins.str] model_card_export_job_arn: ARN of the model card export job.
         :param pulumi.Input[_builtins.str] model_card_export_job_name: Name of the model card export job.
         :param pulumi.Input[_builtins.str] model_card_name: Name of the model card.
         :param pulumi.Input[Union['ModelCardExportJobOutputConfigArgs', 'ModelCardExportJobOutputConfigArgsDict']] output_config: Export output details. Fields are documented below.
@@ -425,7 +425,7 @@ class ModelCardExportJob(pulumi.CustomResource):
     @pulumi.getter(name="modelCardExportJobArn")
     def model_card_export_job_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the model card export job.
+        ARN of the model card export job.
         """
         return pulumi.get(self, "model_card_export_job_arn")
 

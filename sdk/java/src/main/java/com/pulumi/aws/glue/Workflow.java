@@ -95,14 +95,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:glue/workflow:Workflow")
 public class Workflow extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of Glue Workflow
+     * ARN of Glue Workflow
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of Glue Workflow
+     * @return ARN of Glue Workflow
      * 
      */
     public Output<String> arn() {

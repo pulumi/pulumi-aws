@@ -241,7 +241,7 @@ type Subnet struct {
 	MapCustomerOwnedIpOnLaunch pulumi.BoolPtrOutput `pulumi:"mapCustomerOwnedIpOnLaunch"`
 	// Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`.
 	MapPublicIpOnLaunch pulumi.BoolPtrOutput `pulumi:"mapPublicIpOnLaunch"`
-	// The Amazon Resource Name (ARN) of the Outpost.
+	// ARN of the Outpost.
 	OutpostArn pulumi.StringPtrOutput `pulumi:"outpostArn"`
 	// The ID of the AWS account that owns the subnet.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
@@ -331,7 +331,7 @@ type subnetState struct {
 	MapCustomerOwnedIpOnLaunch *bool `pulumi:"mapCustomerOwnedIpOnLaunch"`
 	// Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`.
 	MapPublicIpOnLaunch *bool `pulumi:"mapPublicIpOnLaunch"`
-	// The Amazon Resource Name (ARN) of the Outpost.
+	// ARN of the Outpost.
 	OutpostArn *string `pulumi:"outpostArn"`
 	// The ID of the AWS account that owns the subnet.
 	OwnerId *string `pulumi:"ownerId"`
@@ -389,7 +389,7 @@ type SubnetState struct {
 	MapCustomerOwnedIpOnLaunch pulumi.BoolPtrInput
 	// Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`.
 	MapPublicIpOnLaunch pulumi.BoolPtrInput
-	// The Amazon Resource Name (ARN) of the Outpost.
+	// ARN of the Outpost.
 	OutpostArn pulumi.StringPtrInput
 	// The ID of the AWS account that owns the subnet.
 	OwnerId pulumi.StringPtrInput
@@ -447,7 +447,7 @@ type subnetArgs struct {
 	MapCustomerOwnedIpOnLaunch *bool `pulumi:"mapCustomerOwnedIpOnLaunch"`
 	// Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`.
 	MapPublicIpOnLaunch *bool `pulumi:"mapPublicIpOnLaunch"`
-	// The Amazon Resource Name (ARN) of the Outpost.
+	// ARN of the Outpost.
 	OutpostArn *string `pulumi:"outpostArn"`
 	// The type of hostnames to assign to instances in the subnet at launch. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack and IPv4-only subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
 	PrivateDnsHostnameTypeOnLaunch *string `pulumi:"privateDnsHostnameTypeOnLaunch"`
@@ -498,7 +498,7 @@ type SubnetArgs struct {
 	MapCustomerOwnedIpOnLaunch pulumi.BoolPtrInput
 	// Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`.
 	MapPublicIpOnLaunch pulumi.BoolPtrInput
-	// The Amazon Resource Name (ARN) of the Outpost.
+	// ARN of the Outpost.
 	OutpostArn pulumi.StringPtrInput
 	// The type of hostnames to assign to instances in the subnet at launch. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack and IPv4-only subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
 	PrivateDnsHostnameTypeOnLaunch pulumi.StringPtrInput
@@ -695,7 +695,7 @@ func (o SubnetOutput) MapPublicIpOnLaunch() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.BoolPtrOutput { return v.MapPublicIpOnLaunch }).(pulumi.BoolPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Outpost.
+// ARN of the Outpost.
 func (o SubnetOutput) OutpostArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.OutpostArn }).(pulumi.StringPtrOutput)
 }

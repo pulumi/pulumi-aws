@@ -187,7 +187,7 @@ class _RuleGroupState:
         """
         Input properties used for looking up and filtering RuleGroup resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) that identifies the rule group.
+        :param pulumi.Input[_builtins.str] arn: ARN that identifies the rule group.
         :param pulumi.Input[_builtins.int] capacity: The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
         :param pulumi.Input[_builtins.str] description: A friendly description of the rule group.
         :param pulumi.Input['RuleGroupEncryptionConfigurationArgs'] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
@@ -229,7 +229,7 @@ class _RuleGroupState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) that identifies the rule group.
+        ARN that identifies the rule group.
         """
         return pulumi.get(self, "arn")
 
@@ -1130,7 +1130,7 @@ class RuleGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) that identifies the rule group.
+        :param pulumi.Input[_builtins.str] arn: ARN that identifies the rule group.
         :param pulumi.Input[_builtins.int] capacity: The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
         :param pulumi.Input[_builtins.str] description: A friendly description of the rule group.
         :param pulumi.Input[Union['RuleGroupEncryptionConfigurationArgs', 'RuleGroupEncryptionConfigurationArgsDict']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
@@ -1165,7 +1165,7 @@ class RuleGroup(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) that identifies the rule group.
+        ARN that identifies the rule group.
         """
         return pulumi.get(self, "arn")
 

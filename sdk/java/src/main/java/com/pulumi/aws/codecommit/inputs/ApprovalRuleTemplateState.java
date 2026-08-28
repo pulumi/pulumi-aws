@@ -91,14 +91,14 @@ public final class ApprovalRuleTemplateState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
+     * ARN of the user who made the most recent changes to the approval rule template.
      * 
      */
     @Import(name="lastModifiedUser")
     private @Nullable Output<String> lastModifiedUser;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
+     * @return ARN of the user who made the most recent changes to the approval rule template.
      * 
      */
     public Optional<Output<String>> lastModifiedUser() {
@@ -288,7 +288,7 @@ public final class ApprovalRuleTemplateState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param lastModifiedUser The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
+         * @param lastModifiedUser ARN of the user who made the most recent changes to the approval rule template.
          * 
          * @return builder
          * 
@@ -299,7 +299,7 @@ public final class ApprovalRuleTemplateState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param lastModifiedUser The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
+         * @param lastModifiedUser ARN of the user who made the most recent changes to the approval rule template.
          * 
          * @return builder
          * 

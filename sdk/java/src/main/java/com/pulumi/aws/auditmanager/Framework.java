@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:auditmanager/framework:Framework")
 public class Framework extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the framework.
+     * ARN of the framework.
      * * `control_sets[*].id` - Unique identifier for the framework control set.
      * 
      */
@@ -98,7 +98,7 @@ public class Framework extends com.pulumi.resources.CustomResource {
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the framework.
+     * @return ARN of the framework.
      * * `control_sets[*].id` - Unique identifier for the framework control set.
      * 
      */

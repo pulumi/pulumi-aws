@@ -187,14 +187,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:observabilityadmin/s3TableIntegration:S3TableIntegration")
 public class S3TableIntegration extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the S3 Table integration.
+     * ARN of the S3 Table integration.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the S3 Table integration.
+     * @return ARN of the S3 Table integration.
      * 
      */
     public Output<String> arn() {
@@ -243,14 +243,14 @@ public class S3TableIntegration extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Amazon Resource Name (ARN) of the IAM role that grants the S3 Table integration permissions to access necessary resources.
+     * ARN of the IAM role that grants the S3 Table integration permissions to access necessary resources.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the IAM role that grants the S3 Table integration permissions to access necessary resources.
+     * @return ARN of the IAM role that grants the S3 Table integration permissions to access necessary resources.
      * 
      */
     public Output<String> roleArn() {

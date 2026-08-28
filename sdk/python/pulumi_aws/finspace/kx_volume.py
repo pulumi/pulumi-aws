@@ -193,7 +193,7 @@ class _KxVolumeState:
         """
         Input properties used for looking up and filtering KxVolume resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifier of the KX volume.
+        :param pulumi.Input[_builtins.str] arn: ARN identifier of the KX volume.
         :param pulumi.Input[Sequence[pulumi.Input['KxVolumeAttachedClusterArgs']]] attached_clusters: Clusters attached to the volume. See `attached_clusters` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: Identifier of the AWS Availability Zone IDs.
         :param pulumi.Input[_builtins.str] az_mode: Number of availability zones you want to assign per volume. Currently, FinSpace only supports `SINGLE` for volumes, which assigns one availability zone per volume.
@@ -248,7 +248,7 @@ class _KxVolumeState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) identifier of the KX volume.
+        ARN identifier of the KX volume.
         """
         return pulumi.get(self, "arn")
 
@@ -626,7 +626,7 @@ class KxVolume(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifier of the KX volume.
+        :param pulumi.Input[_builtins.str] arn: ARN identifier of the KX volume.
         :param pulumi.Input[Sequence[pulumi.Input[Union['KxVolumeAttachedClusterArgs', 'KxVolumeAttachedClusterArgsDict']]]] attached_clusters: Clusters attached to the volume. See `attached_clusters` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: Identifier of the AWS Availability Zone IDs.
         :param pulumi.Input[_builtins.str] az_mode: Number of availability zones you want to assign per volume. Currently, FinSpace only supports `SINGLE` for volumes, which assigns one availability zone per volume.
@@ -670,7 +670,7 @@ class KxVolume(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) identifier of the KX volume.
+        ARN identifier of the KX volume.
         """
         return pulumi.get(self, "arn")
 

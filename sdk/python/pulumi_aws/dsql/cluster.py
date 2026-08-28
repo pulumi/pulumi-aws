@@ -374,6 +374,17 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `identifier` (String) Cluster Identifier.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import DSQL Cluster using the `identifier`. For example:
 
         ```sh
@@ -417,6 +428,17 @@ class Cluster(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `identifier` (String) Cluster Identifier.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import DSQL Cluster using the `identifier`. For example:
 

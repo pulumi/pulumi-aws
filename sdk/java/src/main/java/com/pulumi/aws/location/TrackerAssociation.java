@@ -74,14 +74,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:location/trackerAssociation:TrackerAssociation")
 public class TrackerAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
+     * ARN for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
      * 
      */
     @Export(name="consumerArn", refs={String.class}, tree="[0]")
     private Output<String> consumerArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
+     * @return ARN for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
      * 
      */
     public Output<String> consumerArn() {

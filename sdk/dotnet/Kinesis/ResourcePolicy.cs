@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// #### Required
     /// 
-    /// - `ResourceArn` (String) Amazon Resource Name (ARN) of the Kinesis stream.
+    /// - `ResourceArn` (String) ARN of the Kinesis stream.
     /// 
     /// Using `pulumi import`, import Kinesis resource policies using the `ResourceArn`. For example:
     /// 
@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Kinesis
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the data stream or consumer.
+        /// ARN of the data stream or consumer.
         /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the data stream or consumer.
+        /// ARN of the data stream or consumer.
         /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the data stream or consumer.
+        /// ARN of the data stream or consumer.
         /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }

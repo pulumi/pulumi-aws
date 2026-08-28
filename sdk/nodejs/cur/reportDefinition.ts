@@ -79,7 +79,7 @@ export class ReportDefinition extends pulumi.CustomResource {
      */
     declare public readonly additionalSchemaElements: pulumi.Output<string[]>;
     /**
-     * The Amazon Resource Name (ARN) specifying the cur report.
+     * ARN specifying the cur report.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -213,7 +213,7 @@ export interface ReportDefinitionState {
      */
     additionalSchemaElements?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The Amazon Resource Name (ARN) specifying the cur report.
+     * ARN specifying the cur report.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

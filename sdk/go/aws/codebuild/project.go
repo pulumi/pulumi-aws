@@ -313,7 +313,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild project.
+// - `arn` (String) ARN of the CodeBuild project.
 //
 // Using `pulumi import`, import CodeBuild Project using the `name`. For example:
 //
@@ -348,7 +348,7 @@ type Project struct {
 	ConcurrentBuildLimit pulumi.IntPtrOutput `pulumi:"concurrentBuildLimit"`
 	// Short description of the project.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+	// KMS customer master key (CMK) to be used for encrypting
 	// the build project's build output artifacts.
 	EncryptionKey pulumi.StringOutput `pulumi:"encryptionKey"`
 	// Configuration block. Detailed below.
@@ -380,7 +380,7 @@ type Project struct {
 	SecondarySourceVersions ProjectSecondarySourceVersionArrayOutput `pulumi:"secondarySourceVersions"`
 	// Configuration block. Detailed below.
 	SecondarySources ProjectSecondarySourceArrayOutput `pulumi:"secondarySources"`
-	// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+	// ARN of the AWS Identity and Access Management (IAM) role that
 	// enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 	ServiceRole pulumi.StringOutput `pulumi:"serviceRole"`
 	// Configuration block. Detailed below.
@@ -468,7 +468,7 @@ type projectState struct {
 	ConcurrentBuildLimit *int `pulumi:"concurrentBuildLimit"`
 	// Short description of the project.
 	Description *string `pulumi:"description"`
-	// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+	// KMS customer master key (CMK) to be used for encrypting
 	// the build project's build output artifacts.
 	EncryptionKey *string `pulumi:"encryptionKey"`
 	// Configuration block. Detailed below.
@@ -500,7 +500,7 @@ type projectState struct {
 	SecondarySourceVersions []ProjectSecondarySourceVersion `pulumi:"secondarySourceVersions"`
 	// Configuration block. Detailed below.
 	SecondarySources []ProjectSecondarySource `pulumi:"secondarySources"`
-	// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+	// ARN of the AWS Identity and Access Management (IAM) role that
 	// enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 	ServiceRole *string `pulumi:"serviceRole"`
 	// Configuration block. Detailed below.
@@ -547,7 +547,7 @@ type ProjectState struct {
 	ConcurrentBuildLimit pulumi.IntPtrInput
 	// Short description of the project.
 	Description pulumi.StringPtrInput
-	// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+	// KMS customer master key (CMK) to be used for encrypting
 	// the build project's build output artifacts.
 	EncryptionKey pulumi.StringPtrInput
 	// Configuration block. Detailed below.
@@ -579,7 +579,7 @@ type ProjectState struct {
 	SecondarySourceVersions ProjectSecondarySourceVersionArrayInput
 	// Configuration block. Detailed below.
 	SecondarySources ProjectSecondarySourceArrayInput
-	// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+	// ARN of the AWS Identity and Access Management (IAM) role that
 	// enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 	ServiceRole pulumi.StringPtrInput
 	// Configuration block. Detailed below.
@@ -626,7 +626,7 @@ type projectArgs struct {
 	ConcurrentBuildLimit *int `pulumi:"concurrentBuildLimit"`
 	// Short description of the project.
 	Description *string `pulumi:"description"`
-	// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+	// KMS customer master key (CMK) to be used for encrypting
 	// the build project's build output artifacts.
 	EncryptionKey *string `pulumi:"encryptionKey"`
 	// Configuration block. Detailed below.
@@ -656,7 +656,7 @@ type projectArgs struct {
 	SecondarySourceVersions []ProjectSecondarySourceVersion `pulumi:"secondarySourceVersions"`
 	// Configuration block. Detailed below.
 	SecondarySources []ProjectSecondarySource `pulumi:"secondarySources"`
-	// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+	// ARN of the AWS Identity and Access Management (IAM) role that
 	// enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 	ServiceRole string `pulumi:"serviceRole"`
 	// Configuration block. Detailed below.
@@ -697,7 +697,7 @@ type ProjectArgs struct {
 	ConcurrentBuildLimit pulumi.IntPtrInput
 	// Short description of the project.
 	Description pulumi.StringPtrInput
-	// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+	// KMS customer master key (CMK) to be used for encrypting
 	// the build project's build output artifacts.
 	EncryptionKey pulumi.StringPtrInput
 	// Configuration block. Detailed below.
@@ -727,7 +727,7 @@ type ProjectArgs struct {
 	SecondarySourceVersions ProjectSecondarySourceVersionArrayInput
 	// Configuration block. Detailed below.
 	SecondarySources ProjectSecondarySourceArrayInput
-	// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+	// ARN of the AWS Identity and Access Management (IAM) role that
 	// enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 	ServiceRole pulumi.StringInput
 	// Configuration block. Detailed below.
@@ -887,7 +887,7 @@ func (o ProjectOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+// KMS customer master key (CMK) to be used for encrypting
 // the build project's build output artifacts.
 func (o ProjectOutput) EncryptionKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.EncryptionKey }).(pulumi.StringOutput)
@@ -958,7 +958,7 @@ func (o ProjectOutput) SecondarySources() ProjectSecondarySourceArrayOutput {
 	return o.ApplyT(func(v *Project) ProjectSecondarySourceArrayOutput { return v.SecondarySources }).(ProjectSecondarySourceArrayOutput)
 }
 
-// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+// ARN of the AWS Identity and Access Management (IAM) role that
 // enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 func (o ProjectOutput) ServiceRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.ServiceRole }).(pulumi.StringOutput)

@@ -239,7 +239,7 @@ class AmiLaunchPermission(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Adds a launch permission to an Amazon Machine Image (AMI).
+        Adds a launch permission to an AMI.
 
         ## Example Usage
 
@@ -317,7 +317,7 @@ class AmiLaunchPermission(pulumi.CustomResource):
                  args: AmiLaunchPermissionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Adds a launch permission to an Amazon Machine Image (AMI).
+        Adds a launch permission to an AMI.
 
         ## Example Usage
 

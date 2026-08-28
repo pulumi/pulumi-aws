@@ -71,14 +71,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sagemaker/monitoringSchedule:MonitoringSchedule")
 public class MonitoringSchedule extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this monitoring schedule.
+     * ARN assigned by AWS to this monitoring schedule.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this monitoring schedule.
+     * @return ARN assigned by AWS to this monitoring schedule.
      * 
      */
     public Output<String> arn() {

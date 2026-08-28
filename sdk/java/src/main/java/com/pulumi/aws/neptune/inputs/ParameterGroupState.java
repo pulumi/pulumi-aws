@@ -19,14 +19,14 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
     public static final ParameterGroupState Empty = new ParameterGroupState();
 
     /**
-     * The Neptune parameter group Amazon Resource Name (ARN).
+     * Neptune parameter group ARN.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Neptune parameter group Amazon Resource Name (ARN).
+     * @return Neptune parameter group ARN.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -186,7 +186,7 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn The Neptune parameter group Amazon Resource Name (ARN).
+         * @param arn Neptune parameter group ARN.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn The Neptune parameter group Amazon Resource Name (ARN).
+         * @param arn Neptune parameter group ARN.
          * 
          * @return builder
          * 

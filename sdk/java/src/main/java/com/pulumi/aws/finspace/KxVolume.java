@@ -77,14 +77,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:finspace/kxVolume:KxVolume")
 public class KxVolume extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) identifier of the KX volume.
+     * ARN identifier of the KX volume.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) identifier of the KX volume.
+     * @return ARN identifier of the KX volume.
      * 
      */
     public Output<String> arn() {

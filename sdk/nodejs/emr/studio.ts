@@ -124,7 +124,7 @@ export class Studio extends pulumi.CustomResource {
      */
     declare public readonly userRole: pulumi.Output<string | undefined>;
     /**
-     * The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+     * ID of the VPC to associate with the Studio.
      */
     declare public readonly vpcId: pulumi.Output<string>;
     /**
@@ -278,7 +278,7 @@ export interface StudioState {
      */
     userRole?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+     * ID of the VPC to associate with the Studio.
      */
     vpcId?: pulumi.Input<string | undefined>;
     /**
@@ -346,7 +346,7 @@ export interface StudioArgs {
      */
     userRole?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+     * ID of the VPC to associate with the Studio.
      */
     vpcId: pulumi.Input<string>;
     /**

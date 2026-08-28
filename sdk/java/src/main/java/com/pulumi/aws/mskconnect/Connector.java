@@ -128,14 +128,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:mskconnect/connector:Connector")
 public class Connector extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the connector.
+     * ARN of the connector.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the connector.
+     * @return ARN of the connector.
      * 
      */
     public Output<String> arn() {
@@ -296,7 +296,7 @@ public class Connector extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
+     * ARN of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
      * 
      * The following arguments are optional:
      * 
@@ -305,7 +305,7 @@ public class Connector extends com.pulumi.resources.CustomResource {
     private Output<String> serviceExecutionRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
+     * @return ARN of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
      * 
      * The following arguments are optional:
      * 

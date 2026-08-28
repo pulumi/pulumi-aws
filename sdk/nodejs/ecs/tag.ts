@@ -74,7 +74,7 @@ export class Tag extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the ECS resource to tag.
+     * ARN of the ECS resource to tag.
      */
     declare public readonly resourceArn: pulumi.Output<string>;
     /**
@@ -133,7 +133,7 @@ export interface TagState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the ECS resource to tag.
+     * ARN of the ECS resource to tag.
      */
     resourceArn?: pulumi.Input<string | undefined>;
     /**
@@ -155,7 +155,7 @@ export interface TagArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the ECS resource to tag.
+     * ARN of the ECS resource to tag.
      */
     resourceArn: pulumi.Input<string>;
     /**

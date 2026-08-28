@@ -66,7 +66,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import S3 Control Bucket Lifecycle Configurations using the Amazon Resource Name (ARN). For example:
+// Using `pulumi import`, import S3 Control Bucket Lifecycle Configurations using the ARN. For example:
 //
 // ```sh
 // $ pulumi import aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
@@ -74,7 +74,7 @@ import (
 type BucketLifecycleConfiguration struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the bucket.
+	// ARN of the bucket.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -118,7 +118,7 @@ func GetBucketLifecycleConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketLifecycleConfiguration resources.
 type bucketLifecycleConfigurationState struct {
-	// Amazon Resource Name (ARN) of the bucket.
+	// ARN of the bucket.
 	Bucket *string `pulumi:"bucket"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -127,7 +127,7 @@ type bucketLifecycleConfigurationState struct {
 }
 
 type BucketLifecycleConfigurationState struct {
-	// Amazon Resource Name (ARN) of the bucket.
+	// ARN of the bucket.
 	Bucket pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -140,7 +140,7 @@ func (BucketLifecycleConfigurationState) ElementType() reflect.Type {
 }
 
 type bucketLifecycleConfigurationArgs struct {
-	// Amazon Resource Name (ARN) of the bucket.
+	// ARN of the bucket.
 	Bucket string `pulumi:"bucket"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -150,7 +150,7 @@ type bucketLifecycleConfigurationArgs struct {
 
 // The set of arguments for constructing a BucketLifecycleConfiguration resource.
 type BucketLifecycleConfigurationArgs struct {
-	// Amazon Resource Name (ARN) of the bucket.
+	// ARN of the bucket.
 	Bucket pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -245,7 +245,7 @@ func (o BucketLifecycleConfigurationOutput) ToBucketLifecycleConfigurationOutput
 	return o
 }
 
-// Amazon Resource Name (ARN) of the bucket.
+// ARN of the bucket.
 func (o BucketLifecycleConfigurationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfiguration) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }

@@ -353,7 +353,7 @@ func (o BudgetActionDefinitionPtrOutput) SsmActionDefinition() BudgetActionDefin
 type BudgetActionDefinitionIamActionDefinition struct {
 	// A list of groups to be attached. There must be at least one group.
 	Groups []string `pulumi:"groups"`
-	// The Amazon Resource Name (ARN) of the policy to be attached.
+	// ARN of the policy to be attached.
 	PolicyArn string `pulumi:"policyArn"`
 	// A list of roles to be attached. There must be at least one role.
 	Roles []string `pulumi:"roles"`
@@ -375,7 +375,7 @@ type BudgetActionDefinitionIamActionDefinitionInput interface {
 type BudgetActionDefinitionIamActionDefinitionArgs struct {
 	// A list of groups to be attached. There must be at least one group.
 	Groups pulumi.StringArrayInput `pulumi:"groups"`
-	// The Amazon Resource Name (ARN) of the policy to be attached.
+	// ARN of the policy to be attached.
 	PolicyArn pulumi.StringInput `pulumi:"policyArn"`
 	// A list of roles to be attached. There must be at least one role.
 	Roles pulumi.StringArrayInput `pulumi:"roles"`
@@ -465,7 +465,7 @@ func (o BudgetActionDefinitionIamActionDefinitionOutput) Groups() pulumi.StringA
 	return o.ApplyT(func(v BudgetActionDefinitionIamActionDefinition) []string { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the policy to be attached.
+// ARN of the policy to be attached.
 func (o BudgetActionDefinitionIamActionDefinitionOutput) PolicyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetActionDefinitionIamActionDefinition) string { return v.PolicyArn }).(pulumi.StringOutput)
 }
@@ -514,7 +514,7 @@ func (o BudgetActionDefinitionIamActionDefinitionPtrOutput) Groups() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the policy to be attached.
+// ARN of the policy to be attached.
 func (o BudgetActionDefinitionIamActionDefinitionPtrOutput) PolicyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetActionDefinitionIamActionDefinition) *string {
 		if v == nil {

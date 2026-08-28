@@ -17,14 +17,14 @@ public final class RegexPatternSetState extends com.pulumi.resources.ResourceArg
     public static final RegexPatternSetState Empty = new RegexPatternSetState();
 
     /**
-     * Amazon Resource Name (ARN)
+     * ARN
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN)
+     * @return ARN
      * 
      */
     public Optional<Output<String>> arn() {
@@ -88,7 +88,7 @@ public final class RegexPatternSetState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN)
+         * @param arn ARN
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class RegexPatternSetState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN)
+         * @param arn ARN
          * 
          * @return builder
          * 

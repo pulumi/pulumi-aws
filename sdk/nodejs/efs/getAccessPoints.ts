@@ -45,7 +45,7 @@ export interface GetAccessPointsArgs {
  */
 export interface GetAccessPointsResult {
     /**
-     * Set of Amazon Resource Names (ARNs).
+     * Set of ARNs.
      */
     readonly arns: string[];
     readonly fileSystemId: string;

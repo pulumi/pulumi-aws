@@ -114,7 +114,7 @@ class GetReplicationTaskResult:
     @pulumi.getter(name="replicationInstanceArn")
     def replication_instance_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the replication instance.
+        ARN of the replication instance.
         """
         return pulumi.get(self, "replication_instance_arn")
 
@@ -122,7 +122,7 @@ class GetReplicationTaskResult:
     @pulumi.getter(name="replicationTaskArn")
     def replication_task_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) for the replication task.
+        ARN for the replication task.
         """
         return pulumi.get(self, "replication_task_arn")
 
@@ -143,7 +143,7 @@ class GetReplicationTaskResult:
     @pulumi.getter(name="sourceEndpointArn")
     def source_endpoint_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+        ARN string that uniquely identifies the source endpoint.
         """
         return pulumi.get(self, "source_endpoint_arn")
 
@@ -180,7 +180,7 @@ class GetReplicationTaskResult:
     @pulumi.getter(name="targetEndpointArn")
     def target_endpoint_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+        ARN string that uniquely identifies the target endpoint.
         """
         return pulumi.get(self, "target_endpoint_arn")
 

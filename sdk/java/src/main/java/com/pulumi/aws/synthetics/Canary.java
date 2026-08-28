@@ -82,14 +82,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:synthetics/canary:Canary")
 public class Canary extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the Canary.
+     * ARN of the Canary.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Canary.
+     * @return ARN of the Canary.
      * 
      */
     public Output<String> arn() {

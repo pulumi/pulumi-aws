@@ -133,14 +133,14 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.aggregateConfiguration);
     }
     /**
-     * Amazon Resource Name of the volune.
+     * ARN of the volune.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name of the volune.
+     * @return ARN of the volune.
      * 
      */
     public Output<String> arn() {

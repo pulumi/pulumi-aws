@@ -750,7 +750,7 @@ namespace Pulumi.Aws.Kendra
     public partial class Index : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Index.
+        /// ARN of the Index.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -1004,7 +1004,7 @@ namespace Pulumi.Aws.Kendra
     public sealed class IndexState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Index.
+        /// ARN of the Index.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

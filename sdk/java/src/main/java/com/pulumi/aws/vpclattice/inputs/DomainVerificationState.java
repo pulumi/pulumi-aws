@@ -17,14 +17,14 @@ public final class DomainVerificationState extends com.pulumi.resources.Resource
     public static final DomainVerificationState Empty = new DomainVerificationState();
 
     /**
-     * Amazon Resource Name (ARN) of the domain verification.
+     * ARN of the domain verification.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the domain verification.
+     * @return ARN of the domain verification.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -204,7 +204,7 @@ public final class DomainVerificationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the domain verification.
+         * @param arn ARN of the domain verification.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class DomainVerificationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the domain verification.
+         * @param arn ARN of the domain verification.
          * 
          * @return builder
          * 

@@ -60,7 +60,7 @@ type App struct {
 
 	// Application ID of the End User Messaging App.
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
-	// Amazon Resource Name (ARN) of the PinPoint Application.
+	// ARN of the PinPoint Application.
 	// * `campaign_hook[0].lambda_function_name` - Lambda function name or ARN to be called for delivery.
 	// * `campaign_hook[0].mode` - What mode Lambda should be invoked in.
 	// * `campaign_hook[0].web_url` - Web URL to call for hook.
@@ -127,7 +127,7 @@ func GetApp(ctx *pulumi.Context,
 type appState struct {
 	// Application ID of the End User Messaging App.
 	ApplicationId *string `pulumi:"applicationId"`
-	// Amazon Resource Name (ARN) of the PinPoint Application.
+	// ARN of the PinPoint Application.
 	// * `campaign_hook[0].lambda_function_name` - Lambda function name or ARN to be called for delivery.
 	// * `campaign_hook[0].mode` - What mode Lambda should be invoked in.
 	// * `campaign_hook[0].web_url` - Web URL to call for hook.
@@ -165,7 +165,7 @@ type appState struct {
 type AppState struct {
 	// Application ID of the End User Messaging App.
 	ApplicationId pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the PinPoint Application.
+	// ARN of the PinPoint Application.
 	// * `campaign_hook[0].lambda_function_name` - Lambda function name or ARN to be called for delivery.
 	// * `campaign_hook[0].mode` - What mode Lambda should be invoked in.
 	// * `campaign_hook[0].web_url` - Web URL to call for hook.
@@ -343,7 +343,7 @@ func (o AppOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the PinPoint Application.
+// ARN of the PinPoint Application.
 // * `campaign_hook[0].lambda_function_name` - Lambda function name or ARN to be called for delivery.
 // * `campaign_hook[0].mode` - What mode Lambda should be invoked in.
 // * `campaign_hook[0].web_url` - Web URL to call for hook.

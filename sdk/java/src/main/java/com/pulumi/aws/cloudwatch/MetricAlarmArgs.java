@@ -38,14 +38,14 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
      * 
      */
     @Import(name="alarmActions")
     private @Nullable Output<List<String>> alarmActions;
 
     /**
-     * @return The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * @return List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
      * 
      */
     public Optional<Output<List<String>>> alarmActions() {
@@ -194,14 +194,14 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
      * 
      */
     @Import(name="insufficientDataActions")
     private @Nullable Output<List<String>> insufficientDataActions;
 
     /**
-     * @return The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * @return List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
      * 
      */
     public Optional<Output<List<String>>> insufficientDataActions() {
@@ -273,14 +273,14 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
      * 
      */
     @Import(name="okActions")
     private @Nullable Output<List<String>> okActions;
 
     /**
-     * @return The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * @return List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
      * 
      */
     public Optional<Output<List<String>>> okActions() {
@@ -491,7 +491,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alarmActions The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+         * @param alarmActions List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
          * 
          * @return builder
          * 
@@ -502,7 +502,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alarmActions The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+         * @param alarmActions List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
          * 
          * @return builder
          * 
@@ -512,7 +512,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alarmActions The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+         * @param alarmActions List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
          * 
          * @return builder
          * 
@@ -717,7 +717,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param insufficientDataActions The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+         * @param insufficientDataActions List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
          * 
          * @return builder
          * 
@@ -728,7 +728,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param insufficientDataActions The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+         * @param insufficientDataActions List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
          * 
          * @return builder
          * 
@@ -738,7 +738,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param insufficientDataActions The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+         * @param insufficientDataActions List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
          * 
          * @return builder
          * 
@@ -846,7 +846,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param okActions The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+         * @param okActions List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
          * 
          * @return builder
          * 
@@ -857,7 +857,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param okActions The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+         * @param okActions List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
          * 
          * @return builder
          * 
@@ -867,7 +867,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param okActions The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+         * @param okActions List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
          * 
          * @return builder
          * 

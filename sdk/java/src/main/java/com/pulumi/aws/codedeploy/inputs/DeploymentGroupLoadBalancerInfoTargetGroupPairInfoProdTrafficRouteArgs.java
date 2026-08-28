@@ -16,14 +16,14 @@ public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTraffic
     public static final DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs Empty = new DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs();
 
     /**
-     * List of Amazon Resource Names (ARNs) of the load balancer listeners. Must contain exactly one listener ARN.
+     * List of ARNs of the load balancer listeners. Must contain exactly one listener ARN.
      * 
      */
     @Import(name="listenerArns", required=true)
     private Output<List<String>> listenerArns;
 
     /**
-     * @return List of Amazon Resource Names (ARNs) of the load balancer listeners. Must contain exactly one listener ARN.
+     * @return List of ARNs of the load balancer listeners. Must contain exactly one listener ARN.
      * 
      */
     public Output<List<String>> listenerArns() {
@@ -55,7 +55,7 @@ public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTraffic
         }
 
         /**
-         * @param listenerArns List of Amazon Resource Names (ARNs) of the load balancer listeners. Must contain exactly one listener ARN.
+         * @param listenerArns List of ARNs of the load balancer listeners. Must contain exactly one listener ARN.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTraffic
         }
 
         /**
-         * @param listenerArns List of Amazon Resource Names (ARNs) of the load balancer listeners. Must contain exactly one listener ARN.
+         * @param listenerArns List of ARNs of the load balancer listeners. Must contain exactly one listener ARN.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTraffic
         }
 
         /**
-         * @param listenerArns List of Amazon Resource Names (ARNs) of the load balancer listeners. Must contain exactly one listener ARN.
+         * @param listenerArns List of ARNs of the load balancer listeners. Must contain exactly one listener ARN.
          * 
          * @return builder
          * 

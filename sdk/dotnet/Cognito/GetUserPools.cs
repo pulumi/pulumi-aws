@@ -169,7 +169,7 @@ namespace Pulumi.Aws.Cognito
     public sealed class GetUserPoolsResult
     {
         /// <summary>
-        /// Set of cognito user pool Amazon Resource Names (ARNs).
+        /// Set of cognito user pool ARNs.
         /// </summary>
         public readonly ImmutableArray<string> Arns;
         /// <summary>

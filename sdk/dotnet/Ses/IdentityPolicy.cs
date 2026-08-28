@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Ses
     public partial class IdentityPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Name or Amazon Resource Name (ARN) of the SES Identity.
+        /// Name or ARN of the SES Identity.
         /// </summary>
         [Output("identity")]
         public Output<string> Identity { get; private set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.Ses
     public sealed class IdentityPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name or Amazon Resource Name (ARN) of the SES Identity.
+        /// Name or ARN of the SES Identity.
         /// </summary>
         [Input("identity", required: true)]
         public Input<string> Identity { get; set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Ses
     public sealed class IdentityPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name or Amazon Resource Name (ARN) of the SES Identity.
+        /// Name or ARN of the SES Identity.
         /// </summary>
         [Input("identity")]
         public Input<string>? Identity { get; set; }

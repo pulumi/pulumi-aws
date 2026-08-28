@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Vpc
 {
     /// <summary>
-    /// Provides a resource for managing a VPC (Virtual Private Cloud) Route Server Endpoint.
+    /// Provides a resource for managing a VPC Route Server Endpoint.
     /// 
     /// ## Example Usage
     /// 
@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Vpc
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import VPC (Virtual Private Cloud) Route Server Endpoint using the `RouteServerEndpointId`. For example:
+    /// Using `pulumi import`, import VPC Route Server Endpoint using the `RouteServerEndpointId`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:vpc/routeServerEndpoint:RouteServerEndpoint example rse-12345678

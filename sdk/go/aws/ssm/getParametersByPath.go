@@ -64,7 +64,7 @@ type GetParametersByPathArgs struct {
 
 // A collection of values returned by getParametersByPath.
 type GetParametersByPathResult struct {
-	// A list that contains the Amazon Resource Names (ARNs) of the retrieved parameters.
+	// List that contains the ARNs of the retrieved parameters.
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -116,7 +116,7 @@ func (o GetParametersByPathResultOutput) ToGetParametersByPathResultOutputWithCo
 	return o
 }
 
-// A list that contains the Amazon Resource Names (ARNs) of the retrieved parameters.
+// List that contains the ARNs of the retrieved parameters.
 func (o GetParametersByPathResultOutput) Arns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetParametersByPathResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
 }

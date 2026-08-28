@@ -102,14 +102,14 @@ public class Member extends com.pulumi.resources.CustomResource {
         return this.administratorAccountId;
     }
     /**
-     * The Amazon Resource Name (ARN) of the account.
+     * ARN of the account.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the account.
+     * @return ARN of the account.
      * 
      */
     public Output<String> arn() {

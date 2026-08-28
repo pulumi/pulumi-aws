@@ -19,14 +19,14 @@ public final class ProxyEndpointState extends com.pulumi.resources.ResourceArgs 
     public static final ProxyEndpointState Empty = new ProxyEndpointState();
 
     /**
-     * The Amazon Resource Name (ARN) for the proxy endpoint.
+     * ARN for the proxy endpoint.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the proxy endpoint.
+     * @return ARN for the proxy endpoint.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -226,7 +226,7 @@ public final class ProxyEndpointState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) for the proxy endpoint.
+         * @param arn ARN for the proxy endpoint.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class ProxyEndpointState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) for the proxy endpoint.
+         * @param arn ARN for the proxy endpoint.
          * 
          * @return builder
          * 

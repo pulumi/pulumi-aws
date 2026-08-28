@@ -555,7 +555,7 @@ namespace Pulumi.Aws.NetworkFirewall
     public partial class RuleGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) that identifies the rule group.
+        /// ARN that identifies the rule group.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -741,7 +741,7 @@ namespace Pulumi.Aws.NetworkFirewall
     public sealed class RuleGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) that identifies the rule group.
+        /// ARN that identifies the rule group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

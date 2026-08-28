@@ -80,7 +80,7 @@ public final class EndpointKafkaSettings {
      */
     private @Nullable String saslUsername;
     /**
-     * @return Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
+     * @return Set secure connection to a Kafka target endpoint using TLS. Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
      * 
      */
     private @Nullable String securityProtocol;
@@ -203,7 +203,7 @@ public final class EndpointKafkaSettings {
         return Optional.ofNullable(this.saslUsername);
     }
     /**
-     * @return Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
+     * @return Set secure connection to a Kafka target endpoint using TLS. Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
      * 
      */
     public Optional<String> securityProtocol() {

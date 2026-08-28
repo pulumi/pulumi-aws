@@ -201,14 +201,14 @@ public class Addon extends com.pulumi.resources.CustomResource {
         return this.addonVersion;
     }
     /**
-     * Amazon Resource Name (ARN) of the EKS add-on.
+     * ARN of the EKS add-on.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the EKS add-on.
+     * @return ARN of the EKS add-on.
      * 
      */
     public Output<String> arn() {
@@ -359,7 +359,7 @@ public class Addon extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.resolveConflictsOnUpdate);
     }
     /**
-     * The Amazon Resource Name (ARN) of an
+     * ARN of an
      * existing IAM role to bind to the add-on&#39;s service account. The role must be
      * assigned the IAM permissions required by the add-on. If you don&#39;t specify
      * an existing IAM role, then the add-on uses the permissions assigned to the node
@@ -376,7 +376,7 @@ public class Addon extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> serviceAccountRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of an
+     * @return ARN of an
      * existing IAM role to bind to the add-on&#39;s service account. The role must be
      * assigned the IAM permissions required by the add-on. If you don&#39;t specify
      * an existing IAM role, then the add-on uses the permissions assigned to the node

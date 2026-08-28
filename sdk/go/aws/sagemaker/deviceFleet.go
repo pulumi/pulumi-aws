@@ -56,7 +56,7 @@ import (
 type DeviceFleet struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
+	// ARN assigned by AWS to this Device Fleet.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A description of the fleet.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -69,7 +69,7 @@ type DeviceFleet struct {
 	OutputConfig DeviceFleetOutputConfigOutput `pulumi:"outputConfig"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
+	// ARN that has access to AWS Internet of Things (IoT).
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -116,7 +116,7 @@ func GetDeviceFleet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DeviceFleet resources.
 type deviceFleetState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
+	// ARN assigned by AWS to this Device Fleet.
 	Arn *string `pulumi:"arn"`
 	// A description of the fleet.
 	Description *string `pulumi:"description"`
@@ -129,7 +129,7 @@ type deviceFleetState struct {
 	OutputConfig *DeviceFleetOutputConfig `pulumi:"outputConfig"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
+	// ARN that has access to AWS Internet of Things (IoT).
 	RoleArn *string `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -138,7 +138,7 @@ type deviceFleetState struct {
 }
 
 type DeviceFleetState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
+	// ARN assigned by AWS to this Device Fleet.
 	Arn pulumi.StringPtrInput
 	// A description of the fleet.
 	Description pulumi.StringPtrInput
@@ -151,7 +151,7 @@ type DeviceFleetState struct {
 	OutputConfig DeviceFleetOutputConfigPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
+	// ARN that has access to AWS Internet of Things (IoT).
 	RoleArn pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -174,7 +174,7 @@ type deviceFleetArgs struct {
 	OutputConfig DeviceFleetOutputConfig `pulumi:"outputConfig"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
+	// ARN that has access to AWS Internet of Things (IoT).
 	RoleArn string `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -192,7 +192,7 @@ type DeviceFleetArgs struct {
 	OutputConfig DeviceFleetOutputConfigInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
+	// ARN that has access to AWS Internet of Things (IoT).
 	RoleArn pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -285,7 +285,7 @@ func (o DeviceFleetOutput) ToDeviceFleetOutputWithContext(ctx context.Context) D
 	return o
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
+// ARN assigned by AWS to this Device Fleet.
 func (o DeviceFleetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeviceFleet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -319,7 +319,7 @@ func (o DeviceFleetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeviceFleet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
+// ARN that has access to AWS Internet of Things (IoT).
 func (o DeviceFleetOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeviceFleet) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }

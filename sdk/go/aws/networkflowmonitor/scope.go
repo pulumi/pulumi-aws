@@ -72,7 +72,7 @@ type Scope struct {
 
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the scope.
+	// ARN of the scope.
 	ScopeArn pulumi.StringOutput `pulumi:"scopeArn"`
 	// The identifier for the scope that includes the resources you want to get data results for.
 	ScopeId pulumi.StringOutput `pulumi:"scopeId"`
@@ -122,7 +122,7 @@ func GetScope(ctx *pulumi.Context,
 type scopeState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the scope.
+	// ARN of the scope.
 	ScopeArn *string `pulumi:"scopeArn"`
 	// The identifier for the scope that includes the resources you want to get data results for.
 	ScopeId *string `pulumi:"scopeId"`
@@ -140,7 +140,7 @@ type scopeState struct {
 type ScopeState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the scope.
+	// ARN of the scope.
 	ScopeArn pulumi.StringPtrInput
 	// The identifier for the scope that includes the resources you want to get data results for.
 	ScopeId pulumi.StringPtrInput
@@ -276,7 +276,7 @@ func (o ScopeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Scope) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the scope.
+// ARN of the scope.
 func (o ScopeOutput) ScopeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Scope) pulumi.StringOutput { return v.ScopeArn }).(pulumi.StringOutput)
 }

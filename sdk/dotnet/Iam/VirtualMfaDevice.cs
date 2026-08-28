@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Iam
     public partial class VirtualMfaDevice : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
+        /// ARN, which is also the serial number, of the virtual MFA device.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.Iam
     public sealed class VirtualMfaDeviceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
+        /// ARN, which is also the serial number, of the virtual MFA device.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

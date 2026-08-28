@@ -13,7 +13,7 @@ namespace Pulumi.Aws.SesV2.Inputs
     public sealed class EmailIdentityDkimSigningAttributesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// [Easy DKIM] The key length of the DKIM key pair in use.
+        /// [Easy DKIM] Key length of the DKIM key pair in use.
         /// </summary>
         [Input("currentSigningKeyLength")]
         public Input<string>? CurrentSigningKeyLength { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.SesV2.Inputs
         private Input<string>? _domainSigningPrivateKey;
 
         /// <summary>
-        /// [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+        /// [Bring Your Own DKIM] Private key used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
         /// 
         /// &gt; **NOTE:** You have to delete the first and last lines ('-----BEGIN PRIVATE KEY-----' and '-----END PRIVATE KEY-----', respectively) of the generated private key. Additionally, you have to remove the line breaks in the generated private key. The resulting value is a string of characters with no spaces or line breaks.
         /// </summary>
@@ -37,31 +37,31 @@ namespace Pulumi.Aws.SesV2.Inputs
         }
 
         /// <summary>
-        /// [Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain.
+        /// [Bring Your Own DKIM] String used to identify a public key in the DNS configuration for a domain.
         /// </summary>
         [Input("domainSigningSelector")]
         public Input<string>? DomainSigningSelector { get; set; }
 
         /// <summary>
-        /// [Easy DKIM] The last time a key pair was generated for this identity.
+        /// [Easy DKIM] Last time a key pair was generated for this identity.
         /// </summary>
         [Input("lastKeyGenerationTimestamp")]
         public Input<string>? LastKeyGenerationTimestamp { get; set; }
 
         /// <summary>
-        /// [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
+        /// [Easy DKIM] Key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
         /// </summary>
         [Input("nextSigningKeyLength")]
         public Input<string>? NextSigningKeyLength { get; set; }
 
         /// <summary>
-        /// A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+        /// How DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
         /// </summary>
         [Input("signingAttributesOrigin")]
         public Input<string>? SigningAttributesOrigin { get; set; }
 
         /// <summary>
-        /// Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+        /// Whether Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

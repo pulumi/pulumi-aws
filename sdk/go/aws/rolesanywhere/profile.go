@@ -86,7 +86,7 @@ type Profile struct {
 
 	// Whether or not a custom role session name is accepted.
 	AcceptRoleSessionName pulumi.BoolPtrOutput `pulumi:"acceptRoleSessionName"`
-	// Amazon Resource Name (ARN) of the Profile
+	// ARN of the Profile
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The number of seconds the vended session credentials are valid for. Defaults to 3600.
 	DurationSeconds pulumi.IntOutput `pulumi:"durationSeconds"`
@@ -140,7 +140,7 @@ func GetProfile(ctx *pulumi.Context,
 type profileState struct {
 	// Whether or not a custom role session name is accepted.
 	AcceptRoleSessionName *bool `pulumi:"acceptRoleSessionName"`
-	// Amazon Resource Name (ARN) of the Profile
+	// ARN of the Profile
 	Arn *string `pulumi:"arn"`
 	// The number of seconds the vended session credentials are valid for. Defaults to 3600.
 	DurationSeconds *int `pulumi:"durationSeconds"`
@@ -165,7 +165,7 @@ type profileState struct {
 type ProfileState struct {
 	// Whether or not a custom role session name is accepted.
 	AcceptRoleSessionName pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) of the Profile
+	// ARN of the Profile
 	Arn pulumi.StringPtrInput
 	// The number of seconds the vended session credentials are valid for. Defaults to 3600.
 	DurationSeconds pulumi.IntPtrInput
@@ -326,7 +326,7 @@ func (o ProfileOutput) AcceptRoleSessionName() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Profile) pulumi.BoolPtrOutput { return v.AcceptRoleSessionName }).(pulumi.BoolPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the Profile
+// ARN of the Profile
 func (o ProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

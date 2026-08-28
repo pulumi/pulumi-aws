@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda {
     /**
-     * @return Amazon Resource Name (ARN) of the AWS Lambda function.
+     * @return ARN of the AWS Lambda function.
      * 
      */
     private String functionArn;
@@ -25,7 +25,7 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
 
     private ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda() {}
     /**
-     * @return Amazon Resource Name (ARN) of the AWS Lambda function.
+     * @return ARN of the AWS Lambda function.
      * 
      */
     public String functionArn() {

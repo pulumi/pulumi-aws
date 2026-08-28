@@ -209,7 +209,7 @@ export class Application extends pulumi.CustomResource {
      */
     declare public readonly appConfigs: pulumi.Output<outputs.opensearch.ApplicationAppConfig[] | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the OpenSearch application.
+     * ARN of the OpenSearch application.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -298,7 +298,7 @@ export interface ApplicationState {
      */
     appConfigs?: pulumi.Input<pulumi.Input<inputs.opensearch.ApplicationAppConfig>[] | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the OpenSearch application.
+     * ARN of the OpenSearch application.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

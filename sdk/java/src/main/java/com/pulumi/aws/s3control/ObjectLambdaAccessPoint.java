@@ -119,14 +119,14 @@ public class ObjectLambdaAccessPoint extends com.pulumi.resources.CustomResource
         return this.alias;
     }
     /**
-     * Amazon Resource Name (ARN) of the Object Lambda Access Point.
+     * ARN of the Object Lambda Access Point.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Object Lambda Access Point.
+     * @return ARN of the Object Lambda Access Point.
      * 
      */
     public Output<String> arn() {

@@ -587,7 +587,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the load balancer listener.
+ * - `arn` (String) ARN of the load balancer listener.
  * 
  * Using `pulumi import`, import listeners using their ARN. For example:
  * 

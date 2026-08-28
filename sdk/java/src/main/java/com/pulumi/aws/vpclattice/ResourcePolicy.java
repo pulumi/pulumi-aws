@@ -124,14 +124,14 @@ public class ResourcePolicy extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     * ID or ARN of the service network or service for which the policy is created.
      * 
      */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
-     * @return ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     * @return ID or ARN of the service network or service for which the policy is created.
      * 
      */
     public Output<String> resourceArn() {

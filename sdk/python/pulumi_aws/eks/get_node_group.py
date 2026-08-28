@@ -102,7 +102,7 @@ class GetNodeGroupResult:
     @pulumi.getter(name="amiType")
     def ami_type(self) -> _builtins.str:
         """
-        Type of Amazon Machine Image (AMI) associated with the EKS Node Group.
+        Type of AMI associated with the EKS Node Group.
         """
         return pulumi.get(self, "ami_type")
 

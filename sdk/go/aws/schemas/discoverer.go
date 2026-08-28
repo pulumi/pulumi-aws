@@ -60,7 +60,7 @@ import (
 type Discoverer struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the discoverer.
+	// ARN of the discoverer.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The description of the discoverer. Maximum of 256 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -107,7 +107,7 @@ func GetDiscoverer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Discoverer resources.
 type discovererState struct {
-	// The Amazon Resource Name (ARN) of the discoverer.
+	// ARN of the discoverer.
 	Arn *string `pulumi:"arn"`
 	// The description of the discoverer. Maximum of 256 characters.
 	Description *string `pulumi:"description"`
@@ -122,7 +122,7 @@ type discovererState struct {
 }
 
 type DiscovererState struct {
-	// The Amazon Resource Name (ARN) of the discoverer.
+	// ARN of the discoverer.
 	Arn pulumi.StringPtrInput
 	// The description of the discoverer. Maximum of 256 characters.
 	Description pulumi.StringPtrInput
@@ -250,7 +250,7 @@ func (o DiscovererOutput) ToDiscovererOutputWithContext(ctx context.Context) Dis
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the discoverer.
+// ARN of the discoverer.
 func (o DiscovererOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Discoverer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

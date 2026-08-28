@@ -52,7 +52,7 @@ func LookupResourcePolicy(ctx *pulumi.Context, args *LookupResourcePolicyArgs, o
 type LookupResourcePolicyArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) that identifies the resource policy.
+	// ARN that identifies the resource policy.
 	ResourceArn string `pulumi:"resourceArn"`
 }
 
@@ -75,7 +75,7 @@ func LookupResourcePolicyOutput(ctx *pulumi.Context, args LookupResourcePolicyOu
 type LookupResourcePolicyOutputArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) that identifies the resource policy.
+	// ARN that identifies the resource policy.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 }
 

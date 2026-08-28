@@ -25,14 +25,14 @@ public final class CanaryState extends com.pulumi.resources.ResourceArgs {
     public static final CanaryState Empty = new CanaryState();
 
     /**
-     * Amazon Resource Name (ARN) of the Canary.
+     * ARN of the Canary.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Canary.
+     * @return ARN of the Canary.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -452,7 +452,7 @@ public final class CanaryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Canary.
+         * @param arn ARN of the Canary.
          * 
          * @return builder
          * 
@@ -463,7 +463,7 @@ public final class CanaryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Canary.
+         * @param arn ARN of the Canary.
          * 
          * @return builder
          * 

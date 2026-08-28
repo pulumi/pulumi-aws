@@ -99,7 +99,7 @@ namespace Pulumi.Aws.Bedrock
     public partial class AgentPrompt : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the prompt.
+        /// ARN of the prompt.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -111,7 +111,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
+        /// ARN of the KMS key that you encrypted the prompt with.
         /// </summary>
         [Output("customerEncryptionKeyArn")]
         public Output<string?> CustomerEncryptionKeyArn { get; private set; } = null!;
@@ -219,7 +219,7 @@ namespace Pulumi.Aws.Bedrock
     public sealed class AgentPromptArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
+        /// ARN of the KMS key that you encrypted the prompt with.
         /// </summary>
         [Input("customerEncryptionKeyArn")]
         public Input<string>? CustomerEncryptionKeyArn { get; set; }
@@ -283,7 +283,7 @@ namespace Pulumi.Aws.Bedrock
     public sealed class AgentPromptState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the prompt.
+        /// ARN of the prompt.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -295,7 +295,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? CreatedAt { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
+        /// ARN of the KMS key that you encrypted the prompt with.
         /// </summary>
         [Input("customerEncryptionKeyArn")]
         public Input<string>? CustomerEncryptionKeyArn { get; set; }

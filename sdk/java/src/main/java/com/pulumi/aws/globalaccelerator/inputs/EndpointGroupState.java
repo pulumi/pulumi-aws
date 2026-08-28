@@ -21,14 +21,14 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
     public static final EndpointGroupState Empty = new EndpointGroupState();
 
     /**
-     * The Amazon Resource Name (ARN) of the endpoint group.
+     * ARN of the endpoint group.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the endpoint group.
+     * @return ARN of the endpoint group.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -128,14 +128,14 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the listener.
+     * ARN of the listener.
      * 
      */
     @Import(name="listenerArn")
     private @Nullable Output<String> listenerArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the listener.
+     * @return ARN of the listener.
      * 
      */
     public Optional<Output<String>> listenerArn() {
@@ -222,7 +222,7 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the endpoint group.
+         * @param arn ARN of the endpoint group.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the endpoint group.
+         * @param arn ARN of the endpoint group.
          * 
          * @return builder
          * 
@@ -381,7 +381,7 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param listenerArn The Amazon Resource Name (ARN) of the listener.
+         * @param listenerArn ARN of the listener.
          * 
          * @return builder
          * 
@@ -392,7 +392,7 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param listenerArn The Amazon Resource Name (ARN) of the listener.
+         * @param listenerArn ARN of the listener.
          * 
          * @return builder
          * 

@@ -33,14 +33,14 @@ public final class SpaceSpaceSettingsCodeEditorAppSettingsArgs extends com.pulum
     }
 
     /**
-     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+     * Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
      * 
      */
     @Import(name="defaultResourceSpec", required=true)
     private Output<SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs> defaultResourceSpec;
 
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+     * @return Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
      * 
      */
     public Output<SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs> defaultResourceSpec() {
@@ -94,7 +94,7 @@ public final class SpaceSpaceSettingsCodeEditorAppSettingsArgs extends com.pulum
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+         * @param defaultResourceSpec Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class SpaceSpaceSettingsCodeEditorAppSettingsArgs extends com.pulum
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+         * @param defaultResourceSpec Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
          * 
          * @return builder
          * 

@@ -34,14 +34,14 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Amazon Resource Names (ARNs) of the frameworks a report covers.
+     * ARNs of the frameworks a report covers.
      * 
      */
     @Import(name="frameworkArns")
     private @Nullable Output<List<String>> frameworkArns;
 
     /**
-     * @return Amazon Resource Names (ARNs) of the frameworks a report covers.
+     * @return ARNs of the frameworks a report covers.
      * 
      */
     public Optional<Output<List<String>>> frameworkArns() {
@@ -169,7 +169,7 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param frameworkArns Amazon Resource Names (ARNs) of the frameworks a report covers.
+         * @param frameworkArns ARNs of the frameworks a report covers.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param frameworkArns Amazon Resource Names (ARNs) of the frameworks a report covers.
+         * @param frameworkArns ARNs of the frameworks a report covers.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param frameworkArns Amazon Resource Names (ARNs) of the frameworks a report covers.
+         * @param frameworkArns ARNs of the frameworks a report covers.
          * 
          * @return builder
          * 

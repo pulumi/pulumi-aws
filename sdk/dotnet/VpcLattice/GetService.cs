@@ -106,7 +106,7 @@ namespace Pulumi.Aws.VpcLattice
         public string? Region { get; set; }
 
         /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the service.
+        /// ID or ARN of the service.
         /// </summary>
         [Input("serviceIdentifier")]
         public string? ServiceIdentifier { get; set; }
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the service.
+        /// ID or ARN of the service.
         /// </summary>
         [Input("serviceIdentifier")]
         public Input<string>? ServiceIdentifier { get; set; }
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.VpcLattice
         /// </summary>
         public readonly string AuthType;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the certificate.
+        /// ARN of the certificate.
         /// </summary>
         public readonly string CertificateArn;
         /// <summary>

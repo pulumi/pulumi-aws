@@ -76,7 +76,7 @@ type LookupOpenZfsSnapshotArgs struct {
 
 // A collection of values returned by getOpenZfsSnapshot.
 type LookupOpenZfsSnapshotResult struct {
-	// Amazon Resource Name of the snapshot.
+	// ARN of the snapshot.
 	Arn string `pulumi:"arn"`
 	// Time that the resource was created.
 	CreationTime string                     `pulumi:"creationTime"`
@@ -136,7 +136,7 @@ func (o LookupOpenZfsSnapshotResultOutput) ToLookupOpenZfsSnapshotResultOutputWi
 	return o
 }
 
-// Amazon Resource Name of the snapshot.
+// ARN of the snapshot.
 func (o LookupOpenZfsSnapshotResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOpenZfsSnapshotResult) string { return v.Arn }).(pulumi.StringOutput)
 }

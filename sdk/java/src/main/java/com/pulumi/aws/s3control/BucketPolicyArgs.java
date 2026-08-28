@@ -17,14 +17,14 @@ public final class BucketPolicyArgs extends com.pulumi.resources.ResourceArgs {
     public static final BucketPolicyArgs Empty = new BucketPolicyArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the bucket.
+     * ARN of the bucket.
      * 
      */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
-     * @return Amazon Resource Name (ARN) of the bucket.
+     * @return ARN of the bucket.
      * 
      */
     public Output<String> bucket() {
@@ -88,7 +88,7 @@ public final class BucketPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucket Amazon Resource Name (ARN) of the bucket.
+         * @param bucket ARN of the bucket.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class BucketPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucket Amazon Resource Name (ARN) of the bucket.
+         * @param bucket ARN of the bucket.
          * 
          * @return builder
          * 

@@ -61,7 +61,7 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<string> AdminUsername { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the snapshot.
+        /// ARN of the snapshot.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
+        /// ARN of the namespace the snapshot was created from.
         /// </summary>
         [Output("namespaceArn")]
         public Output<string> NamespaceArn { get; private set; } = null!;
@@ -217,7 +217,7 @@ namespace Pulumi.Aws.RedshiftServerless
         public Input<string>? AdminUsername { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the snapshot.
+        /// ARN of the snapshot.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -229,7 +229,7 @@ namespace Pulumi.Aws.RedshiftServerless
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
+        /// ARN of the namespace the snapshot was created from.
         /// </summary>
         [Input("namespaceArn")]
         public Input<string>? NamespaceArn { get; set; }

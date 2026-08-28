@@ -56,7 +56,7 @@ export class InstanceConnectEndpoint extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
+     * ARN of the EC2 Instance Connect Endpoint.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -172,7 +172,7 @@ export class InstanceConnectEndpoint extends pulumi.CustomResource {
  */
 export interface InstanceConnectEndpointState {
     /**
-     * The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
+     * ARN of the EC2 Instance Connect Endpoint.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

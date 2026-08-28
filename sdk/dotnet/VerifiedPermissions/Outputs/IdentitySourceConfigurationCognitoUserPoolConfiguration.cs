@@ -22,7 +22,7 @@ namespace Pulumi.Aws.VerifiedPermissions.Outputs
         /// </summary>
         public readonly Outputs.IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration? GroupConfiguration;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
+        /// ARN of the Amazon Cognito user pool that contains the identities to be authorized.
         /// </summary>
         public readonly string UserPoolArn;
 

@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         public Input<Inputs.ServiceServiceConnectConfigurationServiceTimeoutArgs>? Timeout { get; set; }
 
         /// <summary>
-        /// Configuration for enabling Transport Layer Security (TLS)
+        /// Configuration for enabling TLS
         /// </summary>
         [Input("tls")]
         public Input<Inputs.ServiceServiceConnectConfigurationServiceTlsArgs>? Tls { get; set; }

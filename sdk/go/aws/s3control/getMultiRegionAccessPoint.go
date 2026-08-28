@@ -63,7 +63,7 @@ type LookupMultiRegionAccessPointResult struct {
 	AccountId string `pulumi:"accountId"`
 	// Alias for the Multi-Region Access Point.
 	Alias string `pulumi:"alias"`
-	// Amazon Resource Name (ARN) of the Multi-Region Access Point.
+	// ARN of the Multi-Region Access Point.
 	Arn string `pulumi:"arn"`
 	// Timestamp when the resource has been created.
 	CreatedAt string `pulumi:"createdAt"`
@@ -125,7 +125,7 @@ func (o LookupMultiRegionAccessPointResultOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMultiRegionAccessPointResult) string { return v.Alias }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the Multi-Region Access Point.
+// ARN of the Multi-Region Access Point.
 func (o LookupMultiRegionAccessPointResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMultiRegionAccessPointResult) string { return v.Arn }).(pulumi.StringOutput)
 }

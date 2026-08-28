@@ -279,6 +279,10 @@ type CentralizationRuleForOrganization struct {
 	RuleArn pulumi.StringOutput `pulumi:"ruleArn"`
 	// Name of the centralization rule. Must be unique within the organization.
 	RuleName pulumi.StringOutput `pulumi:"ruleName"`
+	// Reason tag propagation is unhealthy, when applicable (for example, `RoleNotAssumable` or `RoleLacksPermissions`).
+	TagPropagationFailureReason pulumi.StringOutput `pulumi:"tagPropagationFailureReason"`
+	// Health status of tag propagation for the rule (for example, `Healthy` or `Unhealthy`). Independent of the overall rule health.
+	TagPropagationStatus pulumi.StringOutput `pulumi:"tagPropagationStatus"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -332,6 +336,10 @@ type centralizationRuleForOrganizationState struct {
 	RuleArn *string `pulumi:"ruleArn"`
 	// Name of the centralization rule. Must be unique within the organization.
 	RuleName *string `pulumi:"ruleName"`
+	// Reason tag propagation is unhealthy, when applicable (for example, `RoleNotAssumable` or `RoleLacksPermissions`).
+	TagPropagationFailureReason *string `pulumi:"tagPropagationFailureReason"`
+	// Health status of tag propagation for the rule (for example, `Healthy` or `Unhealthy`). Independent of the overall rule health.
+	TagPropagationStatus *string `pulumi:"tagPropagationStatus"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -350,6 +358,10 @@ type CentralizationRuleForOrganizationState struct {
 	RuleArn pulumi.StringPtrInput
 	// Name of the centralization rule. Must be unique within the organization.
 	RuleName pulumi.StringPtrInput
+	// Reason tag propagation is unhealthy, when applicable (for example, `RoleNotAssumable` or `RoleLacksPermissions`).
+	TagPropagationFailureReason pulumi.StringPtrInput
+	// Health status of tag propagation for the rule (for example, `Healthy` or `Unhealthy`). Independent of the overall rule health.
+	TagPropagationStatus pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -497,6 +509,16 @@ func (o CentralizationRuleForOrganizationOutput) RuleArn() pulumi.StringOutput {
 // Name of the centralization rule. Must be unique within the organization.
 func (o CentralizationRuleForOrganizationOutput) RuleName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CentralizationRuleForOrganization) pulumi.StringOutput { return v.RuleName }).(pulumi.StringOutput)
+}
+
+// Reason tag propagation is unhealthy, when applicable (for example, `RoleNotAssumable` or `RoleLacksPermissions`).
+func (o CentralizationRuleForOrganizationOutput) TagPropagationFailureReason() pulumi.StringOutput {
+	return o.ApplyT(func(v *CentralizationRuleForOrganization) pulumi.StringOutput { return v.TagPropagationFailureReason }).(pulumi.StringOutput)
+}
+
+// Health status of tag propagation for the rule (for example, `Healthy` or `Unhealthy`). Independent of the overall rule health.
+func (o CentralizationRuleForOrganizationOutput) TagPropagationStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *CentralizationRuleForOrganization) pulumi.StringOutput { return v.TagPropagationStatus }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

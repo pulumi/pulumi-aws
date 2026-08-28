@@ -51,7 +51,7 @@ class ProjectArgs:
 
         :param pulumi.Input['ProjectArtifactsArgs'] artifacts: Configuration block. Detailed below.
         :param pulumi.Input['ProjectEnvironmentArgs'] environment: Configuration block. Detailed below.
-        :param pulumi.Input[_builtins.str] service_role: Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+        :param pulumi.Input[_builtins.str] service_role: ARN of the AWS Identity and Access Management (IAM) role that
                enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
         :param pulumi.Input['ProjectSourceArgs'] source: Configuration block. Detailed below.
                
@@ -68,7 +68,7 @@ class ProjectArgs:
         :param pulumi.Input[_builtins.int] concurrent_build_limit: Specify a maximum number of concurrent builds for the project. The value
                specified must be greater than 0 and less than the account concurrent running builds limit.
         :param pulumi.Input[_builtins.str] description: Short description of the project.
-        :param pulumi.Input[_builtins.str] encryption_key: AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+        :param pulumi.Input[_builtins.str] encryption_key: KMS customer master key (CMK) to be used for encrypting
                the build project's build output artifacts.
         :param pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]] file_system_locations: A set of file system locations to mount inside the build. File system locations
                are documented below.
@@ -167,7 +167,7 @@ class ProjectArgs:
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+        ARN of the AWS Identity and Access Management (IAM) role that
         enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
         """
         return pulumi.get(self, "service_role")
@@ -283,7 +283,7 @@ class ProjectArgs:
     @pulumi.getter(name="encryptionKey")
     def encryption_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+        KMS customer master key (CMK) to be used for encrypting
         the build project's build output artifacts.
         """
         return pulumi.get(self, "encryption_key")
@@ -507,7 +507,7 @@ class _ProjectState:
         :param pulumi.Input[_builtins.int] concurrent_build_limit: Specify a maximum number of concurrent builds for the project. The value
                specified must be greater than 0 and less than the account concurrent running builds limit.
         :param pulumi.Input[_builtins.str] description: Short description of the project.
-        :param pulumi.Input[_builtins.str] encryption_key: AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+        :param pulumi.Input[_builtins.str] encryption_key: KMS customer master key (CMK) to be used for encrypting
                the build project's build output artifacts.
         :param pulumi.Input['ProjectEnvironmentArgs'] environment: Configuration block. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]] file_system_locations: A set of file system locations to mount inside the build. File system locations
@@ -526,7 +526,7 @@ class _ProjectState:
         :param pulumi.Input[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]] secondary_artifacts: Configuration block. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceVersionArgs']]] secondary_source_versions: Configuration block. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]] secondary_sources: Configuration block. Detailed below.
-        :param pulumi.Input[_builtins.str] service_role: Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+        :param pulumi.Input[_builtins.str] service_role: ARN of the AWS Identity and Access Management (IAM) role that
                enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
         :param pulumi.Input['ProjectSourceArgs'] source: Configuration block. Detailed below.
                
@@ -728,7 +728,7 @@ class _ProjectState:
     @pulumi.getter(name="encryptionKey")
     def encryption_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+        KMS customer master key (CMK) to be used for encrypting
         the build project's build output artifacts.
         """
         return pulumi.get(self, "encryption_key")
@@ -890,7 +890,7 @@ class _ProjectState:
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+        ARN of the AWS Identity and Access Management (IAM) role that
         enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
         """
         return pulumi.get(self, "service_role")
@@ -1220,7 +1220,7 @@ class Project(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild project.
+        - `arn` (String) ARN of the CodeBuild project.
 
         Using `pulumi import`, import CodeBuild Project using the `name`. For example:
 
@@ -1244,7 +1244,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] concurrent_build_limit: Specify a maximum number of concurrent builds for the project. The value
                specified must be greater than 0 and less than the account concurrent running builds limit.
         :param pulumi.Input[_builtins.str] description: Short description of the project.
-        :param pulumi.Input[_builtins.str] encryption_key: AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+        :param pulumi.Input[_builtins.str] encryption_key: KMS customer master key (CMK) to be used for encrypting
                the build project's build output artifacts.
         :param pulumi.Input[Union['ProjectEnvironmentArgs', 'ProjectEnvironmentArgsDict']] environment: Configuration block. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectFileSystemLocationArgs', 'ProjectFileSystemLocationArgsDict']]]] file_system_locations: A set of file system locations to mount inside the build. File system locations
@@ -1262,7 +1262,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondaryArtifactArgs', 'ProjectSecondaryArtifactArgsDict']]]] secondary_artifacts: Configuration block. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondarySourceVersionArgs', 'ProjectSecondarySourceVersionArgsDict']]]] secondary_source_versions: Configuration block. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondarySourceArgs', 'ProjectSecondarySourceArgsDict']]]] secondary_sources: Configuration block. Detailed below.
-        :param pulumi.Input[_builtins.str] service_role: Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+        :param pulumi.Input[_builtins.str] service_role: ARN of the AWS Identity and Access Management (IAM) role that
                enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
         :param pulumi.Input[Union['ProjectSourceArgs', 'ProjectSourceArgsDict']] source: Configuration block. Detailed below.
                
@@ -1502,7 +1502,7 @@ class Project(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild project.
+        - `arn` (String) ARN of the CodeBuild project.
 
         Using `pulumi import`, import CodeBuild Project using the `name`. For example:
 
@@ -1658,7 +1658,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] concurrent_build_limit: Specify a maximum number of concurrent builds for the project. The value
                specified must be greater than 0 and less than the account concurrent running builds limit.
         :param pulumi.Input[_builtins.str] description: Short description of the project.
-        :param pulumi.Input[_builtins.str] encryption_key: AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+        :param pulumi.Input[_builtins.str] encryption_key: KMS customer master key (CMK) to be used for encrypting
                the build project's build output artifacts.
         :param pulumi.Input[Union['ProjectEnvironmentArgs', 'ProjectEnvironmentArgsDict']] environment: Configuration block. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectFileSystemLocationArgs', 'ProjectFileSystemLocationArgsDict']]]] file_system_locations: A set of file system locations to mount inside the build. File system locations
@@ -1677,7 +1677,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondaryArtifactArgs', 'ProjectSecondaryArtifactArgsDict']]]] secondary_artifacts: Configuration block. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondarySourceVersionArgs', 'ProjectSecondarySourceVersionArgsDict']]]] secondary_source_versions: Configuration block. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondarySourceArgs', 'ProjectSecondarySourceArgsDict']]]] secondary_sources: Configuration block. Detailed below.
-        :param pulumi.Input[_builtins.str] service_role: Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+        :param pulumi.Input[_builtins.str] service_role: ARN of the AWS Identity and Access Management (IAM) role that
                enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
         :param pulumi.Input[Union['ProjectSourceArgs', 'ProjectSourceArgsDict']] source: Configuration block. Detailed below.
                
@@ -1815,7 +1815,7 @@ class Project(pulumi.CustomResource):
     @pulumi.getter(name="encryptionKey")
     def encryption_key(self) -> pulumi.Output[_builtins.str]:
         """
-        AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+        KMS customer master key (CMK) to be used for encrypting
         the build project's build output artifacts.
         """
         return pulumi.get(self, "encryption_key")
@@ -1925,7 +1925,7 @@ class Project(pulumi.CustomResource):
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+        ARN of the AWS Identity and Access Management (IAM) role that
         enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
         """
         return pulumi.get(self, "service_role")

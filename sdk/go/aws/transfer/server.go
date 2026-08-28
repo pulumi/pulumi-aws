@@ -291,9 +291,9 @@ import (
 type Server struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of Transfer Server
+	// ARN of Transfer Server
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
+	// ARN of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
 	Certificate pulumi.StringPtrOutput `pulumi:"certificate"`
 	// Directory service ID of the directory service you want to connect to with an `identityProviderType` of `AWS_DIRECTORY_SERVICE`.
 	DirectoryId pulumi.StringPtrOutput `pulumi:"directoryId"`
@@ -301,7 +301,7 @@ type Server struct {
 	Domain pulumi.StringPtrOutput `pulumi:"domain"`
 	// Endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// Virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
+	// VPC endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
 	EndpointDetails ServerEndpointDetailsPtrOutput `pulumi:"endpointDetails"`
 	// Type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`. Defaults to `PUBLIC`.
 	EndpointType pulumi.StringPtrOutput `pulumi:"endpointType"`
@@ -315,11 +315,11 @@ type Server struct {
 	HostKeyFingerprint pulumi.StringOutput `pulumi:"hostKeyFingerprint"`
 	// Mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `function` argument.
 	IdentityProviderType pulumi.StringPtrOutput `pulumi:"identityProviderType"`
-	// Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
+	// ARN of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
 	InvocationRole pulumi.StringPtrOutput `pulumi:"invocationRole"`
 	// Type of IP addresses for the AWS Transfer Family endpoint. Valid values are `IPV4` and `DUALSTACK`. The default value is `IPV4`. When `ipAddressType` is set to `DUALSTACK`, `addressAllocationIds` cannot be specified in the `endpointDetails` block. Updating `ipAddressType` stops the server and then restarts it with the new `ipAddressType` value.
 	IpAddressType pulumi.StringOutput `pulumi:"ipAddressType"`
-	// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
+	// ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
 	LoggingRole pulumi.StringPtrOutput `pulumi:"loggingRole"`
 	// Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
 	PostAuthenticationLoginBanner pulumi.StringPtrOutput `pulumi:"postAuthenticationLoginBanner"`
@@ -394,9 +394,9 @@ func GetServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Server resources.
 type serverState struct {
-	// Amazon Resource Name (ARN) of Transfer Server
+	// ARN of Transfer Server
 	Arn *string `pulumi:"arn"`
-	// Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
+	// ARN of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
 	Certificate *string `pulumi:"certificate"`
 	// Directory service ID of the directory service you want to connect to with an `identityProviderType` of `AWS_DIRECTORY_SERVICE`.
 	DirectoryId *string `pulumi:"directoryId"`
@@ -404,7 +404,7 @@ type serverState struct {
 	Domain *string `pulumi:"domain"`
 	// Endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
 	Endpoint *string `pulumi:"endpoint"`
-	// Virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
+	// VPC endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
 	EndpointDetails *ServerEndpointDetails `pulumi:"endpointDetails"`
 	// Type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`. Defaults to `PUBLIC`.
 	EndpointType *string `pulumi:"endpointType"`
@@ -418,11 +418,11 @@ type serverState struct {
 	HostKeyFingerprint *string `pulumi:"hostKeyFingerprint"`
 	// Mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `function` argument.
 	IdentityProviderType *string `pulumi:"identityProviderType"`
-	// Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
+	// ARN of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
 	InvocationRole *string `pulumi:"invocationRole"`
 	// Type of IP addresses for the AWS Transfer Family endpoint. Valid values are `IPV4` and `DUALSTACK`. The default value is `IPV4`. When `ipAddressType` is set to `DUALSTACK`, `addressAllocationIds` cannot be specified in the `endpointDetails` block. Updating `ipAddressType` stops the server and then restarts it with the new `ipAddressType` value.
 	IpAddressType *string `pulumi:"ipAddressType"`
-	// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
+	// ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
 	LoggingRole *string `pulumi:"loggingRole"`
 	// Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
 	PostAuthenticationLoginBanner *string `pulumi:"postAuthenticationLoginBanner"`
@@ -453,9 +453,9 @@ type serverState struct {
 }
 
 type ServerState struct {
-	// Amazon Resource Name (ARN) of Transfer Server
+	// ARN of Transfer Server
 	Arn pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
+	// ARN of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
 	Certificate pulumi.StringPtrInput
 	// Directory service ID of the directory service you want to connect to with an `identityProviderType` of `AWS_DIRECTORY_SERVICE`.
 	DirectoryId pulumi.StringPtrInput
@@ -463,7 +463,7 @@ type ServerState struct {
 	Domain pulumi.StringPtrInput
 	// Endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
 	Endpoint pulumi.StringPtrInput
-	// Virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
+	// VPC endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
 	EndpointDetails ServerEndpointDetailsPtrInput
 	// Type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`. Defaults to `PUBLIC`.
 	EndpointType pulumi.StringPtrInput
@@ -477,11 +477,11 @@ type ServerState struct {
 	HostKeyFingerprint pulumi.StringPtrInput
 	// Mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `function` argument.
 	IdentityProviderType pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
+	// ARN of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
 	InvocationRole pulumi.StringPtrInput
 	// Type of IP addresses for the AWS Transfer Family endpoint. Valid values are `IPV4` and `DUALSTACK`. The default value is `IPV4`. When `ipAddressType` is set to `DUALSTACK`, `addressAllocationIds` cannot be specified in the `endpointDetails` block. Updating `ipAddressType` stops the server and then restarts it with the new `ipAddressType` value.
 	IpAddressType pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
+	// ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
 	LoggingRole pulumi.StringPtrInput
 	// Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
 	PostAuthenticationLoginBanner pulumi.StringPtrInput
@@ -516,13 +516,13 @@ func (ServerState) ElementType() reflect.Type {
 }
 
 type serverArgs struct {
-	// Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
+	// ARN of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
 	Certificate *string `pulumi:"certificate"`
 	// Directory service ID of the directory service you want to connect to with an `identityProviderType` of `AWS_DIRECTORY_SERVICE`.
 	DirectoryId *string `pulumi:"directoryId"`
 	// Domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
 	Domain *string `pulumi:"domain"`
-	// Virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
+	// VPC endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
 	EndpointDetails *ServerEndpointDetails `pulumi:"endpointDetails"`
 	// Type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`. Defaults to `PUBLIC`.
 	EndpointType *string `pulumi:"endpointType"`
@@ -534,11 +534,11 @@ type serverArgs struct {
 	HostKey *string `pulumi:"hostKey"`
 	// Mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `function` argument.
 	IdentityProviderType *string `pulumi:"identityProviderType"`
-	// Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
+	// ARN of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
 	InvocationRole *string `pulumi:"invocationRole"`
 	// Type of IP addresses for the AWS Transfer Family endpoint. Valid values are `IPV4` and `DUALSTACK`. The default value is `IPV4`. When `ipAddressType` is set to `DUALSTACK`, `addressAllocationIds` cannot be specified in the `endpointDetails` block. Updating `ipAddressType` stops the server and then restarts it with the new `ipAddressType` value.
 	IpAddressType *string `pulumi:"ipAddressType"`
-	// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
+	// ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
 	LoggingRole *string `pulumi:"loggingRole"`
 	// Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
 	PostAuthenticationLoginBanner *string `pulumi:"postAuthenticationLoginBanner"`
@@ -568,13 +568,13 @@ type serverArgs struct {
 
 // The set of arguments for constructing a Server resource.
 type ServerArgs struct {
-	// Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
+	// ARN of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
 	Certificate pulumi.StringPtrInput
 	// Directory service ID of the directory service you want to connect to with an `identityProviderType` of `AWS_DIRECTORY_SERVICE`.
 	DirectoryId pulumi.StringPtrInput
 	// Domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
 	Domain pulumi.StringPtrInput
-	// Virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
+	// VPC endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
 	EndpointDetails ServerEndpointDetailsPtrInput
 	// Type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`. Defaults to `PUBLIC`.
 	EndpointType pulumi.StringPtrInput
@@ -586,11 +586,11 @@ type ServerArgs struct {
 	HostKey pulumi.StringPtrInput
 	// Mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `function` argument.
 	IdentityProviderType pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
+	// ARN of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
 	InvocationRole pulumi.StringPtrInput
 	// Type of IP addresses for the AWS Transfer Family endpoint. Valid values are `IPV4` and `DUALSTACK`. The default value is `IPV4`. When `ipAddressType` is set to `DUALSTACK`, `addressAllocationIds` cannot be specified in the `endpointDetails` block. Updating `ipAddressType` stops the server and then restarts it with the new `ipAddressType` value.
 	IpAddressType pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
+	// ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
 	LoggingRole pulumi.StringPtrInput
 	// Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
 	PostAuthenticationLoginBanner pulumi.StringPtrInput
@@ -705,12 +705,12 @@ func (o ServerOutput) ToServerOutputWithContext(ctx context.Context) ServerOutpu
 	return o
 }
 
-// Amazon Resource Name (ARN) of Transfer Server
+// ARN of Transfer Server
 func (o ServerOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
+// ARN of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
 func (o ServerOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.Certificate }).(pulumi.StringPtrOutput)
 }
@@ -730,7 +730,7 @@ func (o ServerOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// Virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
+// VPC endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
 func (o ServerOutput) EndpointDetails() ServerEndpointDetailsPtrOutput {
 	return o.ApplyT(func(v *Server) ServerEndpointDetailsPtrOutput { return v.EndpointDetails }).(ServerEndpointDetailsPtrOutput)
 }
@@ -765,7 +765,7 @@ func (o ServerOutput) IdentityProviderType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.IdentityProviderType }).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
+// ARN of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
 func (o ServerOutput) InvocationRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.InvocationRole }).(pulumi.StringPtrOutput)
 }
@@ -775,7 +775,7 @@ func (o ServerOutput) IpAddressType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.IpAddressType }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
+// ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
 func (o ServerOutput) LoggingRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.LoggingRole }).(pulumi.StringPtrOutput)
 }

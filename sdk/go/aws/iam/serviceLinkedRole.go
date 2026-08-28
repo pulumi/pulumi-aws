@@ -46,7 +46,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the IAM service-linked role.
+// - `arn` (String) ARN of the IAM service-linked role.
 //
 // Using `pulumi import`, import IAM service-linked roles using role ARN. For example:
 //
@@ -56,7 +56,7 @@ import (
 type ServiceLinkedRole struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) specifying the role.
+	// ARN specifying the role.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
 	AwsServiceName pulumi.StringOutput `pulumi:"awsServiceName"`
@@ -111,7 +111,7 @@ func GetServiceLinkedRole(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceLinkedRole resources.
 type serviceLinkedRoleState struct {
-	// The Amazon Resource Name (ARN) specifying the role.
+	// ARN specifying the role.
 	Arn *string `pulumi:"arn"`
 	// The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
 	AwsServiceName *string `pulumi:"awsServiceName"`
@@ -134,7 +134,7 @@ type serviceLinkedRoleState struct {
 }
 
 type ServiceLinkedRoleState struct {
-	// The Amazon Resource Name (ARN) specifying the role.
+	// ARN specifying the role.
 	Arn pulumi.StringPtrInput
 	// The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
 	AwsServiceName pulumi.StringPtrInput
@@ -270,7 +270,7 @@ func (o ServiceLinkedRoleOutput) ToServiceLinkedRoleOutputWithContext(ctx contex
 	return o
 }
 
-// The Amazon Resource Name (ARN) specifying the role.
+// ARN specifying the role.
 func (o ServiceLinkedRoleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceLinkedRole) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

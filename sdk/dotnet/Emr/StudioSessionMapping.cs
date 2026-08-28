@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Emr
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
+        /// ARN for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
         /// </summary>
         [Output("sessionPolicyArn")]
         public Output<string> SessionPolicyArn { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Emr
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
+        /// ARN for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
         /// </summary>
         [Input("sessionPolicyArn", required: true)]
         public Input<string> SessionPolicyArn { get; set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.Emr
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
+        /// ARN for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
         /// </summary>
         [Input("sessionPolicyArn")]
         public Input<string>? SessionPolicyArn { get; set; }

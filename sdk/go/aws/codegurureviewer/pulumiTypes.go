@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type RepositoryAssociationKmsKeyDetails struct {
-	// The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
+	// Encryption option for a repository association. It is either owned by KMS (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
 	EncryptionOption *string `pulumi:"encryptionOption"`
 	// The ID of the AWS KMS key that is associated with a repository association.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -32,7 +32,7 @@ type RepositoryAssociationKmsKeyDetailsInput interface {
 }
 
 type RepositoryAssociationKmsKeyDetailsArgs struct {
-	// The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
+	// Encryption option for a repository association. It is either owned by KMS (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
 	EncryptionOption pulumi.StringPtrInput `pulumi:"encryptionOption"`
 	// The ID of the AWS KMS key that is associated with a repository association.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
@@ -115,7 +115,7 @@ func (o RepositoryAssociationKmsKeyDetailsOutput) ToRepositoryAssociationKmsKeyD
 	}).(RepositoryAssociationKmsKeyDetailsPtrOutput)
 }
 
-// The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
+// Encryption option for a repository association. It is either owned by KMS (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
 func (o RepositoryAssociationKmsKeyDetailsOutput) EncryptionOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryAssociationKmsKeyDetails) *string { return v.EncryptionOption }).(pulumi.StringPtrOutput)
 }
@@ -149,7 +149,7 @@ func (o RepositoryAssociationKmsKeyDetailsPtrOutput) Elem() RepositoryAssociatio
 	}).(RepositoryAssociationKmsKeyDetailsOutput)
 }
 
-// The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
+// Encryption option for a repository association. It is either owned by KMS (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
 func (o RepositoryAssociationKmsKeyDetailsPtrOutput) EncryptionOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryAssociationKmsKeyDetails) *string {
 		if v == nil {
@@ -352,7 +352,7 @@ func (o RepositoryAssociationRepositoryPtrOutput) S3Bucket() RepositoryAssociati
 }
 
 type RepositoryAssociationRepositoryBitbucket struct {
-	// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+	// ARN of an AWS CodeStar Connections connection.
 	ConnectionArn string `pulumi:"connectionArn"`
 	// The name of the third party source repository.
 	Name string `pulumi:"name"`
@@ -372,7 +372,7 @@ type RepositoryAssociationRepositoryBitbucketInput interface {
 }
 
 type RepositoryAssociationRepositoryBitbucketArgs struct {
-	// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+	// ARN of an AWS CodeStar Connections connection.
 	ConnectionArn pulumi.StringInput `pulumi:"connectionArn"`
 	// The name of the third party source repository.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -457,7 +457,7 @@ func (o RepositoryAssociationRepositoryBitbucketOutput) ToRepositoryAssociationR
 	}).(RepositoryAssociationRepositoryBitbucketPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+// ARN of an AWS CodeStar Connections connection.
 func (o RepositoryAssociationRepositoryBitbucketOutput) ConnectionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryAssociationRepositoryBitbucket) string { return v.ConnectionArn }).(pulumi.StringOutput)
 }
@@ -496,7 +496,7 @@ func (o RepositoryAssociationRepositoryBitbucketPtrOutput) Elem() RepositoryAsso
 	}).(RepositoryAssociationRepositoryBitbucketOutput)
 }
 
-// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+// ARN of an AWS CodeStar Connections connection.
 func (o RepositoryAssociationRepositoryBitbucketPtrOutput) ConnectionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryAssociationRepositoryBitbucket) *string {
 		if v == nil {
@@ -664,7 +664,7 @@ func (o RepositoryAssociationRepositoryCodecommitPtrOutput) Name() pulumi.String
 }
 
 type RepositoryAssociationRepositoryGithubEnterpriseServer struct {
-	// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+	// ARN of an AWS CodeStar Connections connection.
 	ConnectionArn string `pulumi:"connectionArn"`
 	// The name of the third party source repository.
 	Name string `pulumi:"name"`
@@ -684,7 +684,7 @@ type RepositoryAssociationRepositoryGithubEnterpriseServerInput interface {
 }
 
 type RepositoryAssociationRepositoryGithubEnterpriseServerArgs struct {
-	// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+	// ARN of an AWS CodeStar Connections connection.
 	ConnectionArn pulumi.StringInput `pulumi:"connectionArn"`
 	// The name of the third party source repository.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -769,7 +769,7 @@ func (o RepositoryAssociationRepositoryGithubEnterpriseServerOutput) ToRepositor
 	}).(RepositoryAssociationRepositoryGithubEnterpriseServerPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+// ARN of an AWS CodeStar Connections connection.
 func (o RepositoryAssociationRepositoryGithubEnterpriseServerOutput) ConnectionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryAssociationRepositoryGithubEnterpriseServer) string { return v.ConnectionArn }).(pulumi.StringOutput)
 }
@@ -808,7 +808,7 @@ func (o RepositoryAssociationRepositoryGithubEnterpriseServerPtrOutput) Elem() R
 	}).(RepositoryAssociationRepositoryGithubEnterpriseServerOutput)
 }
 
-// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+// ARN of an AWS CodeStar Connections connection.
 func (o RepositoryAssociationRepositoryGithubEnterpriseServerPtrOutput) ConnectionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryAssociationRepositoryGithubEnterpriseServer) *string {
 		if v == nil {

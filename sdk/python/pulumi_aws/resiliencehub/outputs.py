@@ -298,8 +298,6 @@ class V2InputSourceResourceConfiguration(dict):
         :param 'V2InputSourceResourceConfigurationEksArgs' eks: EKS configuration. See `eks` Block below.
         :param Sequence['V2InputSourceResourceConfigurationResourceTagArgs'] resource_tags: Resource tags used for discovery. See `resource_tag` Block below.
         :param _builtins.str tf_state_file_url: S3 URL.
-               
-               Exactly one attribute must be configured.
         """
         if cfn_stack_arn is not None:
             pulumi.set(__self__, "cfn_stack_arn", cfn_stack_arn)
@@ -349,8 +347,6 @@ class V2InputSourceResourceConfiguration(dict):
     def tf_state_file_url(self) -> Optional[_builtins.str]:
         """
         S3 URL.
-
-        Exactly one attribute must be configured.
         """
         return pulumi.get(self, "tf_state_file_url")
 
@@ -616,6 +612,8 @@ class V2ServiceAssociatedSystem(dict):
         suggest = None
         if key == "systemArn":
             suggest = "system_arn"
+        elif key == "userJourneyIds":
+            suggest = "user_journey_ids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in V2ServiceAssociatedSystem. Access the value via the '{suggest}' property getter instead.")
@@ -629,11 +627,15 @@ class V2ServiceAssociatedSystem(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 system_arn: _builtins.str):
+                 system_arn: _builtins.str,
+                 user_journey_ids: Optional[Sequence[_builtins.str]] = None):
         """
         :param _builtins.str system_arn: ARN of the system to associate with the service.
+        :param Sequence[_builtins.str] user_journey_ids: List of user journey identifiers that associate the system with the service.
         """
         pulumi.set(__self__, "system_arn", system_arn)
+        if user_journey_ids is not None:
+            pulumi.set(__self__, "user_journey_ids", user_journey_ids)
 
     @_builtins.property
     @pulumi.getter(name="systemArn")
@@ -642,6 +644,14 @@ class V2ServiceAssociatedSystem(dict):
         ARN of the system to associate with the service.
         """
         return pulumi.get(self, "system_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="userJourneyIds")
+    def user_journey_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of user journey identifiers that associate the system with the service.
+        """
+        return pulumi.get(self, "user_journey_ids")
 
 
 @pulumi.output_type
@@ -861,11 +871,14 @@ class GetV2PolicyMultiRegionResult(dict):
 @pulumi.output_type
 class GetV2ServiceAssociatedSystemResult(dict):
     def __init__(__self__, *,
-                 system_arn: _builtins.str):
+                 system_arn: _builtins.str,
+                 user_journey_ids: Sequence[_builtins.str]):
         """
         :param _builtins.str system_arn: ARN of the associated system.
+        :param Sequence[_builtins.str] user_journey_ids: List of user journey identifiers that associate the system with the service.
         """
         pulumi.set(__self__, "system_arn", system_arn)
+        pulumi.set(__self__, "user_journey_ids", user_journey_ids)
 
     @_builtins.property
     @pulumi.getter(name="systemArn")
@@ -874,6 +887,14 @@ class GetV2ServiceAssociatedSystemResult(dict):
         ARN of the associated system.
         """
         return pulumi.get(self, "system_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="userJourneyIds")
+    def user_journey_ids(self) -> Sequence[_builtins.str]:
+        """
+        List of user journey identifiers that associate the system with the service.
+        """
+        return pulumi.get(self, "user_journey_ids")
 
 
 @pulumi.output_type

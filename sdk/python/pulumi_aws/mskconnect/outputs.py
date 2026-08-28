@@ -768,7 +768,7 @@ class ConnectorPluginCustomPlugin(dict):
                  arn: _builtins.str,
                  revision: _builtins.int):
         """
-        :param _builtins.str arn: The Amazon Resource Name (ARN) of the custom plugin.
+        :param _builtins.str arn: ARN of the custom plugin.
         :param _builtins.int revision: The revision of the custom plugin.
         """
         pulumi.set(__self__, "arn", arn)
@@ -778,7 +778,7 @@ class ConnectorPluginCustomPlugin(dict):
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the custom plugin.
+        ARN of the custom plugin.
         """
         return pulumi.get(self, "arn")
 
@@ -797,7 +797,7 @@ class ConnectorWorkerConfiguration(dict):
                  arn: _builtins.str,
                  revision: _builtins.int):
         """
-        :param _builtins.str arn: The Amazon Resource Name (ARN) of the worker configuration.
+        :param _builtins.str arn: ARN of the worker configuration.
         :param _builtins.int revision: The revision of the worker configuration.
         """
         pulumi.set(__self__, "arn", arn)
@@ -807,7 +807,7 @@ class ConnectorWorkerConfiguration(dict):
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the worker configuration.
+        ARN of the worker configuration.
         """
         return pulumi.get(self, "arn")
 
@@ -866,7 +866,7 @@ class CustomPluginLocationS3(dict):
                  file_key: _builtins.str,
                  object_version: Optional[_builtins.str] = None):
         """
-        :param _builtins.str bucket_arn: The Amazon Resource Name (ARN) of an S3 bucket.
+        :param _builtins.str bucket_arn: ARN of an S3 bucket.
         :param _builtins.str file_key: The file key for an object in an S3 bucket.
         :param _builtins.str object_version: The version of an object in an S3 bucket.
         """
@@ -879,7 +879,7 @@ class CustomPluginLocationS3(dict):
     @pulumi.getter(name="bucketArn")
     def bucket_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of an S3 bucket.
+        ARN of an S3 bucket.
         """
         return pulumi.get(self, "bucket_arn")
 

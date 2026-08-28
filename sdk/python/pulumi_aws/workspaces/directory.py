@@ -878,6 +878,64 @@ class Directory(pulumi.CustomResource):
             ip_group_ids=[example_ip_group.id])
         ```
 
+        ### VPC Endpoint Streaming
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        workspaces_streaming = aws.ec2.SecurityGroup("workspaces_streaming",
+            name="workspaces-streaming-endpoint",
+            vpc_id=example_aws_vpc["id"])
+        current = aws.get_region()
+        workspaces = aws.ec2.VpcEndpoint("workspaces",
+            vpc_id=example_aws_vpc["id"],
+            service_name=f"com.amazonaws.{current.region}.highlander",
+            vpc_endpoint_type="Interface",
+            subnet_ids=[
+                example_a["id"],
+                example_b["id"],
+            ],
+            security_group_ids=[workspaces_streaming.id],
+            private_dns_enabled=True)
+        example = aws.workspaces.Directory("example",
+            workspace_access_properties={
+                "access_endpoint_config": {
+                    "access_endpoints": [{
+                        "access_endpoint_type": "STREAMING_WSP",
+                        "vpc_endpoint_id": workspaces.id,
+                    }],
+                    "internet_fallback_protocols": ["PCOIP"],
+                },
+                "device_type_windows": "ALLOW",
+            },
+            directory_id=example_aws_directory_service_directory["id"])
+        workspaces_streaming_tcp443 = aws.vpc.SecurityGroupIngressRule("workspaces_streaming_tcp_443",
+            security_group_id=workspaces_streaming.id,
+            cidr_ipv4=example_aws_vpc["cidrBlock"],
+            from_port=443,
+            to_port=443,
+            ip_protocol="tcp")
+        workspaces_streaming_tcp4195 = aws.vpc.SecurityGroupIngressRule("workspaces_streaming_tcp_4195",
+            security_group_id=workspaces_streaming.id,
+            cidr_ipv4=example_aws_vpc["cidrBlock"],
+            from_port=4195,
+            to_port=4195,
+            ip_protocol="tcp")
+        workspaces_streaming_udp443 = aws.vpc.SecurityGroupIngressRule("workspaces_streaming_udp_443",
+            security_group_id=workspaces_streaming.id,
+            cidr_ipv4=example_aws_vpc["cidrBlock"],
+            from_port=443,
+            to_port=443,
+            ip_protocol="udp")
+        workspaces_streaming_udp4195 = aws.vpc.SecurityGroupIngressRule("workspaces_streaming_udp_4195",
+            security_group_id=workspaces_streaming.id,
+            cidr_ipv4=example_aws_vpc["cidrBlock"],
+            from_port=4195,
+            to_port=4195,
+            ip_protocol="udp")
+        ```
+
         ## Import
 
         Using `pulumi import`, import Workspaces directory using the directory ID. For example:
@@ -1067,6 +1125,64 @@ class Directory(pulumi.CustomResource):
         example = aws.workspaces.Directory("example",
             directory_id=example_aws_directory_service_directory["id"],
             ip_group_ids=[example_ip_group.id])
+        ```
+
+        ### VPC Endpoint Streaming
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        workspaces_streaming = aws.ec2.SecurityGroup("workspaces_streaming",
+            name="workspaces-streaming-endpoint",
+            vpc_id=example_aws_vpc["id"])
+        current = aws.get_region()
+        workspaces = aws.ec2.VpcEndpoint("workspaces",
+            vpc_id=example_aws_vpc["id"],
+            service_name=f"com.amazonaws.{current.region}.highlander",
+            vpc_endpoint_type="Interface",
+            subnet_ids=[
+                example_a["id"],
+                example_b["id"],
+            ],
+            security_group_ids=[workspaces_streaming.id],
+            private_dns_enabled=True)
+        example = aws.workspaces.Directory("example",
+            workspace_access_properties={
+                "access_endpoint_config": {
+                    "access_endpoints": [{
+                        "access_endpoint_type": "STREAMING_WSP",
+                        "vpc_endpoint_id": workspaces.id,
+                    }],
+                    "internet_fallback_protocols": ["PCOIP"],
+                },
+                "device_type_windows": "ALLOW",
+            },
+            directory_id=example_aws_directory_service_directory["id"])
+        workspaces_streaming_tcp443 = aws.vpc.SecurityGroupIngressRule("workspaces_streaming_tcp_443",
+            security_group_id=workspaces_streaming.id,
+            cidr_ipv4=example_aws_vpc["cidrBlock"],
+            from_port=443,
+            to_port=443,
+            ip_protocol="tcp")
+        workspaces_streaming_tcp4195 = aws.vpc.SecurityGroupIngressRule("workspaces_streaming_tcp_4195",
+            security_group_id=workspaces_streaming.id,
+            cidr_ipv4=example_aws_vpc["cidrBlock"],
+            from_port=4195,
+            to_port=4195,
+            ip_protocol="tcp")
+        workspaces_streaming_udp443 = aws.vpc.SecurityGroupIngressRule("workspaces_streaming_udp_443",
+            security_group_id=workspaces_streaming.id,
+            cidr_ipv4=example_aws_vpc["cidrBlock"],
+            from_port=443,
+            to_port=443,
+            ip_protocol="udp")
+        workspaces_streaming_udp4195 = aws.vpc.SecurityGroupIngressRule("workspaces_streaming_udp_4195",
+            security_group_id=workspaces_streaming.id,
+            cidr_ipv4=example_aws_vpc["cidrBlock"],
+            from_port=4195,
+            to_port=4195,
+            ip_protocol="udp")
         ```
 
         ## Import

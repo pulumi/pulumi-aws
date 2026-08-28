@@ -119,7 +119,7 @@ import (
 type EventRule struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the rule.
+	// ARN of the rule.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The description of the rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -139,7 +139,7 @@ type EventRule struct {
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
+	// ARN associated with the role that is used for target invocation.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
 	ScheduleExpression pulumi.StringPtrOutput `pulumi:"scheduleExpression"`
@@ -183,7 +183,7 @@ func GetEventRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventRule resources.
 type eventRuleState struct {
-	// The Amazon Resource Name (ARN) of the rule.
+	// ARN of the rule.
 	Arn *string `pulumi:"arn"`
 	// The description of the rule.
 	Description *string `pulumi:"description"`
@@ -203,7 +203,7 @@ type eventRuleState struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
+	// ARN associated with the role that is used for target invocation.
 	RoleArn *string `pulumi:"roleArn"`
 	// The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
@@ -218,7 +218,7 @@ type eventRuleState struct {
 }
 
 type EventRuleState struct {
-	// The Amazon Resource Name (ARN) of the rule.
+	// ARN of the rule.
 	Arn pulumi.StringPtrInput
 	// The description of the rule.
 	Description pulumi.StringPtrInput
@@ -238,7 +238,7 @@ type EventRuleState struct {
 	NamePrefix pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
+	// ARN associated with the role that is used for target invocation.
 	RoleArn pulumi.StringPtrInput
 	// The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
 	ScheduleExpression pulumi.StringPtrInput
@@ -275,7 +275,7 @@ type eventRuleArgs struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
+	// ARN associated with the role that is used for target invocation.
 	RoleArn *string `pulumi:"roleArn"`
 	// The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
@@ -307,7 +307,7 @@ type EventRuleArgs struct {
 	NamePrefix pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
+	// ARN associated with the role that is used for target invocation.
 	RoleArn pulumi.StringPtrInput
 	// The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
 	ScheduleExpression pulumi.StringPtrInput
@@ -406,7 +406,7 @@ func (o EventRuleOutput) ToEventRuleOutputWithContext(ctx context.Context) Event
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the rule.
+// ARN of the rule.
 func (o EventRuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -453,7 +453,7 @@ func (o EventRuleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
+// ARN associated with the role that is used for target invocation.
 func (o EventRuleOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventRule) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }

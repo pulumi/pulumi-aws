@@ -37,14 +37,14 @@ public final class AppAuthorizationArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * ARN of the app bundle to use for the request.
      * 
      */
     @Import(name="appBundleArn", required=true)
     private Output<String> appBundleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * @return ARN of the app bundle to use for the request.
      * 
      */
     public Output<String> appBundleArn() {
@@ -190,7 +190,7 @@ public final class AppAuthorizationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param appBundleArn Amazon Resource Name (ARN) of the app bundle to use for the request.
+         * @param appBundleArn ARN of the app bundle to use for the request.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class AppAuthorizationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param appBundleArn Amazon Resource Name (ARN) of the app bundle to use for the request.
+         * @param appBundleArn ARN of the app bundle to use for the request.
          * 
          * @return builder
          * 

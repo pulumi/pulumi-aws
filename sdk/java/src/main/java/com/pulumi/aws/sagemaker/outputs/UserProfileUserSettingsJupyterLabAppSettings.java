@@ -34,7 +34,7 @@ public final class UserProfileUserSettingsJupyterLabAppSettings {
     private @Nullable List<UserProfileUserSettingsJupyterLabAppSettingsCodeRepository> codeRepositories;
     private @Nullable List<UserProfileUserSettingsJupyterLabAppSettingsCustomImage> customImages;
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+     * @return Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
      * 
      */
     private @Nullable UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec defaultResourceSpec;
@@ -44,7 +44,7 @@ public final class UserProfileUserSettingsJupyterLabAppSettings {
      */
     private @Nullable UserProfileUserSettingsJupyterLabAppSettingsEmrSettings emrSettings;
     /**
-     * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+     * @return ARN of the Lifecycle Configurations.
      * 
      */
     private @Nullable List<String> lifecycleConfigArns;
@@ -75,7 +75,7 @@ public final class UserProfileUserSettingsJupyterLabAppSettings {
         return this.customImages == null ? List.of() : this.customImages;
     }
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+     * @return Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
      * 
      */
     public Optional<UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec> defaultResourceSpec() {
@@ -89,7 +89,7 @@ public final class UserProfileUserSettingsJupyterLabAppSettings {
         return Optional.ofNullable(this.emrSettings);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+     * @return ARN of the Lifecycle Configurations.
      * 
      */
     public List<String> lifecycleConfigArns() {

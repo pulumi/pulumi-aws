@@ -395,7 +395,7 @@ class _KxClusterState:
         """
         Input properties used for looking up and filtering KxCluster resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifier of the KX cluster.
+        :param pulumi.Input[_builtins.str] arn: ARN identifier of the KX cluster.
         :param pulumi.Input['KxClusterAutoScalingConfigurationArgs'] auto_scaling_configuration: Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See `auto_scaling_configuration` Block.
         :param pulumi.Input[_builtins.str] availability_zone_id: Availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
         :param pulumi.Input[_builtins.str] az_mode: Number of availability zones to assign per cluster. Valid values are `SINGLE` (assigns one availability zone per cluster) and `MULTI` (assigns all the availability zones per cluster).
@@ -484,7 +484,7 @@ class _KxClusterState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) identifier of the KX cluster.
+        ARN identifier of the KX cluster.
         """
         return pulumi.get(self, "arn")
 
@@ -1103,7 +1103,7 @@ class KxCluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifier of the KX cluster.
+        :param pulumi.Input[_builtins.str] arn: ARN identifier of the KX cluster.
         :param pulumi.Input[Union['KxClusterAutoScalingConfigurationArgs', 'KxClusterAutoScalingConfigurationArgsDict']] auto_scaling_configuration: Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See `auto_scaling_configuration` Block.
         :param pulumi.Input[_builtins.str] availability_zone_id: Availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
         :param pulumi.Input[_builtins.str] az_mode: Number of availability zones to assign per cluster. Valid values are `SINGLE` (assigns one availability zone per cluster) and `MULTI` (assigns all the availability zones per cluster).
@@ -1170,7 +1170,7 @@ class KxCluster(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) identifier of the KX cluster.
+        ARN identifier of the KX cluster.
         """
         return pulumi.get(self, "arn")
 

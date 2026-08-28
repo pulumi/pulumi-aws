@@ -73,7 +73,7 @@ export class Policy extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the policy.
+     * ARN of the policy.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -162,7 +162,7 @@ export class Policy extends pulumi.CustomResource {
  */
 export interface PolicyState {
     /**
-     * Amazon Resource Name (ARN) of the policy.
+     * ARN of the policy.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

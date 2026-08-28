@@ -84,7 +84,7 @@ namespace Pulumi.Aws.CloudFront
     public partial class KeyvaluestoreKeysExclusive : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Value Store.
+        /// ARN of the Key Value Store.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.CloudFront
     public sealed class KeyvaluestoreKeysExclusiveArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Value Store.
+        /// ARN of the Key Value Store.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.CloudFront
     public sealed class KeyvaluestoreKeysExclusiveState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Value Store.
+        /// ARN of the Key Value Store.
         /// 
         /// The following arguments are optional:
         /// </summary>

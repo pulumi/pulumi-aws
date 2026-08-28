@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class GetConfigurationSetVdmOptionDashboardOption {
     /**
-     * @return Specifies the status of your VDM engagement metrics collection.
+     * @return Status of your VDM engagement metrics collection.
      * 
      */
     private String engagementMetrics;
 
     private GetConfigurationSetVdmOptionDashboardOption() {}
     /**
-     * @return Specifies the status of your VDM engagement metrics collection.
+     * @return Status of your VDM engagement metrics collection.
      * 
      */
     public String engagementMetrics() {

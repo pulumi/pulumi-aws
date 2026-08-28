@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualGatewaySpecListenerTlsValidation
     {
         /// <summary>
-        /// SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+        /// SANs for a virtual gateway's listener's TLS validation context.
         /// </summary>
         public readonly Outputs.VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames? SubjectAlternativeNames;
         /// <summary>

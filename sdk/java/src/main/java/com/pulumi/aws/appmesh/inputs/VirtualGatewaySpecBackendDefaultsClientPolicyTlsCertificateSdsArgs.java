@@ -15,14 +15,14 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSd
     public static final VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgs Empty = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgs();
 
     /**
-     * Name of the secret for a virtual gateway&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+     * Name of the secret for a virtual gateway&#39;s TLS Secret Discovery Service validation context trust.
      * 
      */
     @Import(name="secretName", required=true)
     private Output<String> secretName;
 
     /**
-     * @return Name of the secret for a virtual gateway&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+     * @return Name of the secret for a virtual gateway&#39;s TLS Secret Discovery Service validation context trust.
      * 
      */
     public Output<String> secretName() {
@@ -54,7 +54,7 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSd
         }
 
         /**
-         * @param secretName Name of the secret for a virtual gateway&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+         * @param secretName Name of the secret for a virtual gateway&#39;s TLS Secret Discovery Service validation context trust.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSd
         }
 
         /**
-         * @param secretName Name of the secret for a virtual gateway&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+         * @param secretName Name of the secret for a virtual gateway&#39;s TLS Secret Discovery Service validation context trust.
          * 
          * @return builder
          * 

@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Auditmanager
         public Output<string?> ActionPlanTitle { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the control.
+        /// ARN of the control.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -257,7 +257,7 @@ namespace Pulumi.Aws.Auditmanager
         public Input<string>? ActionPlanTitle { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the control.
+        /// ARN of the control.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

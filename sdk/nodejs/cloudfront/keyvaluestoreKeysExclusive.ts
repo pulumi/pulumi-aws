@@ -85,7 +85,7 @@ export class KeyvaluestoreKeysExclusive extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Key Value Store.
+     * ARN of the Key Value Store.
      *
      * The following arguments are optional:
      */
@@ -141,7 +141,7 @@ export class KeyvaluestoreKeysExclusive extends pulumi.CustomResource {
  */
 export interface KeyvaluestoreKeysExclusiveState {
     /**
-     * Amazon Resource Name (ARN) of the Key Value Store.
+     * ARN of the Key Value Store.
      *
      * The following arguments are optional:
      */
@@ -166,7 +166,7 @@ export interface KeyvaluestoreKeysExclusiveState {
  */
 export interface KeyvaluestoreKeysExclusiveArgs {
     /**
-     * Amazon Resource Name (ARN) of the Key Value Store.
+     * ARN of the Key Value Store.
      *
      * The following arguments are optional:
      */

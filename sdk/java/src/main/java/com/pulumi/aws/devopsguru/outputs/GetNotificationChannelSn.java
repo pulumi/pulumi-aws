@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class GetNotificationChannelSn {
     /**
-     * @return Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+     * @return ARN of an Amazon Simple Notification Service topic.
      * 
      */
     private String topicArn;
 
     private GetNotificationChannelSn() {}
     /**
-     * @return Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+     * @return ARN of an Amazon Simple Notification Service topic.
      * 
      */
     public String topicArn() {

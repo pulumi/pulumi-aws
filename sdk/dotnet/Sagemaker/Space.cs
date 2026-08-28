@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Sagemaker
     public partial class Space : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The space's Amazon Resource Name (ARN).
+        /// Space's ARN.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.Aws.Sagemaker
     public sealed class SpaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The space's Amazon Resource Name (ARN).
+        /// Space's ARN.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

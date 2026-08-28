@@ -15,14 +15,14 @@ public final class DataSourceVpcConnectionPropertiesArgs extends com.pulumi.reso
     public static final DataSourceVpcConnectionPropertiesArgs Empty = new DataSourceVpcConnectionPropertiesArgs();
 
     /**
-     * The Amazon Resource Name (ARN) for the VPC connection.
+     * ARN for the VPC connection.
      * 
      */
     @Import(name="vpcConnectionArn", required=true)
     private Output<String> vpcConnectionArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the VPC connection.
+     * @return ARN for the VPC connection.
      * 
      */
     public Output<String> vpcConnectionArn() {
@@ -54,7 +54,7 @@ public final class DataSourceVpcConnectionPropertiesArgs extends com.pulumi.reso
         }
 
         /**
-         * @param vpcConnectionArn The Amazon Resource Name (ARN) for the VPC connection.
+         * @param vpcConnectionArn ARN for the VPC connection.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class DataSourceVpcConnectionPropertiesArgs extends com.pulumi.reso
         }
 
         /**
-         * @param vpcConnectionArn The Amazon Resource Name (ARN) for the VPC connection.
+         * @param vpcConnectionArn ARN for the VPC connection.
          * 
          * @return builder
          * 

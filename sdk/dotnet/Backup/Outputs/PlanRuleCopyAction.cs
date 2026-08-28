@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Backup.Outputs
     public sealed class PlanRuleCopyAction
     {
         /// <summary>
-        /// An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
+        /// ARN that uniquely identifies the destination backup vault for the copied backup.
         /// </summary>
         public readonly string DestinationVaultArn;
         /// <summary>

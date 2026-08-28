@@ -92,7 +92,7 @@ import (
 type KxCluster struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) identifier of the KX cluster.
+	// ARN identifier of the KX cluster.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See `autoScalingConfiguration` Block.
 	AutoScalingConfiguration KxClusterAutoScalingConfigurationPtrOutput `pulumi:"autoScalingConfiguration"`
@@ -195,7 +195,7 @@ func GetKxCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KxCluster resources.
 type kxClusterState struct {
-	// Amazon Resource Name (ARN) identifier of the KX cluster.
+	// ARN identifier of the KX cluster.
 	Arn *string `pulumi:"arn"`
 	// Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See `autoScalingConfiguration` Block.
 	AutoScalingConfiguration *KxClusterAutoScalingConfiguration `pulumi:"autoScalingConfiguration"`
@@ -254,7 +254,7 @@ type kxClusterState struct {
 }
 
 type KxClusterState struct {
-	// Amazon Resource Name (ARN) identifier of the KX cluster.
+	// ARN identifier of the KX cluster.
 	Arn pulumi.StringPtrInput
 	// Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See `autoScalingConfiguration` Block.
 	AutoScalingConfiguration KxClusterAutoScalingConfigurationPtrInput
@@ -498,7 +498,7 @@ func (o KxClusterOutput) ToKxClusterOutputWithContext(ctx context.Context) KxClu
 	return o
 }
 
-// Amazon Resource Name (ARN) identifier of the KX cluster.
+// ARN identifier of the KX cluster.
 func (o KxClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxCluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

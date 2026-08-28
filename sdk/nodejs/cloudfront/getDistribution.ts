@@ -50,7 +50,7 @@ export interface GetDistributionResult {
      */
     readonly anycastIpListId: string;
     /**
-     * ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
+     * ARN for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
      */
     readonly arn: string;
     /**

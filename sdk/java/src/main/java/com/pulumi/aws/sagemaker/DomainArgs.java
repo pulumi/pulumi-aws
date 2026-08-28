@@ -218,7 +218,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+     * ID of the VPC that Studio uses for communication.
      * 
      * The following arguments are optional:
      * 
@@ -227,7 +227,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> vpcId;
 
     /**
-     * @return The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+     * @return ID of the VPC that Studio uses for communication.
      * 
      * The following arguments are optional:
      * 
@@ -557,7 +557,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+         * @param vpcId ID of the VPC that Studio uses for communication.
          * 
          * The following arguments are optional:
          * 
@@ -570,7 +570,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+         * @param vpcId ID of the VPC that Studio uses for communication.
          * 
          * The following arguments are optional:
          * 

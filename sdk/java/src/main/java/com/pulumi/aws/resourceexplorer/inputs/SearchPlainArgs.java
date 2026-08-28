@@ -50,14 +50,14 @@ public final class SearchPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Specifies the Amazon resource name (ARN) of the view to use for the query. If you don&#39;t specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn&#39;t have a default view or if you don&#39;t have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
+     * ARN of the view to use for the query. If you don&#39;t specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn&#39;t have a default view or if you don&#39;t have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
      * 
      */
     @Import(name="viewArn")
     private @Nullable String viewArn;
 
     /**
-     * @return Specifies the Amazon resource name (ARN) of the view to use for the query. If you don&#39;t specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn&#39;t have a default view or if you don&#39;t have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
+     * @return ARN of the view to use for the query. If you don&#39;t specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn&#39;t have a default view or if you don&#39;t have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
      * 
      */
     public Optional<String> viewArn() {
@@ -115,7 +115,7 @@ public final class SearchPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param viewArn Specifies the Amazon resource name (ARN) of the view to use for the query. If you don&#39;t specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn&#39;t have a default view or if you don&#39;t have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
+         * @param viewArn ARN of the view to use for the query. If you don&#39;t specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn&#39;t have a default view or if you don&#39;t have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
          * 
          * @return builder
          * 

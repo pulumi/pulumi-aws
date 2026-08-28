@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Glue schema.
+ * - `arn` (String) ARN of the Glue schema.
  * 
  * Using `pulumi import`, import Glue Registries using `arn`. For example:
  * 
@@ -74,14 +74,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:glue/schema:Schema")
 public class Schema extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the schema.
+     * ARN of the schema.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the schema.
+     * @return ARN of the schema.
      * 
      */
     public Output<String> arn() {

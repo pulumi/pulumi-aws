@@ -15,14 +15,14 @@ public final class VectorsIndexEncryptionConfigurationArgs extends com.pulumi.re
     public static final VectorsIndexEncryptionConfigurationArgs Empty = new VectorsIndexEncryptionConfigurationArgs();
 
     /**
-     * AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sseType` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key Amazon Resource Name (ARN).
+     * KMS customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sseType` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key ARN.
      * 
      */
     @Import(name="kmsKeyArn", required=true)
     private Output<String> kmsKeyArn;
 
     /**
-     * @return AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sseType` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key Amazon Resource Name (ARN).
+     * @return KMS customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sseType` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key ARN.
      * 
      */
     public Output<String> kmsKeyArn() {
@@ -70,7 +70,7 @@ public final class VectorsIndexEncryptionConfigurationArgs extends com.pulumi.re
         }
 
         /**
-         * @param kmsKeyArn AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sseType` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key Amazon Resource Name (ARN).
+         * @param kmsKeyArn KMS customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sseType` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key ARN.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class VectorsIndexEncryptionConfigurationArgs extends com.pulumi.re
         }
 
         /**
-         * @param kmsKeyArn AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sseType` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key Amazon Resource Name (ARN).
+         * @param kmsKeyArn KMS customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sseType` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key ARN.
          * 
          * @return builder
          * 

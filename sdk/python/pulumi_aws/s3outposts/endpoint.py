@@ -137,7 +137,7 @@ class _EndpointState:
         Input properties used for looking up and filtering Endpoint resources.
 
         :param pulumi.Input[_builtins.str] access_type: Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the endpoint.
+        :param pulumi.Input[_builtins.str] arn: ARN of the endpoint.
         :param pulumi.Input[_builtins.str] cidr_block: VPC CIDR block of the endpoint.
         :param pulumi.Input[_builtins.str] creation_time: UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[_builtins.str] customer_owned_ipv4_pool: ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
@@ -184,7 +184,7 @@ class _EndpointState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the endpoint.
+        ARN of the endpoint.
         """
         return pulumi.get(self, "arn")
 
@@ -319,7 +319,7 @@ class Endpoint(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import S3 Outposts Endpoints using Amazon Resource Name (ARN), EC2 Security Group identifier, and EC2 Subnet identifier, separated by commas (`,`). For example:
+        Using `pulumi import`, import S3 Outposts Endpoints using ARN, EC2 Security Group identifier, and EC2 Subnet identifier, separated by commas (`,`). For example:
 
         ```sh
         $ pulumi import aws:s3outposts/endpoint:Endpoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/endpoint/0123456789abcdef,sg-12345678,subnet-12345678
@@ -358,7 +358,7 @@ class Endpoint(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import S3 Outposts Endpoints using Amazon Resource Name (ARN), EC2 Security Group identifier, and EC2 Subnet identifier, separated by commas (`,`). For example:
+        Using `pulumi import`, import S3 Outposts Endpoints using ARN, EC2 Security Group identifier, and EC2 Subnet identifier, separated by commas (`,`). For example:
 
         ```sh
         $ pulumi import aws:s3outposts/endpoint:Endpoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/endpoint/0123456789abcdef,sg-12345678,subnet-12345678
@@ -439,7 +439,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_type: Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the endpoint.
+        :param pulumi.Input[_builtins.str] arn: ARN of the endpoint.
         :param pulumi.Input[_builtins.str] cidr_block: VPC CIDR block of the endpoint.
         :param pulumi.Input[_builtins.str] creation_time: UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[_builtins.str] customer_owned_ipv4_pool: ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
@@ -477,7 +477,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the endpoint.
+        ARN of the endpoint.
         """
         return pulumi.get(self, "arn")
 

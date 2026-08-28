@@ -78,7 +78,7 @@ namespace Pulumi.Aws.CloudWatch
     public partial class LogDeliveryDestination : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the delivery destination.
+        /// ARN of the delivery destination.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -222,7 +222,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class LogDeliveryDestinationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the delivery destination.
+        /// ARN of the delivery destination.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

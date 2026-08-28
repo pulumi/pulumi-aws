@@ -65,7 +65,7 @@ export class Vocabulary extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the vocabulary.
+     * ARN of the vocabulary.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -173,7 +173,7 @@ export class Vocabulary extends pulumi.CustomResource {
  */
 export interface VocabularyState {
     /**
-     * The Amazon Resource Name (ARN) of the vocabulary.
+     * ARN of the vocabulary.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

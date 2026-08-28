@@ -75,6 +75,9 @@ export class ContactList extends pulumi.CustomResource {
         return obj['__pulumiType'] === ContactList.__pulumiType;
     }
 
+    /**
+     * ARN of the contact list.
+     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Name of the contact list.
@@ -154,6 +157,9 @@ export class ContactList extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ContactList resources.
  */
 export interface ContactListState {
+    /**
+     * ARN of the contact list.
+     */
     arn?: pulumi.Input<string | undefined>;
     /**
      * Name of the contact list.

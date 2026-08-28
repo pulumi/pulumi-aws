@@ -264,7 +264,7 @@ class BudgetActionDefinitionArgs:
 class BudgetActionDefinitionIamActionDefinitionArgsDict(TypedDict):
     policy_arn: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the policy to be attached.
+    ARN of the policy to be attached.
     """
     groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
@@ -287,7 +287,7 @@ class BudgetActionDefinitionIamActionDefinitionArgs:
                  roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  users: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
-        :param pulumi.Input[_builtins.str] policy_arn: The Amazon Resource Name (ARN) of the policy to be attached.
+        :param pulumi.Input[_builtins.str] policy_arn: ARN of the policy to be attached.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups: A list of groups to be attached. There must be at least one group.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] roles: A list of roles to be attached. There must be at least one role.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users: A list of users to be attached. There must be at least one user.
@@ -304,7 +304,7 @@ class BudgetActionDefinitionIamActionDefinitionArgs:
     @pulumi.getter(name="policyArn")
     def policy_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the policy to be attached.
+        ARN of the policy to be attached.
         """
         return pulumi.get(self, "policy_arn")
 

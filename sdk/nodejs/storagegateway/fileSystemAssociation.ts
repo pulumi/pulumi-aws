@@ -81,7 +81,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws.storagegateway.FileSystemAssociation` using the FSx file system association Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.storagegateway.FileSystemAssociation` using the FSx file system association ARN. For example:
  *
  * ```sh
  * $ pulumi import aws:storagegateway/fileSystemAssociation:FileSystemAssociation example arn:aws:storagegateway:us-east-1:123456789012:fs-association/fsa-0DA347732FDB40125
@@ -116,11 +116,11 @@ export class FileSystemAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the newly created file system association.
+     * ARN of the newly created file system association.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the storage used for the audit logs.
+     * ARN of the storage used for the audit logs.
      */
     declare public readonly auditDestinationArn: pulumi.Output<string | undefined>;
     /**
@@ -128,11 +128,11 @@ export class FileSystemAssociation extends pulumi.CustomResource {
      */
     declare public readonly cacheAttributes: pulumi.Output<outputs.storagegateway.FileSystemAssociationCacheAttributes | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the gateway.
+     * ARN of the gateway.
      */
     declare public readonly gatewayArn: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+     * ARN of the Amazon FSx file system to associate with the FSx File Gateway.
      */
     declare public readonly locationArn: pulumi.Output<string>;
     /**
@@ -216,11 +216,11 @@ export class FileSystemAssociation extends pulumi.CustomResource {
  */
 export interface FileSystemAssociationState {
     /**
-     * Amazon Resource Name (ARN) of the newly created file system association.
+     * ARN of the newly created file system association.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the storage used for the audit logs.
+     * ARN of the storage used for the audit logs.
      */
     auditDestinationArn?: pulumi.Input<string | undefined>;
     /**
@@ -228,11 +228,11 @@ export interface FileSystemAssociationState {
      */
     cacheAttributes?: pulumi.Input<inputs.storagegateway.FileSystemAssociationCacheAttributes | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the gateway.
+     * ARN of the gateway.
      */
     gatewayArn?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+     * ARN of the Amazon FSx file system to associate with the FSx File Gateway.
      */
     locationArn?: pulumi.Input<string | undefined>;
     /**
@@ -262,7 +262,7 @@ export interface FileSystemAssociationState {
  */
 export interface FileSystemAssociationArgs {
     /**
-     * The Amazon Resource Name (ARN) of the storage used for the audit logs.
+     * ARN of the storage used for the audit logs.
      */
     auditDestinationArn?: pulumi.Input<string | undefined>;
     /**
@@ -270,11 +270,11 @@ export interface FileSystemAssociationArgs {
      */
     cacheAttributes?: pulumi.Input<inputs.storagegateway.FileSystemAssociationCacheAttributes | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the gateway.
+     * ARN of the gateway.
      */
     gatewayArn: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+     * ARN of the Amazon FSx file system to associate with the FSx File Gateway.
      */
     locationArn: pulumi.Input<string>;
     /**

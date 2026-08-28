@@ -47,14 +47,14 @@ public final class StateMachineLoggingConfigurationArgs extends com.pulumi.resou
     }
 
     /**
-     * Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
+     * ARN of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
      * 
      */
     @Import(name="logDestination")
     private @Nullable Output<String> logDestination;
 
     /**
-     * @return Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
+     * @return ARN of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
      * 
      */
     public Optional<Output<String>> logDestination() {
@@ -130,7 +130,7 @@ public final class StateMachineLoggingConfigurationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param logDestination Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
+         * @param logDestination ARN of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class StateMachineLoggingConfigurationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param logDestination Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
+         * @param logDestination ARN of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
          * 
          * @return builder
          * 

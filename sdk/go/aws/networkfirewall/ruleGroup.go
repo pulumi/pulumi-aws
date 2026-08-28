@@ -544,7 +544,7 @@ import (
 type RuleGroup struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) that identifies the rule group.
+	// ARN that identifies the rule group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
 	Capacity pulumi.IntOutput `pulumi:"capacity"`
@@ -606,7 +606,7 @@ func GetRuleGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RuleGroup resources.
 type ruleGroupState struct {
-	// The Amazon Resource Name (ARN) that identifies the rule group.
+	// ARN that identifies the rule group.
 	Arn *string `pulumi:"arn"`
 	// The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
 	Capacity *int `pulumi:"capacity"`
@@ -633,7 +633,7 @@ type ruleGroupState struct {
 }
 
 type RuleGroupState struct {
-	// The Amazon Resource Name (ARN) that identifies the rule group.
+	// ARN that identifies the rule group.
 	Arn pulumi.StringPtrInput
 	// The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
 	Capacity pulumi.IntPtrInput
@@ -793,7 +793,7 @@ func (o RuleGroupOutput) ToRuleGroupOutputWithContext(ctx context.Context) RuleG
 	return o
 }
 
-// The Amazon Resource Name (ARN) that identifies the rule group.
+// ARN that identifies the rule group.
 func (o RuleGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         private InputList<string>? _securityGroups;
 
         /// <summary>
-        /// The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
+        /// Security groups for the VPC that the space uses for communication.
         /// </summary>
         public InputList<string> SecurityGroups
         {

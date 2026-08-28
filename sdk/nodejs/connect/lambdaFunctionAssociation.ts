@@ -57,7 +57,7 @@ export class LambdaFunctionAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+     * ARN of the Lambda Function, omitting any version or alias qualifier.
      */
     declare public readonly functionArn: pulumi.Output<string>;
     /**
@@ -107,7 +107,7 @@ export class LambdaFunctionAssociation extends pulumi.CustomResource {
  */
 export interface LambdaFunctionAssociationState {
     /**
-     * Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+     * ARN of the Lambda Function, omitting any version or alias qualifier.
      */
     functionArn?: pulumi.Input<string | undefined>;
     /**
@@ -125,7 +125,7 @@ export interface LambdaFunctionAssociationState {
  */
 export interface LambdaFunctionAssociationArgs {
     /**
-     * Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+     * ARN of the Lambda Function, omitting any version or alias qualifier.
      */
     functionArn: pulumi.Input<string>;
     /**

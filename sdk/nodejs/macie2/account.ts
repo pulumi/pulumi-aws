@@ -68,7 +68,7 @@ export class Account extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
+     * ARN of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
      */
     declare public /*out*/ readonly serviceRole: pulumi.Output<string>;
     /**
@@ -130,7 +130,7 @@ export interface AccountState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
+     * ARN of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
      */
     serviceRole?: pulumi.Input<string | undefined>;
     /**

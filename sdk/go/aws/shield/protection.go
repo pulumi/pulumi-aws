@@ -85,7 +85,7 @@ type Protection struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A friendly name for the Protection you are creating.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The ARN (Amazon Resource Name) of the resource to be protected.
+	// ARN of the resource to be protected.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -130,7 +130,7 @@ type protectionState struct {
 	Arn *string `pulumi:"arn"`
 	// A friendly name for the Protection you are creating.
 	Name *string `pulumi:"name"`
-	// The ARN (Amazon Resource Name) of the resource to be protected.
+	// ARN of the resource to be protected.
 	ResourceArn *string `pulumi:"resourceArn"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -143,7 +143,7 @@ type ProtectionState struct {
 	Arn pulumi.StringPtrInput
 	// A friendly name for the Protection you are creating.
 	Name pulumi.StringPtrInput
-	// The ARN (Amazon Resource Name) of the resource to be protected.
+	// ARN of the resource to be protected.
 	ResourceArn pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -158,7 +158,7 @@ func (ProtectionState) ElementType() reflect.Type {
 type protectionArgs struct {
 	// A friendly name for the Protection you are creating.
 	Name *string `pulumi:"name"`
-	// The ARN (Amazon Resource Name) of the resource to be protected.
+	// ARN of the resource to be protected.
 	ResourceArn string `pulumi:"resourceArn"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -168,7 +168,7 @@ type protectionArgs struct {
 type ProtectionArgs struct {
 	// A friendly name for the Protection you are creating.
 	Name pulumi.StringPtrInput
-	// The ARN (Amazon Resource Name) of the resource to be protected.
+	// ARN of the resource to be protected.
 	ResourceArn pulumi.StringInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -271,7 +271,7 @@ func (o ProtectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Protection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The ARN (Amazon Resource Name) of the resource to be protected.
+// ARN of the resource to be protected.
 func (o ProtectionOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Protection) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }

@@ -64,7 +64,7 @@ type DelegatedAdministrator struct {
 
 	// The account ID number of the member account in the organization to register as a delegated administrator.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// The Amazon Resource Name (ARN) of the delegated administrator's account.
+	// ARN of the delegated administrator's account.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The date when the account was made a delegated administrator.
 	DelegationEnabledDate pulumi.StringOutput `pulumi:"delegationEnabledDate"`
@@ -120,7 +120,7 @@ func GetDelegatedAdministrator(ctx *pulumi.Context,
 type delegatedAdministratorState struct {
 	// The account ID number of the member account in the organization to register as a delegated administrator.
 	AccountId *string `pulumi:"accountId"`
-	// The Amazon Resource Name (ARN) of the delegated administrator's account.
+	// ARN of the delegated administrator's account.
 	Arn *string `pulumi:"arn"`
 	// The date when the account was made a delegated administrator.
 	DelegationEnabledDate *string `pulumi:"delegationEnabledDate"`
@@ -141,7 +141,7 @@ type delegatedAdministratorState struct {
 type DelegatedAdministratorState struct {
 	// The account ID number of the member account in the organization to register as a delegated administrator.
 	AccountId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the delegated administrator's account.
+	// ARN of the delegated administrator's account.
 	Arn pulumi.StringPtrInput
 	// The date when the account was made a delegated administrator.
 	DelegationEnabledDate pulumi.StringPtrInput
@@ -270,7 +270,7 @@ func (o DelegatedAdministratorOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DelegatedAdministrator) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the delegated administrator's account.
+// ARN of the delegated administrator's account.
 func (o DelegatedAdministratorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DelegatedAdministrator) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

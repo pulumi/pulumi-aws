@@ -80,14 +80,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cloudwatch/logStream:LogStream")
 public class LogStream extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) specifying the log stream.
+     * ARN specifying the log stream.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) specifying the log stream.
+     * @return ARN specifying the log stream.
      * 
      */
     public Output<String> arn() {

@@ -239,7 +239,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild project.
+ * - `arn` (String) ARN of the CodeBuild project.
  *
  * Using `pulumi import`, import CodeBuild Project using the `name`. For example:
  *
@@ -321,7 +321,7 @@ export class Project extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string>;
     /**
-     * AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+     * KMS customer master key (CMK) to be used for encrypting
      * the build project's build output artifacts.
      */
     declare public readonly encryptionKey: pulumi.Output<string>;
@@ -379,7 +379,7 @@ export class Project extends pulumi.CustomResource {
      */
     declare public readonly secondarySources: pulumi.Output<outputs.codebuild.ProjectSecondarySource[] | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+     * ARN of the AWS Identity and Access Management (IAM) role that
      * enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      */
     declare public readonly serviceRole: pulumi.Output<string>;
@@ -551,7 +551,7 @@ export interface ProjectState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+     * KMS customer master key (CMK) to be used for encrypting
      * the build project's build output artifacts.
      */
     encryptionKey?: pulumi.Input<string | undefined>;
@@ -609,7 +609,7 @@ export interface ProjectState {
      */
     secondarySources?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondarySource>[] | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+     * ARN of the AWS Identity and Access Management (IAM) role that
      * enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      */
     serviceRole?: pulumi.Input<string | undefined>;
@@ -683,7 +683,7 @@ export interface ProjectArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+     * KMS customer master key (CMK) to be used for encrypting
      * the build project's build output artifacts.
      */
     encryptionKey?: pulumi.Input<string | undefined>;
@@ -737,7 +737,7 @@ export interface ProjectArgs {
      */
     secondarySources?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondarySource>[] | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+     * ARN of the AWS Identity and Access Management (IAM) role that
      * enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      */
     serviceRole: pulumi.Input<string>;

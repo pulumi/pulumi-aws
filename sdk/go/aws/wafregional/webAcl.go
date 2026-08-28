@@ -173,7 +173,7 @@ import (
 type WebAcl struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the WAF Regional WebACL.
+	// ARN of the WAF Regional WebACL.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
 	DefaultAction WebAclDefaultActionOutput `pulumi:"defaultAction"`
@@ -229,7 +229,7 @@ func GetWebAcl(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAcl resources.
 type webAclState struct {
-	// Amazon Resource Name (ARN) of the WAF Regional WebACL.
+	// ARN of the WAF Regional WebACL.
 	Arn *string `pulumi:"arn"`
 	// The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
 	DefaultAction *WebAclDefaultAction `pulumi:"defaultAction"`
@@ -250,7 +250,7 @@ type webAclState struct {
 }
 
 type WebAclState struct {
-	// Amazon Resource Name (ARN) of the WAF Regional WebACL.
+	// ARN of the WAF Regional WebACL.
 	Arn pulumi.StringPtrInput
 	// The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
 	DefaultAction WebAclDefaultActionPtrInput
@@ -396,7 +396,7 @@ func (o WebAclOutput) ToWebAclOutputWithContext(ctx context.Context) WebAclOutpu
 	return o
 }
 
-// Amazon Resource Name (ARN) of the WAF Regional WebACL.
+// ARN of the WAF Regional WebACL.
 func (o WebAclOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

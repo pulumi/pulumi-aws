@@ -55,7 +55,7 @@ export class Namespace extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of namespace's admin user credentials secret.
+     * ARN of namespace's admin user credentials secret.
      */
     declare public /*out*/ readonly adminPasswordSecretArn: pulumi.Output<string>;
     /**
@@ -82,7 +82,7 @@ export class Namespace extends pulumi.CustomResource {
      */
     declare public readonly adminUsername: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+     * ARN of the Redshift Serverless Namespace.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -90,7 +90,7 @@ export class Namespace extends pulumi.CustomResource {
      */
     declare public readonly dbName: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+     * ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
      */
     declare public readonly defaultIamRoleArn: pulumi.Output<string | undefined>;
     /**
@@ -98,7 +98,7 @@ export class Namespace extends pulumi.CustomResource {
      */
     declare public readonly iamRoles: pulumi.Output<string[]>;
     /**
-     * The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+     * ARN of the Amazon Web Services KMS key used to encrypt your data.
      */
     declare public readonly kmsKeyId: pulumi.Output<string>;
     /**
@@ -198,7 +198,7 @@ export class Namespace extends pulumi.CustomResource {
  */
 export interface NamespaceState {
     /**
-     * Amazon Resource Name (ARN) of namespace's admin user credentials secret.
+     * ARN of namespace's admin user credentials secret.
      */
     adminPasswordSecretArn?: pulumi.Input<string | undefined>;
     /**
@@ -225,7 +225,7 @@ export interface NamespaceState {
      */
     adminUsername?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+     * ARN of the Redshift Serverless Namespace.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -233,7 +233,7 @@ export interface NamespaceState {
      */
     dbName?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+     * ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
      */
     defaultIamRoleArn?: pulumi.Input<string | undefined>;
     /**
@@ -241,7 +241,7 @@ export interface NamespaceState {
      */
     iamRoles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+     * ARN of the Amazon Web Services KMS key used to encrypt your data.
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**
@@ -307,7 +307,7 @@ export interface NamespaceArgs {
      */
     dbName?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+     * ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
      */
     defaultIamRoleArn?: pulumi.Input<string | undefined>;
     /**
@@ -315,7 +315,7 @@ export interface NamespaceArgs {
      */
     iamRoles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+     * ARN of the Amazon Web Services KMS key used to encrypt your data.
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**

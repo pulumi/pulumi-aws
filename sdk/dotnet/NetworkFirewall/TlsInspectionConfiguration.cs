@@ -444,7 +444,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Network Firewall TLS inspection configuration.
+    /// - `Arn` (String) ARN of the Network Firewall TLS inspection configuration.
     /// 
     /// Using `pulumi import`, import Network Firewall TLS Inspection Configuration using the `Arn`. For example:
     /// 

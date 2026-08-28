@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the contact channel.
+ * - `arn` (String) ARN of the contact channel.
  *
  * Using `pulumi import`, import SSM Contact Channel using the `arn`. For example:
  *
@@ -97,11 +97,11 @@ export class ContactChannel extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly activationStatus: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the contact channel.
+     * ARN of the contact channel.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
+     * ARN of the AWS SSM Contact that the contact channel belongs to.
      */
     declare public readonly contactId: pulumi.Output<string>;
     /**
@@ -174,11 +174,11 @@ export interface ContactChannelState {
      */
     activationStatus?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the contact channel.
+     * ARN of the contact channel.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
+     * ARN of the AWS SSM Contact that the contact channel belongs to.
      */
     contactId?: pulumi.Input<string | undefined>;
     /**
@@ -204,7 +204,7 @@ export interface ContactChannelState {
  */
 export interface ContactChannelArgs {
     /**
-     * Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
+     * ARN of the AWS SSM Contact that the contact channel belongs to.
      */
     contactId: pulumi.Input<string>;
     /**

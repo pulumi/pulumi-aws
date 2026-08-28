@@ -192,6 +192,37 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Disabling Master Password Rotation
+ *
+ * > **Note:** The `aws.secretsmanager.SecretRotation` resource must depend on a cluster instance, otherwise AWS re-enables rotation once the instance finishes provisioning. Use `dependsOn` as shown below when the cluster and its instance are created together.
+ *
+ * When `manageMasterUserPassword` is enabled, Secrets Manager rotates the master user password automatically (every 7 days by default). To disable that rotation while keeping the managed secret, manage the secret's rotation with `aws.secretsmanager.SecretRotation` and set `rotationEnabled = false`.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.rds.Cluster("test", {
+ *     clusterIdentifier: "example",
+ *     databaseName: "test",
+ *     manageMasterUserPassword: true,
+ *     masterUsername: "test",
+ * });
+ * const testClusterInstance = new aws.rds.ClusterInstance("test", {
+ *     clusterIdentifier: test.id,
+ *     identifier: "example-1",
+ *     instanceClass: aws.rds.InstanceType.R6G_Large,
+ *     engine: test.engine.apply((x) => aws.rds.EngineType[x]),
+ *     engineVersion: test.engineVersion,
+ * });
+ * const testSecretRotation = new aws.secretsmanager.SecretRotation("test", {
+ *     secretId: test.masterUserSecrets[0].secretArn,
+ *     rotationEnabled: false,
+ * }, {
+ *     dependsOn: [testClusterInstance],
+ * });
+ * ```
+ *
  * ### Global Cluster Restored From Snapshot
  *
  * ```typescript
@@ -280,7 +311,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly applyImmediately: pulumi.Output<boolean>;
     /**
-     * Amazon Resource Name (ARN) of cluster
+     * ARN of cluster
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -779,7 +810,7 @@ export interface ClusterState {
      */
     applyImmediately?: pulumi.Input<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) of cluster
+     * ARN of cluster
      */
     arn?: pulumi.Input<string | undefined>;
     /**

@@ -154,7 +154,7 @@ class NotificationChannelSns(dict):
     def __init__(__self__, *,
                  topic_arn: _builtins.str):
         """
-        :param _builtins.str topic_arn: Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+        :param _builtins.str topic_arn: ARN of an Amazon Simple Notification Service topic.
         """
         pulumi.set(__self__, "topic_arn", topic_arn)
 
@@ -162,7 +162,7 @@ class NotificationChannelSns(dict):
     @pulumi.getter(name="topicArn")
     def topic_arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+        ARN of an Amazon Simple Notification Service topic.
         """
         return pulumi.get(self, "topic_arn")
 
@@ -418,7 +418,7 @@ class GetNotificationChannelSnResult(dict):
     def __init__(__self__, *,
                  topic_arn: _builtins.str):
         """
-        :param _builtins.str topic_arn: Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+        :param _builtins.str topic_arn: ARN of an Amazon Simple Notification Service topic.
         """
         pulumi.set(__self__, "topic_arn", topic_arn)
 
@@ -426,7 +426,7 @@ class GetNotificationChannelSnResult(dict):
     @pulumi.getter(name="topicArn")
     def topic_arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+        ARN of an Amazon Simple Notification Service topic.
         """
         return pulumi.get(self, "topic_arn")
 

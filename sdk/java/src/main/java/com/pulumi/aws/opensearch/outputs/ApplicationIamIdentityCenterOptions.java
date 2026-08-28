@@ -19,7 +19,7 @@ public final class ApplicationIamIdentityCenterOptions {
     private @Nullable Boolean enabled;
     private @Nullable String iamIdentityCenterApplicationArn;
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM Identity Center instance. Must be between 20 and 2048 characters.
+     * @return ARN of the IAM Identity Center instance. Must be between 20 and 2048 characters.
      * 
      */
     private @Nullable String iamIdentityCenterInstanceArn;
@@ -41,7 +41,7 @@ public final class ApplicationIamIdentityCenterOptions {
         return Optional.ofNullable(this.iamIdentityCenterApplicationArn);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM Identity Center instance. Must be between 20 and 2048 characters.
+     * @return ARN of the IAM Identity Center instance. Must be between 20 and 2048 characters.
      * 
      */
     public Optional<String> iamIdentityCenterInstanceArn() {

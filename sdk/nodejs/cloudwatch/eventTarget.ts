@@ -552,7 +552,7 @@ export class EventTarget extends pulumi.CustomResource {
      */
     declare public readonly appsyncTarget: pulumi.Output<outputs.cloudwatch.EventTargetAppsyncTarget | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the target.
+     * ARN of the target.
      */
     declare public readonly arn: pulumi.Output<string>;
     /**
@@ -609,7 +609,7 @@ export class EventTarget extends pulumi.CustomResource {
      */
     declare public readonly retryPolicy: pulumi.Output<outputs.cloudwatch.EventTargetRetryPolicy | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
+     * ARN of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
      */
     declare public readonly roleArn: pulumi.Output<string | undefined>;
     /**
@@ -713,7 +713,7 @@ export interface EventTargetState {
      */
     appsyncTarget?: pulumi.Input<inputs.cloudwatch.EventTargetAppsyncTarget | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the target.
+     * ARN of the target.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -770,7 +770,7 @@ export interface EventTargetState {
      */
     retryPolicy?: pulumi.Input<inputs.cloudwatch.EventTargetRetryPolicy | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
+     * ARN of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
@@ -806,7 +806,7 @@ export interface EventTargetArgs {
      */
     appsyncTarget?: pulumi.Input<inputs.cloudwatch.EventTargetAppsyncTarget | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the target.
+     * ARN of the target.
      */
     arn: pulumi.Input<string>;
     /**
@@ -863,7 +863,7 @@ export interface EventTargetArgs {
      */
     retryPolicy?: pulumi.Input<inputs.cloudwatch.EventTargetRetryPolicy | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
+     * ARN of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**

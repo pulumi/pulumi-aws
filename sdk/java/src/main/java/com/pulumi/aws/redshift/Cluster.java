@@ -166,14 +166,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.aquaConfigurationStatus;
     }
     /**
-     * Amazon Resource Name (ARN) of cluster
+     * ARN of cluster
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of cluster
+     * @return ARN of cluster
      * 
      */
     public Output<String> arn() {
@@ -236,14 +236,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.clusterIdentifier;
     }
     /**
-     * The namespace Amazon Resource Name (ARN) of the cluster
+     * Namespace ARN of the cluster
      * 
      */
     @Export(name="clusterNamespaceArn", refs={String.class}, tree="[0]")
     private Output<String> clusterNamespaceArn;
 
     /**
-     * @return The namespace Amazon Resource Name (ARN) of the cluster
+     * @return Namespace ARN of the cluster
      * 
      */
     public Output<String> clusterNamespaceArn() {
@@ -306,14 +306,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.clusterRevisionNumber;
     }
     /**
-     * The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+     * Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
      * 
      */
     @Export(name="clusterSubnetGroupName", refs={String.class}, tree="[0]")
     private Output<String> clusterSubnetGroupName;
 
     /**
-     * @return The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+     * @return Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
      * 
      */
     public Output<String> clusterSubnetGroupName() {
@@ -366,14 +366,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.databaseName;
     }
     /**
-     * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+     * ARN for the IAM role that was set as default for the cluster when the cluster was created.
      * 
      */
     @Export(name="defaultIamRoleArn", refs={String.class}, tree="[0]")
     private Output<String> defaultIamRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+     * @return ARN for the IAM role that was set as default for the cluster when the cluster was created.
      * 
      */
     public Output<String> defaultIamRoleArn() {
@@ -852,14 +852,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+     * List of VPC security groups to be associated with the cluster.
      * 
      */
     @Export(name="vpcSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> vpcSecurityGroupIds;
 
     /**
-     * @return A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+     * @return List of VPC security groups to be associated with the cluster.
      * 
      */
     public Output<List<String>> vpcSecurityGroupIds() {

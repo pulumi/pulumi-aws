@@ -68,14 +68,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:redshiftserverless/namespace:Namespace")
 public class Namespace extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of namespace&#39;s admin user credentials secret.
+     * ARN of namespace&#39;s admin user credentials secret.
      * 
      */
     @Export(name="adminPasswordSecretArn", refs={String.class}, tree="[0]")
     private Output<String> adminPasswordSecretArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of namespace&#39;s admin user credentials secret.
+     * @return ARN of namespace&#39;s admin user credentials secret.
      * 
      */
     public Output<String> adminPasswordSecretArn() {
@@ -158,14 +158,14 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return this.adminUsername;
     }
     /**
-     * Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+     * ARN of the Redshift Serverless Namespace.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+     * @return ARN of the Redshift Serverless Namespace.
      * 
      */
     public Output<String> arn() {
@@ -186,14 +186,14 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return this.dbName;
     }
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+     * ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
      * 
      */
     @Export(name="defaultIamRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultIamRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+     * @return ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
      * 
      */
     public Output<Optional<String>> defaultIamRoleArn() {
@@ -214,14 +214,14 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return this.iamRoles;
     }
     /**
-     * The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+     * ARN of the Amazon Web Services KMS key used to encrypt your data.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
-     * @return The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+     * @return ARN of the Amazon Web Services KMS key used to encrypt your data.
      * 
      */
     public Output<String> kmsKeyId() {

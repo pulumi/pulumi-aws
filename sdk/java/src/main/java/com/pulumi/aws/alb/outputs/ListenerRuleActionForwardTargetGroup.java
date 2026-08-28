@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ListenerRuleActionForwardTargetGroup {
     /**
-     * @return The Amazon Resource Name (ARN) of the target group.
+     * @return ARN of the target group.
      * 
      */
     private String arn;
@@ -26,7 +26,7 @@ public final class ListenerRuleActionForwardTargetGroup {
 
     private ListenerRuleActionForwardTargetGroup() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the target group.
+     * @return ARN of the target group.
      * 
      */
     public String arn() {

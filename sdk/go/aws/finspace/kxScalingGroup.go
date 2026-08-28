@@ -55,7 +55,7 @@ import (
 type KxScalingGroup struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) identifier of the KX Scaling Group.
+	// ARN identifier of the KX Scaling Group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Availability zone identifiers for the requested regions.
 	AvailabilityZoneId pulumi.StringOutput `pulumi:"availabilityZoneId"`
@@ -124,7 +124,7 @@ func GetKxScalingGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KxScalingGroup resources.
 type kxScalingGroupState struct {
-	// Amazon Resource Name (ARN) identifier of the KX Scaling Group.
+	// ARN identifier of the KX Scaling Group.
 	Arn *string `pulumi:"arn"`
 	// Availability zone identifiers for the requested regions.
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
@@ -155,7 +155,7 @@ type kxScalingGroupState struct {
 }
 
 type KxScalingGroupState struct {
-	// Amazon Resource Name (ARN) identifier of the KX Scaling Group.
+	// ARN identifier of the KX Scaling Group.
 	Arn pulumi.StringPtrInput
 	// Availability zone identifiers for the requested regions.
 	AvailabilityZoneId pulumi.StringPtrInput
@@ -311,7 +311,7 @@ func (o KxScalingGroupOutput) ToKxScalingGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Amazon Resource Name (ARN) identifier of the KX Scaling Group.
+// ARN identifier of the KX Scaling Group.
 func (o KxScalingGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxScalingGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

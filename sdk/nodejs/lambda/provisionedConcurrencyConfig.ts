@@ -74,7 +74,7 @@ export class ProvisionedConcurrencyConfig extends pulumi.CustomResource {
     }
 
     /**
-     * Name or Amazon Resource Name (ARN) of the Lambda Function.
+     * Name or ARN of the Lambda Function.
      */
     declare public readonly functionName: pulumi.Output<string>;
     /**
@@ -141,7 +141,7 @@ export class ProvisionedConcurrencyConfig extends pulumi.CustomResource {
  */
 export interface ProvisionedConcurrencyConfigState {
     /**
-     * Name or Amazon Resource Name (ARN) of the Lambda Function.
+     * Name or ARN of the Lambda Function.
      */
     functionName?: pulumi.Input<string | undefined>;
     /**
@@ -169,7 +169,7 @@ export interface ProvisionedConcurrencyConfigState {
  */
 export interface ProvisionedConcurrencyConfigArgs {
     /**
-     * Name or Amazon Resource Name (ARN) of the Lambda Function.
+     * Name or ARN of the Lambda Function.
      */
     functionName: pulumi.Input<string>;
     /**

@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
+        /// ARN for the parent folder. If not set, creates a root-level folder.
         /// </summary>
         [Output("parentFolderArn")]
         public Output<string?> ParentFolderArn { get; private set; } = null!;
@@ -260,7 +260,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
+        /// ARN for the parent folder. If not set, creates a root-level folder.
         /// </summary>
         [Input("parentFolderArn")]
         public Input<string>? ParentFolderArn { get; set; }
@@ -360,7 +360,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
+        /// ARN for the parent folder. If not set, creates a root-level folder.
         /// </summary>
         [Input("parentFolderArn")]
         public Input<string>? ParentFolderArn { get; set; }

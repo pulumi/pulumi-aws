@@ -17,14 +17,14 @@ public final class MulticastDomainState extends com.pulumi.resources.ResourceArg
     public static final MulticastDomainState Empty = new MulticastDomainState();
 
     /**
-     * EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
+     * EC2 Transit Gateway Multicast Domain ARN.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
+     * @return EC2 Transit Gateway Multicast Domain ARN.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -184,7 +184,7 @@ public final class MulticastDomainState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
+         * @param arn EC2 Transit Gateway Multicast Domain ARN.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class MulticastDomainState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
+         * @param arn EC2 Transit Gateway Multicast Domain ARN.
          * 
          * @return builder
          * 

@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Kendra.Inputs
         public Input<string> KeyLocation { get; set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the secret.
+        /// ARN of the secret.
         /// </summary>
         [Input("secretsManagerArn")]
         public Input<string>? SecretsManagerArn { get; set; }

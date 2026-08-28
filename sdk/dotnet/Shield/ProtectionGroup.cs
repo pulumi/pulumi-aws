@@ -132,7 +132,7 @@ namespace Pulumi.Aws.Shield
         public Output<string> Aggregation { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `Pattern` to ARBITRARY and you must not set it for any other `Pattern` setting.
+        /// ARNs of the resources to include in the protection group. You must set this when you set `Pattern` to ARBITRARY and you must not set it for any other `Pattern` setting.
         /// </summary>
         [Output("members")]
         public Output<ImmutableArray<string>> Members { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.Shield
         public Output<string> Pattern { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN (Amazon Resource Name) of the protection group.
+        /// ARN of the protection group.
         /// </summary>
         [Output("protectionGroupArn")]
         public Output<string> ProtectionGroupArn { get; private set; } = null!;
@@ -229,7 +229,7 @@ namespace Pulumi.Aws.Shield
         private InputList<string>? _members;
 
         /// <summary>
-        /// The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `Pattern` to ARBITRARY and you must not set it for any other `Pattern` setting.
+        /// ARNs of the resources to include in the protection group. You must set this when you set `Pattern` to ARBITRARY and you must not set it for any other `Pattern` setting.
         /// </summary>
         public InputList<string> Members
         {
@@ -285,7 +285,7 @@ namespace Pulumi.Aws.Shield
         private InputList<string>? _members;
 
         /// <summary>
-        /// The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `Pattern` to ARBITRARY and you must not set it for any other `Pattern` setting.
+        /// ARNs of the resources to include in the protection group. You must set this when you set `Pattern` to ARBITRARY and you must not set it for any other `Pattern` setting.
         /// </summary>
         public InputList<string> Members
         {
@@ -300,7 +300,7 @@ namespace Pulumi.Aws.Shield
         public Input<string>? Pattern { get; set; }
 
         /// <summary>
-        /// The ARN (Amazon Resource Name) of the protection group.
+        /// ARN of the protection group.
         /// </summary>
         [Input("protectionGroupArn")]
         public Input<string>? ProtectionGroupArn { get; set; }

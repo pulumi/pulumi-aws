@@ -18,14 +18,14 @@ public final class GetConfigurationSetArgs extends com.pulumi.resources.InvokeAr
     public static final GetConfigurationSetArgs Empty = new GetConfigurationSetArgs();
 
     /**
-     * The name of the configuration set.
+     * Name of the configuration set.
      * 
      */
     @Import(name="configurationSetName", required=true)
     private Output<String> configurationSetName;
 
     /**
-     * @return The name of the configuration set.
+     * @return Name of the configuration set.
      * 
      */
     public Output<String> configurationSetName() {
@@ -48,14 +48,14 @@ public final class GetConfigurationSetArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * Key-value map of resource tags for the container recipe.
+     * Key-value map of resource tags.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags for the container recipe.
+     * @return Key-value map of resource tags.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -89,7 +89,7 @@ public final class GetConfigurationSetArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param configurationSetName The name of the configuration set.
+         * @param configurationSetName Name of the configuration set.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class GetConfigurationSetArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param configurationSetName The name of the configuration set.
+         * @param configurationSetName Name of the configuration set.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class GetConfigurationSetArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param tags Key-value map of resource tags for the container recipe.
+         * @param tags Key-value map of resource tags.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class GetConfigurationSetArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param tags Key-value map of resource tags for the container recipe.
+         * @param tags Key-value map of resource tags.
          * 
          * @return builder
          * 

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentFlowDefinitionNodeConfigurationAgent
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the alias of the agent to invoke.
+        /// ARN of the alias of the agent to invoke.
         /// </summary>
         public readonly string AgentAliasArn;
 

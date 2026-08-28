@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string?> AccountDefaultStatus { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the MLflow App.
+        /// ARN of the MLflow App.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
+        /// ARN for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
@@ -209,7 +209,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
+        /// ARN for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? AccountDefaultStatus { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the MLflow App.
+        /// ARN of the MLflow App.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -292,7 +292,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
+        /// ARN for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

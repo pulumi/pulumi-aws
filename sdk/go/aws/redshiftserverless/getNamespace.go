@@ -60,17 +60,17 @@ type LookupNamespaceArgs struct {
 type LookupNamespaceResult struct {
 	// The username of the administrator for the first database created in the namespace.
 	AdminUsername string `pulumi:"adminUsername"`
-	// Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+	// ARN of the Redshift Serverless Namespace.
 	Arn string `pulumi:"arn"`
 	// The name of the first database created in the namespace.
 	DbName string `pulumi:"dbName"`
-	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+	// ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
 	DefaultIamRoleArn string `pulumi:"defaultIamRoleArn"`
 	// A list of IAM roles to associate with the namespace.
 	IamRoles []string `pulumi:"iamRoles"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+	// ARN of the Amazon Web Services KMS key used to encrypt your data.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
 	LogExports []string `pulumi:"logExports"`
@@ -117,7 +117,7 @@ func (o LookupNamespaceResultOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamespaceResult) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+// ARN of the Redshift Serverless Namespace.
 func (o LookupNamespaceResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamespaceResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -127,7 +127,7 @@ func (o LookupNamespaceResultOutput) DbName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamespaceResult) string { return v.DbName }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+// ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
 func (o LookupNamespaceResultOutput) DefaultIamRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamespaceResult) string { return v.DefaultIamRoleArn }).(pulumi.StringOutput)
 }
@@ -142,7 +142,7 @@ func (o LookupNamespaceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamespaceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+// ARN of the Amazon Web Services KMS key used to encrypt your data.
 func (o LookupNamespaceResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamespaceResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }

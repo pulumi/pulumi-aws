@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Connect.Inputs
     public sealed class UserHierarchyStructureHierarchyStructureLevelFiveArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the hierarchy level.
+        /// The ARN of the hierarchy level.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

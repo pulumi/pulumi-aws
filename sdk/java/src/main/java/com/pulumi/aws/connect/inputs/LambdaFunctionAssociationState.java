@@ -16,14 +16,14 @@ public final class LambdaFunctionAssociationState extends com.pulumi.resources.R
     public static final LambdaFunctionAssociationState Empty = new LambdaFunctionAssociationState();
 
     /**
-     * Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+     * ARN of the Lambda Function, omitting any version or alias qualifier.
      * 
      */
     @Import(name="functionArn")
     private @Nullable Output<String> functionArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+     * @return ARN of the Lambda Function, omitting any version or alias qualifier.
      * 
      */
     public Optional<Output<String>> functionArn() {
@@ -87,7 +87,7 @@ public final class LambdaFunctionAssociationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param functionArn Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+         * @param functionArn ARN of the Lambda Function, omitting any version or alias qualifier.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class LambdaFunctionAssociationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param functionArn Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+         * @param functionArn ARN of the Lambda Function, omitting any version or alias qualifier.
          * 
          * @return builder
          * 

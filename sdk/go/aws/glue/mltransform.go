@@ -148,7 +148,7 @@ import (
 type MLTransform struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of Glue ML Transform.
+	// ARN of Glue ML Transform.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Description of the ML Transform.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -223,7 +223,7 @@ func GetMLTransform(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MLTransform resources.
 type mltransformState struct {
-	// Amazon Resource Name (ARN) of Glue ML Transform.
+	// ARN of Glue ML Transform.
 	Arn *string `pulumi:"arn"`
 	// Description of the ML Transform.
 	Description *string `pulumi:"description"`
@@ -260,7 +260,7 @@ type mltransformState struct {
 }
 
 type MLTransformState struct {
-	// Amazon Resource Name (ARN) of Glue ML Transform.
+	// ARN of Glue ML Transform.
 	Arn pulumi.StringPtrInput
 	// Description of the ML Transform.
 	Description pulumi.StringPtrInput
@@ -446,7 +446,7 @@ func (o MLTransformOutput) ToMLTransformOutputWithContext(ctx context.Context) M
 	return o
 }
 
-// Amazon Resource Name (ARN) of Glue ML Transform.
+// ARN of Glue ML Transform.
 func (o MLTransformOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MLTransform) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

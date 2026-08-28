@@ -61,7 +61,7 @@ namespace Pulumi.Aws.FinSpace
     public partial class KxDataview : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) identifier of the KX dataview.
+        /// ARN identifier of the KX dataview.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -305,7 +305,7 @@ namespace Pulumi.Aws.FinSpace
     public sealed class KxDataviewState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) identifier of the KX dataview.
+        /// ARN identifier of the KX dataview.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -44,7 +44,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Global Accelerator endpoint group.
+    /// - `Arn` (String) ARN of the Global Accelerator endpoint group.
     /// 
     /// Using `pulumi import`, import Global Accelerator endpoint groups using the `Id`. For example:
     /// 
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     public partial class EndpointGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the endpoint group.
+        /// ARN of the endpoint group.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         public Output<string?> HealthCheckProtocol { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the listener.
+        /// ARN of the listener.
         /// </summary>
         [Output("listenerArn")]
         public Output<string> ListenerArn { get; private set; } = null!;
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         public Input<string>? HealthCheckProtocol { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the listener.
+        /// ARN of the listener.
         /// </summary>
         [Input("listenerArn", required: true)]
         public Input<string> ListenerArn { get; set; } = null!;
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     public sealed class EndpointGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the endpoint group.
+        /// ARN of the endpoint group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -299,7 +299,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         public Input<string>? HealthCheckProtocol { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the listener.
+        /// ARN of the listener.
         /// </summary>
         [Input("listenerArn")]
         public Input<string>? ListenerArn { get; set; }

@@ -203,7 +203,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the SSM Contacts rotation.
+    /// - `Arn` (String) ARN of the SSM Contacts rotation.
     /// 
     /// Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `Arn`. For example:
     /// 
@@ -215,13 +215,13 @@ namespace Pulumi.Aws.Ssm
     public partial class ContactsRotation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the rotation.
+        /// ARN of the rotation.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+        /// ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
         /// </summary>
         [Output("contactIds")]
         public Output<ImmutableArray<string>> ContactIds { get; private set; } = null!;
@@ -320,7 +320,7 @@ namespace Pulumi.Aws.Ssm
         private InputList<string>? _contactIds;
 
         /// <summary>
-        /// Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+        /// ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
         /// </summary>
         public InputList<string> ContactIds
         {
@@ -381,7 +381,7 @@ namespace Pulumi.Aws.Ssm
     public sealed class ContactsRotationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the rotation.
+        /// ARN of the rotation.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -390,7 +390,7 @@ namespace Pulumi.Aws.Ssm
         private InputList<string>? _contactIds;
 
         /// <summary>
-        /// Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+        /// ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
         /// </summary>
         public InputList<string> ContactIds
         {

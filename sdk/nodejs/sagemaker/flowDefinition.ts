@@ -142,7 +142,7 @@ export class FlowDefinition extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
+     * ARN assigned by AWS to this Flow Definition.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -170,7 +170,7 @@ export class FlowDefinition extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
+     * ARN of the role needed to call other services on your behalf.
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
@@ -240,7 +240,7 @@ export class FlowDefinition extends pulumi.CustomResource {
  */
 export interface FlowDefinitionState {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
+     * ARN assigned by AWS to this Flow Definition.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -268,7 +268,7 @@ export interface FlowDefinitionState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
+     * ARN of the role needed to call other services on your behalf.
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
@@ -310,7 +310,7 @@ export interface FlowDefinitionArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
+     * ARN of the role needed to call other services on your behalf.
      */
     roleArn: pulumi.Input<string>;
     /**

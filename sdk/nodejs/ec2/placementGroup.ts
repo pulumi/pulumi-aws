@@ -60,7 +60,7 @@ export class PlacementGroup extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the placement group.
+     * ARN of the placement group.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -146,7 +146,7 @@ export class PlacementGroup extends pulumi.CustomResource {
  */
 export interface PlacementGroupState {
     /**
-     * Amazon Resource Name (ARN) of the placement group.
+     * ARN of the placement group.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

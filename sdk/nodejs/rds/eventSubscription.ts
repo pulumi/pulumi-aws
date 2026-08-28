@@ -82,7 +82,7 @@ export class EventSubscription extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name of the RDS event notification subscription
+     * ARN of the RDS event notification subscription
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -183,7 +183,7 @@ export class EventSubscription extends pulumi.CustomResource {
  */
 export interface EventSubscriptionState {
     /**
-     * The Amazon Resource Name of the RDS event notification subscription
+     * ARN of the RDS event notification subscription
      */
     arn?: pulumi.Input<string | undefined>;
     /**

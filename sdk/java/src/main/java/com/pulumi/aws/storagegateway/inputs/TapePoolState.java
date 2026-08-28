@@ -18,14 +18,14 @@ public final class TapePoolState extends com.pulumi.resources.ResourceArgs {
     public static final TapePoolState Empty = new TapePoolState();
 
     /**
-     * Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
+     * Volume ARN, e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
+     * @return Volume ARN, e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -169,7 +169,7 @@ public final class TapePoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
+         * @param arn Volume ARN, e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class TapePoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
+         * @param arn Volume ARN, e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
          * 
          * @return builder
          * 

@@ -2176,7 +2176,7 @@ type FirewallPolicyFirewallPolicyStatefulRuleGroupReference struct {
 	Override *FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride `pulumi:"override"`
 	// An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
 	Priority *int `pulumi:"priority"`
-	// The Amazon Resource Name (ARN) of the stateful rule group.
+	// ARN of the stateful rule group.
 	ResourceArn string `pulumi:"resourceArn"`
 }
 
@@ -2200,7 +2200,7 @@ type FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs struct {
 	Override FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverridePtrInput `pulumi:"override"`
 	// An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// The Amazon Resource Name (ARN) of the stateful rule group.
+	// ARN of the stateful rule group.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 }
 
@@ -2274,7 +2274,7 @@ func (o FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput) Priority()
 	return o.ApplyT(func(v FirewallPolicyFirewallPolicyStatefulRuleGroupReference) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the stateful rule group.
+// ARN of the stateful rule group.
 func (o FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallPolicyFirewallPolicyStatefulRuleGroupReference) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
@@ -2754,7 +2754,7 @@ func (o FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublish
 type FirewallPolicyFirewallPolicyStatelessRuleGroupReference struct {
 	// An integer setting that indicates the order in which to run the stateless rule groups in a single policy. AWS Network Firewall applies each stateless rule group to a packet starting with the group that has the lowest priority setting.
 	Priority int `pulumi:"priority"`
-	// The Amazon Resource Name (ARN) of the stateless rule group.
+	// ARN of the stateless rule group.
 	ResourceArn string `pulumi:"resourceArn"`
 }
 
@@ -2772,7 +2772,7 @@ type FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceInput interface {
 type FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs struct {
 	// An integer setting that indicates the order in which to run the stateless rule groups in a single policy. AWS Network Firewall applies each stateless rule group to a packet starting with the group that has the lowest priority setting.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The Amazon Resource Name (ARN) of the stateless rule group.
+	// ARN of the stateless rule group.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 }
 
@@ -2832,7 +2832,7 @@ func (o FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput) Priority(
 	return o.ApplyT(func(v FirewallPolicyFirewallPolicyStatelessRuleGroupReference) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// The Amazon Resource Name (ARN) of the stateless rule group.
+// ARN of the stateless rule group.
 func (o FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallPolicyFirewallPolicyStatelessRuleGroupReference) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
@@ -5904,7 +5904,7 @@ type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRul
 	DestinationPorts []RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPort `pulumi:"destinationPorts"`
 	// Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
 	Destinations []RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination `pulumi:"destinations"`
-	// Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
+	// Set of protocols to inspect for, specified using the protocol's assigned IP number (IANA). If not specified, this matches with any protocol.
 	Protocols []int `pulumi:"protocols"`
 	// Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Port below for details.
 	SourcePorts []RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort `pulumi:"sourcePorts"`
@@ -5930,7 +5930,7 @@ type RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRul
 	DestinationPorts RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArrayInput `pulumi:"destinationPorts"`
 	// Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
 	Destinations RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArrayInput `pulumi:"destinations"`
-	// Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
+	// Set of protocols to inspect for, specified using the protocol's assigned IP number (IANA). If not specified, this matches with any protocol.
 	Protocols pulumi.IntArrayInput `pulumi:"protocols"`
 	// Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Port below for details.
 	SourcePorts RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArrayInput `pulumi:"sourcePorts"`
@@ -5980,7 +5980,7 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRule
 	}).(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArrayOutput)
 }
 
-// Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
+// Set of protocols to inspect for, specified using the protocol's assigned IP number (IANA). If not specified, this matches with any protocol.
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesOutput) Protocols() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributes) []int {
 		return v.Protocols
@@ -6928,7 +6928,7 @@ func (o TlsInspectionConfigurationCertificateAuthorityArrayOutput) Index(i pulum
 }
 
 type TlsInspectionConfigurationEncryptionConfiguration struct {
-	// ARN of the Amazon Web Services Key Management Service (KMS) customer managed key.
+	// ARN of the Amazon Web Services KMS customer managed key.
 	KeyId string `pulumi:"keyId"`
 	// Type of KMS key to use for encryption of your Network Firewall resources. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_KMS`.
 	Type string `pulumi:"type"`
@@ -6946,7 +6946,7 @@ type TlsInspectionConfigurationEncryptionConfigurationInput interface {
 }
 
 type TlsInspectionConfigurationEncryptionConfigurationArgs struct {
-	// ARN of the Amazon Web Services Key Management Service (KMS) customer managed key.
+	// ARN of the Amazon Web Services KMS customer managed key.
 	KeyId pulumi.StringInput `pulumi:"keyId"`
 	// Type of KMS key to use for encryption of your Network Firewall resources. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_KMS`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -7003,7 +7003,7 @@ func (o TlsInspectionConfigurationEncryptionConfigurationOutput) ToTlsInspection
 	return o
 }
 
-// ARN of the Amazon Web Services Key Management Service (KMS) customer managed key.
+// ARN of the Amazon Web Services KMS customer managed key.
 func (o TlsInspectionConfigurationEncryptionConfigurationOutput) KeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v TlsInspectionConfigurationEncryptionConfiguration) string { return v.KeyId }).(pulumi.StringOutput)
 }
@@ -7706,7 +7706,7 @@ type TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfig
 	DestinationPorts []TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPort `pulumi:"destinationPorts"`
 	// Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
 	Destinations []TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestination `pulumi:"destinations"`
-	// Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
+	// Set of protocols to inspect for, specified using the protocol's assigned IP number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
 	Protocols []int `pulumi:"protocols"`
 	// Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Ports below for details.
 	SourcePorts []TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePort `pulumi:"sourcePorts"`
@@ -7730,7 +7730,7 @@ type TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfig
 	DestinationPorts TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArrayInput `pulumi:"destinationPorts"`
 	// Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
 	Destinations TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArrayInput `pulumi:"destinations"`
-	// Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
+	// Set of protocols to inspect for, specified using the protocol's assigned IP number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
 	Protocols pulumi.IntArrayInput `pulumi:"protocols"`
 	// Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Ports below for details.
 	SourcePorts TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArrayInput `pulumi:"sourcePorts"`
@@ -7803,7 +7803,7 @@ func (o TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateCon
 	}).(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArrayOutput)
 }
 
-// Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
+// Set of protocols to inspect for, specified using the protocol's assigned IP number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
 func (o TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeOutput) Protocols() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope) []int {
 		return v.Protocols
@@ -9106,9 +9106,9 @@ func (o GetFirewallAvailabilityZoneMappingArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetFirewallEncryptionConfiguration struct {
-	// The ID of the AWS Key Management Service (AWS KMS) customer managed key.
+	// The ID of the KMS customer managed key.
 	KeyId string `pulumi:"keyId"`
-	// The type of the AWS Key Management Service (AWS KMS) key use by the firewall.
+	// The type of the KMS key use by the firewall.
 	Type string `pulumi:"type"`
 }
 
@@ -9124,9 +9124,9 @@ type GetFirewallEncryptionConfigurationInput interface {
 }
 
 type GetFirewallEncryptionConfigurationArgs struct {
-	// The ID of the AWS Key Management Service (AWS KMS) customer managed key.
+	// The ID of the KMS customer managed key.
 	KeyId pulumi.StringInput `pulumi:"keyId"`
-	// The type of the AWS Key Management Service (AWS KMS) key use by the firewall.
+	// The type of the KMS key use by the firewall.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -9181,12 +9181,12 @@ func (o GetFirewallEncryptionConfigurationOutput) ToGetFirewallEncryptionConfigu
 	return o
 }
 
-// The ID of the AWS Key Management Service (AWS KMS) customer managed key.
+// The ID of the KMS customer managed key.
 func (o GetFirewallEncryptionConfigurationOutput) KeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallEncryptionConfiguration) string { return v.KeyId }).(pulumi.StringOutput)
 }
 
-// The type of the AWS Key Management Service (AWS KMS) key use by the firewall.
+// The type of the KMS key use by the firewall.
 func (o GetFirewallEncryptionConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallEncryptionConfiguration) string { return v.Type }).(pulumi.StringOutput)
 }

@@ -89,14 +89,14 @@ public class AppAuthorization extends com.pulumi.resources.CustomResource {
         return this.app;
     }
     /**
-     * Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * ARN of the app bundle to use for the request.
      * 
      */
     @Export(name="appBundleArn", refs={String.class}, tree="[0]")
     private Output<String> appBundleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * @return ARN of the app bundle to use for the request.
      * 
      */
     public Output<String> appBundleArn() {

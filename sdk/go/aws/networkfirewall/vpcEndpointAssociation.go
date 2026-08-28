@@ -63,7 +63,7 @@ type VpcEndpointAssociation struct {
 
 	// A description of the VPC endpoint association.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The Amazon Resource Name (ARN) that identifies the firewall.
+	// The ARN that identifies the firewall.
 	FirewallArn pulumi.StringOutput `pulumi:"firewallArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -125,7 +125,7 @@ func GetVpcEndpointAssociation(ctx *pulumi.Context,
 type vpcEndpointAssociationState struct {
 	// A description of the VPC endpoint association.
 	Description *string `pulumi:"description"`
-	// The Amazon Resource Name (ARN) that identifies the firewall.
+	// The ARN that identifies the firewall.
 	FirewallArn *string `pulumi:"firewallArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -149,7 +149,7 @@ type vpcEndpointAssociationState struct {
 type VpcEndpointAssociationState struct {
 	// A description of the VPC endpoint association.
 	Description pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) that identifies the firewall.
+	// The ARN that identifies the firewall.
 	FirewallArn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -177,7 +177,7 @@ func (VpcEndpointAssociationState) ElementType() reflect.Type {
 type vpcEndpointAssociationArgs struct {
 	// A description of the VPC endpoint association.
 	Description *string `pulumi:"description"`
-	// The Amazon Resource Name (ARN) that identifies the firewall.
+	// The ARN that identifies the firewall.
 	FirewallArn string `pulumi:"firewallArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -194,7 +194,7 @@ type vpcEndpointAssociationArgs struct {
 type VpcEndpointAssociationArgs struct {
 	// A description of the VPC endpoint association.
 	Description pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) that identifies the firewall.
+	// The ARN that identifies the firewall.
 	FirewallArn pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -299,7 +299,7 @@ func (o VpcEndpointAssociationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcEndpointAssociation) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) that identifies the firewall.
+// The ARN that identifies the firewall.
 func (o VpcEndpointAssociationOutput) FirewallArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointAssociation) pulumi.StringOutput { return v.FirewallArn }).(pulumi.StringOutput)
 }

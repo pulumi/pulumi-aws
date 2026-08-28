@@ -15,14 +15,14 @@ public final class EventDestinationCloudwatchDestinationArgs extends com.pulumi.
     public static final EventDestinationCloudwatchDestinationArgs Empty = new EventDestinationCloudwatchDestinationArgs();
 
     /**
-     * The default value for the event
+     * Default value for the event
      * 
      */
     @Import(name="defaultValue", required=true)
     private Output<String> defaultValue;
 
     /**
-     * @return The default value for the event
+     * @return Default value for the event
      * 
      */
     public Output<String> defaultValue() {
@@ -30,14 +30,14 @@ public final class EventDestinationCloudwatchDestinationArgs extends com.pulumi.
     }
 
     /**
-     * The name for the dimension
+     * Name for the dimension
      * 
      */
     @Import(name="dimensionName", required=true)
     private Output<String> dimensionName;
 
     /**
-     * @return The name for the dimension
+     * @return Name for the dimension
      * 
      */
     public Output<String> dimensionName() {
@@ -45,14 +45,14 @@ public final class EventDestinationCloudwatchDestinationArgs extends com.pulumi.
     }
 
     /**
-     * The source for the value. May be any of `&#34;messageTag&#34;`, `&#34;emailHeader&#34;` or `&#34;linkTag&#34;`.
+     * Source for the value. May be any of `&#34;messageTag&#34;`, `&#34;emailHeader&#34;` or `&#34;linkTag&#34;`.
      * 
      */
     @Import(name="valueSource", required=true)
     private Output<String> valueSource;
 
     /**
-     * @return The source for the value. May be any of `&#34;messageTag&#34;`, `&#34;emailHeader&#34;` or `&#34;linkTag&#34;`.
+     * @return Source for the value. May be any of `&#34;messageTag&#34;`, `&#34;emailHeader&#34;` or `&#34;linkTag&#34;`.
      * 
      */
     public Output<String> valueSource() {
@@ -86,7 +86,7 @@ public final class EventDestinationCloudwatchDestinationArgs extends com.pulumi.
         }
 
         /**
-         * @param defaultValue The default value for the event
+         * @param defaultValue Default value for the event
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class EventDestinationCloudwatchDestinationArgs extends com.pulumi.
         }
 
         /**
-         * @param defaultValue The default value for the event
+         * @param defaultValue Default value for the event
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class EventDestinationCloudwatchDestinationArgs extends com.pulumi.
         }
 
         /**
-         * @param dimensionName The name for the dimension
+         * @param dimensionName Name for the dimension
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class EventDestinationCloudwatchDestinationArgs extends com.pulumi.
         }
 
         /**
-         * @param dimensionName The name for the dimension
+         * @param dimensionName Name for the dimension
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class EventDestinationCloudwatchDestinationArgs extends com.pulumi.
         }
 
         /**
-         * @param valueSource The source for the value. May be any of `&#34;messageTag&#34;`, `&#34;emailHeader&#34;` or `&#34;linkTag&#34;`.
+         * @param valueSource Source for the value. May be any of `&#34;messageTag&#34;`, `&#34;emailHeader&#34;` or `&#34;linkTag&#34;`.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class EventDestinationCloudwatchDestinationArgs extends com.pulumi.
         }
 
         /**
-         * @param valueSource The source for the value. May be any of `&#34;messageTag&#34;`, `&#34;emailHeader&#34;` or `&#34;linkTag&#34;`.
+         * @param valueSource Source for the value. May be any of `&#34;messageTag&#34;`, `&#34;emailHeader&#34;` or `&#34;linkTag&#34;`.
          * 
          * @return builder
          * 

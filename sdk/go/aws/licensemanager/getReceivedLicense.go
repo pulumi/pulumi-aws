@@ -74,7 +74,7 @@ type GetReceivedLicenseResult struct {
 	Id string `pulumi:"id"`
 	// Granted license issuer. Detailed below
 	Issuers []GetReceivedLicenseIssuer `pulumi:"issuers"`
-	// Amazon Resource Name (ARN) of the license.
+	// ARN of the license.
 	LicenseArn string `pulumi:"licenseArn"`
 	// Granted license metadata. This is in the form of a set of all meta data. Detailed below
 	LicenseMetadatas []GetReceivedLicenseLicenseMetadata `pulumi:"licenseMetadatas"`
@@ -164,7 +164,7 @@ func (o GetReceivedLicenseResultOutput) Issuers() GetReceivedLicenseIssuerArrayO
 	return o.ApplyT(func(v GetReceivedLicenseResult) []GetReceivedLicenseIssuer { return v.Issuers }).(GetReceivedLicenseIssuerArrayOutput)
 }
 
-// Amazon Resource Name (ARN) of the license.
+// ARN of the license.
 func (o GetReceivedLicenseResultOutput) LicenseArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReceivedLicenseResult) string { return v.LicenseArn }).(pulumi.StringOutput)
 }

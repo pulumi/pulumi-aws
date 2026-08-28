@@ -81,14 +81,14 @@ public final class ResponsePlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+     * ARN for the contacts and escalation plans that the response plan engages during an incident.
      * 
      */
     @Import(name="engagements")
     private @Nullable Output<List<String>> engagements;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+     * @return ARN for the contacts and escalation plans that the response plan engages during an incident.
      * 
      */
     public Optional<Output<List<String>>> engagements() {
@@ -314,7 +314,7 @@ public final class ResponsePlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engagements The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+         * @param engagements ARN for the contacts and escalation plans that the response plan engages during an incident.
          * 
          * @return builder
          * 
@@ -325,7 +325,7 @@ public final class ResponsePlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engagements The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+         * @param engagements ARN for the contacts and escalation plans that the response plan engages during an incident.
          * 
          * @return builder
          * 
@@ -335,7 +335,7 @@ public final class ResponsePlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engagements The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+         * @param engagements ARN for the contacts and escalation plans that the response plan engages during an incident.
          * 
          * @return builder
          * 

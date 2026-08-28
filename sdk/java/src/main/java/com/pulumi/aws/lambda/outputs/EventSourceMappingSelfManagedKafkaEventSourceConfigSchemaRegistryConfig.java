@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig {
     /**
-     * @return Configuration block for authentication Lambda uses to access the schema registry.
+     * @return Configuration block for authentication Lambda uses to access the schema registry. See below.
      * 
      */
     private @Nullable List<EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig> accessConfigs;
@@ -30,14 +30,14 @@ public final class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegi
      */
     private @Nullable String schemaRegistryUri;
     /**
-     * @return Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+     * @return Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry. See below.
      * 
      */
     private @Nullable List<EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig> schemaValidationConfigs;
 
     private EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig() {}
     /**
-     * @return Configuration block for authentication Lambda uses to access the schema registry.
+     * @return Configuration block for authentication Lambda uses to access the schema registry. See below.
      * 
      */
     public List<EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig> accessConfigs() {
@@ -58,7 +58,7 @@ public final class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegi
         return Optional.ofNullable(this.schemaRegistryUri);
     }
     /**
-     * @return Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+     * @return Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry. See below.
      * 
      */
     public List<EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig> schemaValidationConfigs() {

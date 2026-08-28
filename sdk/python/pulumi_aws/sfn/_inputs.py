@@ -99,7 +99,7 @@ class ActivityEncryptionConfigurationArgs:
 class AliasRoutingConfigurationArgsDict(TypedDict):
     state_machine_version_arn: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the state machine version.
+    ARN of the state machine version.
     """
     weight: pulumi.Input[_builtins.int]
     """
@@ -112,7 +112,7 @@ class AliasRoutingConfigurationArgs:
                  state_machine_version_arn: pulumi.Input[_builtins.str],
                  weight: pulumi.Input[_builtins.int]):
         """
-        :param pulumi.Input[_builtins.str] state_machine_version_arn: The Amazon Resource Name (ARN) of the state machine version.
+        :param pulumi.Input[_builtins.str] state_machine_version_arn: ARN of the state machine version.
         :param pulumi.Input[_builtins.int] weight: Percentage of traffic routed to the state machine version.
         """
         pulumi.set(__self__, "state_machine_version_arn", state_machine_version_arn)
@@ -122,7 +122,7 @@ class AliasRoutingConfigurationArgs:
     @pulumi.getter(name="stateMachineVersionArn")
     def state_machine_version_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the state machine version.
+        ARN of the state machine version.
         """
         return pulumi.get(self, "state_machine_version_arn")
 
@@ -223,7 +223,7 @@ class StateMachineLoggingConfigurationArgsDict(TypedDict):
     """
     log_destination: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
+    ARN of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
     """
 
 @pulumi.input_type
@@ -235,7 +235,7 @@ class StateMachineLoggingConfigurationArgs:
         """
         :param pulumi.Input[_builtins.bool] include_execution_data: Determines whether execution data is included in your log. When set to `false`, data is excluded.
         :param pulumi.Input[_builtins.str] level: Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
-        :param pulumi.Input[_builtins.str] log_destination: Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
+        :param pulumi.Input[_builtins.str] log_destination: ARN of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
         """
         if include_execution_data is not None:
             pulumi.set(__self__, "include_execution_data", include_execution_data)
@@ -272,7 +272,7 @@ class StateMachineLoggingConfigurationArgs:
     @pulumi.getter(name="logDestination")
     def log_destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
+        ARN of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
         """
         return pulumi.get(self, "log_destination")
 

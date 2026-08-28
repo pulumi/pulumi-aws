@@ -70,37 +70,39 @@ import (
 type ReceiptRule struct {
 	pulumi.CustomResourceState
 
-	// A list of Add Header Action blocks. Documented below.
+	// Configuration block for adding a header to received emails. Detailed below.
 	AddHeaderActions ReceiptRuleAddHeaderActionArrayOutput `pulumi:"addHeaderActions"`
-	// The name of the rule to place this rule after
+	// Name of the rule to place this rule after.
 	After pulumi.StringPtrOutput `pulumi:"after"`
-	// The SES receipt rule ARN.
+	// SES receipt rule ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A list of Bounce Action blocks. Documented below.
+	// Configuration block for rejecting received emails. Detailed below.
 	BounceActions ReceiptRuleBounceActionArrayOutput `pulumi:"bounceActions"`
-	// If true, the rule will be enabled
+	// If true, the rule will be enabled.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// A list of Lambda Action blocks. Documented below.
+	// Configuration block for calling an AWS Lambda function. Detailed below.
 	LambdaActions ReceiptRuleLambdaActionArrayOutput `pulumi:"lambdaActions"`
-	// The name of the rule
+	// Name of the rule.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A list of email addresses
+	// List of email addresses.
 	Recipients pulumi.StringArrayOutput `pulumi:"recipients"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The name of the rule set
+	// Name of the rule set.
+	//
+	// The following arguments are optional:
 	RuleSetName pulumi.StringOutput `pulumi:"ruleSetName"`
-	// A list of S3 Action blocks. Documented below.
+	// Configuration block for storing received emails in an S3 bucket. Detailed below.
 	S3Actions ReceiptRuleS3ActionArrayOutput `pulumi:"s3Actions"`
-	// If true, incoming emails will be scanned for spam and viruses
+	// If true, incoming emails will be scanned for spam and viruses.
 	ScanEnabled pulumi.BoolPtrOutput `pulumi:"scanEnabled"`
-	// A list of SNS Action blocks. Documented below.
+	// Configuration block for publishing to an SNS topic. Detailed below.
 	SnsActions ReceiptRuleSnsActionArrayOutput `pulumi:"snsActions"`
-	// A list of Stop Action blocks. Documented below.
+	// Configuration block for terminating the evaluation of the receipt rule set. Detailed below.
 	StopActions ReceiptRuleStopActionArrayOutput `pulumi:"stopActions"`
-	// `Require` or `Optional`
+	// `Require` or `Optional`.
 	TlsPolicy pulumi.StringOutput `pulumi:"tlsPolicy"`
-	// A list of WorkMail Action blocks. Documented below.
+	// Configuration block for calling Amazon WorkMail. Detailed below.
 	WorkmailActions ReceiptRuleWorkmailActionArrayOutput `pulumi:"workmailActions"`
 }
 
@@ -137,72 +139,76 @@ func GetReceiptRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReceiptRule resources.
 type receiptRuleState struct {
-	// A list of Add Header Action blocks. Documented below.
+	// Configuration block for adding a header to received emails. Detailed below.
 	AddHeaderActions []ReceiptRuleAddHeaderAction `pulumi:"addHeaderActions"`
-	// The name of the rule to place this rule after
+	// Name of the rule to place this rule after.
 	After *string `pulumi:"after"`
-	// The SES receipt rule ARN.
+	// SES receipt rule ARN.
 	Arn *string `pulumi:"arn"`
-	// A list of Bounce Action blocks. Documented below.
+	// Configuration block for rejecting received emails. Detailed below.
 	BounceActions []ReceiptRuleBounceAction `pulumi:"bounceActions"`
-	// If true, the rule will be enabled
+	// If true, the rule will be enabled.
 	Enabled *bool `pulumi:"enabled"`
-	// A list of Lambda Action blocks. Documented below.
+	// Configuration block for calling an AWS Lambda function. Detailed below.
 	LambdaActions []ReceiptRuleLambdaAction `pulumi:"lambdaActions"`
-	// The name of the rule
+	// Name of the rule.
 	Name *string `pulumi:"name"`
-	// A list of email addresses
+	// List of email addresses.
 	Recipients []string `pulumi:"recipients"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The name of the rule set
+	// Name of the rule set.
+	//
+	// The following arguments are optional:
 	RuleSetName *string `pulumi:"ruleSetName"`
-	// A list of S3 Action blocks. Documented below.
+	// Configuration block for storing received emails in an S3 bucket. Detailed below.
 	S3Actions []ReceiptRuleS3Action `pulumi:"s3Actions"`
-	// If true, incoming emails will be scanned for spam and viruses
+	// If true, incoming emails will be scanned for spam and viruses.
 	ScanEnabled *bool `pulumi:"scanEnabled"`
-	// A list of SNS Action blocks. Documented below.
+	// Configuration block for publishing to an SNS topic. Detailed below.
 	SnsActions []ReceiptRuleSnsAction `pulumi:"snsActions"`
-	// A list of Stop Action blocks. Documented below.
+	// Configuration block for terminating the evaluation of the receipt rule set. Detailed below.
 	StopActions []ReceiptRuleStopAction `pulumi:"stopActions"`
-	// `Require` or `Optional`
+	// `Require` or `Optional`.
 	TlsPolicy *string `pulumi:"tlsPolicy"`
-	// A list of WorkMail Action blocks. Documented below.
+	// Configuration block for calling Amazon WorkMail. Detailed below.
 	WorkmailActions []ReceiptRuleWorkmailAction `pulumi:"workmailActions"`
 }
 
 type ReceiptRuleState struct {
-	// A list of Add Header Action blocks. Documented below.
+	// Configuration block for adding a header to received emails. Detailed below.
 	AddHeaderActions ReceiptRuleAddHeaderActionArrayInput
-	// The name of the rule to place this rule after
+	// Name of the rule to place this rule after.
 	After pulumi.StringPtrInput
-	// The SES receipt rule ARN.
+	// SES receipt rule ARN.
 	Arn pulumi.StringPtrInput
-	// A list of Bounce Action blocks. Documented below.
+	// Configuration block for rejecting received emails. Detailed below.
 	BounceActions ReceiptRuleBounceActionArrayInput
-	// If true, the rule will be enabled
+	// If true, the rule will be enabled.
 	Enabled pulumi.BoolPtrInput
-	// A list of Lambda Action blocks. Documented below.
+	// Configuration block for calling an AWS Lambda function. Detailed below.
 	LambdaActions ReceiptRuleLambdaActionArrayInput
-	// The name of the rule
+	// Name of the rule.
 	Name pulumi.StringPtrInput
-	// A list of email addresses
+	// List of email addresses.
 	Recipients pulumi.StringArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The name of the rule set
+	// Name of the rule set.
+	//
+	// The following arguments are optional:
 	RuleSetName pulumi.StringPtrInput
-	// A list of S3 Action blocks. Documented below.
+	// Configuration block for storing received emails in an S3 bucket. Detailed below.
 	S3Actions ReceiptRuleS3ActionArrayInput
-	// If true, incoming emails will be scanned for spam and viruses
+	// If true, incoming emails will be scanned for spam and viruses.
 	ScanEnabled pulumi.BoolPtrInput
-	// A list of SNS Action blocks. Documented below.
+	// Configuration block for publishing to an SNS topic. Detailed below.
 	SnsActions ReceiptRuleSnsActionArrayInput
-	// A list of Stop Action blocks. Documented below.
+	// Configuration block for terminating the evaluation of the receipt rule set. Detailed below.
 	StopActions ReceiptRuleStopActionArrayInput
-	// `Require` or `Optional`
+	// `Require` or `Optional`.
 	TlsPolicy pulumi.StringPtrInput
-	// A list of WorkMail Action blocks. Documented below.
+	// Configuration block for calling Amazon WorkMail. Detailed below.
 	WorkmailActions ReceiptRuleWorkmailActionArrayInput
 }
 
@@ -211,69 +217,73 @@ func (ReceiptRuleState) ElementType() reflect.Type {
 }
 
 type receiptRuleArgs struct {
-	// A list of Add Header Action blocks. Documented below.
+	// Configuration block for adding a header to received emails. Detailed below.
 	AddHeaderActions []ReceiptRuleAddHeaderAction `pulumi:"addHeaderActions"`
-	// The name of the rule to place this rule after
+	// Name of the rule to place this rule after.
 	After *string `pulumi:"after"`
-	// A list of Bounce Action blocks. Documented below.
+	// Configuration block for rejecting received emails. Detailed below.
 	BounceActions []ReceiptRuleBounceAction `pulumi:"bounceActions"`
-	// If true, the rule will be enabled
+	// If true, the rule will be enabled.
 	Enabled *bool `pulumi:"enabled"`
-	// A list of Lambda Action blocks. Documented below.
+	// Configuration block for calling an AWS Lambda function. Detailed below.
 	LambdaActions []ReceiptRuleLambdaAction `pulumi:"lambdaActions"`
-	// The name of the rule
+	// Name of the rule.
 	Name *string `pulumi:"name"`
-	// A list of email addresses
+	// List of email addresses.
 	Recipients []string `pulumi:"recipients"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The name of the rule set
+	// Name of the rule set.
+	//
+	// The following arguments are optional:
 	RuleSetName string `pulumi:"ruleSetName"`
-	// A list of S3 Action blocks. Documented below.
+	// Configuration block for storing received emails in an S3 bucket. Detailed below.
 	S3Actions []ReceiptRuleS3Action `pulumi:"s3Actions"`
-	// If true, incoming emails will be scanned for spam and viruses
+	// If true, incoming emails will be scanned for spam and viruses.
 	ScanEnabled *bool `pulumi:"scanEnabled"`
-	// A list of SNS Action blocks. Documented below.
+	// Configuration block for publishing to an SNS topic. Detailed below.
 	SnsActions []ReceiptRuleSnsAction `pulumi:"snsActions"`
-	// A list of Stop Action blocks. Documented below.
+	// Configuration block for terminating the evaluation of the receipt rule set. Detailed below.
 	StopActions []ReceiptRuleStopAction `pulumi:"stopActions"`
-	// `Require` or `Optional`
+	// `Require` or `Optional`.
 	TlsPolicy *string `pulumi:"tlsPolicy"`
-	// A list of WorkMail Action blocks. Documented below.
+	// Configuration block for calling Amazon WorkMail. Detailed below.
 	WorkmailActions []ReceiptRuleWorkmailAction `pulumi:"workmailActions"`
 }
 
 // The set of arguments for constructing a ReceiptRule resource.
 type ReceiptRuleArgs struct {
-	// A list of Add Header Action blocks. Documented below.
+	// Configuration block for adding a header to received emails. Detailed below.
 	AddHeaderActions ReceiptRuleAddHeaderActionArrayInput
-	// The name of the rule to place this rule after
+	// Name of the rule to place this rule after.
 	After pulumi.StringPtrInput
-	// A list of Bounce Action blocks. Documented below.
+	// Configuration block for rejecting received emails. Detailed below.
 	BounceActions ReceiptRuleBounceActionArrayInput
-	// If true, the rule will be enabled
+	// If true, the rule will be enabled.
 	Enabled pulumi.BoolPtrInput
-	// A list of Lambda Action blocks. Documented below.
+	// Configuration block for calling an AWS Lambda function. Detailed below.
 	LambdaActions ReceiptRuleLambdaActionArrayInput
-	// The name of the rule
+	// Name of the rule.
 	Name pulumi.StringPtrInput
-	// A list of email addresses
+	// List of email addresses.
 	Recipients pulumi.StringArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The name of the rule set
+	// Name of the rule set.
+	//
+	// The following arguments are optional:
 	RuleSetName pulumi.StringInput
-	// A list of S3 Action blocks. Documented below.
+	// Configuration block for storing received emails in an S3 bucket. Detailed below.
 	S3Actions ReceiptRuleS3ActionArrayInput
-	// If true, incoming emails will be scanned for spam and viruses
+	// If true, incoming emails will be scanned for spam and viruses.
 	ScanEnabled pulumi.BoolPtrInput
-	// A list of SNS Action blocks. Documented below.
+	// Configuration block for publishing to an SNS topic. Detailed below.
 	SnsActions ReceiptRuleSnsActionArrayInput
-	// A list of Stop Action blocks. Documented below.
+	// Configuration block for terminating the evaluation of the receipt rule set. Detailed below.
 	StopActions ReceiptRuleStopActionArrayInput
-	// `Require` or `Optional`
+	// `Require` or `Optional`.
 	TlsPolicy pulumi.StringPtrInput
-	// A list of WorkMail Action blocks. Documented below.
+	// Configuration block for calling Amazon WorkMail. Detailed below.
 	WorkmailActions ReceiptRuleWorkmailActionArrayInput
 }
 
@@ -364,42 +374,42 @@ func (o ReceiptRuleOutput) ToReceiptRuleOutputWithContext(ctx context.Context) R
 	return o
 }
 
-// A list of Add Header Action blocks. Documented below.
+// Configuration block for adding a header to received emails. Detailed below.
 func (o ReceiptRuleOutput) AddHeaderActions() ReceiptRuleAddHeaderActionArrayOutput {
 	return o.ApplyT(func(v *ReceiptRule) ReceiptRuleAddHeaderActionArrayOutput { return v.AddHeaderActions }).(ReceiptRuleAddHeaderActionArrayOutput)
 }
 
-// The name of the rule to place this rule after
+// Name of the rule to place this rule after.
 func (o ReceiptRuleOutput) After() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReceiptRule) pulumi.StringPtrOutput { return v.After }).(pulumi.StringPtrOutput)
 }
 
-// The SES receipt rule ARN.
+// SES receipt rule ARN.
 func (o ReceiptRuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReceiptRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A list of Bounce Action blocks. Documented below.
+// Configuration block for rejecting received emails. Detailed below.
 func (o ReceiptRuleOutput) BounceActions() ReceiptRuleBounceActionArrayOutput {
 	return o.ApplyT(func(v *ReceiptRule) ReceiptRuleBounceActionArrayOutput { return v.BounceActions }).(ReceiptRuleBounceActionArrayOutput)
 }
 
-// If true, the rule will be enabled
+// If true, the rule will be enabled.
 func (o ReceiptRuleOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ReceiptRule) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// A list of Lambda Action blocks. Documented below.
+// Configuration block for calling an AWS Lambda function. Detailed below.
 func (o ReceiptRuleOutput) LambdaActions() ReceiptRuleLambdaActionArrayOutput {
 	return o.ApplyT(func(v *ReceiptRule) ReceiptRuleLambdaActionArrayOutput { return v.LambdaActions }).(ReceiptRuleLambdaActionArrayOutput)
 }
 
-// The name of the rule
+// Name of the rule.
 func (o ReceiptRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReceiptRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A list of email addresses
+// List of email addresses.
 func (o ReceiptRuleOutput) Recipients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReceiptRule) pulumi.StringArrayOutput { return v.Recipients }).(pulumi.StringArrayOutput)
 }
@@ -409,37 +419,39 @@ func (o ReceiptRuleOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReceiptRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The name of the rule set
+// Name of the rule set.
+//
+// The following arguments are optional:
 func (o ReceiptRuleOutput) RuleSetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReceiptRule) pulumi.StringOutput { return v.RuleSetName }).(pulumi.StringOutput)
 }
 
-// A list of S3 Action blocks. Documented below.
+// Configuration block for storing received emails in an S3 bucket. Detailed below.
 func (o ReceiptRuleOutput) S3Actions() ReceiptRuleS3ActionArrayOutput {
 	return o.ApplyT(func(v *ReceiptRule) ReceiptRuleS3ActionArrayOutput { return v.S3Actions }).(ReceiptRuleS3ActionArrayOutput)
 }
 
-// If true, incoming emails will be scanned for spam and viruses
+// If true, incoming emails will be scanned for spam and viruses.
 func (o ReceiptRuleOutput) ScanEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ReceiptRule) pulumi.BoolPtrOutput { return v.ScanEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// A list of SNS Action blocks. Documented below.
+// Configuration block for publishing to an SNS topic. Detailed below.
 func (o ReceiptRuleOutput) SnsActions() ReceiptRuleSnsActionArrayOutput {
 	return o.ApplyT(func(v *ReceiptRule) ReceiptRuleSnsActionArrayOutput { return v.SnsActions }).(ReceiptRuleSnsActionArrayOutput)
 }
 
-// A list of Stop Action blocks. Documented below.
+// Configuration block for terminating the evaluation of the receipt rule set. Detailed below.
 func (o ReceiptRuleOutput) StopActions() ReceiptRuleStopActionArrayOutput {
 	return o.ApplyT(func(v *ReceiptRule) ReceiptRuleStopActionArrayOutput { return v.StopActions }).(ReceiptRuleStopActionArrayOutput)
 }
 
-// `Require` or `Optional`
+// `Require` or `Optional`.
 func (o ReceiptRuleOutput) TlsPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReceiptRule) pulumi.StringOutput { return v.TlsPolicy }).(pulumi.StringOutput)
 }
 
-// A list of WorkMail Action blocks. Documented below.
+// Configuration block for calling Amazon WorkMail. Detailed below.
 func (o ReceiptRuleOutput) WorkmailActions() ReceiptRuleWorkmailActionArrayOutput {
 	return o.ApplyT(func(v *ReceiptRule) ReceiptRuleWorkmailActionArrayOutput { return v.WorkmailActions }).(ReceiptRuleWorkmailActionArrayOutput)
 }

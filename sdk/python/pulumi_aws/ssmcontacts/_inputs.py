@@ -155,7 +155,7 @@ class PlanStageTargetArgs:
 class PlanStageTargetChannelTargetInfoArgsDict(TypedDict):
     contact_channel_id: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the contact channel.
+    The ARN of the contact channel.
     """
     retry_interval_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -168,7 +168,7 @@ class PlanStageTargetChannelTargetInfoArgs:
                  contact_channel_id: pulumi.Input[_builtins.str],
                  retry_interval_in_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.str] contact_channel_id: The Amazon Resource Name (ARN) of the contact channel.
+        :param pulumi.Input[_builtins.str] contact_channel_id: The ARN of the contact channel.
         :param pulumi.Input[_builtins.int] retry_interval_in_minutes: The number of minutes to wait before retrying to send engagement if the engagement initially failed.
         """
         pulumi.set(__self__, "contact_channel_id", contact_channel_id)
@@ -179,7 +179,7 @@ class PlanStageTargetChannelTargetInfoArgs:
     @pulumi.getter(name="contactChannelId")
     def contact_channel_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the contact channel.
+        The ARN of the contact channel.
         """
         return pulumi.get(self, "contact_channel_id")
 
@@ -207,7 +207,7 @@ class PlanStageTargetContactTargetInfoArgsDict(TypedDict):
     """
     contact_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Amazon Resource Name (ARN) of the contact.
+    The ARN of the contact.
     """
 
 @pulumi.input_type
@@ -217,7 +217,7 @@ class PlanStageTargetContactTargetInfoArgs:
                  contact_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] is_essential: A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
-        :param pulumi.Input[_builtins.str] contact_id: The Amazon Resource Name (ARN) of the contact.
+        :param pulumi.Input[_builtins.str] contact_id: The ARN of the contact.
         """
         pulumi.set(__self__, "is_essential", is_essential)
         if contact_id is not None:
@@ -239,7 +239,7 @@ class PlanStageTargetContactTargetInfoArgs:
     @pulumi.getter(name="contactId")
     def contact_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the contact.
+        The ARN of the contact.
         """
         return pulumi.get(self, "contact_id")
 

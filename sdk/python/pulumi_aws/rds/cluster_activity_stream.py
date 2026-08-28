@@ -29,7 +29,7 @@ class ClusterActivityStreamArgs:
 
         :param pulumi.Input[_builtins.str] kms_key_id: The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
         :param pulumi.Input[_builtins.str] mode: Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
-        :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the DB cluster.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN of the DB cluster.
         :param pulumi.Input[_builtins.bool] engine_native_audit_fields_included: Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
                
                For more detailed documentation about each argument, refer to
@@ -72,7 +72,7 @@ class ClusterActivityStreamArgs:
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the DB cluster.
+        ARN of the DB cluster.
         """
         return pulumi.get(self, "resource_arn")
 
@@ -128,7 +128,7 @@ class _ClusterActivityStreamState:
         :param pulumi.Input[_builtins.str] kms_key_id: The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
         :param pulumi.Input[_builtins.str] mode: Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the DB cluster.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN of the DB cluster.
         """
         if engine_native_audit_fields_included is not None:
             pulumi.set(__self__, "engine_native_audit_fields_included", engine_native_audit_fields_included)
@@ -210,7 +210,7 @@ class _ClusterActivityStreamState:
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the DB cluster.
+        ARN of the DB cluster.
         """
         return pulumi.get(self, "resource_arn")
 
@@ -291,7 +291,7 @@ class ClusterActivityStream(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] kms_key_id: The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
         :param pulumi.Input[_builtins.str] mode: Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the DB cluster.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN of the DB cluster.
         """
         ...
     @overload
@@ -422,7 +422,7 @@ class ClusterActivityStream(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] kms_key_id: The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
         :param pulumi.Input[_builtins.str] mode: Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the DB cluster.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN of the DB cluster.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -483,7 +483,7 @@ class ClusterActivityStream(pulumi.CustomResource):
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the DB cluster.
+        ARN of the DB cluster.
         """
         return pulumi.get(self, "resource_arn")
 

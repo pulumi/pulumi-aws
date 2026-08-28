@@ -16,14 +16,14 @@ public final class ReceiptFilterState extends com.pulumi.resources.ResourceArgs 
     public static final ReceiptFilterState Empty = new ReceiptFilterState();
 
     /**
-     * The SES receipt filter ARN.
+     * SES receipt filter ARN.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The SES receipt filter ARN.
+     * @return SES receipt filter ARN.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -31,14 +31,14 @@ public final class ReceiptFilterState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The IP address or address range to filter, in CIDR notation
+     * IP address or address range to filter, in CIDR notation
      * 
      */
     @Import(name="cidr")
     private @Nullable Output<String> cidr;
 
     /**
-     * @return The IP address or address range to filter, in CIDR notation
+     * @return IP address or address range to filter, in CIDR notation
      * 
      */
     public Optional<Output<String>> cidr() {
@@ -46,14 +46,14 @@ public final class ReceiptFilterState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The name of the filter
+     * Name of the filter
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the filter
+     * @return Name of the filter
      * 
      */
     public Optional<Output<String>> name() {
@@ -119,7 +119,7 @@ public final class ReceiptFilterState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn The SES receipt filter ARN.
+         * @param arn SES receipt filter ARN.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ReceiptFilterState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn The SES receipt filter ARN.
+         * @param arn SES receipt filter ARN.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ReceiptFilterState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param cidr The IP address or address range to filter, in CIDR notation
+         * @param cidr IP address or address range to filter, in CIDR notation
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class ReceiptFilterState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param cidr The IP address or address range to filter, in CIDR notation
+         * @param cidr IP address or address range to filter, in CIDR notation
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class ReceiptFilterState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name The name of the filter
+         * @param name Name of the filter
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class ReceiptFilterState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name The name of the filter
+         * @param name Name of the filter
          * 
          * @return builder
          * 

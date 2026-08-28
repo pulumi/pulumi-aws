@@ -128,14 +128,14 @@ public class DataShareConsumerAssociation extends com.pulumi.resources.CustomRes
         return Codegen.optional(this.associateEntireAccount);
     }
     /**
-     * Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
+     * ARN of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
      * 
      */
     @Export(name="consumerArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> consumerArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
+     * @return ARN of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
      * 
      */
     public Output<Optional<String>> consumerArn() {
@@ -156,7 +156,7 @@ public class DataShareConsumerAssociation extends com.pulumi.resources.CustomRes
         return Codegen.optional(this.consumerRegion);
     }
     /**
-     * Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
+     * ARN of the datashare that the consumer is to use with the account or the namespace.
      * 
      * The following arguments are optional:
      * 
@@ -165,7 +165,7 @@ public class DataShareConsumerAssociation extends com.pulumi.resources.CustomRes
     private Output<String> dataShareArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
+     * @return ARN of the datashare that the consumer is to use with the account or the namespace.
      * 
      * The following arguments are optional:
      * 
@@ -188,14 +188,14 @@ public class DataShareConsumerAssociation extends com.pulumi.resources.CustomRes
         return this.managedBy;
     }
     /**
-     * Amazon Resource Name (ARN) of the producer.
+     * ARN of the producer.
      * 
      */
     @Export(name="producerArn", refs={String.class}, tree="[0]")
     private Output<String> producerArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the producer.
+     * @return ARN of the producer.
      * 
      */
     public Output<String> producerArn() {

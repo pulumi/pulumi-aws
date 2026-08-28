@@ -67,7 +67,7 @@ export interface GetSecretRotationResult {
      */
     readonly rotationEnabled: boolean;
     /**
-     * Amazon Resource Name (ARN) of the lambda function used for rotation.
+     * ARN of the lambda function used for rotation.
      */
     readonly rotationLambdaArn: string;
     /**

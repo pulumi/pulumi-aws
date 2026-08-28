@@ -17,7 +17,7 @@ public final class SecurityConfigurationEncryptionConfigurationCloudwatchEncrypt
      */
     private @Nullable String cloudwatchEncryptionMode;
     /**
-     * @return Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+     * @return ARN of the KMS key to be used to encrypt the data.
      * 
      */
     private @Nullable String kmsKeyArn;
@@ -31,7 +31,7 @@ public final class SecurityConfigurationEncryptionConfigurationCloudwatchEncrypt
         return Optional.ofNullable(this.cloudwatchEncryptionMode);
     }
     /**
-     * @return Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+     * @return ARN of the KMS key to be used to encrypt the data.
      * 
      */
     public Optional<String> kmsKeyArn() {

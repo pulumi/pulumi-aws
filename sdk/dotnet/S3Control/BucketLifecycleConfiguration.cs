@@ -63,7 +63,7 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import S3 Control Bucket Lifecycle Configurations using the Amazon Resource Name (ARN). For example:
+    /// Using `pulumi import`, import S3 Control Bucket Lifecycle Configurations using the ARN. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.S3Control
     public partial class BucketLifecycleConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the bucket.
+        /// ARN of the bucket.
         /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.S3Control
     public sealed class BucketLifecycleConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the bucket.
+        /// ARN of the bucket.
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.S3Control
     public sealed class BucketLifecycleConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the bucket.
+        /// ARN of the bucket.
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }

@@ -32,14 +32,14 @@ public final class WebAclAssociationArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, an AWS Amplify application, an Amazon Bedrock AgentCore Gateway, or an Amazon Verified Access instance.
+     * ARN of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, an AWS Amplify application, an Amazon Bedrock AgentCore Gateway, or an Amazon Verified Access instance.
      * 
      */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, an AWS Amplify application, an Amazon Bedrock AgentCore Gateway, or an Amazon Verified Access instance.
+     * @return ARN of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, an AWS Amplify application, an Amazon Bedrock AgentCore Gateway, or an Amazon Verified Access instance.
      * 
      */
     public Output<String> resourceArn() {
@@ -47,14 +47,14 @@ public final class WebAclAssociationArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
+     * ARN of the Web ACL that you want to associate with the resource.
      * 
      */
     @Import(name="webAclArn", required=true)
     private Output<String> webAclArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
+     * @return ARN of the Web ACL that you want to associate with the resource.
      * 
      */
     public Output<String> webAclArn() {
@@ -109,7 +109,7 @@ public final class WebAclAssociationArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param resourceArn The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, an AWS Amplify application, an Amazon Bedrock AgentCore Gateway, or an Amazon Verified Access instance.
+         * @param resourceArn ARN of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, an AWS Amplify application, an Amazon Bedrock AgentCore Gateway, or an Amazon Verified Access instance.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class WebAclAssociationArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param resourceArn The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, an AWS Amplify application, an Amazon Bedrock AgentCore Gateway, or an Amazon Verified Access instance.
+         * @param resourceArn ARN of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, an AWS Amplify application, an Amazon Bedrock AgentCore Gateway, or an Amazon Verified Access instance.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class WebAclAssociationArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param webAclArn The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
+         * @param webAclArn ARN of the Web ACL that you want to associate with the resource.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class WebAclAssociationArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param webAclArn The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
+         * @param webAclArn ARN of the Web ACL that you want to associate with the resource.
          * 
          * @return builder
          * 

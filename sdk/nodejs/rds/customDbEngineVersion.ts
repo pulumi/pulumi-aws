@@ -129,7 +129,7 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the custom engine version.
+     * ARN for the custom engine version.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -281,7 +281,7 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
  */
 export interface CustomDbEngineVersionState {
     /**
-     * The Amazon Resource Name (ARN) for the custom engine version.
+     * ARN for the custom engine version.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

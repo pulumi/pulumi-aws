@@ -18,14 +18,14 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
     public static final ListenerState Empty = new ListenerState();
 
     /**
-     * The Amazon Resource Name (ARN) of your accelerator.
+     * ARN of your accelerator.
      * 
      */
     @Import(name="acceleratorArn")
     private @Nullable Output<String> acceleratorArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of your accelerator.
+     * @return ARN of your accelerator.
      * 
      */
     public Optional<Output<String>> acceleratorArn() {
@@ -33,14 +33,14 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the listener.
+     * ARN of the listener.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the listener.
+     * @return ARN of the listener.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -121,7 +121,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param acceleratorArn The Amazon Resource Name (ARN) of your accelerator.
+         * @param acceleratorArn ARN of your accelerator.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param acceleratorArn The Amazon Resource Name (ARN) of your accelerator.
+         * @param acceleratorArn ARN of your accelerator.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the listener.
+         * @param arn ARN of the listener.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the listener.
+         * @param arn ARN of the listener.
          * 
          * @return builder
          * 

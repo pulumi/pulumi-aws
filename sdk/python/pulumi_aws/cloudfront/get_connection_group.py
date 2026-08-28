@@ -76,7 +76,7 @@ class GetConnectionGroupResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        ARN (Amazon Resource Name) for the connection group.
+        ARN for the connection group.
         """
         return pulumi.get(self, "arn")
 

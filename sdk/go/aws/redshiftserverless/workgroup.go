@@ -51,7 +51,7 @@ import (
 type Workgroup struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+	// ARN of the Redshift Serverless Workgroup.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
 	BaseCapacity pulumi.IntOutput `pulumi:"baseCapacity"`
@@ -59,7 +59,7 @@ type Workgroup struct {
 	ConfigParameters WorkgroupConfigParameterArrayOutput `pulumi:"configParameters"`
 	// The endpoint that is created from the workgroup. See `Endpoint` below.
 	Endpoints WorkgroupEndpointArrayOutput `pulumi:"endpoints"`
-	// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+	// Value that specifies whether to turn on enhanced VPC routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
 	EnhancedVpcRouting pulumi.BoolPtrOutput `pulumi:"enhancedVpcRouting"`
 	// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
 	MaxCapacity pulumi.IntPtrOutput `pulumi:"maxCapacity"`
@@ -127,7 +127,7 @@ func GetWorkgroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workgroup resources.
 type workgroupState struct {
-	// Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+	// ARN of the Redshift Serverless Workgroup.
 	Arn *string `pulumi:"arn"`
 	// The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
 	BaseCapacity *int `pulumi:"baseCapacity"`
@@ -135,7 +135,7 @@ type workgroupState struct {
 	ConfigParameters []WorkgroupConfigParameter `pulumi:"configParameters"`
 	// The endpoint that is created from the workgroup. See `Endpoint` below.
 	Endpoints []WorkgroupEndpoint `pulumi:"endpoints"`
-	// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+	// Value that specifies whether to turn on enhanced VPC routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
 	EnhancedVpcRouting *bool `pulumi:"enhancedVpcRouting"`
 	// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
 	MaxCapacity *int `pulumi:"maxCapacity"`
@@ -168,7 +168,7 @@ type workgroupState struct {
 }
 
 type WorkgroupState struct {
-	// Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+	// ARN of the Redshift Serverless Workgroup.
 	Arn pulumi.StringPtrInput
 	// The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
 	BaseCapacity pulumi.IntPtrInput
@@ -176,7 +176,7 @@ type WorkgroupState struct {
 	ConfigParameters WorkgroupConfigParameterArrayInput
 	// The endpoint that is created from the workgroup. See `Endpoint` below.
 	Endpoints WorkgroupEndpointArrayInput
-	// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+	// Value that specifies whether to turn on enhanced VPC routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
 	EnhancedVpcRouting pulumi.BoolPtrInput
 	// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
 	MaxCapacity pulumi.IntPtrInput
@@ -217,7 +217,7 @@ type workgroupArgs struct {
 	BaseCapacity *int `pulumi:"baseCapacity"`
 	// An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
 	ConfigParameters []WorkgroupConfigParameter `pulumi:"configParameters"`
-	// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+	// Value that specifies whether to turn on enhanced VPC routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
 	EnhancedVpcRouting *bool `pulumi:"enhancedVpcRouting"`
 	// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
 	MaxCapacity *int `pulumi:"maxCapacity"`
@@ -251,7 +251,7 @@ type WorkgroupArgs struct {
 	BaseCapacity pulumi.IntPtrInput
 	// An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
 	ConfigParameters WorkgroupConfigParameterArrayInput
-	// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+	// Value that specifies whether to turn on enhanced VPC routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
 	EnhancedVpcRouting pulumi.BoolPtrInput
 	// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
 	MaxCapacity pulumi.IntPtrInput
@@ -366,7 +366,7 @@ func (o WorkgroupOutput) ToWorkgroupOutputWithContext(ctx context.Context) Workg
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+// ARN of the Redshift Serverless Workgroup.
 func (o WorkgroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -386,7 +386,7 @@ func (o WorkgroupOutput) Endpoints() WorkgroupEndpointArrayOutput {
 	return o.ApplyT(func(v *Workgroup) WorkgroupEndpointArrayOutput { return v.Endpoints }).(WorkgroupEndpointArrayOutput)
 }
 
-// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+// Value that specifies whether to turn on enhanced VPC routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
 func (o WorkgroupOutput) EnhancedVpcRouting() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.BoolPtrOutput { return v.EnhancedVpcRouting }).(pulumi.BoolPtrOutput)
 }

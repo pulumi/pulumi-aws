@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Route53
     public partial class TrafficPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the traffic policy.
+        /// ARN of the traffic policy.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.Route53
     public sealed class TrafficPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the traffic policy.
+        /// ARN of the traffic policy.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

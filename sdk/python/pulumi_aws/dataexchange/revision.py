@@ -101,7 +101,7 @@ class _RevisionState:
         """
         Input properties used for looking up and filtering Revision resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of this data set.
+        :param pulumi.Input[_builtins.str] arn: ARN of this data set.
         :param pulumi.Input[_builtins.str] comment: An optional comment about the revision.
         :param pulumi.Input[_builtins.str] data_set_id: The dataset id.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -128,7 +128,7 @@ class _RevisionState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name of this data set.
+        ARN of this data set.
         """
         return pulumi.get(self, "arn")
 
@@ -336,7 +336,7 @@ class Revision(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of this data set.
+        :param pulumi.Input[_builtins.str] arn: ARN of this data set.
         :param pulumi.Input[_builtins.str] comment: An optional comment about the revision.
         :param pulumi.Input[_builtins.str] data_set_id: The dataset id.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -361,7 +361,7 @@ class Revision(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name of this data set.
+        ARN of this data set.
         """
         return pulumi.get(self, "arn")
 

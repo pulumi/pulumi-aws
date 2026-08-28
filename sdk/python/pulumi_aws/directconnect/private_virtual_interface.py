@@ -20,10 +20,11 @@ __all__ = ['PrivateVirtualInterfaceArgs', 'PrivateVirtualInterface']
 class PrivateVirtualInterfaceArgs:
     def __init__(__self__, *,
                  address_family: pulumi.Input[_builtins.str],
-                 bgp_asn: pulumi.Input[_builtins.int],
                  connection_id: pulumi.Input[_builtins.str],
                  vlan: pulumi.Input[_builtins.int],
                  amazon_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 bgp_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 bgp_asn_long: pulumi.Input[Optional[_builtins.str]] = None,
                  bgp_auth_key: pulumi.Input[Optional[_builtins.str]] = None,
                  customer_address: pulumi.Input[Optional[_builtins.str]] = None,
                  dx_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -37,10 +38,11 @@ class PrivateVirtualInterfaceArgs:
         The set of arguments for constructing a PrivateVirtualInterface resource.
 
         :param pulumi.Input[_builtins.str] address_family: The address family for the BGP peer. ` ipv4  ` or `ipv6`.
-        :param pulumi.Input[_builtins.int] bgp_asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         :param pulumi.Input[_builtins.str] connection_id: The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
         :param pulumi.Input[_builtins.int] vlan: The VLAN ID.
         :param pulumi.Input[_builtins.str] amazon_address: The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
+        :param pulumi.Input[_builtins.int] bgp_asn: BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgp_asn_long`. Exactly one of `bgp_asn` or `bgp_asn_long` must be specified.
+        :param pulumi.Input[_builtins.str] bgp_asn_long: BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgp_asn` range. Exactly one of `bgp_asn` or `bgp_asn_long` must be specified.
         :param pulumi.Input[_builtins.str] bgp_auth_key: The authentication key for BGP configuration.
         :param pulumi.Input[_builtins.str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
         :param pulumi.Input[_builtins.str] dx_gateway_id: The ID of the Direct Connect gateway to which to connect the virtual interface.
@@ -53,11 +55,14 @@ class PrivateVirtualInterfaceArgs:
         :param pulumi.Input[_builtins.str] vpn_gateway_id: The ID of the virtual private gateway to which to connect the virtual interface.
         """
         pulumi.set(__self__, "address_family", address_family)
-        pulumi.set(__self__, "bgp_asn", bgp_asn)
         pulumi.set(__self__, "connection_id", connection_id)
         pulumi.set(__self__, "vlan", vlan)
         if amazon_address is not None:
             pulumi.set(__self__, "amazon_address", amazon_address)
+        if bgp_asn is not None:
+            pulumi.set(__self__, "bgp_asn", bgp_asn)
+        if bgp_asn_long is not None:
+            pulumi.set(__self__, "bgp_asn_long", bgp_asn_long)
         if bgp_auth_key is not None:
             pulumi.set(__self__, "bgp_auth_key", bgp_auth_key)
         if customer_address is not None:
@@ -88,18 +93,6 @@ class PrivateVirtualInterfaceArgs:
     @address_family.setter
     def address_family(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "address_family", value)
-
-    @_builtins.property
-    @pulumi.getter(name="bgpAsn")
-    def bgp_asn(self) -> pulumi.Input[_builtins.int]:
-        """
-        The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-        """
-        return pulumi.get(self, "bgp_asn")
-
-    @bgp_asn.setter
-    def bgp_asn(self, value: pulumi.Input[_builtins.int]):
-        pulumi.set(self, "bgp_asn", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionId")
@@ -136,6 +129,30 @@ class PrivateVirtualInterfaceArgs:
     @amazon_address.setter
     def amazon_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "amazon_address", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bgpAsn")
+    def bgp_asn(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgp_asn_long`. Exactly one of `bgp_asn` or `bgp_asn_long` must be specified.
+        """
+        return pulumi.get(self, "bgp_asn")
+
+    @bgp_asn.setter
+    def bgp_asn(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "bgp_asn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bgpAsnLong")
+    def bgp_asn_long(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgp_asn` range. Exactly one of `bgp_asn` or `bgp_asn_long` must be specified.
+        """
+        return pulumi.get(self, "bgp_asn_long")
+
+    @bgp_asn_long.setter
+    def bgp_asn_long(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bgp_asn_long", value)
 
     @_builtins.property
     @pulumi.getter(name="bgpAuthKey")
@@ -256,6 +273,7 @@ class _PrivateVirtualInterfaceState:
                  arn: pulumi.Input[Optional[_builtins.str]] = None,
                  aws_device: pulumi.Input[Optional[_builtins.str]] = None,
                  bgp_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 bgp_asn_long: pulumi.Input[Optional[_builtins.str]] = None,
                  bgp_auth_key: pulumi.Input[Optional[_builtins.str]] = None,
                  connection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  customer_address: pulumi.Input[Optional[_builtins.str]] = None,
@@ -276,7 +294,8 @@ class _PrivateVirtualInterfaceState:
         :param pulumi.Input[_builtins.str] amazon_address: The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
         :param pulumi.Input[_builtins.str] arn: The ARN of the virtual interface.
         :param pulumi.Input[_builtins.str] aws_device: The Direct Connect endpoint on which the virtual interface terminates.
-        :param pulumi.Input[_builtins.int] bgp_asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+        :param pulumi.Input[_builtins.int] bgp_asn: BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgp_asn_long`. Exactly one of `bgp_asn` or `bgp_asn_long` must be specified.
+        :param pulumi.Input[_builtins.str] bgp_asn_long: BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgp_asn` range. Exactly one of `bgp_asn` or `bgp_asn_long` must be specified.
         :param pulumi.Input[_builtins.str] bgp_auth_key: The authentication key for BGP configuration.
         :param pulumi.Input[_builtins.str] connection_id: The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
         :param pulumi.Input[_builtins.str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
@@ -304,6 +323,8 @@ class _PrivateVirtualInterfaceState:
             pulumi.set(__self__, "aws_device", aws_device)
         if bgp_asn is not None:
             pulumi.set(__self__, "bgp_asn", bgp_asn)
+        if bgp_asn_long is not None:
+            pulumi.set(__self__, "bgp_asn_long", bgp_asn_long)
         if bgp_auth_key is not None:
             pulumi.set(__self__, "bgp_auth_key", bgp_auth_key)
         if connection_id is not None:
@@ -392,13 +413,25 @@ class _PrivateVirtualInterfaceState:
     @pulumi.getter(name="bgpAsn")
     def bgp_asn(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+        BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgp_asn_long`. Exactly one of `bgp_asn` or `bgp_asn_long` must be specified.
         """
         return pulumi.get(self, "bgp_asn")
 
     @bgp_asn.setter
     def bgp_asn(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "bgp_asn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bgpAsnLong")
+    def bgp_asn_long(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgp_asn` range. Exactly one of `bgp_asn` or `bgp_asn_long` must be specified.
+        """
+        return pulumi.get(self, "bgp_asn_long")
+
+    @bgp_asn_long.setter
+    def bgp_asn_long(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bgp_asn_long", value)
 
     @_builtins.property
     @pulumi.getter(name="bgpAuthKey")
@@ -567,6 +600,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
                  address_family: pulumi.Input[Optional[_builtins.str]] = None,
                  amazon_address: pulumi.Input[Optional[_builtins.str]] = None,
                  bgp_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 bgp_asn_long: pulumi.Input[Optional[_builtins.str]] = None,
                  bgp_auth_key: pulumi.Input[Optional[_builtins.str]] = None,
                  connection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  customer_address: pulumi.Input[Optional[_builtins.str]] = None,
@@ -604,12 +638,15 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         $ pulumi import aws:directconnect/privateVirtualInterface:PrivateVirtualInterface test dxvif-33cc44dd
         ```
 
+        > **Note:** When a virtual interface uses an ASN in the `bgp_asn` range (`1` to `2147483646`), AWS returns the value in both the `asn` and `asnLong` API fields, so import always populates `bgp_asn` rather than `bgp_asn_long`. If the virtual interface was originally created with `bgp_asn_long` set to a value in that range, update your configuration to use `bgp_asn` after import to avoid a difference. Virtual interfaces using a 4-byte ASN (greater than `2147483646`) import into `bgp_asn_long` as expected.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] address_family: The address family for the BGP peer. ` ipv4  ` or `ipv6`.
         :param pulumi.Input[_builtins.str] amazon_address: The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
-        :param pulumi.Input[_builtins.int] bgp_asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+        :param pulumi.Input[_builtins.int] bgp_asn: BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgp_asn_long`. Exactly one of `bgp_asn` or `bgp_asn_long` must be specified.
+        :param pulumi.Input[_builtins.str] bgp_asn_long: BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgp_asn` range. Exactly one of `bgp_asn` or `bgp_asn_long` must be specified.
         :param pulumi.Input[_builtins.str] bgp_auth_key: The authentication key for BGP configuration.
         :param pulumi.Input[_builtins.str] connection_id: The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
         :param pulumi.Input[_builtins.str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
@@ -654,6 +691,8 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         $ pulumi import aws:directconnect/privateVirtualInterface:PrivateVirtualInterface test dxvif-33cc44dd
         ```
 
+        > **Note:** When a virtual interface uses an ASN in the `bgp_asn` range (`1` to `2147483646`), AWS returns the value in both the `asn` and `asnLong` API fields, so import always populates `bgp_asn` rather than `bgp_asn_long`. If the virtual interface was originally created with `bgp_asn_long` set to a value in that range, update your configuration to use `bgp_asn` after import to avoid a difference. Virtual interfaces using a 4-byte ASN (greater than `2147483646`) import into `bgp_asn_long` as expected.
+
 
         :param str resource_name: The name of the resource.
         :param PrivateVirtualInterfaceArgs args: The arguments to use to populate this resource's properties.
@@ -673,6 +712,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
                  address_family: pulumi.Input[Optional[_builtins.str]] = None,
                  amazon_address: pulumi.Input[Optional[_builtins.str]] = None,
                  bgp_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 bgp_asn_long: pulumi.Input[Optional[_builtins.str]] = None,
                  bgp_auth_key: pulumi.Input[Optional[_builtins.str]] = None,
                  connection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  customer_address: pulumi.Input[Optional[_builtins.str]] = None,
@@ -697,9 +737,8 @@ class PrivateVirtualInterface(pulumi.CustomResource):
                 raise TypeError("Missing required property 'address_family'")
             __props__.__dict__["address_family"] = address_family
             __props__.__dict__["amazon_address"] = amazon_address
-            if bgp_asn is None and not opts.urn:
-                raise TypeError("Missing required property 'bgp_asn'")
             __props__.__dict__["bgp_asn"] = bgp_asn
+            __props__.__dict__["bgp_asn_long"] = bgp_asn_long
             __props__.__dict__["bgp_auth_key"] = bgp_auth_key
             if connection_id is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_id'")
@@ -736,6 +775,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             aws_device: pulumi.Input[Optional[_builtins.str]] = None,
             bgp_asn: pulumi.Input[Optional[_builtins.int]] = None,
+            bgp_asn_long: pulumi.Input[Optional[_builtins.str]] = None,
             bgp_auth_key: pulumi.Input[Optional[_builtins.str]] = None,
             connection_id: pulumi.Input[Optional[_builtins.str]] = None,
             customer_address: pulumi.Input[Optional[_builtins.str]] = None,
@@ -760,7 +800,8 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] amazon_address: The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
         :param pulumi.Input[_builtins.str] arn: The ARN of the virtual interface.
         :param pulumi.Input[_builtins.str] aws_device: The Direct Connect endpoint on which the virtual interface terminates.
-        :param pulumi.Input[_builtins.int] bgp_asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+        :param pulumi.Input[_builtins.int] bgp_asn: BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgp_asn_long`. Exactly one of `bgp_asn` or `bgp_asn_long` must be specified.
+        :param pulumi.Input[_builtins.str] bgp_asn_long: BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgp_asn` range. Exactly one of `bgp_asn` or `bgp_asn_long` must be specified.
         :param pulumi.Input[_builtins.str] bgp_auth_key: The authentication key for BGP configuration.
         :param pulumi.Input[_builtins.str] connection_id: The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
         :param pulumi.Input[_builtins.str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
@@ -786,6 +827,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["aws_device"] = aws_device
         __props__.__dict__["bgp_asn"] = bgp_asn
+        __props__.__dict__["bgp_asn_long"] = bgp_asn_long
         __props__.__dict__["bgp_auth_key"] = bgp_auth_key
         __props__.__dict__["connection_id"] = connection_id
         __props__.__dict__["customer_address"] = customer_address
@@ -840,11 +882,19 @@ class PrivateVirtualInterface(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="bgpAsn")
-    def bgp_asn(self) -> pulumi.Output[_builtins.int]:
+    def bgp_asn(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+        BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgp_asn_long`. Exactly one of `bgp_asn` or `bgp_asn_long` must be specified.
         """
         return pulumi.get(self, "bgp_asn")
+
+    @_builtins.property
+    @pulumi.getter(name="bgpAsnLong")
+    def bgp_asn_long(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgp_asn` range. Exactly one of `bgp_asn` or `bgp_asn_long` must be specified.
+        """
+        return pulumi.get(self, "bgp_asn_long")
 
     @_builtins.property
     @pulumi.getter(name="bgpAuthKey")

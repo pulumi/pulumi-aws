@@ -18,14 +18,14 @@ public final class ScramSecretAssociationArgs extends com.pulumi.resources.Resou
     public static final ScramSecretAssociationArgs Empty = new ScramSecretAssociationArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the MSK cluster.
+     * ARN of the MSK cluster.
      * 
      */
     @Import(name="clusterArn", required=true)
     private Output<String> clusterArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the MSK cluster.
+     * @return ARN of the MSK cluster.
      * 
      */
     public Output<String> clusterArn() {
@@ -89,7 +89,7 @@ public final class ScramSecretAssociationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param clusterArn Amazon Resource Name (ARN) of the MSK cluster.
+         * @param clusterArn ARN of the MSK cluster.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class ScramSecretAssociationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param clusterArn Amazon Resource Name (ARN) of the MSK cluster.
+         * @param clusterArn ARN of the MSK cluster.
          * 
          * @return builder
          * 

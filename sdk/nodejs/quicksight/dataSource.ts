@@ -152,7 +152,7 @@ export class DataSource extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the data source
+     * ARN of the data source
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -267,7 +267,7 @@ export class DataSource extends pulumi.CustomResource {
  */
 export interface DataSourceState {
     /**
-     * Amazon Resource Name (ARN) of the data source
+     * ARN of the data source
      */
     arn?: pulumi.Input<string | undefined>;
     /**

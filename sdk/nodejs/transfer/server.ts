@@ -169,11 +169,11 @@ export class Server extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of Transfer Server
+     * ARN of Transfer Server
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
+     * ARN of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
      */
     declare public readonly certificate: pulumi.Output<string | undefined>;
     /**
@@ -189,7 +189,7 @@ export class Server extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
-     * Virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
+     * VPC endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
      */
     declare public readonly endpointDetails: pulumi.Output<outputs.transfer.ServerEndpointDetails | undefined>;
     /**
@@ -217,7 +217,7 @@ export class Server extends pulumi.CustomResource {
      */
     declare public readonly identityProviderType: pulumi.Output<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
+     * ARN of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
      */
     declare public readonly invocationRole: pulumi.Output<string | undefined>;
     /**
@@ -225,7 +225,7 @@ export class Server extends pulumi.CustomResource {
      */
     declare public readonly ipAddressType: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
+     * ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      */
     declare public readonly loggingRole: pulumi.Output<string | undefined>;
     /**
@@ -365,11 +365,11 @@ export class Server extends pulumi.CustomResource {
  */
 export interface ServerState {
     /**
-     * Amazon Resource Name (ARN) of Transfer Server
+     * ARN of Transfer Server
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
+     * ARN of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
      */
     certificate?: pulumi.Input<string | undefined>;
     /**
@@ -385,7 +385,7 @@ export interface ServerState {
      */
     endpoint?: pulumi.Input<string | undefined>;
     /**
-     * Virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
+     * VPC endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
      */
     endpointDetails?: pulumi.Input<inputs.transfer.ServerEndpointDetails | undefined>;
     /**
@@ -413,7 +413,7 @@ export interface ServerState {
      */
     identityProviderType?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
+     * ARN of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
      */
     invocationRole?: pulumi.Input<string | undefined>;
     /**
@@ -421,7 +421,7 @@ export interface ServerState {
      */
     ipAddressType?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
+     * ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      */
     loggingRole?: pulumi.Input<string | undefined>;
     /**
@@ -483,7 +483,7 @@ export interface ServerState {
  */
 export interface ServerArgs {
     /**
-     * Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
+     * ARN of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
      */
     certificate?: pulumi.Input<string | undefined>;
     /**
@@ -495,7 +495,7 @@ export interface ServerArgs {
      */
     domain?: pulumi.Input<string | undefined>;
     /**
-     * Virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
+     * VPC endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
      */
     endpointDetails?: pulumi.Input<inputs.transfer.ServerEndpointDetails | undefined>;
     /**
@@ -519,7 +519,7 @@ export interface ServerArgs {
      */
     identityProviderType?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
+     * ARN of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
      */
     invocationRole?: pulumi.Input<string | undefined>;
     /**
@@ -527,7 +527,7 @@ export interface ServerArgs {
      */
     ipAddressType?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
+     * ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      */
     loggingRole?: pulumi.Input<string | undefined>;
     /**

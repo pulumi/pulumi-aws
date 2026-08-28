@@ -33,16 +33,12 @@ public final class TenantResourceAssociationState extends com.pulumi.resources.R
     /**
      * ARN of the SES resource to associate with the tenant.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
     /**
      * @return ARN of the SES resource to associate with the tenant.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> resourceArn() {
@@ -52,12 +48,16 @@ public final class TenantResourceAssociationState extends com.pulumi.resources.R
     /**
      * Name of SES Tenant.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="tenantName")
     private @Nullable Output<String> tenantName;
 
     /**
      * @return Name of SES Tenant.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> tenantName() {
@@ -114,8 +114,6 @@ public final class TenantResourceAssociationState extends com.pulumi.resources.R
         /**
          * @param resourceArn ARN of the SES resource to associate with the tenant.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -127,8 +125,6 @@ public final class TenantResourceAssociationState extends com.pulumi.resources.R
         /**
          * @param resourceArn ARN of the SES resource to associate with the tenant.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -138,6 +134,8 @@ public final class TenantResourceAssociationState extends com.pulumi.resources.R
 
         /**
          * @param tenantName Name of SES Tenant.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -149,6 +147,8 @@ public final class TenantResourceAssociationState extends com.pulumi.resources.R
 
         /**
          * @param tenantName Name of SES Tenant.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

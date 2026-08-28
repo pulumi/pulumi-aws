@@ -16,14 +16,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     public static final GroupState Empty = new GroupState();
 
     /**
-     * Amazon Resource Name (ARN) of group
+     * ARN of group
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of group
+     * @return ARN of group
      * 
      */
     public Optional<Output<String>> arn() {
@@ -135,7 +135,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of group
+         * @param arn ARN of group
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of group
+         * @param arn ARN of group
          * 
          * @return builder
          * 

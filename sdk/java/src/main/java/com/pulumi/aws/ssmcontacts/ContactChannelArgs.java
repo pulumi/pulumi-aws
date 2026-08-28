@@ -18,14 +18,14 @@ public final class ContactChannelArgs extends com.pulumi.resources.ResourceArgs 
     public static final ContactChannelArgs Empty = new ContactChannelArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
+     * ARN of the AWS SSM Contact that the contact channel belongs to.
      * 
      */
     @Import(name="contactId", required=true)
     private Output<String> contactId;
 
     /**
-     * @return Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
+     * @return ARN of the AWS SSM Contact that the contact channel belongs to.
      * 
      */
     public Output<String> contactId() {
@@ -121,7 +121,7 @@ public final class ContactChannelArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param contactId Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
+         * @param contactId ARN of the AWS SSM Contact that the contact channel belongs to.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class ContactChannelArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param contactId Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
+         * @param contactId ARN of the AWS SSM Contact that the contact channel belongs to.
          * 
          * @return builder
          * 

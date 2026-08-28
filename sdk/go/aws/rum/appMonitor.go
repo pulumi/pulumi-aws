@@ -54,7 +54,7 @@ type AppMonitor struct {
 	AppMonitorConfiguration AppMonitorAppMonitorConfigurationOutput `pulumi:"appMonitorConfiguration"`
 	// The unique ID of the app monitor. Useful for JS templates.
 	AppMonitorId pulumi.StringOutput `pulumi:"appMonitorId"`
-	// The Amazon Resource Name (ARN) specifying the app monitor.
+	// ARN specifying the app monitor.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See customEvents below.
 	CustomEvents AppMonitorCustomEventsOutput `pulumi:"customEvents"`
@@ -110,7 +110,7 @@ type appMonitorState struct {
 	AppMonitorConfiguration *AppMonitorAppMonitorConfiguration `pulumi:"appMonitorConfiguration"`
 	// The unique ID of the app monitor. Useful for JS templates.
 	AppMonitorId *string `pulumi:"appMonitorId"`
-	// The Amazon Resource Name (ARN) specifying the app monitor.
+	// ARN specifying the app monitor.
 	Arn *string `pulumi:"arn"`
 	// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See customEvents below.
 	CustomEvents *AppMonitorCustomEvents `pulumi:"customEvents"`
@@ -137,7 +137,7 @@ type AppMonitorState struct {
 	AppMonitorConfiguration AppMonitorAppMonitorConfigurationPtrInput
 	// The unique ID of the app monitor. Useful for JS templates.
 	AppMonitorId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) specifying the app monitor.
+	// ARN specifying the app monitor.
 	Arn pulumi.StringPtrInput
 	// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See customEvents below.
 	CustomEvents AppMonitorCustomEventsPtrInput
@@ -299,7 +299,7 @@ func (o AppMonitorOutput) AppMonitorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppMonitor) pulumi.StringOutput { return v.AppMonitorId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) specifying the app monitor.
+// ARN specifying the app monitor.
 func (o AppMonitorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppMonitor) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

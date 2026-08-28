@@ -64,14 +64,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2transitgateway/routeTable:RouteTable")
 public class RouteTable extends com.pulumi.resources.CustomResource {
     /**
-     * EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+     * EC2 Transit Gateway Route Table ARN.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+     * @return EC2 Transit Gateway Route Table ARN.
      * 
      */
     public Output<String> arn() {

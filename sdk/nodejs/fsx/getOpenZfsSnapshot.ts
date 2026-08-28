@@ -75,7 +75,7 @@ export interface GetOpenZfsSnapshotArgs {
  */
 export interface GetOpenZfsSnapshotResult {
     /**
-     * Amazon Resource Name of the snapshot.
+     * ARN of the snapshot.
      */
     readonly arn: string;
     /**

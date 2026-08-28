@@ -164,7 +164,7 @@ class FilterFilterCriteriaArgsDict(TypedDict):
     """
     ec2_instance_image_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaEc2InstanceImageIdArgsDict']]]]]
     """
-    (Optional) The ID of the Amazon Machine Image (AMI). Documented below.
+    (Optional) ID of the AMI. Documented below.
     """
     ec2_instance_subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaEc2InstanceSubnetIdArgsDict']]]]]
     """
@@ -373,7 +373,7 @@ class FilterFilterCriteriaArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaCodeVulnerabilityFilePathArgs']]] code_vulnerability_file_paths: (Optional) The ID of the component. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaComponentIdArgs']]] component_ids: (Optional) The ID of the component. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaComponentTypeArgs']]] component_types: (Optional) The type of the component. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEc2InstanceImageIdArgs']]] ec2_instance_image_ids: (Optional) The ID of the Amazon Machine Image (AMI). Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEc2InstanceImageIdArgs']]] ec2_instance_image_ids: (Optional) ID of the AMI. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEc2InstanceSubnetIdArgs']]] ec2_instance_subnet_ids: (Optional) The ID of the subnet. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEc2InstanceVpcIdArgs']]] ec2_instance_vpc_ids: (Optional) The ID of the VPC. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageArchitectureArgs']]] ecr_image_architectures: (Optional) The architecture of the ECR image. Documented below.
@@ -605,7 +605,7 @@ class FilterFilterCriteriaArgs:
     @pulumi.getter(name="ec2InstanceImageIds")
     def ec2_instance_image_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaEc2InstanceImageIdArgs']]]]:
         """
-        (Optional) The ID of the Amazon Machine Image (AMI). Documented below.
+        (Optional) ID of the AMI. Documented below.
         """
         return pulumi.get(self, "ec2_instance_image_ids")
 

@@ -248,7 +248,7 @@ export class Job extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of Glue Job
+     * ARN of Glue Job
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -430,7 +430,7 @@ export class Job extends pulumi.CustomResource {
  */
 export interface JobState {
     /**
-     * Amazon Resource Name (ARN) of Glue Job
+     * ARN of Glue Job
      */
     arn?: pulumi.Input<string | undefined>;
     /**

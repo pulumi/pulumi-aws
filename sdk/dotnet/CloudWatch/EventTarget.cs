@@ -885,7 +885,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<Outputs.EventTargetAppsyncTarget?> AppsyncTarget { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the target.
+        /// ARN of the target.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -970,7 +970,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<Outputs.EventTargetRetryPolicy?> RetryPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `EcsTarget` is used or target in `Arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
+        /// ARN of the IAM role to be used for this target when the rule is triggered. Required if `EcsTarget` is used or target in `Arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
@@ -1060,7 +1060,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventTargetAppsyncTargetArgs>? AppsyncTarget { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the target.
+        /// ARN of the target.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -1145,7 +1145,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventTargetRetryPolicyArgs>? RetryPolicy { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `EcsTarget` is used or target in `Arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
+        /// ARN of the IAM role to be used for this target when the rule is triggered. Required if `EcsTarget` is used or target in `Arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
@@ -1203,7 +1203,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventTargetAppsyncTargetGetArgs>? AppsyncTarget { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the target.
+        /// ARN of the target.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -1288,7 +1288,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventTargetRetryPolicyGetArgs>? RetryPolicy { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `EcsTarget` is used or target in `Arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
+        /// ARN of the IAM role to be used for this target when the rule is triggered. Required if `EcsTarget` is used or target in `Arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

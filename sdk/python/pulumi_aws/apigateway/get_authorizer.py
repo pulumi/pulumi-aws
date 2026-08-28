@@ -100,7 +100,7 @@ class GetAuthorizerResult:
     @pulumi.getter(name="authorizerUri")
     def authorizer_uri(self) -> _builtins.str:
         """
-        Authorizer's Uniform Resource Identifier (URI).
+        Authorizer's URI.
         """
         return pulumi.get(self, "authorizer_uri")
 

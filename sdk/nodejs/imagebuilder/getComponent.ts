@@ -75,7 +75,7 @@ export interface GetComponentResult {
      */
     readonly id: string;
     /**
-     * ARN of the Key Management Service (KMS) Key used to encrypt the component.
+     * ARN of the KMS Key used to encrypt the component.
      */
     readonly kmsKeyId: string;
     /**

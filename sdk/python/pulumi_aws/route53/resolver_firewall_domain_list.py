@@ -101,7 +101,7 @@ class _ResolverFirewallDomainListState:
         """
         Input properties used for looking up and filtering ResolverFirewallDomainList resources.
 
-        :param pulumi.Input[_builtins.str] arn: The ARN (Amazon Resource Name) of the domain list.
+        :param pulumi.Input[_builtins.str] arn: ARN of the domain list.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domains: A array of domains for the firewall domain list.
         :param pulumi.Input[_builtins.str] name: A name that lets you identify the domain list, to manage and use it.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -125,7 +125,7 @@ class _ResolverFirewallDomainListState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN (Amazon Resource Name) of the domain list.
+        ARN of the domain list.
         """
         return pulumi.get(self, "arn")
 
@@ -317,7 +317,7 @@ class ResolverFirewallDomainList(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN (Amazon Resource Name) of the domain list.
+        :param pulumi.Input[_builtins.str] arn: ARN of the domain list.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domains: A array of domains for the firewall domain list.
         :param pulumi.Input[_builtins.str] name: A name that lets you identify the domain list, to manage and use it.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -340,7 +340,7 @@ class ResolverFirewallDomainList(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN (Amazon Resource Name) of the domain list.
+        ARN of the domain list.
         """
         return pulumi.get(self, "arn")
 

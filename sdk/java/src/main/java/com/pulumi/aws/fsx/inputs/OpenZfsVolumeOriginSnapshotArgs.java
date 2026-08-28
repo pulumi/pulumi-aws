@@ -30,14 +30,14 @@ public final class OpenZfsVolumeOriginSnapshotArgs extends com.pulumi.resources.
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the origin snapshot.
+     * The ARN of the origin snapshot.
      * 
      */
     @Import(name="snapshotArn", required=true)
     private Output<String> snapshotArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the origin snapshot.
+     * @return The ARN of the origin snapshot.
      * 
      */
     public Output<String> snapshotArn() {
@@ -91,7 +91,7 @@ public final class OpenZfsVolumeOriginSnapshotArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param snapshotArn The Amazon Resource Name (ARN) of the origin snapshot.
+         * @param snapshotArn The ARN of the origin snapshot.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class OpenZfsVolumeOriginSnapshotArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param snapshotArn The Amazon Resource Name (ARN) of the origin snapshot.
+         * @param snapshotArn The ARN of the origin snapshot.
          * 
          * @return builder
          * 

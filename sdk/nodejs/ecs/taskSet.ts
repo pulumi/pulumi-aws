@@ -82,7 +82,7 @@ export class TaskSet extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) that identifies the task set.
+     * ARN that identifies the task set.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -245,7 +245,7 @@ export class TaskSet extends pulumi.CustomResource {
  */
 export interface TaskSetState {
     /**
-     * Amazon Resource Name (ARN) that identifies the task set.
+     * ARN that identifies the task set.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

@@ -159,7 +159,7 @@ namespace Pulumi.Aws.FinSpace
     public partial class KxEnvironment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) identifier of the KX environment.
+        /// ARN identifier of the KX environment.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -355,7 +355,7 @@ namespace Pulumi.Aws.FinSpace
     public sealed class KxEnvironmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) identifier of the KX environment.
+        /// ARN identifier of the KX environment.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

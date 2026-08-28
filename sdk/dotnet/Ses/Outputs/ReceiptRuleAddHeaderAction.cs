@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Ses.Outputs
     public sealed class ReceiptRuleAddHeaderAction
     {
         /// <summary>
-        /// The name of the header to add
+        /// Name of the header to add.
         /// </summary>
         public readonly string HeaderName;
         /// <summary>
-        /// The value of the header to add
+        /// Value of the header to add.
         /// </summary>
         public readonly string HeaderValue;
         /// <summary>
-        /// The position of the action in the receipt rule
+        /// Position of the action in the receipt rule.
         /// </summary>
         public readonly int Position;
 

@@ -77,7 +77,7 @@ export interface GetResolverRuleArgs {
  */
 export interface GetResolverRuleResult {
     /**
-     * ARN (Amazon Resource Name) for the resolver rule.
+     * ARN for the resolver rule.
      */
     readonly arn: string;
     readonly domainName: string;

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Auditmanager.Inputs
     public sealed class AssessmentRoleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM role.
+        /// ARN of the IAM role.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;

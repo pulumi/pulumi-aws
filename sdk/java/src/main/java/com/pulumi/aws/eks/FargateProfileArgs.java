@@ -50,14 +50,14 @@ public final class FargateProfileArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+     * ARN of the IAM Role that provides permissions for the EKS Fargate Profile.
      * 
      */
     @Import(name="podExecutionRoleArn", required=true)
     private Output<String> podExecutionRoleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+     * @return ARN of the IAM Role that provides permissions for the EKS Fargate Profile.
      * 
      */
     public Output<String> podExecutionRoleArn() {
@@ -201,7 +201,7 @@ public final class FargateProfileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param podExecutionRoleArn Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+         * @param podExecutionRoleArn ARN of the IAM Role that provides permissions for the EKS Fargate Profile.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class FargateProfileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param podExecutionRoleArn Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+         * @param podExecutionRoleArn ARN of the IAM Role that provides permissions for the EKS Fargate Profile.
          * 
          * @return builder
          * 

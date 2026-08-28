@@ -562,7 +562,7 @@ class CertificateAuthority(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the ACM PCA certificate authority.
+        - `arn` (String) ARN of the ACM PCA certificate authority.
 
         Using `pulumi import`, import `acmpca.CertificateAuthority` using the certificate authority ARN. For example:
 
@@ -684,7 +684,7 @@ class CertificateAuthority(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the ACM PCA certificate authority.
+        - `arn` (String) ARN of the ACM PCA certificate authority.
 
         Using `pulumi import`, import `acmpca.CertificateAuthority` using the certificate authority ARN. For example:
 

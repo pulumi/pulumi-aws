@@ -47,7 +47,7 @@ class GetAccessPointsResult:
     @pulumi.getter
     def arns(self) -> Sequence[_builtins.str]:
         """
-        Set of Amazon Resource Names (ARNs).
+        Set of ARNs.
         """
         return pulumi.get(self, "arns")
 

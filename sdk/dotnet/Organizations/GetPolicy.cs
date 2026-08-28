@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Organizations
     public sealed class GetPolicyResult
     {
         /// <summary>
-        /// The Amazon Resource Name of the policy.
+        /// ARN of the policy.
         /// </summary>
         public readonly string Arn;
         /// <summary>

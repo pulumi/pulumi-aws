@@ -134,7 +134,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      */
     declare public readonly aliases: pulumi.Output<string[] | undefined>;
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -244,7 +244,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      */
     declare public readonly throughputCapacity: pulumi.Output<number>;
     /**
-     * Identifier of the Virtual Private Cloud for the file system.
+     * Identifier of the VPC for the file system.
      */
     declare public /*out*/ readonly vpcId: pulumi.Output<string>;
     /**
@@ -354,7 +354,7 @@ export interface WindowsFileSystemState {
      */
     aliases?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -464,7 +464,7 @@ export interface WindowsFileSystemState {
      */
     throughputCapacity?: pulumi.Input<number | undefined>;
     /**
-     * Identifier of the Virtual Private Cloud for the file system.
+     * Identifier of the VPC for the file system.
      */
     vpcId?: pulumi.Input<string | undefined>;
     /**

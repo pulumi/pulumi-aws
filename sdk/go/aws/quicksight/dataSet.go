@@ -339,7 +339,7 @@ import (
 type DataSet struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the data set.
+	// ARN of the data set.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
@@ -419,7 +419,7 @@ func GetDataSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataSet resources.
 type dataSetState struct {
-	// Amazon Resource Name (ARN) of the data set.
+	// ARN of the data set.
 	Arn *string `pulumi:"arn"`
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
@@ -464,7 +464,7 @@ type dataSetState struct {
 }
 
 type DataSetState struct {
-	// Amazon Resource Name (ARN) of the data set.
+	// ARN of the data set.
 	Arn pulumi.StringPtrInput
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
@@ -678,7 +678,7 @@ func (o DataSetOutput) ToDataSetOutputWithContext(ctx context.Context) DataSetOu
 	return o
 }
 
-// Amazon Resource Name (ARN) of the data set.
+// ARN of the data set.
 func (o DataSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

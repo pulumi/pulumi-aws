@@ -21,7 +21,7 @@ namespace Pulumi.Aws.Lex.Inputs
         public Input<string> MessageVersion { get; set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Lambda function.
+        /// ARN of the Lambda function.
         /// </summary>
         [Input("uri", required: true)]
         public Input<string> Uri { get; set; } = null!;

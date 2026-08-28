@@ -62,14 +62,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:quicksight/group:Group")
 public class Group extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of group
+     * ARN of group
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of group
+     * @return ARN of group
      * 
      */
     public Output<String> arn() {

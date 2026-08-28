@@ -50,14 +50,14 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ID or Amazon Resource Name (ARN) of the listener.
+     * ID or ARN of the listener.
      * 
      */
     @Import(name="listenerIdentifier")
     private @Nullable Output<String> listenerIdentifier;
 
     /**
-     * @return ID or Amazon Resource Name (ARN) of the listener.
+     * @return ID or ARN of the listener.
      * 
      */
     public Optional<Output<String>> listenerIdentifier() {
@@ -140,7 +140,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ID or Amazon Resource Name (ARN) of the service.
+     * ID or ARN of the service.
      * 
      * The following arguments are optional:
      * 
@@ -149,7 +149,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> serviceIdentifier;
 
     /**
-     * @return ID or Amazon Resource Name (ARN) of the service.
+     * @return ID or ARN of the service.
      * 
      * The following arguments are optional:
      * 
@@ -265,7 +265,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param listenerIdentifier ID or Amazon Resource Name (ARN) of the listener.
+         * @param listenerIdentifier ID or ARN of the listener.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param listenerIdentifier ID or Amazon Resource Name (ARN) of the listener.
+         * @param listenerIdentifier ID or ARN of the listener.
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceIdentifier ID or Amazon Resource Name (ARN) of the service.
+         * @param serviceIdentifier ID or ARN of the service.
          * 
          * The following arguments are optional:
          * 
@@ -404,7 +404,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceIdentifier ID or Amazon Resource Name (ARN) of the service.
+         * @param serviceIdentifier ID or ARN of the service.
          * 
          * The following arguments are optional:
          * 

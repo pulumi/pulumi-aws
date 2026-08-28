@@ -49,14 +49,14 @@ public final class SecretVersionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+     * Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
      * 
      */
     @Import(name="secretId", required=true)
     private Output<String> secretId;
 
     /**
-     * @return Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+     * @return Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
      * 
      */
     public Output<String> secretId() {
@@ -202,7 +202,7 @@ public final class SecretVersionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secretId Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+         * @param secretId Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class SecretVersionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secretId Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+         * @param secretId Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
          * 
          * @return builder
          * 

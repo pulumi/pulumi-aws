@@ -40,7 +40,7 @@ class ComputeEnvironmentArgs:
         :param pulumi.Input[_builtins.str] name: The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique compute environment name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] service_role: The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+        :param pulumi.Input[_builtins.str] service_role: Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         :param pulumi.Input[_builtins.str] state: The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['ComputeEnvironmentUpdatePolicyArgs'] update_policy: Specifies the infrastructure update policy for the compute environment. See details below.
@@ -141,7 +141,7 @@ class ComputeEnvironmentArgs:
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+        Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         """
         return pulumi.get(self, "service_role")
 
@@ -207,14 +207,14 @@ class _ComputeEnvironmentState:
         """
         Input properties used for looking up and filtering ComputeEnvironment resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the compute environment.
+        :param pulumi.Input[_builtins.str] arn: ARN of the compute environment.
         :param pulumi.Input['ComputeEnvironmentComputeResourcesArgs'] compute_resources: Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
-        :param pulumi.Input[_builtins.str] ecs_cluster_arn: The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
+        :param pulumi.Input[_builtins.str] ecs_cluster_arn: ARN of the underlying Amazon ECS cluster used by the compute environment.
         :param pulumi.Input['ComputeEnvironmentEksConfigurationArgs'] eks_configuration: Details for the Amazon EKS cluster that supports the compute environment. See details below.
         :param pulumi.Input[_builtins.str] name: The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique compute environment name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] service_role: The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+        :param pulumi.Input[_builtins.str] service_role: Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         :param pulumi.Input[_builtins.str] state: The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[_builtins.str] status: The current status of the compute environment (for example, CREATING or VALID).
         :param pulumi.Input[_builtins.str] status_reason: A short, human-readable string to provide additional details about the current status of the compute environment.
@@ -258,7 +258,7 @@ class _ComputeEnvironmentState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the compute environment.
+        ARN of the compute environment.
         """
         return pulumi.get(self, "arn")
 
@@ -282,7 +282,7 @@ class _ComputeEnvironmentState:
     @pulumi.getter(name="ecsClusterArn")
     def ecs_cluster_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
+        ARN of the underlying Amazon ECS cluster used by the compute environment.
         """
         return pulumi.get(self, "ecs_cluster_arn")
 
@@ -342,7 +342,7 @@ class _ComputeEnvironmentState:
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+        Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         """
         return pulumi.get(self, "service_role")
 
@@ -582,7 +582,7 @@ class ComputeEnvironment(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the compute environment.
+        - `arn` (String) ARN of the compute environment.
 
         Using `pulumi import`, import AWS Batch compute using the `name`. For example:
 
@@ -598,7 +598,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique compute environment name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] service_role: The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+        :param pulumi.Input[_builtins.str] service_role: Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         :param pulumi.Input[_builtins.str] state: The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] type: The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
@@ -740,7 +740,7 @@ class ComputeEnvironment(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the compute environment.
+        - `arn` (String) ARN of the compute environment.
 
         Using `pulumi import`, import AWS Batch compute using the `name`. For example:
 
@@ -832,14 +832,14 @@ class ComputeEnvironment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the compute environment.
+        :param pulumi.Input[_builtins.str] arn: ARN of the compute environment.
         :param pulumi.Input[Union['ComputeEnvironmentComputeResourcesArgs', 'ComputeEnvironmentComputeResourcesArgsDict']] compute_resources: Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
-        :param pulumi.Input[_builtins.str] ecs_cluster_arn: The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
+        :param pulumi.Input[_builtins.str] ecs_cluster_arn: ARN of the underlying Amazon ECS cluster used by the compute environment.
         :param pulumi.Input[Union['ComputeEnvironmentEksConfigurationArgs', 'ComputeEnvironmentEksConfigurationArgsDict']] eks_configuration: Details for the Amazon EKS cluster that supports the compute environment. See details below.
         :param pulumi.Input[_builtins.str] name: The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique compute environment name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] service_role: The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+        :param pulumi.Input[_builtins.str] service_role: Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         :param pulumi.Input[_builtins.str] state: The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[_builtins.str] status: The current status of the compute environment (for example, CREATING or VALID).
         :param pulumi.Input[_builtins.str] status_reason: A short, human-readable string to provide additional details about the current status of the compute environment.
@@ -873,7 +873,7 @@ class ComputeEnvironment(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the compute environment.
+        ARN of the compute environment.
         """
         return pulumi.get(self, "arn")
 
@@ -889,7 +889,7 @@ class ComputeEnvironment(pulumi.CustomResource):
     @pulumi.getter(name="ecsClusterArn")
     def ecs_cluster_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
+        ARN of the underlying Amazon ECS cluster used by the compute environment.
         """
         return pulumi.get(self, "ecs_cluster_arn")
 
@@ -929,7 +929,7 @@ class ComputeEnvironment(pulumi.CustomResource):
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> pulumi.Output[_builtins.str]:
         """
-        The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+        Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         """
         return pulumi.get(self, "service_role")
 

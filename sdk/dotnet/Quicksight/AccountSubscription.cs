@@ -131,7 +131,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string?> FirstName { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+        /// ARN for the IAM Identity Center instance.
         /// </summary>
         [Output("iamIdentityCenterInstanceArn")]
         public Output<string?> IamIdentityCenterInstanceArn { get; private set; } = null!;
@@ -323,7 +323,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? FirstName { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+        /// ARN for the IAM Identity Center instance.
         /// </summary>
         [Input("iamIdentityCenterInstanceArn")]
         public Input<string>? IamIdentityCenterInstanceArn { get; set; }
@@ -495,7 +495,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? FirstName { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+        /// ARN for the IAM Identity Center instance.
         /// </summary>
         [Input("iamIdentityCenterInstanceArn")]
         public Input<string>? IamIdentityCenterInstanceArn { get; set; }

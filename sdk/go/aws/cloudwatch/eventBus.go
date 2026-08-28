@@ -449,7 +449,7 @@ type EventBus struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Partner event source that the new event bus will be matched with. Must match `name`.
 	EventSourceName pulumi.StringPtrOutput `pulumi:"eventSourceName"`
-	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
 	KmsKeyIdentifier pulumi.StringPtrOutput `pulumi:"kmsKeyIdentifier"`
 	// Block for logging configuration settings for the event bus.
 	LogConfig EventBusLogConfigPtrOutput `pulumi:"logConfig"`
@@ -503,7 +503,7 @@ type eventBusState struct {
 	Description *string `pulumi:"description"`
 	// Partner event source that the new event bus will be matched with. Must match `name`.
 	EventSourceName *string `pulumi:"eventSourceName"`
-	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
 	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// Block for logging configuration settings for the event bus.
 	LogConfig *EventBusLogConfig `pulumi:"logConfig"`
@@ -528,7 +528,7 @@ type EventBusState struct {
 	Description pulumi.StringPtrInput
 	// Partner event source that the new event bus will be matched with. Must match `name`.
 	EventSourceName pulumi.StringPtrInput
-	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
 	KmsKeyIdentifier pulumi.StringPtrInput
 	// Block for logging configuration settings for the event bus.
 	LogConfig EventBusLogConfigPtrInput
@@ -555,7 +555,7 @@ type eventBusArgs struct {
 	Description *string `pulumi:"description"`
 	// Partner event source that the new event bus will be matched with. Must match `name`.
 	EventSourceName *string `pulumi:"eventSourceName"`
-	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
 	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// Block for logging configuration settings for the event bus.
 	LogConfig *EventBusLogConfig `pulumi:"logConfig"`
@@ -577,7 +577,7 @@ type EventBusArgs struct {
 	Description pulumi.StringPtrInput
 	// Partner event source that the new event bus will be matched with. Must match `name`.
 	EventSourceName pulumi.StringPtrInput
-	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
 	KmsKeyIdentifier pulumi.StringPtrInput
 	// Block for logging configuration settings for the event bus.
 	LogConfig EventBusLogConfigPtrInput
@@ -698,7 +698,7 @@ func (o EventBusOutput) EventSourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventBus) pulumi.StringPtrOutput { return v.EventSourceName }).(pulumi.StringPtrOutput)
 }
 
-// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
 func (o EventBusOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventBus) pulumi.StringPtrOutput { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
 }

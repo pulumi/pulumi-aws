@@ -3185,7 +3185,42 @@ class Instance(pulumi.CustomResource):
             parameter_group_name="default.mysql8.0")
         ```
 
+        ### Disabling Master Password Rotation
+
+        When `manage_master_user_password` is enabled, Secrets Manager rotates the master user password automatically (every 7 days by default). To disable that rotation while keeping the managed secret, manage the secret's rotation with `secretsmanager.SecretRotation` and set `rotation_enabled = false`.
+
+        Referencing `aws_db_instance.default.master_user_secret[0].secret_arn` (as in the example below) ensures the rotation change is applied after the instance is available. Avoid hardcoding the secret ARN, which would remove that ordering.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.rds.Instance("default",
+            allocated_storage=10,
+            db_name="mydb",
+            engine="mysql",
+            engine_version="8.0",
+            instance_class=aws.rds.InstanceType.T3_MICRO,
+            manage_master_user_password=True,
+            username="foo",
+            parameter_group_name="default.mysql8.0")
+        default_secret_rotation = aws.secretsmanager.SecretRotation("default",
+            secret_id=default.master_user_secrets[0].secret_arn,
+            rotation_enabled=False)
+        ```
+
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `identifier` (String) Identifier of the DB Instance.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import DB Instances using the `identifier`. For example:
 
@@ -3591,7 +3626,42 @@ class Instance(pulumi.CustomResource):
             parameter_group_name="default.mysql8.0")
         ```
 
+        ### Disabling Master Password Rotation
+
+        When `manage_master_user_password` is enabled, Secrets Manager rotates the master user password automatically (every 7 days by default). To disable that rotation while keeping the managed secret, manage the secret's rotation with `secretsmanager.SecretRotation` and set `rotation_enabled = false`.
+
+        Referencing `aws_db_instance.default.master_user_secret[0].secret_arn` (as in the example below) ensures the rotation change is applied after the instance is available. Avoid hardcoding the secret ARN, which would remove that ordering.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.rds.Instance("default",
+            allocated_storage=10,
+            db_name="mydb",
+            engine="mysql",
+            engine_version="8.0",
+            instance_class=aws.rds.InstanceType.T3_MICRO,
+            manage_master_user_password=True,
+            username="foo",
+            parameter_group_name="default.mysql8.0")
+        default_secret_rotation = aws.secretsmanager.SecretRotation("default",
+            secret_id=default.master_user_secrets[0].secret_arn,
+            rotation_enabled=False)
+        ```
+
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `identifier` (String) Identifier of the DB Instance.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import DB Instances using the `identifier`. For example:
 

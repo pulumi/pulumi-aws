@@ -53,7 +53,7 @@ import (
 type Hub struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) assigned by AWS to this Hub.
+	// ARN assigned by AWS to this Hub.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A description of the hub.
 	HubDescription pulumi.StringOutput `pulumi:"hubDescription"`
@@ -109,7 +109,7 @@ func GetHub(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Hub resources.
 type hubState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Hub.
+	// ARN assigned by AWS to this Hub.
 	Arn *string `pulumi:"arn"`
 	// A description of the hub.
 	HubDescription *string `pulumi:"hubDescription"`
@@ -130,7 +130,7 @@ type hubState struct {
 }
 
 type HubState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Hub.
+	// ARN assigned by AWS to this Hub.
 	Arn pulumi.StringPtrInput
 	// A description of the hub.
 	HubDescription pulumi.StringPtrInput
@@ -276,7 +276,7 @@ func (o HubOutput) ToHubOutputWithContext(ctx context.Context) HubOutput {
 	return o
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this Hub.
+// ARN assigned by AWS to this Hub.
 func (o HubOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Hub) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

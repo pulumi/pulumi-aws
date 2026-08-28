@@ -161,7 +161,7 @@ import (
 type PodIdentityAssociation struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the association.
+	// ARN of the association.
 	AssociationArn pulumi.StringOutput `pulumi:"associationArn"`
 	// The ID of the association.
 	AssociationId pulumi.StringOutput `pulumi:"associationId"`
@@ -177,7 +177,7 @@ type PodIdentityAssociation struct {
 	Policy pulumi.StringPtrOutput `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+	// ARN of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
 	//
@@ -187,7 +187,7 @@ type PodIdentityAssociation struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `roleArn`.
+	// ARN of the IAM role to be chained to the the IAM role specified as `roleArn`.
 	TargetRoleArn pulumi.StringPtrOutput `pulumi:"targetRoleArn"`
 }
 
@@ -233,7 +233,7 @@ func GetPodIdentityAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PodIdentityAssociation resources.
 type podIdentityAssociationState struct {
-	// The Amazon Resource Name (ARN) of the association.
+	// ARN of the association.
 	AssociationArn *string `pulumi:"associationArn"`
 	// The ID of the association.
 	AssociationId *string `pulumi:"associationId"`
@@ -249,7 +249,7 @@ type podIdentityAssociationState struct {
 	Policy *string `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+	// ARN of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
 	RoleArn *string `pulumi:"roleArn"`
 	// The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
 	//
@@ -259,12 +259,12 @@ type podIdentityAssociationState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `roleArn`.
+	// ARN of the IAM role to be chained to the the IAM role specified as `roleArn`.
 	TargetRoleArn *string `pulumi:"targetRoleArn"`
 }
 
 type PodIdentityAssociationState struct {
-	// The Amazon Resource Name (ARN) of the association.
+	// ARN of the association.
 	AssociationArn pulumi.StringPtrInput
 	// The ID of the association.
 	AssociationId pulumi.StringPtrInput
@@ -280,7 +280,7 @@ type PodIdentityAssociationState struct {
 	Policy pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+	// ARN of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
 	RoleArn pulumi.StringPtrInput
 	// The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
 	//
@@ -290,7 +290,7 @@ type PodIdentityAssociationState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `roleArn`.
+	// ARN of the IAM role to be chained to the the IAM role specified as `roleArn`.
 	TargetRoleArn pulumi.StringPtrInput
 }
 
@@ -309,7 +309,7 @@ type podIdentityAssociationArgs struct {
 	Policy *string `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+	// ARN of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
 	RoleArn string `pulumi:"roleArn"`
 	// The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
 	//
@@ -317,7 +317,7 @@ type podIdentityAssociationArgs struct {
 	ServiceAccount string `pulumi:"serviceAccount"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `roleArn`.
+	// ARN of the IAM role to be chained to the the IAM role specified as `roleArn`.
 	TargetRoleArn *string `pulumi:"targetRoleArn"`
 }
 
@@ -333,7 +333,7 @@ type PodIdentityAssociationArgs struct {
 	Policy pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+	// ARN of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
 	RoleArn pulumi.StringInput
 	// The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
 	//
@@ -341,7 +341,7 @@ type PodIdentityAssociationArgs struct {
 	ServiceAccount pulumi.StringInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `roleArn`.
+	// ARN of the IAM role to be chained to the the IAM role specified as `roleArn`.
 	TargetRoleArn pulumi.StringPtrInput
 }
 
@@ -432,7 +432,7 @@ func (o PodIdentityAssociationOutput) ToPodIdentityAssociationOutputWithContext(
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the association.
+// ARN of the association.
 func (o PodIdentityAssociationOutput) AssociationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PodIdentityAssociation) pulumi.StringOutput { return v.AssociationArn }).(pulumi.StringOutput)
 }
@@ -472,7 +472,7 @@ func (o PodIdentityAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PodIdentityAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+// ARN of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
 func (o PodIdentityAssociationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PodIdentityAssociation) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -494,7 +494,7 @@ func (o PodIdentityAssociationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PodIdentityAssociation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `roleArn`.
+// ARN of the IAM role to be chained to the the IAM role specified as `roleArn`.
 func (o PodIdentityAssociationOutput) TargetRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PodIdentityAssociation) pulumi.StringPtrOutput { return v.TargetRoleArn }).(pulumi.StringPtrOutput)
 }

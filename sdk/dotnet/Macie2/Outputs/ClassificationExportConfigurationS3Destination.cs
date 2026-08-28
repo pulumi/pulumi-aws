@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Macie2.Outputs
         /// </summary>
         public readonly string? KeyPrefix;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        /// ARN of the KMS key to be used to encrypt the data.
         /// 
         /// Additional information can be found in the [Storing and retaining sensitive data discovery results with Amazon Macie for AWS Macie documentation](https://docs.aws.amazon.com/macie/latest/user/discovery-results-repository-s3.html).
         /// </summary>

@@ -66,9 +66,9 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the DataSync NFS location.
+ * - `arn` (String) ARN of the DataSync NFS location.
  * 
- * Using `pulumi import`, import `aws.datasync.NfsLocation` using the DataSync Task Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.datasync.NfsLocation` using the DataSync Task ARN. For example:
  * 
  * ```sh
  * $ pulumi import aws:datasync/nfsLocation:NfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
@@ -78,14 +78,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:datasync/nfsLocation:NfsLocation")
 public class NfsLocation extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
+     * ARN of the DataSync Location.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the DataSync Location.
+     * @return ARN of the DataSync Location.
      * 
      */
     public Output<String> arn() {

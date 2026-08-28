@@ -25,14 +25,14 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     public static final ConnectorState Empty = new ConnectorState();
 
     /**
-     * The Amazon Resource Name (ARN) of the connector.
+     * ARN of the connector.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the connector.
+     * @return ARN of the connector.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -205,7 +205,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
+     * ARN of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
      * 
      * The following arguments are optional:
      * 
@@ -214,7 +214,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> serviceExecutionRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
+     * @return ARN of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
      * 
      * The following arguments are optional:
      * 
@@ -324,7 +324,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the connector.
+         * @param arn ARN of the connector.
          * 
          * @return builder
          * 
@@ -335,7 +335,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the connector.
+         * @param arn ARN of the connector.
          * 
          * @return builder
          * 
@@ -586,7 +586,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceExecutionRoleArn The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
+         * @param serviceExecutionRoleArn ARN of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
          * 
          * The following arguments are optional:
          * 
@@ -599,7 +599,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceExecutionRoleArn The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
+         * @param serviceExecutionRoleArn ARN of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
          * 
          * The following arguments are optional:
          * 

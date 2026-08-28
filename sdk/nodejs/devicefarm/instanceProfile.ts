@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the Device Farm instance profile.
+ * - `arn` (String) ARN of the Device Farm instance profile.
  *
  * Using `pulumi import`, import DeviceFarm Instance Profiles using their ARN. For example:
  *
@@ -61,7 +61,7 @@ export class InstanceProfile extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name of this instance profile.
+     * ARN of this instance profile.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -141,7 +141,7 @@ export class InstanceProfile extends pulumi.CustomResource {
  */
 export interface InstanceProfileState {
     /**
-     * The Amazon Resource Name of this instance profile.
+     * ARN of this instance profile.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

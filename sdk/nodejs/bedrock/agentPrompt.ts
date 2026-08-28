@@ -97,7 +97,7 @@ export class AgentPrompt extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the prompt.
+     * ARN of the prompt.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -105,7 +105,7 @@ export class AgentPrompt extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
+     * ARN of the KMS key that you encrypted the prompt with.
      */
     declare public readonly customerEncryptionKeyArn: pulumi.Output<string | undefined>;
     /**
@@ -197,7 +197,7 @@ export class AgentPrompt extends pulumi.CustomResource {
  */
 export interface AgentPromptState {
     /**
-     * Amazon Resource Name (ARN) of the prompt.
+     * ARN of the prompt.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -205,7 +205,7 @@ export interface AgentPromptState {
      */
     createdAt?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
+     * ARN of the KMS key that you encrypted the prompt with.
      */
     customerEncryptionKeyArn?: pulumi.Input<string | undefined>;
     /**
@@ -253,7 +253,7 @@ export interface AgentPromptState {
  */
 export interface AgentPromptArgs {
     /**
-     * Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
+     * ARN of the KMS key that you encrypted the prompt with.
      */
     customerEncryptionKeyArn?: pulumi.Input<string | undefined>;
     /**

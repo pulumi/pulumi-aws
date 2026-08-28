@@ -478,7 +478,7 @@ class PlanRuleCopyAction(dict):
                  destination_vault_arn: _builtins.str,
                  lifecycle: Optional['outputs.PlanRuleCopyActionLifecycle'] = None):
         """
-        :param _builtins.str destination_vault_arn: An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
+        :param _builtins.str destination_vault_arn: ARN that uniquely identifies the destination backup vault for the copied backup.
         :param 'PlanRuleCopyActionLifecycleArgs' lifecycle: The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
         """
         pulumi.set(__self__, "destination_vault_arn", destination_vault_arn)
@@ -489,7 +489,7 @@ class PlanRuleCopyAction(dict):
     @pulumi.getter(name="destinationVaultArn")
     def destination_vault_arn(self) -> _builtins.str:
         """
-        An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
+        ARN that uniquely identifies the destination backup vault for the copied backup.
         """
         return pulumi.get(self, "destination_vault_arn")
 
@@ -835,7 +835,7 @@ class ReportPlanReportSetting(dict):
         """
         :param _builtins.str report_template: Report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
         :param Sequence[_builtins.str] accounts: List of accounts a report covers.
-        :param Sequence[_builtins.str] framework_arns: Amazon Resource Names (ARNs) of the frameworks a report covers.
+        :param Sequence[_builtins.str] framework_arns: ARNs of the frameworks a report covers.
         :param _builtins.int number_of_frameworks: Number of frameworks a report covers.
         :param Sequence[_builtins.str] organization_units: List of Organizational Units a report covers.
         :param Sequence[_builtins.str] regions: List of regions a report covers.
@@ -872,7 +872,7 @@ class ReportPlanReportSetting(dict):
     @pulumi.getter(name="frameworkArns")
     def framework_arns(self) -> Optional[Sequence[_builtins.str]]:
         """
-        Amazon Resource Names (ARNs) of the frameworks a report covers.
+        ARNs of the frameworks a report covers.
         """
         return pulumi.get(self, "framework_arns")
 

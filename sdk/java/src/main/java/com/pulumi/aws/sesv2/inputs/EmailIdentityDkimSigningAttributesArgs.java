@@ -17,14 +17,14 @@ public final class EmailIdentityDkimSigningAttributesArgs extends com.pulumi.res
     public static final EmailIdentityDkimSigningAttributesArgs Empty = new EmailIdentityDkimSigningAttributesArgs();
 
     /**
-     * [Easy DKIM] The key length of the DKIM key pair in use.
+     * [Easy DKIM] Key length of the DKIM key pair in use.
      * 
      */
     @Import(name="currentSigningKeyLength")
     private @Nullable Output<String> currentSigningKeyLength;
 
     /**
-     * @return [Easy DKIM] The key length of the DKIM key pair in use.
+     * @return [Easy DKIM] Key length of the DKIM key pair in use.
      * 
      */
     public Optional<Output<String>> currentSigningKeyLength() {
@@ -32,7 +32,7 @@ public final class EmailIdentityDkimSigningAttributesArgs extends com.pulumi.res
     }
 
     /**
-     * [Bring Your Own DKIM] A private key that&#39;s used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+     * [Bring Your Own DKIM] Private key used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
      * 
      * &gt; **NOTE:** You have to delete the first and last lines (&#39;-----BEGIN PRIVATE KEY-----&#39; and &#39;-----END PRIVATE KEY-----&#39;, respectively) of the generated private key. Additionally, you have to remove the line breaks in the generated private key. The resulting value is a string of characters with no spaces or line breaks.
      * 
@@ -41,7 +41,7 @@ public final class EmailIdentityDkimSigningAttributesArgs extends com.pulumi.res
     private @Nullable Output<String> domainSigningPrivateKey;
 
     /**
-     * @return [Bring Your Own DKIM] A private key that&#39;s used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+     * @return [Bring Your Own DKIM] Private key used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
      * 
      * &gt; **NOTE:** You have to delete the first and last lines (&#39;-----BEGIN PRIVATE KEY-----&#39; and &#39;-----END PRIVATE KEY-----&#39;, respectively) of the generated private key. Additionally, you have to remove the line breaks in the generated private key. The resulting value is a string of characters with no spaces or line breaks.
      * 
@@ -51,14 +51,14 @@ public final class EmailIdentityDkimSigningAttributesArgs extends com.pulumi.res
     }
 
     /**
-     * [Bring Your Own DKIM] A string that&#39;s used to identify a public key in the DNS configuration for a domain.
+     * [Bring Your Own DKIM] String used to identify a public key in the DNS configuration for a domain.
      * 
      */
     @Import(name="domainSigningSelector")
     private @Nullable Output<String> domainSigningSelector;
 
     /**
-     * @return [Bring Your Own DKIM] A string that&#39;s used to identify a public key in the DNS configuration for a domain.
+     * @return [Bring Your Own DKIM] String used to identify a public key in the DNS configuration for a domain.
      * 
      */
     public Optional<Output<String>> domainSigningSelector() {
@@ -66,14 +66,14 @@ public final class EmailIdentityDkimSigningAttributesArgs extends com.pulumi.res
     }
 
     /**
-     * [Easy DKIM] The last time a key pair was generated for this identity.
+     * [Easy DKIM] Last time a key pair was generated for this identity.
      * 
      */
     @Import(name="lastKeyGenerationTimestamp")
     private @Nullable Output<String> lastKeyGenerationTimestamp;
 
     /**
-     * @return [Easy DKIM] The last time a key pair was generated for this identity.
+     * @return [Easy DKIM] Last time a key pair was generated for this identity.
      * 
      */
     public Optional<Output<String>> lastKeyGenerationTimestamp() {
@@ -81,14 +81,14 @@ public final class EmailIdentityDkimSigningAttributesArgs extends com.pulumi.res
     }
 
     /**
-     * [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
+     * [Easy DKIM] Key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
      * 
      */
     @Import(name="nextSigningKeyLength")
     private @Nullable Output<String> nextSigningKeyLength;
 
     /**
-     * @return [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
+     * @return [Easy DKIM] Key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
      * 
      */
     public Optional<Output<String>> nextSigningKeyLength() {
@@ -96,14 +96,14 @@ public final class EmailIdentityDkimSigningAttributesArgs extends com.pulumi.res
     }
 
     /**
-     * A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+     * How DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
      * 
      */
     @Import(name="signingAttributesOrigin")
     private @Nullable Output<String> signingAttributesOrigin;
 
     /**
-     * @return A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+     * @return How DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
      * 
      */
     public Optional<Output<String>> signingAttributesOrigin() {
@@ -111,14 +111,14 @@ public final class EmailIdentityDkimSigningAttributesArgs extends com.pulumi.res
     }
 
     /**
-     * Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+     * Whether Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+     * @return Whether Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
      * 
      */
     public Optional<Output<String>> status() {
@@ -172,7 +172,7 @@ public final class EmailIdentityDkimSigningAttributesArgs extends com.pulumi.res
         }
 
         /**
-         * @param currentSigningKeyLength [Easy DKIM] The key length of the DKIM key pair in use.
+         * @param currentSigningKeyLength [Easy DKIM] Key length of the DKIM key pair in use.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class EmailIdentityDkimSigningAttributesArgs extends com.pulumi.res
         }
 
         /**
-         * @param currentSigningKeyLength [Easy DKIM] The key length of the DKIM key pair in use.
+         * @param currentSigningKeyLength [Easy DKIM] Key length of the DKIM key pair in use.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class EmailIdentityDkimSigningAttributesArgs extends com.pulumi.res
         }
 
         /**
-         * @param domainSigningPrivateKey [Bring Your Own DKIM] A private key that&#39;s used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+         * @param domainSigningPrivateKey [Bring Your Own DKIM] Private key used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
          * 
          * &gt; **NOTE:** You have to delete the first and last lines (&#39;-----BEGIN PRIVATE KEY-----&#39; and &#39;-----END PRIVATE KEY-----&#39;, respectively) of the generated private key. Additionally, you have to remove the line breaks in the generated private key. The resulting value is a string of characters with no spaces or line breaks.
          * 
@@ -206,7 +206,7 @@ public final class EmailIdentityDkimSigningAttributesArgs extends com.pulumi.res
         }
 
         /**
-         * @param domainSigningPrivateKey [Bring Your Own DKIM] A private key that&#39;s used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+         * @param domainSigningPrivateKey [Bring Your Own DKIM] Private key used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
          * 
          * &gt; **NOTE:** You have to delete the first and last lines (&#39;-----BEGIN PRIVATE KEY-----&#39; and &#39;-----END PRIVATE KEY-----&#39;, respectively) of the generated private key. Additionally, you have to remove the line breaks in the generated private key. The resulting value is a string of characters with no spaces or line breaks.
          * 
@@ -218,7 +218,7 @@ public final class EmailIdentityDkimSigningAttributesArgs extends com.pulumi.res
         }
 
         /**
-         * @param domainSigningSelector [Bring Your Own DKIM] A string that&#39;s used to identify a public key in the DNS configuration for a domain.
+         * @param domainSigningSelector [Bring Your Own DKIM] String used to identify a public key in the DNS configuration for a domain.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class EmailIdentityDkimSigningAttributesArgs extends com.pulumi.res
         }
 
         /**
-         * @param domainSigningSelector [Bring Your Own DKIM] A string that&#39;s used to identify a public key in the DNS configuration for a domain.
+         * @param domainSigningSelector [Bring Your Own DKIM] String used to identify a public key in the DNS configuration for a domain.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class EmailIdentityDkimSigningAttributesArgs extends com.pulumi.res
         }
 
         /**
-         * @param lastKeyGenerationTimestamp [Easy DKIM] The last time a key pair was generated for this identity.
+         * @param lastKeyGenerationTimestamp [Easy DKIM] Last time a key pair was generated for this identity.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class EmailIdentityDkimSigningAttributesArgs extends com.pulumi.res
         }
 
         /**
-         * @param lastKeyGenerationTimestamp [Easy DKIM] The last time a key pair was generated for this identity.
+         * @param lastKeyGenerationTimestamp [Easy DKIM] Last time a key pair was generated for this identity.
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class EmailIdentityDkimSigningAttributesArgs extends com.pulumi.res
         }
 
         /**
-         * @param nextSigningKeyLength [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
+         * @param nextSigningKeyLength [Easy DKIM] Key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class EmailIdentityDkimSigningAttributesArgs extends com.pulumi.res
         }
 
         /**
-         * @param nextSigningKeyLength [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
+         * @param nextSigningKeyLength [Easy DKIM] Key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class EmailIdentityDkimSigningAttributesArgs extends com.pulumi.res
         }
 
         /**
-         * @param signingAttributesOrigin A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+         * @param signingAttributesOrigin How DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class EmailIdentityDkimSigningAttributesArgs extends com.pulumi.res
         }
 
         /**
-         * @param signingAttributesOrigin A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+         * @param signingAttributesOrigin How DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
          * 
          * @return builder
          * 
@@ -302,7 +302,7 @@ public final class EmailIdentityDkimSigningAttributesArgs extends com.pulumi.res
         }
 
         /**
-         * @param status Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+         * @param status Whether Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class EmailIdentityDkimSigningAttributesArgs extends com.pulumi.res
         }
 
         /**
-         * @param status Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+         * @param status Whether Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
          * 
          * @return builder
          * 

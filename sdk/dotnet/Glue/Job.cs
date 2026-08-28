@@ -313,7 +313,7 @@ namespace Pulumi.Aws.Glue
     public partial class Job : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of Glue Job
+        /// ARN of Glue Job
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -679,7 +679,7 @@ namespace Pulumi.Aws.Glue
     public sealed class JobState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of Glue Job
+        /// ARN of Glue Job
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

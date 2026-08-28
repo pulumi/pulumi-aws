@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Chime
     public partial class SdkvoiceSipMediaApplication : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// ARN (Amazon Resource Name) of the AWS Chime SDK Voice Sip Media Application
+        /// ARN of the AWS Chime SDK Voice Sip Media Application
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Chime
         public Output<string> AwsRegion { get; private set; } = null!;
 
         /// <summary>
-        /// List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `Endpoints`.
+        /// List of endpoints (Lambda ARNs) specified for the SIP media application. Currently, only one endpoint is supported. See `Endpoints`.
         /// </summary>
         [Output("endpoints")]
         public Output<Outputs.SdkvoiceSipMediaApplicationEndpoints> Endpoints { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Chime
         public Input<string> AwsRegion { get; set; } = null!;
 
         /// <summary>
-        /// List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `Endpoints`.
+        /// List of endpoints (Lambda ARNs) specified for the SIP media application. Currently, only one endpoint is supported. See `Endpoints`.
         /// </summary>
         [Input("endpoints", required: true)]
         public Input<Inputs.SdkvoiceSipMediaApplicationEndpointsArgs> Endpoints { get; set; } = null!;
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.Chime
     public sealed class SdkvoiceSipMediaApplicationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN (Amazon Resource Name) of the AWS Chime SDK Voice Sip Media Application
+        /// ARN of the AWS Chime SDK Voice Sip Media Application
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -197,7 +197,7 @@ namespace Pulumi.Aws.Chime
         public Input<string>? AwsRegion { get; set; }
 
         /// <summary>
-        /// List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `Endpoints`.
+        /// List of endpoints (Lambda ARNs) specified for the SIP media application. Currently, only one endpoint is supported. See `Endpoints`.
         /// </summary>
         [Input("endpoints")]
         public Input<Inputs.SdkvoiceSipMediaApplicationEndpointsGetArgs>? Endpoints { get; set; }

@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Connect
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
+        /// ARN for Amazon Connect instances that phone numbers are claimed to.
         /// </summary>
         [Output("targetArn")]
         public Output<string> TargetArn { get; private set; } = null!;
@@ -252,7 +252,7 @@ namespace Pulumi.Aws.Connect
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
+        /// ARN for Amazon Connect instances that phone numbers are claimed to.
         /// </summary>
         [Input("targetArn", required: true)]
         public Input<string> TargetArn { get; set; } = null!;
@@ -344,7 +344,7 @@ namespace Pulumi.Aws.Connect
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
+        /// ARN for Amazon Connect instances that phone numbers are claimed to.
         /// </summary>
         [Input("targetArn")]
         public Input<string>? TargetArn { get; set; }

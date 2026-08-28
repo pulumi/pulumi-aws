@@ -187,7 +187,7 @@ import (
 type CloudVmCluster struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) for the cloud vm cluster.
+	// ARN for the cloud vm cluster.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
 	CloudExadataInfrastructureArn pulumi.StringOutput `pulumi:"cloudExadataInfrastructureArn"`
@@ -340,7 +340,7 @@ func GetCloudVmCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CloudVmCluster resources.
 type cloudVmClusterState struct {
-	// Amazon Resource Name (ARN) for the cloud vm cluster.
+	// ARN for the cloud vm cluster.
 	Arn *string `pulumi:"arn"`
 	// ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
 	CloudExadataInfrastructureArn *string `pulumi:"cloudExadataInfrastructureArn"`
@@ -440,7 +440,7 @@ type cloudVmClusterState struct {
 }
 
 type CloudVmClusterState struct {
-	// Amazon Resource Name (ARN) for the cloud vm cluster.
+	// ARN for the cloud vm cluster.
 	Arn pulumi.StringPtrInput
 	// ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
 	CloudExadataInfrastructureArn pulumi.StringPtrInput
@@ -731,7 +731,7 @@ func (o CloudVmClusterOutput) ToCloudVmClusterOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Amazon Resource Name (ARN) for the cloud vm cluster.
+// ARN for the cloud vm cluster.
 func (o CloudVmClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudVmCluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

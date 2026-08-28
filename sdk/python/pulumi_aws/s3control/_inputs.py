@@ -1012,7 +1012,7 @@ class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTran
 class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgsDict(TypedDict):
     function_arn: pulumi.Input[_builtins.str]
     """
-    Amazon Resource Name (ARN) of the AWS Lambda function.
+    ARN of the AWS Lambda function.
     """
     function_payload: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1025,7 +1025,7 @@ class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTran
                  function_arn: pulumi.Input[_builtins.str],
                  function_payload: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] function_arn: Amazon Resource Name (ARN) of the AWS Lambda function.
+        :param pulumi.Input[_builtins.str] function_arn: ARN of the AWS Lambda function.
         :param pulumi.Input[_builtins.str] function_payload: Additional JSON that provides supplemental data to the Lambda function used to transform objects.
         """
         pulumi.set(__self__, "function_arn", function_arn)
@@ -1036,7 +1036,7 @@ class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTran
     @pulumi.getter(name="functionArn")
     def function_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the AWS Lambda function.
+        ARN of the AWS Lambda function.
         """
         return pulumi.get(self, "function_arn")
 
@@ -1920,7 +1920,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatus
 class StorageLensConfigurationStorageLensConfigurationAwsOrgArgsDict(TypedDict):
     arn: pulumi.Input[_builtins.str]
     """
-    Amazon Resource Name (ARN) of the Amazon Web Services organization.
+    ARN of the Amazon Web Services organization.
     """
 
 @pulumi.input_type
@@ -1928,7 +1928,7 @@ class StorageLensConfigurationStorageLensConfigurationAwsOrgArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Amazon Web Services organization.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Amazon Web Services organization.
         """
         pulumi.set(__self__, "arn", arn)
 
@@ -1936,7 +1936,7 @@ class StorageLensConfigurationStorageLensConfigurationAwsOrgArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the Amazon Web Services organization.
+        ARN of the Amazon Web Services organization.
         """
         return pulumi.get(self, "arn")
 
@@ -2049,7 +2049,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
     """
     arn: pulumi.Input[_builtins.str]
     """
-    Amazon Resource Name (ARN) of the bucket.
+    ARN of the bucket.
     """
     format: pulumi.Input[_builtins.str]
     """
@@ -2079,7 +2079,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
                  prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] account_id: Account ID of the owner of the S3 Storage Lens metrics export bucket.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the bucket.
+        :param pulumi.Input[_builtins.str] arn: ARN of the bucket.
         :param pulumi.Input[_builtins.str] format: Export format. Valid values: `CSV`, `Parquet`.
         :param pulumi.Input[_builtins.str] output_schema_version: Schema version of the export file. Valid values: `V_1`.
         :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs'] encryption: Encryption of the metrics exports in this bucket. See `encryption` below for more details.
@@ -2110,7 +2110,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
     @pulumi.getter
     def arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the bucket.
+        ARN of the bucket.
         """
         return pulumi.get(self, "arn")
 
@@ -2492,7 +2492,7 @@ class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport
     """
     arn: pulumi.Input[_builtins.str]
     """
-    Amazon Resource Name (ARN) of the bucket.
+    ARN of the bucket.
     """
     format: pulumi.Input[_builtins.str]
     """
@@ -2522,7 +2522,7 @@ class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport
                  prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] account_id: Account ID of the owner of the S3 Storage Lens metrics export bucket.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the bucket.
+        :param pulumi.Input[_builtins.str] arn: ARN of the bucket.
         :param pulumi.Input[_builtins.str] format: Export format. Valid values: `CSV`, `Parquet`.
         :param pulumi.Input[_builtins.str] output_schema_version: Schema version of the export file. Valid values: `V_1`.
         :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionArgs'] encryption: Encryption of the metrics exports in this bucket. See `encryption` below for more details.
@@ -2553,7 +2553,7 @@ class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport
     @pulumi.getter
     def arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the bucket.
+        ARN of the bucket.
         """
         return pulumi.get(self, "arn")
 

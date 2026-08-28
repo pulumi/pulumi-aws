@@ -82,7 +82,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator cross-account attachment.
+// - `arn` (String) ARN of the Global Accelerator cross-account attachment.
 //
 // Using `pulumi import`, import Global Accelerator Cross Account Attachment using the `arn`. For example:
 //

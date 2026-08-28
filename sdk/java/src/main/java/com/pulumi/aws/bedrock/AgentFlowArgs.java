@@ -20,14 +20,14 @@ public final class AgentFlowArgs extends com.pulumi.resources.ResourceArgs {
     public static final AgentFlowArgs Empty = new AgentFlowArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the KMS key to encrypt the flow.
+     * ARN of the KMS key to encrypt the flow.
      * 
      */
     @Import(name="customerEncryptionKeyArn")
     private @Nullable Output<String> customerEncryptionKeyArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the KMS key to encrypt the flow.
+     * @return ARN of the KMS key to encrypt the flow.
      * 
      */
     public Optional<Output<String>> customerEncryptionKeyArn() {
@@ -65,7 +65,7 @@ public final class AgentFlowArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
+     * ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
      * 
      * The following arguments are optional:
      * 
@@ -74,7 +74,7 @@ public final class AgentFlowArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> executionRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
+     * @return ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
      * 
      * The following arguments are optional:
      * 
@@ -167,7 +167,7 @@ public final class AgentFlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerEncryptionKeyArn The Amazon Resource Name (ARN) of the KMS key to encrypt the flow.
+         * @param customerEncryptionKeyArn ARN of the KMS key to encrypt the flow.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class AgentFlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerEncryptionKeyArn The Amazon Resource Name (ARN) of the KMS key to encrypt the flow.
+         * @param customerEncryptionKeyArn ARN of the KMS key to encrypt the flow.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class AgentFlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param executionRoleArn The Amazon Resource Name (ARN) of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
+         * @param executionRoleArn ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
          * 
          * The following arguments are optional:
          * 
@@ -243,7 +243,7 @@ public final class AgentFlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param executionRoleArn The Amazon Resource Name (ARN) of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
+         * @param executionRoleArn ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
          * 
          * The following arguments are optional:
          * 

@@ -326,7 +326,7 @@ func (o DirectoryActiveDirectoryConfigPtrOutput) ServiceAccountSecretArn() pulum
 }
 
 type DirectoryCertificateBasedAuthProperties struct {
-	// The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
+	// ARN of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
 	CertificateAuthorityArn *string `pulumi:"certificateAuthorityArn"`
 	// Status of certificate-based authentication. Default `DISABLED`.
 	Status *string `pulumi:"status"`
@@ -344,7 +344,7 @@ type DirectoryCertificateBasedAuthPropertiesInput interface {
 }
 
 type DirectoryCertificateBasedAuthPropertiesArgs struct {
-	// The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
+	// ARN of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
 	CertificateAuthorityArn pulumi.StringPtrInput `pulumi:"certificateAuthorityArn"`
 	// Status of certificate-based authentication. Default `DISABLED`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
@@ -427,7 +427,7 @@ func (o DirectoryCertificateBasedAuthPropertiesOutput) ToDirectoryCertificateBas
 	}).(DirectoryCertificateBasedAuthPropertiesPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
+// ARN of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
 func (o DirectoryCertificateBasedAuthPropertiesOutput) CertificateAuthorityArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DirectoryCertificateBasedAuthProperties) *string { return v.CertificateAuthorityArn }).(pulumi.StringPtrOutput)
 }
@@ -461,7 +461,7 @@ func (o DirectoryCertificateBasedAuthPropertiesPtrOutput) Elem() DirectoryCertif
 	}).(DirectoryCertificateBasedAuthPropertiesOutput)
 }
 
-// The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
+// ARN of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
 func (o DirectoryCertificateBasedAuthPropertiesPtrOutput) CertificateAuthorityArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DirectoryCertificateBasedAuthProperties) *string {
 		if v == nil {
@@ -870,6 +870,8 @@ func (o DirectorySelfServicePermissionsPtrOutput) SwitchRunningMode() pulumi.Boo
 }
 
 type DirectoryWorkspaceAccessProperties struct {
+	// Configuration for accessing WorkSpaces through VPC endpoints instead of the public internet. Defined below.
+	AccessEndpointConfig *DirectoryWorkspaceAccessPropertiesAccessEndpointConfig `pulumi:"accessEndpointConfig"`
 	// Indicates whether users can use Android devices to access their WorkSpaces.
 	DeviceTypeAndroid *string `pulumi:"deviceTypeAndroid"`
 	// Indicates whether users can use Chromebooks to access their WorkSpaces.
@@ -900,6 +902,8 @@ type DirectoryWorkspaceAccessPropertiesInput interface {
 }
 
 type DirectoryWorkspaceAccessPropertiesArgs struct {
+	// Configuration for accessing WorkSpaces through VPC endpoints instead of the public internet. Defined below.
+	AccessEndpointConfig DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrInput `pulumi:"accessEndpointConfig"`
 	// Indicates whether users can use Android devices to access their WorkSpaces.
 	DeviceTypeAndroid pulumi.StringPtrInput `pulumi:"deviceTypeAndroid"`
 	// Indicates whether users can use Chromebooks to access their WorkSpaces.
@@ -995,6 +999,13 @@ func (o DirectoryWorkspaceAccessPropertiesOutput) ToDirectoryWorkspaceAccessProp
 	}).(DirectoryWorkspaceAccessPropertiesPtrOutput)
 }
 
+// Configuration for accessing WorkSpaces through VPC endpoints instead of the public internet. Defined below.
+func (o DirectoryWorkspaceAccessPropertiesOutput) AccessEndpointConfig() DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutput {
+	return o.ApplyT(func(v DirectoryWorkspaceAccessProperties) *DirectoryWorkspaceAccessPropertiesAccessEndpointConfig {
+		return v.AccessEndpointConfig
+	}).(DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutput)
+}
+
 // Indicates whether users can use Android devices to access their WorkSpaces.
 func (o DirectoryWorkspaceAccessPropertiesOutput) DeviceTypeAndroid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DirectoryWorkspaceAccessProperties) *string { return v.DeviceTypeAndroid }).(pulumi.StringPtrOutput)
@@ -1057,6 +1068,16 @@ func (o DirectoryWorkspaceAccessPropertiesPtrOutput) Elem() DirectoryWorkspaceAc
 		var ret DirectoryWorkspaceAccessProperties
 		return ret
 	}).(DirectoryWorkspaceAccessPropertiesOutput)
+}
+
+// Configuration for accessing WorkSpaces through VPC endpoints instead of the public internet. Defined below.
+func (o DirectoryWorkspaceAccessPropertiesPtrOutput) AccessEndpointConfig() DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessProperties) *DirectoryWorkspaceAccessPropertiesAccessEndpointConfig {
+		if v == nil {
+			return nil
+		}
+		return v.AccessEndpointConfig
+	}).(DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutput)
 }
 
 // Indicates whether users can use Android devices to access their WorkSpaces.
@@ -1137,6 +1158,276 @@ func (o DirectoryWorkspaceAccessPropertiesPtrOutput) DeviceTypeZeroclient() pulu
 		}
 		return v.DeviceTypeZeroclient
 	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryWorkspaceAccessPropertiesAccessEndpointConfig struct {
+	// Set of access endpoints used to control the network paths that users use to access their WorkSpaces. Defined below.
+	AccessEndpoints []DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpoint `pulumi:"accessEndpoints"`
+	// List of protocols that fall back to the public internet when streaming over a VPC endpoint is unavailable. Valid value is `PCOIP`.
+	InternetFallbackProtocols []string `pulumi:"internetFallbackProtocols"`
+}
+
+// DirectoryWorkspaceAccessPropertiesAccessEndpointConfigInput is an input type that accepts DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs and DirectoryWorkspaceAccessPropertiesAccessEndpointConfigOutput values.
+// You can construct a concrete instance of `DirectoryWorkspaceAccessPropertiesAccessEndpointConfigInput` via:
+//
+//	DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs{...}
+type DirectoryWorkspaceAccessPropertiesAccessEndpointConfigInput interface {
+	pulumi.Input
+
+	ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigOutput() DirectoryWorkspaceAccessPropertiesAccessEndpointConfigOutput
+	ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigOutputWithContext(context.Context) DirectoryWorkspaceAccessPropertiesAccessEndpointConfigOutput
+}
+
+type DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs struct {
+	// Set of access endpoints used to control the network paths that users use to access their WorkSpaces. Defined below.
+	AccessEndpoints DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArrayInput `pulumi:"accessEndpoints"`
+	// List of protocols that fall back to the public internet when streaming over a VPC endpoint is unavailable. Valid value is `PCOIP`.
+	InternetFallbackProtocols pulumi.StringArrayInput `pulumi:"internetFallbackProtocols"`
+}
+
+func (DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesAccessEndpointConfig)(nil)).Elem()
+}
+
+func (i DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs) ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigOutput() DirectoryWorkspaceAccessPropertiesAccessEndpointConfigOutput {
+	return i.ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigOutputWithContext(context.Background())
+}
+
+func (i DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs) ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesAccessEndpointConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryWorkspaceAccessPropertiesAccessEndpointConfigOutput)
+}
+
+func (i DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs) ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutput() DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutput {
+	return i.ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs) ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryWorkspaceAccessPropertiesAccessEndpointConfigOutput).ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutputWithContext(ctx)
+}
+
+// DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrInput is an input type that accepts DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs, DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtr and DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutput values.
+// You can construct a concrete instance of `DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrInput` via:
+//
+//	        DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutput() DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutput
+	ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutputWithContext(context.Context) DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutput
+}
+
+type directoryWorkspaceAccessPropertiesAccessEndpointConfigPtrType DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs
+
+func DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtr(v *DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs) DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrInput {
+	return (*directoryWorkspaceAccessPropertiesAccessEndpointConfigPtrType)(v)
+}
+
+func (*directoryWorkspaceAccessPropertiesAccessEndpointConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryWorkspaceAccessPropertiesAccessEndpointConfig)(nil)).Elem()
+}
+
+func (i *directoryWorkspaceAccessPropertiesAccessEndpointConfigPtrType) ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutput() DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutput {
+	return i.ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *directoryWorkspaceAccessPropertiesAccessEndpointConfigPtrType) ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutput)
+}
+
+type DirectoryWorkspaceAccessPropertiesAccessEndpointConfigOutput struct{ *pulumi.OutputState }
+
+func (DirectoryWorkspaceAccessPropertiesAccessEndpointConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesAccessEndpointConfig)(nil)).Elem()
+}
+
+func (o DirectoryWorkspaceAccessPropertiesAccessEndpointConfigOutput) ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigOutput() DirectoryWorkspaceAccessPropertiesAccessEndpointConfigOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesAccessEndpointConfigOutput) ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesAccessEndpointConfigOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesAccessEndpointConfigOutput) ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutput() DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutput {
+	return o.ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryWorkspaceAccessPropertiesAccessEndpointConfigOutput) ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryWorkspaceAccessPropertiesAccessEndpointConfig) *DirectoryWorkspaceAccessPropertiesAccessEndpointConfig {
+		return &v
+	}).(DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutput)
+}
+
+// Set of access endpoints used to control the network paths that users use to access their WorkSpaces. Defined below.
+func (o DirectoryWorkspaceAccessPropertiesAccessEndpointConfigOutput) AccessEndpoints() DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArrayOutput {
+	return o.ApplyT(func(v DirectoryWorkspaceAccessPropertiesAccessEndpointConfig) []DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpoint {
+		return v.AccessEndpoints
+	}).(DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArrayOutput)
+}
+
+// List of protocols that fall back to the public internet when streaming over a VPC endpoint is unavailable. Valid value is `PCOIP`.
+func (o DirectoryWorkspaceAccessPropertiesAccessEndpointConfigOutput) InternetFallbackProtocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DirectoryWorkspaceAccessPropertiesAccessEndpointConfig) []string {
+		return v.InternetFallbackProtocols
+	}).(pulumi.StringArrayOutput)
+}
+
+type DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryWorkspaceAccessPropertiesAccessEndpointConfig)(nil)).Elem()
+}
+
+func (o DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutput) ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutput() DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutput) ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutput) Elem() DirectoryWorkspaceAccessPropertiesAccessEndpointConfigOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessPropertiesAccessEndpointConfig) DirectoryWorkspaceAccessPropertiesAccessEndpointConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryWorkspaceAccessPropertiesAccessEndpointConfig
+		return ret
+	}).(DirectoryWorkspaceAccessPropertiesAccessEndpointConfigOutput)
+}
+
+// Set of access endpoints used to control the network paths that users use to access their WorkSpaces. Defined below.
+func (o DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutput) AccessEndpoints() DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArrayOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessPropertiesAccessEndpointConfig) []DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpoint {
+		if v == nil {
+			return nil
+		}
+		return v.AccessEndpoints
+	}).(DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArrayOutput)
+}
+
+// List of protocols that fall back to the public internet when streaming over a VPC endpoint is unavailable. Valid value is `PCOIP`.
+func (o DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutput) InternetFallbackProtocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessPropertiesAccessEndpointConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.InternetFallbackProtocols
+	}).(pulumi.StringArrayOutput)
+}
+
+type DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpoint struct {
+	// Type of access endpoint. Valid value is `STREAMING_WSP`.
+	AccessEndpointType string `pulumi:"accessEndpointType"`
+	// Identifier of the VPC endpoint that the access endpoint uses.
+	VpcEndpointId string `pulumi:"vpcEndpointId"`
+}
+
+// DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointInput is an input type that accepts DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArgs and DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointOutput values.
+// You can construct a concrete instance of `DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointInput` via:
+//
+//	DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArgs{...}
+type DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointInput interface {
+	pulumi.Input
+
+	ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointOutput() DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointOutput
+	ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointOutputWithContext(context.Context) DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointOutput
+}
+
+type DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArgs struct {
+	// Type of access endpoint. Valid value is `STREAMING_WSP`.
+	AccessEndpointType pulumi.StringInput `pulumi:"accessEndpointType"`
+	// Identifier of the VPC endpoint that the access endpoint uses.
+	VpcEndpointId pulumi.StringInput `pulumi:"vpcEndpointId"`
+}
+
+func (DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpoint)(nil)).Elem()
+}
+
+func (i DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArgs) ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointOutput() DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointOutput {
+	return i.ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointOutputWithContext(context.Background())
+}
+
+func (i DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArgs) ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointOutput)
+}
+
+// DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArrayInput is an input type that accepts DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArray and DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArrayOutput values.
+// You can construct a concrete instance of `DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArrayInput` via:
+//
+//	DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArray{ DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArgs{...} }
+type DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArrayInput interface {
+	pulumi.Input
+
+	ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArrayOutput() DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArrayOutput
+	ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArrayOutputWithContext(context.Context) DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArrayOutput
+}
+
+type DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArray []DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointInput
+
+func (DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpoint)(nil)).Elem()
+}
+
+func (i DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArray) ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArrayOutput() DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArrayOutput {
+	return i.ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArray) ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArrayOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArrayOutput)
+}
+
+type DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointOutput struct{ *pulumi.OutputState }
+
+func (DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpoint)(nil)).Elem()
+}
+
+func (o DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointOutput) ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointOutput() DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointOutput) ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointOutput {
+	return o
+}
+
+// Type of access endpoint. Valid value is `STREAMING_WSP`.
+func (o DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointOutput) AccessEndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpoint) string {
+		return v.AccessEndpointType
+	}).(pulumi.StringOutput)
+}
+
+// Identifier of the VPC endpoint that the access endpoint uses.
+func (o DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointOutput) VpcEndpointId() pulumi.StringOutput {
+	return o.ApplyT(func(v DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpoint) string {
+		return v.VpcEndpointId
+	}).(pulumi.StringOutput)
+}
+
+type DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpoint)(nil)).Elem()
+}
+
+func (o DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArrayOutput) ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArrayOutput() DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArrayOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArrayOutput) ToDirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArrayOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArrayOutput {
+	return o
+}
+
+func (o DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArrayOutput) Index(i pulumi.IntInput) DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpoint {
+		return vs[0].([]DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpoint)[vs[1].(int)]
+	}).(DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointOutput)
 }
 
 type DirectoryWorkspaceCreationProperties struct {
@@ -3503,6 +3794,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectorySelfServicePermissionsPtrInput)(nil)).Elem(), DirectorySelfServicePermissionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesInput)(nil)).Elem(), DirectoryWorkspaceAccessPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesPtrInput)(nil)).Elem(), DirectoryWorkspaceAccessPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesAccessEndpointConfigInput)(nil)).Elem(), DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrInput)(nil)).Elem(), DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointInput)(nil)).Elem(), DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArrayInput)(nil)).Elem(), DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceCreationPropertiesInput)(nil)).Elem(), DirectoryWorkspaceCreationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceCreationPropertiesPtrInput)(nil)).Elem(), DirectoryWorkspaceCreationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpGroupRuleInput)(nil)).Elem(), IpGroupRuleArgs{})
@@ -3551,6 +3846,10 @@ func init() {
 	pulumi.RegisterOutputType(DirectorySelfServicePermissionsPtrOutput{})
 	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesOutput{})
 	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesAccessEndpointConfigOutput{})
+	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesAccessEndpointConfigPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointOutput{})
+	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArrayOutput{})
 	pulumi.RegisterOutputType(DirectoryWorkspaceCreationPropertiesOutput{})
 	pulumi.RegisterOutputType(DirectoryWorkspaceCreationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IpGroupRuleOutput{})

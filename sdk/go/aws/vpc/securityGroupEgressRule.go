@@ -71,7 +71,7 @@ import (
 type SecurityGroupEgressRule struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the security group rule.
+	// ARN of the security group rule.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The destination IPv4 CIDR range.
 	CidrIpv4 pulumi.StringPtrOutput `pulumi:"cidrIpv4"`
@@ -139,7 +139,7 @@ func GetSecurityGroupEgressRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecurityGroupEgressRule resources.
 type securityGroupEgressRuleState struct {
-	// The Amazon Resource Name (ARN) of the security group rule.
+	// ARN of the security group rule.
 	Arn *string `pulumi:"arn"`
 	// The destination IPv4 CIDR range.
 	CidrIpv4 *string `pulumi:"cidrIpv4"`
@@ -172,7 +172,7 @@ type securityGroupEgressRuleState struct {
 }
 
 type SecurityGroupEgressRuleState struct {
-	// The Amazon Resource Name (ARN) of the security group rule.
+	// ARN of the security group rule.
 	Arn pulumi.StringPtrInput
 	// The destination IPv4 CIDR range.
 	CidrIpv4 pulumi.StringPtrInput
@@ -350,7 +350,7 @@ func (o SecurityGroupEgressRuleOutput) ToSecurityGroupEgressRuleOutputWithContex
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the security group rule.
+// ARN of the security group rule.
 func (o SecurityGroupEgressRuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityGroupEgressRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

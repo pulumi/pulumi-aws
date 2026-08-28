@@ -699,7 +699,7 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) specifying the Stream
+     * ARN specifying the Stream
      */
     declare public readonly arn: pulumi.Output<string>;
     /**
@@ -724,7 +724,7 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
      */
     declare public readonly icebergConfiguration: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamIcebergConfiguration | undefined>;
     /**
-     * The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
+     * Stream and role ARNs for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
      */
     declare public readonly kinesisSourceConfiguration: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamKinesisSourceConfiguration | undefined>;
     /**
@@ -844,7 +844,7 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
  */
 export interface FirehoseDeliveryStreamState {
     /**
-     * The Amazon Resource Name (ARN) specifying the Stream
+     * ARN specifying the Stream
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -869,7 +869,7 @@ export interface FirehoseDeliveryStreamState {
      */
     icebergConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamIcebergConfiguration | undefined>;
     /**
-     * The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
+     * Stream and role ARNs for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
      */
     kinesisSourceConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamKinesisSourceConfiguration | undefined>;
     /**
@@ -926,7 +926,7 @@ export interface FirehoseDeliveryStreamState {
  */
 export interface FirehoseDeliveryStreamArgs {
     /**
-     * The Amazon Resource Name (ARN) specifying the Stream
+     * ARN specifying the Stream
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -951,7 +951,7 @@ export interface FirehoseDeliveryStreamArgs {
      */
     icebergConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamIcebergConfiguration | undefined>;
     /**
-     * The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
+     * Stream and role ARNs for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
      */
     kinesisSourceConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamKinesisSourceConfiguration | undefined>;
     /**

@@ -426,14 +426,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/vpcEndpoint:VpcEndpoint")
 public class VpcEndpoint extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the VPC endpoint.
+     * ARN of the VPC endpoint.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the VPC endpoint.
+     * @return ARN of the VPC endpoint.
      * 
      */
     public Output<String> arn() {

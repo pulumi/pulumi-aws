@@ -21,14 +21,14 @@ public final class TrustAnchorState extends com.pulumi.resources.ResourceArgs {
     public static final TrustAnchorState Empty = new TrustAnchorState();
 
     /**
-     * Amazon Resource Name (ARN) of the Trust Anchor
+     * ARN of the Trust Anchor
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Trust Anchor
+     * @return ARN of the Trust Anchor
      * 
      */
     public Optional<Output<String>> arn() {
@@ -148,7 +148,7 @@ public final class TrustAnchorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Trust Anchor
+         * @param arn ARN of the Trust Anchor
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class TrustAnchorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Trust Anchor
+         * @param arn ARN of the Trust Anchor
          * 
          * @return builder
          * 

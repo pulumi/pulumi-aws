@@ -103,7 +103,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the BCM Data Exports export.
+ * - `arn` (String) ARN of the BCM Data Exports export.
  * 
  * Using `pulumi import`, import BCM Data Exports Export using the export ARN. For example:
  * 
@@ -115,16 +115,16 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:bcmdata/export:Export")
 public class Export extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) for this export.
-     * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+     * ARN for this export.
+     * * `export[0].export_arn` - ARN for this export.
      * 
      */
     @com.pulumi.core.annotations.Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) for this export.
-     * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+     * @return ARN for this export.
+     * * `export[0].export_arn` - ARN for this export.
      * 
      */
     public Output<String> arn() {

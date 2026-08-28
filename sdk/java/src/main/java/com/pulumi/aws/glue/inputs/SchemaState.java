@@ -18,14 +18,14 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
     public static final SchemaState Empty = new SchemaState();
 
     /**
-     * Amazon Resource Name (ARN) of the schema.
+     * ARN of the schema.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the schema.
+     * @return ARN of the schema.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -265,7 +265,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the schema.
+         * @param arn ARN of the schema.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the schema.
+         * @param arn ARN of the schema.
          * 
          * @return builder
          * 

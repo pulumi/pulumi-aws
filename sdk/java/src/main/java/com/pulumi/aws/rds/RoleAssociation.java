@@ -75,14 +75,14 @@ public class RoleAssociation extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+     * ARN of the IAM Role to associate with the DB Instance.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+     * @return ARN of the IAM Role to associate with the DB Instance.
      * 
      */
     public Output<String> roleArn() {

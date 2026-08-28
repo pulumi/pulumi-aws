@@ -410,7 +410,7 @@ class Key(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Payment Cryptography key.
+        - `arn` (String) ARN of the Payment Cryptography key.
 
         Using `pulumi import`, import Payment Cryptography Control Plane Key using the `arn:aws:payment-cryptography:us-east-1:123456789012:key/qtbojf64yshyvyzf`. For example:
 
@@ -468,7 +468,7 @@ class Key(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Payment Cryptography key.
+        - `arn` (String) ARN of the Payment Cryptography key.
 
         Using `pulumi import`, import Payment Cryptography Control Plane Key using the `arn:aws:payment-cryptography:us-east-1:123456789012:key/qtbojf64yshyvyzf`. For example:
 

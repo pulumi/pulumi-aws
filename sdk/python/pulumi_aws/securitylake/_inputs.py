@@ -275,7 +275,7 @@ class CustomLogSourceConfigurationArgs:
 class CustomLogSourceConfigurationCrawlerConfigurationArgsDict(TypedDict):
     role_arn: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+    The ARN of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
     """
 
 @pulumi.input_type
@@ -283,7 +283,7 @@ class CustomLogSourceConfigurationCrawlerConfigurationArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+        :param pulumi.Input[_builtins.str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
         """
         pulumi.set(__self__, "role_arn", role_arn)
 
@@ -291,7 +291,7 @@ class CustomLogSourceConfigurationCrawlerConfigurationArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+        The ARN of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
         """
         return pulumi.get(self, "role_arn")
 
@@ -815,7 +815,7 @@ class SubscriberNotificationConfigurationHttpsNotificationConfigurationArgsDict(
     """
     target_role_arn: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+    ARN of the EventBridge API destinations IAM role that you created.
     For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
     """
     authorization_api_key_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -843,7 +843,7 @@ class SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs:
         """
         :param pulumi.Input[_builtins.str] endpoint: The subscription endpoint in Security Lake.
                If you prefer notification with an HTTPS endpoint, populate this field.
-        :param pulumi.Input[_builtins.str] target_role_arn: The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+        :param pulumi.Input[_builtins.str] target_role_arn: ARN of the EventBridge API destinations IAM role that you created.
                For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
         :param pulumi.Input[_builtins.str] authorization_api_key_name: The API key name for the notification subscription.
         :param pulumi.Input[_builtins.str] authorization_api_key_value: The API key value for the notification subscription.
@@ -876,7 +876,7 @@ class SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs:
     @pulumi.getter(name="targetRoleArn")
     def target_role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+        ARN of the EventBridge API destinations IAM role that you created.
         For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
         """
         return pulumi.get(self, "target_role_arn")

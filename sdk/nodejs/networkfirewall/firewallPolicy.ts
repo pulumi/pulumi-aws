@@ -182,7 +182,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) that identifies the firewall policy.
+     * ARN that identifies the firewall policy.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -265,7 +265,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
  */
 export interface FirewallPolicyState {
     /**
-     * The Amazon Resource Name (ARN) that identifies the firewall policy.
+     * ARN that identifies the firewall policy.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

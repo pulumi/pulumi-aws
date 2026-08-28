@@ -52,7 +52,7 @@ func LookupResponsePlan(ctx *pulumi.Context, args *LookupResponsePlanArgs, opts 
 
 // A collection of arguments for invoking getResponsePlan.
 type LookupResponsePlanArgs struct {
-	// The Amazon Resource Name (ARN) of the response plan.
+	// ARN of the response plan.
 	Arn string `pulumi:"arn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -69,7 +69,7 @@ type LookupResponsePlanResult struct {
 	ChatChannels []string `pulumi:"chatChannels"`
 	// The long format of the response plan name. This field can contain spaces.
 	DisplayName string `pulumi:"displayName"`
-	// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+	// ARN for the contacts and escalation plans that the response plan engages during an incident.
 	Engagements []string `pulumi:"engagements"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                string                            `pulumi:"id"`
@@ -90,7 +90,7 @@ func LookupResponsePlanOutput(ctx *pulumi.Context, args LookupResponsePlanOutput
 
 // A collection of arguments for invoking getResponsePlan.
 type LookupResponsePlanOutputArgs struct {
-	// The Amazon Resource Name (ARN) of the response plan.
+	// ARN of the response plan.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -136,7 +136,7 @@ func (o LookupResponsePlanResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResponsePlanResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+// ARN for the contacts and escalation plans that the response plan engages during an incident.
 func (o LookupResponsePlanResultOutput) Engagements() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupResponsePlanResult) []string { return v.Engagements }).(pulumi.StringArrayOutput)
 }

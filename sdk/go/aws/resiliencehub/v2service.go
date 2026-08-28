@@ -146,7 +146,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the Resilience Hub V2 Service.
+// - `arn` (String) ARN of the Resilience Hub V2 Service.
 //
 // Using `pulumi import`, import Resilience Hub V2 Service using the `arn`. For example:
 //

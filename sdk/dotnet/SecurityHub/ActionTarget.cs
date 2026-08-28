@@ -58,7 +58,7 @@ namespace Pulumi.Aws.SecurityHub
     public partial class ActionTarget : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Security Hub custom action target.
+        /// ARN of the Security Hub custom action target.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.SecurityHub
     public sealed class ActionTargetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Security Hub custom action target.
+        /// ARN of the Security Hub custom action target.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

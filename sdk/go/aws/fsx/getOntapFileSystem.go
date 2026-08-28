@@ -62,7 +62,7 @@ type LookupOntapFileSystemArgs struct {
 
 // A collection of values returned by getOntapFileSystem.
 type LookupOntapFileSystemResult struct {
-	// Amazon Resource Name of the file system.
+	// ARN of the file system.
 	Arn string `pulumi:"arn"`
 	// Number of days to retain automatic backups.
 	AutomaticBackupRetentionDays int `pulumi:"automaticBackupRetentionDays"`
@@ -107,7 +107,7 @@ type LookupOntapFileSystemResult struct {
 	ThroughputCapacity int `pulumi:"throughputCapacity"`
 	// Sustained throughput of each HA pair for an Amazon FSx file system in Megabytes per second (MBps).
 	ThroughputCapacityPerHaPair int `pulumi:"throughputCapacityPerHaPair"`
-	// ID of the primary virtual private cloud (VPC) for the file system.
+	// ID of the primary VPC for the file system.
 	VpcId string `pulumi:"vpcId"`
 	// Preferred start time (in `D:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
 	WeeklyMaintenanceStartTime string `pulumi:"weeklyMaintenanceStartTime"`
@@ -147,7 +147,7 @@ func (o LookupOntapFileSystemResultOutput) ToLookupOntapFileSystemResultOutputWi
 	return o
 }
 
-// Amazon Resource Name of the file system.
+// ARN of the file system.
 func (o LookupOntapFileSystemResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -263,7 +263,7 @@ func (o LookupOntapFileSystemResultOutput) ThroughputCapacityPerHaPair() pulumi.
 	return o.ApplyT(func(v LookupOntapFileSystemResult) int { return v.ThroughputCapacityPerHaPair }).(pulumi.IntOutput)
 }
 
-// ID of the primary virtual private cloud (VPC) for the file system.
+// ID of the primary VPC for the file system.
 func (o LookupOntapFileSystemResultOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) string { return v.VpcId }).(pulumi.StringOutput)
 }

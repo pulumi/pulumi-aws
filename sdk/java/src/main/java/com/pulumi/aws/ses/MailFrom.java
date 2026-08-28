@@ -135,14 +135,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ses/mailFrom:MailFrom")
 public class MailFrom extends com.pulumi.resources.CustomResource {
     /**
-     * The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
+     * Action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
      * 
      */
     @Export(name="behaviorOnMxFailure", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> behaviorOnMxFailure;
 
     /**
-     * @return The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
+     * @return Action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
      * 
      */
     public Output<Optional<String>> behaviorOnMxFailure() {

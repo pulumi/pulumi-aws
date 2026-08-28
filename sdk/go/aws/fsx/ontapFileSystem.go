@@ -182,7 +182,7 @@ import (
 type OntapFileSystem struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name of the file system.
+	// ARN of the file system.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
 	AutomaticBackupRetentionDays pulumi.IntPtrOutput `pulumi:"automaticBackupRetentionDays"`
@@ -210,7 +210,7 @@ type OntapFileSystem struct {
 	NetworkType pulumi.StringOutput `pulumi:"networkType"`
 	// AWS account identifier that created the file system.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+	// ID for a subnet. A subnet is a range of IP addresses in your VPC.
 	PreferredSubnetId pulumi.StringOutput `pulumi:"preferredSubnetId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -232,7 +232,7 @@ type OntapFileSystem struct {
 	ThroughputCapacity pulumi.IntOutput `pulumi:"throughputCapacity"`
 	// Sets the per-HA-pair throughput capacity (in MBps) for the file system that you're creating, as opposed to `throughputCapacity` which specifies the total throughput capacity for the file system. Valid value for `MULTI_AZ_1` and `SINGLE_AZ_1` are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values for deployment type `MULTI_AZ_2` and `SINGLE_AZ_2` are `384`,`768`,`1536`,`3072`,`6144` where `haPairs` is `1`. Valid values for deployment type `SINGLE_AZ_2` are `1536`, `3072`, and `6144` where `haPairs` is greater than 1. This parameter is only supported when specifying the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
 	ThroughputCapacityPerHaPair pulumi.IntOutput `pulumi:"throughputCapacityPerHaPair"`
-	// Identifier of the Virtual Private Cloud for the file system.
+	// Identifier of the VPC for the file system.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 	// Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
 	WeeklyMaintenanceStartTime pulumi.StringOutput `pulumi:"weeklyMaintenanceStartTime"`
@@ -287,7 +287,7 @@ func GetOntapFileSystem(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OntapFileSystem resources.
 type ontapFileSystemState struct {
-	// Amazon Resource Name of the file system.
+	// ARN of the file system.
 	Arn *string `pulumi:"arn"`
 	// Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
 	AutomaticBackupRetentionDays *int `pulumi:"automaticBackupRetentionDays"`
@@ -315,7 +315,7 @@ type ontapFileSystemState struct {
 	NetworkType *string `pulumi:"networkType"`
 	// AWS account identifier that created the file system.
 	OwnerId *string `pulumi:"ownerId"`
-	// ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+	// ID for a subnet. A subnet is a range of IP addresses in your VPC.
 	PreferredSubnetId *string `pulumi:"preferredSubnetId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -337,14 +337,14 @@ type ontapFileSystemState struct {
 	ThroughputCapacity *int `pulumi:"throughputCapacity"`
 	// Sets the per-HA-pair throughput capacity (in MBps) for the file system that you're creating, as opposed to `throughputCapacity` which specifies the total throughput capacity for the file system. Valid value for `MULTI_AZ_1` and `SINGLE_AZ_1` are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values for deployment type `MULTI_AZ_2` and `SINGLE_AZ_2` are `384`,`768`,`1536`,`3072`,`6144` where `haPairs` is `1`. Valid values for deployment type `SINGLE_AZ_2` are `1536`, `3072`, and `6144` where `haPairs` is greater than 1. This parameter is only supported when specifying the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
 	ThroughputCapacityPerHaPair *int `pulumi:"throughputCapacityPerHaPair"`
-	// Identifier of the Virtual Private Cloud for the file system.
+	// Identifier of the VPC for the file system.
 	VpcId *string `pulumi:"vpcId"`
 	// Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
 	WeeklyMaintenanceStartTime *string `pulumi:"weeklyMaintenanceStartTime"`
 }
 
 type OntapFileSystemState struct {
-	// Amazon Resource Name of the file system.
+	// ARN of the file system.
 	Arn pulumi.StringPtrInput
 	// Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
 	AutomaticBackupRetentionDays pulumi.IntPtrInput
@@ -372,7 +372,7 @@ type OntapFileSystemState struct {
 	NetworkType pulumi.StringPtrInput
 	// AWS account identifier that created the file system.
 	OwnerId pulumi.StringPtrInput
-	// ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+	// ID for a subnet. A subnet is a range of IP addresses in your VPC.
 	PreferredSubnetId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -394,7 +394,7 @@ type OntapFileSystemState struct {
 	ThroughputCapacity pulumi.IntPtrInput
 	// Sets the per-HA-pair throughput capacity (in MBps) for the file system that you're creating, as opposed to `throughputCapacity` which specifies the total throughput capacity for the file system. Valid value for `MULTI_AZ_1` and `SINGLE_AZ_1` are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values for deployment type `MULTI_AZ_2` and `SINGLE_AZ_2` are `384`,`768`,`1536`,`3072`,`6144` where `haPairs` is `1`. Valid values for deployment type `SINGLE_AZ_2` are `1536`, `3072`, and `6144` where `haPairs` is greater than 1. This parameter is only supported when specifying the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
 	ThroughputCapacityPerHaPair pulumi.IntPtrInput
-	// Identifier of the Virtual Private Cloud for the file system.
+	// Identifier of the VPC for the file system.
 	VpcId pulumi.StringPtrInput
 	// Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
 	WeeklyMaintenanceStartTime pulumi.StringPtrInput
@@ -423,7 +423,7 @@ type ontapFileSystemArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
 	NetworkType *string `pulumi:"networkType"`
-	// ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+	// ID for a subnet. A subnet is a range of IP addresses in your VPC.
 	PreferredSubnetId string `pulumi:"preferredSubnetId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -467,7 +467,7 @@ type OntapFileSystemArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
 	NetworkType pulumi.StringPtrInput
-	// ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+	// ID for a subnet. A subnet is a range of IP addresses in your VPC.
 	PreferredSubnetId pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -578,7 +578,7 @@ func (o OntapFileSystemOutput) ToOntapFileSystemOutputWithContext(ctx context.Co
 	return o
 }
 
-// Amazon Resource Name of the file system.
+// ARN of the file system.
 func (o OntapFileSystemOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapFileSystem) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -648,7 +648,7 @@ func (o OntapFileSystemOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapFileSystem) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+// ID for a subnet. A subnet is a range of IP addresses in your VPC.
 func (o OntapFileSystemOutput) PreferredSubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapFileSystem) pulumi.StringOutput { return v.PreferredSubnetId }).(pulumi.StringOutput)
 }
@@ -703,7 +703,7 @@ func (o OntapFileSystemOutput) ThroughputCapacityPerHaPair() pulumi.IntOutput {
 	return o.ApplyT(func(v *OntapFileSystem) pulumi.IntOutput { return v.ThroughputCapacityPerHaPair }).(pulumi.IntOutput)
 }
 
-// Identifier of the Virtual Private Cloud for the file system.
+// Identifier of the VPC for the file system.
 func (o OntapFileSystemOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapFileSystem) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

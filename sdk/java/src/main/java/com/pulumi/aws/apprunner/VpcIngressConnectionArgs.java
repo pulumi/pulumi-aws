@@ -64,14 +64,14 @@ public final class VpcIngressConnectionArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
+     * ARN for this App Runner service that is used to create the VPC Ingress Connection resource.
      * 
      */
     @Import(name="serviceArn", required=true)
     private Output<String> serviceArn;
 
     /**
-     * @return Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
+     * @return ARN for this App Runner service that is used to create the VPC Ingress Connection resource.
      * 
      */
     public Output<String> serviceArn() {
@@ -185,7 +185,7 @@ public final class VpcIngressConnectionArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param serviceArn Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
+         * @param serviceArn ARN for this App Runner service that is used to create the VPC Ingress Connection resource.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class VpcIngressConnectionArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param serviceArn Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
+         * @param serviceArn ARN for this App Runner service that is used to create the VPC Ingress Connection resource.
          * 
          * @return builder
          * 

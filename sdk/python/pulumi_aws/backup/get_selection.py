@@ -87,7 +87,7 @@ class GetSelectionResult:
     @pulumi.getter
     def resources(self) -> Sequence[_builtins.str]:
         """
-        An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..
+        Array of strings that either contain ARNs or match patterns of resources to assign to a backup plan.
         """
         return pulumi.get(self, "resources")
 

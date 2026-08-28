@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FileCacheLustreConfigurationLogConfiguration {
     /**
-     * @return Amazon Resource Name (ARN) of the destination that receives the logs.
+     * @return ARN of the destination that receives the logs.
      * 
      */
     private @Nullable String destination;
@@ -24,7 +24,7 @@ public final class FileCacheLustreConfigurationLogConfiguration {
 
     private FileCacheLustreConfigurationLogConfiguration() {}
     /**
-     * @return Amazon Resource Name (ARN) of the destination that receives the logs.
+     * @return ARN of the destination that receives the logs.
      * 
      */
     public Optional<String> destination() {

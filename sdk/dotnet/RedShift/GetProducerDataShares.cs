@@ -94,7 +94,7 @@ namespace Pulumi.Aws.RedShift
     public sealed class GetProducerDataSharesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
+        /// ARN of the producer namespace that returns in the list of datashares.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.RedShift
     public sealed class GetProducerDataSharesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
+        /// ARN of the producer namespace that returns in the list of datashares.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// ARN (Amazon Resource Name) of the producer.
+        /// ARN of the producer.
         /// </summary>
         public readonly string ProducerArn;
         public readonly string Region;

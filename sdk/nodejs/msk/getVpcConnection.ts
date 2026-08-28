@@ -72,7 +72,7 @@ export interface GetVpcConnectionResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * The Amazon Resource Name (ARN) of the cluster.
+     * ARN of the cluster.
      */
     readonly targetClusterArn: string;
     /**

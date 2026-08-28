@@ -116,7 +116,7 @@ export class Domain extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Customer Profiles Domain.
+     * ARN of the Customer Profiles Domain.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -210,7 +210,7 @@ export class Domain extends pulumi.CustomResource {
  */
 export interface DomainState {
     /**
-     * The Amazon Resource Name (ARN) of the Customer Profiles Domain.
+     * ARN of the Customer Profiles Domain.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

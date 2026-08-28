@@ -19,7 +19,7 @@ namespace Pulumi.Aws.AppRunner.Inputs
         public Input<string>? EgressType { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
+        /// ARN of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
         /// </summary>
         [Input("vpcConnectorArn")]
         public Input<string>? VpcConnectorArn { get; set; }

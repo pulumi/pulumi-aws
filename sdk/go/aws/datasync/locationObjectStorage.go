@@ -52,9 +52,9 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the DataSync object storage location.
+// - `arn` (String) ARN of the DataSync object storage location.
 //
-// Using `pulumi import`, import `datasync.LocationObjectStorage` using the Amazon Resource Name (ARN). For example:
+// Using `pulumi import`, import `datasync.LocationObjectStorage` using the ARN. For example:
 //
 // ```sh
 // $ pulumi import aws:datasync/locationObjectStorage:LocationObjectStorage example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
@@ -66,7 +66,7 @@ type LocationObjectStorage struct {
 	AccessKey pulumi.StringPtrOutput `pulumi:"accessKey"`
 	// A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
 	AgentArns pulumi.StringArrayOutput `pulumi:"agentArns"`
-	// Amazon Resource Name (ARN) of the DataSync Location.
+	// ARN of the DataSync Location.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The bucket on the self-managed object storage server that is used to read data from.
 	BucketName pulumi.StringOutput `pulumi:"bucketName"`
@@ -139,7 +139,7 @@ type locationObjectStorageState struct {
 	AccessKey *string `pulumi:"accessKey"`
 	// A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
 	AgentArns []string `pulumi:"agentArns"`
-	// Amazon Resource Name (ARN) of the DataSync Location.
+	// ARN of the DataSync Location.
 	Arn *string `pulumi:"arn"`
 	// The bucket on the self-managed object storage server that is used to read data from.
 	BucketName *string `pulumi:"bucketName"`
@@ -170,7 +170,7 @@ type LocationObjectStorageState struct {
 	AccessKey pulumi.StringPtrInput
 	// A list of DataSync Agent ARNs with which this location will be associated. For agentless cross-cloud transfers, this parameter does not need to be specified.
 	AgentArns pulumi.StringArrayInput
-	// Amazon Resource Name (ARN) of the DataSync Location.
+	// ARN of the DataSync Location.
 	Arn pulumi.StringPtrInput
 	// The bucket on the self-managed object storage server that is used to read data from.
 	BucketName pulumi.StringPtrInput
@@ -348,7 +348,7 @@ func (o LocationObjectStorageOutput) AgentArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringArrayOutput { return v.AgentArns }).(pulumi.StringArrayOutput)
 }
 
-// Amazon Resource Name (ARN) of the DataSync Location.
+// ARN of the DataSync Location.
 func (o LocationObjectStorageOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

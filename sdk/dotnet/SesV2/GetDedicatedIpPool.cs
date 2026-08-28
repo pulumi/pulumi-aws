@@ -109,7 +109,7 @@ namespace Pulumi.Aws.SesV2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags attached to the pool.
+        /// Map of tags attached to the pool.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.SesV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags attached to the pool.
+        /// Map of tags attached to the pool.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -164,7 +164,7 @@ namespace Pulumi.Aws.SesV2
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// A list of objects describing the pool's dedicated IP's. See `DedicatedIps`.
+        /// List of objects describing the pool's dedicated IP's. See `DedicatedIps`.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDedicatedIpPoolDedicatedIpResult> DedicatedIps;
         /// <summary>
@@ -174,11 +174,11 @@ namespace Pulumi.Aws.SesV2
         public readonly string PoolName;
         public readonly string Region;
         /// <summary>
-        /// (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
+        /// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
         /// </summary>
         public readonly string ScalingMode;
         /// <summary>
-        /// A map of tags attached to the pool.
+        /// Map of tags attached to the pool.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

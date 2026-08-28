@@ -44,7 +44,7 @@ namespace Pulumi.Aws.LakeFormation
     public partial class Resource : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the resource.
+        /// ARN of the resource.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.LakeFormation
     public sealed class ResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the resource.
+        /// ARN of the resource.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.LakeFormation
     public sealed class ResourceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the resource.
+        /// ARN of the resource.
         /// 
         /// The following arguments are optional:
         /// </summary>

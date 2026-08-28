@@ -29,7 +29,7 @@ class StudioSessionMappingArgs:
         The set of arguments for constructing a StudioSessionMapping resource.
 
         :param pulumi.Input[_builtins.str] identity_type: Specifies whether the identity to map to the Amazon EMR Studio is a `USER` or a `GROUP`.
-        :param pulumi.Input[_builtins.str] session_policy_arn: The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
+        :param pulumi.Input[_builtins.str] session_policy_arn: ARN for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
         :param pulumi.Input[_builtins.str] studio_id: The ID of the Amazon EMR Studio to which the user or group will be mapped.
         :param pulumi.Input[_builtins.str] identity_id: The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
         :param pulumi.Input[_builtins.str] identity_name: The name of the user or group from the Amazon Web Services SSO Identity Store.
@@ -61,7 +61,7 @@ class StudioSessionMappingArgs:
     @pulumi.getter(name="sessionPolicyArn")
     def session_policy_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
+        ARN for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
         """
         return pulumi.get(self, "session_policy_arn")
 
@@ -134,7 +134,7 @@ class _StudioSessionMappingState:
         :param pulumi.Input[_builtins.str] identity_name: The name of the user or group from the Amazon Web Services SSO Identity Store.
         :param pulumi.Input[_builtins.str] identity_type: Specifies whether the identity to map to the Amazon EMR Studio is a `USER` or a `GROUP`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] session_policy_arn: The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
+        :param pulumi.Input[_builtins.str] session_policy_arn: ARN for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
         :param pulumi.Input[_builtins.str] studio_id: The ID of the Amazon EMR Studio to which the user or group will be mapped.
         """
         if identity_id is not None:
@@ -202,7 +202,7 @@ class _StudioSessionMappingState:
     @pulumi.getter(name="sessionPolicyArn")
     def session_policy_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
+        ARN for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
         """
         return pulumi.get(self, "session_policy_arn")
 
@@ -267,7 +267,7 @@ class StudioSessionMapping(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] identity_name: The name of the user or group from the Amazon Web Services SSO Identity Store.
         :param pulumi.Input[_builtins.str] identity_type: Specifies whether the identity to map to the Amazon EMR Studio is a `USER` or a `GROUP`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] session_policy_arn: The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
+        :param pulumi.Input[_builtins.str] session_policy_arn: ARN for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
         :param pulumi.Input[_builtins.str] studio_id: The ID of the Amazon EMR Studio to which the user or group will be mapped.
         """
         ...
@@ -370,7 +370,7 @@ class StudioSessionMapping(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] identity_name: The name of the user or group from the Amazon Web Services SSO Identity Store.
         :param pulumi.Input[_builtins.str] identity_type: Specifies whether the identity to map to the Amazon EMR Studio is a `USER` or a `GROUP`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] session_policy_arn: The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
+        :param pulumi.Input[_builtins.str] session_policy_arn: ARN for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
         :param pulumi.Input[_builtins.str] studio_id: The ID of the Amazon EMR Studio to which the user or group will be mapped.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -421,7 +421,7 @@ class StudioSessionMapping(pulumi.CustomResource):
     @pulumi.getter(name="sessionPolicyArn")
     def session_policy_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
+        ARN for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
         """
         return pulumi.get(self, "session_policy_arn")
 

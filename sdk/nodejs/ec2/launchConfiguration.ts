@@ -83,7 +83,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name of the launch configuration.
+     * ARN of the launch configuration.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -237,7 +237,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
  */
 export interface LaunchConfigurationState {
     /**
-     * The Amazon Resource Name of the launch configuration.
+     * ARN of the launch configuration.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

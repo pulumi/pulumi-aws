@@ -134,7 +134,7 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         public readonly string AnycastIpListId;
         /// <summary>
-        /// ARN (Amazon Resource Name) for the connection group.
+        /// ARN for the connection group.
         /// </summary>
         public readonly string Arn;
         /// <summary>

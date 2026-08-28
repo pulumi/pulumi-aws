@@ -77,14 +77,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cloudfront/keyValueStore:KeyValueStore")
 public class KeyValueStore extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
+     * ARN identifying your CloudFront KeyValueStore.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
+     * @return ARN identifying your CloudFront KeyValueStore.
      * 
      */
     public Output<String> arn() {

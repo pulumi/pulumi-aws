@@ -40,7 +40,7 @@ public final class GetReplicationInstanceResult {
      */
     private String id;
     /**
-     * @return The Amazon Resource Name (ARN) for the KMS key used to encrypt the connection parameters.
+     * @return ARN for the KMS key used to encrypt the connection parameters.
      * 
      */
     private String kmsKeyArn;
@@ -66,7 +66,7 @@ public final class GetReplicationInstanceResult {
     private Boolean publiclyAccessible;
     private String region;
     /**
-     * @return The Amazon Resource Name (ARN) of the replication instance.
+     * @return ARN of the replication instance.
      * 
      */
     private String replicationInstanceArn;
@@ -135,7 +135,7 @@ public final class GetReplicationInstanceResult {
         return this.id;
     }
     /**
-     * @return The Amazon Resource Name (ARN) for the KMS key used to encrypt the connection parameters.
+     * @return ARN for the KMS key used to encrypt the connection parameters.
      * 
      */
     public String kmsKeyArn() {
@@ -173,7 +173,7 @@ public final class GetReplicationInstanceResult {
         return this.region;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the replication instance.
+     * @return ARN of the replication instance.
      * 
      */
     public String replicationInstanceArn() {

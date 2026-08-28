@@ -52,13 +52,13 @@ namespace Pulumi.Aws.SesV2
     public partial class AccountVdmAttributes : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+        /// Additional settings for your VDM configuration as applicable to the Dashboard.
         /// </summary>
         [Output("dashboardAttributes")]
         public Output<Outputs.AccountVdmAttributesDashboardAttributes> DashboardAttributes { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        /// Additional settings for your VDM configuration as applicable to the Guardian.
         /// </summary>
         [Output("guardianAttributes")]
         public Output<Outputs.AccountVdmAttributesGuardianAttributes> GuardianAttributes { get; private set; } = null!;
@@ -70,7 +70,7 @@ namespace Pulumi.Aws.SesV2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
+        /// Status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -124,13 +124,13 @@ namespace Pulumi.Aws.SesV2
     public sealed class AccountVdmAttributesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+        /// Additional settings for your VDM configuration as applicable to the Dashboard.
         /// </summary>
         [Input("dashboardAttributes")]
         public Input<Inputs.AccountVdmAttributesDashboardAttributesArgs>? DashboardAttributes { get; set; }
 
         /// <summary>
-        /// Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        /// Additional settings for your VDM configuration as applicable to the Guardian.
         /// </summary>
         [Input("guardianAttributes")]
         public Input<Inputs.AccountVdmAttributesGuardianAttributesArgs>? GuardianAttributes { get; set; }
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.SesV2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
+        /// Status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -158,13 +158,13 @@ namespace Pulumi.Aws.SesV2
     public sealed class AccountVdmAttributesState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+        /// Additional settings for your VDM configuration as applicable to the Dashboard.
         /// </summary>
         [Input("dashboardAttributes")]
         public Input<Inputs.AccountVdmAttributesDashboardAttributesGetArgs>? DashboardAttributes { get; set; }
 
         /// <summary>
-        /// Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        /// Additional settings for your VDM configuration as applicable to the Guardian.
         /// </summary>
         [Input("guardianAttributes")]
         public Input<Inputs.AccountVdmAttributesGuardianAttributesGetArgs>? GuardianAttributes { get; set; }
@@ -176,7 +176,7 @@ namespace Pulumi.Aws.SesV2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
+        /// Status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
         /// 
         /// The following arguments are optional:
         /// </summary>

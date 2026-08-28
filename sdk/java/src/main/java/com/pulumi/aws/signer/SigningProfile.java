@@ -81,14 +81,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:signer/signingProfile:SigningProfile")
 public class SigningProfile extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) for the signing profile.
+     * ARN for the signing profile.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the signing profile.
+     * @return ARN for the signing profile.
      * 
      */
     public Output<String> arn() {

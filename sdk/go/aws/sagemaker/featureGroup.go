@@ -64,7 +64,7 @@ import (
 type FeatureGroup struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
+	// ARN assigned by AWS to this feature_group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A free-form description of a Feature Group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -82,7 +82,7 @@ type FeatureGroup struct {
 	RecordIdentifierFeatureName pulumi.StringOutput `pulumi:"recordIdentifierFeatureName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
+	// The ARN of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// Map of resource tags for the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -136,7 +136,7 @@ func GetFeatureGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FeatureGroup resources.
 type featureGroupState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
+	// ARN assigned by AWS to this feature_group.
 	Arn *string `pulumi:"arn"`
 	// A free-form description of a Feature Group.
 	Description *string `pulumi:"description"`
@@ -154,7 +154,7 @@ type featureGroupState struct {
 	RecordIdentifierFeatureName *string `pulumi:"recordIdentifierFeatureName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
+	// The ARN of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
 	RoleArn *string `pulumi:"roleArn"`
 	// Map of resource tags for the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -164,7 +164,7 @@ type featureGroupState struct {
 }
 
 type FeatureGroupState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
+	// ARN assigned by AWS to this feature_group.
 	Arn pulumi.StringPtrInput
 	// A free-form description of a Feature Group.
 	Description pulumi.StringPtrInput
@@ -182,7 +182,7 @@ type FeatureGroupState struct {
 	RecordIdentifierFeatureName pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
+	// The ARN of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
 	RoleArn pulumi.StringPtrInput
 	// Map of resource tags for the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -212,7 +212,7 @@ type featureGroupArgs struct {
 	RecordIdentifierFeatureName string `pulumi:"recordIdentifierFeatureName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
+	// The ARN of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
 	RoleArn string `pulumi:"roleArn"`
 	// Map of resource tags for the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags             map[string]string             `pulumi:"tags"`
@@ -237,7 +237,7 @@ type FeatureGroupArgs struct {
 	RecordIdentifierFeatureName pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
+	// The ARN of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
 	RoleArn pulumi.StringInput
 	// Map of resource tags for the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags             pulumi.StringMapInput
@@ -331,7 +331,7 @@ func (o FeatureGroupOutput) ToFeatureGroupOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
+// ARN assigned by AWS to this feature_group.
 func (o FeatureGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FeatureGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -376,7 +376,7 @@ func (o FeatureGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *FeatureGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
+// The ARN of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
 func (o FeatureGroupOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FeatureGroup) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }

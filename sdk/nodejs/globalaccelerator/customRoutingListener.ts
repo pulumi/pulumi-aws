@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator custom routing listener.
+ * - `arn` (String) ARN of the Global Accelerator custom routing listener.
  *
  * Using `pulumi import`, import Global Accelerator custom routing listeners using the `id`. For example:
  *
@@ -78,7 +78,7 @@ export class CustomRoutingListener extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of a custom routing accelerator.
+     * ARN of a custom routing accelerator.
      */
     declare public readonly acceleratorArn: pulumi.Output<string>;
     declare public /*out*/ readonly arn: pulumi.Output<string>;
@@ -125,7 +125,7 @@ export class CustomRoutingListener extends pulumi.CustomResource {
  */
 export interface CustomRoutingListenerState {
     /**
-     * The Amazon Resource Name (ARN) of a custom routing accelerator.
+     * ARN of a custom routing accelerator.
      */
     acceleratorArn?: pulumi.Input<string | undefined>;
     arn?: pulumi.Input<string | undefined>;
@@ -140,7 +140,7 @@ export interface CustomRoutingListenerState {
  */
 export interface CustomRoutingListenerArgs {
     /**
-     * The Amazon Resource Name (ARN) of a custom routing accelerator.
+     * ARN of a custom routing accelerator.
      */
     acceleratorArn: pulumi.Input<string>;
     /**

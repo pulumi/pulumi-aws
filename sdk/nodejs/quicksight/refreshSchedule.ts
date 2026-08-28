@@ -113,7 +113,7 @@ export class RefreshSchedule extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the refresh schedule.
+     * ARN of the refresh schedule.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -186,7 +186,7 @@ export class RefreshSchedule extends pulumi.CustomResource {
  */
 export interface RefreshScheduleState {
     /**
-     * Amazon Resource Name (ARN) of the refresh schedule.
+     * ARN of the refresh schedule.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

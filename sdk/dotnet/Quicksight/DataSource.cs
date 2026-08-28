@@ -200,7 +200,7 @@ namespace Pulumi.Aws.Quicksight
     public partial class DataSource : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the data source
+        /// ARN of the data source
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -414,7 +414,7 @@ namespace Pulumi.Aws.Quicksight
     public sealed class DataSourceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the data source
+        /// ARN of the data source
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

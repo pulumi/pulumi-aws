@@ -17,14 +17,14 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
     public static final RegistryState Empty = new RegistryState();
 
     /**
-     * The Amazon Resource Name (ARN) of the discoverer.
+     * ARN of the discoverer.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the discoverer.
+     * @return ARN of the discoverer.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -136,7 +136,7 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the discoverer.
+         * @param arn ARN of the discoverer.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the discoverer.
+         * @param arn ARN of the discoverer.
          * 
          * @return builder
          * 

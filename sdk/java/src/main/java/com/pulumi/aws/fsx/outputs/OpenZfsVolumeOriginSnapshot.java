@@ -16,7 +16,7 @@ public final class OpenZfsVolumeOriginSnapshot {
      */
     private String copyStrategy;
     /**
-     * @return The Amazon Resource Name (ARN) of the origin snapshot.
+     * @return The ARN of the origin snapshot.
      * 
      */
     private String snapshotArn;
@@ -30,7 +30,7 @@ public final class OpenZfsVolumeOriginSnapshot {
         return this.copyStrategy;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the origin snapshot.
+     * @return The ARN of the origin snapshot.
      * 
      */
     public String snapshotArn() {

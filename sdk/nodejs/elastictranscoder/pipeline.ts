@@ -74,7 +74,7 @@ export class Pipeline extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
+     * KMS key that you want to use with this pipeline.
      */
     declare public readonly awsKmsKeyArn: pulumi.Output<string | undefined>;
     /**
@@ -106,7 +106,7 @@ export class Pipeline extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
+     * IAM ARN for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
      */
     declare public readonly role: pulumi.Output<string>;
     /**
@@ -187,7 +187,7 @@ export interface PipelineState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
+     * KMS key that you want to use with this pipeline.
      */
     awsKmsKeyArn?: pulumi.Input<string | undefined>;
     /**
@@ -219,7 +219,7 @@ export interface PipelineState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
+     * IAM ARN for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
      */
     role?: pulumi.Input<string | undefined>;
     /**
@@ -246,7 +246,7 @@ export interface PipelineState {
  */
 export interface PipelineArgs {
     /**
-     * The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
+     * KMS key that you want to use with this pipeline.
      */
     awsKmsKeyArn?: pulumi.Input<string | undefined>;
     /**
@@ -278,7 +278,7 @@ export interface PipelineArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
+     * IAM ARN for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
      */
     role: pulumi.Input<string>;
     /**

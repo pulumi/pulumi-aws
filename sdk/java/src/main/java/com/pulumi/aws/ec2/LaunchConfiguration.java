@@ -94,14 +94,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/launchConfiguration:LaunchConfiguration")
 public class LaunchConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name of the launch configuration.
+     * ARN of the launch configuration.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name of the launch configuration.
+     * @return ARN of the launch configuration.
      * 
      */
     public Output<String> arn() {

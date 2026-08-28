@@ -18,14 +18,14 @@ public final class AliasState extends com.pulumi.resources.ResourceArgs {
     public static final AliasState Empty = new AliasState();
 
     /**
-     * The Amazon Resource Name (ARN) identifying your state machine alias.
+     * ARN identifying your state machine alias.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) identifying your state machine alias.
+     * @return ARN identifying your state machine alias.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -137,7 +137,7 @@ public final class AliasState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) identifying your state machine alias.
+         * @param arn ARN identifying your state machine alias.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class AliasState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) identifying your state machine alias.
+         * @param arn ARN identifying your state machine alias.
          * 
          * @return builder
          * 

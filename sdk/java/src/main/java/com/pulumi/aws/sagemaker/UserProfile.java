@@ -79,14 +79,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sagemaker/userProfile:UserProfile")
 public class UserProfile extends com.pulumi.resources.CustomResource {
     /**
-     * The user profile Amazon Resource Name (ARN).
+     * User profile ARN.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The user profile Amazon Resource Name (ARN).
+     * @return User profile ARN.
      * 
      */
     public Output<String> arn() {

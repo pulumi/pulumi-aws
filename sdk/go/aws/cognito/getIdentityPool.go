@@ -78,7 +78,7 @@ type LookupIdentityPoolResult struct {
 	// Set of OpendID Connect provider ARNs.
 	OpenidConnectProviderArns []string `pulumi:"openidConnectProviderArns"`
 	Region                    string   `pulumi:"region"`
-	// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+	// Array of ARNs of the SAML provider for your identity.
 	SamlProviderArns []string `pulumi:"samlProviderArns"`
 	// Key-Value pairs mapping provider names to provider app IDs.
 	SupportedLoginProviders map[string]string `pulumi:"supportedLoginProviders"`
@@ -165,7 +165,7 @@ func (o LookupIdentityPoolResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupIdentityPoolResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+// Array of ARNs of the SAML provider for your identity.
 func (o LookupIdentityPoolResultOutput) SamlProviderArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupIdentityPoolResult) []string { return v.SamlProviderArns }).(pulumi.StringArrayOutput)
 }

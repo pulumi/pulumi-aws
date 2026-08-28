@@ -62,11 +62,11 @@ export class ResourceAssociation extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+     * ARN of the resource to associate with the RAM Resource Share.
      */
     declare public readonly resourceArn: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the RAM Resource Share.
+     * ARN of the RAM Resource Share.
      */
     declare public readonly resourceShareArn: pulumi.Output<string>;
 
@@ -112,11 +112,11 @@ export interface ResourceAssociationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+     * ARN of the resource to associate with the RAM Resource Share.
      */
     resourceArn?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the RAM Resource Share.
+     * ARN of the RAM Resource Share.
      */
     resourceShareArn?: pulumi.Input<string | undefined>;
 }
@@ -130,11 +130,11 @@ export interface ResourceAssociationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+     * ARN of the resource to associate with the RAM Resource Share.
      */
     resourceArn: pulumi.Input<string>;
     /**
-     * Amazon Resource Name (ARN) of the RAM Resource Share.
+     * ARN of the RAM Resource Share.
      */
     resourceShareArn: pulumi.Input<string>;
 }

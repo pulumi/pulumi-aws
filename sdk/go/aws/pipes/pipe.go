@@ -355,7 +355,7 @@ type Pipe struct {
 	Enrichment pulumi.StringPtrOutput `pulumi:"enrichment"`
 	// Parameters to configure enrichment for your pipe. Detailed below.
 	EnrichmentParameters PipeEnrichmentParametersPtrOutput `pulumi:"enrichmentParameters"`
-	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key ARN, KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
 	KmsKeyIdentifier pulumi.StringPtrOutput `pulumi:"kmsKeyIdentifier"`
 	// Logging configuration settings for the pipe. Detailed below.
 	LogConfiguration PipeLogConfigurationPtrOutput `pulumi:"logConfiguration"`
@@ -367,7 +367,7 @@ type Pipe struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the role that allows the pipe to send data to the target.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+	// Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
 	Source pulumi.StringOutput `pulumi:"source"`
 	// Parameters to configure a source for the pipe. Detailed below.
 	SourceParameters PipeSourceParametersOutput `pulumi:"sourceParameters"`
@@ -432,7 +432,7 @@ type pipeState struct {
 	Enrichment *string `pulumi:"enrichment"`
 	// Parameters to configure enrichment for your pipe. Detailed below.
 	EnrichmentParameters *PipeEnrichmentParameters `pulumi:"enrichmentParameters"`
-	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key ARN, KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
 	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// Logging configuration settings for the pipe. Detailed below.
 	LogConfiguration *PipeLogConfiguration `pulumi:"logConfiguration"`
@@ -444,7 +444,7 @@ type pipeState struct {
 	Region *string `pulumi:"region"`
 	// ARN of the role that allows the pipe to send data to the target.
 	RoleArn *string `pulumi:"roleArn"`
-	// Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+	// Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
 	Source *string `pulumi:"source"`
 	// Parameters to configure a source for the pipe. Detailed below.
 	SourceParameters *PipeSourceParameters `pulumi:"sourceParameters"`
@@ -471,7 +471,7 @@ type PipeState struct {
 	Enrichment pulumi.StringPtrInput
 	// Parameters to configure enrichment for your pipe. Detailed below.
 	EnrichmentParameters PipeEnrichmentParametersPtrInput
-	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key ARN, KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
 	KmsKeyIdentifier pulumi.StringPtrInput
 	// Logging configuration settings for the pipe. Detailed below.
 	LogConfiguration PipeLogConfigurationPtrInput
@@ -483,7 +483,7 @@ type PipeState struct {
 	Region pulumi.StringPtrInput
 	// ARN of the role that allows the pipe to send data to the target.
 	RoleArn pulumi.StringPtrInput
-	// Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+	// Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
 	Source pulumi.StringPtrInput
 	// Parameters to configure a source for the pipe. Detailed below.
 	SourceParameters PipeSourceParametersPtrInput
@@ -512,7 +512,7 @@ type pipeArgs struct {
 	Enrichment *string `pulumi:"enrichment"`
 	// Parameters to configure enrichment for your pipe. Detailed below.
 	EnrichmentParameters *PipeEnrichmentParameters `pulumi:"enrichmentParameters"`
-	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key ARN, KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
 	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// Logging configuration settings for the pipe. Detailed below.
 	LogConfiguration *PipeLogConfiguration `pulumi:"logConfiguration"`
@@ -524,7 +524,7 @@ type pipeArgs struct {
 	Region *string `pulumi:"region"`
 	// ARN of the role that allows the pipe to send data to the target.
 	RoleArn string `pulumi:"roleArn"`
-	// Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+	// Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
 	Source string `pulumi:"source"`
 	// Parameters to configure a source for the pipe. Detailed below.
 	SourceParameters *PipeSourceParameters `pulumi:"sourceParameters"`
@@ -548,7 +548,7 @@ type PipeArgs struct {
 	Enrichment pulumi.StringPtrInput
 	// Parameters to configure enrichment for your pipe. Detailed below.
 	EnrichmentParameters PipeEnrichmentParametersPtrInput
-	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key ARN, KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
 	KmsKeyIdentifier pulumi.StringPtrInput
 	// Logging configuration settings for the pipe. Detailed below.
 	LogConfiguration PipeLogConfigurationPtrInput
@@ -560,7 +560,7 @@ type PipeArgs struct {
 	Region pulumi.StringPtrInput
 	// ARN of the role that allows the pipe to send data to the target.
 	RoleArn pulumi.StringInput
-	// Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+	// Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
 	Source pulumi.StringInput
 	// Parameters to configure a source for the pipe. Detailed below.
 	SourceParameters PipeSourceParametersPtrInput
@@ -686,7 +686,7 @@ func (o PipeOutput) EnrichmentParameters() PipeEnrichmentParametersPtrOutput {
 	return o.ApplyT(func(v *Pipe) PipeEnrichmentParametersPtrOutput { return v.EnrichmentParameters }).(PipeEnrichmentParametersPtrOutput)
 }
 
-// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key ARN, KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
 func (o PipeOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringPtrOutput { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -716,7 +716,7 @@ func (o PipeOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+// Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
 func (o PipeOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.Source }).(pulumi.StringOutput)
 }

@@ -81,7 +81,7 @@ class _DashboardState:
         """
         Input properties used for looking up and filtering Dashboard resources.
 
-        :param pulumi.Input[_builtins.str] dashboard_arn: The Amazon Resource Name (ARN) of the dashboard.
+        :param pulumi.Input[_builtins.str] dashboard_arn: ARN of the dashboard.
         :param pulumi.Input[_builtins.str] dashboard_body: The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
         :param pulumi.Input[_builtins.str] dashboard_name: The name of the dashboard.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -99,7 +99,7 @@ class _DashboardState:
     @pulumi.getter(name="dashboardArn")
     def dashboard_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the dashboard.
+        ARN of the dashboard.
         """
         return pulumi.get(self, "dashboard_arn")
 
@@ -356,7 +356,7 @@ class Dashboard(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] dashboard_arn: The Amazon Resource Name (ARN) of the dashboard.
+        :param pulumi.Input[_builtins.str] dashboard_arn: ARN of the dashboard.
         :param pulumi.Input[_builtins.str] dashboard_body: The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
         :param pulumi.Input[_builtins.str] dashboard_name: The name of the dashboard.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -375,7 +375,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter(name="dashboardArn")
     def dashboard_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the dashboard.
+        ARN of the dashboard.
         """
         return pulumi.get(self, "dashboard_arn")
 

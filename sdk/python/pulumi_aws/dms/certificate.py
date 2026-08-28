@@ -117,7 +117,7 @@ class _CertificateState:
         """
         Input properties used for looking up and filtering Certificate resources.
 
-        :param pulumi.Input[_builtins.str] certificate_arn: The Amazon Resource Name (ARN) for the certificate.
+        :param pulumi.Input[_builtins.str] certificate_arn: ARN for the certificate.
         :param pulumi.Input[_builtins.str] certificate_id: The certificate identifier.
         :param pulumi.Input[_builtins.str] certificate_pem: The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
         :param pulumi.Input[_builtins.str] certificate_wallet: The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
@@ -144,7 +144,7 @@ class _CertificateState:
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the certificate.
+        ARN for the certificate.
         """
         return pulumi.get(self, "certificate_arn")
 
@@ -369,7 +369,7 @@ class Certificate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] certificate_arn: The Amazon Resource Name (ARN) for the certificate.
+        :param pulumi.Input[_builtins.str] certificate_arn: ARN for the certificate.
         :param pulumi.Input[_builtins.str] certificate_id: The certificate identifier.
         :param pulumi.Input[_builtins.str] certificate_pem: The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
         :param pulumi.Input[_builtins.str] certificate_wallet: The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
@@ -394,7 +394,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) for the certificate.
+        ARN for the certificate.
         """
         return pulumi.get(self, "certificate_arn")
 

@@ -36,7 +36,7 @@ namespace Pulumi.Aws.CodeArtifact
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the CodeArtifact domain.
+    /// - `Arn` (String) ARN of the CodeArtifact domain.
     /// 
     /// Using `pulumi import`, import CodeArtifact Domain using the CodeArtifact Domain arn. For example:
     /// 
@@ -72,7 +72,7 @@ namespace Pulumi.Aws.CodeArtifact
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
+        /// Encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key ARN. The default aws/codeartifact AWS KMS master key is used if this element is absent.
         /// </summary>
         [Output("encryptionKey")]
         public Output<string> EncryptionKey { get; private set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.CodeArtifact
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
-        /// The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
+        /// Encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key ARN. The default aws/codeartifact AWS KMS master key is used if this element is absent.
         /// </summary>
         [Input("encryptionKey")]
         public Input<string>? EncryptionKey { get; set; }
@@ -222,7 +222,7 @@ namespace Pulumi.Aws.CodeArtifact
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
-        /// The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
+        /// Encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key ARN. The default aws/codeartifact AWS KMS master key is used if this element is absent.
         /// </summary>
         [Input("encryptionKey")]
         public Input<string>? EncryptionKey { get; set; }

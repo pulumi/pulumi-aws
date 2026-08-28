@@ -47,7 +47,7 @@ public final class DataShareAuthorizationState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
+     * ARN of the datashare that producers are to authorize sharing for.
      * 
      * The following arguments are optional:
      * 
@@ -56,7 +56,7 @@ public final class DataShareAuthorizationState extends com.pulumi.resources.Reso
     private @Nullable Output<String> dataShareArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
+     * @return ARN of the datashare that producers are to authorize sharing for.
      * 
      * The following arguments are optional:
      * 
@@ -81,14 +81,14 @@ public final class DataShareAuthorizationState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Amazon Resource Name (ARN) of the producer.
+     * ARN of the producer.
      * 
      */
     @Import(name="producerArn")
     private @Nullable Output<String> producerArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the producer.
+     * @return ARN of the producer.
      * 
      */
     public Optional<Output<String>> producerArn() {
@@ -182,7 +182,7 @@ public final class DataShareAuthorizationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param dataShareArn Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
+         * @param dataShareArn ARN of the datashare that producers are to authorize sharing for.
          * 
          * The following arguments are optional:
          * 
@@ -195,7 +195,7 @@ public final class DataShareAuthorizationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param dataShareArn Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
+         * @param dataShareArn ARN of the datashare that producers are to authorize sharing for.
          * 
          * The following arguments are optional:
          * 
@@ -228,7 +228,7 @@ public final class DataShareAuthorizationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param producerArn Amazon Resource Name (ARN) of the producer.
+         * @param producerArn ARN of the producer.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class DataShareAuthorizationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param producerArn Amazon Resource Name (ARN) of the producer.
+         * @param producerArn ARN of the producer.
          * 
          * @return builder
          * 

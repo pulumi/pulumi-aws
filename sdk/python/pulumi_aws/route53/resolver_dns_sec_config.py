@@ -24,7 +24,7 @@ class ResolverDnsSecConfigArgs:
         """
         The set of arguments for constructing a ResolverDnsSecConfig resource.
 
-        :param pulumi.Input[_builtins.str] resource_id: The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
+        :param pulumi.Input[_builtins.str] resource_id: ID of the VPC that you're updating the DNSSEC validation status for.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "resource_id", resource_id)
@@ -35,7 +35,7 @@ class ResolverDnsSecConfigArgs:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
+        ID of the VPC that you're updating the DNSSEC validation status for.
         """
         return pulumi.get(self, "resource_id")
 
@@ -68,9 +68,9 @@ class _ResolverDnsSecConfigState:
         Input properties used for looking up and filtering ResolverDnsSecConfig resources.
 
         :param pulumi.Input[_builtins.str] arn: The ARN for a configuration for DNSSEC validation.
-        :param pulumi.Input[_builtins.str] owner_id: The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
+        :param pulumi.Input[_builtins.str] owner_id: Owner account ID of the VPC for a configuration for DNSSEC validation.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_id: The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
+        :param pulumi.Input[_builtins.str] resource_id: ID of the VPC that you're updating the DNSSEC validation status for.
         :param pulumi.Input[_builtins.str] validation_status: The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
         """
         if arn is not None:
@@ -100,7 +100,7 @@ class _ResolverDnsSecConfigState:
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
+        Owner account ID of the VPC for a configuration for DNSSEC validation.
         """
         return pulumi.get(self, "owner_id")
 
@@ -124,7 +124,7 @@ class _ResolverDnsSecConfigState:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
+        ID of the VPC that you're updating the DNSSEC validation status for.
         """
         return pulumi.get(self, "resource_id")
 
@@ -182,7 +182,7 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_id: The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
+        :param pulumi.Input[_builtins.str] resource_id: ID of the VPC that you're updating the DNSSEC validation status for.
         """
         ...
     @overload
@@ -271,9 +271,9 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: The ARN for a configuration for DNSSEC validation.
-        :param pulumi.Input[_builtins.str] owner_id: The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
+        :param pulumi.Input[_builtins.str] owner_id: Owner account ID of the VPC for a configuration for DNSSEC validation.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_id: The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
+        :param pulumi.Input[_builtins.str] resource_id: ID of the VPC that you're updating the DNSSEC validation status for.
         :param pulumi.Input[_builtins.str] validation_status: The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -299,7 +299,7 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
+        Owner account ID of the VPC for a configuration for DNSSEC validation.
         """
         return pulumi.get(self, "owner_id")
 
@@ -315,7 +315,7 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
+        ID of the VPC that you're updating the DNSSEC validation status for.
         """
         return pulumi.get(self, "resource_id")
 

@@ -94,7 +94,7 @@ namespace Pulumi.Aws.CodeStarNotifications
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the CodeStar notification rule.
+    /// - `Arn` (String) ARN of the CodeStar notification rule.
     /// 
     /// Using `pulumi import`, import CodeStar notification rule using the ARN. For example:
     /// 

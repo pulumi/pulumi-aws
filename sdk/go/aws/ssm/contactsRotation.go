@@ -192,7 +192,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the SSM Contacts rotation.
+// - `arn` (String) ARN of the SSM Contacts rotation.
 //
 // Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `arn`. For example:
 //
@@ -202,9 +202,9 @@ import (
 type ContactsRotation struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the rotation.
+	// ARN of the rotation.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+	// ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
 	ContactIds pulumi.StringArrayOutput `pulumi:"contactIds"`
 	// The name for the rotation.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -263,9 +263,9 @@ func GetContactsRotation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ContactsRotation resources.
 type contactsRotationState struct {
-	// The Amazon Resource Name (ARN) of the rotation.
+	// ARN of the rotation.
 	Arn *string `pulumi:"arn"`
-	// Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+	// ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
 	ContactIds []string `pulumi:"contactIds"`
 	// The name for the rotation.
 	Name *string `pulumi:"name"`
@@ -286,9 +286,9 @@ type contactsRotationState struct {
 }
 
 type ContactsRotationState struct {
-	// The Amazon Resource Name (ARN) of the rotation.
+	// ARN of the rotation.
 	Arn pulumi.StringPtrInput
-	// Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+	// ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
 	ContactIds pulumi.StringArrayInput
 	// The name for the rotation.
 	Name pulumi.StringPtrInput
@@ -313,7 +313,7 @@ func (ContactsRotationState) ElementType() reflect.Type {
 }
 
 type contactsRotationArgs struct {
-	// Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+	// ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
 	ContactIds []string `pulumi:"contactIds"`
 	// The name for the rotation.
 	Name *string `pulumi:"name"`
@@ -333,7 +333,7 @@ type contactsRotationArgs struct {
 
 // The set of arguments for constructing a ContactsRotation resource.
 type ContactsRotationArgs struct {
-	// Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+	// ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
 	ContactIds pulumi.StringArrayInput
 	// The name for the rotation.
 	Name pulumi.StringPtrInput
@@ -438,12 +438,12 @@ func (o ContactsRotationOutput) ToContactsRotationOutputWithContext(ctx context.
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the rotation.
+// ARN of the rotation.
 func (o ContactsRotationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactsRotation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+// ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
 func (o ContactsRotationOutput) ContactIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ContactsRotation) pulumi.StringArrayOutput { return v.ContactIds }).(pulumi.StringArrayOutput)
 }

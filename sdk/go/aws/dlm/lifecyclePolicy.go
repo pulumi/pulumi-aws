@@ -432,7 +432,7 @@ import (
 type LifecyclePolicy struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
+	// ARN of the DLM Lifecycle Policy.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
 	DefaultPolicy pulumi.StringPtrOutput `pulumi:"defaultPolicy"`
@@ -491,7 +491,7 @@ func GetLifecyclePolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LifecyclePolicy resources.
 type lifecyclePolicyState struct {
-	// Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
+	// ARN of the DLM Lifecycle Policy.
 	Arn *string `pulumi:"arn"`
 	// Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
 	DefaultPolicy *string `pulumi:"defaultPolicy"`
@@ -512,7 +512,7 @@ type lifecyclePolicyState struct {
 }
 
 type LifecyclePolicyState struct {
-	// Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
+	// ARN of the DLM Lifecycle Policy.
 	Arn pulumi.StringPtrInput
 	// Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
 	DefaultPolicy pulumi.StringPtrInput
@@ -658,7 +658,7 @@ func (o LifecyclePolicyOutput) ToLifecyclePolicyOutputWithContext(ctx context.Co
 	return o
 }
 
-// Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
+// ARN of the DLM Lifecycle Policy.
 func (o LifecyclePolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

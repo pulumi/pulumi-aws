@@ -245,14 +245,14 @@ public final class DomainNameArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
+     * TLS version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
      * 
      */
     @Import(name="securityPolicy")
     private @Nullable Output<String> securityPolicy;
 
     /**
-     * @return Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
+     * @return TLS version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
      * 
      */
     public Optional<Output<String>> securityPolicy() {
@@ -630,7 +630,7 @@ public final class DomainNameArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityPolicy Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
+         * @param securityPolicy TLS version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
          * 
          * @return builder
          * 
@@ -641,7 +641,7 @@ public final class DomainNameArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityPolicy Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
+         * @param securityPolicy TLS version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
          * 
          * @return builder
          * 

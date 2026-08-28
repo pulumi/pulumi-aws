@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Device Farm device pool.
+ * - `arn` (String) ARN of the Device Farm device pool.
  * 
  * Using `pulumi import`, import DeviceFarm Device Pools using their ARN. For example:
  * 
@@ -79,14 +79,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:devicefarm/devicePool:DevicePool")
 public class DevicePool extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name of this Device Pool
+     * ARN of this Device Pool
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name of this Device Pool
+     * @return ARN of this Device Pool
      * 
      */
     public Output<String> arn() {

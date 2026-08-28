@@ -61,7 +61,7 @@ export class Hub extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Hub.
+     * ARN assigned by AWS to this Hub.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -147,7 +147,7 @@ export class Hub extends pulumi.CustomResource {
  */
 export interface HubState {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Hub.
+     * ARN assigned by AWS to this Hub.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

@@ -90,14 +90,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sfn/alias:Alias")
 public class Alias extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) identifying your state machine alias.
+     * ARN identifying your state machine alias.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) identifying your state machine alias.
+     * @return ARN identifying your state machine alias.
      * 
      */
     public Output<String> arn() {

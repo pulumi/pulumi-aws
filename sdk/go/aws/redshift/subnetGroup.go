@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating Amazon Redshift subnet group.
+// Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing VPC when creating Amazon Redshift subnet group.
 //
 // ## Example Usage
 //
@@ -86,7 +86,7 @@ import (
 type SubnetGroup struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the Redshift Subnet group name
+	// ARN of the Redshift Subnet group name
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The description of the Redshift Subnet group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringOutput `pulumi:"description"`
@@ -138,7 +138,7 @@ func GetSubnetGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SubnetGroup resources.
 type subnetGroupState struct {
-	// Amazon Resource Name (ARN) of the Redshift Subnet group name
+	// ARN of the Redshift Subnet group name
 	Arn *string `pulumi:"arn"`
 	// The description of the Redshift Subnet group. Defaults to "Managed by Pulumi".
 	Description *string `pulumi:"description"`
@@ -155,7 +155,7 @@ type subnetGroupState struct {
 }
 
 type SubnetGroupState struct {
-	// Amazon Resource Name (ARN) of the Redshift Subnet group name
+	// ARN of the Redshift Subnet group name
 	Arn pulumi.StringPtrInput
 	// The description of the Redshift Subnet group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringPtrInput
@@ -289,7 +289,7 @@ func (o SubnetGroupOutput) ToSubnetGroupOutputWithContext(ctx context.Context) S
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Redshift Subnet group name
+// ARN of the Redshift Subnet group name
 func (o SubnetGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

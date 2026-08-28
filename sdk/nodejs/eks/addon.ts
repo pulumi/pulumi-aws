@@ -124,7 +124,7 @@ export class Addon extends pulumi.CustomResource {
      */
     declare public readonly addonVersion: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the EKS add-on.
+     * ARN of the EKS add-on.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -170,7 +170,7 @@ export class Addon extends pulumi.CustomResource {
      */
     declare public readonly resolveConflictsOnUpdate: pulumi.Output<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of an
+     * ARN of an
      * existing IAM role to bind to the add-on's service account. The role must be
      * assigned the IAM permissions required by the add-on. If you don't specify
      * an existing IAM role, then the add-on uses the permissions assigned to the node
@@ -266,7 +266,7 @@ export interface AddonState {
      */
     addonVersion?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the EKS add-on.
+     * ARN of the EKS add-on.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -312,7 +312,7 @@ export interface AddonState {
      */
     resolveConflictsOnUpdate?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of an
+     * ARN of an
      * existing IAM role to bind to the add-on's service account. The role must be
      * assigned the IAM permissions required by the add-on. If you don't specify
      * an existing IAM role, then the add-on uses the permissions assigned to the node
@@ -384,7 +384,7 @@ export interface AddonArgs {
      */
     resolveConflictsOnUpdate?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of an
+     * ARN of an
      * existing IAM role to bind to the add-on's service account. The role must be
      * assigned the IAM permissions required by the add-on. If you don't specify
      * an existing IAM role, then the add-on uses the permissions assigned to the node

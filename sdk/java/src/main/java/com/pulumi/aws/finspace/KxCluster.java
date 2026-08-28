@@ -117,14 +117,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:finspace/kxCluster:KxCluster")
 public class KxCluster extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) identifier of the KX cluster.
+     * ARN identifier of the KX cluster.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) identifier of the KX cluster.
+     * @return ARN identifier of the KX cluster.
      * 
      */
     public Output<String> arn() {

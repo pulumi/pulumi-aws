@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws.storagegateway.NfsFileShare` using the NFS File Share Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.storagegateway.NfsFileShare` using the NFS File Share ARN. For example:
  *
  * ```sh
  * $ pulumi import aws:storagegateway/nfsFileShare:NfsFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
@@ -61,11 +61,11 @@ export class NfsFileShare extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the NFS File Share.
+     * ARN of the NFS File Share.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the storage used for audit logs.
+     * ARN of the storage used for audit logs.
      */
     declare public readonly auditDestinationArn: pulumi.Output<string | undefined>;
     /**
@@ -93,7 +93,7 @@ export class NfsFileShare extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly fileshareId: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the file gateway.
+     * ARN of the file gateway.
      */
     declare public readonly gatewayArn: pulumi.Output<string>;
     /**
@@ -105,7 +105,7 @@ export class NfsFileShare extends pulumi.CustomResource {
      */
     declare public readonly kmsEncrypted: pulumi.Output<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
+     * ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
      */
     declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
     /**
@@ -249,11 +249,11 @@ export class NfsFileShare extends pulumi.CustomResource {
  */
 export interface NfsFileShareState {
     /**
-     * Amazon Resource Name (ARN) of the NFS File Share.
+     * ARN of the NFS File Share.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the storage used for audit logs.
+     * ARN of the storage used for audit logs.
      */
     auditDestinationArn?: pulumi.Input<string | undefined>;
     /**
@@ -281,7 +281,7 @@ export interface NfsFileShareState {
      */
     fileshareId?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the file gateway.
+     * ARN of the file gateway.
      */
     gatewayArn?: pulumi.Input<string | undefined>;
     /**
@@ -293,7 +293,7 @@ export interface NfsFileShareState {
      */
     kmsEncrypted?: pulumi.Input<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
+     * ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
      */
     kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
@@ -355,7 +355,7 @@ export interface NfsFileShareState {
  */
 export interface NfsFileShareArgs {
     /**
-     * The Amazon Resource Name (ARN) of the storage used for audit logs.
+     * ARN of the storage used for audit logs.
      */
     auditDestinationArn?: pulumi.Input<string | undefined>;
     /**
@@ -379,7 +379,7 @@ export interface NfsFileShareArgs {
      */
     fileShareName?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the file gateway.
+     * ARN of the file gateway.
      */
     gatewayArn: pulumi.Input<string>;
     /**
@@ -391,7 +391,7 @@ export interface NfsFileShareArgs {
      */
     kmsEncrypted?: pulumi.Input<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
+     * ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
      */
     kmsKeyArn?: pulumi.Input<string | undefined>;
     /**

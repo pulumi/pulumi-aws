@@ -271,7 +271,7 @@ namespace Pulumi.Aws.Sfn
         public Output<string> RevisionId { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+        /// ARN of the IAM role to use for this state machine.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
@@ -404,7 +404,7 @@ namespace Pulumi.Aws.Sfn
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+        /// ARN of the IAM role to use for this state machine.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -502,7 +502,7 @@ namespace Pulumi.Aws.Sfn
         public Input<string>? RevisionId { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+        /// ARN of the IAM role to use for this state machine.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

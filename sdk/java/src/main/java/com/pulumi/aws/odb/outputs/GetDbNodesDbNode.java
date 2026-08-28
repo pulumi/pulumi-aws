@@ -17,7 +17,7 @@ public final class GetDbNodesDbNode {
      */
     private String additionalDetails;
     /**
-     * @return Amazon Resource Name (ARN) of the DB node.
+     * @return ARN of the DB node.
      * 
      */
     private String arn;
@@ -151,7 +151,7 @@ public final class GetDbNodesDbNode {
         return this.additionalDetails;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the DB node.
+     * @return ARN of the DB node.
      * 
      */
     public String arn() {

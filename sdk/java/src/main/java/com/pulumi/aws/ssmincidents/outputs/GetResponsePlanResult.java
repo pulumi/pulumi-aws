@@ -32,7 +32,7 @@ public final class GetResponsePlanResult {
      */
     private String displayName;
     /**
-     * @return The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+     * @return ARN for the contacts and escalation plans that the response plan engages during an incident.
      * 
      */
     private List<String> engagements;
@@ -85,7 +85,7 @@ public final class GetResponsePlanResult {
         return this.displayName;
     }
     /**
-     * @return The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+     * @return ARN for the contacts and escalation plans that the response plan engages during an incident.
      * 
      */
     public List<String> engagements() {

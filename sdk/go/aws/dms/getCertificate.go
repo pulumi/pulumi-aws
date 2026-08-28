@@ -61,7 +61,7 @@ type LookupCertificateArgs struct {
 
 // A collection of values returned by getCertificate.
 type LookupCertificateResult struct {
-	// The Amazon Resource Name (ARN) for the certificate.
+	// ARN for the certificate.
 	CertificateArn string `pulumi:"certificateArn"`
 	// The date that the certificate was created.
 	CertificateCreationDate string `pulumi:"certificateCreationDate"`
@@ -119,7 +119,7 @@ func (o LookupCertificateResultOutput) ToLookupCertificateResultOutputWithContex
 	return o
 }
 
-// The Amazon Resource Name (ARN) for the certificate.
+// ARN for the certificate.
 func (o LookupCertificateResultOutput) CertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.CertificateArn }).(pulumi.StringOutput)
 }

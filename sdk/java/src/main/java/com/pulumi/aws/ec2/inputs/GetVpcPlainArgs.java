@@ -19,14 +19,14 @@ public final class GetVpcPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetVpcPlainArgs Empty = new GetVpcPlainArgs();
 
     /**
-     * Cidr block of the desired VPC.
+     * CIDR block of the desired VPC.
      * 
      */
     @Import(name="cidrBlock")
     private @Nullable String cidrBlock;
 
     /**
-     * @return Cidr block of the desired VPC.
+     * @return CIDR block of the desired VPC.
      * 
      */
     public Optional<String> cidrBlock() {
@@ -34,16 +34,14 @@ public final class GetVpcPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Boolean constraint on whether the desired VPC is
-     * the default VPC for the region.
+     * Boolean constraint on whether the desired VPC is the default VPC for the region.
      * 
      */
     @Import(name="default")
     private @Nullable Boolean default_;
 
     /**
-     * @return Boolean constraint on whether the desired VPC is
-     * the default VPC for the region.
+     * @return Boolean constraint on whether the desired VPC is the default VPC for the region.
      * 
      */
     public Optional<Boolean> default_() {
@@ -66,14 +64,14 @@ public final class GetVpcPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Custom filter block as described below.
+     * Custom filter block as described below. See `filter` Block below.
      * 
      */
     @Import(name="filters")
     private @Nullable List<GetVpcFilter> filters;
 
     /**
-     * @return Custom filter block as described below.
+     * @return Custom filter block as described below. See `filter` Block below.
      * 
      */
     public Optional<List<GetVpcFilter>> filters() {
@@ -111,16 +109,14 @@ public final class GetVpcPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Current state of the desired VPC.
-     * Can be either `&#34;pending&#34;` or `&#34;available&#34;`.
+     * Current state of the desired VPC. Can be either `&#34;pending&#34;` or `&#34;available&#34;`.
      * 
      */
     @Import(name="state")
     private @Nullable String state;
 
     /**
-     * @return Current state of the desired VPC.
-     * Can be either `&#34;pending&#34;` or `&#34;available&#34;`.
+     * @return Current state of the desired VPC. Can be either `&#34;pending&#34;` or `&#34;available&#34;`.
      * 
      */
     public Optional<String> state() {
@@ -128,22 +124,14 @@ public final class GetVpcPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired VPC.
-     * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * Map of tags, each pair of which must exactly match a pair on the desired VPC.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return Map of tags, each pair of which must exactly match
-     * a pair on the desired VPC.
-     * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * @return Map of tags, each pair of which must exactly match a pair on the desired VPC.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -182,7 +170,7 @@ public final class GetVpcPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param cidrBlock Cidr block of the desired VPC.
+         * @param cidrBlock CIDR block of the desired VPC.
          * 
          * @return builder
          * 
@@ -193,8 +181,7 @@ public final class GetVpcPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param default_ Boolean constraint on whether the desired VPC is
-         * the default VPC for the region.
+         * @param default_ Boolean constraint on whether the desired VPC is the default VPC for the region.
          * 
          * @return builder
          * 
@@ -216,7 +203,7 @@ public final class GetVpcPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param filters Custom filter block as described below.
+         * @param filters Custom filter block as described below. See `filter` Block below.
          * 
          * @return builder
          * 
@@ -227,7 +214,7 @@ public final class GetVpcPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param filters Custom filter block as described below.
+         * @param filters Custom filter block as described below. See `filter` Block below.
          * 
          * @return builder
          * 
@@ -259,8 +246,7 @@ public final class GetVpcPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param state Current state of the desired VPC.
-         * Can be either `&#34;pending&#34;` or `&#34;available&#34;`.
+         * @param state Current state of the desired VPC. Can be either `&#34;pending&#34;` or `&#34;available&#34;`.
          * 
          * @return builder
          * 
@@ -271,11 +257,7 @@ public final class GetVpcPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags Map of tags, each pair of which must exactly match
-         * a pair on the desired VPC.
-         * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
+         * @param tags Map of tags, each pair of which must exactly match a pair on the desired VPC.
          * 
          * @return builder
          * 

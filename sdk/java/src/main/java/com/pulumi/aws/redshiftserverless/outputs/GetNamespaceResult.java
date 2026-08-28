@@ -17,7 +17,7 @@ public final class GetNamespaceResult {
      */
     private String adminUsername;
     /**
-     * @return Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+     * @return ARN of the Redshift Serverless Namespace.
      * 
      */
     private String arn;
@@ -27,7 +27,7 @@ public final class GetNamespaceResult {
      */
     private String dbName;
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+     * @return ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
      * 
      */
     private String defaultIamRoleArn;
@@ -42,7 +42,7 @@ public final class GetNamespaceResult {
      */
     private String id;
     /**
-     * @return The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+     * @return ARN of the Amazon Web Services KMS key used to encrypt your data.
      * 
      */
     private String kmsKeyId;
@@ -68,7 +68,7 @@ public final class GetNamespaceResult {
         return this.adminUsername;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+     * @return ARN of the Redshift Serverless Namespace.
      * 
      */
     public String arn() {
@@ -82,7 +82,7 @@ public final class GetNamespaceResult {
         return this.dbName;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+     * @return ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
      * 
      */
     public String defaultIamRoleArn() {
@@ -103,7 +103,7 @@ public final class GetNamespaceResult {
         return this.id;
     }
     /**
-     * @return The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+     * @return ARN of the Amazon Web Services KMS key used to encrypt your data.
      * 
      */
     public String kmsKeyId() {

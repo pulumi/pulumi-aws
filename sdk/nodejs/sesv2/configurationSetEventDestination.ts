@@ -156,15 +156,15 @@ export class ConfigurationSetEventDestination extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the configuration set.
+     * Name of the configuration set.
      */
     declare public readonly configurationSetName: pulumi.Output<string>;
     /**
-     * An object that defines the event destination. See `eventDestination` Block for details.
+     * Object that defines the event destination. See `eventDestination` Block for details.
      */
     declare public readonly eventDestination: pulumi.Output<outputs.sesv2.ConfigurationSetEventDestinationEventDestination>;
     /**
-     * A name that identifies the event destination within the configuration set.
+     * Name that identifies the event destination within the configuration set.
      */
     declare public readonly eventDestinationName: pulumi.Output<string>;
     /**
@@ -215,15 +215,15 @@ export class ConfigurationSetEventDestination extends pulumi.CustomResource {
  */
 export interface ConfigurationSetEventDestinationState {
     /**
-     * The name of the configuration set.
+     * Name of the configuration set.
      */
     configurationSetName?: pulumi.Input<string | undefined>;
     /**
-     * An object that defines the event destination. See `eventDestination` Block for details.
+     * Object that defines the event destination. See `eventDestination` Block for details.
      */
     eventDestination?: pulumi.Input<inputs.sesv2.ConfigurationSetEventDestinationEventDestination | undefined>;
     /**
-     * A name that identifies the event destination within the configuration set.
+     * Name that identifies the event destination within the configuration set.
      */
     eventDestinationName?: pulumi.Input<string | undefined>;
     /**
@@ -237,15 +237,15 @@ export interface ConfigurationSetEventDestinationState {
  */
 export interface ConfigurationSetEventDestinationArgs {
     /**
-     * The name of the configuration set.
+     * Name of the configuration set.
      */
     configurationSetName: pulumi.Input<string>;
     /**
-     * An object that defines the event destination. See `eventDestination` Block for details.
+     * Object that defines the event destination. See `eventDestination` Block for details.
      */
     eventDestination: pulumi.Input<inputs.sesv2.ConfigurationSetEventDestinationEventDestination>;
     /**
-     * A name that identifies the event destination within the configuration set.
+     * Name that identifies the event destination within the configuration set.
      */
     eventDestinationName: pulumi.Input<string>;
     /**

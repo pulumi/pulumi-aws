@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Auditmanager
     public partial class Framework : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the framework.
+        /// ARN of the framework.
         /// * `control_sets[*].id` - Unique identifier for the framework control set.
         /// </summary>
         [Output("arn")]
@@ -231,7 +231,7 @@ namespace Pulumi.Aws.Auditmanager
     public sealed class FrameworkState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the framework.
+        /// ARN of the framework.
         /// * `control_sets[*].id` - Unique identifier for the framework control set.
         /// </summary>
         [Input("arn")]

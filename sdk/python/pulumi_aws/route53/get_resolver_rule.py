@@ -69,7 +69,7 @@ class GetResolverRuleResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        ARN (Amazon Resource Name) for the resolver rule.
+        ARN for the resolver rule.
         """
         return pulumi.get(self, "arn")
 

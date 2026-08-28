@@ -88,14 +88,14 @@ public class ModelCardExportJob extends com.pulumi.resources.CustomResource {
         return this.exportArtifacts;
     }
     /**
-     * The Amazon Resource Name (ARN) of the model card export job.
+     * ARN of the model card export job.
      * 
      */
     @Export(name="modelCardExportJobArn", refs={String.class}, tree="[0]")
     private Output<String> modelCardExportJobArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the model card export job.
+     * @return ARN of the model card export job.
      * 
      */
     public Output<String> modelCardExportJobArn() {

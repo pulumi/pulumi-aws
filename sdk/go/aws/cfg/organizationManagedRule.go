@@ -78,7 +78,7 @@ import (
 type OrganizationManagedRule struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the rule
+	// ARN of the rule
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Description of the rule
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -137,7 +137,7 @@ func GetOrganizationManagedRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OrganizationManagedRule resources.
 type organizationManagedRuleState struct {
-	// Amazon Resource Name (ARN) of the rule
+	// ARN of the rule
 	Arn *string `pulumi:"arn"`
 	// Description of the rule
 	Description *string `pulumi:"description"`
@@ -164,7 +164,7 @@ type organizationManagedRuleState struct {
 }
 
 type OrganizationManagedRuleState struct {
-	// Amazon Resource Name (ARN) of the rule
+	// ARN of the rule
 	Arn pulumi.StringPtrInput
 	// Description of the rule
 	Description pulumi.StringPtrInput
@@ -332,7 +332,7 @@ func (o OrganizationManagedRuleOutput) ToOrganizationManagedRuleOutputWithContex
 	return o
 }
 
-// Amazon Resource Name (ARN) of the rule
+// ARN of the rule
 func (o OrganizationManagedRuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationManagedRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

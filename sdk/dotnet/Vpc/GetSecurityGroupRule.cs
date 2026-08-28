@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Vpc
     public sealed class GetSecurityGroupRuleResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the security group rule.
+        /// ARN of the security group rule.
         /// </summary>
         public readonly string Arn;
         /// <summary>

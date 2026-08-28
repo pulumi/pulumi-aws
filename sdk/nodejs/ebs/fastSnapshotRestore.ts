@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import EC2 (Elastic Compute Cloud) EBS Fast Snapshot Restore using the `availabilityZone` and `snapshotId` separated by `,`. For example:
+ * Using `pulumi import`, import EC2 EBS Fast Snapshot Restore using the `availabilityZone` and `snapshotId` separated by `,`. For example:
  *
  * ```sh
  * $ pulumi import aws:ebs/fastSnapshotRestore:FastSnapshotRestore example us-west-2a,snap-abcdef123456

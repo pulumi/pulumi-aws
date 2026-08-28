@@ -27,7 +27,7 @@ class ClusterIamRolesArgs:
         The set of arguments for constructing a ClusterIamRoles resource.
 
         :param pulumi.Input[_builtins.str] cluster_identifier: The name of the Redshift Cluster IAM Roles.
-        :param pulumi.Input[_builtins.str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        :param pulumi.Input[_builtins.str] default_iam_role_arn: ARN for the IAM role that was set as default for the cluster when the cluster was created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] iam_role_arns: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -55,7 +55,7 @@ class ClusterIamRolesArgs:
     @pulumi.getter(name="defaultIamRoleArn")
     def default_iam_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        ARN for the IAM role that was set as default for the cluster when the cluster was created.
         """
         return pulumi.get(self, "default_iam_role_arn")
 
@@ -99,7 +99,7 @@ class _ClusterIamRolesState:
         Input properties used for looking up and filtering ClusterIamRoles resources.
 
         :param pulumi.Input[_builtins.str] cluster_identifier: The name of the Redshift Cluster IAM Roles.
-        :param pulumi.Input[_builtins.str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        :param pulumi.Input[_builtins.str] default_iam_role_arn: ARN for the IAM role that was set as default for the cluster when the cluster was created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] iam_role_arns: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -128,7 +128,7 @@ class _ClusterIamRolesState:
     @pulumi.getter(name="defaultIamRoleArn")
     def default_iam_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        ARN for the IAM role that was set as default for the cluster when the cluster was created.
         """
         return pulumi.get(self, "default_iam_role_arn")
 
@@ -200,7 +200,7 @@ class ClusterIamRoles(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_identifier: The name of the Redshift Cluster IAM Roles.
-        :param pulumi.Input[_builtins.str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        :param pulumi.Input[_builtins.str] default_iam_role_arn: ARN for the IAM role that was set as default for the cluster when the cluster was created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] iam_role_arns: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -291,7 +291,7 @@ class ClusterIamRoles(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_identifier: The name of the Redshift Cluster IAM Roles.
-        :param pulumi.Input[_builtins.str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        :param pulumi.Input[_builtins.str] default_iam_role_arn: ARN for the IAM role that was set as default for the cluster when the cluster was created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] iam_role_arns: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -317,7 +317,7 @@ class ClusterIamRoles(pulumi.CustomResource):
     @pulumi.getter(name="defaultIamRoleArn")
     def default_iam_role_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        ARN for the IAM role that was set as default for the cluster when the cluster was created.
         """
         return pulumi.get(self, "default_iam_role_arn")
 

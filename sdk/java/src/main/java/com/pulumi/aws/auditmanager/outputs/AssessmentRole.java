@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class AssessmentRole {
     /**
-     * @return Amazon Resource Name (ARN) of the IAM role.
+     * @return ARN of the IAM role.
      * 
      */
     private String roleArn;
@@ -23,7 +23,7 @@ public final class AssessmentRole {
 
     private AssessmentRole() {}
     /**
-     * @return Amazon Resource Name (ARN) of the IAM role.
+     * @return ARN of the IAM role.
      * 
      */
     public String roleArn() {

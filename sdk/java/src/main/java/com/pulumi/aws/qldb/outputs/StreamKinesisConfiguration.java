@@ -19,7 +19,7 @@ public final class StreamKinesisConfiguration {
      */
     private @Nullable Boolean aggregationEnabled;
     /**
-     * @return The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
+     * @return ARN of the Kinesis Data Streams resource.
      * 
      */
     private String streamArn;
@@ -33,7 +33,7 @@ public final class StreamKinesisConfiguration {
         return Optional.ofNullable(this.aggregationEnabled);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
+     * @return ARN of the Kinesis Data Streams resource.
      * 
      */
     public String streamArn() {

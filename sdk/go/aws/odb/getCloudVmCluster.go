@@ -64,7 +64,7 @@ type LookupCloudVmClusterArgs struct {
 
 // A collection of values returned by getCloudVmCluster.
 type LookupCloudVmClusterResult struct {
-	// Amazon Resource Name (ARN) for the cloud vm cluster.
+	// ARN for the cloud vm cluster.
 	Arn string `pulumi:"arn"`
 	// ARN of the Cloud Exadata Infrastructure.
 	CloudExadataInfrastructureArn string `pulumi:"cloudExadataInfrastructureArn"`
@@ -186,7 +186,7 @@ func (o LookupCloudVmClusterResultOutput) ToLookupCloudVmClusterResultOutputWith
 	return o
 }
 
-// Amazon Resource Name (ARN) for the cloud vm cluster.
+// ARN for the cloud vm cluster.
 func (o LookupCloudVmClusterResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.Arn }).(pulumi.StringOutput)
 }

@@ -15,7 +15,7 @@ import java.util.Objects;
 @CustomType
 public final class GetGlobalClusterResult {
     /**
-     * @return RDS Global Cluster Amazon Resource Name (ARN)
+     * @return RDS Global Cluster ARN
      * 
      */
     private String arn;
@@ -74,7 +74,7 @@ public final class GetGlobalClusterResult {
 
     private GetGlobalClusterResult() {}
     /**
-     * @return RDS Global Cluster Amazon Resource Name (ARN)
+     * @return RDS Global Cluster ARN
      * 
      */
     public String arn() {

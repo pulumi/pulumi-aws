@@ -71,14 +71,14 @@ public final class SpotInstanceRequestRootBlockDeviceArgs extends com.pulumi.res
     }
 
     /**
-     * Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+     * ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+     * @return ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -278,7 +278,7 @@ public final class SpotInstanceRequestRootBlockDeviceArgs extends com.pulumi.res
         }
 
         /**
-         * @param kmsKeyId Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+         * @param kmsKeyId ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class SpotInstanceRequestRootBlockDeviceArgs extends com.pulumi.res
         }
 
         /**
-         * @param kmsKeyId Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+         * @param kmsKeyId ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
          * 
          * @return builder
          * 

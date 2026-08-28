@@ -253,7 +253,7 @@ type EndpointKafkaSettings struct {
 	SaslPassword *string `pulumi:"saslPassword"`
 	// Secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
 	SaslUsername *string `pulumi:"saslUsername"`
-	// Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
+	// Set secure connection to a Kafka target endpoint using TLS. Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
 	SecurityProtocol *string `pulumi:"securityProtocol"`
 	// ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
 	SslCaCertificateArn *string `pulumi:"sslCaCertificateArn"`
@@ -305,7 +305,7 @@ type EndpointKafkaSettingsArgs struct {
 	SaslPassword pulumi.StringPtrInput `pulumi:"saslPassword"`
 	// Secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
 	SaslUsername pulumi.StringPtrInput `pulumi:"saslUsername"`
-	// Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
+	// Set secure connection to a Kafka target endpoint using TLS. Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
 	SecurityProtocol pulumi.StringPtrInput `pulumi:"securityProtocol"`
 	// ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
 	SslCaCertificateArn pulumi.StringPtrInput `pulumi:"sslCaCertificateArn"`
@@ -461,7 +461,7 @@ func (o EndpointKafkaSettingsOutput) SaslUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.SaslUsername }).(pulumi.StringPtrOutput)
 }
 
-// Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
+// Set secure connection to a Kafka target endpoint using TLS. Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
 func (o EndpointKafkaSettingsOutput) SecurityProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.SecurityProtocol }).(pulumi.StringPtrOutput)
 }
@@ -645,7 +645,7 @@ func (o EndpointKafkaSettingsPtrOutput) SaslUsername() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
+// Set secure connection to a Kafka target endpoint using TLS. Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
 func (o EndpointKafkaSettingsPtrOutput) SecurityProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
 		if v == nil {
@@ -2860,13 +2860,13 @@ type EndpointRedisSettings struct {
 	AuthType string `pulumi:"authType"`
 	// The username provided with the `auth-role` option of the AuthType setting for a Redis target endpoint.
 	AuthUserName *string `pulumi:"authUserName"`
-	// Transmission Control Protocol (TCP) port for the endpoint.
+	// TCP port for the endpoint.
 	Port int `pulumi:"port"`
 	// Fully qualified domain name of the endpoint.
 	ServerName string `pulumi:"serverName"`
-	// The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+	// ARN for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
 	SslCaCertificateArn *string `pulumi:"sslCaCertificateArn"`
-	// The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
+	// The plaintext option doesn't provide TLS encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
 	SslSecurityProtocol *string `pulumi:"sslSecurityProtocol"`
 }
 
@@ -2888,13 +2888,13 @@ type EndpointRedisSettingsArgs struct {
 	AuthType pulumi.StringInput `pulumi:"authType"`
 	// The username provided with the `auth-role` option of the AuthType setting for a Redis target endpoint.
 	AuthUserName pulumi.StringPtrInput `pulumi:"authUserName"`
-	// Transmission Control Protocol (TCP) port for the endpoint.
+	// TCP port for the endpoint.
 	Port pulumi.IntInput `pulumi:"port"`
 	// Fully qualified domain name of the endpoint.
 	ServerName pulumi.StringInput `pulumi:"serverName"`
-	// The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+	// ARN for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
 	SslCaCertificateArn pulumi.StringPtrInput `pulumi:"sslCaCertificateArn"`
-	// The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
+	// The plaintext option doesn't provide TLS encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
 	SslSecurityProtocol pulumi.StringPtrInput `pulumi:"sslSecurityProtocol"`
 }
 
@@ -2990,7 +2990,7 @@ func (o EndpointRedisSettingsOutput) AuthUserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointRedisSettings) *string { return v.AuthUserName }).(pulumi.StringPtrOutput)
 }
 
-// Transmission Control Protocol (TCP) port for the endpoint.
+// TCP port for the endpoint.
 func (o EndpointRedisSettingsOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v EndpointRedisSettings) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -3000,12 +3000,12 @@ func (o EndpointRedisSettingsOutput) ServerName() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointRedisSettings) string { return v.ServerName }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+// ARN for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
 func (o EndpointRedisSettingsOutput) SslCaCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointRedisSettings) *string { return v.SslCaCertificateArn }).(pulumi.StringPtrOutput)
 }
 
-// The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
+// The plaintext option doesn't provide TLS encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
 func (o EndpointRedisSettingsOutput) SslSecurityProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointRedisSettings) *string { return v.SslSecurityProtocol }).(pulumi.StringPtrOutput)
 }
@@ -3064,7 +3064,7 @@ func (o EndpointRedisSettingsPtrOutput) AuthUserName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Transmission Control Protocol (TCP) port for the endpoint.
+// TCP port for the endpoint.
 func (o EndpointRedisSettingsPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointRedisSettings) *int {
 		if v == nil {
@@ -3084,7 +3084,7 @@ func (o EndpointRedisSettingsPtrOutput) ServerName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+// ARN for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
 func (o EndpointRedisSettingsPtrOutput) SslCaCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointRedisSettings) *string {
 		if v == nil {
@@ -3094,7 +3094,7 @@ func (o EndpointRedisSettingsPtrOutput) SslCaCertificateArn() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
+// The plaintext option doesn't provide TLS encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
 func (o EndpointRedisSettingsPtrOutput) SslSecurityProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointRedisSettings) *string {
 		if v == nil {
@@ -3113,7 +3113,7 @@ type EndpointRedshiftSettings struct {
 	EncryptionMode *string `pulumi:"encryptionMode"`
 	// ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
 	ServerSideEncryptionKmsKeyId *string `pulumi:"serverSideEncryptionKmsKeyId"`
-	// Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
+	// ARN of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
 	ServiceAccessRoleArn *string `pulumi:"serviceAccessRoleArn"`
 }
 
@@ -3137,7 +3137,7 @@ type EndpointRedshiftSettingsArgs struct {
 	EncryptionMode pulumi.StringPtrInput `pulumi:"encryptionMode"`
 	// ARN or Id of KMS Key to use when `encryptionMode` is `SSE_KMS`.
 	ServerSideEncryptionKmsKeyId pulumi.StringPtrInput `pulumi:"serverSideEncryptionKmsKeyId"`
-	// Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
+	// ARN of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
 	ServiceAccessRoleArn pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
 }
 
@@ -3238,7 +3238,7 @@ func (o EndpointRedshiftSettingsOutput) ServerSideEncryptionKmsKeyId() pulumi.St
 	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.ServerSideEncryptionKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
+// ARN of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
 func (o EndpointRedshiftSettingsOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.ServiceAccessRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -3307,7 +3307,7 @@ func (o EndpointRedshiftSettingsPtrOutput) ServerSideEncryptionKmsKeyId() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
+// ARN of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
 func (o EndpointRedshiftSettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointRedshiftSettings) *string {
 		if v == nil {
@@ -3322,7 +3322,7 @@ type ReplicationConfigComputeConfig struct {
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// A list of custom DNS name servers supported for the DMS Serverless replication to access your source or target database.
 	DnsNameServers *string `pulumi:"dnsNameServers"`
-	// An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
+	// KMS key ARN that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCUs as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
 	MaxCapacityUnits *int `pulumi:"maxCapacityUnits"`
@@ -3339,7 +3339,7 @@ type ReplicationConfigComputeConfig struct {
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// Specifies a subnet group identifier to associate with the DMS Serverless replication.
 	ReplicationSubnetGroupId string `pulumi:"replicationSubnetGroupId"`
-	// Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
+	// VPC security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
 
@@ -3359,7 +3359,7 @@ type ReplicationConfigComputeConfigArgs struct {
 	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
 	// A list of custom DNS name servers supported for the DMS Serverless replication to access your source or target database.
 	DnsNameServers pulumi.StringPtrInput `pulumi:"dnsNameServers"`
-	// An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
+	// KMS key ARN that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCUs as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
 	MaxCapacityUnits pulumi.IntPtrInput `pulumi:"maxCapacityUnits"`
@@ -3376,7 +3376,7 @@ type ReplicationConfigComputeConfigArgs struct {
 	PreferredMaintenanceWindow pulumi.StringPtrInput `pulumi:"preferredMaintenanceWindow"`
 	// Specifies a subnet group identifier to associate with the DMS Serverless replication.
 	ReplicationSubnetGroupId pulumi.StringInput `pulumi:"replicationSubnetGroupId"`
-	// Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
+	// VPC security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
 	VpcSecurityGroupIds pulumi.StringArrayInput `pulumi:"vpcSecurityGroupIds"`
 }
 
@@ -3467,7 +3467,7 @@ func (o ReplicationConfigComputeConfigOutput) DnsNameServers() pulumi.StringPtrO
 	return o.ApplyT(func(v ReplicationConfigComputeConfig) *string { return v.DnsNameServers }).(pulumi.StringPtrOutput)
 }
 
-// An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
+// KMS key ARN that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
 func (o ReplicationConfigComputeConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationConfigComputeConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -3502,7 +3502,7 @@ func (o ReplicationConfigComputeConfigOutput) ReplicationSubnetGroupId() pulumi.
 	return o.ApplyT(func(v ReplicationConfigComputeConfig) string { return v.ReplicationSubnetGroupId }).(pulumi.StringOutput)
 }
 
-// Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
+// VPC security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
 func (o ReplicationConfigComputeConfigOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReplicationConfigComputeConfig) []string { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -3551,7 +3551,7 @@ func (o ReplicationConfigComputeConfigPtrOutput) DnsNameServers() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
+// KMS key ARN that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
 func (o ReplicationConfigComputeConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *string {
 		if v == nil {
@@ -3616,7 +3616,7 @@ func (o ReplicationConfigComputeConfigPtrOutput) ReplicationSubnetGroupId() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
+// VPC security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
 func (o ReplicationConfigComputeConfigPtrOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReplicationConfigComputeConfig) []string {
 		if v == nil {

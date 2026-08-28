@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Inspector assessment template.
+ * - `arn` (String) ARN of the Inspector assessment template.
  * 
  * Using `pulumi import`, import `aws.inspector.AssessmentTemplate` using the template assessment ARN. For example:
  * 

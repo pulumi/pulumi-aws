@@ -164,7 +164,7 @@ namespace Pulumi.Aws.Glue
     public partial class MLTransform : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of Glue ML Transform.
+        /// ARN of Glue ML Transform.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -410,7 +410,7 @@ namespace Pulumi.Aws.Glue
     public sealed class MLTransformState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of Glue ML Transform.
+        /// ARN of Glue ML Transform.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

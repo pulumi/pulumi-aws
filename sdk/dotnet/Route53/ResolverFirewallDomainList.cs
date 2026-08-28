@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Route53
     public partial class ResolverFirewallDomainList : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN (Amazon Resource Name) of the domain list.
+        /// ARN of the domain list.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Route53
     public sealed class ResolverFirewallDomainListState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN (Amazon Resource Name) of the domain list.
+        /// ARN of the domain list.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

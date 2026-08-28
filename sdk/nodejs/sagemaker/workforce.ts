@@ -95,7 +95,7 @@ export class Workforce extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
+     * ARN assigned by AWS to this Workforce.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -172,7 +172,7 @@ export class Workforce extends pulumi.CustomResource {
  */
 export interface WorkforceState {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
+     * ARN assigned by AWS to this Workforce.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

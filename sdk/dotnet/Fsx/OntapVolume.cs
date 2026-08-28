@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Fsx
         public Output<Outputs.OntapVolumeAggregateConfiguration?> AggregateConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name of the volune.
+        /// ARN of the volune.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -424,7 +424,7 @@ namespace Pulumi.Aws.Fsx
         public Input<Inputs.OntapVolumeAggregateConfigurationGetArgs>? AggregateConfiguration { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name of the volune.
+        /// ARN of the volune.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

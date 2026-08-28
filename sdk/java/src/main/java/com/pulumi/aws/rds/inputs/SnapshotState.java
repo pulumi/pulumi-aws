@@ -65,14 +65,14 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the DB snapshot.
+     * ARN for the DB snapshot.
      * 
      */
     @Import(name="dbSnapshotArn")
     private @Nullable Output<String> dbSnapshotArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the DB snapshot.
+     * @return ARN for the DB snapshot.
      * 
      */
     public Optional<Output<String>> dbSnapshotArn() {
@@ -458,7 +458,7 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbSnapshotArn The Amazon Resource Name (ARN) for the DB snapshot.
+         * @param dbSnapshotArn ARN for the DB snapshot.
          * 
          * @return builder
          * 
@@ -469,7 +469,7 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbSnapshotArn The Amazon Resource Name (ARN) for the DB snapshot.
+         * @param dbSnapshotArn ARN for the DB snapshot.
          * 
          * @return builder
          * 

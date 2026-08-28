@@ -104,7 +104,7 @@ export class Instance extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the instance.
+     * ARN of the instance.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -242,7 +242,7 @@ export class Instance extends pulumi.CustomResource {
  */
 export interface InstanceState {
     /**
-     * Amazon Resource Name (ARN) of the instance.
+     * ARN of the instance.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

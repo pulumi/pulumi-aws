@@ -134,7 +134,7 @@ class _DomainState:
         """
         Input properties used for looking up and filtering Domain resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN)
+        :param pulumi.Input[_builtins.str] arn: ARN
         :param pulumi.Input[_builtins.str] description: The domain description.
         :param pulumi.Input[_builtins.str] name: The name of the domain. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -164,7 +164,7 @@ class _DomainState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN)
+        ARN
         """
         return pulumi.get(self, "arn")
 
@@ -402,7 +402,7 @@ class Domain(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN)
+        :param pulumi.Input[_builtins.str] arn: ARN
         :param pulumi.Input[_builtins.str] description: The domain description.
         :param pulumi.Input[_builtins.str] name: The name of the domain. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -429,7 +429,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN)
+        ARN
         """
         return pulumi.get(self, "arn")
 

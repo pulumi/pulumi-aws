@@ -52,7 +52,7 @@ import (
 type VoiceConnector struct {
 	pulumi.CustomResourceState
 
-	// ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+	// ARN of the Amazon Chime Voice Connector.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
 	AwsRegion pulumi.StringOutput `pulumi:"awsRegion"`
@@ -105,7 +105,7 @@ func GetVoiceConnector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VoiceConnector resources.
 type voiceConnectorState struct {
-	// ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+	// ARN of the Amazon Chime Voice Connector.
 	Arn *string `pulumi:"arn"`
 	// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
 	AwsRegion *string `pulumi:"awsRegion"`
@@ -126,7 +126,7 @@ type voiceConnectorState struct {
 }
 
 type VoiceConnectorState struct {
-	// ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+	// ARN of the Amazon Chime Voice Connector.
 	Arn pulumi.StringPtrInput
 	// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
 	AwsRegion pulumi.StringPtrInput
@@ -268,7 +268,7 @@ func (o VoiceConnectorOutput) ToVoiceConnectorOutputWithContext(ctx context.Cont
 	return o
 }
 
-// ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+// ARN of the Amazon Chime Voice Connector.
 func (o VoiceConnectorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VoiceConnector) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

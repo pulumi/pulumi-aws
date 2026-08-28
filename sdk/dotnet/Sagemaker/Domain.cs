@@ -164,7 +164,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string?> AppSecurityGroupManagement { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Domain.
+        /// ARN assigned by AWS to this Domain.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -272,7 +272,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> Url { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+        /// ID of the VPC that Studio uses for communication.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -416,7 +416,7 @@ namespace Pulumi.Aws.Sagemaker
         }
 
         /// <summary>
-        /// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+        /// ID of the VPC that Studio uses for communication.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -444,7 +444,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? AppSecurityGroupManagement { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Domain.
+        /// ARN assigned by AWS to this Domain.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -570,7 +570,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Url { get; set; }
 
         /// <summary>
-        /// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+        /// ID of the VPC that Studio uses for communication.
         /// 
         /// The following arguments are optional:
         /// </summary>

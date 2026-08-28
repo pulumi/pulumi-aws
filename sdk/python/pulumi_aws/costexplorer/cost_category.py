@@ -380,7 +380,7 @@ class CostCategory(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Cost Explorer cost category.
+        - `arn` (String) ARN of the Cost Explorer cost category.
 
         Using `pulumi import`, import `costexplorer.CostCategory` using the id. For example:
 
@@ -459,7 +459,7 @@ class CostCategory(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Cost Explorer cost category.
+        - `arn` (String) ARN of the Cost Explorer cost category.
 
         Using `pulumi import`, import `costexplorer.CostCategory` using the id. For example:
 

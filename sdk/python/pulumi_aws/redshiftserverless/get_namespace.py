@@ -73,7 +73,7 @@ class GetNamespaceResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+        ARN of the Redshift Serverless Namespace.
         """
         return pulumi.get(self, "arn")
 
@@ -89,7 +89,7 @@ class GetNamespaceResult:
     @pulumi.getter(name="defaultIamRoleArn")
     def default_iam_role_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
+        ARN of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
         """
         return pulumi.get(self, "default_iam_role_arn")
 
@@ -113,7 +113,7 @@ class GetNamespaceResult:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> _builtins.str:
         """
-        The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+        ARN of the Amazon Web Services KMS key used to encrypt your data.
         """
         return pulumi.get(self, "kms_key_id")
 

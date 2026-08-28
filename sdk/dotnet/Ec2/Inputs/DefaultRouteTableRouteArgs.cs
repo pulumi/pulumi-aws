@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? CidrBlock { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of a core network.
+        /// ARN of a core network.
         /// </summary>
         [Input("coreNetworkArn")]
         public Input<string>? CoreNetworkArn { get; set; }

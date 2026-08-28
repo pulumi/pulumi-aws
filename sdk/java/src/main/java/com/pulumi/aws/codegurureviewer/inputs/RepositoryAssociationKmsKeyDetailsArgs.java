@@ -16,14 +16,14 @@ public final class RepositoryAssociationKmsKeyDetailsArgs extends com.pulumi.res
     public static final RepositoryAssociationKmsKeyDetailsArgs Empty = new RepositoryAssociationKmsKeyDetailsArgs();
 
     /**
-     * The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
+     * Encryption option for a repository association. It is either owned by KMS (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
      * 
      */
     @Import(name="encryptionOption")
     private @Nullable Output<String> encryptionOption;
 
     /**
-     * @return The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
+     * @return Encryption option for a repository association. It is either owned by KMS (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
      * 
      */
     public Optional<Output<String>> encryptionOption() {
@@ -71,7 +71,7 @@ public final class RepositoryAssociationKmsKeyDetailsArgs extends com.pulumi.res
         }
 
         /**
-         * @param encryptionOption The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
+         * @param encryptionOption Encryption option for a repository association. It is either owned by KMS (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class RepositoryAssociationKmsKeyDetailsArgs extends com.pulumi.res
         }
 
         /**
-         * @param encryptionOption The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
+         * @param encryptionOption Encryption option for a repository association. It is either owned by KMS (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
          * 
          * @return builder
          * 

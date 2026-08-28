@@ -15,14 +15,14 @@ public final class AgentFlowDefinitionNodeConfigurationAgentArgs extends com.pul
     public static final AgentFlowDefinitionNodeConfigurationAgentArgs Empty = new AgentFlowDefinitionNodeConfigurationAgentArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the alias of the agent to invoke.
+     * ARN of the alias of the agent to invoke.
      * 
      */
     @Import(name="agentAliasArn", required=true)
     private Output<String> agentAliasArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the alias of the agent to invoke.
+     * @return ARN of the alias of the agent to invoke.
      * 
      */
     public Output<String> agentAliasArn() {
@@ -54,7 +54,7 @@ public final class AgentFlowDefinitionNodeConfigurationAgentArgs extends com.pul
         }
 
         /**
-         * @param agentAliasArn The Amazon Resource Name (ARN) of the alias of the agent to invoke.
+         * @param agentAliasArn ARN of the alias of the agent to invoke.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class AgentFlowDefinitionNodeConfigurationAgentArgs extends com.pul
         }
 
         /**
-         * @param agentAliasArn The Amazon Resource Name (ARN) of the alias of the agent to invoke.
+         * @param agentAliasArn ARN of the alias of the agent to invoke.
          * 
          * @return builder
          * 

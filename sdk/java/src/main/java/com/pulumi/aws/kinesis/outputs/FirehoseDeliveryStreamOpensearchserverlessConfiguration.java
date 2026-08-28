@@ -53,7 +53,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfiguration {
      */
     private @Nullable Integer retryDuration;
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+     * @return ARN of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
      * 
      */
     private String roleArn;
@@ -124,7 +124,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfiguration {
         return Optional.ofNullable(this.retryDuration);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+     * @return ARN of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
      * 
      */
     public String roleArn() {

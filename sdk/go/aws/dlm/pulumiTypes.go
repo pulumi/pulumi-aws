@@ -2541,7 +2541,7 @@ type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule struct {
 	Encrypted     bool                                                                  `pulumi:"encrypted"`
 	RetainRule    *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule    `pulumi:"retainRule"`
 	Target        *string                                                               `pulumi:"target"`
-	// Use only for DLM policies of `policy_type=IMAGE_MANAGEMENT`. The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
+	// Use only for DLM policies of `policy_type=IMAGE_MANAGEMENT`. The target Region or the ARN of the target Outpost for the snapshot copies.
 	TargetRegion *string `pulumi:"targetRegion"`
 }
 
@@ -2563,7 +2563,7 @@ type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs struct {
 	Encrypted     pulumi.BoolInput                                                             `pulumi:"encrypted"`
 	RetainRule    LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrInput    `pulumi:"retainRule"`
 	Target        pulumi.StringPtrInput                                                        `pulumi:"target"`
-	// Use only for DLM policies of `policy_type=IMAGE_MANAGEMENT`. The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
+	// Use only for DLM policies of `policy_type=IMAGE_MANAGEMENT`. The target Region or the ARN of the target Outpost for the snapshot copies.
 	TargetRegion pulumi.StringPtrInput `pulumi:"targetRegion"`
 }
 
@@ -2646,7 +2646,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput) Target() 
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
-// Use only for DLM policies of `policy_type=IMAGE_MANAGEMENT`. The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
+// Use only for DLM policies of `policy_type=IMAGE_MANAGEMENT`. The target Region or the ARN of the target Outpost for the snapshot copies.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput) TargetRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule) *string { return v.TargetRegion }).(pulumi.StringPtrOutput)
 }

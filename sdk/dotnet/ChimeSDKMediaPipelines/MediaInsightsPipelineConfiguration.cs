@@ -413,7 +413,7 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Chime SDK media insights pipeline configuration.
+    /// - `Arn` (String) ARN of the Chime SDK media insights pipeline configuration.
     /// 
     /// Using `pulumi import`, import Chime SDK Media Pipelines Media Insights Pipeline Configuration using the `Id`. For example:
     /// 

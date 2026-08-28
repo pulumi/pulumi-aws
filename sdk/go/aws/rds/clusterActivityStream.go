@@ -107,7 +107,7 @@ type ClusterActivityStream struct {
 	Mode pulumi.StringOutput `pulumi:"mode"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the DB cluster.
+	// ARN of the DB cluster.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 }
 
@@ -163,7 +163,7 @@ type clusterActivityStreamState struct {
 	Mode *string `pulumi:"mode"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the DB cluster.
+	// ARN of the DB cluster.
 	ResourceArn *string `pulumi:"resourceArn"`
 }
 
@@ -181,7 +181,7 @@ type ClusterActivityStreamState struct {
 	Mode pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the DB cluster.
+	// ARN of the DB cluster.
 	ResourceArn pulumi.StringPtrInput
 }
 
@@ -201,7 +201,7 @@ type clusterActivityStreamArgs struct {
 	Mode string `pulumi:"mode"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the DB cluster.
+	// ARN of the DB cluster.
 	ResourceArn string `pulumi:"resourceArn"`
 }
 
@@ -218,7 +218,7 @@ type ClusterActivityStreamArgs struct {
 	Mode pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the DB cluster.
+	// ARN of the DB cluster.
 	ResourceArn pulumi.StringInput
 }
 
@@ -337,7 +337,7 @@ func (o ClusterActivityStreamOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterActivityStream) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the DB cluster.
+// ARN of the DB cluster.
 func (o ClusterActivityStreamOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterActivityStream) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }

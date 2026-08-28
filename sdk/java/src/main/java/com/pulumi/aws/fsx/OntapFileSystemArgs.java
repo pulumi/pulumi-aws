@@ -156,14 +156,14 @@ public final class OntapFileSystemArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+     * ID for a subnet. A subnet is a range of IP addresses in your VPC.
      * 
      */
     @Import(name="preferredSubnetId", required=true)
     private Output<String> preferredSubnetId;
 
     /**
-     * @return ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+     * @return ID for a subnet. A subnet is a range of IP addresses in your VPC.
      * 
      */
     public Output<String> preferredSubnetId() {
@@ -553,7 +553,7 @@ public final class OntapFileSystemArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param preferredSubnetId ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+         * @param preferredSubnetId ID for a subnet. A subnet is a range of IP addresses in your VPC.
          * 
          * @return builder
          * 
@@ -564,7 +564,7 @@ public final class OntapFileSystemArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param preferredSubnetId ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+         * @param preferredSubnetId ID for a subnet. A subnet is a range of IP addresses in your VPC.
          * 
          * @return builder
          * 

@@ -18,11 +18,11 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string AssociationId;
         /// <summary>
-        /// The source that allocated the IP address space. Values: `Amazon`, `Byoip`, `None`.
+        /// Source that allocated the IP address space. Values: `Amazon`, `Byoip`, `None`.
         /// </summary>
         public readonly string IpSource;
         /// <summary>
-        /// Indicates whether the address is `Public` or `Private`.
+        /// Whether the address is `Public` or `Private`.
         /// </summary>
         public readonly string Ipv6AddressAttribute;
         /// <summary>
@@ -38,8 +38,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string NetworkBorderGroup;
         /// <summary>
-        /// Current state of the desired VPC.
-        /// Can be either `"pending"` or `"available"`.
+        /// Current state of the desired VPC. Can be either `"pending"` or `"available"`.
         /// </summary>
         public readonly string State;
 

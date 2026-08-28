@@ -154,14 +154,14 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
+     * ARN of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
      * 
      */
     @Import(name="serviceArn")
     private @Nullable Output<String> serviceArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
+     * @return ARN of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
      * 
      */
     public Optional<Output<String>> serviceArn() {
@@ -433,7 +433,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceArn Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
+         * @param serviceArn ARN of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
          * 
          * @return builder
          * 
@@ -444,7 +444,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceArn Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
+         * @param serviceArn ARN of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
          * 
          * @return builder
          * 

@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclLoggingConfiguration {
     /**
-     * @return Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
+     * @return ARN of Kinesis Firehose Delivery Stream
      * 
      */
     private String logDestination;
@@ -26,7 +26,7 @@ public final class WebAclLoggingConfiguration {
 
     private WebAclLoggingConfiguration() {}
     /**
-     * @return Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
+     * @return ARN of Kinesis Firehose Delivery Stream
      * 
      */
     public String logDestination() {

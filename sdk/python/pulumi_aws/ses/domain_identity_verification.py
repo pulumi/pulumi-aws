@@ -24,7 +24,7 @@ class DomainIdentityVerificationArgs:
         """
         The set of arguments for constructing a DomainIdentityVerification resource.
 
-        :param pulumi.Input[_builtins.str] domain: The domain name of the SES domain identity to verify.
+        :param pulumi.Input[_builtins.str] domain: Domain name of the SES domain identity to verify.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "domain", domain)
@@ -35,7 +35,7 @@ class DomainIdentityVerificationArgs:
     @pulumi.getter
     def domain(self) -> pulumi.Input[_builtins.str]:
         """
-        The domain name of the SES domain identity to verify.
+        Domain name of the SES domain identity to verify.
         """
         return pulumi.get(self, "domain")
 
@@ -65,8 +65,8 @@ class _DomainIdentityVerificationState:
         """
         Input properties used for looking up and filtering DomainIdentityVerification resources.
 
-        :param pulumi.Input[_builtins.str] arn: The ARN of the domain identity.
-        :param pulumi.Input[_builtins.str] domain: The domain name of the SES domain identity to verify.
+        :param pulumi.Input[_builtins.str] arn: ARN of the domain identity.
+        :param pulumi.Input[_builtins.str] domain: Domain name of the SES domain identity to verify.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
@@ -80,7 +80,7 @@ class _DomainIdentityVerificationState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the domain identity.
+        ARN of the domain identity.
         """
         return pulumi.get(self, "arn")
 
@@ -92,7 +92,7 @@ class _DomainIdentityVerificationState:
     @pulumi.getter
     def domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The domain name of the SES domain identity to verify.
+        Domain name of the SES domain identity to verify.
         """
         return pulumi.get(self, "domain")
 
@@ -151,7 +151,7 @@ class DomainIdentityVerification(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] domain: The domain name of the SES domain identity to verify.
+        :param pulumi.Input[_builtins.str] domain: Domain name of the SES domain identity to verify.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -238,8 +238,8 @@ class DomainIdentityVerification(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the domain identity.
-        :param pulumi.Input[_builtins.str] domain: The domain name of the SES domain identity to verify.
+        :param pulumi.Input[_builtins.str] arn: ARN of the domain identity.
+        :param pulumi.Input[_builtins.str] domain: Domain name of the SES domain identity to verify.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -255,7 +255,7 @@ class DomainIdentityVerification(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the domain identity.
+        ARN of the domain identity.
         """
         return pulumi.get(self, "arn")
 
@@ -263,7 +263,7 @@ class DomainIdentityVerification(pulumi.CustomResource):
     @pulumi.getter
     def domain(self) -> pulumi.Output[_builtins.str]:
         """
-        The domain name of the SES domain identity to verify.
+        Domain name of the SES domain identity to verify.
         """
         return pulumi.get(self, "domain")
 

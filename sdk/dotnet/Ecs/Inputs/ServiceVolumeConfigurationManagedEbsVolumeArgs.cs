@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         public Input<int>? Iops { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption.
+        /// ARN identifier of the Amazon Web Services KMS key to use for Amazon EBS encryption.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }

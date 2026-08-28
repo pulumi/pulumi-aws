@@ -561,7 +561,7 @@ class ClusterClientAuthenticationTls(dict):
     def __init__(__self__, *,
                  certificate_authority_arns: Optional[Sequence[_builtins.str]] = None):
         """
-        :param Sequence[_builtins.str] certificate_authority_arns: List of ACM Certificate Authority Amazon Resource Names (ARNs).
+        :param Sequence[_builtins.str] certificate_authority_arns: List of ACM Certificate Authority ARNs.
         """
         if certificate_authority_arns is not None:
             pulumi.set(__self__, "certificate_authority_arns", certificate_authority_arns)
@@ -570,7 +570,7 @@ class ClusterClientAuthenticationTls(dict):
     @pulumi.getter(name="certificateAuthorityArns")
     def certificate_authority_arns(self) -> Optional[Sequence[_builtins.str]]:
         """
-        List of ACM Certificate Authority Amazon Resource Names (ARNs).
+        List of ACM Certificate Authority ARNs.
         """
         return pulumi.get(self, "certificate_authority_arns")
 
@@ -581,7 +581,7 @@ class ClusterConfigurationInfo(dict):
                  arn: _builtins.str,
                  revision: _builtins.int):
         """
-        :param _builtins.str arn: Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
+        :param _builtins.str arn: ARN of the MSK Configuration to use in the cluster.
         :param _builtins.int revision: Revision of the MSK Configuration to use in the cluster.
         """
         pulumi.set(__self__, "arn", arn)
@@ -591,7 +591,7 @@ class ClusterConfigurationInfo(dict):
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
+        ARN of the MSK Configuration to use in the cluster.
         """
         return pulumi.get(self, "arn")
 
@@ -1191,7 +1191,7 @@ class ReplicatorKafkaClusterVpcConfig(dict):
                  subnet_ids: Sequence[_builtins.str],
                  security_groups_ids: Optional[Sequence[_builtins.str]] = None):
         """
-        :param Sequence[_builtins.str] subnet_ids: The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
+        :param Sequence[_builtins.str] subnet_ids: List of subnets to connect to in the VPC. AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
         :param Sequence[_builtins.str] security_groups_ids: The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -1202,7 +1202,7 @@ class ReplicatorKafkaClusterVpcConfig(dict):
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[_builtins.str]:
         """
-        The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
+        List of subnets to connect to in the VPC. AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -1961,7 +1961,7 @@ class GetBrokerNodesNodeInfoListResult(dict):
         :param _builtins.str attached_eni_id: Attached elastic network interface of the broker
         :param _builtins.float broker_id: ID of the broker
         :param _builtins.str client_subnet: Client subnet to which this broker node belongs
-        :param _builtins.str client_vpc_ip_address: The client virtual private cloud (VPC) IP address
+        :param _builtins.str client_vpc_ip_address: Client VPC IP address
         :param Sequence[_builtins.str] endpoints: Set of endpoints for accessing the broker. This does not include ports
         :param _builtins.str node_arn: ARN of the node
         """
@@ -2000,7 +2000,7 @@ class GetBrokerNodesNodeInfoListResult(dict):
     @pulumi.getter(name="clientVpcIpAddress")
     def client_vpc_ip_address(self) -> _builtins.str:
         """
-        The client virtual private cloud (VPC) IP address
+        Client VPC IP address
         """
         return pulumi.get(self, "client_vpc_ip_address")
 

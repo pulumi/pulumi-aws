@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class NetworkInsightsAnalysisAlternatePathHint
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the component.
+        /// ARN of the component.
         /// </summary>
         public readonly string? ComponentArn;
         /// <summary>

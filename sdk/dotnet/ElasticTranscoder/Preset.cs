@@ -105,7 +105,7 @@ namespace Pulumi.Aws.ElasticTranscoder
     public partial class Preset : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
+        /// ARN of the Elastic Transcoder Preset.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -307,7 +307,7 @@ namespace Pulumi.Aws.ElasticTranscoder
     public sealed class PresetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
+        /// ARN of the Elastic Transcoder Preset.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -31,7 +31,7 @@ export interface GetPolicyArgs {
  */
 export interface GetPolicyResult {
     /**
-     * The Amazon Resource Name of the policy.
+     * ARN of the policy.
      */
     readonly arn: string;
     /**

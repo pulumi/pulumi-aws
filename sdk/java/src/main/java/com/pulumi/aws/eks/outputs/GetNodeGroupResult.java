@@ -21,7 +21,7 @@ import java.util.Objects;
 @CustomType
 public final class GetNodeGroupResult {
     /**
-     * @return Type of Amazon Machine Image (AMI) associated with the EKS Node Group.
+     * @return Type of AMI associated with the EKS Node Group.
      * 
      */
     private String amiType;
@@ -122,7 +122,7 @@ public final class GetNodeGroupResult {
 
     private GetNodeGroupResult() {}
     /**
-     * @return Type of Amazon Machine Image (AMI) associated with the EKS Node Group.
+     * @return Type of AMI associated with the EKS Node Group.
      * 
      */
     public String amiType() {

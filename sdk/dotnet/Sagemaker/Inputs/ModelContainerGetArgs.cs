@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string>? Image { get; set; }
 
         /// <summary>
-        /// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+        /// Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
         /// </summary>
         [Input("imageConfig")]
         public Input<Inputs.ModelContainerImageConfigGetArgs>? ImageConfig { get; set; }
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string>? ModelDataUrl { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the model package to use to create the model.
+        /// ARN of the model package to use to create the model.
         /// A list of key value pairs.
         /// </summary>
         [Input("modelPackageName")]

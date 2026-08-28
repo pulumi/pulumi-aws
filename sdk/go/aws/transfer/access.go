@@ -104,7 +104,7 @@ type Access struct {
 	PosixProfile AccessPosixProfilePtrOutput `pulumi:"posixProfile"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+	// ARN of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
 	Role pulumi.StringPtrOutput `pulumi:"role"`
 	// Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
@@ -160,7 +160,7 @@ type accessState struct {
 	PosixProfile *AccessPosixProfile `pulumi:"posixProfile"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+	// ARN of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
 	Role *string `pulumi:"role"`
 	// Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId *string `pulumi:"serverId"`
@@ -181,7 +181,7 @@ type AccessState struct {
 	PosixProfile AccessPosixProfilePtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+	// ARN of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
 	Role pulumi.StringPtrInput
 	// Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId pulumi.StringPtrInput
@@ -206,7 +206,7 @@ type accessArgs struct {
 	PosixProfile *AccessPosixProfile `pulumi:"posixProfile"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+	// ARN of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
 	Role *string `pulumi:"role"`
 	// Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId string `pulumi:"serverId"`
@@ -228,7 +228,7 @@ type AccessArgs struct {
 	PosixProfile AccessPosixProfilePtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+	// ARN of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
 	Role pulumi.StringPtrInput
 	// Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId pulumi.StringInput
@@ -356,7 +356,7 @@ func (o AccessOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Access) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+// ARN of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
 func (o AccessOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Access) pulumi.StringPtrOutput { return v.Role }).(pulumi.StringPtrOutput)
 }

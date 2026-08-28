@@ -17,14 +17,14 @@ public final class GetEmailIdentityMailFromAttributesArgs extends com.pulumi.res
     public static final GetEmailIdentityMailFromAttributesArgs Empty = new GetEmailIdentityMailFromAttributesArgs();
 
     /**
-     * The name of the email identity.
+     * Name of the email identity.
      * 
      */
     @Import(name="emailIdentity", required=true)
     private Output<String> emailIdentity;
 
     /**
-     * @return The name of the email identity.
+     * @return Name of the email identity.
      * 
      */
     public Output<String> emailIdentity() {
@@ -72,7 +72,7 @@ public final class GetEmailIdentityMailFromAttributesArgs extends com.pulumi.res
         }
 
         /**
-         * @param emailIdentity The name of the email identity.
+         * @param emailIdentity Name of the email identity.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetEmailIdentityMailFromAttributesArgs extends com.pulumi.res
         }
 
         /**
-         * @param emailIdentity The name of the email identity.
+         * @param emailIdentity Name of the email identity.
          * 
          * @return builder
          * 

@@ -157,7 +157,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the RDS integration.
+    /// - `Arn` (String) ARN of the RDS integration.
     /// 
     /// Using `pulumi import`, import RDS (Relational Database) Integration using the `Arn`. For example:
     /// 

@@ -52,7 +52,7 @@ import (
 type DataSet struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name of this data set.
+	// ARN of this data set.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The type of asset that is added to a data set. Valid values include `API_GATEWAY_API`, `LAKE_FORMATION_DATA_PERMISSION`, `REDSHIFT_DATA_SHARE`, `S3_DATA_ACCESS`, `S3_SNAPSHOT`.
 	AssetType pulumi.StringOutput `pulumi:"assetType"`
@@ -104,7 +104,7 @@ func GetDataSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataSet resources.
 type dataSetState struct {
-	// The Amazon Resource Name of this data set.
+	// ARN of this data set.
 	Arn *string `pulumi:"arn"`
 	// The type of asset that is added to a data set. Valid values include `API_GATEWAY_API`, `LAKE_FORMATION_DATA_PERMISSION`, `REDSHIFT_DATA_SHARE`, `S3_DATA_ACCESS`, `S3_SNAPSHOT`.
 	AssetType *string `pulumi:"assetType"`
@@ -121,7 +121,7 @@ type dataSetState struct {
 }
 
 type DataSetState struct {
-	// The Amazon Resource Name of this data set.
+	// ARN of this data set.
 	Arn pulumi.StringPtrInput
 	// The type of asset that is added to a data set. Valid values include `API_GATEWAY_API`, `LAKE_FORMATION_DATA_PERMISSION`, `REDSHIFT_DATA_SHARE`, `S3_DATA_ACCESS`, `S3_SNAPSHOT`.
 	AssetType pulumi.StringPtrInput
@@ -255,7 +255,7 @@ func (o DataSetOutput) ToDataSetOutputWithContext(ctx context.Context) DataSetOu
 	return o
 }
 
-// The Amazon Resource Name of this data set.
+// ARN of this data set.
 func (o DataSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

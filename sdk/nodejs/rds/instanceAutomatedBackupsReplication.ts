@@ -98,7 +98,7 @@ export class InstanceAutomatedBackupsReplication extends pulumi.CustomResource {
     }
 
     /**
-     * The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
+     * AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the ARN for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
      */
     declare public readonly kmsKeyId: pulumi.Output<string>;
     /**
@@ -114,7 +114,7 @@ export class InstanceAutomatedBackupsReplication extends pulumi.CustomResource {
      */
     declare public readonly retentionPeriod: pulumi.Output<number | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
+     * ARN of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
      */
     declare public readonly sourceDbInstanceArn: pulumi.Output<string>;
 
@@ -157,7 +157,7 @@ export class InstanceAutomatedBackupsReplication extends pulumi.CustomResource {
  */
 export interface InstanceAutomatedBackupsReplicationState {
     /**
-     * The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
+     * AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the ARN for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**
@@ -173,7 +173,7 @@ export interface InstanceAutomatedBackupsReplicationState {
      */
     retentionPeriod?: pulumi.Input<number | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
+     * ARN of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
      */
     sourceDbInstanceArn?: pulumi.Input<string | undefined>;
 }
@@ -183,7 +183,7 @@ export interface InstanceAutomatedBackupsReplicationState {
  */
 export interface InstanceAutomatedBackupsReplicationArgs {
     /**
-     * The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
+     * AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the ARN for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**
@@ -199,7 +199,7 @@ export interface InstanceAutomatedBackupsReplicationArgs {
      */
     retentionPeriod?: pulumi.Input<number | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
+     * ARN of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
      */
     sourceDbInstanceArn: pulumi.Input<string>;
 }

@@ -56,7 +56,7 @@ export class SingleScramSecretAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the MSK cluster.
+     * ARN of the MSK cluster.
      */
     declare public readonly clusterArn: pulumi.Output<string>;
     /**
@@ -106,7 +106,7 @@ export class SingleScramSecretAssociation extends pulumi.CustomResource {
  */
 export interface SingleScramSecretAssociationState {
     /**
-     * Amazon Resource Name (ARN) of the MSK cluster.
+     * ARN of the MSK cluster.
      */
     clusterArn?: pulumi.Input<string | undefined>;
     /**
@@ -124,7 +124,7 @@ export interface SingleScramSecretAssociationState {
  */
 export interface SingleScramSecretAssociationArgs {
     /**
-     * Amazon Resource Name (ARN) of the MSK cluster.
+     * ARN of the MSK cluster.
      */
     clusterArn: pulumi.Input<string>;
     /**

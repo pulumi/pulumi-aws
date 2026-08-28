@@ -101,7 +101,7 @@ class _KeyValueStoreState:
         """
         Input properties used for looking up and filtering KeyValueStore resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
+        :param pulumi.Input[_builtins.str] arn: ARN identifying your CloudFront KeyValueStore.
         :param pulumi.Input[_builtins.str] comment: Comment.
         :param pulumi.Input[_builtins.str] etag: ETag hash of the KeyValueStore.
         :param pulumi.Input[_builtins.str] name: Unique name for your CloudFront KeyValueStore.
@@ -129,7 +129,7 @@ class _KeyValueStoreState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
+        ARN identifying your CloudFront KeyValueStore.
         """
         return pulumi.get(self, "arn")
 
@@ -367,7 +367,7 @@ class KeyValueStore(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
+        :param pulumi.Input[_builtins.str] arn: ARN identifying your CloudFront KeyValueStore.
         :param pulumi.Input[_builtins.str] comment: Comment.
         :param pulumi.Input[_builtins.str] etag: ETag hash of the KeyValueStore.
         :param pulumi.Input[_builtins.str] name: Unique name for your CloudFront KeyValueStore.
@@ -392,7 +392,7 @@ class KeyValueStore(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
+        ARN identifying your CloudFront KeyValueStore.
         """
         return pulumi.get(self, "arn")
 

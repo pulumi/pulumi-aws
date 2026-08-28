@@ -295,7 +295,7 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> MapPublicIpOnLaunch { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Outpost.
+        /// ARN of the Outpost.
         /// </summary>
         [Output("outpostArn")]
         public Output<string?> OutpostArn { get; private set; } = null!;
@@ -488,7 +488,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? MapPublicIpOnLaunch { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Outpost.
+        /// ARN of the Outpost.
         /// </summary>
         [Input("outpostArn")]
         public Input<string>? OutpostArn { get; set; }
@@ -649,7 +649,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? MapPublicIpOnLaunch { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Outpost.
+        /// ARN of the Outpost.
         /// </summary>
         [Input("outpostArn")]
         public Input<string>? OutpostArn { get; set; }

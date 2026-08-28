@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Auditmanager
     public partial class Assessment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the assessment.
+        /// ARN of the assessment.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -273,7 +273,7 @@ namespace Pulumi.Aws.Auditmanager
     public sealed class AssessmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the assessment.
+        /// ARN of the assessment.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

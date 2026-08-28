@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> Content { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the model card.
+        /// ARN of the model card.
         /// </summary>
         [Output("modelCardArn")]
         public Output<string> ModelCardArn { get; private set; } = null!;
@@ -213,7 +213,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Content { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the model card.
+        /// ARN of the model card.
         /// </summary>
         [Input("modelCardArn")]
         public Input<string>? ModelCardArn { get; set; }

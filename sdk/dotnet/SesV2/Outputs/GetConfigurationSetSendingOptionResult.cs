@@ -14,7 +14,7 @@ namespace Pulumi.Aws.SesV2.Outputs
     public sealed class GetConfigurationSetSendingOptionResult
     {
         /// <summary>
-        /// Specifies whether email sending is enabled.
+        /// Whether email sending is enabled.
         /// </summary>
         public readonly bool SendingEnabled;
 

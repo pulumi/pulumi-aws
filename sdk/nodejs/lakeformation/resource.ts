@@ -53,7 +53,7 @@ export class Resource extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the resource.
+     * ARN of the resource.
      *
      * The following arguments are optional:
      */
@@ -134,7 +134,7 @@ export class Resource extends pulumi.CustomResource {
  */
 export interface ResourceState {
     /**
-     * Amazon Resource Name (ARN) of the resource.
+     * ARN of the resource.
      *
      * The following arguments are optional:
      */
@@ -176,7 +176,7 @@ export interface ResourceState {
  */
 export interface ResourceArgs {
     /**
-     * Amazon Resource Name (ARN) of the resource.
+     * ARN of the resource.
      *
      * The following arguments are optional:
      */

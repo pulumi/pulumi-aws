@@ -682,7 +682,7 @@ type GetReceivedLicenseIssuer struct {
 	KeyFingerprint string `pulumi:"keyFingerprint"`
 	// The key name.
 	Name string `pulumi:"name"`
-	// Asymmetric KMS key from AWS Key Management Service. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
+	// Asymmetric KMS key from KMS. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
 	SignKey string `pulumi:"signKey"`
 }
 
@@ -702,7 +702,7 @@ type GetReceivedLicenseIssuerArgs struct {
 	KeyFingerprint pulumi.StringInput `pulumi:"keyFingerprint"`
 	// The key name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Asymmetric KMS key from AWS Key Management Service. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
+	// Asymmetric KMS key from KMS. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
 	SignKey pulumi.StringInput `pulumi:"signKey"`
 }
 
@@ -767,7 +767,7 @@ func (o GetReceivedLicenseIssuerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReceivedLicenseIssuer) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Asymmetric KMS key from AWS Key Management Service. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
+// Asymmetric KMS key from KMS. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
 func (o GetReceivedLicenseIssuerOutput) SignKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReceivedLicenseIssuer) string { return v.SignKey }).(pulumi.StringOutput)
 }

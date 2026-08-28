@@ -200,7 +200,7 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableArray<Outputs.TriggerAction>> Actions { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of Glue Trigger
+        /// ARN of Glue Trigger
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -440,7 +440,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of Glue Trigger
+        /// ARN of Glue Trigger
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -18,14 +18,14 @@ public final class ModelPrimaryContainerImageConfigArgs extends com.pulumi.resou
     public static final ModelPrimaryContainerImageConfigArgs Empty = new ModelPrimaryContainerImageConfigArgs();
 
     /**
-     * Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+     * Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. Allowed values are: `Platform` and `Vpc`.
      * 
      */
     @Import(name="repositoryAccessMode", required=true)
     private Output<String> repositoryAccessMode;
 
     /**
-     * @return Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+     * @return Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. Allowed values are: `Platform` and `Vpc`.
      * 
      */
     public Output<String> repositoryAccessMode() {
@@ -73,7 +73,7 @@ public final class ModelPrimaryContainerImageConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param repositoryAccessMode Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+         * @param repositoryAccessMode Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. Allowed values are: `Platform` and `Vpc`.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class ModelPrimaryContainerImageConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param repositoryAccessMode Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+         * @param repositoryAccessMode Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. Allowed values are: `Platform` and `Vpc`.
          * 
          * @return builder
          * 

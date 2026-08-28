@@ -107,7 +107,7 @@ namespace Pulumi.Aws.Ec2
     public partial class VpcIpam : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of IPAM
+        /// ARN of IPAM
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -312,7 +312,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcIpamState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of IPAM
+        /// ARN of IPAM
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

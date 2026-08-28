@@ -84,7 +84,7 @@ export class ResourcePolicy extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     * ID or ARN of the service network or service for which the policy is created.
      */
     declare public readonly resourceArn: pulumi.Output<string>;
 
@@ -134,7 +134,7 @@ export interface ResourcePolicyState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     * ID or ARN of the service network or service for which the policy is created.
      */
     resourceArn?: pulumi.Input<string | undefined>;
 }
@@ -152,7 +152,7 @@ export interface ResourcePolicyArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     * ID or ARN of the service network or service for which the policy is created.
      */
     resourceArn: pulumi.Input<string>;
 }

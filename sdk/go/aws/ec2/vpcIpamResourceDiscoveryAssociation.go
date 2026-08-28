@@ -58,9 +58,9 @@ import (
 type VpcIpamResourceDiscoveryAssociation struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
+	// ARN of IPAM Resource Discovery Association.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The Amazon Resource Name (ARN) of the IPAM.
+	// ARN of the IPAM.
 	IpamArn pulumi.StringOutput `pulumi:"ipamArn"`
 	// The ID of the IPAM to associate.
 	IpamId pulumi.StringOutput `pulumi:"ipamId"`
@@ -118,9 +118,9 @@ func GetVpcIpamResourceDiscoveryAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcIpamResourceDiscoveryAssociation resources.
 type vpcIpamResourceDiscoveryAssociationState struct {
-	// The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
+	// ARN of IPAM Resource Discovery Association.
 	Arn *string `pulumi:"arn"`
-	// The Amazon Resource Name (ARN) of the IPAM.
+	// ARN of the IPAM.
 	IpamArn *string `pulumi:"ipamArn"`
 	// The ID of the IPAM to associate.
 	IpamId *string `pulumi:"ipamId"`
@@ -143,9 +143,9 @@ type vpcIpamResourceDiscoveryAssociationState struct {
 }
 
 type VpcIpamResourceDiscoveryAssociationState struct {
-	// The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
+	// ARN of IPAM Resource Discovery Association.
 	Arn pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the IPAM.
+	// ARN of the IPAM.
 	IpamArn pulumi.StringPtrInput
 	// The ID of the IPAM to associate.
 	IpamId pulumi.StringPtrInput
@@ -281,12 +281,12 @@ func (o VpcIpamResourceDiscoveryAssociationOutput) ToVpcIpamResourceDiscoveryAss
 	return o
 }
 
-// The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
+// ARN of IPAM Resource Discovery Association.
 func (o VpcIpamResourceDiscoveryAssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamResourceDiscoveryAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IPAM.
+// ARN of the IPAM.
 func (o VpcIpamResourceDiscoveryAssociationOutput) IpamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamResourceDiscoveryAssociation) pulumi.StringOutput { return v.IpamArn }).(pulumi.StringOutput)
 }

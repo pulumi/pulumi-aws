@@ -60,7 +60,7 @@ type LookupEventConnectionArgs struct {
 
 // A collection of values returned by getEventConnection.
 type LookupEventConnectionResult struct {
-	// ARN (Amazon Resource Name) of the connection.
+	// ARN of the connection.
 	Arn string `pulumi:"arn"`
 	// Type of authorization specified for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
 	AuthorizationType string `pulumi:"authorizationType"`
@@ -106,7 +106,7 @@ func (o LookupEventConnectionResultOutput) ToLookupEventConnectionResultOutputWi
 	return o
 }
 
-// ARN (Amazon Resource Name) of the connection.
+// ARN of the connection.
 func (o LookupEventConnectionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEventConnectionResult) string { return v.Arn }).(pulumi.StringOutput)
 }

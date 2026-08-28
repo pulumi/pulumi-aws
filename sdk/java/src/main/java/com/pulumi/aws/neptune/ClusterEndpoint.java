@@ -66,14 +66,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:neptune/clusterEndpoint:ClusterEndpoint")
 public class ClusterEndpoint extends com.pulumi.resources.CustomResource {
     /**
-     * The Neptune Cluster Endpoint Amazon Resource Name (ARN).
+     * Neptune Cluster Endpoint ARN.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Neptune Cluster Endpoint Amazon Resource Name (ARN).
+     * @return Neptune Cluster Endpoint ARN.
      * 
      */
     public Output<String> arn() {

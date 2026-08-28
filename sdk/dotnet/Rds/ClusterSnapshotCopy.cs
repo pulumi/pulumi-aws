@@ -71,7 +71,7 @@ namespace Pulumi.Aws.Rds
         public Output<bool?> CopyTags { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the DB cluster snapshot.
+        /// ARN for the DB cluster snapshot.
         /// </summary>
         [Output("dbClusterSnapshotArn")]
         public Output<string> DbClusterSnapshotArn { get; private set; } = null!;
@@ -312,7 +312,7 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? CopyTags { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the DB cluster snapshot.
+        /// ARN for the DB cluster snapshot.
         /// </summary>
         [Input("dbClusterSnapshotArn")]
         public Input<string>? DbClusterSnapshotArn { get; set; }

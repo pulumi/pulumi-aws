@@ -286,7 +286,7 @@ namespace Pulumi.Aws.NetworkFirewall
     public partial class FirewallPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) that identifies the firewall policy.
+        /// ARN that identifies the firewall policy.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -436,7 +436,7 @@ namespace Pulumi.Aws.NetworkFirewall
     public sealed class FirewallPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) that identifies the firewall policy.
+        /// ARN that identifies the firewall policy.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

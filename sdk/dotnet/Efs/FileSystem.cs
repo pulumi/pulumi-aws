@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Efs
     public partial class FileSystem : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name of the file system.
+        /// ARN of the file system.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -325,7 +325,7 @@ namespace Pulumi.Aws.Efs
     public sealed class FileSystemState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name of the file system.
+        /// ARN of the file system.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

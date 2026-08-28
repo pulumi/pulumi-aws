@@ -65,7 +65,7 @@ import (
 type LogDeliverySource struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the delivery source.
+	// ARN of the delivery source.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The type of log that the source is sending. For Amazon Bedrock, the valid value is `APPLICATION_LOGS`. For Amazon Bedrock AgentCore, the valid values are `APPLICATION_LOGS`, `TRACES`, and `USAGE_LOGS`. For Amazon CloudFront, the valid value is `ACCESS_LOGS`. For Amazon CodeWhisperer, the valid value is `EVENT_LOGS`. For IAM Identity Center, the valid value is `ERROR_LOGS`. For Amazon WorkMail, the valid values are `ACCESS_CONTROL_LOGS`, `AUTHENTICATION_LOGS`, `WORKMAIL_AVAILABILITY_PROVIDER_LOGS`, and `WORKMAIL_MAILBOX_ACCESS_LOGS`. See [Enable logging from AWS services](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html) for the log types supported by each service.
 	LogType pulumi.StringOutput `pulumi:"logType"`
@@ -119,7 +119,7 @@ func GetLogDeliverySource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogDeliverySource resources.
 type logDeliverySourceState struct {
-	// The Amazon Resource Name (ARN) of the delivery source.
+	// ARN of the delivery source.
 	Arn *string `pulumi:"arn"`
 	// The type of log that the source is sending. For Amazon Bedrock, the valid value is `APPLICATION_LOGS`. For Amazon Bedrock AgentCore, the valid values are `APPLICATION_LOGS`, `TRACES`, and `USAGE_LOGS`. For Amazon CloudFront, the valid value is `ACCESS_LOGS`. For Amazon CodeWhisperer, the valid value is `EVENT_LOGS`. For IAM Identity Center, the valid value is `ERROR_LOGS`. For Amazon WorkMail, the valid values are `ACCESS_CONTROL_LOGS`, `AUTHENTICATION_LOGS`, `WORKMAIL_AVAILABILITY_PROVIDER_LOGS`, and `WORKMAIL_MAILBOX_ACCESS_LOGS`. See [Enable logging from AWS services](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html) for the log types supported by each service.
 	LogType *string `pulumi:"logType"`
@@ -138,7 +138,7 @@ type logDeliverySourceState struct {
 }
 
 type LogDeliverySourceState struct {
-	// The Amazon Resource Name (ARN) of the delivery source.
+	// ARN of the delivery source.
 	Arn pulumi.StringPtrInput
 	// The type of log that the source is sending. For Amazon Bedrock, the valid value is `APPLICATION_LOGS`. For Amazon Bedrock AgentCore, the valid values are `APPLICATION_LOGS`, `TRACES`, and `USAGE_LOGS`. For Amazon CloudFront, the valid value is `ACCESS_LOGS`. For Amazon CodeWhisperer, the valid value is `EVENT_LOGS`. For IAM Identity Center, the valid value is `ERROR_LOGS`. For Amazon WorkMail, the valid values are `ACCESS_CONTROL_LOGS`, `AUTHENTICATION_LOGS`, `WORKMAIL_AVAILABILITY_PROVIDER_LOGS`, and `WORKMAIL_MAILBOX_ACCESS_LOGS`. See [Enable logging from AWS services](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html) for the log types supported by each service.
 	LogType pulumi.StringPtrInput
@@ -274,7 +274,7 @@ func (o LogDeliverySourceOutput) ToLogDeliverySourceOutputWithContext(ctx contex
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the delivery source.
+// ARN of the delivery source.
 func (o LogDeliverySourceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDeliverySource) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

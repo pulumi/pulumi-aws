@@ -159,7 +159,7 @@ export class CloudVmCluster extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) for the cloud vm cluster.
+     * ARN for the cloud vm cluster.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -496,7 +496,7 @@ export class CloudVmCluster extends pulumi.CustomResource {
  */
 export interface CloudVmClusterState {
     /**
-     * Amazon Resource Name (ARN) for the cloud vm cluster.
+     * ARN for the cloud vm cluster.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

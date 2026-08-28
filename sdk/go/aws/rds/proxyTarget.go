@@ -52,7 +52,7 @@ type ProxyTarget struct {
 	RdsResourceId pulumi.StringOutput `pulumi:"rdsResourceId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
+	// ARN for the DB instance or DB cluster. Currently not returned by the RDS API.
 	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
 	// The name of the target group.
 	TargetGroupName pulumi.StringOutput `pulumi:"targetGroupName"`
@@ -114,7 +114,7 @@ type proxyTargetState struct {
 	RdsResourceId *string `pulumi:"rdsResourceId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
+	// ARN for the DB instance or DB cluster. Currently not returned by the RDS API.
 	TargetArn *string `pulumi:"targetArn"`
 	// The name of the target group.
 	TargetGroupName *string `pulumi:"targetGroupName"`
@@ -141,7 +141,7 @@ type ProxyTargetState struct {
 	RdsResourceId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
+	// ARN for the DB instance or DB cluster. Currently not returned by the RDS API.
 	TargetArn pulumi.StringPtrInput
 	// The name of the target group.
 	TargetGroupName pulumi.StringPtrInput
@@ -310,7 +310,7 @@ func (o ProxyTargetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProxyTarget) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
+// ARN for the DB instance or DB cluster. Currently not returned by the RDS API.
 func (o ProxyTargetOutput) TargetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProxyTarget) pulumi.StringOutput { return v.TargetArn }).(pulumi.StringOutput)
 }

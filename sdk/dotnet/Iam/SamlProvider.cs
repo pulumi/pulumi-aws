@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the IAM SAML provider.
+    /// - `Arn` (String) ARN of the IAM SAML provider.
     /// 
     /// Using `pulumi import`, import IAM SAML Providers using the `Arn`. For example:
     /// 

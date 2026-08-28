@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'ConnectionAliasTimeouts',
@@ -21,6 +22,8 @@ __all__ = [
     'DirectorySamlProperties',
     'DirectorySelfServicePermissions',
     'DirectoryWorkspaceAccessProperties',
+    'DirectoryWorkspaceAccessPropertiesAccessEndpointConfig',
+    'DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpoint',
     'DirectoryWorkspaceCreationProperties',
     'IpGroupRule',
     'PoolApplicationSetting',
@@ -143,7 +146,7 @@ class DirectoryCertificateBasedAuthProperties(dict):
                  certificate_authority_arn: Optional[_builtins.str] = None,
                  status: Optional[_builtins.str] = None):
         """
-        :param _builtins.str certificate_authority_arn: The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
+        :param _builtins.str certificate_authority_arn: ARN of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
         :param _builtins.str status: Status of certificate-based authentication. Default `DISABLED`.
         """
         if certificate_authority_arn is not None:
@@ -155,7 +158,7 @@ class DirectoryCertificateBasedAuthProperties(dict):
     @pulumi.getter(name="certificateAuthorityArn")
     def certificate_authority_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
+        ARN of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
         """
         return pulumi.get(self, "certificate_authority_arn")
 
@@ -327,7 +330,9 @@ class DirectoryWorkspaceAccessProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "deviceTypeAndroid":
+        if key == "accessEndpointConfig":
+            suggest = "access_endpoint_config"
+        elif key == "deviceTypeAndroid":
             suggest = "device_type_android"
         elif key == "deviceTypeChromeos":
             suggest = "device_type_chromeos"
@@ -356,6 +361,7 @@ class DirectoryWorkspaceAccessProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 access_endpoint_config: Optional['outputs.DirectoryWorkspaceAccessPropertiesAccessEndpointConfig'] = None,
                  device_type_android: Optional[_builtins.str] = None,
                  device_type_chromeos: Optional[_builtins.str] = None,
                  device_type_ios: Optional[_builtins.str] = None,
@@ -365,6 +371,7 @@ class DirectoryWorkspaceAccessProperties(dict):
                  device_type_windows: Optional[_builtins.str] = None,
                  device_type_zeroclient: Optional[_builtins.str] = None):
         """
+        :param 'DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs' access_endpoint_config: Configuration for accessing WorkSpaces through VPC endpoints instead of the public internet. Defined below.
         :param _builtins.str device_type_android: Indicates whether users can use Android devices to access their WorkSpaces.
         :param _builtins.str device_type_chromeos: Indicates whether users can use Chromebooks to access their WorkSpaces.
         :param _builtins.str device_type_ios: Indicates whether users can use iOS devices to access their WorkSpaces.
@@ -374,6 +381,8 @@ class DirectoryWorkspaceAccessProperties(dict):
         :param _builtins.str device_type_windows: Indicates whether users can use Windows clients to access their WorkSpaces.
         :param _builtins.str device_type_zeroclient: Indicates whether users can use zero client devices to access their WorkSpaces.
         """
+        if access_endpoint_config is not None:
+            pulumi.set(__self__, "access_endpoint_config", access_endpoint_config)
         if device_type_android is not None:
             pulumi.set(__self__, "device_type_android", device_type_android)
         if device_type_chromeos is not None:
@@ -390,6 +399,14 @@ class DirectoryWorkspaceAccessProperties(dict):
             pulumi.set(__self__, "device_type_windows", device_type_windows)
         if device_type_zeroclient is not None:
             pulumi.set(__self__, "device_type_zeroclient", device_type_zeroclient)
+
+    @_builtins.property
+    @pulumi.getter(name="accessEndpointConfig")
+    def access_endpoint_config(self) -> Optional['outputs.DirectoryWorkspaceAccessPropertiesAccessEndpointConfig']:
+        """
+        Configuration for accessing WorkSpaces through VPC endpoints instead of the public internet. Defined below.
+        """
+        return pulumi.get(self, "access_endpoint_config")
 
     @_builtins.property
     @pulumi.getter(name="deviceTypeAndroid")
@@ -454,6 +471,103 @@ class DirectoryWorkspaceAccessProperties(dict):
         Indicates whether users can use zero client devices to access their WorkSpaces.
         """
         return pulumi.get(self, "device_type_zeroclient")
+
+
+@pulumi.output_type
+class DirectoryWorkspaceAccessPropertiesAccessEndpointConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessEndpoints":
+            suggest = "access_endpoints"
+        elif key == "internetFallbackProtocols":
+            suggest = "internet_fallback_protocols"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectoryWorkspaceAccessPropertiesAccessEndpointConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectoryWorkspaceAccessPropertiesAccessEndpointConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectoryWorkspaceAccessPropertiesAccessEndpointConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_endpoints: Sequence['outputs.DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpoint'],
+                 internet_fallback_protocols: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence['DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArgs'] access_endpoints: Set of access endpoints used to control the network paths that users use to access their WorkSpaces. Defined below.
+        :param Sequence[_builtins.str] internet_fallback_protocols: List of protocols that fall back to the public internet when streaming over a VPC endpoint is unavailable. Valid value is `PCOIP`.
+        """
+        pulumi.set(__self__, "access_endpoints", access_endpoints)
+        if internet_fallback_protocols is not None:
+            pulumi.set(__self__, "internet_fallback_protocols", internet_fallback_protocols)
+
+    @_builtins.property
+    @pulumi.getter(name="accessEndpoints")
+    def access_endpoints(self) -> Sequence['outputs.DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpoint']:
+        """
+        Set of access endpoints used to control the network paths that users use to access their WorkSpaces. Defined below.
+        """
+        return pulumi.get(self, "access_endpoints")
+
+    @_builtins.property
+    @pulumi.getter(name="internetFallbackProtocols")
+    def internet_fallback_protocols(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of protocols that fall back to the public internet when streaming over a VPC endpoint is unavailable. Valid value is `PCOIP`.
+        """
+        return pulumi.get(self, "internet_fallback_protocols")
+
+
+@pulumi.output_type
+class DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessEndpointType":
+            suggest = "access_endpoint_type"
+        elif key == "vpcEndpointId":
+            suggest = "vpc_endpoint_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_endpoint_type: _builtins.str,
+                 vpc_endpoint_id: _builtins.str):
+        """
+        :param _builtins.str access_endpoint_type: Type of access endpoint. Valid value is `STREAMING_WSP`.
+        :param _builtins.str vpc_endpoint_id: Identifier of the VPC endpoint that the access endpoint uses.
+        """
+        pulumi.set(__self__, "access_endpoint_type", access_endpoint_type)
+        pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+
+    @_builtins.property
+    @pulumi.getter(name="accessEndpointType")
+    def access_endpoint_type(self) -> _builtins.str:
+        """
+        Type of access endpoint. Valid value is `STREAMING_WSP`.
+        """
+        return pulumi.get(self, "access_endpoint_type")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> _builtins.str:
+        """
+        Identifier of the VPC endpoint that the access endpoint uses.
+        """
+        return pulumi.get(self, "vpc_endpoint_id")
 
 
 @pulumi.output_type

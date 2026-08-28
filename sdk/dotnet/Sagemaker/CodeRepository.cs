@@ -93,7 +93,7 @@ namespace Pulumi.Aws.Sagemaker
     public partial class CodeRepository : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
+        /// ARN assigned by AWS to this Code Repository.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -213,7 +213,7 @@ namespace Pulumi.Aws.Sagemaker
     public sealed class CodeRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
+        /// ARN assigned by AWS to this Code Repository.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

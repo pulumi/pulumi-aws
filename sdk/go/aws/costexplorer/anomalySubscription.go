@@ -307,7 +307,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the Cost Explorer anomaly subscription.
+// - `arn` (String) ARN of the Cost Explorer anomaly subscription.
 //
 // Using `pulumi import`, import `costexplorer.AnomalySubscription` using the `id`. For example:
 //

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Odb.Outputs
     public sealed class GetNetworkPeeringConnectionsOdbPeeringConnectionResult
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) for the ODB network peering connection.
+        /// ARN for the ODB network peering connection.
         /// </summary>
         public readonly string Arn;
         /// <summary>

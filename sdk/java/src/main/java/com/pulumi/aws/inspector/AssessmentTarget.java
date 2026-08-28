@@ -66,9 +66,9 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Inspector assessment target.
+ * - `arn` (String) ARN of the Inspector assessment target.
  * 
- * Using `pulumi import`, import Inspector Classic Assessment Targets using their Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import Inspector Classic Assessment Targets using their ARN. For example:
  * 
  * ```sh
  * $ pulumi import aws:inspector/assessmentTarget:AssessmentTarget example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
@@ -120,14 +120,14 @@ public class AssessmentTarget extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+     * Inspector Resource Group ARN stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
      * 
      */
     @Export(name="resourceGroupArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resourceGroupArn;
 
     /**
-     * @return Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+     * @return Inspector Resource Group ARN stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
      * 
      */
     public Output<Optional<String>> resourceGroupArn() {

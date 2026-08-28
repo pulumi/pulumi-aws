@@ -57,11 +57,11 @@ export class AppAuthorizationConnection extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly app: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+     * ARN or Universal Unique Identifier (UUID) of the app authorization to use for the request.
      */
     declare public readonly appAuthorizationArn: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * ARN of the app bundle to use for the request.
      *
      * The following arguments are optional:
      */
@@ -130,11 +130,11 @@ export interface AppAuthorizationConnectionState {
      */
     app?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+     * ARN or Universal Unique Identifier (UUID) of the app authorization to use for the request.
      */
     appAuthorizationArn?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * ARN of the app bundle to use for the request.
      *
      * The following arguments are optional:
      */
@@ -159,11 +159,11 @@ export interface AppAuthorizationConnectionState {
  */
 export interface AppAuthorizationConnectionArgs {
     /**
-     * Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+     * ARN or Universal Unique Identifier (UUID) of the app authorization to use for the request.
      */
     appAuthorizationArn: pulumi.Input<string>;
     /**
-     * Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * ARN of the app bundle to use for the request.
      *
      * The following arguments are optional:
      */

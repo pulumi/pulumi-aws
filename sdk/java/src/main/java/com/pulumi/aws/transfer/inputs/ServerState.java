@@ -23,14 +23,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     public static final ServerState Empty = new ServerState();
 
     /**
-     * Amazon Resource Name (ARN) of Transfer Server
+     * ARN of Transfer Server
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of Transfer Server
+     * @return ARN of Transfer Server
      * 
      */
     public Optional<Output<String>> arn() {
@@ -38,14 +38,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
+     * ARN of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
      * 
      */
     @Import(name="certificate")
     private @Nullable Output<String> certificate;
 
     /**
-     * @return Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
+     * @return ARN of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
      * 
      */
     public Optional<Output<String>> certificate() {
@@ -98,14 +98,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
+     * VPC endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
      * 
      */
     @Import(name="endpointDetails")
     private @Nullable Output<ServerEndpointDetailsArgs> endpointDetails;
 
     /**
-     * @return Virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
+     * @return VPC endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
      * 
      */
     public Optional<Output<ServerEndpointDetailsArgs>> endpointDetails() {
@@ -203,14 +203,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
+     * ARN of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
      * 
      */
     @Import(name="invocationRole")
     private @Nullable Output<String> invocationRole;
 
     /**
-     * @return Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
+     * @return ARN of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
      * 
      */
     public Optional<Output<String>> invocationRole() {
@@ -233,14 +233,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
+     * ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      * 
      */
     @Import(name="loggingRole")
     private @Nullable Output<String> loggingRole;
 
     /**
-     * @return Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
+     * @return ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      * 
      */
     public Optional<Output<String>> loggingRole() {
@@ -494,7 +494,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of Transfer Server
+         * @param arn ARN of Transfer Server
          * 
          * @return builder
          * 
@@ -505,7 +505,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of Transfer Server
+         * @param arn ARN of Transfer Server
          * 
          * @return builder
          * 
@@ -515,7 +515,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificate Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
+         * @param certificate ARN of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
          * 
          * @return builder
          * 
@@ -526,7 +526,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificate Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
+         * @param certificate ARN of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
          * 
          * @return builder
          * 
@@ -599,7 +599,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpointDetails Virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
+         * @param endpointDetails VPC endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
          * 
          * @return builder
          * 
@@ -610,7 +610,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpointDetails Virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
+         * @param endpointDetails VPC endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
          * 
          * @return builder
          * 
@@ -746,7 +746,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param invocationRole Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
+         * @param invocationRole ARN of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
          * 
          * @return builder
          * 
@@ -757,7 +757,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param invocationRole Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
+         * @param invocationRole ARN of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
          * 
          * @return builder
          * 
@@ -788,7 +788,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loggingRole Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
+         * @param loggingRole ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
          * 
          * @return builder
          * 
@@ -799,7 +799,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loggingRole Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
+         * @param loggingRole ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
          * 
          * @return builder
          * 

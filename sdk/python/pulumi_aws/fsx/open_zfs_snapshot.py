@@ -101,7 +101,7 @@ class _OpenZfsSnapshotState:
         """
         Input properties used for looking up and filtering OpenZfsSnapshot resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name of the snapshot.
+        :param pulumi.Input[_builtins.str] arn: ARN of the snapshot.
         :param pulumi.Input[_builtins.str] creation_time: Time that the snapshot was created.
         :param pulumi.Input[_builtins.str] name: Name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -128,7 +128,7 @@ class _OpenZfsSnapshotState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name of the snapshot.
+        ARN of the snapshot.
         """
         return pulumi.get(self, "arn")
 
@@ -394,7 +394,7 @@ class OpenZfsSnapshot(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name of the snapshot.
+        :param pulumi.Input[_builtins.str] arn: ARN of the snapshot.
         :param pulumi.Input[_builtins.str] creation_time: Time that the snapshot was created.
         :param pulumi.Input[_builtins.str] name: Name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -419,7 +419,7 @@ class OpenZfsSnapshot(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name of the snapshot.
+        ARN of the snapshot.
         """
         return pulumi.get(self, "arn")
 

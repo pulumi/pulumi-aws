@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Rds
     public partial class ClusterEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of cluster
+        /// ARN of cluster
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -288,7 +288,7 @@ namespace Pulumi.Aws.Rds
     public sealed class ClusterEndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of cluster
+        /// ARN of cluster
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

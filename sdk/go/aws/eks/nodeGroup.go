@@ -287,9 +287,9 @@ import (
 type NodeGroup struct {
 	pulumi.CustomResourceState
 
-	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
+	// Type of AMI associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. The provider will only perform drift detection if a configuration value is provided.
 	AmiType pulumi.StringOutput `pulumi:"amiType"`
-	// Amazon Resource Name (ARN) of the EKS Node Group.
+	// ARN of the EKS Node Group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
 	CapacityType pulumi.StringOutput `pulumi:"capacityType"`
@@ -311,7 +311,7 @@ type NodeGroup struct {
 	NodeGroupNamePrefix pulumi.StringOutput `pulumi:"nodeGroupNamePrefix"`
 	// The node auto repair configuration for the node group. See `nodeRepairConfig` below for details.
 	NodeRepairConfig NodeGroupNodeRepairConfigOutput `pulumi:"nodeRepairConfig"`
-	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+	// ARN of the IAM Role that provides permissions for the EKS Node Group.
 	NodeRoleArn pulumi.StringOutput `pulumi:"nodeRoleArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -385,9 +385,9 @@ func GetNodeGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NodeGroup resources.
 type nodeGroupState struct {
-	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
+	// Type of AMI associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. The provider will only perform drift detection if a configuration value is provided.
 	AmiType *string `pulumi:"amiType"`
-	// Amazon Resource Name (ARN) of the EKS Node Group.
+	// ARN of the EKS Node Group.
 	Arn *string `pulumi:"arn"`
 	// Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
 	CapacityType *string `pulumi:"capacityType"`
@@ -409,7 +409,7 @@ type nodeGroupState struct {
 	NodeGroupNamePrefix *string `pulumi:"nodeGroupNamePrefix"`
 	// The node auto repair configuration for the node group. See `nodeRepairConfig` below for details.
 	NodeRepairConfig *NodeGroupNodeRepairConfig `pulumi:"nodeRepairConfig"`
-	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+	// ARN of the IAM Role that provides permissions for the EKS Node Group.
 	NodeRoleArn *string `pulumi:"nodeRoleArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -442,9 +442,9 @@ type nodeGroupState struct {
 }
 
 type NodeGroupState struct {
-	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
+	// Type of AMI associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. The provider will only perform drift detection if a configuration value is provided.
 	AmiType pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the EKS Node Group.
+	// ARN of the EKS Node Group.
 	Arn pulumi.StringPtrInput
 	// Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
 	CapacityType pulumi.StringPtrInput
@@ -466,7 +466,7 @@ type NodeGroupState struct {
 	NodeGroupNamePrefix pulumi.StringPtrInput
 	// The node auto repair configuration for the node group. See `nodeRepairConfig` below for details.
 	NodeRepairConfig NodeGroupNodeRepairConfigPtrInput
-	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+	// ARN of the IAM Role that provides permissions for the EKS Node Group.
 	NodeRoleArn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -503,7 +503,7 @@ func (NodeGroupState) ElementType() reflect.Type {
 }
 
 type nodeGroupArgs struct {
-	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
+	// Type of AMI associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. The provider will only perform drift detection if a configuration value is provided.
 	AmiType *string `pulumi:"amiType"`
 	// Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
 	CapacityType *string `pulumi:"capacityType"`
@@ -525,7 +525,7 @@ type nodeGroupArgs struct {
 	NodeGroupNamePrefix *string `pulumi:"nodeGroupNamePrefix"`
 	// The node auto repair configuration for the node group. See `nodeRepairConfig` below for details.
 	NodeRepairConfig *NodeGroupNodeRepairConfig `pulumi:"nodeRepairConfig"`
-	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+	// ARN of the IAM Role that provides permissions for the EKS Node Group.
 	NodeRoleArn string `pulumi:"nodeRoleArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -553,7 +553,7 @@ type nodeGroupArgs struct {
 
 // The set of arguments for constructing a NodeGroup resource.
 type NodeGroupArgs struct {
-	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
+	// Type of AMI associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. The provider will only perform drift detection if a configuration value is provided.
 	AmiType pulumi.StringPtrInput
 	// Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
 	CapacityType pulumi.StringPtrInput
@@ -575,7 +575,7 @@ type NodeGroupArgs struct {
 	NodeGroupNamePrefix pulumi.StringPtrInput
 	// The node auto repair configuration for the node group. See `nodeRepairConfig` below for details.
 	NodeRepairConfig NodeGroupNodeRepairConfigPtrInput
-	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+	// ARN of the IAM Role that provides permissions for the EKS Node Group.
 	NodeRoleArn pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -688,12 +688,12 @@ func (o NodeGroupOutput) ToNodeGroupOutputWithContext(ctx context.Context) NodeG
 	return o
 }
 
-// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
+// Type of AMI associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. The provider will only perform drift detection if a configuration value is provided.
 func (o NodeGroupOutput) AmiType() pulumi.StringOutput {
 	return o.ApplyT(func(v *NodeGroup) pulumi.StringOutput { return v.AmiType }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the EKS Node Group.
+// ARN of the EKS Node Group.
 func (o NodeGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NodeGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -748,7 +748,7 @@ func (o NodeGroupOutput) NodeRepairConfig() NodeGroupNodeRepairConfigOutput {
 	return o.ApplyT(func(v *NodeGroup) NodeGroupNodeRepairConfigOutput { return v.NodeRepairConfig }).(NodeGroupNodeRepairConfigOutput)
 }
 
-// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+// ARN of the IAM Role that provides permissions for the EKS Node Group.
 func (o NodeGroupOutput) NodeRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NodeGroup) pulumi.StringOutput { return v.NodeRoleArn }).(pulumi.StringOutput)
 }

@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Pinpoint
         public Output<string> ApplicationId { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the PinPoint Application.
+        /// ARN of the PinPoint Application.
         /// * `campaign_hook[0].lambda_function_name` - Lambda function name or ARN to be called for delivery.
         /// * `campaign_hook[0].mode` - What mode Lambda should be invoked in.
         /// * `campaign_hook[0].web_url` - Web URL to call for hook.
@@ -230,7 +230,7 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string>? ApplicationId { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the PinPoint Application.
+        /// ARN of the PinPoint Application.
         /// * `campaign_hook[0].lambda_function_name` - Lambda function name or ARN to be called for delivery.
         /// * `campaign_hook[0].mode` - What mode Lambda should be invoked in.
         /// * `campaign_hook[0].web_url` - Web URL to call for hook.

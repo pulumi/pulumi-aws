@@ -64,7 +64,7 @@ export class DeviceFleet extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
+     * ARN assigned by AWS to this Device Fleet.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -89,7 +89,7 @@ export class DeviceFleet extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
+     * ARN that has access to AWS Internet of Things (IoT).
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
@@ -156,7 +156,7 @@ export class DeviceFleet extends pulumi.CustomResource {
  */
 export interface DeviceFleetState {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
+     * ARN assigned by AWS to this Device Fleet.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -181,7 +181,7 @@ export interface DeviceFleetState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
+     * ARN that has access to AWS Internet of Things (IoT).
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
@@ -219,7 +219,7 @@ export interface DeviceFleetArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
+     * ARN that has access to AWS Internet of Things (IoT).
      */
     roleArn: pulumi.Input<string>;
     /**

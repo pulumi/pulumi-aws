@@ -3448,7 +3448,7 @@ func (o ListenerRuleActionForwardStickinessPtrOutput) Enabled() pulumi.BoolPtrOu
 }
 
 type ListenerRuleActionForwardTargetGroup struct {
-	// The Amazon Resource Name (ARN) of the target group.
+	// ARN of the target group.
 	Arn string `pulumi:"arn"`
 	// The weight. The range is 0 to 999.
 	Weight *int `pulumi:"weight"`
@@ -3466,7 +3466,7 @@ type ListenerRuleActionForwardTargetGroupInput interface {
 }
 
 type ListenerRuleActionForwardTargetGroupArgs struct {
-	// The Amazon Resource Name (ARN) of the target group.
+	// ARN of the target group.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The weight. The range is 0 to 999.
 	Weight pulumi.IntPtrInput `pulumi:"weight"`
@@ -3523,7 +3523,7 @@ func (o ListenerRuleActionForwardTargetGroupOutput) ToListenerRuleActionForwardT
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the target group.
+// ARN of the target group.
 func (o ListenerRuleActionForwardTargetGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerRuleActionForwardTargetGroup) string { return v.Arn }).(pulumi.StringOutput)
 }

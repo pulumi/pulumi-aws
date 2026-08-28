@@ -361,14 +361,12 @@ def get_layer_version(compatible_architecture: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str compatible_architecture: Specific architecture the layer version must support. Conflicts with `version` and `layer_version_arn`. If specified, the latest available layer version supporting the provided architecture will be used.
-    :param _builtins.str compatible_runtime: Specific runtime the layer version must support. Conflicts with `version` and `layer_version_arn`. If specified, the latest available layer version supporting the provided runtime will be used.
-    :param _builtins.str layer_name: Name of the Lambda layer.
-    :param _builtins.str layer_version_arn: ARN of the Lambda layer version. Can be a full ARN with version (e.g., `arn:aws:lambda:region:account:layer:name:1`) or without version (e.g., `arn:aws:lambda:region:account:layer:name`). When the version is omitted, the latest version will be retrieved (requires `lambda:ListLayerVersions` permission). Use the full ARN with version for cross-account layers where you don't have list permissions.
-           
-           The following are optional when using `layer_name`:
+    :param _builtins.str compatible_architecture: Specific architecture the layer version must support. Only valid with `layer_name`. Conflicts with `version` and `layer_version_arn`. If specified, the latest available layer version supporting the provided architecture will be used.
+    :param _builtins.str compatible_runtime: Specific runtime the layer version must support. Only valid with `layer_name`. Conflicts with `version` and `layer_version_arn`. If specified, the latest available layer version supporting the provided runtime will be used.
+    :param _builtins.str layer_name: Name of the Lambda layer. One of `layer_name` or `layer_version_arn` is required.
+    :param _builtins.str layer_version_arn: ARN of the Lambda layer version. Can be a full ARN with version (e.g., `arn:aws:lambda:region:account:layer:name:1`) or without version (e.g., `arn:aws:lambda:region:account:layer:name`). When the version is omitted, the latest version will be retrieved (requires `lambda:ListLayerVersions` permission). Use the full ARN with version for cross-account layers where you don't have list permissions. One of `layer_name` or `layer_version_arn` is required.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.int version: Specific layer version. Conflicts with `compatible_runtime`, `compatible_architecture`, and `layer_version_arn`. If omitted, the latest available layer version will be used.
+    :param _builtins.int version: Specific layer version. Only valid with `layer_name`. Conflicts with `compatible_runtime`, `compatible_architecture`, and `layer_version_arn`. If omitted, the latest available layer version will be used.
     """
     __args__ = dict()
     __args__['compatibleArchitecture'] = compatible_architecture
@@ -513,14 +511,12 @@ def get_layer_version_output(compatible_architecture: pulumi.Input[Optional[Opti
     ```
 
 
-    :param _builtins.str compatible_architecture: Specific architecture the layer version must support. Conflicts with `version` and `layer_version_arn`. If specified, the latest available layer version supporting the provided architecture will be used.
-    :param _builtins.str compatible_runtime: Specific runtime the layer version must support. Conflicts with `version` and `layer_version_arn`. If specified, the latest available layer version supporting the provided runtime will be used.
-    :param _builtins.str layer_name: Name of the Lambda layer.
-    :param _builtins.str layer_version_arn: ARN of the Lambda layer version. Can be a full ARN with version (e.g., `arn:aws:lambda:region:account:layer:name:1`) or without version (e.g., `arn:aws:lambda:region:account:layer:name`). When the version is omitted, the latest version will be retrieved (requires `lambda:ListLayerVersions` permission). Use the full ARN with version for cross-account layers where you don't have list permissions.
-           
-           The following are optional when using `layer_name`:
+    :param _builtins.str compatible_architecture: Specific architecture the layer version must support. Only valid with `layer_name`. Conflicts with `version` and `layer_version_arn`. If specified, the latest available layer version supporting the provided architecture will be used.
+    :param _builtins.str compatible_runtime: Specific runtime the layer version must support. Only valid with `layer_name`. Conflicts with `version` and `layer_version_arn`. If specified, the latest available layer version supporting the provided runtime will be used.
+    :param _builtins.str layer_name: Name of the Lambda layer. One of `layer_name` or `layer_version_arn` is required.
+    :param _builtins.str layer_version_arn: ARN of the Lambda layer version. Can be a full ARN with version (e.g., `arn:aws:lambda:region:account:layer:name:1`) or without version (e.g., `arn:aws:lambda:region:account:layer:name`). When the version is omitted, the latest version will be retrieved (requires `lambda:ListLayerVersions` permission). Use the full ARN with version for cross-account layers where you don't have list permissions. One of `layer_name` or `layer_version_arn` is required.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.int version: Specific layer version. Conflicts with `compatible_runtime`, `compatible_architecture`, and `layer_version_arn`. If omitted, the latest available layer version will be used.
+    :param _builtins.int version: Specific layer version. Only valid with `layer_name`. Conflicts with `compatible_runtime`, `compatible_architecture`, and `layer_version_arn`. If omitted, the latest available layer version will be used.
     """
     __args__ = dict()
     __args__['compatibleArchitecture'] = compatible_architecture

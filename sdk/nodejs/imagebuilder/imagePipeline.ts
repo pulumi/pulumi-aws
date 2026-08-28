@@ -14,9 +14,9 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the Image Builder image pipeline.
+ * - `arn` (String) ARN of the Image Builder image pipeline.
  *
- * Using `pulumi import`, import `aws.imagebuilder.ImagePipeline` resources using the Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.imagebuilder.ImagePipeline` resources using the ARN. For example:
  *
  * ```sh
  * $ pulumi import aws:imagebuilder/imagePipeline:ImagePipeline example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example
@@ -51,11 +51,11 @@ export class ImagePipeline extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the image pipeline.
+     * ARN of the image pipeline.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the container recipe.
+     * ARN of the container recipe.
      */
     declare public readonly containerRecipeArn: pulumi.Output<string | undefined>;
     /**
@@ -79,7 +79,7 @@ export class ImagePipeline extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+     * ARN of the Image Builder Distribution Configuration.
      */
     declare public readonly distributionConfigurationArn: pulumi.Output<string | undefined>;
     /**
@@ -87,11 +87,11 @@ export class ImagePipeline extends pulumi.CustomResource {
      */
     declare public readonly enhancedImageMetadataEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+     * ARN of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
      */
     declare public readonly executionRole: pulumi.Output<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the image recipe.
+     * ARN of the image recipe.
      */
     declare public readonly imageRecipeArn: pulumi.Output<string | undefined>;
     /**
@@ -103,7 +103,7 @@ export class ImagePipeline extends pulumi.CustomResource {
      */
     declare public readonly imageTestsConfiguration: pulumi.Output<outputs.imagebuilder.ImagePipelineImageTestsConfiguration>;
     /**
-     * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+     * ARN of the Image Builder Infrastructure Configuration.
      */
     declare public readonly infrastructureConfigurationArn: pulumi.Output<string>;
     /**
@@ -220,11 +220,11 @@ export class ImagePipeline extends pulumi.CustomResource {
  */
 export interface ImagePipelineState {
     /**
-     * Amazon Resource Name (ARN) of the image pipeline.
+     * ARN of the image pipeline.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the container recipe.
+     * ARN of the container recipe.
      */
     containerRecipeArn?: pulumi.Input<string | undefined>;
     /**
@@ -248,7 +248,7 @@ export interface ImagePipelineState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+     * ARN of the Image Builder Distribution Configuration.
      */
     distributionConfigurationArn?: pulumi.Input<string | undefined>;
     /**
@@ -256,11 +256,11 @@ export interface ImagePipelineState {
      */
     enhancedImageMetadataEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+     * ARN of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
      */
     executionRole?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the image recipe.
+     * ARN of the image recipe.
      */
     imageRecipeArn?: pulumi.Input<string | undefined>;
     /**
@@ -272,7 +272,7 @@ export interface ImagePipelineState {
      */
     imageTestsConfiguration?: pulumi.Input<inputs.imagebuilder.ImagePipelineImageTestsConfiguration | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+     * ARN of the Image Builder Infrastructure Configuration.
      */
     infrastructureConfigurationArn?: pulumi.Input<string | undefined>;
     /**
@@ -320,7 +320,7 @@ export interface ImagePipelineState {
  */
 export interface ImagePipelineArgs {
     /**
-     * Amazon Resource Name (ARN) of the container recipe.
+     * ARN of the container recipe.
      */
     containerRecipeArn?: pulumi.Input<string | undefined>;
     /**
@@ -328,7 +328,7 @@ export interface ImagePipelineArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+     * ARN of the Image Builder Distribution Configuration.
      */
     distributionConfigurationArn?: pulumi.Input<string | undefined>;
     /**
@@ -336,11 +336,11 @@ export interface ImagePipelineArgs {
      */
     enhancedImageMetadataEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+     * ARN of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
      */
     executionRole?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the image recipe.
+     * ARN of the image recipe.
      */
     imageRecipeArn?: pulumi.Input<string | undefined>;
     /**
@@ -352,7 +352,7 @@ export interface ImagePipelineArgs {
      */
     imageTestsConfiguration?: pulumi.Input<inputs.imagebuilder.ImagePipelineImageTestsConfiguration | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+     * ARN of the Image Builder Infrastructure Configuration.
      */
     infrastructureConfigurationArn: pulumi.Input<string>;
     /**

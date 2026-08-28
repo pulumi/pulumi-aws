@@ -271,7 +271,7 @@ class _OrganizationCustomPolicyRuleState:
         """
         Input properties used for looking up and filtering OrganizationCustomPolicyRule resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the rule.
+        :param pulumi.Input[_builtins.str] arn: ARN of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] debug_log_delivery_accounts: List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
         :param pulumi.Input[_builtins.str] description: Description of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_accounts: List of AWS account identifiers to exclude from the rule.
@@ -324,7 +324,7 @@ class _OrganizationCustomPolicyRuleState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the rule.
+        ARN of the rule.
         """
         return pulumi.get(self, "arn")
 
@@ -746,7 +746,7 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the rule.
+        :param pulumi.Input[_builtins.str] arn: ARN of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] debug_log_delivery_accounts: List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
         :param pulumi.Input[_builtins.str] description: Description of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_accounts: List of AWS account identifiers to exclude from the rule.
@@ -789,7 +789,7 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the rule.
+        ARN of the rule.
         """
         return pulumi.get(self, "arn")
 

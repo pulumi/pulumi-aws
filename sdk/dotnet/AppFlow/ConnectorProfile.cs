@@ -167,7 +167,7 @@ namespace Pulumi.Aws.AppFlow
         public Output<string> CredentialsArn { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+        /// ARN of the KMS key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         /// </summary>
         [Output("kmsArn")]
         public Output<string> KmsArn { get; private set; } = null!;
@@ -255,7 +255,7 @@ namespace Pulumi.Aws.AppFlow
         public Input<string> ConnectorType { get; set; } = null!;
 
         /// <summary>
-        /// ARN of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+        /// ARN of the KMS key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         /// </summary>
         [Input("kmsArn")]
         public Input<string>? KmsArn { get; set; }
@@ -317,7 +317,7 @@ namespace Pulumi.Aws.AppFlow
         public Input<string>? CredentialsArn { get; set; }
 
         /// <summary>
-        /// ARN of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+        /// ARN of the KMS key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         /// </summary>
         [Input("kmsArn")]
         public Input<string>? KmsArn { get; set; }

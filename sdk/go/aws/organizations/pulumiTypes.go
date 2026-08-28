@@ -1522,7 +1522,7 @@ func (o GetOrganizationRootPolicyTypeArrayOutput) Index(i pulumi.IntInput) GetOr
 }
 
 type GetOrganizationalUnitChildAccountsAccount struct {
-	// The Amazon Resource Name (ARN) of the account.
+	// The ARN of the account.
 	Arn string `pulumi:"arn"`
 	// The email address associated with the AWS account.
 	Email string `pulumi:"email"`
@@ -1554,7 +1554,7 @@ type GetOrganizationalUnitChildAccountsAccountInput interface {
 }
 
 type GetOrganizationalUnitChildAccountsAccountArgs struct {
-	// The Amazon Resource Name (ARN) of the account.
+	// The ARN of the account.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The email address associated with the AWS account.
 	Email pulumi.StringInput `pulumi:"email"`
@@ -1625,7 +1625,7 @@ func (o GetOrganizationalUnitChildAccountsAccountOutput) ToGetOrganizationalUnit
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the account.
+// The ARN of the account.
 func (o GetOrganizationalUnitChildAccountsAccountOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationalUnitChildAccountsAccount) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -1688,7 +1688,7 @@ func (o GetOrganizationalUnitChildAccountsAccountArrayOutput) Index(i pulumi.Int
 }
 
 type GetOrganizationalUnitDescendantAccountsAccount struct {
-	// The Amazon Resource Name (ARN) of the account.
+	// The ARN of the account.
 	Arn string `pulumi:"arn"`
 	// The email address associated with the AWS account.
 	Email string `pulumi:"email"`
@@ -1720,7 +1720,7 @@ type GetOrganizationalUnitDescendantAccountsAccountInput interface {
 }
 
 type GetOrganizationalUnitDescendantAccountsAccountArgs struct {
-	// The Amazon Resource Name (ARN) of the account.
+	// The ARN of the account.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The email address associated with the AWS account.
 	Email pulumi.StringInput `pulumi:"email"`
@@ -1791,7 +1791,7 @@ func (o GetOrganizationalUnitDescendantAccountsAccountOutput) ToGetOrganizationa
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the account.
+// The ARN of the account.
 func (o GetOrganizationalUnitDescendantAccountsAccountOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOrganizationalUnitDescendantAccountsAccount) string { return v.Arn }).(pulumi.StringOutput)
 }

@@ -94,14 +94,14 @@ public final class VpcConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the cluster.
+     * ARN of the cluster.
      * 
      */
     @Import(name="targetClusterArn", required=true)
     private Output<String> targetClusterArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the cluster.
+     * @return ARN of the cluster.
      * 
      */
     public Output<String> targetClusterArn() {
@@ -279,7 +279,7 @@ public final class VpcConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetClusterArn The Amazon Resource Name (ARN) of the cluster.
+         * @param targetClusterArn ARN of the cluster.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class VpcConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetClusterArn The Amazon Resource Name (ARN) of the cluster.
+         * @param targetClusterArn ARN of the cluster.
          * 
          * @return builder
          * 

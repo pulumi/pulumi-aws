@@ -310,6 +310,61 @@ import (
 //
 // ```
 //
+// ### Disabling Master Password Rotation
+//
+// > **Note:** The `secretsmanager.SecretRotation` resource must depend on a cluster instance, otherwise AWS re-enables rotation once the instance finishes provisioning. Use `dependsOn` as shown below when the cluster and its instance are created together.
+//
+// When `manageMasterUserPassword` is enabled, Secrets Manager rotates the master user password automatically (every 7 days by default). To disable that rotation while keeping the managed secret, manage the secret's rotation with `secretsmanager.SecretRotation` and set `rotationEnabled = false`.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			test, err := rds.NewCluster(ctx, "test", &rds.ClusterArgs{
+//				ClusterIdentifier:        pulumi.String("example"),
+//				DatabaseName:             pulumi.String("test"),
+//				ManageMasterUserPassword: pulumi.Bool(true),
+//				MasterUsername:           pulumi.String("test"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testClusterInstance, err := rds.NewClusterInstance(ctx, "test", &rds.ClusterInstanceArgs{
+//				ClusterIdentifier: test.ID().ToIDOutput().ToStringOutput(),
+//				Identifier:        pulumi.String("example-1"),
+//				InstanceClass:     pulumi.String(rds.InstanceType_R6G_Large),
+//				Engine:            test.Engine.ApplyT(func(x *string) rds.EngineType { return rds.EngineType(*x) }).(rds.EngineTypeOutput),
+//				EngineVersion:     test.EngineVersion,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = secretsmanager.NewSecretRotation(ctx, "test", &secretsmanager.SecretRotationArgs{
+//				SecretId: test.MasterUserSecrets.ApplyT(func(masterUserSecrets []rds.ClusterMasterUserSecret) (*string, error) {
+//					return masterUserSecrets[0].SecretArn, nil
+//				}).(pulumi.StringPtrOutput),
+//				RotationEnabled: pulumi.Bool(false),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				testClusterInstance,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### Global Cluster Restored From Snapshot
 //
 // ```go
@@ -384,7 +439,7 @@ type Cluster struct {
 	AllowMajorVersionUpgrade pulumi.BoolPtrOutput `pulumi:"allowMajorVersionUpgrade"`
 	// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
 	ApplyImmediately pulumi.BoolOutput `pulumi:"applyImmediately"`
-	// Amazon Resource Name (ARN) of cluster
+	// ARN of cluster
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Whether to apply minor engine upgrades automatically to the DB cluster during the maintenance window. Defaults to `true`.
 	AutoMinorVersionUpgrade pulumi.BoolOutput `pulumi:"autoMinorVersionUpgrade"`
@@ -596,7 +651,7 @@ type clusterState struct {
 	AllowMajorVersionUpgrade *bool `pulumi:"allowMajorVersionUpgrade"`
 	// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
 	ApplyImmediately *bool `pulumi:"applyImmediately"`
-	// Amazon Resource Name (ARN) of cluster
+	// ARN of cluster
 	Arn *string `pulumi:"arn"`
 	// Whether to apply minor engine upgrades automatically to the DB cluster during the maintenance window. Defaults to `true`.
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
@@ -765,7 +820,7 @@ type ClusterState struct {
 	AllowMajorVersionUpgrade pulumi.BoolPtrInput
 	// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
 	ApplyImmediately pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) of cluster
+	// ARN of cluster
 	Arn pulumi.StringPtrInput
 	// Whether to apply minor engine upgrades automatically to the DB cluster during the maintenance window. Defaults to `true`.
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
@@ -1330,7 +1385,7 @@ func (o ClusterOutput) ApplyImmediately() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolOutput { return v.ApplyImmediately }).(pulumi.BoolOutput)
 }
 
-// Amazon Resource Name (ARN) of cluster
+// ARN of cluster
 func (o ClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

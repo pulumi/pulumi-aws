@@ -62,7 +62,7 @@ export class UsageLimit extends pulumi.CustomResource {
      */
     declare public readonly amount: pulumi.Output<number>;
     /**
-     * Amazon Resource Name (ARN) of the Redshift Usage Limit.
+     * ARN of the Redshift Usage Limit.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -160,7 +160,7 @@ export interface UsageLimitState {
      */
     amount?: pulumi.Input<number | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the Redshift Usage Limit.
+     * ARN of the Redshift Usage Limit.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

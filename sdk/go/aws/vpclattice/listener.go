@@ -214,7 +214,7 @@ type Listener struct {
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
+	// ARN of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	ServiceArn pulumi.StringOutput `pulumi:"serviceArn"`
 	// ID of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	// > **NOTE:** You must specify one of the following arguments: `serviceArn` or `serviceIdentifier`.
@@ -278,7 +278,7 @@ type listenerState struct {
 	Protocol *string `pulumi:"protocol"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
+	// ARN of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	ServiceArn *string `pulumi:"serviceArn"`
 	// ID of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	// > **NOTE:** You must specify one of the following arguments: `serviceArn` or `serviceIdentifier`.
@@ -307,7 +307,7 @@ type ListenerState struct {
 	Protocol pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
+	// ARN of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	ServiceArn pulumi.StringPtrInput
 	// ID of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	// > **NOTE:** You must specify one of the following arguments: `serviceArn` or `serviceIdentifier`.
@@ -332,7 +332,7 @@ type listenerArgs struct {
 	Protocol string `pulumi:"protocol"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
+	// ARN of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	ServiceArn *string `pulumi:"serviceArn"`
 	// ID of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	// > **NOTE:** You must specify one of the following arguments: `serviceArn` or `serviceIdentifier`.
@@ -353,7 +353,7 @@ type ListenerArgs struct {
 	Protocol pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
+	// ARN of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	ServiceArn pulumi.StringPtrInput
 	// ID of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	// > **NOTE:** You must specify one of the following arguments: `serviceArn` or `serviceIdentifier`.
@@ -494,7 +494,7 @@ func (o ListenerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
+// ARN of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 func (o ListenerOutput) ServiceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.ServiceArn }).(pulumi.StringOutput)
 }

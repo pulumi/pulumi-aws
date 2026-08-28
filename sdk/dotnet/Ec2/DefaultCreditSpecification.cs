@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2
 {
     /// <summary>
-    /// Resource for managing an AWS EC2 (Elastic Compute Cloud) Default Credit Specification.
+    /// Resource for managing an AWS EC2 Default Credit Specification.
     /// 
     /// ## Example Usage
     /// 
@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import EC2 (Elastic Compute Cloud) Default Credit Specification using the `InstanceFamily`. For example:
+    /// Using `pulumi import`, import EC2 Default Credit Specification using the `InstanceFamily`. For example:
     /// </summary>
     [AwsResourceType("aws:ec2/defaultCreditSpecification:DefaultCreditSpecification")]
     public partial class DefaultCreditSpecification : global::Pulumi.CustomResource

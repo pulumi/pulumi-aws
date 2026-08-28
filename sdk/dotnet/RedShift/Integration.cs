@@ -168,7 +168,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Redshift integration.
+    /// - `Arn` (String) ARN of the Redshift integration.
     /// 
     /// Using `pulumi import`, import Redshift Integration using the `Arn`. For example:
     /// 

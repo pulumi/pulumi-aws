@@ -78,7 +78,7 @@ class ClassificationExportConfigurationS3DestinationArgsDict(TypedDict):
     """
     kms_key_arn: pulumi.Input[_builtins.str]
     """
-    Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+    ARN of the KMS key to be used to encrypt the data.
 
     Additional information can be found in the [Storing and retaining sensitive data discovery results with Amazon Macie for AWS Macie documentation](https://docs.aws.amazon.com/macie/latest/user/discovery-results-repository-s3.html).
     """
@@ -95,7 +95,7 @@ class ClassificationExportConfigurationS3DestinationArgs:
                  key_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket_name: The Amazon S3 bucket name in which Amazon Macie exports the data classification results.
-        :param pulumi.Input[_builtins.str] kms_key_arn: Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key to be used to encrypt the data.
                
                Additional information can be found in the [Storing and retaining sensitive data discovery results with Amazon Macie for AWS Macie documentation](https://docs.aws.amazon.com/macie/latest/user/discovery-results-repository-s3.html).
         :param pulumi.Input[_builtins.str] key_prefix: The object key for the bucket in which Amazon Macie exports the data classification results.
@@ -121,7 +121,7 @@ class ClassificationExportConfigurationS3DestinationArgs:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        ARN of the KMS key to be used to encrypt the data.
 
         Additional information can be found in the [Storing and retaining sensitive data discovery results with Amazon Macie for AWS Macie documentation](https://docs.aws.amazon.com/macie/latest/user/discovery-results-repository-s3.html).
         """

@@ -18,14 +18,14 @@ public final class VirtualGatewaySpecListenerTlsValidationArgs extends com.pulum
     public static final VirtualGatewaySpecListenerTlsValidationArgs Empty = new VirtualGatewaySpecListenerTlsValidationArgs();
 
     /**
-     * SANs for a virtual gateway&#39;s listener&#39;s Transport Layer Security (TLS) validation context.
+     * SANs for a virtual gateway&#39;s listener&#39;s TLS validation context.
      * 
      */
     @Import(name="subjectAlternativeNames")
     private @Nullable Output<VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgs> subjectAlternativeNames;
 
     /**
-     * @return SANs for a virtual gateway&#39;s listener&#39;s Transport Layer Security (TLS) validation context.
+     * @return SANs for a virtual gateway&#39;s listener&#39;s TLS validation context.
      * 
      */
     public Optional<Output<VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgs>> subjectAlternativeNames() {
@@ -73,7 +73,7 @@ public final class VirtualGatewaySpecListenerTlsValidationArgs extends com.pulum
         }
 
         /**
-         * @param subjectAlternativeNames SANs for a virtual gateway&#39;s listener&#39;s Transport Layer Security (TLS) validation context.
+         * @param subjectAlternativeNames SANs for a virtual gateway&#39;s listener&#39;s TLS validation context.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class VirtualGatewaySpecListenerTlsValidationArgs extends com.pulum
         }
 
         /**
-         * @param subjectAlternativeNames SANs for a virtual gateway&#39;s listener&#39;s Transport Layer Security (TLS) validation context.
+         * @param subjectAlternativeNames SANs for a virtual gateway&#39;s listener&#39;s TLS validation context.
          * 
          * @return builder
          * 

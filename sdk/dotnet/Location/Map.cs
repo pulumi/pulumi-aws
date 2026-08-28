@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Location
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
+        /// ARN for the map resource. Used to specify a resource across all AWS.
         /// </summary>
         [Output("mapArn")]
         public Output<string> MapArn { get; private set; } = null!;
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.Location
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
+        /// ARN for the map resource. Used to specify a resource across all AWS.
         /// </summary>
         [Input("mapArn")]
         public Input<string>? MapArn { get; set; }

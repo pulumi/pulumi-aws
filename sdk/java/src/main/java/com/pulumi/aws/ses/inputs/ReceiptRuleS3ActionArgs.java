@@ -18,14 +18,14 @@ public final class ReceiptRuleS3ActionArgs extends com.pulumi.resources.Resource
     public static final ReceiptRuleS3ActionArgs Empty = new ReceiptRuleS3ActionArgs();
 
     /**
-     * The name of the S3 bucket
+     * Name of the S3 bucket.
      * 
      */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
     /**
-     * @return The name of the S3 bucket
+     * @return Name of the S3 bucket.
      * 
      */
     public Output<String> bucketName() {
@@ -33,14 +33,14 @@ public final class ReceiptRuleS3ActionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic
+     * ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic.
      * 
      */
     @Import(name="iamRoleArn")
     private @Nullable Output<String> iamRoleArn;
 
     /**
-     * @return The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic
+     * @return ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic.
      * 
      */
     public Optional<Output<String>> iamRoleArn() {
@@ -48,14 +48,14 @@ public final class ReceiptRuleS3ActionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The ARN of the KMS key
+     * ARN of the KMS key.
      * 
      */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
-     * @return The ARN of the KMS key
+     * @return ARN of the KMS key.
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
@@ -63,14 +63,14 @@ public final class ReceiptRuleS3ActionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The key prefix of the S3 bucket
+     * Key prefix of the S3 bucket.
      * 
      */
     @Import(name="objectKeyPrefix")
     private @Nullable Output<String> objectKeyPrefix;
 
     /**
-     * @return The key prefix of the S3 bucket
+     * @return Key prefix of the S3 bucket.
      * 
      */
     public Optional<Output<String>> objectKeyPrefix() {
@@ -78,14 +78,14 @@ public final class ReceiptRuleS3ActionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The position of the action in the receipt rule
+     * Position of the action in the receipt rule.
      * 
      */
     @Import(name="position", required=true)
     private Output<Integer> position;
 
     /**
-     * @return The position of the action in the receipt rule
+     * @return Position of the action in the receipt rule.
      * 
      */
     public Output<Integer> position() {
@@ -93,14 +93,14 @@ public final class ReceiptRuleS3ActionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The ARN of an SNS topic to notify
+     * ARN of an SNS topic to notify.
      * 
      */
     @Import(name="topicArn")
     private @Nullable Output<String> topicArn;
 
     /**
-     * @return The ARN of an SNS topic to notify
+     * @return ARN of an SNS topic to notify.
      * 
      */
     public Optional<Output<String>> topicArn() {
@@ -137,7 +137,7 @@ public final class ReceiptRuleS3ActionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param bucketName The name of the S3 bucket
+         * @param bucketName Name of the S3 bucket.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class ReceiptRuleS3ActionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param bucketName The name of the S3 bucket
+         * @param bucketName Name of the S3 bucket.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class ReceiptRuleS3ActionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param iamRoleArn The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic
+         * @param iamRoleArn ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class ReceiptRuleS3ActionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param iamRoleArn The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic
+         * @param iamRoleArn ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class ReceiptRuleS3ActionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param kmsKeyArn The ARN of the KMS key
+         * @param kmsKeyArn ARN of the KMS key.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class ReceiptRuleS3ActionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param kmsKeyArn The ARN of the KMS key
+         * @param kmsKeyArn ARN of the KMS key.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class ReceiptRuleS3ActionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param objectKeyPrefix The key prefix of the S3 bucket
+         * @param objectKeyPrefix Key prefix of the S3 bucket.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class ReceiptRuleS3ActionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param objectKeyPrefix The key prefix of the S3 bucket
+         * @param objectKeyPrefix Key prefix of the S3 bucket.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class ReceiptRuleS3ActionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param position The position of the action in the receipt rule
+         * @param position Position of the action in the receipt rule.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class ReceiptRuleS3ActionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param position The position of the action in the receipt rule
+         * @param position Position of the action in the receipt rule.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class ReceiptRuleS3ActionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param topicArn The ARN of an SNS topic to notify
+         * @param topicArn ARN of an SNS topic to notify.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class ReceiptRuleS3ActionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param topicArn The ARN of an SNS topic to notify
+         * @param topicArn ARN of an SNS topic to notify.
          * 
          * @return builder
          * 

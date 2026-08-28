@@ -58,7 +58,7 @@ type GetAccessPointsArgs struct {
 
 // A collection of values returned by getAccessPoints.
 type GetAccessPointsResult struct {
-	// Set of Amazon Resource Names (ARNs).
+	// Set of ARNs.
 	Arns         []string `pulumi:"arns"`
 	FileSystemId string   `pulumi:"fileSystemId"`
 	// The provider-assigned unique ID for this managed resource.
@@ -100,7 +100,7 @@ func (o GetAccessPointsResultOutput) ToGetAccessPointsResultOutputWithContext(ct
 	return o
 }
 
-// Set of Amazon Resource Names (ARNs).
+// Set of ARNs.
 func (o GetAccessPointsResultOutput) Arns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAccessPointsResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
 }

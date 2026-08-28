@@ -49,7 +49,7 @@ export interface GetResolverFirewallDomainListArgs {
  */
 export interface GetResolverFirewallDomainListResult {
     /**
-     * The Amazon Resource Name (ARN) of the firewall domain list.
+     * ARN of the firewall domain list.
      */
     readonly arn: string;
     /**

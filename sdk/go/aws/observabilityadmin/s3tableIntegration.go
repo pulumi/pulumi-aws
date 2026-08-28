@@ -186,7 +186,7 @@ import (
 type S3TableIntegration struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the S3 Table integration.
+	// ARN of the S3 Table integration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ARN of the S3 Table bucket where CloudWatch data is stored. AWS automatically creates a bucket named `_aws-cloudwatch_` if one does not already exist.
 	DestinationTableBucketArn pulumi.StringOutput `pulumi:"destinationTableBucketArn"`
@@ -194,7 +194,7 @@ type S3TableIntegration struct {
 	Encryption S3TableIntegrationEncryptionOutput `pulumi:"encryption"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the IAM role that grants the S3 Table integration permissions to access necessary resources.
+	// ARN of the IAM role that grants the S3 Table integration permissions to access necessary resources.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -239,7 +239,7 @@ func GetS3TableIntegration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering S3TableIntegration resources.
 type s3tableIntegrationState struct {
-	// Amazon Resource Name (ARN) of the S3 Table integration.
+	// ARN of the S3 Table integration.
 	Arn *string `pulumi:"arn"`
 	// ARN of the S3 Table bucket where CloudWatch data is stored. AWS automatically creates a bucket named `_aws-cloudwatch_` if one does not already exist.
 	DestinationTableBucketArn *string `pulumi:"destinationTableBucketArn"`
@@ -247,7 +247,7 @@ type s3tableIntegrationState struct {
 	Encryption *S3TableIntegrationEncryption `pulumi:"encryption"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the IAM role that grants the S3 Table integration permissions to access necessary resources.
+	// ARN of the IAM role that grants the S3 Table integration permissions to access necessary resources.
 	RoleArn *string `pulumi:"roleArn"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -257,7 +257,7 @@ type s3tableIntegrationState struct {
 }
 
 type S3TableIntegrationState struct {
-	// Amazon Resource Name (ARN) of the S3 Table integration.
+	// ARN of the S3 Table integration.
 	Arn pulumi.StringPtrInput
 	// ARN of the S3 Table bucket where CloudWatch data is stored. AWS automatically creates a bucket named `_aws-cloudwatch_` if one does not already exist.
 	DestinationTableBucketArn pulumi.StringPtrInput
@@ -265,7 +265,7 @@ type S3TableIntegrationState struct {
 	Encryption S3TableIntegrationEncryptionPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the IAM role that grants the S3 Table integration permissions to access necessary resources.
+	// ARN of the IAM role that grants the S3 Table integration permissions to access necessary resources.
 	RoleArn pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -283,7 +283,7 @@ type s3tableIntegrationArgs struct {
 	Encryption S3TableIntegrationEncryption `pulumi:"encryption"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the IAM role that grants the S3 Table integration permissions to access necessary resources.
+	// ARN of the IAM role that grants the S3 Table integration permissions to access necessary resources.
 	RoleArn string `pulumi:"roleArn"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string           `pulumi:"tags"`
@@ -296,7 +296,7 @@ type S3TableIntegrationArgs struct {
 	Encryption S3TableIntegrationEncryptionInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the IAM role that grants the S3 Table integration permissions to access necessary resources.
+	// ARN of the IAM role that grants the S3 Table integration permissions to access necessary resources.
 	RoleArn pulumi.StringInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
@@ -390,7 +390,7 @@ func (o S3TableIntegrationOutput) ToS3TableIntegrationOutputWithContext(ctx cont
 	return o
 }
 
-// Amazon Resource Name (ARN) of the S3 Table integration.
+// ARN of the S3 Table integration.
 func (o S3TableIntegrationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *S3TableIntegration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -410,7 +410,7 @@ func (o S3TableIntegrationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *S3TableIntegration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the IAM role that grants the S3 Table integration permissions to access necessary resources.
+// ARN of the IAM role that grants the S3 Table integration permissions to access necessary resources.
 func (o S3TableIntegrationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *S3TableIntegration) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
