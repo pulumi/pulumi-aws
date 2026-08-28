@@ -119,7 +119,7 @@ export class Subscriber extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
+     * ARN which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
      */
     declare public /*out*/ readonly resourceShareArn: pulumi.Output<string>;
     /**
@@ -244,7 +244,7 @@ export interface SubscriberState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
+     * ARN which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
      */
     resourceShareArn?: pulumi.Input<string | undefined>;
     /**

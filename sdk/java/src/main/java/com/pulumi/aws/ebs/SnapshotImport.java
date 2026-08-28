@@ -69,14 +69,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ebs/snapshotImport:SnapshotImport")
 public class SnapshotImport extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the EBS Snapshot.
+     * ARN of the EBS Snapshot.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the EBS Snapshot.
+     * @return ARN of the EBS Snapshot.
      * 
      */
     public Output<String> arn() {

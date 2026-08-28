@@ -251,7 +251,7 @@ def get_vpn_connection(filters: Optional[Sequence[Union['GetVpnConnectionFilterA
                        vpn_connection_id: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnConnectionResult:
     """
-    Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+    Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an IP security (IPsec) VPN connection between a VPC and an on-premises network.
 
     ## Example Usage
 
@@ -314,7 +314,7 @@ def get_vpn_connection_output(filters: pulumi.Input[Optional[Optional[Sequence[U
                               vpn_connection_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpnConnectionResult]:
     """
-    Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+    Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an IP security (IPsec) VPN connection between a VPC and an on-premises network.
 
     ## Example Usage
 

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Lambda.Outputs
     public sealed class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig
     {
         /// <summary>
-        /// Configuration block for authentication Lambda uses to access the schema registry.
+        /// Configuration block for authentication Lambda uses to access the schema registry. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig> AccessConfigs;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Lambda.Outputs
         /// </summary>
         public readonly string? SchemaRegistryUri;
         /// <summary>
-        /// Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+        /// Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig> SchemaValidationConfigs;
 

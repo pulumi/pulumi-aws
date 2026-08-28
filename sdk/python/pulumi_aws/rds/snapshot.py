@@ -135,7 +135,7 @@ class _SnapshotState:
         :param pulumi.Input[_builtins.int] allocated_storage: Specifies the allocated storage size in gigabytes (GB).
         :param pulumi.Input[_builtins.str] availability_zone: Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
         :param pulumi.Input[_builtins.str] db_instance_identifier: The DB Instance Identifier from which to take the snapshot.
-        :param pulumi.Input[_builtins.str] db_snapshot_arn: The Amazon Resource Name (ARN) for the DB snapshot.
+        :param pulumi.Input[_builtins.str] db_snapshot_arn: ARN for the DB snapshot.
         :param pulumi.Input[_builtins.str] db_snapshot_identifier: The Identifier for the snapshot.
         :param pulumi.Input[_builtins.bool] encrypted: Specifies whether the DB snapshot is encrypted.
         :param pulumi.Input[_builtins.str] engine: Specifies the name of the database engine.
@@ -241,7 +241,7 @@ class _SnapshotState:
     @pulumi.getter(name="dbSnapshotArn")
     def db_snapshot_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the DB snapshot.
+        ARN for the DB snapshot.
         """
         return pulumi.get(self, "db_snapshot_arn")
 
@@ -665,7 +665,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] allocated_storage: Specifies the allocated storage size in gigabytes (GB).
         :param pulumi.Input[_builtins.str] availability_zone: Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
         :param pulumi.Input[_builtins.str] db_instance_identifier: The DB Instance Identifier from which to take the snapshot.
-        :param pulumi.Input[_builtins.str] db_snapshot_arn: The Amazon Resource Name (ARN) for the DB snapshot.
+        :param pulumi.Input[_builtins.str] db_snapshot_arn: ARN for the DB snapshot.
         :param pulumi.Input[_builtins.str] db_snapshot_identifier: The Identifier for the snapshot.
         :param pulumi.Input[_builtins.bool] encrypted: Specifies whether the DB snapshot is encrypted.
         :param pulumi.Input[_builtins.str] engine: Specifies the name of the database engine.
@@ -741,7 +741,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter(name="dbSnapshotArn")
     def db_snapshot_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) for the DB snapshot.
+        ARN for the DB snapshot.
         """
         return pulumi.get(self, "db_snapshot_arn")
 

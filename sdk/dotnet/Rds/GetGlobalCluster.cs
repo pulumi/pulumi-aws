@@ -140,7 +140,7 @@ namespace Pulumi.Aws.Rds
     public sealed class GetGlobalClusterResult
     {
         /// <summary>
-        /// RDS Global Cluster Amazon Resource Name (ARN)
+        /// RDS Global Cluster ARN
         /// </summary>
         public readonly string Arn;
         /// <summary>

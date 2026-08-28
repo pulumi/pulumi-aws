@@ -86,7 +86,7 @@ export class OrganizationCustomPolicyRule extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the rule.
+     * ARN of the rule.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -213,7 +213,7 @@ export class OrganizationCustomPolicyRule extends pulumi.CustomResource {
  */
 export interface OrganizationCustomPolicyRuleState {
     /**
-     * Amazon Resource Name (ARN) of the rule.
+     * ARN of the rule.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

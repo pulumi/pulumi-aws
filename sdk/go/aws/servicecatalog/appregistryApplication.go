@@ -89,7 +89,7 @@ type AppregistryApplication struct {
 
 	// A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
 	ApplicationTag pulumi.StringMapOutput `pulumi:"applicationTag"`
-	// ARN (Amazon Resource Name) of the application.
+	// ARN of the application.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Description of the application.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -137,7 +137,7 @@ func GetAppregistryApplication(ctx *pulumi.Context,
 type appregistryApplicationState struct {
 	// A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
 	ApplicationTag map[string]string `pulumi:"applicationTag"`
-	// ARN (Amazon Resource Name) of the application.
+	// ARN of the application.
 	Arn *string `pulumi:"arn"`
 	// Description of the application.
 	Description *string `pulumi:"description"`
@@ -156,7 +156,7 @@ type appregistryApplicationState struct {
 type AppregistryApplicationState struct {
 	// A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
 	ApplicationTag pulumi.StringMapInput
-	// ARN (Amazon Resource Name) of the application.
+	// ARN of the application.
 	Arn pulumi.StringPtrInput
 	// Description of the application.
 	Description pulumi.StringPtrInput
@@ -295,7 +295,7 @@ func (o AppregistryApplicationOutput) ApplicationTag() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AppregistryApplication) pulumi.StringMapOutput { return v.ApplicationTag }).(pulumi.StringMapOutput)
 }
 
-// ARN (Amazon Resource Name) of the application.
+// ARN of the application.
 func (o AppregistryApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppregistryApplication) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

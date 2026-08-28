@@ -15,14 +15,14 @@ public final class AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs extend
     public static final AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs Empty = new AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the Lambda function to invoke.
+     * ARN of the Lambda function to invoke.
      * 
      */
     @Import(name="lambdaArn", required=true)
     private Output<String> lambdaArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Lambda function to invoke.
+     * @return ARN of the Lambda function to invoke.
      * 
      */
     public Output<String> lambdaArn() {
@@ -54,7 +54,7 @@ public final class AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs extend
         }
 
         /**
-         * @param lambdaArn The Amazon Resource Name (ARN) of the Lambda function to invoke.
+         * @param lambdaArn ARN of the Lambda function to invoke.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs extend
         }
 
         /**
-         * @param lambdaArn The Amazon Resource Name (ARN) of the Lambda function to invoke.
+         * @param lambdaArn ARN of the Lambda function to invoke.
          * 
          * @return builder
          * 

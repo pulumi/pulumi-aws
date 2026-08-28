@@ -34,7 +34,7 @@ public final class GetResponsePlanActionSsmAutomation {
      */
     private List<GetResponsePlanActionSsmAutomationParameter> parameters;
     /**
-     * @return The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
+     * @return The ARN of the role that the automation document assumes when it runs commands.
      * 
      */
     private String roleArn;
@@ -74,7 +74,7 @@ public final class GetResponsePlanActionSsmAutomation {
         return this.parameters;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
+     * @return The ARN of the role that the automation document assumes when it runs commands.
      * 
      */
     public String roleArn() {

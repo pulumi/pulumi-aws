@@ -17,14 +17,14 @@ public final class DelegationSetState extends com.pulumi.resources.ResourceArgs 
     public static final DelegationSetState Empty = new DelegationSetState();
 
     /**
-     * The Amazon Resource Name (ARN) of the Delegation Set.
+     * ARN of the Delegation Set.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Delegation Set.
+     * @return ARN of the Delegation Set.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -92,7 +92,7 @@ public final class DelegationSetState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Delegation Set.
+         * @param arn ARN of the Delegation Set.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class DelegationSetState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Delegation Set.
+         * @param arn ARN of the Delegation Set.
          * 
          * @return builder
          * 

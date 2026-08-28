@@ -318,7 +318,7 @@ class PipeLogConfigurationFirehoseLogDestination(dict):
     def __init__(__self__, *,
                  delivery_stream_arn: _builtins.str):
         """
-        :param _builtins.str delivery_stream_arn: Amazon Resource Name (ARN) of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
+        :param _builtins.str delivery_stream_arn: ARN of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
         """
         pulumi.set(__self__, "delivery_stream_arn", delivery_stream_arn)
 
@@ -326,7 +326,7 @@ class PipeLogConfigurationFirehoseLogDestination(dict):
     @pulumi.getter(name="deliveryStreamArn")
     def delivery_stream_arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
+        ARN of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
         """
         return pulumi.get(self, "delivery_stream_arn")
 
@@ -1816,7 +1816,7 @@ class PipeTargetParametersBatchJobParameters(dict):
                  parameters: Optional[Mapping[str, _builtins.str]] = None,
                  retry_strategy: Optional['outputs.PipeTargetParametersBatchJobParametersRetryStrategy'] = None):
         """
-        :param _builtins.str job_definition: The job definition used by this job. This value can be one of name, name:revision, or the Amazon Resource Name (ARN) for the job definition. If name is specified without a revision then the latest active revision is used.
+        :param _builtins.str job_definition: Job definition used by this job. This value can be one of name, name:revision, or the ARN for the job definition. If name is specified without a revision then the latest active revision is used.
         :param _builtins.str job_name: The name of the job. It can be up to 128 letters long.
         :param 'PipeTargetParametersBatchJobParametersArrayPropertiesArgs' array_properties: The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. Detailed below.
         :param 'PipeTargetParametersBatchJobParametersContainerOverridesArgs' container_overrides: The overrides that are sent to a container. Detailed below.
@@ -1841,7 +1841,7 @@ class PipeTargetParametersBatchJobParameters(dict):
     @pulumi.getter(name="jobDefinition")
     def job_definition(self) -> _builtins.str:
         """
-        The job definition used by this job. This value can be one of name, name:revision, or the Amazon Resource Name (ARN) for the job definition. If name is specified without a revision then the latest active revision is used.
+        Job definition used by this job. This value can be one of name, name:revision, or the ARN for the job definition. If name is specified without a revision then the latest active revision is used.
         """
         return pulumi.get(self, "job_definition")
 
@@ -2575,10 +2575,10 @@ class PipeTargetParametersEcsTaskParametersOverrides(dict):
         :param Sequence['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs'] container_overrides: One or more container overrides that are sent to a task. Detailed below.
         :param _builtins.str cpu: The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
         :param 'PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageArgs' ephemeral_storage: The ephemeral storage setting override for the task.  Detailed below.
-        :param _builtins.str execution_role_arn: The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
+        :param _builtins.str execution_role_arn: ARN of the task execution IAM role override for the task.
         :param Sequence['PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArgs'] inference_accelerator_overrides: List of Elastic Inference accelerator overrides for the task. Detailed below.
         :param _builtins.str memory: The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
-        :param _builtins.str task_role_arn: The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
+        :param _builtins.str task_role_arn: ARN of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
         """
         if container_overrides is not None:
             pulumi.set(__self__, "container_overrides", container_overrides)
@@ -2623,7 +2623,7 @@ class PipeTargetParametersEcsTaskParametersOverrides(dict):
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
+        ARN of the task execution IAM role override for the task.
         """
         return pulumi.get(self, "execution_role_arn")
 
@@ -2647,7 +2647,7 @@ class PipeTargetParametersEcsTaskParametersOverrides(dict):
     @pulumi.getter(name="taskRoleArn")
     def task_role_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
+        ARN of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
         """
         return pulumi.get(self, "task_role_arn")
 
@@ -3042,8 +3042,8 @@ class PipeTargetParametersEventbridgeEventBusParameters(dict):
         """
         :param _builtins.str detail_type: A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
         :param _builtins.str endpoint_id: The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
-        :param Sequence[_builtins.str] resources: List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
-        :param _builtins.str source: Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+        :param Sequence[_builtins.str] resources: List of AWS resources, identified by ARN, which the event primarily concerns. Any number, including zero, may be present.
+        :param _builtins.str source: Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
         :param _builtins.str time: The time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
         """
         if detail_type is not None:
@@ -3077,7 +3077,7 @@ class PipeTargetParametersEventbridgeEventBusParameters(dict):
     @pulumi.getter
     def resources(self) -> Optional[Sequence[_builtins.str]]:
         """
-        List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
+        List of AWS resources, identified by ARN, which the event primarily concerns. Any number, including zero, may be present.
         """
         return pulumi.get(self, "resources")
 
@@ -3085,7 +3085,7 @@ class PipeTargetParametersEventbridgeEventBusParameters(dict):
     @pulumi.getter
     def source(self) -> Optional[_builtins.str]:
         """
-        Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+        Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
         """
         return pulumi.get(self, "source")
 

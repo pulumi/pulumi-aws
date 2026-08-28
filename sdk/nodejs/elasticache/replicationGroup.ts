@@ -287,9 +287,18 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     declare public readonly authToken: pulumi.Output<string | undefined>;
     /**
-     * Strategy used when modifying `authToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` must be omitted.
+     * Strategy used when modifying `authToken` or `authTokenWo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` and `authTokenWo` must be omitted.
      */
     declare public readonly authTokenUpdateStrategy: pulumi.Output<string | undefined>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. Requires `authTokenWoVersion`.
+     */
+    declare public readonly authTokenWo: pulumi.Output<string | undefined>;
+    /**
+     * Integer that, when changed, triggers a re-send of `authTokenWo` to the replication group. Requires `authTokenWo`.
+     */
+    declare public readonly authTokenWoVersion: pulumi.Output<number | undefined>;
     /**
      * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
      * Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
@@ -449,11 +458,11 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     declare public readonly replicationGroupId: pulumi.Output<string>;
     /**
-     * IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+     * IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
      */
     declare public readonly securityGroupIds: pulumi.Output<string[]>;
     /**
-     * Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+     * Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
      */
     declare public readonly securityGroupNames: pulumi.Output<string[]>;
     /**
@@ -520,6 +529,8 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["atRestEncryptionEnabled"] = state?.atRestEncryptionEnabled;
             resourceInputs["authToken"] = state?.authToken;
             resourceInputs["authTokenUpdateStrategy"] = state?.authTokenUpdateStrategy;
+            resourceInputs["authTokenWo"] = state?.authTokenWo;
+            resourceInputs["authTokenWoVersion"] = state?.authTokenWoVersion;
             resourceInputs["autoMinorVersionUpgrade"] = state?.autoMinorVersionUpgrade;
             resourceInputs["automaticFailoverEnabled"] = state?.automaticFailoverEnabled;
             resourceInputs["clusterEnabled"] = state?.clusterEnabled;
@@ -574,6 +585,8 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["atRestEncryptionEnabled"] = args?.atRestEncryptionEnabled;
             resourceInputs["authToken"] = args?.authToken ? pulumi.secret(args.authToken) : undefined;
             resourceInputs["authTokenUpdateStrategy"] = args?.authTokenUpdateStrategy;
+            resourceInputs["authTokenWo"] = args?.authTokenWo ? pulumi.secret(args.authTokenWo) : undefined;
+            resourceInputs["authTokenWoVersion"] = args?.authTokenWoVersion;
             resourceInputs["autoMinorVersionUpgrade"] = args?.autoMinorVersionUpgrade;
             resourceInputs["automaticFailoverEnabled"] = args?.automaticFailoverEnabled;
             resourceInputs["clusterMode"] = args?.clusterMode;
@@ -622,7 +635,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["authToken"] };
+        const secretOpts = { additionalSecretOutputs: ["authToken", "authTokenWo"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(ReplicationGroup.__pulumiType, name, resourceInputs, opts);
     }
@@ -651,9 +664,18 @@ export interface ReplicationGroupState {
      */
     authToken?: pulumi.Input<string | undefined>;
     /**
-     * Strategy used when modifying `authToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` must be omitted.
+     * Strategy used when modifying `authToken` or `authTokenWo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` and `authTokenWo` must be omitted.
      */
     authTokenUpdateStrategy?: pulumi.Input<string | undefined>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. Requires `authTokenWoVersion`.
+     */
+    authTokenWo?: pulumi.Input<string | undefined>;
+    /**
+     * Integer that, when changed, triggers a re-send of `authTokenWo` to the replication group. Requires `authTokenWo`.
+     */
+    authTokenWoVersion?: pulumi.Input<number | undefined>;
     /**
      * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
      * Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
@@ -813,11 +835,11 @@ export interface ReplicationGroupState {
      */
     replicationGroupId?: pulumi.Input<string | undefined>;
     /**
-     * IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+     * IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+     * Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
      */
     securityGroupNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -886,9 +908,18 @@ export interface ReplicationGroupArgs {
      */
     authToken?: pulumi.Input<string | undefined>;
     /**
-     * Strategy used when modifying `authToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` must be omitted.
+     * Strategy used when modifying `authToken` or `authTokenWo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` and `authTokenWo` must be omitted.
      */
     authTokenUpdateStrategy?: pulumi.Input<string | undefined>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. Requires `authTokenWoVersion`.
+     */
+    authTokenWo?: pulumi.Input<string | undefined>;
+    /**
+     * Integer that, when changed, triggers a re-send of `authTokenWo` to the replication group. Requires `authTokenWo`.
+     */
+    authTokenWoVersion?: pulumi.Input<number | undefined>;
     /**
      * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
      * Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
@@ -1024,11 +1055,11 @@ export interface ReplicationGroupArgs {
      */
     replicationGroupId?: pulumi.Input<string | undefined>;
     /**
-     * IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+     * IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+     * Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
      */
     securityGroupNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

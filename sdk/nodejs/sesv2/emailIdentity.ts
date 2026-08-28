@@ -101,21 +101,21 @@ export class EmailIdentity extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+     * Configuration set to use by default when sending from this identity. Any configuration set defined in the email sending request takes precedence.
      */
     declare public readonly configurationSetName: pulumi.Output<string | undefined>;
     /**
-     * The configuration of the DKIM authentication settings for an email domain identity.
+     * Configuration block for the DKIM authentication settings for an email domain identity. See `dkimSigningAttributes` Block below.
      */
     declare public readonly dkimSigningAttributes: pulumi.Output<outputs.sesv2.EmailIdentityDkimSigningAttributes>;
     /**
-     * The email address or domain to verify.
+     * Email address or domain to verify.
      *
      * The following arguments are optional:
      */
     declare public readonly emailIdentity: pulumi.Output<string>;
     /**
-     * The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
+     * Email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
      */
     declare public /*out*/ readonly identityType: pulumi.Output<string>;
     /**
@@ -131,11 +131,11 @@ export class EmailIdentity extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+     * Verification status of the identity. One of `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
      */
     declare public /*out*/ readonly verificationStatus: pulumi.Output<string>;
     /**
-     * Specifies whether or not the identity is verified.
+     * Whether the identity is verified.
      */
     declare public /*out*/ readonly verifiedForSendingStatus: pulumi.Output<boolean>;
 
@@ -192,21 +192,21 @@ export interface EmailIdentityState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+     * Configuration set to use by default when sending from this identity. Any configuration set defined in the email sending request takes precedence.
      */
     configurationSetName?: pulumi.Input<string | undefined>;
     /**
-     * The configuration of the DKIM authentication settings for an email domain identity.
+     * Configuration block for the DKIM authentication settings for an email domain identity. See `dkimSigningAttributes` Block below.
      */
     dkimSigningAttributes?: pulumi.Input<inputs.sesv2.EmailIdentityDkimSigningAttributes | undefined>;
     /**
-     * The email address or domain to verify.
+     * Email address or domain to verify.
      *
      * The following arguments are optional:
      */
     emailIdentity?: pulumi.Input<string | undefined>;
     /**
-     * The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
+     * Email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
      */
     identityType?: pulumi.Input<string | undefined>;
     /**
@@ -222,11 +222,11 @@ export interface EmailIdentityState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+     * Verification status of the identity. One of `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
      */
     verificationStatus?: pulumi.Input<string | undefined>;
     /**
-     * Specifies whether or not the identity is verified.
+     * Whether the identity is verified.
      */
     verifiedForSendingStatus?: pulumi.Input<boolean | undefined>;
 }
@@ -236,15 +236,15 @@ export interface EmailIdentityState {
  */
 export interface EmailIdentityArgs {
     /**
-     * The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+     * Configuration set to use by default when sending from this identity. Any configuration set defined in the email sending request takes precedence.
      */
     configurationSetName?: pulumi.Input<string | undefined>;
     /**
-     * The configuration of the DKIM authentication settings for an email domain identity.
+     * Configuration block for the DKIM authentication settings for an email domain identity. See `dkimSigningAttributes` Block below.
      */
     dkimSigningAttributes?: pulumi.Input<inputs.sesv2.EmailIdentityDkimSigningAttributes | undefined>;
     /**
-     * The email address or domain to verify.
+     * Email address or domain to verify.
      *
      * The following arguments are optional:
      */

@@ -109,9 +109,9 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the DataSync HDFS location.
+// - `arn` (String) ARN of the DataSync HDFS location.
 //
-// Using `pulumi import`, import `datasync.LocationHdfs` using the Amazon Resource Name (ARN). For example:
+// Using `pulumi import`, import `datasync.LocationHdfs` using the ARN. For example:
 //
 // ```sh
 // $ pulumi import aws:datasync/locationHdfs:LocationHdfs example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
@@ -121,7 +121,7 @@ type LocationHdfs struct {
 
 	// A list of DataSync Agent ARNs with which this location will be associated.
 	AgentArns pulumi.StringArrayOutput `pulumi:"agentArns"`
-	// Amazon Resource Name (ARN) of the DataSync Location.
+	// ARN of the DataSync Location.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The type of authentication used to determine the identity of the user. Valid values are `SIMPLE` and `KERBEROS`.
 	AuthenticationType pulumi.StringPtrOutput `pulumi:"authenticationType"`
@@ -196,7 +196,7 @@ func GetLocationHdfs(ctx *pulumi.Context,
 type locationHdfsState struct {
 	// A list of DataSync Agent ARNs with which this location will be associated.
 	AgentArns []string `pulumi:"agentArns"`
-	// Amazon Resource Name (ARN) of the DataSync Location.
+	// ARN of the DataSync Location.
 	Arn *string `pulumi:"arn"`
 	// The type of authentication used to determine the identity of the user. Valid values are `SIMPLE` and `KERBEROS`.
 	AuthenticationType *string `pulumi:"authenticationType"`
@@ -236,7 +236,7 @@ type locationHdfsState struct {
 type LocationHdfsState struct {
 	// A list of DataSync Agent ARNs with which this location will be associated.
 	AgentArns pulumi.StringArrayInput
-	// Amazon Resource Name (ARN) of the DataSync Location.
+	// ARN of the DataSync Location.
 	Arn pulumi.StringPtrInput
 	// The type of authentication used to determine the identity of the user. Valid values are `SIMPLE` and `KERBEROS`.
 	AuthenticationType pulumi.StringPtrInput
@@ -440,7 +440,7 @@ func (o LocationHdfsOutput) AgentArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LocationHdfs) pulumi.StringArrayOutput { return v.AgentArns }).(pulumi.StringArrayOutput)
 }
 
-// Amazon Resource Name (ARN) of the DataSync Location.
+// ARN of the DataSync Location.
 func (o LocationHdfsOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationHdfs) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

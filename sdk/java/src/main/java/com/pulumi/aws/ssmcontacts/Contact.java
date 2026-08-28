@@ -104,7 +104,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the contact.
+ * - `arn` (String) ARN of the contact.
  * 
  * Using `pulumi import`, import SSM Contact using the `ARN`. For example:
  * 
@@ -130,14 +130,14 @@ public class Contact extends com.pulumi.resources.CustomResource {
         return this.alias;
     }
     /**
-     * The Amazon Resource Name (ARN) of the contact or escalation plan.
+     * The ARN of the contact or escalation plan.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the contact or escalation plan.
+     * @return The ARN of the contact or escalation plan.
      * 
      */
     public Output<String> arn() {

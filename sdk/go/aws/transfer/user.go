@@ -156,7 +156,7 @@ import (
 type User struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of Transfer User
+	// ARN of Transfer User
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
 	HomeDirectory pulumi.StringPtrOutput `pulumi:"homeDirectory"`
@@ -170,7 +170,7 @@ type User struct {
 	PosixProfile UserPosixProfilePtrOutput `pulumi:"posixProfile"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
+	// ARN of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
 	Role pulumi.StringOutput `pulumi:"role"`
 	// Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
@@ -221,7 +221,7 @@ func GetUser(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering User resources.
 type userState struct {
-	// Amazon Resource Name (ARN) of Transfer User
+	// ARN of Transfer User
 	Arn *string `pulumi:"arn"`
 	// Landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
 	HomeDirectory *string `pulumi:"homeDirectory"`
@@ -235,7 +235,7 @@ type userState struct {
 	PosixProfile *UserPosixProfile `pulumi:"posixProfile"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
+	// ARN of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
 	Role *string `pulumi:"role"`
 	// Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId *string `pulumi:"serverId"`
@@ -248,7 +248,7 @@ type userState struct {
 }
 
 type UserState struct {
-	// Amazon Resource Name (ARN) of Transfer User
+	// ARN of Transfer User
 	Arn pulumi.StringPtrInput
 	// Landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
 	HomeDirectory pulumi.StringPtrInput
@@ -262,7 +262,7 @@ type UserState struct {
 	PosixProfile UserPosixProfilePtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
+	// ARN of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
 	Role pulumi.StringPtrInput
 	// Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId pulumi.StringPtrInput
@@ -291,7 +291,7 @@ type userArgs struct {
 	PosixProfile *UserPosixProfile `pulumi:"posixProfile"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
+	// ARN of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
 	Role string `pulumi:"role"`
 	// Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId string `pulumi:"serverId"`
@@ -315,7 +315,7 @@ type UserArgs struct {
 	PosixProfile UserPosixProfilePtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
+	// ARN of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
 	Role pulumi.StringInput
 	// Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId pulumi.StringInput
@@ -412,7 +412,7 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
 }
 
-// Amazon Resource Name (ARN) of Transfer User
+// ARN of Transfer User
 func (o UserOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -447,7 +447,7 @@ func (o UserOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
+// ARN of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
 func (o UserOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
 }

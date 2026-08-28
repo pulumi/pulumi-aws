@@ -28,9 +28,9 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the DataSync object storage location.
+ * - `arn` (String) ARN of the DataSync object storage location.
  *
- * Using `pulumi import`, import `aws.datasync.LocationObjectStorage` using the Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.datasync.LocationObjectStorage` using the ARN. For example:
  *
  * ```sh
  * $ pulumi import aws:datasync/locationObjectStorage:LocationObjectStorage example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
@@ -73,7 +73,7 @@ export class LocationObjectStorage extends pulumi.CustomResource {
      */
     declare public readonly agentArns: pulumi.Output<string[] | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
+     * ARN of the DataSync Location.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -191,7 +191,7 @@ export interface LocationObjectStorageState {
      */
     agentArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
+     * ARN of the DataSync Location.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

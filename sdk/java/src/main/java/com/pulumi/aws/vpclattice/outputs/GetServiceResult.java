@@ -25,7 +25,7 @@ public final class GetServiceResult {
      */
     private String authType;
     /**
-     * @return Amazon Resource Name (ARN) of the certificate.
+     * @return ARN of the certificate.
      * 
      */
     private String certificateArn;
@@ -79,7 +79,7 @@ public final class GetServiceResult {
         return this.authType;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the certificate.
+     * @return ARN of the certificate.
      * 
      */
     public String certificateArn() {

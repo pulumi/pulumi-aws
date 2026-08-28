@@ -166,14 +166,14 @@ public class DedicatedHost extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.instanceType);
     }
     /**
-     * The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+     * ARN of the AWS Outpost on which to allocate the Dedicated Host.
      * 
      */
     @Export(name="outpostArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> outpostArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+     * @return ARN of the AWS Outpost on which to allocate the Dedicated Host.
      * 
      */
     public Output<Optional<String>> outpostArn() {

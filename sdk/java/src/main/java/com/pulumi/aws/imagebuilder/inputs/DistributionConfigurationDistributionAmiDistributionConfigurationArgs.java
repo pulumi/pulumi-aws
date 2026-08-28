@@ -49,14 +49,14 @@ public final class DistributionConfigurationDistributionAmiDistributionConfigura
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
+     * ARN of the KMS Key to encrypt the distributed AMI.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
+     * @return ARN of the KMS Key to encrypt the distributed AMI.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -180,7 +180,7 @@ public final class DistributionConfigurationDistributionAmiDistributionConfigura
         }
 
         /**
-         * @param kmsKeyId Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
+         * @param kmsKeyId ARN of the KMS Key to encrypt the distributed AMI.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class DistributionConfigurationDistributionAmiDistributionConfigura
         }
 
         /**
-         * @param kmsKeyId Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
+         * @param kmsKeyId ARN of the KMS Key to encrypt the distributed AMI.
          * 
          * @return builder
          * 

@@ -154,7 +154,7 @@ namespace Pulumi.Aws.Alb
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the load balancer.
+    /// - `Arn` (String) ARN of the load balancer.
     /// 
     /// Using `pulumi import`, import LBs using their ARN. For example:
     /// 

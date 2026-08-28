@@ -26,7 +26,7 @@ class UploadBufferArgs:
         """
         The set of arguments for constructing a UploadBuffer resource.
 
-        :param pulumi.Input[_builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
+        :param pulumi.Input[_builtins.str] gateway_arn: ARN of the gateway.
         :param pulumi.Input[_builtins.str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         :param pulumi.Input[_builtins.str] disk_path: Local disk path. For example, `/dev/nvme1n1`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -43,7 +43,7 @@ class UploadBufferArgs:
     @pulumi.getter(name="gatewayArn")
     def gateway_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the gateway.
+        ARN of the gateway.
         """
         return pulumi.get(self, "gateway_arn")
 
@@ -100,7 +100,7 @@ class _UploadBufferState:
 
         :param pulumi.Input[_builtins.str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         :param pulumi.Input[_builtins.str] disk_path: Local disk path. For example, `/dev/nvme1n1`.
-        :param pulumi.Input[_builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
+        :param pulumi.Input[_builtins.str] gateway_arn: ARN of the gateway.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if disk_id is not None:
@@ -140,7 +140,7 @@ class _UploadBufferState:
     @pulumi.getter(name="gatewayArn")
     def gateway_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the gateway.
+        ARN of the gateway.
         """
         return pulumi.get(self, "gateway_arn")
 
@@ -207,7 +207,7 @@ class UploadBuffer(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `storagegateway.UploadBuffer` using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`). For example:
+        Using `pulumi import`, import `storagegateway.UploadBuffer` using the gateway ARN and local disk identifier separated with a colon (`:`). For example:
 
         ```sh
         $ pulumi import aws:storagegateway/uploadBuffer:UploadBuffer example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
@@ -218,7 +218,7 @@ class UploadBuffer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         :param pulumi.Input[_builtins.str] disk_path: Local disk path. For example, `/dev/nvme1n1`.
-        :param pulumi.Input[_builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
+        :param pulumi.Input[_builtins.str] gateway_arn: ARN of the gateway.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -262,7 +262,7 @@ class UploadBuffer(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `storagegateway.UploadBuffer` using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`). For example:
+        Using `pulumi import`, import `storagegateway.UploadBuffer` using the gateway ARN and local disk identifier separated with a colon (`:`). For example:
 
         ```sh
         $ pulumi import aws:storagegateway/uploadBuffer:UploadBuffer example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
@@ -326,7 +326,7 @@ class UploadBuffer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         :param pulumi.Input[_builtins.str] disk_path: Local disk path. For example, `/dev/nvme1n1`.
-        :param pulumi.Input[_builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
+        :param pulumi.Input[_builtins.str] gateway_arn: ARN of the gateway.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -359,7 +359,7 @@ class UploadBuffer(pulumi.CustomResource):
     @pulumi.getter(name="gatewayArn")
     def gateway_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the gateway.
+        ARN of the gateway.
         """
         return pulumi.get(self, "gateway_arn")
 

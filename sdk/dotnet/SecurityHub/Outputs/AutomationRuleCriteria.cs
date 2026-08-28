@@ -82,7 +82,7 @@ namespace Pulumi.Aws.SecurityHub.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleCriteriaNoteUpdatedBy> NoteUpdatedBies;
         /// <summary>
-        /// The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
+        /// ARN for a third-party product that generated a finding in Security Hub. Documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleCriteriaProductArn> ProductArns;
         /// <summary>
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.SecurityHub.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleCriteriaRelatedFindingsProductArn> RelatedFindingsProductArns;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
+        /// ARN of the application that is related to a finding. Documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleCriteriaResourceApplicationArn> ResourceApplicationArns;
         /// <summary>
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.SecurityHub.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleCriteriaResourceDetailsOther> ResourceDetailsOthers;
         /// <summary>
-        /// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
+        /// Identifier for the given resource type. For AWS resources that are identified by ARNs, this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutomationRuleCriteriaResourceId> ResourceIds;
         /// <summary>

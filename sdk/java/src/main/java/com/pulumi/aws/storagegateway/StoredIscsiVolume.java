@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws.storagegateway.StoredIscsiVolume` using the volume Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.storagegateway.StoredIscsiVolume` using the volume ARN. For example:
  * 
  * ```sh
  * $ pulumi import aws:storagegateway/storedIscsiVolume:StoredIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
@@ -111,14 +111,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:storagegateway/storedIscsiVolume:StoredIscsiVolume")
 public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
     /**
-     * Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+     * Volume ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+     * @return Volume ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
      * 
      */
     public Output<String> arn() {
@@ -153,14 +153,14 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
         return this.diskId;
     }
     /**
-     * The Amazon Resource Name (ARN) of the gateway.
+     * ARN of the gateway.
      * 
      */
     @Export(name="gatewayArn", refs={String.class}, tree="[0]")
     private Output<String> gatewayArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the gateway.
+     * @return ARN of the gateway.
      * 
      */
     public Output<String> gatewayArn() {
@@ -181,14 +181,14 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.kmsEncrypted);
     }
     /**
-     * The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
+     * ARN of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
      * 
      */
     @Export(name="kmsKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKey;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
+     * @return ARN of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
      * 
      */
     public Output<Optional<String>> kmsKey() {
@@ -307,14 +307,14 @@ public class StoredIscsiVolume extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+     * Target ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
      * 
      */
     @Export(name="targetArn", refs={String.class}, tree="[0]")
     private Output<String> targetArn;
 
     /**
-     * @return Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+     * @return Target ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
      * 
      */
     public Output<String> targetArn() {

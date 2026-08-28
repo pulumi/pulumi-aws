@@ -18,14 +18,14 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
     public static final VideoStreamState Empty = new VideoStreamState();
 
     /**
-     * The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+     * ARN specifying the Stream (same as `id`)
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+     * @return ARN specifying the Stream (same as `id`)
      * 
      */
     public Optional<Output<String>> arn() {
@@ -78,14 +78,14 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
+     * ID of the KMS key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
+     * @return ID of the KMS key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -219,7 +219,7 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+         * @param arn ARN specifying the Stream (same as `id`)
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+         * @param arn ARN specifying the Stream (same as `id`)
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
+         * @param kmsKeyId ID of the KMS key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
+         * @param kmsKeyId ID of the KMS key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
          * 
          * @return builder
          * 

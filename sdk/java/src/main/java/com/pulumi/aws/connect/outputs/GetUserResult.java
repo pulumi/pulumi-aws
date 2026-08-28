@@ -15,7 +15,7 @@ import java.util.Objects;
 @CustomType
 public final class GetUserResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the User.
+     * @return ARN of the User.
      * 
      */
     private String arn;
@@ -70,7 +70,7 @@ public final class GetUserResult {
 
     private GetUserResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the User.
+     * @return ARN of the User.
      * 
      */
     public String arn() {

@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Sagemaker
     public partial class FlowDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
+        /// ARN assigned by AWS to this Flow Definition.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
+        /// ARN of the role needed to call other services on your behalf.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
@@ -293,7 +293,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
+        /// ARN of the role needed to call other services on your behalf.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -319,7 +319,7 @@ namespace Pulumi.Aws.Sagemaker
     public sealed class FlowDefinitionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
+        /// ARN assigned by AWS to this Flow Definition.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -361,7 +361,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
+        /// ARN of the role needed to call other services on your behalf.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

@@ -42,7 +42,7 @@ namespace Pulumi.Aws.RedShift
     public partial class HsmClientCertificate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Hsm Client Certificate.
+        /// ARN of the Hsm Client Certificate.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.RedShift
     public sealed class HsmClientCertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Hsm Client Certificate.
+        /// ARN of the Hsm Client Certificate.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

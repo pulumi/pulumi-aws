@@ -687,7 +687,7 @@ func (o PipeLogConfigurationCloudwatchLogsLogDestinationPtrOutput) LogGroupArn()
 }
 
 type PipeLogConfigurationFirehoseLogDestination struct {
-	// Amazon Resource Name (ARN) of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
+	// ARN of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
 	DeliveryStreamArn string `pulumi:"deliveryStreamArn"`
 }
 
@@ -703,7 +703,7 @@ type PipeLogConfigurationFirehoseLogDestinationInput interface {
 }
 
 type PipeLogConfigurationFirehoseLogDestinationArgs struct {
-	// Amazon Resource Name (ARN) of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
+	// ARN of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
 	DeliveryStreamArn pulumi.StringInput `pulumi:"deliveryStreamArn"`
 }
 
@@ -784,7 +784,7 @@ func (o PipeLogConfigurationFirehoseLogDestinationOutput) ToPipeLogConfiguration
 	}).(PipeLogConfigurationFirehoseLogDestinationPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
+// ARN of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
 func (o PipeLogConfigurationFirehoseLogDestinationOutput) DeliveryStreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeLogConfigurationFirehoseLogDestination) string { return v.DeliveryStreamArn }).(pulumi.StringOutput)
 }
@@ -813,7 +813,7 @@ func (o PipeLogConfigurationFirehoseLogDestinationPtrOutput) Elem() PipeLogConfi
 	}).(PipeLogConfigurationFirehoseLogDestinationOutput)
 }
 
-// Amazon Resource Name (ARN) of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
+// ARN of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
 func (o PipeLogConfigurationFirehoseLogDestinationPtrOutput) DeliveryStreamArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeLogConfigurationFirehoseLogDestination) *string {
 		if v == nil {
@@ -4613,7 +4613,7 @@ type PipeTargetParametersBatchJobParameters struct {
 	ContainerOverrides *PipeTargetParametersBatchJobParametersContainerOverrides `pulumi:"containerOverrides"`
 	// A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. Detailed below.
 	DependsOns []PipeTargetParametersBatchJobParametersDependsOn `pulumi:"dependsOns"`
-	// The job definition used by this job. This value can be one of name, name:revision, or the Amazon Resource Name (ARN) for the job definition. If name is specified without a revision then the latest active revision is used.
+	// Job definition used by this job. This value can be one of name, name:revision, or the ARN for the job definition. If name is specified without a revision then the latest active revision is used.
 	JobDefinition string `pulumi:"jobDefinition"`
 	// The name of the job. It can be up to 128 letters long.
 	JobName string `pulumi:"jobName"`
@@ -4641,7 +4641,7 @@ type PipeTargetParametersBatchJobParametersArgs struct {
 	ContainerOverrides PipeTargetParametersBatchJobParametersContainerOverridesPtrInput `pulumi:"containerOverrides"`
 	// A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. Detailed below.
 	DependsOns PipeTargetParametersBatchJobParametersDependsOnArrayInput `pulumi:"dependsOns"`
-	// The job definition used by this job. This value can be one of name, name:revision, or the Amazon Resource Name (ARN) for the job definition. If name is specified without a revision then the latest active revision is used.
+	// Job definition used by this job. This value can be one of name, name:revision, or the ARN for the job definition. If name is specified without a revision then the latest active revision is used.
 	JobDefinition pulumi.StringInput `pulumi:"jobDefinition"`
 	// The name of the job. It can be up to 128 letters long.
 	JobName pulumi.StringInput `pulumi:"jobName"`
@@ -4749,7 +4749,7 @@ func (o PipeTargetParametersBatchJobParametersOutput) DependsOns() PipeTargetPar
 	}).(PipeTargetParametersBatchJobParametersDependsOnArrayOutput)
 }
 
-// The job definition used by this job. This value can be one of name, name:revision, or the Amazon Resource Name (ARN) for the job definition. If name is specified without a revision then the latest active revision is used.
+// Job definition used by this job. This value can be one of name, name:revision, or the ARN for the job definition. If name is specified without a revision then the latest active revision is used.
 func (o PipeTargetParametersBatchJobParametersOutput) JobDefinition() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParameters) string { return v.JobDefinition }).(pulumi.StringOutput)
 }
@@ -4825,7 +4825,7 @@ func (o PipeTargetParametersBatchJobParametersPtrOutput) DependsOns() PipeTarget
 	}).(PipeTargetParametersBatchJobParametersDependsOnArrayOutput)
 }
 
-// The job definition used by this job. This value can be one of name, name:revision, or the Amazon Resource Name (ARN) for the job definition. If name is specified without a revision then the latest active revision is used.
+// Job definition used by this job. This value can be one of name, name:revision, or the ARN for the job definition. If name is specified without a revision then the latest active revision is used.
 func (o PipeTargetParametersBatchJobParametersPtrOutput) JobDefinition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersBatchJobParameters) *string {
 		if v == nil {
@@ -6664,13 +6664,13 @@ type PipeTargetParametersEcsTaskParametersOverrides struct {
 	Cpu *string `pulumi:"cpu"`
 	// The ephemeral storage setting override for the task.  Detailed below.
 	EphemeralStorage *PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage `pulumi:"ephemeralStorage"`
-	// The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
+	// ARN of the task execution IAM role override for the task.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// List of Elastic Inference accelerator overrides for the task. Detailed below.
 	InferenceAcceleratorOverrides []PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride `pulumi:"inferenceAcceleratorOverrides"`
 	// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
 	Memory *string `pulumi:"memory"`
-	// The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
+	// ARN of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
 	TaskRoleArn *string `pulumi:"taskRoleArn"`
 }
 
@@ -6692,13 +6692,13 @@ type PipeTargetParametersEcsTaskParametersOverridesArgs struct {
 	Cpu pulumi.StringPtrInput `pulumi:"cpu"`
 	// The ephemeral storage setting override for the task.  Detailed below.
 	EphemeralStorage PipeTargetParametersEcsTaskParametersOverridesEphemeralStoragePtrInput `pulumi:"ephemeralStorage"`
-	// The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
+	// ARN of the task execution IAM role override for the task.
 	ExecutionRoleArn pulumi.StringPtrInput `pulumi:"executionRoleArn"`
 	// List of Elastic Inference accelerator overrides for the task. Detailed below.
 	InferenceAcceleratorOverrides PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArrayInput `pulumi:"inferenceAcceleratorOverrides"`
 	// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
 	Memory pulumi.StringPtrInput `pulumi:"memory"`
-	// The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
+	// ARN of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
 	TaskRoleArn pulumi.StringPtrInput `pulumi:"taskRoleArn"`
 }
 
@@ -6798,7 +6798,7 @@ func (o PipeTargetParametersEcsTaskParametersOverridesOutput) EphemeralStorage()
 	}).(PipeTargetParametersEcsTaskParametersOverridesEphemeralStoragePtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
+// ARN of the task execution IAM role override for the task.
 func (o PipeTargetParametersEcsTaskParametersOverridesOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverrides) *string { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -6815,7 +6815,7 @@ func (o PipeTargetParametersEcsTaskParametersOverridesOutput) Memory() pulumi.St
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverrides) *string { return v.Memory }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
+// ARN of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
 func (o PipeTargetParametersEcsTaskParametersOverridesOutput) TaskRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverrides) *string { return v.TaskRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -6874,7 +6874,7 @@ func (o PipeTargetParametersEcsTaskParametersOverridesPtrOutput) EphemeralStorag
 	}).(PipeTargetParametersEcsTaskParametersOverridesEphemeralStoragePtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
+// ARN of the task execution IAM role override for the task.
 func (o PipeTargetParametersEcsTaskParametersOverridesPtrOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEcsTaskParametersOverrides) *string {
 		if v == nil {
@@ -6904,7 +6904,7 @@ func (o PipeTargetParametersEcsTaskParametersOverridesPtrOutput) Memory() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
+// ARN of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
 func (o PipeTargetParametersEcsTaskParametersOverridesPtrOutput) TaskRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEcsTaskParametersOverrides) *string {
 		if v == nil {
@@ -7876,9 +7876,9 @@ type PipeTargetParametersEventbridgeEventBusParameters struct {
 	DetailType *string `pulumi:"detailType"`
 	// The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
 	EndpointId *string `pulumi:"endpointId"`
-	// List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
+	// List of AWS resources, identified by ARN, which the event primarily concerns. Any number, including zero, may be present.
 	Resources []string `pulumi:"resources"`
-	// Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+	// Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
 	Source *string `pulumi:"source"`
 	// The time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
 	Time *string `pulumi:"time"`
@@ -7900,9 +7900,9 @@ type PipeTargetParametersEventbridgeEventBusParametersArgs struct {
 	DetailType pulumi.StringPtrInput `pulumi:"detailType"`
 	// The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
 	EndpointId pulumi.StringPtrInput `pulumi:"endpointId"`
-	// List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
+	// List of AWS resources, identified by ARN, which the event primarily concerns. Any number, including zero, may be present.
 	Resources pulumi.StringArrayInput `pulumi:"resources"`
-	// Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+	// Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
 	Source pulumi.StringPtrInput `pulumi:"source"`
 	// The time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
 	Time pulumi.StringPtrInput `pulumi:"time"`
@@ -7995,12 +7995,12 @@ func (o PipeTargetParametersEventbridgeEventBusParametersOutput) EndpointId() pu
 	return o.ApplyT(func(v PipeTargetParametersEventbridgeEventBusParameters) *string { return v.EndpointId }).(pulumi.StringPtrOutput)
 }
 
-// List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
+// List of AWS resources, identified by ARN, which the event primarily concerns. Any number, including zero, may be present.
 func (o PipeTargetParametersEventbridgeEventBusParametersOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipeTargetParametersEventbridgeEventBusParameters) []string { return v.Resources }).(pulumi.StringArrayOutput)
 }
 
-// Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+// Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
 func (o PipeTargetParametersEventbridgeEventBusParametersOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEventbridgeEventBusParameters) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
@@ -8054,7 +8054,7 @@ func (o PipeTargetParametersEventbridgeEventBusParametersPtrOutput) EndpointId()
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
+// List of AWS resources, identified by ARN, which the event primarily concerns. Any number, including zero, may be present.
 func (o PipeTargetParametersEventbridgeEventBusParametersPtrOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEventbridgeEventBusParameters) []string {
 		if v == nil {
@@ -8064,7 +8064,7 @@ func (o PipeTargetParametersEventbridgeEventBusParametersPtrOutput) Resources() 
 	}).(pulumi.StringArrayOutput)
 }
 
-// Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+// Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
 func (o PipeTargetParametersEventbridgeEventBusParametersPtrOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEventbridgeEventBusParameters) *string {
 		if v == nil {

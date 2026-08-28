@@ -170,7 +170,7 @@ import (
 type OrganizationConformancePack struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the organization conformance pack.
+	// ARN of the organization conformance pack.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Amazon S3 bucket where AWS Config stores conformance pack templates. Delivery bucket must begin with `awsconfigconforms` prefix. Maximum length of 63.
 	DeliveryS3Bucket pulumi.StringPtrOutput `pulumi:"deliveryS3Bucket"`
@@ -220,7 +220,7 @@ func GetOrganizationConformancePack(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OrganizationConformancePack resources.
 type organizationConformancePackState struct {
-	// Amazon Resource Name (ARN) of the organization conformance pack.
+	// ARN of the organization conformance pack.
 	Arn *string `pulumi:"arn"`
 	// Amazon S3 bucket where AWS Config stores conformance pack templates. Delivery bucket must begin with `awsconfigconforms` prefix. Maximum length of 63.
 	DeliveryS3Bucket *string `pulumi:"deliveryS3Bucket"`
@@ -241,7 +241,7 @@ type organizationConformancePackState struct {
 }
 
 type OrganizationConformancePackState struct {
-	// Amazon Resource Name (ARN) of the organization conformance pack.
+	// ARN of the organization conformance pack.
 	Arn pulumi.StringPtrInput
 	// Amazon S3 bucket where AWS Config stores conformance pack templates. Delivery bucket must begin with `awsconfigconforms` prefix. Maximum length of 63.
 	DeliveryS3Bucket pulumi.StringPtrInput
@@ -391,7 +391,7 @@ func (o OrganizationConformancePackOutput) ToOrganizationConformancePackOutputWi
 	return o
 }
 
-// Amazon Resource Name (ARN) of the organization conformance pack.
+// ARN of the organization conformance pack.
 func (o OrganizationConformancePackOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationConformancePack) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

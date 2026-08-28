@@ -19,14 +19,14 @@ public final class FirewallPolicyState extends com.pulumi.resources.ResourceArgs
     public static final FirewallPolicyState Empty = new FirewallPolicyState();
 
     /**
-     * The Amazon Resource Name (ARN) that identifies the firewall policy.
+     * ARN that identifies the firewall policy.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) that identifies the firewall policy.
+     * @return ARN that identifies the firewall policy.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -186,7 +186,7 @@ public final class FirewallPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) that identifies the firewall policy.
+         * @param arn ARN that identifies the firewall policy.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class FirewallPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) that identifies the firewall policy.
+         * @param arn ARN that identifies the firewall policy.
          * 
          * @return builder
          * 

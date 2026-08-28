@@ -62,7 +62,7 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws.storagegateway.SmbFileShare` using the SMB File Share Amazon Resource Name (ARN). For example:
+    /// Using `pulumi import`, import `aws.storagegateway.SmbFileShare` using the SMB File Share ARN. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:storagegateway/smbFileShare:SmbFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
@@ -84,13 +84,13 @@ namespace Pulumi.Aws.StorageGateway
         public Output<ImmutableArray<string>> AdminUserLists { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the SMB File Share.
+        /// ARN of the SMB File Share.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+        /// ARN of the CloudWatch Log Group used for the audit logs.
         /// </summary>
         [Output("auditDestinationArn")]
         public Output<string?> AuditDestinationArn { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string> FileshareId { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the file gateway.
+        /// ARN of the file gateway.
         /// </summary>
         [Output("gatewayArn")]
         public Output<string> GatewayArn { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<bool?> KmsEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `KmsEncrypted` is true.
+        /// ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `KmsEncrypted` is true.
         /// </summary>
         [Output("kmsKeyArn")]
         public Output<string?> KmsKeyArn { get; private set; } = null!;
@@ -318,7 +318,7 @@ namespace Pulumi.Aws.StorageGateway
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+        /// ARN of the CloudWatch Log Group used for the audit logs.
         /// </summary>
         [Input("auditDestinationArn")]
         public Input<string>? AuditDestinationArn { get; set; }
@@ -360,7 +360,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? FileShareName { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the file gateway.
+        /// ARN of the file gateway.
         /// </summary>
         [Input("gatewayArn", required: true)]
         public Input<string> GatewayArn { get; set; } = null!;
@@ -390,7 +390,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<bool>? KmsEncrypted { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `KmsEncrypted` is true.
+        /// ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `KmsEncrypted` is true.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
@@ -508,13 +508,13 @@ namespace Pulumi.Aws.StorageGateway
         }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the SMB File Share.
+        /// ARN of the SMB File Share.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+        /// ARN of the CloudWatch Log Group used for the audit logs.
         /// </summary>
         [Input("auditDestinationArn")]
         public Input<string>? AuditDestinationArn { get; set; }
@@ -562,7 +562,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? FileshareId { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the file gateway.
+        /// ARN of the file gateway.
         /// </summary>
         [Input("gatewayArn")]
         public Input<string>? GatewayArn { get; set; }
@@ -592,7 +592,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<bool>? KmsEncrypted { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `KmsEncrypted` is true.
+        /// ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `KmsEncrypted` is true.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }

@@ -107,14 +107,14 @@ public class ReportDefinition extends com.pulumi.resources.CustomResource {
         return this.additionalSchemaElements;
     }
     /**
-     * The Amazon Resource Name (ARN) specifying the cur report.
+     * ARN specifying the cur report.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) specifying the cur report.
+     * @return ARN specifying the cur report.
      * 
      */
     public Output<String> arn() {

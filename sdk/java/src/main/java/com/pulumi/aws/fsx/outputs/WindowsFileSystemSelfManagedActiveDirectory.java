@@ -20,7 +20,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectory {
      */
     private List<String> dnsIps;
     /**
-     * @return Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
+     * @return ARN for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
      * 
      */
     private @Nullable String domainJoinServiceAccountSecret;
@@ -70,7 +70,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectory {
         return this.dnsIps;
     }
     /**
-     * @return Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
+     * @return ARN for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
      * 
      */
     public Optional<String> domainJoinServiceAccountSecret() {

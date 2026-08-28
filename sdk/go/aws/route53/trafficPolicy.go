@@ -65,7 +65,7 @@ import (
 type TrafficPolicy struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the traffic policy.
+	// ARN of the traffic policy.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Comment for the traffic policy.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
@@ -114,7 +114,7 @@ func GetTrafficPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TrafficPolicy resources.
 type trafficPolicyState struct {
-	// Amazon Resource Name (ARN) of the traffic policy.
+	// ARN of the traffic policy.
 	Arn *string `pulumi:"arn"`
 	// Comment for the traffic policy.
 	Comment *string `pulumi:"comment"`
@@ -131,7 +131,7 @@ type trafficPolicyState struct {
 }
 
 type TrafficPolicyState struct {
-	// Amazon Resource Name (ARN) of the traffic policy.
+	// ARN of the traffic policy.
 	Arn pulumi.StringPtrInput
 	// Comment for the traffic policy.
 	Comment pulumi.StringPtrInput
@@ -261,7 +261,7 @@ func (o TrafficPolicyOutput) ToTrafficPolicyOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Amazon Resource Name (ARN) of the traffic policy.
+// ARN of the traffic policy.
 func (o TrafficPolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrafficPolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

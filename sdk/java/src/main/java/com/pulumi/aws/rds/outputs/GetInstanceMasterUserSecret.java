@@ -16,7 +16,7 @@ public final class GetInstanceMasterUserSecret {
      */
     private String kmsKeyId;
     /**
-     * @return The Amazon Resource Name (ARN) of the secret.
+     * @return ARN of the secret.
      * 
      */
     private String secretArn;
@@ -35,7 +35,7 @@ public final class GetInstanceMasterUserSecret {
         return this.kmsKeyId;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the secret.
+     * @return ARN of the secret.
      * 
      */
     public String secretArn() {

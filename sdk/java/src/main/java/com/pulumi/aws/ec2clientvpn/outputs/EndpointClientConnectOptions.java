@@ -18,7 +18,7 @@ public final class EndpointClientConnectOptions {
      */
     private @Nullable Boolean enabled;
     /**
-     * @return The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
+     * @return ARN of the Lambda function used for connection authorization.
      * 
      */
     private @Nullable String lambdaFunctionArn;
@@ -32,7 +32,7 @@ public final class EndpointClientConnectOptions {
         return Optional.ofNullable(this.enabled);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
+     * @return ARN of the Lambda function used for connection authorization.
      * 
      */
     public Optional<String> lambdaFunctionArn() {

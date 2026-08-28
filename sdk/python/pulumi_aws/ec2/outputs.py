@@ -1734,7 +1734,7 @@ class DefaultRouteTableRoute(dict):
                  vpc_peering_connection_id: Optional[_builtins.str] = None):
         """
         :param _builtins.str cidr_block: The CIDR block of the route.
-        :param _builtins.str core_network_arn: The Amazon Resource Name (ARN) of a core network.
+        :param _builtins.str core_network_arn: ARN of a core network.
         :param _builtins.str destination_prefix_list_id: The ID of a managed prefix list destination of the route.
                
                One of the following target arguments must be supplied:
@@ -1787,7 +1787,7 @@ class DefaultRouteTableRoute(dict):
     @pulumi.getter(name="coreNetworkArn")
     def core_network_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of a core network.
+        ARN of a core network.
         """
         return pulumi.get(self, "core_network_arn")
 
@@ -3140,7 +3140,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirements(dict):
         :param 'FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs' baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
         :param _builtins.str burstable_performance: Indicates whether burstable performance T instance types are `included`, `excluded`, or `required`. Default is `excluded`.
         :param Sequence[_builtins.str] cpu_manufacturers: The CPU manufacturers to include. Default is any manufacturer.
-               > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+               > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the AMI that you specify in your launch template.
         :param Sequence[_builtins.str] excluded_instance_types: The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
                
                If you specify `AllowedInstanceTypes`, you can't specify `ExcludedInstanceTypes`.
@@ -3302,7 +3302,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirements(dict):
     def cpu_manufacturers(self) -> Optional[Sequence[_builtins.str]]:
         """
         The CPU manufacturers to include. Default is any manufacturer.
-        > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+        > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the AMI that you specify in your launch template.
         """
         return pulumi.get(self, "cpu_manufacturers")
 
@@ -4523,7 +4523,7 @@ class InstanceEbsBlockDevice(dict):
         :param _builtins.bool delete_on_termination: Whether the volume should be destroyed on instance termination. Defaults to `true`.
         :param _builtins.bool encrypted: Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume. Defaults to `false`. Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
         :param _builtins.int iops: Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
-        :param _builtins.str kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+        :param _builtins.str kms_key_id: ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         :param _builtins.str snapshot_id: Snapshot ID to mount.
         :param Mapping[str, _builtins.str] tags: Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volume_tags` instead, which applies uniform tags to all volumes during instance creation.
         :param Mapping[str, _builtins.str] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -4594,7 +4594,7 @@ class InstanceEbsBlockDevice(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+        ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -5287,7 +5287,7 @@ class InstanceRootBlockDevice(dict):
         :param _builtins.str device_name: Device name, e.g., `/dev/sdh` or `xvdh`.
         :param _builtins.bool encrypted: Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
         :param _builtins.int iops: Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
-        :param _builtins.str kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+        :param _builtins.str kms_key_id: ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         :param Mapping[str, _builtins.str] tags: Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volume_tags` instead, which applies uniform tags to all volumes during instance creation.
         :param Mapping[str, _builtins.str] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param _builtins.int throughput: Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
@@ -5356,7 +5356,7 @@ class InstanceRootBlockDevice(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+        ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -6462,7 +6462,7 @@ class LaunchTemplateIamInstanceProfile(dict):
                  arn: Optional[_builtins.str] = None,
                  name: Optional[_builtins.str] = None):
         """
-        :param _builtins.str arn: The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
+        :param _builtins.str arn: ARN of the instance profile. Conflicts with `name`.
         :param _builtins.str name: The name of the instance profile.
         """
         if arn is not None:
@@ -6474,7 +6474,7 @@ class LaunchTemplateIamInstanceProfile(dict):
     @pulumi.getter
     def arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
+        ARN of the instance profile. Conflicts with `name`.
         """
         return pulumi.get(self, "arn")
 
@@ -6763,7 +6763,7 @@ class LaunchTemplateInstanceRequirements(dict):
         :param _builtins.str burstable_performance: Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param Sequence[_builtins.str] cpu_manufacturers: List of CPU manufacturer names. Default is any manufacturer.
                
-               > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+               > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the AMI that you specify in your launch template.
                
                ```
                Valid names:
@@ -6971,7 +6971,7 @@ class LaunchTemplateInstanceRequirements(dict):
         """
         List of CPU manufacturer names. Default is any manufacturer.
 
-        > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+        > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the AMI that you specify in your launch template.
 
         ```
         Valid names:
@@ -10150,7 +10150,7 @@ class NetworkInsightsAnalysisAlternatePathHint(dict):
                  component_arn: Optional[_builtins.str] = None,
                  component_id: Optional[_builtins.str] = None):
         """
-        :param _builtins.str component_arn: The Amazon Resource Name (ARN) of the component.
+        :param _builtins.str component_arn: ARN of the component.
         :param _builtins.str component_id: The ID of the component.
         """
         if component_arn is not None:
@@ -10162,7 +10162,7 @@ class NetworkInsightsAnalysisAlternatePathHint(dict):
     @pulumi.getter(name="componentArn")
     def component_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the component.
+        ARN of the component.
         """
         return pulumi.get(self, "component_arn")
 
@@ -15315,7 +15315,7 @@ class RouteTableRoute(dict):
         """
         :param _builtins.str carrier_gateway_id: Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
         :param _builtins.str cidr_block: The CIDR block of the route.
-        :param _builtins.str core_network_arn: The Amazon Resource Name (ARN) of a core network.
+        :param _builtins.str core_network_arn: ARN of a core network.
         :param _builtins.str destination_prefix_list_id: The ID of a managed prefix list destination of the route.
                
                One of the following target arguments must be supplied:
@@ -15325,7 +15325,7 @@ class RouteTableRoute(dict):
         :param _builtins.str local_gateway_id: Identifier of a Outpost local gateway.
         :param _builtins.str nat_gateway_id: Identifier of a VPC NAT gateway.
         :param _builtins.str network_interface_id: Identifier of an EC2 network interface.
-        :param _builtins.str odb_network_arn: The Amazon Resource Name (ARN) of an ODB network.
+        :param _builtins.str odb_network_arn: ARN of an ODB network.
         :param _builtins.str transit_gateway_id: Identifier of an EC2 Transit Gateway.
         :param _builtins.str vpc_endpoint_id: Identifier of a VPC Endpoint.
         :param _builtins.str vpc_peering_connection_id: Identifier of a VPC peering connection.
@@ -15381,7 +15381,7 @@ class RouteTableRoute(dict):
     @pulumi.getter(name="coreNetworkArn")
     def core_network_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of a core network.
+        ARN of a core network.
         """
         return pulumi.get(self, "core_network_arn")
 
@@ -15447,7 +15447,7 @@ class RouteTableRoute(dict):
     @pulumi.getter(name="odbNetworkArn")
     def odb_network_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of an ODB network.
+        ARN of an ODB network.
         """
         return pulumi.get(self, "odb_network_arn")
 
@@ -16782,7 +16782,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
         :param _builtins.str burstable_performance: Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param Sequence[_builtins.str] cpu_manufacturers: List of CPU manufacturer names. Default is any manufacturer.
                
-               > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+               > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the AMI that you specify in your launch template.
                
                ```
                Valid names:
@@ -16975,7 +16975,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
         """
         List of CPU manufacturer names. Default is any manufacturer.
 
-        > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+        > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the AMI that you specify in your launch template.
 
         ```
         Valid names:
@@ -17733,7 +17733,7 @@ class SpotInstanceRequestEbsBlockDevice(dict):
         :param _builtins.bool delete_on_termination: Whether the volume should be destroyed on instance termination. Defaults to `true`.
         :param _builtins.bool encrypted: Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume. Defaults to `false`. Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
         :param _builtins.int iops: Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
-        :param _builtins.str kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+        :param _builtins.str kms_key_id: ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         :param _builtins.str snapshot_id: Snapshot ID to mount.
         :param Mapping[str, _builtins.str] tags: Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volume_tags` instead, which applies uniform tags to all volumes during instance creation.
         :param Mapping[str, _builtins.str] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -17803,7 +17803,7 @@ class SpotInstanceRequestEbsBlockDevice(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+        ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -18365,7 +18365,7 @@ class SpotInstanceRequestRootBlockDevice(dict):
         :param _builtins.bool delete_on_termination: Whether the volume should be destroyed on instance termination. Defaults to `true`.
         :param _builtins.bool encrypted: Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
         :param _builtins.int iops: Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
-        :param _builtins.str kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+        :param _builtins.str kms_key_id: ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         :param Mapping[str, _builtins.str] tags: Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volume_tags` instead, which applies uniform tags to all volumes during instance creation.
         :param Mapping[str, _builtins.str] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param _builtins.int throughput: Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
@@ -18430,7 +18430,7 @@ class SpotInstanceRequestRootBlockDevice(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+        ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -20114,10 +20114,10 @@ class VpnConnectionTunnel1LogOptionsCloudwatchLogOptions(dict):
                  log_output_format: Optional[_builtins.str] = None):
         """
         :param _builtins.bool bgp_log_enabled: Enable or disable BGP logging feature. The default is `false`.
-        :param _builtins.str bgp_log_group_arn: The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+        :param _builtins.str bgp_log_group_arn: ARN of the CloudWatch log group to send BGP logs to.
         :param _builtins.str bgp_log_output_format: Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
         :param _builtins.bool log_enabled: Enable or disable VPN tunnel logging feature. The default is `false`.
-        :param _builtins.str log_group_arn: The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+        :param _builtins.str log_group_arn: ARN of the CloudWatch log group to send logs to.
         :param _builtins.str log_output_format: Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
         """
         if bgp_log_enabled is not None:
@@ -20145,7 +20145,7 @@ class VpnConnectionTunnel1LogOptionsCloudwatchLogOptions(dict):
     @pulumi.getter(name="bgpLogGroupArn")
     def bgp_log_group_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+        ARN of the CloudWatch log group to send BGP logs to.
         """
         return pulumi.get(self, "bgp_log_group_arn")
 
@@ -20169,7 +20169,7 @@ class VpnConnectionTunnel1LogOptionsCloudwatchLogOptions(dict):
     @pulumi.getter(name="logGroupArn")
     def log_group_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+        ARN of the CloudWatch log group to send logs to.
         """
         return pulumi.get(self, "log_group_arn")
 
@@ -20256,10 +20256,10 @@ class VpnConnectionTunnel2LogOptionsCloudwatchLogOptions(dict):
                  log_output_format: Optional[_builtins.str] = None):
         """
         :param _builtins.bool bgp_log_enabled: Enable or disable BGP logging feature. The default is `false`.
-        :param _builtins.str bgp_log_group_arn: The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+        :param _builtins.str bgp_log_group_arn: ARN of the CloudWatch log group to send BGP logs to.
         :param _builtins.str bgp_log_output_format: Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
         :param _builtins.bool log_enabled: Enable or disable VPN tunnel logging feature. The default is `false`.
-        :param _builtins.str log_group_arn: The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+        :param _builtins.str log_group_arn: ARN of the CloudWatch log group to send logs to.
         :param _builtins.str log_output_format: Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
         """
         if bgp_log_enabled is not None:
@@ -20287,7 +20287,7 @@ class VpnConnectionTunnel2LogOptionsCloudwatchLogOptions(dict):
     @pulumi.getter(name="bgpLogGroupArn")
     def bgp_log_group_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+        ARN of the CloudWatch log group to send BGP logs to.
         """
         return pulumi.get(self, "bgp_log_group_arn")
 
@@ -20311,7 +20311,7 @@ class VpnConnectionTunnel2LogOptionsCloudwatchLogOptions(dict):
     @pulumi.getter(name="logGroupArn")
     def log_group_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+        ARN of the CloudWatch log group to send logs to.
         """
         return pulumi.get(self, "log_group_arn")
 
@@ -20360,7 +20360,7 @@ class VpnConnectionVgwTelemetry(dict):
                  status_message: Optional[_builtins.str] = None):
         """
         :param _builtins.int accepted_route_count: The number of accepted routes.
-        :param _builtins.str certificate_arn: The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
+        :param _builtins.str certificate_arn: ARN of the VPN tunnel endpoint certificate.
         :param _builtins.str last_status_change: The date and time of the last change in status.
         :param _builtins.str outside_ip_address: The Internet-routable IP address of the virtual private gateway's outside interface.
         :param _builtins.str status: The status of the VPN tunnel.
@@ -20391,7 +20391,7 @@ class VpnConnectionVgwTelemetry(dict):
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
+        ARN of the VPN tunnel endpoint certificate.
         """
         return pulumi.get(self, "certificate_arn")
 
@@ -28185,9 +28185,8 @@ class GetVpcCidrBlockAssociationResult(dict):
                  state: _builtins.str):
         """
         :param _builtins.str association_id: Association ID for the IPv4 CIDR block.
-        :param _builtins.str cidr_block: Cidr block of the desired VPC.
-        :param _builtins.str state: Current state of the desired VPC.
-               Can be either `"pending"` or `"available"`.
+        :param _builtins.str cidr_block: CIDR block of the desired VPC.
+        :param _builtins.str state: Current state of the desired VPC. Can be either `"pending"` or `"available"`.
         """
         pulumi.set(__self__, "association_id", association_id)
         pulumi.set(__self__, "cidr_block", cidr_block)
@@ -28205,7 +28204,7 @@ class GetVpcCidrBlockAssociationResult(dict):
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> _builtins.str:
         """
-        Cidr block of the desired VPC.
+        CIDR block of the desired VPC.
         """
         return pulumi.get(self, "cidr_block")
 
@@ -28213,8 +28212,7 @@ class GetVpcCidrBlockAssociationResult(dict):
     @pulumi.getter
     def state(self) -> _builtins.str:
         """
-        Current state of the desired VPC.
-        Can be either `"pending"` or `"available"`.
+        Current state of the desired VPC. Can be either `"pending"` or `"available"`.
         """
         return pulumi.get(self, "state")
 
@@ -28400,10 +28398,8 @@ class GetVpcFilterResult(dict):
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
         """
-        :param _builtins.str name: Name of the field to filter by, as defined by
-               [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
-        :param Sequence[_builtins.str] values: Set of values that are accepted for the given field.
-               A VPC will be selected if any one of the given values matches.
+        :param _builtins.str name: Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
+        :param Sequence[_builtins.str] values: Set of values that are accepted for the given field. A VPC will be selected if any one of the given values matches.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -28412,8 +28408,7 @@ class GetVpcFilterResult(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Name of the field to filter by, as defined by
-        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
+        Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
         """
         return pulumi.get(self, "name")
 
@@ -28421,8 +28416,7 @@ class GetVpcFilterResult(dict):
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
         """
-        Set of values that are accepted for the given field.
-        A VPC will be selected if any one of the given values matches.
+        Set of values that are accepted for the given field. A VPC will be selected if any one of the given values matches.
         """
         return pulumi.get(self, "values")
 
@@ -29048,13 +29042,12 @@ class GetVpcIpv6CidrBlockAssociationResult(dict):
                  state: _builtins.str):
         """
         :param _builtins.str association_id: Association ID for the IPv4 CIDR block.
-        :param _builtins.str ip_source: The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
-        :param _builtins.str ipv6_address_attribute: Indicates whether the address is `public` or `private`.
+        :param _builtins.str ip_source: Source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
+        :param _builtins.str ipv6_address_attribute: Whether the address is `public` or `private`.
         :param _builtins.str ipv6_cidr_block: IPv6 CIDR block for the association.
         :param _builtins.str ipv6_pool: Name of IPv6 address pool from which the IPv6 CIDR block is allocated.
         :param _builtins.str network_border_group: Name of association's network border group.
-        :param _builtins.str state: Current state of the desired VPC.
-               Can be either `"pending"` or `"available"`.
+        :param _builtins.str state: Current state of the desired VPC. Can be either `"pending"` or `"available"`.
         """
         pulumi.set(__self__, "association_id", association_id)
         pulumi.set(__self__, "ip_source", ip_source)
@@ -29076,7 +29069,7 @@ class GetVpcIpv6CidrBlockAssociationResult(dict):
     @pulumi.getter(name="ipSource")
     def ip_source(self) -> _builtins.str:
         """
-        The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
+        Source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
         """
         return pulumi.get(self, "ip_source")
 
@@ -29084,7 +29077,7 @@ class GetVpcIpv6CidrBlockAssociationResult(dict):
     @pulumi.getter(name="ipv6AddressAttribute")
     def ipv6_address_attribute(self) -> _builtins.str:
         """
-        Indicates whether the address is `public` or `private`.
+        Whether the address is `public` or `private`.
         """
         return pulumi.get(self, "ipv6_address_attribute")
 
@@ -29116,8 +29109,7 @@ class GetVpcIpv6CidrBlockAssociationResult(dict):
     @pulumi.getter
     def state(self) -> _builtins.str:
         """
-        Current state of the desired VPC.
-        Can be either `"pending"` or `"available"`.
+        Current state of the desired VPC. Can be either `"pending"` or `"available"`.
         """
         return pulumi.get(self, "state")
 

@@ -73,7 +73,7 @@ export class ParameterGroup extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of parameter group
+     * ARN of parameter group
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -152,7 +152,7 @@ export class ParameterGroup extends pulumi.CustomResource {
  */
 export interface ParameterGroupState {
     /**
-     * Amazon Resource Name (ARN) of parameter group
+     * ARN of parameter group
      */
     arn?: pulumi.Input<string | undefined>;
     /**

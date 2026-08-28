@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PlanStageTargetContactTargetInfo {
     /**
-     * @return The Amazon Resource Name (ARN) of the contact.
+     * @return The ARN of the contact.
      * 
      */
     private @Nullable String contactId;
@@ -26,7 +26,7 @@ public final class PlanStageTargetContactTargetInfo {
 
     private PlanStageTargetContactTargetInfo() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the contact.
+     * @return The ARN of the contact.
      * 
      */
     public Optional<String> contactId() {

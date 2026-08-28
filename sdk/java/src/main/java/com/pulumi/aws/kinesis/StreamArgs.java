@@ -21,14 +21,14 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
     public static final StreamArgs Empty = new StreamArgs();
 
     /**
-     * The Amazon Resource Name (ARN) specifying the stream (same as `id`).
+     * ARN specifying the stream (same as `id`).
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) specifying the stream (same as `id`).
+     * @return ARN specifying the stream (same as `id`).
      * 
      */
     public Optional<Output<String>> arn() {
@@ -252,7 +252,7 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) specifying the stream (same as `id`).
+         * @param arn ARN specifying the stream (same as `id`).
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) specifying the stream (same as `id`).
+         * @param arn ARN specifying the stream (same as `id`).
          * 
          * @return builder
          * 

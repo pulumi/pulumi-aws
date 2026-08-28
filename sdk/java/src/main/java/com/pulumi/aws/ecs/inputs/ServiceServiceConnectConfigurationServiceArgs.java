@@ -97,14 +97,14 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
     }
 
     /**
-     * Configuration for enabling Transport Layer Security (TLS)
+     * Configuration for enabling TLS
      * 
      */
     @Import(name="tls")
     private @Nullable Output<ServiceServiceConnectConfigurationServiceTlsArgs> tls;
 
     /**
-     * @return Configuration for enabling Transport Layer Security (TLS)
+     * @return Configuration for enabling TLS
      * 
      */
     public Optional<Output<ServiceServiceConnectConfigurationServiceTlsArgs>> tls() {
@@ -256,7 +256,7 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
         }
 
         /**
-         * @param tls Configuration for enabling Transport Layer Security (TLS)
+         * @param tls Configuration for enabling TLS
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
         }
 
         /**
-         * @param tls Configuration for enabling Transport Layer Security (TLS)
+         * @param tls Configuration for enabling TLS
          * 
          * @return builder
          * 

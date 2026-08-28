@@ -78,7 +78,7 @@ class SearchResourceResult(dict):
                  resource_type: _builtins.str,
                  service: _builtins.str):
         """
-        :param _builtins.str arn: Amazon resource name of resource.
+        :param _builtins.str arn: ARN of resource.
         :param _builtins.str last_reported_at: The date and time that the information about this resource property was last updated.
         :param _builtins.str owning_account_id: Amazon Web Services account that owns the resource.
         :param Sequence['SearchResourcePropertyArgs'] properties: Structure with additional type-specific details about the resource.  See `properties` below.
@@ -98,7 +98,7 @@ class SearchResourceResult(dict):
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        Amazon resource name of resource.
+        ARN of resource.
         """
         return pulumi.get(self, "arn")
 

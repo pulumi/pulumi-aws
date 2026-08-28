@@ -54,11 +54,11 @@ export class ExternalKey extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the key.
+     * ARN of the key.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
+     * Whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the KMS Developer Guide. Defaults to `false`.
      */
     declare public readonly bypassPolicyLockoutSafetyCheck: pulumi.Output<boolean | undefined>;
     /**
@@ -178,11 +178,11 @@ export class ExternalKey extends pulumi.CustomResource {
  */
 export interface ExternalKeyState {
     /**
-     * The Amazon Resource Name (ARN) of the key.
+     * ARN of the key.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
+     * Whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the KMS Developer Guide. Defaults to `false`.
      */
     bypassPolicyLockoutSafetyCheck?: pulumi.Input<boolean | undefined>;
     /**
@@ -248,7 +248,7 @@ export interface ExternalKeyState {
  */
 export interface ExternalKeyArgs {
     /**
-     * Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
+     * Whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the KMS Developer Guide. Defaults to `false`.
      */
     bypassPolicyLockoutSafetyCheck?: pulumi.Input<boolean | undefined>;
     /**

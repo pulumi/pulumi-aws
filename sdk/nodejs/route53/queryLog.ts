@@ -89,7 +89,7 @@ export class QueryLog extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Query Logging Config.
+     * ARN of the Query Logging Config.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -139,7 +139,7 @@ export class QueryLog extends pulumi.CustomResource {
  */
 export interface QueryLogState {
     /**
-     * The Amazon Resource Name (ARN) of the Query Logging Config.
+     * ARN of the Query Logging Config.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

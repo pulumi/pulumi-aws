@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Msk.Inputs
         private InputList<string>? _certificateAuthorityArns;
 
         /// <summary>
-        /// List of ACM Certificate Authority Amazon Resource Names (ARNs).
+        /// List of ACM Certificate Authority ARNs.
         /// </summary>
         public InputList<string> CertificateAuthorityArns
         {

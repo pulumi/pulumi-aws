@@ -33,10 +33,10 @@ class ListenerRuleArgs:
         The set of arguments for constructing a ListenerRule resource.
 
         :param pulumi.Input['ListenerRuleActionArgs'] action: Action for the listener rule. See `action` Block for details.
-        :param pulumi.Input[_builtins.str] listener_identifier: ID or Amazon Resource Name (ARN) of the listener.
+        :param pulumi.Input[_builtins.str] listener_identifier: ID or ARN of the listener.
         :param pulumi.Input['ListenerRuleMatchArgs'] match: Rule match. See `match` Block for details.
         :param pulumi.Input[_builtins.int] priority: Priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
-        :param pulumi.Input[_builtins.str] service_identifier: ID or Amazon Resource Name (ARN) of the service.
+        :param pulumi.Input[_builtins.str] service_identifier: ID or ARN of the service.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] name: Name of the rule. Must be unique within the listener. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
@@ -71,7 +71,7 @@ class ListenerRuleArgs:
     @pulumi.getter(name="listenerIdentifier")
     def listener_identifier(self) -> pulumi.Input[_builtins.str]:
         """
-        ID or Amazon Resource Name (ARN) of the listener.
+        ID or ARN of the listener.
         """
         return pulumi.get(self, "listener_identifier")
 
@@ -107,7 +107,7 @@ class ListenerRuleArgs:
     @pulumi.getter(name="serviceIdentifier")
     def service_identifier(self) -> pulumi.Input[_builtins.str]:
         """
-        ID or Amazon Resource Name (ARN) of the service.
+        ID or ARN of the service.
 
         The following arguments are optional:
         """
@@ -173,13 +173,13 @@ class _ListenerRuleState:
 
         :param pulumi.Input['ListenerRuleActionArgs'] action: Action for the listener rule. See `action` Block for details.
         :param pulumi.Input[_builtins.str] arn: ARN for the listener rule.
-        :param pulumi.Input[_builtins.str] listener_identifier: ID or Amazon Resource Name (ARN) of the listener.
+        :param pulumi.Input[_builtins.str] listener_identifier: ID or ARN of the listener.
         :param pulumi.Input['ListenerRuleMatchArgs'] match: Rule match. See `match` Block for details.
         :param pulumi.Input[_builtins.str] name: Name of the rule. Must be unique within the listener. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[_builtins.int] priority: Priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] rule_id: Unique identifier for the listener rule.
-        :param pulumi.Input[_builtins.str] service_identifier: ID or Amazon Resource Name (ARN) of the service.
+        :param pulumi.Input[_builtins.str] service_identifier: ID or ARN of the service.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -236,7 +236,7 @@ class _ListenerRuleState:
     @pulumi.getter(name="listenerIdentifier")
     def listener_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ID or Amazon Resource Name (ARN) of the listener.
+        ID or ARN of the listener.
         """
         return pulumi.get(self, "listener_identifier")
 
@@ -308,7 +308,7 @@ class _ListenerRuleState:
     @pulumi.getter(name="serviceIdentifier")
     def service_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ID or Amazon Resource Name (ARN) of the service.
+        ID or ARN of the service.
 
         The following arguments are optional:
         """
@@ -445,12 +445,12 @@ class ListenerRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict']] action: Action for the listener rule. See `action` Block for details.
-        :param pulumi.Input[_builtins.str] listener_identifier: ID or Amazon Resource Name (ARN) of the listener.
+        :param pulumi.Input[_builtins.str] listener_identifier: ID or ARN of the listener.
         :param pulumi.Input[Union['ListenerRuleMatchArgs', 'ListenerRuleMatchArgsDict']] match: Rule match. See `match` Block for details.
         :param pulumi.Input[_builtins.str] name: Name of the rule. Must be unique within the listener. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[_builtins.int] priority: Priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] service_identifier: ID or Amazon Resource Name (ARN) of the service.
+        :param pulumi.Input[_builtins.str] service_identifier: ID or ARN of the service.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -628,13 +628,13 @@ class ListenerRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict']] action: Action for the listener rule. See `action` Block for details.
         :param pulumi.Input[_builtins.str] arn: ARN for the listener rule.
-        :param pulumi.Input[_builtins.str] listener_identifier: ID or Amazon Resource Name (ARN) of the listener.
+        :param pulumi.Input[_builtins.str] listener_identifier: ID or ARN of the listener.
         :param pulumi.Input[Union['ListenerRuleMatchArgs', 'ListenerRuleMatchArgsDict']] match: Rule match. See `match` Block for details.
         :param pulumi.Input[_builtins.str] name: Name of the rule. Must be unique within the listener. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[_builtins.int] priority: Priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] rule_id: Unique identifier for the listener rule.
-        :param pulumi.Input[_builtins.str] service_identifier: ID or Amazon Resource Name (ARN) of the service.
+        :param pulumi.Input[_builtins.str] service_identifier: ID or ARN of the service.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -677,7 +677,7 @@ class ListenerRule(pulumi.CustomResource):
     @pulumi.getter(name="listenerIdentifier")
     def listener_identifier(self) -> pulumi.Output[_builtins.str]:
         """
-        ID or Amazon Resource Name (ARN) of the listener.
+        ID or ARN of the listener.
         """
         return pulumi.get(self, "listener_identifier")
 
@@ -725,7 +725,7 @@ class ListenerRule(pulumi.CustomResource):
     @pulumi.getter(name="serviceIdentifier")
     def service_identifier(self) -> pulumi.Output[_builtins.str]:
         """
-        ID or Amazon Resource Name (ARN) of the service.
+        ID or ARN of the service.
 
         The following arguments are optional:
         """

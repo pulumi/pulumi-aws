@@ -219,7 +219,7 @@ type VpcIpamPool struct {
 	AllocationMinNetmaskLength pulumi.IntPtrOutput `pulumi:"allocationMinNetmaskLength"`
 	// Tags that are required for resources that use CIDRs from this IPAM pool. Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
 	AllocationResourceTags pulumi.StringMapOutput `pulumi:"allocationResourceTags"`
-	// Amazon Resource Name (ARN) of IPAM
+	// ARN of IPAM
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
 	// within the CIDR range in the pool.
@@ -300,7 +300,7 @@ type vpcIpamPoolState struct {
 	AllocationMinNetmaskLength *int `pulumi:"allocationMinNetmaskLength"`
 	// Tags that are required for resources that use CIDRs from this IPAM pool. Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
 	AllocationResourceTags map[string]string `pulumi:"allocationResourceTags"`
-	// Amazon Resource Name (ARN) of IPAM
+	// ARN of IPAM
 	Arn *string `pulumi:"arn"`
 	// If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
 	// within the CIDR range in the pool.
@@ -346,7 +346,7 @@ type VpcIpamPoolState struct {
 	AllocationMinNetmaskLength pulumi.IntPtrInput
 	// Tags that are required for resources that use CIDRs from this IPAM pool. Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
 	AllocationResourceTags pulumi.StringMapInput
-	// Amazon Resource Name (ARN) of IPAM
+	// ARN of IPAM
 	Arn pulumi.StringPtrInput
 	// If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
 	// within the CIDR range in the pool.
@@ -574,7 +574,7 @@ func (o VpcIpamPoolOutput) AllocationResourceTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcIpamPool) pulumi.StringMapOutput { return v.AllocationResourceTags }).(pulumi.StringMapOutput)
 }
 
-// Amazon Resource Name (ARN) of IPAM
+// ARN of IPAM
 func (o VpcIpamPoolOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamPool) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

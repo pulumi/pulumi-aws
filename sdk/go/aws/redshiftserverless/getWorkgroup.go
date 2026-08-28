@@ -60,11 +60,11 @@ type LookupWorkgroupArgs struct {
 
 // A collection of values returned by getWorkgroup.
 type LookupWorkgroupResult struct {
-	// Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+	// ARN of the Redshift Serverless Workgroup.
 	Arn string `pulumi:"arn"`
 	// The endpoint that is created from the workgroup. See `Endpoint` below.
 	Endpoints []GetWorkgroupEndpoint `pulumi:"endpoints"`
-	// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+	// Value that specifies whether to turn on enhanced VPC routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
 	EnhancedVpcRouting bool `pulumi:"enhancedVpcRouting"`
 	// The provider-assigned unique ID for this managed resource.
 	Id            string `pulumi:"id"`
@@ -115,7 +115,7 @@ func (o LookupWorkgroupResultOutput) ToLookupWorkgroupResultOutputWithContext(ct
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+// ARN of the Redshift Serverless Workgroup.
 func (o LookupWorkgroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkgroupResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -125,7 +125,7 @@ func (o LookupWorkgroupResultOutput) Endpoints() GetWorkgroupEndpointArrayOutput
 	return o.ApplyT(func(v LookupWorkgroupResult) []GetWorkgroupEndpoint { return v.Endpoints }).(GetWorkgroupEndpointArrayOutput)
 }
 
-// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+// Value that specifies whether to turn on enhanced VPC routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
 func (o LookupWorkgroupResultOutput) EnhancedVpcRouting() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupWorkgroupResult) bool { return v.EnhancedVpcRouting }).(pulumi.BoolOutput)
 }

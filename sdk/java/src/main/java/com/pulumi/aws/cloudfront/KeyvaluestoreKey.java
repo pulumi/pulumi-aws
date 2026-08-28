@@ -100,14 +100,14 @@ public class KeyvaluestoreKey extends com.pulumi.resources.CustomResource {
         return this.key;
     }
     /**
-     * Amazon Resource Name (ARN) of the Key Value Store.
+     * ARN of the Key Value Store.
      * 
      */
     @Export(name="keyValueStoreArn", refs={String.class}, tree="[0]")
     private Output<String> keyValueStoreArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Key Value Store.
+     * @return ARN of the Key Value Store.
      * 
      */
     public Output<String> keyValueStoreArn() {

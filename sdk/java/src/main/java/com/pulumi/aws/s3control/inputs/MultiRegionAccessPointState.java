@@ -47,14 +47,14 @@ public final class MultiRegionAccessPointState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Multi-Region Access Point.
+     * ARN of the Multi-Region Access Point.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Multi-Region Access Point.
+     * @return ARN of the Multi-Region Access Point.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -210,7 +210,7 @@ public final class MultiRegionAccessPointState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Multi-Region Access Point.
+         * @param arn ARN of the Multi-Region Access Point.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class MultiRegionAccessPointState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Multi-Region Access Point.
+         * @param arn ARN of the Multi-Region Access Point.
          * 
          * @return builder
          * 

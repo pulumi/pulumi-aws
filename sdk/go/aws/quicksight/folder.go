@@ -148,7 +148,7 @@ type Folder struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
+	// ARN for the parent folder. If not set, creates a root-level folder.
 	ParentFolderArn pulumi.StringPtrOutput `pulumi:"parentFolderArn"`
 	// A set of resource permissions on the folder. Maximum of 64 items. See permissions.
 	Permissions FolderPermissionArrayOutput `pulumi:"permissions"`
@@ -211,7 +211,7 @@ type folderState struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
+	// ARN for the parent folder. If not set, creates a root-level folder.
 	ParentFolderArn *string `pulumi:"parentFolderArn"`
 	// A set of resource permissions on the folder. Maximum of 64 items. See permissions.
 	Permissions []FolderPermission `pulumi:"permissions"`
@@ -242,7 +242,7 @@ type FolderState struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
+	// ARN for the parent folder. If not set, creates a root-level folder.
 	ParentFolderArn pulumi.StringPtrInput
 	// A set of resource permissions on the folder. Maximum of 64 items. See permissions.
 	Permissions FolderPermissionArrayInput
@@ -269,7 +269,7 @@ type folderArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
+	// ARN for the parent folder. If not set, creates a root-level folder.
 	ParentFolderArn *string `pulumi:"parentFolderArn"`
 	// A set of resource permissions on the folder. Maximum of 64 items. See permissions.
 	Permissions []FolderPermission `pulumi:"permissions"`
@@ -291,7 +291,7 @@ type FolderArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
+	// ARN for the parent folder. If not set, creates a root-level folder.
 	ParentFolderArn pulumi.StringPtrInput
 	// A set of resource permissions on the folder. Maximum of 64 items. See permissions.
 	Permissions FolderPermissionArrayInput
@@ -430,7 +430,7 @@ func (o FolderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Folder) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
+// ARN for the parent folder. If not set, creates a root-level folder.
 func (o FolderOutput) ParentFolderArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Folder) pulumi.StringPtrOutput { return v.ParentFolderArn }).(pulumi.StringPtrOutput)
 }

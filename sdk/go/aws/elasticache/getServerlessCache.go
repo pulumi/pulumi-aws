@@ -58,7 +58,7 @@ type LookupServerlessCacheArgs struct {
 
 // A collection of values returned by getServerlessCache.
 type LookupServerlessCacheResult struct {
-	// The Amazon Resource Name (ARN) of the serverless cache.
+	// ARN of the serverless cache.
 	Arn string `pulumi:"arn"`
 	// The cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
 	CacheUsageLimits GetServerlessCacheCacheUsageLimits `pulumi:"cacheUsageLimits"`
@@ -126,7 +126,7 @@ func (o LookupServerlessCacheResultOutput) ToLookupServerlessCacheResultOutputWi
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the serverless cache.
+// ARN of the serverless cache.
 func (o LookupServerlessCacheResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) string { return v.Arn }).(pulumi.StringOutput)
 }

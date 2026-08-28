@@ -145,7 +145,7 @@ namespace Pulumi.Aws.CodePipeline
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the CodePipeline webhook.
+    /// - `Arn` (String) ARN of the CodePipeline webhook.
     /// 
     /// Using `pulumi import`, import CodePipeline Webhooks using their ARN. For example:
     /// 

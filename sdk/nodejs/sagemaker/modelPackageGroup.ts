@@ -55,7 +55,7 @@ export class ModelPackageGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
+     * ARN assigned by AWS to this Model Package Group.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -120,7 +120,7 @@ export class ModelPackageGroup extends pulumi.CustomResource {
  */
 export interface ModelPackageGroupState {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
+     * ARN assigned by AWS to this Model Package Group.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

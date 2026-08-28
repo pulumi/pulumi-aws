@@ -103,14 +103,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition")
 public class DataQualityJobDefinition extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
+     * ARN assigned by AWS to this data quality job definition.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
+     * @return ARN assigned by AWS to this data quality job definition.
      * 
      */
     public Output<String> arn() {
@@ -229,14 +229,14 @@ public class DataQualityJobDefinition extends com.pulumi.resources.CustomResourc
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
+     * ARN of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
+     * @return ARN of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
      * 
      */
     public Output<String> roleArn() {

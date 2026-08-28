@@ -18,14 +18,14 @@ public final class CloudFormationTypeState extends com.pulumi.resources.Resource
     public static final CloudFormationTypeState Empty = new CloudFormationTypeState();
 
     /**
-     * (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `typeArn`.
+     * (Optional) ARN of the CloudFormation Type version. See also `typeArn`.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `typeArn`.
+     * @return (Optional) ARN of the CloudFormation Type version. See also `typeArn`.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -93,14 +93,14 @@ public final class CloudFormationTypeState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
+     * ARN of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
      * 
      */
     @Import(name="executionRoleArn")
     private @Nullable Output<String> executionRoleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
+     * @return ARN of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
      * 
      */
     public Optional<Output<String>> executionRoleArn() {
@@ -228,14 +228,14 @@ public final class CloudFormationTypeState extends com.pulumi.resources.Resource
     }
 
     /**
-     * (Optional) Amazon Resource Name (ARN) of the CloudFormation Type. See also `arn`.
+     * (Optional) ARN of the CloudFormation Type. See also `arn`.
      * 
      */
     @Import(name="typeArn")
     private @Nullable Output<String> typeArn;
 
     /**
-     * @return (Optional) Amazon Resource Name (ARN) of the CloudFormation Type. See also `arn`.
+     * @return (Optional) ARN of the CloudFormation Type. See also `arn`.
      * 
      */
     public Optional<Output<String>> typeArn() {
@@ -329,7 +329,7 @@ public final class CloudFormationTypeState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arn (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `typeArn`.
+         * @param arn (Optional) ARN of the CloudFormation Type version. See also `typeArn`.
          * 
          * @return builder
          * 
@@ -340,7 +340,7 @@ public final class CloudFormationTypeState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arn (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `typeArn`.
+         * @param arn (Optional) ARN of the CloudFormation Type version. See also `typeArn`.
          * 
          * @return builder
          * 
@@ -434,7 +434,7 @@ public final class CloudFormationTypeState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param executionRoleArn Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
+         * @param executionRoleArn ARN of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
          * 
          * @return builder
          * 
@@ -445,7 +445,7 @@ public final class CloudFormationTypeState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param executionRoleArn Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
+         * @param executionRoleArn ARN of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
          * 
          * @return builder
          * 
@@ -623,7 +623,7 @@ public final class CloudFormationTypeState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param typeArn (Optional) Amazon Resource Name (ARN) of the CloudFormation Type. See also `arn`.
+         * @param typeArn (Optional) ARN of the CloudFormation Type. See also `arn`.
          * 
          * @return builder
          * 
@@ -634,7 +634,7 @@ public final class CloudFormationTypeState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param typeArn (Optional) Amazon Resource Name (ARN) of the CloudFormation Type. See also `arn`.
+         * @param typeArn (Optional) ARN of the CloudFormation Type. See also `arn`.
          * 
          * @return builder
          * 

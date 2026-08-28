@@ -62,7 +62,7 @@ type LookupResolverFirewallRuleGroupAssociationArgs struct {
 
 // A collection of values returned by getResolverFirewallRuleGroupAssociation.
 type LookupResolverFirewallRuleGroupAssociationResult struct {
-	// The Amazon Resource Name (ARN) of the firewall rule group association.
+	// ARN of the firewall rule group association.
 	Arn string `pulumi:"arn"`
 	// The date and time that the association was created, in Unix time format and Coordinated Universal Time (UTC).
 	CreationTime string `pulumi:"creationTime"`
@@ -124,7 +124,7 @@ func (o LookupResolverFirewallRuleGroupAssociationResultOutput) ToLookupResolver
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the firewall rule group association.
+// ARN of the firewall rule group association.
 func (o LookupResolverFirewallRuleGroupAssociationResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) string { return v.Arn }).(pulumi.StringOutput)
 }

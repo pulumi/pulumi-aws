@@ -120,14 +120,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cloudwatch/eventRule:EventRule")
 public class EventRule extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the rule.
+     * ARN of the rule.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the rule.
+     * @return ARN of the rule.
      * 
      */
     public Output<String> arn() {
@@ -250,14 +250,14 @@ public class EventRule extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
+     * ARN associated with the role that is used for target invocation.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
+     * @return ARN associated with the role that is used for target invocation.
      * 
      */
     public Output<Optional<String>> roleArn() {

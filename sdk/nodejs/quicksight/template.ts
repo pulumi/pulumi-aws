@@ -165,7 +165,7 @@ export class Template extends pulumi.CustomResource {
      */
     declare public readonly sourceEntity: pulumi.Output<outputs.quicksight.TemplateSourceEntity | undefined>;
     /**
-     * Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
+     * ARN of an analysis or template that was used to create this template.
      */
     declare public /*out*/ readonly sourceEntityArn: pulumi.Output<string>;
     /**
@@ -289,7 +289,7 @@ export interface TemplateState {
      */
     sourceEntity?: pulumi.Input<inputs.quicksight.TemplateSourceEntity | undefined>;
     /**
-     * Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
+     * ARN of an analysis or template that was used to create this template.
      */
     sourceEntityArn?: pulumi.Input<string | undefined>;
     /**

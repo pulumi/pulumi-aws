@@ -114,7 +114,7 @@ import (
 type Workforce struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
+	// ARN assigned by AWS to this Workforce.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidcConfig`. see Cognito Config details below.
 	CognitoConfig WorkforceCognitoConfigPtrOutput `pulumi:"cognitoConfig"`
@@ -165,7 +165,7 @@ func GetWorkforce(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workforce resources.
 type workforceState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
+	// ARN assigned by AWS to this Workforce.
 	Arn *string `pulumi:"arn"`
 	// Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidcConfig`. see Cognito Config details below.
 	CognitoConfig *WorkforceCognitoConfig `pulumi:"cognitoConfig"`
@@ -184,7 +184,7 @@ type workforceState struct {
 }
 
 type WorkforceState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
+	// ARN assigned by AWS to this Workforce.
 	Arn pulumi.StringPtrInput
 	// Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidcConfig`. see Cognito Config details below.
 	CognitoConfig WorkforceCognitoConfigPtrInput
@@ -324,7 +324,7 @@ func (o WorkforceOutput) ToWorkforceOutputWithContext(ctx context.Context) Workf
 	return o
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
+// ARN assigned by AWS to this Workforce.
 func (o WorkforceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workforce) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

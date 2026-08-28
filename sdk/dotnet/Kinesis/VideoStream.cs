@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Kinesis
     public partial class VideoStream : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the Stream (same as `Id`)
+        /// ARN specifying the Stream (same as `Id`)
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -75,7 +75,7 @@ namespace Pulumi.Aws.Kinesis
         public Output<string?> DeviceName { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
+        /// ID of the KMS key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
@@ -176,7 +176,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? DeviceName { get; set; }
 
         /// <summary>
-        /// The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
+        /// ID of the KMS key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class VideoStreamState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the Stream (same as `Id`)
+        /// ARN specifying the Stream (same as `Id`)
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -245,7 +245,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? DeviceName { get; set; }
 
         /// <summary>
-        /// The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
+        /// ID of the KMS key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }

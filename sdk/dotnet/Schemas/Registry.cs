@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Schemas
     public partial class Registry : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the discoverer.
+        /// ARN of the discoverer.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.Schemas
     public sealed class RegistryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the discoverer.
+        /// ARN of the discoverer.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

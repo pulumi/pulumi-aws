@@ -356,7 +356,7 @@ class Channel(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the IVS channel.
+        - `arn` (String) ARN of the IVS channel.
 
         Using `pulumi import`, import IVS (Interactive Video) Channel using the ARN. For example:
 
@@ -401,7 +401,7 @@ class Channel(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the IVS channel.
+        - `arn` (String) ARN of the IVS channel.
 
         Using `pulumi import`, import IVS (Interactive Video) Channel using the ARN. For example:
 

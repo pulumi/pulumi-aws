@@ -280,7 +280,7 @@ func (o BotAbortStatementMessageArrayOutput) Index(i pulumi.IntInput) BotAbortSt
 }
 
 type BotAliasConversationLogs struct {
-	// The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
+	// ARN of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
 	IamRoleArn string `pulumi:"iamRoleArn"`
 	// The settings for your conversation logs. You can log text, audio, or both. Attributes are documented under log_settings.
 	LogSettings []BotAliasConversationLogsLogSetting `pulumi:"logSettings"`
@@ -298,7 +298,7 @@ type BotAliasConversationLogsInput interface {
 }
 
 type BotAliasConversationLogsArgs struct {
-	// The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
+	// ARN of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
 	IamRoleArn pulumi.StringInput `pulumi:"iamRoleArn"`
 	// The settings for your conversation logs. You can log text, audio, or both. Attributes are documented under log_settings.
 	LogSettings BotAliasConversationLogsLogSettingArrayInput `pulumi:"logSettings"`
@@ -381,7 +381,7 @@ func (o BotAliasConversationLogsOutput) ToBotAliasConversationLogsPtrOutputWithC
 	}).(BotAliasConversationLogsPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
+// ARN of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
 func (o BotAliasConversationLogsOutput) IamRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v BotAliasConversationLogs) string { return v.IamRoleArn }).(pulumi.StringOutput)
 }
@@ -415,7 +415,7 @@ func (o BotAliasConversationLogsPtrOutput) Elem() BotAliasConversationLogsOutput
 	}).(BotAliasConversationLogsOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
+// ARN of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
 func (o BotAliasConversationLogsPtrOutput) IamRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotAliasConversationLogs) *string {
 		if v == nil {
@@ -438,11 +438,11 @@ func (o BotAliasConversationLogsPtrOutput) LogSettings() BotAliasConversationLog
 type BotAliasConversationLogsLogSetting struct {
 	// The destination where logs are delivered. Options are `CLOUDWATCH_LOGS` or `S3`.
 	Destination string `pulumi:"destination"`
-	// The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
+	// ARN of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The type of logging that is enabled. Options are `AUDIO` or `TEXT`.
 	LogType string `pulumi:"logType"`
-	// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered. Must be less than or equal to 2048 characters in length.
+	// ARN of the CloudWatch Logs log group or S3 bucket where the logs are delivered. Must be less than or equal to 2048 characters in length.
 	ResourceArn string `pulumi:"resourceArn"`
 	// The prefix of the S3 object key for `AUDIO` logs or the log stream name for `TEXT` logs.
 	ResourcePrefix *string `pulumi:"resourcePrefix"`
@@ -462,11 +462,11 @@ type BotAliasConversationLogsLogSettingInput interface {
 type BotAliasConversationLogsLogSettingArgs struct {
 	// The destination where logs are delivered. Options are `CLOUDWATCH_LOGS` or `S3`.
 	Destination pulumi.StringInput `pulumi:"destination"`
-	// The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
+	// ARN of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 	// The type of logging that is enabled. Options are `AUDIO` or `TEXT`.
 	LogType pulumi.StringInput `pulumi:"logType"`
-	// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered. Must be less than or equal to 2048 characters in length.
+	// ARN of the CloudWatch Logs log group or S3 bucket where the logs are delivered. Must be less than or equal to 2048 characters in length.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 	// The prefix of the S3 object key for `AUDIO` logs or the log stream name for `TEXT` logs.
 	ResourcePrefix pulumi.StringPtrInput `pulumi:"resourcePrefix"`
@@ -528,7 +528,7 @@ func (o BotAliasConversationLogsLogSettingOutput) Destination() pulumi.StringOut
 	return o.ApplyT(func(v BotAliasConversationLogsLogSetting) string { return v.Destination }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
+// ARN of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
 func (o BotAliasConversationLogsLogSettingOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotAliasConversationLogsLogSetting) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -538,7 +538,7 @@ func (o BotAliasConversationLogsLogSettingOutput) LogType() pulumi.StringOutput 
 	return o.ApplyT(func(v BotAliasConversationLogsLogSetting) string { return v.LogType }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered. Must be less than or equal to 2048 characters in length.
+// ARN of the CloudWatch Logs log group or S3 bucket where the logs are delivered. Must be less than or equal to 2048 characters in length.
 func (o BotAliasConversationLogsLogSettingOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v BotAliasConversationLogsLogSetting) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
@@ -1515,7 +1515,7 @@ type IntentDialogCodeHook struct {
 	// to invoke your Lambda function. For more information, see
 	// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
 	MessageVersion string `pulumi:"messageVersion"`
-	// The Amazon Resource Name (ARN) of the Lambda function.
+	// ARN of the Lambda function.
 	Uri string `pulumi:"uri"`
 }
 
@@ -1535,7 +1535,7 @@ type IntentDialogCodeHookArgs struct {
 	// to invoke your Lambda function. For more information, see
 	// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
 	MessageVersion pulumi.StringInput `pulumi:"messageVersion"`
-	// The Amazon Resource Name (ARN) of the Lambda function.
+	// ARN of the Lambda function.
 	Uri pulumi.StringInput `pulumi:"uri"`
 }
 
@@ -1623,7 +1623,7 @@ func (o IntentDialogCodeHookOutput) MessageVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v IntentDialogCodeHook) string { return v.MessageVersion }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lambda function.
+// ARN of the Lambda function.
 func (o IntentDialogCodeHookOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v IntentDialogCodeHook) string { return v.Uri }).(pulumi.StringOutput)
 }
@@ -1664,7 +1664,7 @@ func (o IntentDialogCodeHookPtrOutput) MessageVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lambda function.
+// ARN of the Lambda function.
 func (o IntentDialogCodeHookPtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntentDialogCodeHook) *string {
 		if v == nil {
@@ -2584,7 +2584,7 @@ type IntentFulfillmentActivityCodeHook struct {
 	// to invoke your Lambda function. For more information, see
 	// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
 	MessageVersion string `pulumi:"messageVersion"`
-	// The Amazon Resource Name (ARN) of the Lambda function.
+	// ARN of the Lambda function.
 	Uri string `pulumi:"uri"`
 }
 
@@ -2604,7 +2604,7 @@ type IntentFulfillmentActivityCodeHookArgs struct {
 	// to invoke your Lambda function. For more information, see
 	// [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
 	MessageVersion pulumi.StringInput `pulumi:"messageVersion"`
-	// The Amazon Resource Name (ARN) of the Lambda function.
+	// ARN of the Lambda function.
 	Uri pulumi.StringInput `pulumi:"uri"`
 }
 
@@ -2692,7 +2692,7 @@ func (o IntentFulfillmentActivityCodeHookOutput) MessageVersion() pulumi.StringO
 	return o.ApplyT(func(v IntentFulfillmentActivityCodeHook) string { return v.MessageVersion }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lambda function.
+// ARN of the Lambda function.
 func (o IntentFulfillmentActivityCodeHookOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v IntentFulfillmentActivityCodeHook) string { return v.Uri }).(pulumi.StringOutput)
 }
@@ -2733,7 +2733,7 @@ func (o IntentFulfillmentActivityCodeHookPtrOutput) MessageVersion() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lambda function.
+// ARN of the Lambda function.
 func (o IntentFulfillmentActivityCodeHookPtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntentFulfillmentActivityCodeHook) *string {
 		if v == nil {

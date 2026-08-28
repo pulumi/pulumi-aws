@@ -81,9 +81,9 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Image Builder infrastructure configuration.
+ * - `arn` (String) ARN of the Image Builder infrastructure configuration.
  * 
- * Using `pulumi import`, import `aws.imagebuilder.InfrastructureConfiguration` using the Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.imagebuilder.InfrastructureConfiguration` using the ARN. For example:
  * 
  * ```sh
  * $ pulumi import aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
@@ -93,14 +93,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration")
 public class InfrastructureConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the configuration.
+     * ARN of the configuration.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the configuration.
+     * @return ARN of the configuration.
      * 
      */
     public Output<String> arn() {
@@ -293,14 +293,14 @@ public class InfrastructureConfiguration extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.securityGroupIds);
     }
     /**
-     * Amazon Resource Name (ARN) of SNS Topic.
+     * ARN of SNS Topic.
      * 
      */
     @Export(name="snsTopicArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> snsTopicArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of SNS Topic.
+     * @return ARN of SNS Topic.
      * 
      */
     public Output<Optional<String>> snsTopicArn() {

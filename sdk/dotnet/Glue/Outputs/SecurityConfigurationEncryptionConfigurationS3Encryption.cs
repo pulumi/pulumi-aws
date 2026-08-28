@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class SecurityConfigurationEncryptionConfigurationS3Encryption
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        /// ARN of the KMS key to be used to encrypt the data.
         /// </summary>
         public readonly string? KmsKeyArn;
         /// <summary>

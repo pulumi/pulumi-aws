@@ -17,14 +17,14 @@ public final class CustomDbEngineVersionState extends com.pulumi.resources.Resou
     public static final CustomDbEngineVersionState Empty = new CustomDbEngineVersionState();
 
     /**
-     * The Amazon Resource Name (ARN) for the custom engine version.
+     * ARN for the custom engine version.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the custom engine version.
+     * @return ARN for the custom engine version.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -360,7 +360,7 @@ public final class CustomDbEngineVersionState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) for the custom engine version.
+         * @param arn ARN for the custom engine version.
          * 
          * @return builder
          * 
@@ -371,7 +371,7 @@ public final class CustomDbEngineVersionState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) for the custom engine version.
+         * @param arn ARN for the custom engine version.
          * 
          * @return builder
          * 

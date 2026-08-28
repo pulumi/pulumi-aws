@@ -22,7 +22,7 @@ namespace Pulumi.Aws.SecurityHub.Outputs
         /// </summary>
         public readonly string InstanceName;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials.
+        /// ARN of the AWS Secrets Manager secret that contains the ServiceNow credentials.
         /// </summary>
         public readonly string SecretArn;
 

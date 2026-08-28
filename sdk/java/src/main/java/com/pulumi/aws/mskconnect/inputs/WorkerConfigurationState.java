@@ -18,14 +18,14 @@ public final class WorkerConfigurationState extends com.pulumi.resources.Resourc
     public static final WorkerConfigurationState Empty = new WorkerConfigurationState();
 
     /**
-     * the Amazon Resource Name (ARN) of the worker configuration.
+     * the ARN of the worker configuration.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return the Amazon Resource Name (ARN) of the worker configuration.
+     * @return the ARN of the worker configuration.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -173,7 +173,7 @@ public final class WorkerConfigurationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param arn the Amazon Resource Name (ARN) of the worker configuration.
+         * @param arn the ARN of the worker configuration.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class WorkerConfigurationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param arn the Amazon Resource Name (ARN) of the worker configuration.
+         * @param arn the ARN of the worker configuration.
          * 
          * @return builder
          * 

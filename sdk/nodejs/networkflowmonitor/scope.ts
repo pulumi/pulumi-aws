@@ -76,7 +76,7 @@ export class Scope extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the scope.
+     * ARN of the scope.
      */
     declare public /*out*/ readonly scopeArn: pulumi.Output<string>;
     /**
@@ -146,7 +146,7 @@ export interface ScopeState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the scope.
+     * ARN of the scope.
      */
     scopeArn?: pulumi.Input<string | undefined>;
     /**

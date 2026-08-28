@@ -25,13 +25,13 @@ namespace Pulumi.Aws.AppConfig.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) for an Identity and Access Management assume role.
+        /// ARN for an Identity and Access Management assume role.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// Extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
+        /// Extension URI associated to the action point in the extension definition. The URI can be an ARN for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
         /// </summary>
         [Input("uri", required: true)]
         public Input<string> Uri { get; set; } = null!;

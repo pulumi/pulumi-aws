@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the IAM policy.
+    /// - `Arn` (String) ARN of the IAM policy.
     /// 
     /// Using `pulumi import`, import IAM Policies using the `Arn`. For example:
     /// 

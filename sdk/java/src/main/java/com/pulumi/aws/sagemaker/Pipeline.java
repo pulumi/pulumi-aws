@@ -81,14 +81,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sagemaker/pipeline:Pipeline")
 public class Pipeline extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
+     * ARN assigned by AWS to this Pipeline.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
+     * @return ARN assigned by AWS to this Pipeline.
      * 
      */
     public Output<String> arn() {

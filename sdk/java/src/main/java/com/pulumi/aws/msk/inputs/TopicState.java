@@ -33,14 +33,14 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
+     * ARN that uniquely identifies MSK Cluster.
      * 
      */
     @Import(name="clusterArn")
     private @Nullable Output<String> clusterArn;
 
     /**
-     * @return Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
+     * @return ARN that uniquely identifies MSK Cluster.
      * 
      */
     public Optional<Output<String>> clusterArn() {
@@ -202,7 +202,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterArn Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
+         * @param clusterArn ARN that uniquely identifies MSK Cluster.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterArn Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
+         * @param clusterArn ARN that uniquely identifies MSK Cluster.
          * 
          * @return builder
          * 

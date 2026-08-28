@@ -15,7 +15,7 @@ import java.util.Objects;
 public final class GetContactsRotationResult {
     private String arn;
     /**
-     * @return The Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+     * @return ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
      * 
      */
     private List<String> contactIds;
@@ -52,7 +52,7 @@ public final class GetContactsRotationResult {
         return this.arn;
     }
     /**
-     * @return The Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+     * @return ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
      * 
      */
     public List<String> contactIds() {

@@ -89,7 +89,7 @@ namespace Pulumi.Aws.Neptune
     public partial class EventSubscription : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name of the Neptune event notification subscription.
+        /// ARN of the Neptune event notification subscription.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -287,7 +287,7 @@ namespace Pulumi.Aws.Neptune
     public sealed class EventSubscriptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name of the Neptune event notification subscription.
+        /// ARN of the Neptune event notification subscription.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetQuicksightGroupResult {
     /**
-     * @return The Amazon Resource Name (ARN) for the group.
+     * @return ARN for the group.
      * 
      */
     private String arn;
@@ -39,7 +39,7 @@ public final class GetQuicksightGroupResult {
 
     private GetQuicksightGroupResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) for the group.
+     * @return ARN for the group.
      * 
      */
     public String arn() {

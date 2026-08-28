@@ -38,7 +38,7 @@ namespace Pulumi.Aws.DeviceFarm
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Device Farm instance profile.
+    /// - `Arn` (String) ARN of the Device Farm instance profile.
     /// 
     /// Using `pulumi import`, import DeviceFarm Instance Profiles using their ARN. For example:
     /// 
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.DeviceFarm
     public partial class InstanceProfile : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name of this instance profile.
+        /// ARN of this instance profile.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.DeviceFarm
     public sealed class InstanceProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name of this instance profile.
+        /// ARN of this instance profile.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

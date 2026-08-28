@@ -48,14 +48,14 @@ public final class TargetGroupAttachmentArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * ID or Amazon Resource Name (ARN) of the target group.
+     * ID or ARN of the target group.
      * 
      */
     @Import(name="targetGroupIdentifier", required=true)
     private Output<String> targetGroupIdentifier;
 
     /**
-     * @return ID or Amazon Resource Name (ARN) of the target group.
+     * @return ID or ARN of the target group.
      * 
      */
     public Output<String> targetGroupIdentifier() {
@@ -131,7 +131,7 @@ public final class TargetGroupAttachmentArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param targetGroupIdentifier ID or Amazon Resource Name (ARN) of the target group.
+         * @param targetGroupIdentifier ID or ARN of the target group.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class TargetGroupAttachmentArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param targetGroupIdentifier ID or Amazon Resource Name (ARN) of the target group.
+         * @param targetGroupIdentifier ID or ARN of the target group.
          * 
          * @return builder
          * 

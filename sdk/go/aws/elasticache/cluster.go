@@ -320,7 +320,7 @@ type Cluster struct {
 	ReplicationGroupId pulumi.StringOutput `pulumi:"replicationGroupId"`
 	// One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
+	// Single-element string list containing an ARN of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
 	SnapshotArns pulumi.StringPtrOutput `pulumi:"snapshotArns"`
 	// Name of a snapshot from which to restore data into the new node group. Changing `snapshotName` forces a new resource.
 	SnapshotName pulumi.StringPtrOutput `pulumi:"snapshotName"`
@@ -334,7 +334,7 @@ type Cluster struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) for more details.
+	// Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. For Redis or Valkey transit encryption, use `elasticache.ReplicationGroup` instead. See the [ElastiCache in-transit encryption documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) for more details.
 	TransitEncryptionEnabled pulumi.BoolOutput `pulumi:"transitEncryptionEnabled"`
 }
 
@@ -438,7 +438,7 @@ type clusterState struct {
 	ReplicationGroupId *string `pulumi:"replicationGroupId"`
 	// One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
+	// Single-element string list containing an ARN of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
 	SnapshotArns *string `pulumi:"snapshotArns"`
 	// Name of a snapshot from which to restore data into the new node group. Changing `snapshotName` forces a new resource.
 	SnapshotName *string `pulumi:"snapshotName"`
@@ -452,7 +452,7 @@ type clusterState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) for more details.
+	// Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. For Redis or Valkey transit encryption, use `elasticache.ReplicationGroup` instead. See the [ElastiCache in-transit encryption documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) for more details.
 	TransitEncryptionEnabled *bool `pulumi:"transitEncryptionEnabled"`
 }
 
@@ -527,7 +527,7 @@ type ClusterState struct {
 	ReplicationGroupId pulumi.StringPtrInput
 	// One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
 	SecurityGroupIds pulumi.StringArrayInput
-	// Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
+	// Single-element string list containing an ARN of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
 	SnapshotArns pulumi.StringPtrInput
 	// Name of a snapshot from which to restore data into the new node group. Changing `snapshotName` forces a new resource.
 	SnapshotName pulumi.StringPtrInput
@@ -541,7 +541,7 @@ type ClusterState struct {
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) for more details.
+	// Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. For Redis or Valkey transit encryption, use `elasticache.ReplicationGroup` instead. See the [ElastiCache in-transit encryption documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) for more details.
 	TransitEncryptionEnabled pulumi.BoolPtrInput
 }
 
@@ -610,7 +610,7 @@ type clusterArgs struct {
 	ReplicationGroupId *string `pulumi:"replicationGroupId"`
 	// One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
+	// Single-element string list containing an ARN of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
 	SnapshotArns *string `pulumi:"snapshotArns"`
 	// Name of a snapshot from which to restore data into the new node group. Changing `snapshotName` forces a new resource.
 	SnapshotName *string `pulumi:"snapshotName"`
@@ -622,7 +622,7 @@ type clusterArgs struct {
 	SubnetGroupName *string `pulumi:"subnetGroupName"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) for more details.
+	// Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. For Redis or Valkey transit encryption, use `elasticache.ReplicationGroup` instead. See the [ElastiCache in-transit encryption documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) for more details.
 	TransitEncryptionEnabled *bool `pulumi:"transitEncryptionEnabled"`
 }
 
@@ -688,7 +688,7 @@ type ClusterArgs struct {
 	ReplicationGroupId pulumi.StringPtrInput
 	// One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
 	SecurityGroupIds pulumi.StringArrayInput
-	// Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
+	// Single-element string list containing an ARN of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
 	SnapshotArns pulumi.StringPtrInput
 	// Name of a snapshot from which to restore data into the new node group. Changing `snapshotName` forces a new resource.
 	SnapshotName pulumi.StringPtrInput
@@ -700,7 +700,7 @@ type ClusterArgs struct {
 	SubnetGroupName pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) for more details.
+	// Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. For Redis or Valkey transit encryption, use `elasticache.ReplicationGroup` instead. See the [ElastiCache in-transit encryption documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) for more details.
 	TransitEncryptionEnabled pulumi.BoolPtrInput
 }
 
@@ -945,7 +945,7 @@ func (o ClusterOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
+// Single-element string list containing an ARN of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
 func (o ClusterOutput) SnapshotArns() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.SnapshotArns }).(pulumi.StringPtrOutput)
 }
@@ -980,7 +980,7 @@ func (o ClusterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) for more details.
+// Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. For Redis or Valkey transit encryption, use `elasticache.ReplicationGroup` instead. See the [ElastiCache in-transit encryption documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) for more details.
 func (o ClusterOutput) TransitEncryptionEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolOutput { return v.TransitEncryptionEnabled }).(pulumi.BoolOutput)
 }

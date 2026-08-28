@@ -77,7 +77,7 @@ export class Model extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) assigned by AWS to this model.
+     * ARN assigned by AWS to this model.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -172,7 +172,7 @@ export class Model extends pulumi.CustomResource {
  */
 export interface ModelState {
     /**
-     * Amazon Resource Name (ARN) assigned by AWS to this model.
+     * ARN assigned by AWS to this model.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

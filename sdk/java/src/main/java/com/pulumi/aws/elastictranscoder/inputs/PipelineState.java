@@ -37,14 +37,14 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
+     * KMS key that you want to use with this pipeline.
      * 
      */
     @Import(name="awsKmsKeyArn")
     private @Nullable Output<String> awsKmsKeyArn;
 
     /**
-     * @return The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
+     * @return KMS key that you want to use with this pipeline.
      * 
      */
     public Optional<Output<String>> awsKmsKeyArn() {
@@ -157,14 +157,14 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
+     * IAM ARN for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
      * 
      */
     @Import(name="role")
     private @Nullable Output<String> role;
 
     /**
-     * @return The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
+     * @return IAM ARN for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
      * 
      */
     public Optional<Output<String>> role() {
@@ -276,7 +276,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param awsKmsKeyArn The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
+         * @param awsKmsKeyArn KMS key that you want to use with this pipeline.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param awsKmsKeyArn The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
+         * @param awsKmsKeyArn KMS key that you want to use with this pipeline.
          * 
          * @return builder
          * 
@@ -454,7 +454,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param role The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
+         * @param role IAM ARN for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
          * 
          * @return builder
          * 
@@ -465,7 +465,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param role The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
+         * @param role IAM ARN for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
          * 
          * @return builder
          * 

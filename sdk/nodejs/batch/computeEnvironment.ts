@@ -154,7 +154,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the compute environment.
+ * - `arn` (String) ARN of the compute environment.
  *
  * Using `pulumi import`, import AWS Batch compute using the `name`. For example:
  *
@@ -191,7 +191,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the compute environment.
+     * ARN of the compute environment.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -199,7 +199,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      */
     declare public readonly computeResources: pulumi.Output<outputs.batch.ComputeEnvironmentComputeResources>;
     /**
-     * The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
+     * ARN of the underlying Amazon ECS cluster used by the compute environment.
      */
     declare public /*out*/ readonly ecsClusterArn: pulumi.Output<string>;
     /**
@@ -219,7 +219,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+     * Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      */
     declare public readonly serviceRole: pulumi.Output<string>;
     /**
@@ -310,7 +310,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
  */
 export interface ComputeEnvironmentState {
     /**
-     * The Amazon Resource Name (ARN) of the compute environment.
+     * ARN of the compute environment.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -318,7 +318,7 @@ export interface ComputeEnvironmentState {
      */
     computeResources?: pulumi.Input<inputs.batch.ComputeEnvironmentComputeResources | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
+     * ARN of the underlying Amazon ECS cluster used by the compute environment.
      */
     ecsClusterArn?: pulumi.Input<string | undefined>;
     /**
@@ -338,7 +338,7 @@ export interface ComputeEnvironmentState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+     * Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      */
     serviceRole?: pulumi.Input<string | undefined>;
     /**
@@ -396,7 +396,7 @@ export interface ComputeEnvironmentArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+     * Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      */
     serviceRole?: pulumi.Input<string | undefined>;
     /**

@@ -19,14 +19,14 @@ public final class NfsLocationState extends com.pulumi.resources.ResourceArgs {
     public static final NfsLocationState Empty = new NfsLocationState();
 
     /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
+     * ARN of the DataSync Location.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the DataSync Location.
+     * @return ARN of the DataSync Location.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -178,7 +178,7 @@ public final class NfsLocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the DataSync Location.
+         * @param arn ARN of the DataSync Location.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class NfsLocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the DataSync Location.
+         * @param arn ARN of the DataSync Location.
          * 
          * @return builder
          * 

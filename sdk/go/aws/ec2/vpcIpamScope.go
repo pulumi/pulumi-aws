@@ -68,7 +68,7 @@ import (
 type VpcIpamScope struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the scope.
+	// ARN of the scope.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A description for the scope you're creating.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -121,7 +121,7 @@ func GetVpcIpamScope(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcIpamScope resources.
 type vpcIpamScopeState struct {
-	// The Amazon Resource Name (ARN) of the scope.
+	// ARN of the scope.
 	Arn *string `pulumi:"arn"`
 	// A description for the scope you're creating.
 	Description *string `pulumi:"description"`
@@ -142,7 +142,7 @@ type vpcIpamScopeState struct {
 }
 
 type VpcIpamScopeState struct {
-	// The Amazon Resource Name (ARN) of the scope.
+	// ARN of the scope.
 	Arn pulumi.StringPtrInput
 	// A description for the scope you're creating.
 	Description pulumi.StringPtrInput
@@ -276,7 +276,7 @@ func (o VpcIpamScopeOutput) ToVpcIpamScopeOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the scope.
+// ARN of the scope.
 func (o VpcIpamScopeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamScope) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -35,7 +35,7 @@ class ConnectorProfileArgs:
         :param pulumi.Input['ConnectorProfileConnectorProfileConfigArgs'] connector_profile_config: Connector-specific configuration and credentials. See `connector_profile_config` Block for details.
         :param pulumi.Input[_builtins.str] connector_type: Type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
         :param pulumi.Input[_builtins.str] connector_label: Label of the connector. The label is unique for each `ConnectorRegistration` in your AWS account. Only needed if calling for the `CustomConnector` connector type.
-        :param pulumi.Input[_builtins.str] kms_arn: ARN of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+        :param pulumi.Input[_builtins.str] kms_arn: ARN of the KMS key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         :param pulumi.Input[_builtins.str] name: Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -103,7 +103,7 @@ class ConnectorProfileArgs:
     @pulumi.getter(name="kmsArn")
     def kms_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+        ARN of the KMS key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         """
         return pulumi.get(self, "kms_arn")
 
@@ -157,7 +157,7 @@ class _ConnectorProfileState:
         :param pulumi.Input['ConnectorProfileConnectorProfileConfigArgs'] connector_profile_config: Connector-specific configuration and credentials. See `connector_profile_config` Block for details.
         :param pulumi.Input[_builtins.str] connector_type: Type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
         :param pulumi.Input[_builtins.str] credentials_arn: ARN of the connector profile credentials.
-        :param pulumi.Input[_builtins.str] kms_arn: ARN of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+        :param pulumi.Input[_builtins.str] kms_arn: ARN of the KMS key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         :param pulumi.Input[_builtins.str] name: Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -256,7 +256,7 @@ class _ConnectorProfileState:
     @pulumi.getter(name="kmsArn")
     def kms_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+        ARN of the KMS key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         """
         return pulumi.get(self, "kms_arn")
 
@@ -391,7 +391,7 @@ class ConnectorProfile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] connector_label: Label of the connector. The label is unique for each `ConnectorRegistration` in your AWS account. Only needed if calling for the `CustomConnector` connector type.
         :param pulumi.Input[Union['ConnectorProfileConnectorProfileConfigArgs', 'ConnectorProfileConnectorProfileConfigArgsDict']] connector_profile_config: Connector-specific configuration and credentials. See `connector_profile_config` Block for details.
         :param pulumi.Input[_builtins.str] connector_type: Type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
-        :param pulumi.Input[_builtins.str] kms_arn: ARN of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+        :param pulumi.Input[_builtins.str] kms_arn: ARN of the KMS key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         :param pulumi.Input[_builtins.str] name: Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -561,7 +561,7 @@ class ConnectorProfile(pulumi.CustomResource):
         :param pulumi.Input[Union['ConnectorProfileConnectorProfileConfigArgs', 'ConnectorProfileConnectorProfileConfigArgsDict']] connector_profile_config: Connector-specific configuration and credentials. See `connector_profile_config` Block for details.
         :param pulumi.Input[_builtins.str] connector_type: Type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
         :param pulumi.Input[_builtins.str] credentials_arn: ARN of the connector profile credentials.
-        :param pulumi.Input[_builtins.str] kms_arn: ARN of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+        :param pulumi.Input[_builtins.str] kms_arn: ARN of the KMS key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         :param pulumi.Input[_builtins.str] name: Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -632,7 +632,7 @@ class ConnectorProfile(pulumi.CustomResource):
     @pulumi.getter(name="kmsArn")
     def kms_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        ARN of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+        ARN of the KMS key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         """
         return pulumi.get(self, "kms_arn")
 

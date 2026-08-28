@@ -44,7 +44,7 @@ class CloudFormationTypeLoggingConfigArgsDict(TypedDict):
     """
     log_role_arn: pulumi.Input[_builtins.str]
     """
-    Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
+    ARN of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
     """
 
 @pulumi.input_type
@@ -54,7 +54,7 @@ class CloudFormationTypeLoggingConfigArgs:
                  log_role_arn: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] log_group_name: Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type's handlers.
-        :param pulumi.Input[_builtins.str] log_role_arn: Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
+        :param pulumi.Input[_builtins.str] log_role_arn: ARN of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
         """
         pulumi.set(__self__, "log_group_name", log_group_name)
         pulumi.set(__self__, "log_role_arn", log_role_arn)
@@ -75,7 +75,7 @@ class CloudFormationTypeLoggingConfigArgs:
     @pulumi.getter(name="logRoleArn")
     def log_role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
+        ARN of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
         """
         return pulumi.get(self, "log_role_arn")
 

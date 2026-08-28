@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import S3 Control Bucket Policies using the Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import S3 Control Bucket Policies using the ARN. For example:
  * 
  * ```sh
  * $ pulumi import aws:s3control/bucketPolicy:BucketPolicy example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
@@ -78,14 +78,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:s3control/bucketPolicy:BucketPolicy")
 public class BucketPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the bucket.
+     * ARN of the bucket.
      * 
      */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
-     * @return Amazon Resource Name (ARN) of the bucket.
+     * @return ARN of the bucket.
      * 
      */
     public Output<String> bucket() {

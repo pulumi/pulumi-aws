@@ -18,11 +18,11 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string? InstanceType;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        /// ARN of the Lifecycle Configuration attached to the Resource.
         /// </summary>
         public readonly string? LifecycleConfigArn;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
+        /// ARN of the SageMaker AI image created on the instance.
         /// </summary>
         public readonly string? SagemakerImageArn;
         /// <summary>

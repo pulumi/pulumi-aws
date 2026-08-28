@@ -311,7 +311,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         public readonly ImmutableArray<string> EnabledAnalysisTypes;
         /// <summary>
-        /// AWS Key Management Service (AWS KMS) encryption settings for the firewall.
+        /// KMS encryption settings for the firewall.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFirewallEncryptionConfigurationResult> EncryptionConfigurations;
         /// <summary>

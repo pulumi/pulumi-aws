@@ -228,7 +228,7 @@ class AddonPodIdentityAssociation(dict):
                  role_arn: _builtins.str,
                  service_account: _builtins.str):
         """
-        :param _builtins.str role_arn: The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+        :param _builtins.str role_arn: ARN of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
         :param _builtins.str service_account: The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
         """
         pulumi.set(__self__, "role_arn", role_arn)
@@ -238,7 +238,7 @@ class AddonPodIdentityAssociation(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+        ARN of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
         """
         return pulumi.get(self, "role_arn")
 
@@ -773,7 +773,7 @@ class ClusterEncryptionConfigProvider(dict):
     def __init__(__self__, *,
                  key_arn: _builtins.str):
         """
-        :param _builtins.str key_arn: ARN of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
+        :param _builtins.str key_arn: ARN of the KMS customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
         """
         pulumi.set(__self__, "key_arn", key_arn)
 
@@ -781,7 +781,7 @@ class ClusterEncryptionConfigProvider(dict):
     @pulumi.getter(name="keyArn")
     def key_arn(self) -> _builtins.str:
         """
-        ARN of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
+        ARN of the KMS customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
         """
         return pulumi.get(self, "key_arn")
 

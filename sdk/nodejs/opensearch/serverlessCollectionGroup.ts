@@ -81,7 +81,7 @@ export class ServerlessCollectionGroup extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the collection group.
+     * ARN of the collection group.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -172,7 +172,7 @@ export class ServerlessCollectionGroup extends pulumi.CustomResource {
  */
 export interface ServerlessCollectionGroupState {
     /**
-     * Amazon Resource Name (ARN) of the collection group.
+     * ARN of the collection group.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

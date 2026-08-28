@@ -23,14 +23,14 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
     public static final ServerlessCacheState Empty = new ServerlessCacheState();
 
     /**
-     * The Amazon Resource Name (ARN) of the serverless cache.
+     * ARN of the serverless cache.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the serverless cache.
+     * @return ARN of the serverless cache.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -404,7 +404,7 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the serverless cache.
+         * @param arn ARN of the serverless cache.
          * 
          * @return builder
          * 
@@ -415,7 +415,7 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the serverless cache.
+         * @param arn ARN of the serverless cache.
          * 
          * @return builder
          * 

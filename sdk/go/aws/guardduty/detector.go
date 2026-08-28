@@ -72,7 +72,7 @@ type Detector struct {
 
 	// The AWS account ID of the GuardDuty detector
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// Amazon Resource Name (ARN) of the GuardDuty detector
+	// ARN of the GuardDuty detector
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.DetectorFeature` resources.
 	//
@@ -122,7 +122,7 @@ func GetDetector(ctx *pulumi.Context,
 type detectorState struct {
 	// The AWS account ID of the GuardDuty detector
 	AccountId *string `pulumi:"accountId"`
-	// Amazon Resource Name (ARN) of the GuardDuty detector
+	// ARN of the GuardDuty detector
 	Arn *string `pulumi:"arn"`
 	// Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.DetectorFeature` resources.
 	//
@@ -143,7 +143,7 @@ type detectorState struct {
 type DetectorState struct {
 	// The AWS account ID of the GuardDuty detector
 	AccountId pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the GuardDuty detector
+	// ARN of the GuardDuty detector
 	Arn pulumi.StringPtrInput
 	// Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.DetectorFeature` resources.
 	//
@@ -288,7 +288,7 @@ func (o DetectorOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Detector) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the GuardDuty detector
+// ARN of the GuardDuty detector
 func (o DetectorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Detector) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

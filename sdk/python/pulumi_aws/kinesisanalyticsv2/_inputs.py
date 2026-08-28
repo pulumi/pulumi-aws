@@ -1136,7 +1136,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgsDic
     """
     kinesis_streams_input: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgsDict']]]
     """
-    If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
+    If the streaming source is a Kinesis data stream, identifies the stream's ARN.
     """
 
 @pulumi.input_type
@@ -1159,7 +1159,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs:
                An input processor transforms records as they are received from the stream, before the application's SQL code executes.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs']]] input_starting_position_configurations: The point at which the application starts processing records from the streaming source.
         :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs'] kinesis_firehose_input: If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
-        :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs'] kinesis_streams_input: If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
+        :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs'] kinesis_streams_input: If the streaming source is a Kinesis data stream, identifies the stream's ARN.
         """
         pulumi.set(__self__, "input_schema", input_schema)
         pulumi.set(__self__, "name_prefix", name_prefix)
@@ -1273,7 +1273,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs:
     @pulumi.getter(name="kinesisStreamsInput")
     def kinesis_streams_input(self) -> pulumi.Input[Optional['ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs']]:
         """
-        If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
+        If the streaming source is a Kinesis data stream, identifies the stream's ARN.
         """
         return pulumi.get(self, "kinesis_streams_input")
 

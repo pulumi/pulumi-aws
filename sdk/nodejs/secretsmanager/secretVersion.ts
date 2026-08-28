@@ -124,7 +124,7 @@ export class SecretVersion extends pulumi.CustomResource {
      */
     declare public readonly secretBinary: pulumi.Output<string | undefined>;
     /**
-     * Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+     * Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
      */
     declare public readonly secretId: pulumi.Output<string>;
     /**
@@ -226,7 +226,7 @@ export interface SecretVersionState {
      */
     secretBinary?: pulumi.Input<string | undefined>;
     /**
-     * Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+     * Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
      */
     secretId?: pulumi.Input<string | undefined>;
     /**
@@ -267,7 +267,7 @@ export interface SecretVersionArgs {
      */
     secretBinary?: pulumi.Input<string | undefined>;
     /**
-     * Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+     * Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
      */
     secretId: pulumi.Input<string>;
     /**

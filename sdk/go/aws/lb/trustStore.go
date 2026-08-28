@@ -66,7 +66,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the trust store.
+// - `arn` (String) ARN of the trust store.
 //
 // Using `pulumi import`, import Target Groups using their ARN. For example:
 //

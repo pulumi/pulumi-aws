@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class GetConfigurationSetVdmOptionGuardianOption {
     /**
-     * @return Specifies the status of your VDM optimized shared delivery.
+     * @return Status of your VDM optimized shared delivery.
      * 
      */
     private String optimizedSharedDelivery;
 
     private GetConfigurationSetVdmOptionGuardianOption() {}
     /**
-     * @return Specifies the status of your VDM optimized shared delivery.
+     * @return Status of your VDM optimized shared delivery.
      * 
      */
     public String optimizedSharedDelivery() {

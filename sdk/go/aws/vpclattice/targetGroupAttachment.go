@@ -52,7 +52,7 @@ type TargetGroupAttachment struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Target to register with the target group. See `target` Block for details.
 	Target TargetGroupAttachmentTargetOutput `pulumi:"target"`
-	// ID or Amazon Resource Name (ARN) of the target group.
+	// ID or ARN of the target group.
 	TargetGroupIdentifier pulumi.StringOutput `pulumi:"targetGroupIdentifier"`
 }
 
@@ -96,7 +96,7 @@ type targetGroupAttachmentState struct {
 	Region *string `pulumi:"region"`
 	// Target to register with the target group. See `target` Block for details.
 	Target *TargetGroupAttachmentTarget `pulumi:"target"`
-	// ID or Amazon Resource Name (ARN) of the target group.
+	// ID or ARN of the target group.
 	TargetGroupIdentifier *string `pulumi:"targetGroupIdentifier"`
 }
 
@@ -105,7 +105,7 @@ type TargetGroupAttachmentState struct {
 	Region pulumi.StringPtrInput
 	// Target to register with the target group. See `target` Block for details.
 	Target TargetGroupAttachmentTargetPtrInput
-	// ID or Amazon Resource Name (ARN) of the target group.
+	// ID or ARN of the target group.
 	TargetGroupIdentifier pulumi.StringPtrInput
 }
 
@@ -118,7 +118,7 @@ type targetGroupAttachmentArgs struct {
 	Region *string `pulumi:"region"`
 	// Target to register with the target group. See `target` Block for details.
 	Target TargetGroupAttachmentTarget `pulumi:"target"`
-	// ID or Amazon Resource Name (ARN) of the target group.
+	// ID or ARN of the target group.
 	TargetGroupIdentifier string `pulumi:"targetGroupIdentifier"`
 }
 
@@ -128,7 +128,7 @@ type TargetGroupAttachmentArgs struct {
 	Region pulumi.StringPtrInput
 	// Target to register with the target group. See `target` Block for details.
 	Target TargetGroupAttachmentTargetInput
-	// ID or Amazon Resource Name (ARN) of the target group.
+	// ID or ARN of the target group.
 	TargetGroupIdentifier pulumi.StringInput
 }
 
@@ -229,7 +229,7 @@ func (o TargetGroupAttachmentOutput) Target() TargetGroupAttachmentTargetOutput 
 	return o.ApplyT(func(v *TargetGroupAttachment) TargetGroupAttachmentTargetOutput { return v.Target }).(TargetGroupAttachmentTargetOutput)
 }
 
-// ID or Amazon Resource Name (ARN) of the target group.
+// ID or ARN of the target group.
 func (o TargetGroupAttachmentOutput) TargetGroupIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *TargetGroupAttachment) pulumi.StringOutput { return v.TargetGroupIdentifier }).(pulumi.StringOutput)
 }

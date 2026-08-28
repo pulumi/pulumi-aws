@@ -55,9 +55,9 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the DataSync Azure Blob location.
+// - `arn` (String) ARN of the DataSync Azure Blob location.
 //
-// Using `pulumi import`, import `datasync.LocationAzureBlob` using the Amazon Resource Name (ARN). For example:
+// Using `pulumi import`, import `datasync.LocationAzureBlob` using the ARN. For example:
 //
 // ```sh
 // $ pulumi import aws:datasync/locationAzureBlob:LocationAzureBlob example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
@@ -69,7 +69,7 @@ type LocationAzureBlob struct {
 	AccessTier pulumi.StringPtrOutput `pulumi:"accessTier"`
 	// A list of DataSync Agent ARNs with which this location will be associated.
 	AgentArns pulumi.StringArrayOutput `pulumi:"agentArns"`
-	// Amazon Resource Name (ARN) of the DataSync Location.
+	// ARN of the DataSync Location.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
 	AuthenticationType pulumi.StringOutput `pulumi:"authenticationType"`
@@ -133,7 +133,7 @@ type locationAzureBlobState struct {
 	AccessTier *string `pulumi:"accessTier"`
 	// A list of DataSync Agent ARNs with which this location will be associated.
 	AgentArns []string `pulumi:"agentArns"`
-	// Amazon Resource Name (ARN) of the DataSync Location.
+	// ARN of the DataSync Location.
 	Arn *string `pulumi:"arn"`
 	// The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
 	AuthenticationType *string `pulumi:"authenticationType"`
@@ -159,7 +159,7 @@ type LocationAzureBlobState struct {
 	AccessTier pulumi.StringPtrInput
 	// A list of DataSync Agent ARNs with which this location will be associated.
 	AgentArns pulumi.StringArrayInput
-	// Amazon Resource Name (ARN) of the DataSync Location.
+	// ARN of the DataSync Location.
 	Arn pulumi.StringPtrInput
 	// The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
 	AuthenticationType pulumi.StringPtrInput
@@ -324,7 +324,7 @@ func (o LocationAzureBlobOutput) AgentArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LocationAzureBlob) pulumi.StringArrayOutput { return v.AgentArns }).(pulumi.StringArrayOutput)
 }
 
-// Amazon Resource Name (ARN) of the DataSync Location.
+// ARN of the DataSync Location.
 func (o LocationAzureBlobOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationAzureBlob) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

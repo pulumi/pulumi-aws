@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ContainerRecipeComponent struct {
-	// Amazon Resource Name (ARN) of the Image Builder Component to associate.
+	// ARN of the Image Builder Component to associate.
 	ComponentArn string `pulumi:"componentArn"`
 	// Configuration block(s) for parameters to configure the component. Detailed below.
 	Parameters []ContainerRecipeComponentParameter `pulumi:"parameters"`
@@ -32,7 +32,7 @@ type ContainerRecipeComponentInput interface {
 }
 
 type ContainerRecipeComponentArgs struct {
-	// Amazon Resource Name (ARN) of the Image Builder Component to associate.
+	// ARN of the Image Builder Component to associate.
 	ComponentArn pulumi.StringInput `pulumi:"componentArn"`
 	// Configuration block(s) for parameters to configure the component. Detailed below.
 	Parameters ContainerRecipeComponentParameterArrayInput `pulumi:"parameters"`
@@ -89,7 +89,7 @@ func (o ContainerRecipeComponentOutput) ToContainerRecipeComponentOutputWithCont
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Image Builder Component to associate.
+// ARN of the Image Builder Component to associate.
 func (o ContainerRecipeComponentOutput) ComponentArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerRecipeComponent) string { return v.ComponentArn }).(pulumi.StringOutput)
 }
@@ -516,7 +516,7 @@ type ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs struct {
 	Encrypted *string `pulumi:"encrypted"`
 	// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
 	Iops *int `pulumi:"iops"`
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+	// ARN of the KMS Key for encryption.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Identifier of the EC2 Volume Snapshot.
 	SnapshotId *string `pulumi:"snapshotId"`
@@ -546,7 +546,7 @@ type ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs struct {
 	Encrypted pulumi.StringPtrInput `pulumi:"encrypted"`
 	// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+	// ARN of the KMS Key for encryption.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// Identifier of the EC2 Volume Snapshot.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
@@ -652,7 +652,7 @@ func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput) Iops() 
 	return o.ApplyT(func(v ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+// ARN of the KMS Key for encryption.
 func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -731,7 +731,7 @@ func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) Iops
 	}).(pulumi.IntPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+// ARN of the KMS Key for encryption.
 func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *string {
 		if v == nil {
@@ -938,7 +938,7 @@ func (o ContainerRecipeTargetRepositoryPtrOutput) Service() pulumi.StringPtrOutp
 }
 
 type DistributionConfigurationDistribution struct {
-	// Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
+	// Configuration block with AMI distribution settings. Detailed below.
 	AmiDistributionConfiguration *DistributionConfigurationDistributionAmiDistributionConfiguration `pulumi:"amiDistributionConfiguration"`
 	// Configuration block with container distribution settings. Detailed below.
 	ContainerDistributionConfiguration *DistributionConfigurationDistributionContainerDistributionConfiguration `pulumi:"containerDistributionConfiguration"`
@@ -946,7 +946,7 @@ type DistributionConfigurationDistribution struct {
 	FastLaunchConfigurations []DistributionConfigurationDistributionFastLaunchConfiguration `pulumi:"fastLaunchConfigurations"`
 	// Set of launch template configuration settings that apply to image distribution. Detailed below.
 	LaunchTemplateConfigurations []DistributionConfigurationDistributionLaunchTemplateConfiguration `pulumi:"launchTemplateConfigurations"`
-	// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+	// Set of ARNs of License Manager License Configurations.
 	LicenseConfigurationArns []string `pulumi:"licenseConfigurationArns"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region string `pulumi:"region"`
@@ -968,7 +968,7 @@ type DistributionConfigurationDistributionInput interface {
 }
 
 type DistributionConfigurationDistributionArgs struct {
-	// Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
+	// Configuration block with AMI distribution settings. Detailed below.
 	AmiDistributionConfiguration DistributionConfigurationDistributionAmiDistributionConfigurationPtrInput `pulumi:"amiDistributionConfiguration"`
 	// Configuration block with container distribution settings. Detailed below.
 	ContainerDistributionConfiguration DistributionConfigurationDistributionContainerDistributionConfigurationPtrInput `pulumi:"containerDistributionConfiguration"`
@@ -976,7 +976,7 @@ type DistributionConfigurationDistributionArgs struct {
 	FastLaunchConfigurations DistributionConfigurationDistributionFastLaunchConfigurationArrayInput `pulumi:"fastLaunchConfigurations"`
 	// Set of launch template configuration settings that apply to image distribution. Detailed below.
 	LaunchTemplateConfigurations DistributionConfigurationDistributionLaunchTemplateConfigurationArrayInput `pulumi:"launchTemplateConfigurations"`
-	// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+	// Set of ARNs of License Manager License Configurations.
 	LicenseConfigurationArns pulumi.StringArrayInput `pulumi:"licenseConfigurationArns"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringInput `pulumi:"region"`
@@ -1037,7 +1037,7 @@ func (o DistributionConfigurationDistributionOutput) ToDistributionConfiguration
 	return o
 }
 
-// Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
+// Configuration block with AMI distribution settings. Detailed below.
 func (o DistributionConfigurationDistributionOutput) AmiDistributionConfiguration() DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistribution) *DistributionConfigurationDistributionAmiDistributionConfiguration {
 		return v.AmiDistributionConfiguration
@@ -1065,7 +1065,7 @@ func (o DistributionConfigurationDistributionOutput) LaunchTemplateConfiguration
 	}).(DistributionConfigurationDistributionLaunchTemplateConfigurationArrayOutput)
 }
 
-// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+// Set of ARNs of License Manager License Configurations.
 func (o DistributionConfigurationDistributionOutput) LicenseConfigurationArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistribution) []string { return v.LicenseConfigurationArns }).(pulumi.StringArrayOutput)
 }
@@ -1114,7 +1114,7 @@ type DistributionConfigurationDistributionAmiDistributionConfiguration struct {
 	AmiTags map[string]string `pulumi:"amiTags"`
 	// Description to apply to the distributed AMI.
 	Description *string `pulumi:"description"`
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
+	// ARN of the KMS Key to encrypt the distributed AMI.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Configuration block of EC2 launch permissions to apply to the distributed AMI. Detailed below.
 	LaunchPermission *DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission `pulumi:"launchPermission"`
@@ -1140,7 +1140,7 @@ type DistributionConfigurationDistributionAmiDistributionConfigurationArgs struc
 	AmiTags pulumi.StringMapInput `pulumi:"amiTags"`
 	// Description to apply to the distributed AMI.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
+	// ARN of the KMS Key to encrypt the distributed AMI.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// Configuration block of EC2 launch permissions to apply to the distributed AMI. Detailed below.
 	LaunchPermission DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrInput `pulumi:"launchPermission"`
@@ -1241,7 +1241,7 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
+// ARN of the KMS Key to encrypt the distributed AMI.
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionAmiDistributionConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -1309,7 +1309,7 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
+// ARN of the KMS Key to encrypt the distributed AMI.
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionConfigurationDistributionAmiDistributionConfiguration) *string {
 		if v == nil {
@@ -3385,7 +3385,7 @@ func (o ImageLoggingConfigurationPtrOutput) LogGroupName() pulumi.StringPtrOutpu
 }
 
 type ImageOutputResource struct {
-	// Set of objects with each Amazon Machine Image (AMI) created.
+	// Set of objects with each AMI created.
 	Amis []ImageOutputResourceAmi `pulumi:"amis"`
 	// Set of objects with each container image created and stored in the output repository.
 	Containers []ImageOutputResourceContainer `pulumi:"containers"`
@@ -3403,7 +3403,7 @@ type ImageOutputResourceInput interface {
 }
 
 type ImageOutputResourceArgs struct {
-	// Set of objects with each Amazon Machine Image (AMI) created.
+	// Set of objects with each AMI created.
 	Amis ImageOutputResourceAmiArrayInput `pulumi:"amis"`
 	// Set of objects with each container image created and stored in the output repository.
 	Containers ImageOutputResourceContainerArrayInput `pulumi:"containers"`
@@ -3460,7 +3460,7 @@ func (o ImageOutputResourceOutput) ToImageOutputResourceOutputWithContext(ctx co
 	return o
 }
 
-// Set of objects with each Amazon Machine Image (AMI) created.
+// Set of objects with each AMI created.
 func (o ImageOutputResourceOutput) Amis() ImageOutputResourceAmiArrayOutput {
 	return o.ApplyT(func(v ImageOutputResource) []ImageOutputResourceAmi { return v.Amis }).(ImageOutputResourceAmiArrayOutput)
 }
@@ -4541,7 +4541,7 @@ type ImagePipelineWorkflow struct {
 	ParallelGroup *string `pulumi:"parallelGroup"`
 	// Configuration block for the workflow parameters. Detailed below.
 	Parameters []ImagePipelineWorkflowParameter `pulumi:"parameters"`
-	// Amazon Resource Name (ARN) of the Image Builder Workflow.
+	// ARN of the Image Builder Workflow.
 	//
 	// The following arguments are optional:
 	WorkflowArn string `pulumi:"workflowArn"`
@@ -4565,7 +4565,7 @@ type ImagePipelineWorkflowArgs struct {
 	ParallelGroup pulumi.StringPtrInput `pulumi:"parallelGroup"`
 	// Configuration block for the workflow parameters. Detailed below.
 	Parameters ImagePipelineWorkflowParameterArrayInput `pulumi:"parameters"`
-	// Amazon Resource Name (ARN) of the Image Builder Workflow.
+	// ARN of the Image Builder Workflow.
 	//
 	// The following arguments are optional:
 	WorkflowArn pulumi.StringInput `pulumi:"workflowArn"`
@@ -4637,7 +4637,7 @@ func (o ImagePipelineWorkflowOutput) Parameters() ImagePipelineWorkflowParameter
 	return o.ApplyT(func(v ImagePipelineWorkflow) []ImagePipelineWorkflowParameter { return v.Parameters }).(ImagePipelineWorkflowParameterArrayOutput)
 }
 
-// Amazon Resource Name (ARN) of the Image Builder Workflow.
+// ARN of the Image Builder Workflow.
 //
 // The following arguments are optional:
 func (o ImagePipelineWorkflowOutput) WorkflowArn() pulumi.StringOutput {
@@ -4901,7 +4901,7 @@ type ImageRecipeBlockDeviceMappingEbs struct {
 	Encrypted *string `pulumi:"encrypted"`
 	// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
 	Iops *int `pulumi:"iops"`
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+	// ARN of the KMS Key for encryption.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Identifier of the EC2 Volume Snapshot.
 	SnapshotId *string `pulumi:"snapshotId"`
@@ -4931,7 +4931,7 @@ type ImageRecipeBlockDeviceMappingEbsArgs struct {
 	Encrypted pulumi.StringPtrInput `pulumi:"encrypted"`
 	// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+	// ARN of the KMS Key for encryption.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// Identifier of the EC2 Volume Snapshot.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
@@ -5035,7 +5035,7 @@ func (o ImageRecipeBlockDeviceMappingEbsOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ImageRecipeBlockDeviceMappingEbs) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+// ARN of the KMS Key for encryption.
 func (o ImageRecipeBlockDeviceMappingEbsOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageRecipeBlockDeviceMappingEbs) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -5114,7 +5114,7 @@ func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) Iops() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+// ARN of the KMS Key for encryption.
 func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageRecipeBlockDeviceMappingEbs) *string {
 		if v == nil {
@@ -5165,7 +5165,7 @@ func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) VolumeType() pulumi.StringPtr
 }
 
 type ImageRecipeComponent struct {
-	// Amazon Resource Name (ARN) of the Image Builder Component to associate.
+	// ARN of the Image Builder Component to associate.
 	ComponentArn string `pulumi:"componentArn"`
 	// Configuration block(s) for parameters to configure the component. Detailed below.
 	Parameters []ImageRecipeComponentParameter `pulumi:"parameters"`
@@ -5183,7 +5183,7 @@ type ImageRecipeComponentInput interface {
 }
 
 type ImageRecipeComponentArgs struct {
-	// Amazon Resource Name (ARN) of the Image Builder Component to associate.
+	// ARN of the Image Builder Component to associate.
 	ComponentArn pulumi.StringInput `pulumi:"componentArn"`
 	// Configuration block(s) for parameters to configure the component. Detailed below.
 	Parameters ImageRecipeComponentParameterArrayInput `pulumi:"parameters"`
@@ -5240,7 +5240,7 @@ func (o ImageRecipeComponentOutput) ToImageRecipeComponentOutputWithContext(ctx 
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Image Builder Component to associate.
+// ARN of the Image Builder Component to associate.
 func (o ImageRecipeComponentOutput) ComponentArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageRecipeComponent) string { return v.ComponentArn }).(pulumi.StringOutput)
 }
@@ -5520,7 +5520,7 @@ type ImageWorkflow struct {
 	ParallelGroup *string `pulumi:"parallelGroup"`
 	// Configuration block for the workflow parameters. Detailed below.
 	Parameters []ImageWorkflowParameter `pulumi:"parameters"`
-	// Amazon Resource Name (ARN) of the Image Builder Workflow.
+	// ARN of the Image Builder Workflow.
 	//
 	// The following arguments are optional:
 	WorkflowArn string `pulumi:"workflowArn"`
@@ -5544,7 +5544,7 @@ type ImageWorkflowArgs struct {
 	ParallelGroup pulumi.StringPtrInput `pulumi:"parallelGroup"`
 	// Configuration block for the workflow parameters. Detailed below.
 	Parameters ImageWorkflowParameterArrayInput `pulumi:"parameters"`
-	// Amazon Resource Name (ARN) of the Image Builder Workflow.
+	// ARN of the Image Builder Workflow.
 	//
 	// The following arguments are optional:
 	WorkflowArn pulumi.StringInput `pulumi:"workflowArn"`
@@ -5616,7 +5616,7 @@ func (o ImageWorkflowOutput) Parameters() ImageWorkflowParameterArrayOutput {
 	return o.ApplyT(func(v ImageWorkflow) []ImageWorkflowParameter { return v.Parameters }).(ImageWorkflowParameterArrayOutput)
 }
 
-// Amazon Resource Name (ARN) of the Image Builder Workflow.
+// ARN of the Image Builder Workflow.
 //
 // The following arguments are optional:
 func (o ImageWorkflowOutput) WorkflowArn() pulumi.StringOutput {
@@ -8576,7 +8576,7 @@ type GetDistributionConfigurationDistribution struct {
 	FastLaunchConfigurations []GetDistributionConfigurationDistributionFastLaunchConfiguration `pulumi:"fastLaunchConfigurations"`
 	// Nested list of launch template configurations.
 	LaunchTemplateConfigurations []GetDistributionConfigurationDistributionLaunchTemplateConfiguration `pulumi:"launchTemplateConfigurations"`
-	// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+	// Set of ARNs of License Manager License Configurations.
 	LicenseConfigurationArns []string `pulumi:"licenseConfigurationArns"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region string `pulumi:"region"`
@@ -8606,7 +8606,7 @@ type GetDistributionConfigurationDistributionArgs struct {
 	FastLaunchConfigurations GetDistributionConfigurationDistributionFastLaunchConfigurationArrayInput `pulumi:"fastLaunchConfigurations"`
 	// Nested list of launch template configurations.
 	LaunchTemplateConfigurations GetDistributionConfigurationDistributionLaunchTemplateConfigurationArrayInput `pulumi:"launchTemplateConfigurations"`
-	// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+	// Set of ARNs of License Manager License Configurations.
 	LicenseConfigurationArns pulumi.StringArrayInput `pulumi:"licenseConfigurationArns"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringInput `pulumi:"region"`
@@ -8695,7 +8695,7 @@ func (o GetDistributionConfigurationDistributionOutput) LaunchTemplateConfigurat
 	}).(GetDistributionConfigurationDistributionLaunchTemplateConfigurationArrayOutput)
 }
 
-// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+// Set of ARNs of License Manager License Configurations.
 func (o GetDistributionConfigurationDistributionOutput) LicenseConfigurationArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistribution) []string { return v.LicenseConfigurationArns }).(pulumi.StringArrayOutput)
 }
@@ -8744,7 +8744,7 @@ type GetDistributionConfigurationDistributionAmiDistributionConfiguration struct
 	AmiTags map[string]string `pulumi:"amiTags"`
 	// Description of the container distribution configuration.
 	Description string `pulumi:"description"`
-	// ARN of Key Management Service (KMS) Key to encrypt AMI.
+	// ARN of KMS Key to encrypt AMI.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// Nested list of EC2 launch permissions.
 	LaunchPermissions []GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission `pulumi:"launchPermissions"`
@@ -8770,7 +8770,7 @@ type GetDistributionConfigurationDistributionAmiDistributionConfigurationArgs st
 	AmiTags pulumi.StringMapInput `pulumi:"amiTags"`
 	// Description of the container distribution configuration.
 	Description pulumi.StringInput `pulumi:"description"`
-	// ARN of Key Management Service (KMS) Key to encrypt AMI.
+	// ARN of KMS Key to encrypt AMI.
 	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 	// Nested list of EC2 launch permissions.
 	LaunchPermissions GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayInput `pulumi:"launchPermissions"`
@@ -8845,7 +8845,7 @@ func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationOutp
 	}).(pulumi.StringOutput)
 }
 
-// ARN of Key Management Service (KMS) Key to encrypt AMI.
+// ARN of KMS Key to encrypt AMI.
 func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistributionAmiDistributionConfiguration) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
@@ -10398,7 +10398,7 @@ func (o GetImageImageTestsConfigurationArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetImageOutputResource struct {
-	// Set of objects with each Amazon Machine Image (AMI) created.
+	// Set of objects with each AMI created.
 	Amis []GetImageOutputResourceAmi `pulumi:"amis"`
 	// Set of objects with each container image created and stored in the output repository.
 	Containers []GetImageOutputResourceContainer `pulumi:"containers"`
@@ -10416,7 +10416,7 @@ type GetImageOutputResourceInput interface {
 }
 
 type GetImageOutputResourceArgs struct {
-	// Set of objects with each Amazon Machine Image (AMI) created.
+	// Set of objects with each AMI created.
 	Amis GetImageOutputResourceAmiArrayInput `pulumi:"amis"`
 	// Set of objects with each container image created and stored in the output repository.
 	Containers GetImageOutputResourceContainerArrayInput `pulumi:"containers"`
@@ -10473,7 +10473,7 @@ func (o GetImageOutputResourceOutput) ToGetImageOutputResourceOutputWithContext(
 	return o
 }
 
-// Set of objects with each Amazon Machine Image (AMI) created.
+// Set of objects with each AMI created.
 func (o GetImageOutputResourceOutput) Amis() GetImageOutputResourceAmiArrayOutput {
 	return o.ApplyT(func(v GetImageOutputResource) []GetImageOutputResourceAmi { return v.Amis }).(GetImageOutputResourceAmiArrayOutput)
 }
@@ -11405,7 +11405,7 @@ type GetImageRecipeBlockDeviceMappingEb struct {
 	Encrypted string `pulumi:"encrypted"`
 	// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
 	Iops int `pulumi:"iops"`
-	// ARN of the Key Management Service (KMS) Key for encryption.
+	// ARN of the KMS Key for encryption.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// Identifier of the EC2 Volume Snapshot.
 	SnapshotId string `pulumi:"snapshotId"`
@@ -11435,7 +11435,7 @@ type GetImageRecipeBlockDeviceMappingEbArgs struct {
 	Encrypted pulumi.StringInput `pulumi:"encrypted"`
 	// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
 	Iops pulumi.IntInput `pulumi:"iops"`
-	// ARN of the Key Management Service (KMS) Key for encryption.
+	// ARN of the KMS Key for encryption.
 	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 	// Identifier of the EC2 Volume Snapshot.
 	SnapshotId pulumi.StringInput `pulumi:"snapshotId"`
@@ -11513,7 +11513,7 @@ func (o GetImageRecipeBlockDeviceMappingEbOutput) Iops() pulumi.IntOutput {
 	return o.ApplyT(func(v GetImageRecipeBlockDeviceMappingEb) int { return v.Iops }).(pulumi.IntOutput)
 }
 
-// ARN of the Key Management Service (KMS) Key for encryption.
+// ARN of the KMS Key for encryption.
 func (o GetImageRecipeBlockDeviceMappingEbOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageRecipeBlockDeviceMappingEb) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }

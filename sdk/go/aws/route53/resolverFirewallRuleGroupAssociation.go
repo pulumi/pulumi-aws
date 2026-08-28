@@ -59,7 +59,7 @@ import (
 type ResolverFirewallRuleGroupAssociation struct {
 	pulumi.CustomResourceState
 
-	// The ARN (Amazon Resource Name) of the firewall rule group association.
+	// ARN of the firewall rule group association.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The unique identifier of the firewall rule group.
 	FirewallRuleGroupId pulumi.StringOutput `pulumi:"firewallRuleGroupId"`
@@ -118,7 +118,7 @@ func GetResolverFirewallRuleGroupAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResolverFirewallRuleGroupAssociation resources.
 type resolverFirewallRuleGroupAssociationState struct {
-	// The ARN (Amazon Resource Name) of the firewall rule group association.
+	// ARN of the firewall rule group association.
 	Arn *string `pulumi:"arn"`
 	// The unique identifier of the firewall rule group.
 	FirewallRuleGroupId *string `pulumi:"firewallRuleGroupId"`
@@ -139,7 +139,7 @@ type resolverFirewallRuleGroupAssociationState struct {
 }
 
 type ResolverFirewallRuleGroupAssociationState struct {
-	// The ARN (Amazon Resource Name) of the firewall rule group association.
+	// ARN of the firewall rule group association.
 	Arn pulumi.StringPtrInput
 	// The unique identifier of the firewall rule group.
 	FirewallRuleGroupId pulumi.StringPtrInput
@@ -285,7 +285,7 @@ func (o ResolverFirewallRuleGroupAssociationOutput) ToResolverFirewallRuleGroupA
 	return o
 }
 
-// The ARN (Amazon Resource Name) of the firewall rule group association.
+// ARN of the firewall rule group association.
 func (o ResolverFirewallRuleGroupAssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverFirewallRuleGroupAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -145,14 +145,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cloudwatch/logDelivery:LogDelivery")
 public class LogDelivery extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the delivery.
+     * ARN of the delivery.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the delivery.
+     * @return ARN of the delivery.
      * 
      */
     public Output<String> arn() {

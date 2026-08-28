@@ -20,14 +20,14 @@ public final class WorkforceState extends com.pulumi.resources.ResourceArgs {
     public static final WorkforceState Empty = new WorkforceState();
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
+     * ARN assigned by AWS to this Workforce.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
+     * @return ARN assigned by AWS to this Workforce.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -171,7 +171,7 @@ public final class WorkforceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
+         * @param arn ARN assigned by AWS to this Workforce.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class WorkforceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
+         * @param arn ARN assigned by AWS to this Workforce.
          * 
          * @return builder
          * 

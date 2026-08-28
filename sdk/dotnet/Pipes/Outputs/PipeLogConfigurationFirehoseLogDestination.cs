@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Pipes.Outputs
     public sealed class PipeLogConfigurationFirehoseLogDestination
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
+        /// ARN of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
         /// </summary>
         public readonly string DeliveryStreamArn;
 

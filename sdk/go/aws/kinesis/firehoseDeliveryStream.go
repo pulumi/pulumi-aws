@@ -1038,7 +1038,7 @@ import (
 type FirehoseDeliveryStream struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) specifying the Stream
+	// ARN specifying the Stream
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
 	Destination   pulumi.StringOutput `pulumi:"destination"`
@@ -1051,7 +1051,7 @@ type FirehoseDeliveryStream struct {
 	HttpEndpointConfiguration FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput `pulumi:"httpEndpointConfiguration"`
 	// Configuration options when `destination` is `iceberg`. See `icebergConfiguration` block below for details.
 	IcebergConfiguration FirehoseDeliveryStreamIcebergConfigurationPtrOutput `pulumi:"icebergConfiguration"`
-	// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
+	// Stream and role ARNs for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
 	KinesisSourceConfiguration FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput `pulumi:"kinesisSourceConfiguration"`
 	// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `mskSourceConfiguration` block below for details.
 	MskSourceConfiguration FirehoseDeliveryStreamMskSourceConfigurationPtrOutput `pulumi:"mskSourceConfiguration"`
@@ -1113,7 +1113,7 @@ func GetFirehoseDeliveryStream(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FirehoseDeliveryStream resources.
 type firehoseDeliveryStreamState struct {
-	// The Amazon Resource Name (ARN) specifying the Stream
+	// ARN specifying the Stream
 	Arn *string `pulumi:"arn"`
 	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
 	Destination   *string `pulumi:"destination"`
@@ -1126,7 +1126,7 @@ type firehoseDeliveryStreamState struct {
 	HttpEndpointConfiguration *FirehoseDeliveryStreamHttpEndpointConfiguration `pulumi:"httpEndpointConfiguration"`
 	// Configuration options when `destination` is `iceberg`. See `icebergConfiguration` block below for details.
 	IcebergConfiguration *FirehoseDeliveryStreamIcebergConfiguration `pulumi:"icebergConfiguration"`
-	// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
+	// Stream and role ARNs for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
 	KinesisSourceConfiguration *FirehoseDeliveryStreamKinesisSourceConfiguration `pulumi:"kinesisSourceConfiguration"`
 	// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `mskSourceConfiguration` block below for details.
 	MskSourceConfiguration *FirehoseDeliveryStreamMskSourceConfiguration `pulumi:"mskSourceConfiguration"`
@@ -1156,7 +1156,7 @@ type firehoseDeliveryStreamState struct {
 }
 
 type FirehoseDeliveryStreamState struct {
-	// The Amazon Resource Name (ARN) specifying the Stream
+	// ARN specifying the Stream
 	Arn pulumi.StringPtrInput
 	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
 	Destination   pulumi.StringPtrInput
@@ -1169,7 +1169,7 @@ type FirehoseDeliveryStreamState struct {
 	HttpEndpointConfiguration FirehoseDeliveryStreamHttpEndpointConfigurationPtrInput
 	// Configuration options when `destination` is `iceberg`. See `icebergConfiguration` block below for details.
 	IcebergConfiguration FirehoseDeliveryStreamIcebergConfigurationPtrInput
-	// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
+	// Stream and role ARNs for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
 	KinesisSourceConfiguration FirehoseDeliveryStreamKinesisSourceConfigurationPtrInput
 	// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `mskSourceConfiguration` block below for details.
 	MskSourceConfiguration FirehoseDeliveryStreamMskSourceConfigurationPtrInput
@@ -1203,7 +1203,7 @@ func (FirehoseDeliveryStreamState) ElementType() reflect.Type {
 }
 
 type firehoseDeliveryStreamArgs struct {
-	// The Amazon Resource Name (ARN) specifying the Stream
+	// ARN specifying the Stream
 	Arn *string `pulumi:"arn"`
 	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
 	Destination   string  `pulumi:"destination"`
@@ -1216,7 +1216,7 @@ type firehoseDeliveryStreamArgs struct {
 	HttpEndpointConfiguration *FirehoseDeliveryStreamHttpEndpointConfiguration `pulumi:"httpEndpointConfiguration"`
 	// Configuration options when `destination` is `iceberg`. See `icebergConfiguration` block below for details.
 	IcebergConfiguration *FirehoseDeliveryStreamIcebergConfiguration `pulumi:"icebergConfiguration"`
-	// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
+	// Stream and role ARNs for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
 	KinesisSourceConfiguration *FirehoseDeliveryStreamKinesisSourceConfiguration `pulumi:"kinesisSourceConfiguration"`
 	// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `mskSourceConfiguration` block below for details.
 	MskSourceConfiguration *FirehoseDeliveryStreamMskSourceConfiguration `pulumi:"mskSourceConfiguration"`
@@ -1245,7 +1245,7 @@ type firehoseDeliveryStreamArgs struct {
 
 // The set of arguments for constructing a FirehoseDeliveryStream resource.
 type FirehoseDeliveryStreamArgs struct {
-	// The Amazon Resource Name (ARN) specifying the Stream
+	// ARN specifying the Stream
 	Arn pulumi.StringPtrInput
 	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
 	Destination   pulumi.StringInput
@@ -1258,7 +1258,7 @@ type FirehoseDeliveryStreamArgs struct {
 	HttpEndpointConfiguration FirehoseDeliveryStreamHttpEndpointConfigurationPtrInput
 	// Configuration options when `destination` is `iceberg`. See `icebergConfiguration` block below for details.
 	IcebergConfiguration FirehoseDeliveryStreamIcebergConfigurationPtrInput
-	// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
+	// Stream and role ARNs for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
 	KinesisSourceConfiguration FirehoseDeliveryStreamKinesisSourceConfigurationPtrInput
 	// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `mskSourceConfiguration` block below for details.
 	MskSourceConfiguration FirehoseDeliveryStreamMskSourceConfigurationPtrInput
@@ -1372,7 +1372,7 @@ func (o FirehoseDeliveryStreamOutput) ToFirehoseDeliveryStreamOutputWithContext(
 	return o
 }
 
-// The Amazon Resource Name (ARN) specifying the Stream
+// ARN specifying the Stream
 func (o FirehoseDeliveryStreamOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStream) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -1414,7 +1414,7 @@ func (o FirehoseDeliveryStreamOutput) IcebergConfiguration() FirehoseDeliveryStr
 	}).(FirehoseDeliveryStreamIcebergConfigurationPtrOutput)
 }
 
-// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
+// Stream and role ARNs for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
 func (o FirehoseDeliveryStreamOutput) KinesisSourceConfiguration() FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStream) FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput {
 		return v.KinesisSourceConfiguration

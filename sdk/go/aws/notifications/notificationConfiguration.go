@@ -93,7 +93,7 @@ type NotificationConfiguration struct {
 	// aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don't aggregate
 	// notifications). Default: `NONE`.
 	AggregationDuration pulumi.StringOutput `pulumi:"aggregationDuration"`
-	// Amazon Resource Name (ARN) of the NotificationConfiguration.
+	// ARN of the NotificationConfiguration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Description of the NotificationConfiguration. Length constraints: Minimum length of 0,
 	// maximum length of 256.
@@ -149,7 +149,7 @@ type notificationConfigurationState struct {
 	// aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don't aggregate
 	// notifications). Default: `NONE`.
 	AggregationDuration *string `pulumi:"aggregationDuration"`
-	// Amazon Resource Name (ARN) of the NotificationConfiguration.
+	// ARN of the NotificationConfiguration.
 	Arn *string `pulumi:"arn"`
 	// Description of the NotificationConfiguration. Length constraints: Minimum length of 0,
 	// maximum length of 256.
@@ -173,7 +173,7 @@ type NotificationConfigurationState struct {
 	// aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don't aggregate
 	// notifications). Default: `NONE`.
 	AggregationDuration pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the NotificationConfiguration.
+	// ARN of the NotificationConfiguration.
 	Arn pulumi.StringPtrInput
 	// Description of the NotificationConfiguration. Length constraints: Minimum length of 0,
 	// maximum length of 256.
@@ -329,7 +329,7 @@ func (o NotificationConfigurationOutput) AggregationDuration() pulumi.StringOutp
 	return o.ApplyT(func(v *NotificationConfiguration) pulumi.StringOutput { return v.AggregationDuration }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the NotificationConfiguration.
+// ARN of the NotificationConfiguration.
 func (o NotificationConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

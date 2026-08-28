@@ -123,7 +123,7 @@ type EventStream struct {
 	//
 	// Deprecated: application_id is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
-	// Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+	// ARN of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
 	//
 	// Deprecated: destination_stream_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
 	DestinationStreamArn pulumi.StringOutput `pulumi:"destinationStreamArn"`
@@ -178,7 +178,7 @@ type eventStreamState struct {
 	//
 	// Deprecated: application_id is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
 	ApplicationId *string `pulumi:"applicationId"`
-	// Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+	// ARN of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
 	//
 	// Deprecated: destination_stream_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
 	DestinationStreamArn *string `pulumi:"destinationStreamArn"`
@@ -195,7 +195,7 @@ type EventStreamState struct {
 	//
 	// Deprecated: application_id is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
 	ApplicationId pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+	// ARN of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
 	//
 	// Deprecated: destination_stream_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
 	DestinationStreamArn pulumi.StringPtrInput
@@ -216,7 +216,7 @@ type eventStreamArgs struct {
 	//
 	// Deprecated: application_id is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
 	ApplicationId string `pulumi:"applicationId"`
-	// Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+	// ARN of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
 	//
 	// Deprecated: destination_stream_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
 	DestinationStreamArn string `pulumi:"destinationStreamArn"`
@@ -234,7 +234,7 @@ type EventStreamArgs struct {
 	//
 	// Deprecated: application_id is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
 	ApplicationId pulumi.StringInput
-	// Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+	// ARN of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
 	//
 	// Deprecated: destination_stream_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
 	DestinationStreamArn pulumi.StringInput
@@ -340,7 +340,7 @@ func (o EventStreamOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventStream) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+// ARN of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
 //
 // Deprecated: destination_stream_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
 func (o EventStreamOutput) DestinationStreamArn() pulumi.StringOutput {

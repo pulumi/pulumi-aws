@@ -82,14 +82,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:eks/identityProviderConfig:IdentityProviderConfig")
 public class IdentityProviderConfig extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
+     * ARN of the EKS Identity Provider Configuration.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
+     * @return ARN of the EKS Identity Provider Configuration.
      * 
      */
     public Output<String> arn() {

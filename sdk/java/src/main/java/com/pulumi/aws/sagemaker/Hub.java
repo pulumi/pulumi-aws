@@ -68,14 +68,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sagemaker/hub:Hub")
 public class Hub extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Hub.
+     * ARN assigned by AWS to this Hub.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Hub.
+     * @return ARN assigned by AWS to this Hub.
      * 
      */
     public Output<String> arn() {

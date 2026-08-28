@@ -72,7 +72,7 @@ type FindingsFilter struct {
 
 	// The action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
 	Action pulumi.StringOutput `pulumi:"action"`
-	// The Amazon Resource Name (ARN) of the Findings Filter.
+	// ARN of the Findings Filter.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A custom description of the filter. The description can contain as many as 512 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -130,7 +130,7 @@ func GetFindingsFilter(ctx *pulumi.Context,
 type findingsFilterState struct {
 	// The action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
 	Action *string `pulumi:"action"`
-	// The Amazon Resource Name (ARN) of the Findings Filter.
+	// ARN of the Findings Filter.
 	Arn *string `pulumi:"arn"`
 	// A custom description of the filter. The description can contain as many as 512 characters.
 	Description *string `pulumi:"description"`
@@ -153,7 +153,7 @@ type findingsFilterState struct {
 type FindingsFilterState struct {
 	// The action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
 	Action pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the Findings Filter.
+	// ARN of the Findings Filter.
 	Arn pulumi.StringPtrInput
 	// A custom description of the filter. The description can contain as many as 512 characters.
 	Description pulumi.StringPtrInput
@@ -308,7 +308,7 @@ func (o FindingsFilterOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v *FindingsFilter) pulumi.StringOutput { return v.Action }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Findings Filter.
+// ARN of the Findings Filter.
 func (o FindingsFilterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FindingsFilter) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

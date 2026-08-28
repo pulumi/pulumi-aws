@@ -112,7 +112,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the contact channel.
+ * - `arn` (String) ARN of the contact channel.
  * 
  * Using `pulumi import`, import SSM Contact Channel using the `arn`. For example:
  * 
@@ -138,28 +138,28 @@ public class ContactChannel extends com.pulumi.resources.CustomResource {
         return this.activationStatus;
     }
     /**
-     * Amazon Resource Name (ARN) of the contact channel.
+     * ARN of the contact channel.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the contact channel.
+     * @return ARN of the contact channel.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
+     * ARN of the AWS SSM Contact that the contact channel belongs to.
      * 
      */
     @Export(name="contactId", refs={String.class}, tree="[0]")
     private Output<String> contactId;
 
     /**
-     * @return Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
+     * @return ARN of the AWS SSM Contact that the contact channel belongs to.
      * 
      */
     public Output<String> contactId() {

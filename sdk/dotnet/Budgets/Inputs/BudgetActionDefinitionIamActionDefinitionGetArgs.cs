@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Budgets.Inputs
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the policy to be attached.
+        /// ARN of the policy to be attached.
         /// </summary>
         [Input("policyArn", required: true)]
         public Input<string> PolicyArn { get; set; } = null!;

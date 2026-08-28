@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetEventConnectionResult {
     /**
-     * @return ARN (Amazon Resource Name) of the connection.
+     * @return ARN of the connection.
      * 
      */
     private String arn;
@@ -40,7 +40,7 @@ public final class GetEventConnectionResult {
 
     private GetEventConnectionResult() {}
     /**
-     * @return ARN (Amazon Resource Name) of the connection.
+     * @return ARN of the connection.
      * 
      */
     public String arn() {

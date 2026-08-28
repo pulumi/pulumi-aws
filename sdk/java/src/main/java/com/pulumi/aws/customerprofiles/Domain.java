@@ -163,14 +163,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:customerprofiles/domain:Domain")
 public class Domain extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the Customer Profiles Domain.
+     * ARN of the Customer Profiles Domain.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Customer Profiles Domain.
+     * @return ARN of the Customer Profiles Domain.
      * 
      */
     public Output<String> arn() {

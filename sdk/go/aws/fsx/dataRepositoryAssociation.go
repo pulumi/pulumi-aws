@@ -97,7 +97,7 @@ import (
 type DataRepositoryAssociation struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name of the file system.
+	// ARN of the file system.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Identifier of the data repository association.
 	AssociationId pulumi.StringOutput `pulumi:"associationId"`
@@ -162,7 +162,7 @@ func GetDataRepositoryAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataRepositoryAssociation resources.
 type dataRepositoryAssociationState struct {
-	// Amazon Resource Name of the file system.
+	// ARN of the file system.
 	Arn *string `pulumi:"arn"`
 	// Identifier of the data repository association.
 	AssociationId *string `pulumi:"associationId"`
@@ -189,7 +189,7 @@ type dataRepositoryAssociationState struct {
 }
 
 type DataRepositoryAssociationState struct {
-	// Amazon Resource Name of the file system.
+	// ARN of the file system.
 	Arn pulumi.StringPtrInput
 	// Identifier of the data repository association.
 	AssociationId pulumi.StringPtrInput
@@ -349,7 +349,7 @@ func (o DataRepositoryAssociationOutput) ToDataRepositoryAssociationOutputWithCo
 	return o
 }
 
-// Amazon Resource Name of the file system.
+// ARN of the file system.
 func (o DataRepositoryAssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

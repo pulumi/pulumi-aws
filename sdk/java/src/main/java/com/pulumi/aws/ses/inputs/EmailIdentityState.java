@@ -16,14 +16,14 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
     public static final EmailIdentityState Empty = new EmailIdentityState();
 
     /**
-     * The ARN of the email identity.
+     * ARN of the email identity.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the email identity.
+     * @return ARN of the email identity.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -31,14 +31,14 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The email address to assign to SES.
+     * Email address to assign to SES.
      * 
      */
     @Import(name="email")
     private @Nullable Output<String> email;
 
     /**
-     * @return The email address to assign to SES.
+     * @return Email address to assign to SES.
      * 
      */
     public Optional<Output<String>> email() {
@@ -87,7 +87,7 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn The ARN of the email identity.
+         * @param arn ARN of the email identity.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn The ARN of the email identity.
+         * @param arn ARN of the email identity.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param email The email address to assign to SES.
+         * @param email Email address to assign to SES.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param email The email address to assign to SES.
+         * @param email Email address to assign to SES.
          * 
          * @return builder
          * 

@@ -165,7 +165,7 @@ class LogTransformer(pulumi.CustomResource):
 
         #### Required
 
-        - `log_group_arn` (String) Amazon Resource Name (ARN) of the CloudWatch Logs log group.
+        - `log_group_arn` (String) ARN of the CloudWatch Logs log group.
 
         Using `pulumi import`, import CloudWatch Logs Transformer using the `log_group_arn`. For example:
 
@@ -211,7 +211,7 @@ class LogTransformer(pulumi.CustomResource):
 
         #### Required
 
-        - `log_group_arn` (String) Amazon Resource Name (ARN) of the CloudWatch Logs log group.
+        - `log_group_arn` (String) ARN of the CloudWatch Logs log group.
 
         Using `pulumi import`, import CloudWatch Logs Transformer using the `log_group_arn`. For example:
 

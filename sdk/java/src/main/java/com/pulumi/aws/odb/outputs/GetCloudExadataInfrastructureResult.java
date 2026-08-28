@@ -27,7 +27,7 @@ public final class GetCloudExadataInfrastructureResult {
      */
     private Integer additionalStorageCount;
     /**
-     * @return Amazon Resource Name (ARN) for the Exadata infrastructure.
+     * @return ARN for the Exadata infrastructure.
      * 
      */
     private String arn;
@@ -229,7 +229,7 @@ public final class GetCloudExadataInfrastructureResult {
         return this.additionalStorageCount;
     }
     /**
-     * @return Amazon Resource Name (ARN) for the Exadata infrastructure.
+     * @return ARN for the Exadata infrastructure.
      * 
      */
     public String arn() {

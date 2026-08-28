@@ -106,7 +106,7 @@ type IdentityPool struct {
 	OpenidConnectProviderArns pulumi.StringArrayOutput `pulumi:"openidConnectProviderArns"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+	// An array of ARNs of the SAML provider for your identity.
 	SamlProviderArns pulumi.StringArrayOutput `pulumi:"samlProviderArns"`
 	// Key-Value pairs mapping provider names to provider app IDs.
 	SupportedLoginProviders pulumi.StringMapOutput `pulumi:"supportedLoginProviders"`
@@ -166,7 +166,7 @@ type identityPoolState struct {
 	OpenidConnectProviderArns []string `pulumi:"openidConnectProviderArns"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+	// An array of ARNs of the SAML provider for your identity.
 	SamlProviderArns []string `pulumi:"samlProviderArns"`
 	// Key-Value pairs mapping provider names to provider app IDs.
 	SupportedLoginProviders map[string]string `pulumi:"supportedLoginProviders"`
@@ -194,7 +194,7 @@ type IdentityPoolState struct {
 	OpenidConnectProviderArns pulumi.StringArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+	// An array of ARNs of the SAML provider for your identity.
 	SamlProviderArns pulumi.StringArrayInput
 	// Key-Value pairs mapping provider names to provider app IDs.
 	SupportedLoginProviders pulumi.StringMapInput
@@ -224,7 +224,7 @@ type identityPoolArgs struct {
 	OpenidConnectProviderArns []string `pulumi:"openidConnectProviderArns"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+	// An array of ARNs of the SAML provider for your identity.
 	SamlProviderArns []string `pulumi:"samlProviderArns"`
 	// Key-Value pairs mapping provider names to provider app IDs.
 	SupportedLoginProviders map[string]string `pulumi:"supportedLoginProviders"`
@@ -249,7 +249,7 @@ type IdentityPoolArgs struct {
 	OpenidConnectProviderArns pulumi.StringArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+	// An array of ARNs of the SAML provider for your identity.
 	SamlProviderArns pulumi.StringArrayInput
 	// Key-Value pairs mapping provider names to provider app IDs.
 	SupportedLoginProviders pulumi.StringMapInput
@@ -387,7 +387,7 @@ func (o IdentityPoolOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityPool) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+// An array of ARNs of the SAML provider for your identity.
 func (o IdentityPoolOutput) SamlProviderArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IdentityPool) pulumi.StringArrayOutput { return v.SamlProviderArns }).(pulumi.StringArrayOutput)
 }

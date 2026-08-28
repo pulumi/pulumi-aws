@@ -16,14 +16,14 @@ public final class ConfigurationSetVdmOptionsGuardianOptionsArgs extends com.pul
     public static final ConfigurationSetVdmOptionsGuardianOptionsArgs Empty = new ConfigurationSetVdmOptionsGuardianOptionsArgs();
 
     /**
-     * Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+     * Status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
     @Import(name="optimizedSharedDelivery")
     private @Nullable Output<String> optimizedSharedDelivery;
 
     /**
-     * @return Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+     * @return Status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
     public Optional<Output<String>> optimizedSharedDelivery() {
@@ -55,7 +55,7 @@ public final class ConfigurationSetVdmOptionsGuardianOptionsArgs extends com.pul
         }
 
         /**
-         * @param optimizedSharedDelivery Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+         * @param optimizedSharedDelivery Status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ConfigurationSetVdmOptionsGuardianOptionsArgs extends com.pul
         }
 
         /**
-         * @param optimizedSharedDelivery Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+         * @param optimizedSharedDelivery Status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
          * 
          * @return builder
          * 

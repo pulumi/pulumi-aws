@@ -26,7 +26,7 @@ class AgentcoreResourcePolicyArgs:
         The set of arguments for constructing a AgentcoreResourcePolicy resource.
 
         :param pulumi.Input[_builtins.str] policy: Resource policy definition
-        :param pulumi.Input[_builtins.str] resource_arn: Amazon Resource Name (ARN) of the resource for which to create or update the resource policy.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN of the resource for which to create or update the resource policy.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -52,7 +52,7 @@ class AgentcoreResourcePolicyArgs:
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the resource for which to create or update the resource policy.
+        ARN of the resource for which to create or update the resource policy.
 
         The following arguments are optional:
         """
@@ -86,7 +86,7 @@ class _AgentcoreResourcePolicyState:
 
         :param pulumi.Input[_builtins.str] policy: Resource policy definition
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: Amazon Resource Name (ARN) of the resource for which to create or update the resource policy.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN of the resource for which to create or update the resource policy.
                
                The following arguments are optional:
         """
@@ -125,7 +125,7 @@ class _AgentcoreResourcePolicyState:
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the resource for which to create or update the resource policy.
+        ARN of the resource for which to create or update the resource policy.
 
         The following arguments are optional:
         """
@@ -197,7 +197,7 @@ class AgentcoreResourcePolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] policy: Resource policy definition
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: Amazon Resource Name (ARN) of the resource for which to create or update the resource policy.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN of the resource for which to create or update the resource policy.
                
                The following arguments are optional:
         """
@@ -310,7 +310,7 @@ class AgentcoreResourcePolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] policy: Resource policy definition
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: Amazon Resource Name (ARN) of the resource for which to create or update the resource policy.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN of the resource for which to create or update the resource policy.
                
                The following arguments are optional:
         """
@@ -343,7 +343,7 @@ class AgentcoreResourcePolicy(pulumi.CustomResource):
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the resource for which to create or update the resource policy.
+        ARN of the resource for which to create or update the resource policy.
 
         The following arguments are optional:
         """

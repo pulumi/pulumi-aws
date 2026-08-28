@@ -62,7 +62,7 @@ namespace Pulumi.Aws.AppFabric
         public Output<string> App { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the app bundle to use for the request.
+        /// ARN of the app bundle to use for the request.
         /// </summary>
         [Output("appBundleArn")]
         public Output<string> AppBundleArn { get; private set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.AppFabric
         public Input<string> App { get; set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the app bundle to use for the request.
+        /// ARN of the app bundle to use for the request.
         /// </summary>
         [Input("appBundleArn", required: true)]
         public Input<string> AppBundleArn { get; set; } = null!;
@@ -258,7 +258,7 @@ namespace Pulumi.Aws.AppFabric
         public Input<string>? App { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the app bundle to use for the request.
+        /// ARN of the app bundle to use for the request.
         /// </summary>
         [Input("appBundleArn")]
         public Input<string>? AppBundleArn { get; set; }

@@ -131,13 +131,13 @@ import (
 type FargateProfile struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the EKS Fargate Profile.
+	// ARN of the EKS Fargate Profile.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name of the EKS Cluster.
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// Name of the EKS Fargate Profile.
 	FargateProfileName pulumi.StringOutput `pulumi:"fargateProfileName"`
-	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+	// ARN of the IAM Role that provides permissions for the EKS Fargate Profile.
 	PodExecutionRoleArn pulumi.StringOutput `pulumi:"podExecutionRoleArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -194,13 +194,13 @@ func GetFargateProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FargateProfile resources.
 type fargateProfileState struct {
-	// Amazon Resource Name (ARN) of the EKS Fargate Profile.
+	// ARN of the EKS Fargate Profile.
 	Arn *string `pulumi:"arn"`
 	// Name of the EKS Cluster.
 	ClusterName *string `pulumi:"clusterName"`
 	// Name of the EKS Fargate Profile.
 	FargateProfileName *string `pulumi:"fargateProfileName"`
-	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+	// ARN of the IAM Role that provides permissions for the EKS Fargate Profile.
 	PodExecutionRoleArn *string `pulumi:"podExecutionRoleArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -219,13 +219,13 @@ type fargateProfileState struct {
 }
 
 type FargateProfileState struct {
-	// Amazon Resource Name (ARN) of the EKS Fargate Profile.
+	// ARN of the EKS Fargate Profile.
 	Arn pulumi.StringPtrInput
 	// Name of the EKS Cluster.
 	ClusterName pulumi.StringPtrInput
 	// Name of the EKS Fargate Profile.
 	FargateProfileName pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+	// ARN of the IAM Role that provides permissions for the EKS Fargate Profile.
 	PodExecutionRoleArn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -252,7 +252,7 @@ type fargateProfileArgs struct {
 	ClusterName string `pulumi:"clusterName"`
 	// Name of the EKS Fargate Profile.
 	FargateProfileName *string `pulumi:"fargateProfileName"`
-	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+	// ARN of the IAM Role that provides permissions for the EKS Fargate Profile.
 	PodExecutionRoleArn string `pulumi:"podExecutionRoleArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -272,7 +272,7 @@ type FargateProfileArgs struct {
 	ClusterName pulumi.StringInput
 	// Name of the EKS Fargate Profile.
 	FargateProfileName pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+	// ARN of the IAM Role that provides permissions for the EKS Fargate Profile.
 	PodExecutionRoleArn pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -373,7 +373,7 @@ func (o FargateProfileOutput) ToFargateProfileOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Amazon Resource Name (ARN) of the EKS Fargate Profile.
+// ARN of the EKS Fargate Profile.
 func (o FargateProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FargateProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -388,7 +388,7 @@ func (o FargateProfileOutput) FargateProfileName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FargateProfile) pulumi.StringOutput { return v.FargateProfileName }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+// ARN of the IAM Role that provides permissions for the EKS Fargate Profile.
 func (o FargateProfileOutput) PodExecutionRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FargateProfile) pulumi.StringOutput { return v.PodExecutionRoleArn }).(pulumi.StringOutput)
 }

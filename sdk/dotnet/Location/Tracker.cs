@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Location
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
+        /// ARN for the tracker resource. Used when you need to specify a resource across all AWS.
         /// </summary>
         [Output("trackerArn")]
         public Output<string> TrackerArn { get; private set; } = null!;
@@ -256,7 +256,7 @@ namespace Pulumi.Aws.Location
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
+        /// ARN for the tracker resource. Used when you need to specify a resource across all AWS.
         /// </summary>
         [Input("trackerArn")]
         public Input<string>? TrackerArn { get; set; }

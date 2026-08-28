@@ -29,8 +29,8 @@ class AppAuthorizationConnectionArgs:
         """
         The set of arguments for constructing a AppAuthorizationConnection resource.
 
-        :param pulumi.Input[_builtins.str] app_authorization_arn: Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
-        :param pulumi.Input[_builtins.str] app_bundle_arn: Amazon Resource Name (ARN) of the app bundle to use for the request.
+        :param pulumi.Input[_builtins.str] app_authorization_arn: ARN or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+        :param pulumi.Input[_builtins.str] app_bundle_arn: ARN of the app bundle to use for the request.
                
                The following arguments are optional:
         :param pulumi.Input['AppAuthorizationConnectionAuthRequestArgs'] auth_request: OAuth2 authorization information. Required if the app authorization for the request is configured with an OAuth2 (`oauth2`) authorization type. See `auth_request` Block for details.
@@ -49,7 +49,7 @@ class AppAuthorizationConnectionArgs:
     @pulumi.getter(name="appAuthorizationArn")
     def app_authorization_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+        ARN or Universal Unique Identifier (UUID) of the app authorization to use for the request.
         """
         return pulumi.get(self, "app_authorization_arn")
 
@@ -61,7 +61,7 @@ class AppAuthorizationConnectionArgs:
     @pulumi.getter(name="appBundleArn")
     def app_bundle_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the app bundle to use for the request.
+        ARN of the app bundle to use for the request.
 
         The following arguments are optional:
         """
@@ -119,8 +119,8 @@ class _AppAuthorizationConnectionState:
         Input properties used for looking up and filtering AppAuthorizationConnection resources.
 
         :param pulumi.Input[_builtins.str] app: Name of the application.
-        :param pulumi.Input[_builtins.str] app_authorization_arn: Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
-        :param pulumi.Input[_builtins.str] app_bundle_arn: Amazon Resource Name (ARN) of the app bundle to use for the request.
+        :param pulumi.Input[_builtins.str] app_authorization_arn: ARN or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+        :param pulumi.Input[_builtins.str] app_bundle_arn: ARN of the app bundle to use for the request.
                
                The following arguments are optional:
         :param pulumi.Input['AppAuthorizationConnectionAuthRequestArgs'] auth_request: OAuth2 authorization information. Required if the app authorization for the request is configured with an OAuth2 (`oauth2`) authorization type. See `auth_request` Block for details.
@@ -158,7 +158,7 @@ class _AppAuthorizationConnectionState:
     @pulumi.getter(name="appAuthorizationArn")
     def app_authorization_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+        ARN or Universal Unique Identifier (UUID) of the app authorization to use for the request.
         """
         return pulumi.get(self, "app_authorization_arn")
 
@@ -170,7 +170,7 @@ class _AppAuthorizationConnectionState:
     @pulumi.getter(name="appBundleArn")
     def app_bundle_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the app bundle to use for the request.
+        ARN of the app bundle to use for the request.
 
         The following arguments are optional:
         """
@@ -257,8 +257,8 @@ class AppAuthorizationConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] app_authorization_arn: Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
-        :param pulumi.Input[_builtins.str] app_bundle_arn: Amazon Resource Name (ARN) of the app bundle to use for the request.
+        :param pulumi.Input[_builtins.str] app_authorization_arn: ARN or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+        :param pulumi.Input[_builtins.str] app_bundle_arn: ARN of the app bundle to use for the request.
                
                The following arguments are optional:
         :param pulumi.Input[Union['AppAuthorizationConnectionAuthRequestArgs', 'AppAuthorizationConnectionAuthRequestArgsDict']] auth_request: OAuth2 authorization information. Required if the app authorization for the request is configured with an OAuth2 (`oauth2`) authorization type. See `auth_request` Block for details.
@@ -352,8 +352,8 @@ class AppAuthorizationConnection(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app: Name of the application.
-        :param pulumi.Input[_builtins.str] app_authorization_arn: Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
-        :param pulumi.Input[_builtins.str] app_bundle_arn: Amazon Resource Name (ARN) of the app bundle to use for the request.
+        :param pulumi.Input[_builtins.str] app_authorization_arn: ARN or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+        :param pulumi.Input[_builtins.str] app_bundle_arn: ARN of the app bundle to use for the request.
                
                The following arguments are optional:
         :param pulumi.Input[Union['AppAuthorizationConnectionAuthRequestArgs', 'AppAuthorizationConnectionAuthRequestArgsDict']] auth_request: OAuth2 authorization information. Required if the app authorization for the request is configured with an OAuth2 (`oauth2`) authorization type. See `auth_request` Block for details.
@@ -385,7 +385,7 @@ class AppAuthorizationConnection(pulumi.CustomResource):
     @pulumi.getter(name="appAuthorizationArn")
     def app_authorization_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+        ARN or Universal Unique Identifier (UUID) of the app authorization to use for the request.
         """
         return pulumi.get(self, "app_authorization_arn")
 
@@ -393,7 +393,7 @@ class AppAuthorizationConnection(pulumi.CustomResource):
     @pulumi.getter(name="appBundleArn")
     def app_bundle_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the app bundle to use for the request.
+        ARN of the app bundle to use for the request.
 
         The following arguments are optional:
         """

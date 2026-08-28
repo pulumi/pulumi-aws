@@ -58,7 +58,7 @@ class AccountSubscriptionArgs:
         :param pulumi.Input[_builtins.str] directory_id: Active Directory ID that is associated with your Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] email_address: Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] first_name: First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        :param pulumi.Input[_builtins.str] iam_identity_center_instance_arn: The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+        :param pulumi.Input[_builtins.str] iam_identity_center_instance_arn: ARN for the IAM Identity Center instance.
         :param pulumi.Input[_builtins.str] last_name: Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] reader_groups: Reader group associated with your Active Directory or IAM Identity Center account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] reader_pro_groups: Reader PRO group associated with your Active Directory or IAM Identity Center account.
@@ -276,7 +276,7 @@ class AccountSubscriptionArgs:
     @pulumi.getter(name="iamIdentityCenterInstanceArn")
     def iam_identity_center_instance_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+        ARN for the IAM Identity Center instance.
         """
         return pulumi.get(self, "iam_identity_center_instance_arn")
 
@@ -386,7 +386,7 @@ class _AccountSubscriptionState:
         :param pulumi.Input[_builtins.str] edition: Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
         :param pulumi.Input[_builtins.str] email_address: Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] first_name: First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        :param pulumi.Input[_builtins.str] iam_identity_center_instance_arn: The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+        :param pulumi.Input[_builtins.str] iam_identity_center_instance_arn: ARN for the IAM Identity Center instance.
         :param pulumi.Input[_builtins.str] last_name: Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] notification_email: Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
                
@@ -611,7 +611,7 @@ class _AccountSubscriptionState:
     @pulumi.getter(name="iamIdentityCenterInstanceArn")
     def iam_identity_center_instance_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+        ARN for the IAM Identity Center instance.
         """
         return pulumi.get(self, "iam_identity_center_instance_arn")
 
@@ -763,7 +763,7 @@ class AccountSubscription(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] edition: Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
         :param pulumi.Input[_builtins.str] email_address: Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] first_name: First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        :param pulumi.Input[_builtins.str] iam_identity_center_instance_arn: The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+        :param pulumi.Input[_builtins.str] iam_identity_center_instance_arn: ARN for the IAM Identity Center instance.
         :param pulumi.Input[_builtins.str] last_name: Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] notification_email: Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
                
@@ -931,7 +931,7 @@ class AccountSubscription(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] edition: Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
         :param pulumi.Input[_builtins.str] email_address: Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] first_name: First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
-        :param pulumi.Input[_builtins.str] iam_identity_center_instance_arn: The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+        :param pulumi.Input[_builtins.str] iam_identity_center_instance_arn: ARN for the IAM Identity Center instance.
         :param pulumi.Input[_builtins.str] last_name: Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[_builtins.str] notification_email: Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
                
@@ -1084,7 +1084,7 @@ class AccountSubscription(pulumi.CustomResource):
     @pulumi.getter(name="iamIdentityCenterInstanceArn")
     def iam_identity_center_instance_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+        ARN for the IAM Identity Center instance.
         """
         return pulumi.get(self, "iam_identity_center_instance_arn")
 

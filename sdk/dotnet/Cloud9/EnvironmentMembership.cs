@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Cloud9
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the environment member you want to add.
+        /// ARN of the environment member you want to add.
         /// </summary>
         [Output("userArn")]
         public Output<string> UserArn { get; private set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.Cloud9
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the environment member you want to add.
+        /// ARN of the environment member you want to add.
         /// </summary>
         [Input("userArn", required: true)]
         public Input<string> UserArn { get; set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Cloud9
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the environment member you want to add.
+        /// ARN of the environment member you want to add.
         /// </summary>
         [Input("userArn")]
         public Input<string>? UserArn { get; set; }

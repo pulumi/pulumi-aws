@@ -120,7 +120,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the SSO application.
+ * - `arn` (String) ARN of the SSO application.
  * 
  * #### Optional
  * 

@@ -143,7 +143,7 @@ namespace Pulumi.Aws.Ssm
     public partial class Document : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the document.
+        /// ARN of the document.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -419,7 +419,7 @@ namespace Pulumi.Aws.Ssm
     public sealed class DocumentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the document.
+        /// ARN of the document.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

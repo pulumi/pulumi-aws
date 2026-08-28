@@ -4745,7 +4745,7 @@ class BucketReplicationConfigRuleDestinationEncryptionConfiguration(dict):
     def __init__(__self__, *,
                  replica_kms_key_id: _builtins.str):
         """
-        :param _builtins.str replica_kms_key_id: ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
+        :param _builtins.str replica_kms_key_id: ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in KMS for the destination bucket.
         """
         pulumi.set(__self__, "replica_kms_key_id", replica_kms_key_id)
 
@@ -4753,7 +4753,7 @@ class BucketReplicationConfigRuleDestinationEncryptionConfiguration(dict):
     @pulumi.getter(name="replicaKmsKeyId")
     def replica_kms_key_id(self) -> _builtins.str:
         """
-        ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
+        ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in KMS for the destination bucket.
         """
         return pulumi.get(self, "replica_kms_key_id")
 
@@ -8574,7 +8574,7 @@ class VectorsIndexEncryptionConfiguration(dict):
                  kms_key_arn: _builtins.str,
                  sse_type: _builtins.str):
         """
-        :param _builtins.str kms_key_arn: AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sse_type` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key Amazon Resource Name (ARN).
+        :param _builtins.str kms_key_arn: KMS customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sse_type` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key ARN.
         :param _builtins.str sse_type: Type of encryption to use. Valid values: `AES256`, `aws:kms`. Defaults to `AES256`.
         """
         pulumi.set(__self__, "kms_key_arn", kms_key_arn)
@@ -8584,7 +8584,7 @@ class VectorsIndexEncryptionConfiguration(dict):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> _builtins.str:
         """
-        AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sse_type` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key Amazon Resource Name (ARN).
+        KMS customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sse_type` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key ARN.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -9014,7 +9014,7 @@ class GetBucketReplicationConfigurationRuleResult(dict):
         :param _builtins.str prefix: Object key name prefix that identifies the subset of objects to which the rule applies.
         :param _builtins.int priority: Priority associated with the rule.
         :param Sequence['GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArgs'] source_selection_criterias: Configuration block that specifies special object selection criteria. See `source_selection_criteria` Block below.
-        :param _builtins.str status: Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+        :param _builtins.str status: Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
         """
         pulumi.set(__self__, "delete_marker_replications", delete_marker_replications)
         pulumi.set(__self__, "destinations", destinations)
@@ -9094,7 +9094,7 @@ class GetBucketReplicationConfigurationRuleResult(dict):
     @pulumi.getter
     def status(self) -> _builtins.str:
         """
-        Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+        Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
         """
         return pulumi.get(self, "status")
 
@@ -9104,7 +9104,7 @@ class GetBucketReplicationConfigurationRuleDeleteMarkerReplicationResult(dict):
     def __init__(__self__, *,
                  status: _builtins.str):
         """
-        :param _builtins.str status: Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+        :param _builtins.str status: Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
         """
         pulumi.set(__self__, "status", status)
 
@@ -9112,7 +9112,7 @@ class GetBucketReplicationConfigurationRuleDeleteMarkerReplicationResult(dict):
     @pulumi.getter
     def status(self) -> _builtins.str:
         """
-        Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+        Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
         """
         return pulumi.get(self, "status")
 
@@ -9224,7 +9224,7 @@ class GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationRes
     def __init__(__self__, *,
                  replica_kms_key_id: _builtins.str):
         """
-        :param _builtins.str replica_kms_key_id: ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
+        :param _builtins.str replica_kms_key_id: ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in KMS for the destination bucket.
         """
         pulumi.set(__self__, "replica_kms_key_id", replica_kms_key_id)
 
@@ -9232,7 +9232,7 @@ class GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationRes
     @pulumi.getter(name="replicaKmsKeyId")
     def replica_kms_key_id(self) -> _builtins.str:
         """
-        ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
+        ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in KMS for the destination bucket.
         """
         return pulumi.get(self, "replica_kms_key_id")
 
@@ -9244,7 +9244,7 @@ class GetBucketReplicationConfigurationRuleDestinationMetricResult(dict):
                  status: _builtins.str):
         """
         :param Sequence['GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArgs'] event_thresholds: Configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event. See `event_threshold` Block below.
-        :param _builtins.str status: Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+        :param _builtins.str status: Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
         """
         pulumi.set(__self__, "event_thresholds", event_thresholds)
         pulumi.set(__self__, "status", status)
@@ -9261,7 +9261,7 @@ class GetBucketReplicationConfigurationRuleDestinationMetricResult(dict):
     @pulumi.getter
     def status(self) -> _builtins.str:
         """
-        Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+        Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
         """
         return pulumi.get(self, "status")
 
@@ -9290,7 +9290,7 @@ class GetBucketReplicationConfigurationRuleDestinationReplicationTimeResult(dict
                  status: _builtins.str,
                  times: Sequence['outputs.GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeResult']):
         """
-        :param _builtins.str status: Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+        :param _builtins.str status: Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
         :param Sequence['GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArgs'] times: Configuration block that specifies the time by which replication should be complete for all objects and operations on objects. See `time` Block below.
         """
         pulumi.set(__self__, "status", status)
@@ -9300,7 +9300,7 @@ class GetBucketReplicationConfigurationRuleDestinationReplicationTimeResult(dict
     @pulumi.getter
     def status(self) -> _builtins.str:
         """
-        Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+        Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
         """
         return pulumi.get(self, "status")
 
@@ -9336,7 +9336,7 @@ class GetBucketReplicationConfigurationRuleExistingObjectReplicationResult(dict)
     def __init__(__self__, *,
                  status: _builtins.str):
         """
-        :param _builtins.str status: Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+        :param _builtins.str status: Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
         """
         pulumi.set(__self__, "status", status)
 
@@ -9344,7 +9344,7 @@ class GetBucketReplicationConfigurationRuleExistingObjectReplicationResult(dict)
     @pulumi.getter
     def status(self) -> _builtins.str:
         """
-        Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+        Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
         """
         return pulumi.get(self, "status")
 
@@ -9510,7 +9510,7 @@ class GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModific
     def __init__(__self__, *,
                  status: _builtins.str):
         """
-        :param _builtins.str status: Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+        :param _builtins.str status: Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
         """
         pulumi.set(__self__, "status", status)
 
@@ -9518,7 +9518,7 @@ class GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModific
     @pulumi.getter
     def status(self) -> _builtins.str:
         """
-        Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+        Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
         """
         return pulumi.get(self, "status")
 
@@ -9528,7 +9528,7 @@ class GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncrypte
     def __init__(__self__, *,
                  status: _builtins.str):
         """
-        :param _builtins.str status: Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+        :param _builtins.str status: Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
         """
         pulumi.set(__self__, "status", status)
 
@@ -9536,7 +9536,7 @@ class GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncrypte
     @pulumi.getter
     def status(self) -> _builtins.str:
         """
-        Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+        Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
         """
         return pulumi.get(self, "status")
 

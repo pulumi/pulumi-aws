@@ -1511,7 +1511,7 @@ class PermissionsDataCellsFilterArgs:
 class PermissionsDataLocationArgsDict(TypedDict):
     arn: pulumi.Input[_builtins.str]
     """
-    Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+    ARN that uniquely identifies the data location resource.
 
     The following argument is optional:
     """
@@ -1526,7 +1526,7 @@ class PermissionsDataLocationArgs:
                  arn: pulumi.Input[_builtins.str],
                  catalog_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+        :param pulumi.Input[_builtins.str] arn: ARN that uniquely identifies the data location resource.
                
                The following argument is optional:
         :param pulumi.Input[_builtins.str] catalog_id: Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
@@ -1539,7 +1539,7 @@ class PermissionsDataLocationArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+        ARN that uniquely identifies the data location resource.
 
         The following argument is optional:
         """

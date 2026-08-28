@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Outposts
     public sealed class GetOutpostsResult
     {
         /// <summary>
-        /// Set of Amazon Resource Names (ARNs).
+        /// Set of ARNs.
         /// </summary>
         public readonly ImmutableArray<string> Arns;
         public readonly string AvailabilityZone;

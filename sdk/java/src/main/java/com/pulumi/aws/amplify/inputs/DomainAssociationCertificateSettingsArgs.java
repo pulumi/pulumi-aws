@@ -32,7 +32,7 @@ public final class DomainAssociationCertificateSettingsArgs extends com.pulumi.r
     }
 
     /**
-     * The Amazon resource name (ARN) for the custom certificate.
+     * ARN for the custom certificate.
      * Required when `type` is `CUSTOM`.
      * 
      */
@@ -40,7 +40,7 @@ public final class DomainAssociationCertificateSettingsArgs extends com.pulumi.r
     private @Nullable Output<String> customCertificateArn;
 
     /**
-     * @return The Amazon resource name (ARN) for the custom certificate.
+     * @return ARN for the custom certificate.
      * Required when `type` is `CUSTOM`.
      * 
      */
@@ -113,7 +113,7 @@ public final class DomainAssociationCertificateSettingsArgs extends com.pulumi.r
         }
 
         /**
-         * @param customCertificateArn The Amazon resource name (ARN) for the custom certificate.
+         * @param customCertificateArn ARN for the custom certificate.
          * Required when `type` is `CUSTOM`.
          * 
          * @return builder
@@ -125,7 +125,7 @@ public final class DomainAssociationCertificateSettingsArgs extends com.pulumi.r
         }
 
         /**
-         * @param customCertificateArn The Amazon resource name (ARN) for the custom certificate.
+         * @param customCertificateArn ARN for the custom certificate.
          * Required when `type` is `CUSTOM`.
          * 
          * @return builder

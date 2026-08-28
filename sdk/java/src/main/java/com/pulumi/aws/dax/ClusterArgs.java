@@ -89,7 +89,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A valid Amazon Resource Name (ARN) that identifies
+     * Valid ARN that identifies
      * an IAM role. At runtime, DAX will assume this role and use the role&#39;s
      * permissions to access DynamoDB on your behalf
      * 
@@ -98,7 +98,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> iamRoleArn;
 
     /**
-     * @return A valid Amazon Resource Name (ARN) that identifies
+     * @return Valid ARN that identifies
      * an IAM role. At runtime, DAX will assume this role and use the role&#39;s
      * permissions to access DynamoDB on your behalf
      * 
@@ -146,7 +146,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An Amazon Resource Name (ARN) of an
+     * ARN of an
      * SNS topic to send DAX notifications to. Example:
      * `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
      * 
@@ -155,7 +155,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> notificationTopicArn;
 
     /**
-     * @return An Amazon Resource Name (ARN) of an
+     * @return ARN of an
      * SNS topic to send DAX notifications to. Example:
      * `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
      * 
@@ -421,7 +421,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iamRoleArn A valid Amazon Resource Name (ARN) that identifies
+         * @param iamRoleArn Valid ARN that identifies
          * an IAM role. At runtime, DAX will assume this role and use the role&#39;s
          * permissions to access DynamoDB on your behalf
          * 
@@ -434,7 +434,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iamRoleArn A valid Amazon Resource Name (ARN) that identifies
+         * @param iamRoleArn Valid ARN that identifies
          * an IAM role. At runtime, DAX will assume this role and use the role&#39;s
          * permissions to access DynamoDB on your behalf
          * 
@@ -496,7 +496,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notificationTopicArn An Amazon Resource Name (ARN) of an
+         * @param notificationTopicArn ARN of an
          * SNS topic to send DAX notifications to. Example:
          * `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
          * 
@@ -509,7 +509,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notificationTopicArn An Amazon Resource Name (ARN) of an
+         * @param notificationTopicArn ARN of an
          * SNS topic to send DAX notifications to. Example:
          * `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
          * 

@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> AppImageConfigName { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
+        /// ARN assigned by AWS to this App Image Config.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -256,7 +256,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? AppImageConfigName { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
+        /// ARN assigned by AWS to this App Image Config.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

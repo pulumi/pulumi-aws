@@ -111,7 +111,7 @@ export class LogDelivery extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the delivery.
+     * ARN of the delivery.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -197,7 +197,7 @@ export class LogDelivery extends pulumi.CustomResource {
  */
 export interface LogDeliveryState {
     /**
-     * The Amazon Resource Name (ARN) of the delivery.
+     * ARN of the delivery.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

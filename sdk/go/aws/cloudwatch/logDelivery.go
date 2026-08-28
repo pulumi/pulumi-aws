@@ -124,7 +124,7 @@ import (
 type LogDelivery struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the delivery.
+	// ARN of the delivery.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ARN of the delivery destination to use for this delivery.
 	DeliveryDestinationArn pulumi.StringOutput `pulumi:"deliveryDestinationArn"`
@@ -180,7 +180,7 @@ func GetLogDelivery(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogDelivery resources.
 type logDeliveryState struct {
-	// The Amazon Resource Name (ARN) of the delivery.
+	// ARN of the delivery.
 	Arn *string `pulumi:"arn"`
 	// The ARN of the delivery destination to use for this delivery.
 	DeliveryDestinationArn *string `pulumi:"deliveryDestinationArn"`
@@ -201,7 +201,7 @@ type logDeliveryState struct {
 }
 
 type LogDeliveryState struct {
-	// The Amazon Resource Name (ARN) of the delivery.
+	// ARN of the delivery.
 	Arn pulumi.StringPtrInput
 	// The ARN of the delivery destination to use for this delivery.
 	DeliveryDestinationArn pulumi.StringPtrInput
@@ -347,7 +347,7 @@ func (o LogDeliveryOutput) ToLogDeliveryOutputWithContext(ctx context.Context) L
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the delivery.
+// ARN of the delivery.
 func (o LogDeliveryOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDelivery) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

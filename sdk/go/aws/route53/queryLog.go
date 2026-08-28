@@ -112,7 +112,7 @@ import (
 type QueryLog struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the Query Logging Config.
+	// ARN of the Query Logging Config.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// CloudWatch log group ARN to send query logs.
 	CloudwatchLogGroupArn pulumi.StringOutput `pulumi:"cloudwatchLogGroupArn"`
@@ -156,7 +156,7 @@ func GetQueryLog(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering QueryLog resources.
 type queryLogState struct {
-	// The Amazon Resource Name (ARN) of the Query Logging Config.
+	// ARN of the Query Logging Config.
 	Arn *string `pulumi:"arn"`
 	// CloudWatch log group ARN to send query logs.
 	CloudwatchLogGroupArn *string `pulumi:"cloudwatchLogGroupArn"`
@@ -165,7 +165,7 @@ type queryLogState struct {
 }
 
 type QueryLogState struct {
-	// The Amazon Resource Name (ARN) of the Query Logging Config.
+	// ARN of the Query Logging Config.
 	Arn pulumi.StringPtrInput
 	// CloudWatch log group ARN to send query logs.
 	CloudwatchLogGroupArn pulumi.StringPtrInput
@@ -279,7 +279,7 @@ func (o QueryLogOutput) ToQueryLogOutputWithContext(ctx context.Context) QueryLo
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Query Logging Config.
+// ARN of the Query Logging Config.
 func (o QueryLogOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueryLog) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -131,7 +131,7 @@ export class KxEnvironment extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) identifier of the KX environment.
+     * ARN identifier of the KX environment.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -246,7 +246,7 @@ export class KxEnvironment extends pulumi.CustomResource {
  */
 export interface KxEnvironmentState {
     /**
-     * Amazon Resource Name (ARN) identifier of the KX environment.
+     * ARN identifier of the KX environment.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

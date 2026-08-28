@@ -19,14 +19,14 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
     public static final PipelineState Empty = new PipelineState();
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
+     * ARN assigned by AWS to this Pipeline.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
+     * @return ARN assigned by AWS to this Pipeline.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -218,7 +218,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
+         * @param arn ARN assigned by AWS to this Pipeline.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
+         * @param arn ARN assigned by AWS to this Pipeline.
          * 
          * @return builder
          * 

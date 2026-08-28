@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import S3 Outposts Endpoints using Amazon Resource Name (ARN), EC2 Security Group identifier, and EC2 Subnet identifier, separated by commas (`,`). For example:
+ * Using `pulumi import`, import S3 Outposts Endpoints using ARN, EC2 Security Group identifier, and EC2 Subnet identifier, separated by commas (`,`). For example:
  *
  * ```sh
  * $ pulumi import aws:s3outposts/endpoint:Endpoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/endpoint/0123456789abcdef,sg-12345678,subnet-12345678
@@ -64,7 +64,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     declare public readonly accessType: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the endpoint.
+     * ARN of the endpoint.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -159,7 +159,7 @@ export interface EndpointState {
      */
     accessType?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the endpoint.
+     * ARN of the endpoint.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

@@ -85,14 +85,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule")
 public class SecurityGroupEgressRule extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the security group rule.
+     * ARN of the security group rule.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the security group rule.
+     * @return ARN of the security group rule.
      * 
      */
     public Output<String> arn() {

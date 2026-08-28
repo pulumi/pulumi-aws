@@ -68,7 +68,7 @@ import (
 type EventApiDestination struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the event API Destination.
+	// ARN of the event API Destination.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ARN of the EventBridge Connection to use for the API Destination.
 	ConnectionArn pulumi.StringOutput `pulumi:"connectionArn"`
@@ -125,7 +125,7 @@ func GetEventApiDestination(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventApiDestination resources.
 type eventApiDestinationState struct {
-	// The Amazon Resource Name (ARN) of the event API Destination.
+	// ARN of the event API Destination.
 	Arn *string `pulumi:"arn"`
 	// ARN of the EventBridge Connection to use for the API Destination.
 	ConnectionArn *string `pulumi:"connectionArn"`
@@ -144,7 +144,7 @@ type eventApiDestinationState struct {
 }
 
 type EventApiDestinationState struct {
-	// The Amazon Resource Name (ARN) of the event API Destination.
+	// ARN of the event API Destination.
 	Arn pulumi.StringPtrInput
 	// ARN of the EventBridge Connection to use for the API Destination.
 	ConnectionArn pulumi.StringPtrInput
@@ -288,7 +288,7 @@ func (o EventApiDestinationOutput) ToEventApiDestinationOutputWithContext(ctx co
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the event API Destination.
+// ARN of the event API Destination.
 func (o EventApiDestinationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventApiDestination) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -15,14 +15,14 @@ public final class RepositoryAssociationRepositoryGithubEnterpriseServerArgs ext
     public static final RepositoryAssociationRepositoryGithubEnterpriseServerArgs Empty = new RepositoryAssociationRepositoryGithubEnterpriseServerArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+     * ARN of an AWS CodeStar Connections connection.
      * 
      */
     @Import(name="connectionArn", required=true)
     private Output<String> connectionArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+     * @return ARN of an AWS CodeStar Connections connection.
      * 
      */
     public Output<String> connectionArn() {
@@ -86,7 +86,7 @@ public final class RepositoryAssociationRepositoryGithubEnterpriseServerArgs ext
         }
 
         /**
-         * @param connectionArn The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+         * @param connectionArn ARN of an AWS CodeStar Connections connection.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class RepositoryAssociationRepositoryGithubEnterpriseServerArgs ext
         }
 
         /**
-         * @param connectionArn The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+         * @param connectionArn ARN of an AWS CodeStar Connections connection.
          * 
          * @return builder
          * 

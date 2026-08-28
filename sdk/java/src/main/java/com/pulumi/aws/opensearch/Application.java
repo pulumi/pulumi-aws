@@ -323,14 +323,14 @@ public class Application extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.appConfigs);
     }
     /**
-     * The Amazon Resource Name (ARN) of the OpenSearch application.
+     * ARN of the OpenSearch application.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the OpenSearch application.
+     * @return ARN of the OpenSearch application.
      * 
      */
     public Output<String> arn() {

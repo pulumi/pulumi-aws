@@ -18,14 +18,14 @@ public final class SecurityProfileState extends com.pulumi.resources.ResourceArg
     public static final SecurityProfileState Empty = new SecurityProfileState();
 
     /**
-     * The Amazon Resource Name (ARN) of the Security Profile.
+     * ARN of the Security Profile.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Security Profile.
+     * @return ARN of the Security Profile.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -203,7 +203,7 @@ public final class SecurityProfileState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Security Profile.
+         * @param arn ARN of the Security Profile.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class SecurityProfileState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Security Profile.
+         * @param arn ARN of the Security Profile.
          * 
          * @return builder
          * 

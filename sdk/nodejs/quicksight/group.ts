@@ -53,7 +53,7 @@ export class Group extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of group
+     * ARN of group
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -118,7 +118,7 @@ export class Group extends pulumi.CustomResource {
  */
 export interface GroupState {
     /**
-     * Amazon Resource Name (ARN) of group
+     * ARN of group
      */
     arn?: pulumi.Input<string | undefined>;
     /**

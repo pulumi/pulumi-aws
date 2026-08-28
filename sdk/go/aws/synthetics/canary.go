@@ -60,7 +60,7 @@ import (
 type Canary struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the Canary.
+	// ARN of the Canary.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
 	ArtifactConfig CanaryArtifactConfigPtrOutput `pulumi:"artifactConfig"`
@@ -159,7 +159,7 @@ func GetCanary(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Canary resources.
 type canaryState struct {
-	// Amazon Resource Name (ARN) of the Canary.
+	// ARN of the Canary.
 	Arn *string `pulumi:"arn"`
 	// configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
 	ArtifactConfig *CanaryArtifactConfig `pulumi:"artifactConfig"`
@@ -214,7 +214,7 @@ type canaryState struct {
 }
 
 type CanaryState struct {
-	// Amazon Resource Name (ARN) of the Canary.
+	// ARN of the Canary.
 	Arn pulumi.StringPtrInput
 	// configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
 	ArtifactConfig CanaryArtifactConfigPtrInput
@@ -446,7 +446,7 @@ func (o CanaryOutput) ToCanaryOutputWithContext(ctx context.Context) CanaryOutpu
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Canary.
+// ARN of the Canary.
 func (o CanaryOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Canary) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

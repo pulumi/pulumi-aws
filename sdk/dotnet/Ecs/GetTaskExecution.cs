@@ -154,7 +154,7 @@ namespace Pulumi.Aws.Ecs
         public string? ClientToken { get; set; }
 
         /// <summary>
-        /// Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
+        /// Short name or full ARN of the cluster to run the task on.
         /// </summary>
         [Input("cluster", required: true)]
         public string Cluster { get; set; } = null!;
@@ -302,7 +302,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? ClientToken { get; set; }
 
         /// <summary>
-        /// Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
+        /// Short name or full ARN of the cluster to run the task on.
         /// </summary>
         [Input("cluster", required: true)]
         public Input<string> Cluster { get; set; } = null!;

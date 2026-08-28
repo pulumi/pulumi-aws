@@ -41,7 +41,7 @@ namespace Pulumi.Aws.DeviceFarm
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Device Farm project.
+    /// - `Arn` (String) ARN of the Device Farm project.
     /// 
     /// Using `pulumi import`, import DeviceFarm Projects using their ARN. For example:
     /// 
@@ -53,7 +53,7 @@ namespace Pulumi.Aws.DeviceFarm
     public partial class Project : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name of this project
+        /// ARN of this project
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.Aws.DeviceFarm
     public sealed class ProjectState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name of this project
+        /// ARN of this project
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

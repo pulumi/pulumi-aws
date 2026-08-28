@@ -19,14 +19,14 @@ public final class ContactsRotationState extends com.pulumi.resources.ResourceAr
     public static final ContactsRotationState Empty = new ContactsRotationState();
 
     /**
-     * The Amazon Resource Name (ARN) of the rotation.
+     * ARN of the rotation.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the rotation.
+     * @return ARN of the rotation.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -34,14 +34,14 @@ public final class ContactsRotationState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+     * ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
      * 
      */
     @Import(name="contactIds")
     private @Nullable Output<List<String>> contactIds;
 
     /**
-     * @return Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+     * @return ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
      * 
      */
     public Optional<Output<List<String>>> contactIds() {
@@ -190,7 +190,7 @@ public final class ContactsRotationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the rotation.
+         * @param arn ARN of the rotation.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class ContactsRotationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the rotation.
+         * @param arn ARN of the rotation.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class ContactsRotationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param contactIds Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+         * @param contactIds ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class ContactsRotationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param contactIds Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+         * @param contactIds ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class ContactsRotationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param contactIds Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+         * @param contactIds ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
          * 
          * @return builder
          * 

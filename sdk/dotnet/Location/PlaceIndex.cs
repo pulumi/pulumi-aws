@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Location
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
+        /// ARN for the place index resource. Used to specify a resource across AWS.
         /// </summary>
         [Output("indexArn")]
         public Output<string> IndexArn { get; private set; } = null!;
@@ -227,7 +227,7 @@ namespace Pulumi.Aws.Location
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
+        /// ARN for the place index resource. Used to specify a resource across AWS.
         /// </summary>
         [Input("indexArn")]
         public Input<string>? IndexArn { get; set; }

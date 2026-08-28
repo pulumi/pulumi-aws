@@ -70,14 +70,14 @@ type LookupReplicationTaskResult struct {
 	// The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
 	MigrationType string `pulumi:"migrationType"`
 	Region        string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the replication instance.
+	// ARN of the replication instance.
 	ReplicationInstanceArn string `pulumi:"replicationInstanceArn"`
-	// The Amazon Resource Name (ARN) for the replication task.
+	// ARN for the replication task.
 	ReplicationTaskArn string `pulumi:"replicationTaskArn"`
 	ReplicationTaskId  string `pulumi:"replicationTaskId"`
 	// An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
 	ReplicationTaskSettings string `pulumi:"replicationTaskSettings"`
-	// The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+	// ARN string that uniquely identifies the source endpoint.
 	SourceEndpointArn string `pulumi:"sourceEndpointArn"`
 	// Whether to run or stop the replication task.
 	StartReplicationTask bool `pulumi:"startReplicationTask"`
@@ -86,7 +86,7 @@ type LookupReplicationTaskResult struct {
 	// An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
 	TableMappings string            `pulumi:"tableMappings"`
 	Tags          map[string]string `pulumi:"tags"`
-	// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+	// ARN string that uniquely identifies the target endpoint.
 	TargetEndpointArn string `pulumi:"targetEndpointArn"`
 }
 
@@ -147,12 +147,12 @@ func (o LookupReplicationTaskResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationTaskResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the replication instance.
+// ARN of the replication instance.
 func (o LookupReplicationTaskResultOutput) ReplicationInstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationTaskResult) string { return v.ReplicationInstanceArn }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) for the replication task.
+// ARN for the replication task.
 func (o LookupReplicationTaskResultOutput) ReplicationTaskArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationTaskResult) string { return v.ReplicationTaskArn }).(pulumi.StringOutput)
 }
@@ -166,7 +166,7 @@ func (o LookupReplicationTaskResultOutput) ReplicationTaskSettings() pulumi.Stri
 	return o.ApplyT(func(v LookupReplicationTaskResult) string { return v.ReplicationTaskSettings }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+// ARN string that uniquely identifies the source endpoint.
 func (o LookupReplicationTaskResultOutput) SourceEndpointArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationTaskResult) string { return v.SourceEndpointArn }).(pulumi.StringOutput)
 }
@@ -190,7 +190,7 @@ func (o LookupReplicationTaskResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupReplicationTaskResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+// ARN string that uniquely identifies the target endpoint.
 func (o LookupReplicationTaskResultOutput) TargetEndpointArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationTaskResult) string { return v.TargetEndpointArn }).(pulumi.StringOutput)
 }

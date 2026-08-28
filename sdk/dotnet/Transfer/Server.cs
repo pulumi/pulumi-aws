@@ -243,13 +243,13 @@ namespace Pulumi.Aws.Transfer
     public partial class Server : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of Transfer Server
+        /// ARN of Transfer Server
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required when `Protocols` is set to `FTPS`.
+        /// ARN of the AWS Certificate Manager (ACM) certificate. Required when `Protocols` is set to `FTPS`.
         /// </summary>
         [Output("certificate")]
         public Output<string?> Certificate { get; private set; } = null!;
@@ -273,7 +273,7 @@ namespace Pulumi.Aws.Transfer
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `EndpointDetails` Block below for details.
+        /// VPC endpoint settings that you want to configure for your SFTP server. See `EndpointDetails` Block below for details.
         /// </summary>
         [Output("endpointDetails")]
         public Output<Outputs.ServerEndpointDetails?> EndpointDetails { get; private set; } = null!;
@@ -315,7 +315,7 @@ namespace Pulumi.Aws.Transfer
         public Output<string?> IdentityProviderType { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `IdentityProviderType` of `API_GATEWAY`.
+        /// ARN of the IAM role used to authenticate the user account with an `IdentityProviderType` of `API_GATEWAY`.
         /// </summary>
         [Output("invocationRole")]
         public Output<string?> InvocationRole { get; private set; } = null!;
@@ -327,7 +327,7 @@ namespace Pulumi.Aws.Transfer
         public Output<string> IpAddressType { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
+        /// ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
         /// </summary>
         [Output("loggingRole")]
         public Output<string?> LoggingRole { get; private set; } = null!;
@@ -463,7 +463,7 @@ namespace Pulumi.Aws.Transfer
     public sealed class ServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required when `Protocols` is set to `FTPS`.
+        /// ARN of the AWS Certificate Manager (ACM) certificate. Required when `Protocols` is set to `FTPS`.
         /// </summary>
         [Input("certificate")]
         public Input<string>? Certificate { get; set; }
@@ -481,7 +481,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Domain { get; set; }
 
         /// <summary>
-        /// Virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `EndpointDetails` Block below for details.
+        /// VPC endpoint settings that you want to configure for your SFTP server. See `EndpointDetails` Block below for details.
         /// </summary>
         [Input("endpointDetails")]
         public Input<Inputs.ServerEndpointDetailsArgs>? EndpointDetails { get; set; }
@@ -527,7 +527,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? IdentityProviderType { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `IdentityProviderType` of `API_GATEWAY`.
+        /// ARN of the IAM role used to authenticate the user account with an `IdentityProviderType` of `API_GATEWAY`.
         /// </summary>
         [Input("invocationRole")]
         public Input<string>? InvocationRole { get; set; }
@@ -539,7 +539,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
+        /// ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
         /// </summary>
         [Input("loggingRole")]
         public Input<string>? LoggingRole { get; set; }
@@ -663,13 +663,13 @@ namespace Pulumi.Aws.Transfer
     public sealed class ServerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of Transfer Server
+        /// ARN of Transfer Server
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required when `Protocols` is set to `FTPS`.
+        /// ARN of the AWS Certificate Manager (ACM) certificate. Required when `Protocols` is set to `FTPS`.
         /// </summary>
         [Input("certificate")]
         public Input<string>? Certificate { get; set; }
@@ -693,7 +693,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// Virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `EndpointDetails` Block below for details.
+        /// VPC endpoint settings that you want to configure for your SFTP server. See `EndpointDetails` Block below for details.
         /// </summary>
         [Input("endpointDetails")]
         public Input<Inputs.ServerEndpointDetailsGetArgs>? EndpointDetails { get; set; }
@@ -745,7 +745,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? IdentityProviderType { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `IdentityProviderType` of `API_GATEWAY`.
+        /// ARN of the IAM role used to authenticate the user account with an `IdentityProviderType` of `API_GATEWAY`.
         /// </summary>
         [Input("invocationRole")]
         public Input<string>? InvocationRole { get; set; }
@@ -757,7 +757,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
+        /// ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
         /// </summary>
         [Input("loggingRole")]
         public Input<string>? LoggingRole { get; set; }

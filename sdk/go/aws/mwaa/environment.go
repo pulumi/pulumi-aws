@@ -209,9 +209,9 @@ type Environment struct {
 	EndpointManagement pulumi.StringOutput `pulumi:"endpointManagement"`
 	// Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
 	EnvironmentClass pulumi.StringOutput `pulumi:"environmentClass"`
-	// The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
+	// ARN of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
 	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
-	// The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
+	// ARN of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
 	KmsKey       pulumi.StringPtrOutput            `pulumi:"kmsKey"`
 	LastUpdateds EnvironmentLastUpdatedArrayOutput `pulumi:"lastUpdateds"`
 	// The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `loggingConfiguration` Block for details.
@@ -242,7 +242,7 @@ type Environment struct {
 	Schedulers pulumi.IntOutput `pulumi:"schedulers"`
 	// The Service Role ARN of the Amazon MWAA Environment
 	ServiceRoleArn pulumi.StringOutput `pulumi:"serviceRoleArn"`
-	// The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
+	// ARN of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
 	SourceBucketArn pulumi.StringOutput `pulumi:"sourceBucketArn"`
 	// The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
 	StartupScriptS3ObjectVersion pulumi.StringOutput `pulumi:"startupScriptS3ObjectVersion"`
@@ -332,9 +332,9 @@ type environmentState struct {
 	EndpointManagement *string `pulumi:"endpointManagement"`
 	// Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
 	EnvironmentClass *string `pulumi:"environmentClass"`
-	// The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
+	// ARN of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
-	// The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
+	// ARN of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
 	KmsKey       *string                  `pulumi:"kmsKey"`
 	LastUpdateds []EnvironmentLastUpdated `pulumi:"lastUpdateds"`
 	// The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `loggingConfiguration` Block for details.
@@ -365,7 +365,7 @@ type environmentState struct {
 	Schedulers *int `pulumi:"schedulers"`
 	// The Service Role ARN of the Amazon MWAA Environment
 	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
-	// The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
+	// ARN of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
 	SourceBucketArn *string `pulumi:"sourceBucketArn"`
 	// The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
 	StartupScriptS3ObjectVersion *string `pulumi:"startupScriptS3ObjectVersion"`
@@ -407,9 +407,9 @@ type EnvironmentState struct {
 	EndpointManagement pulumi.StringPtrInput
 	// Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
 	EnvironmentClass pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
+	// ARN of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
 	ExecutionRoleArn pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
+	// ARN of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
 	KmsKey       pulumi.StringPtrInput
 	LastUpdateds EnvironmentLastUpdatedArrayInput
 	// The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `loggingConfiguration` Block for details.
@@ -440,7 +440,7 @@ type EnvironmentState struct {
 	Schedulers pulumi.IntPtrInput
 	// The Service Role ARN of the Amazon MWAA Environment
 	ServiceRoleArn pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
+	// ARN of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
 	SourceBucketArn pulumi.StringPtrInput
 	// The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
 	StartupScriptS3ObjectVersion pulumi.StringPtrInput
@@ -479,9 +479,9 @@ type environmentArgs struct {
 	EndpointManagement *string `pulumi:"endpointManagement"`
 	// Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
 	EnvironmentClass *string `pulumi:"environmentClass"`
-	// The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
+	// ARN of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
 	ExecutionRoleArn string `pulumi:"executionRoleArn"`
-	// The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
+	// ARN of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
 	KmsKey *string `pulumi:"kmsKey"`
 	// The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `loggingConfiguration` Block for details.
 	LoggingConfiguration *EnvironmentLoggingConfiguration `pulumi:"loggingConfiguration"`
@@ -509,7 +509,7 @@ type environmentArgs struct {
 	RequirementsS3Path *string `pulumi:"requirementsS3Path"`
 	// The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
 	Schedulers *int `pulumi:"schedulers"`
-	// The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
+	// ARN of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
 	SourceBucketArn string `pulumi:"sourceBucketArn"`
 	// The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
 	StartupScriptS3ObjectVersion *string `pulumi:"startupScriptS3ObjectVersion"`
@@ -537,9 +537,9 @@ type EnvironmentArgs struct {
 	EndpointManagement pulumi.StringPtrInput
 	// Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
 	EnvironmentClass pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
+	// ARN of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
 	ExecutionRoleArn pulumi.StringInput
-	// The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
+	// ARN of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
 	KmsKey pulumi.StringPtrInput
 	// The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `loggingConfiguration` Block for details.
 	LoggingConfiguration EnvironmentLoggingConfigurationPtrInput
@@ -567,7 +567,7 @@ type EnvironmentArgs struct {
 	RequirementsS3Path pulumi.StringPtrInput
 	// The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
 	Schedulers pulumi.IntPtrInput
-	// The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
+	// ARN of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
 	SourceBucketArn pulumi.StringInput
 	// The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
 	StartupScriptS3ObjectVersion pulumi.StringPtrInput
@@ -711,12 +711,12 @@ func (o EnvironmentOutput) EnvironmentClass() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.EnvironmentClass }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
+// ARN of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
 func (o EnvironmentOutput) ExecutionRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.ExecutionRoleArn }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
+// ARN of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
 func (o EnvironmentOutput) KmsKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.KmsKey }).(pulumi.StringPtrOutput)
 }
@@ -795,7 +795,7 @@ func (o EnvironmentOutput) ServiceRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.ServiceRoleArn }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
+// ARN of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
 func (o EnvironmentOutput) SourceBucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.SourceBucketArn }).(pulumi.StringOutput)
 }

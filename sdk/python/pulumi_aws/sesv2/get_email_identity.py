@@ -70,13 +70,16 @@ class GetEmailIdentityResult:
     @_builtins.property
     @pulumi.getter(name="configurationSetName")
     def configuration_set_name(self) -> _builtins.str:
+        """
+        Configuration set associated with the email identity.
+        """
         return pulumi.get(self, "configuration_set_name")
 
     @_builtins.property
     @pulumi.getter(name="dkimSigningAttributes")
     def dkim_signing_attributes(self) -> Sequence['outputs.GetEmailIdentityDkimSigningAttributeResult']:
         """
-        A list of objects that contains at most one element with information about the private key and selector that you want to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the identity, or, configures the key length to be used for Easy DKIM.
+        List of objects that contains at most one element with information about the private key and selector that you want to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the identity, or, configures the key length to be used for Easy DKIM.
         """
         return pulumi.get(self, "dkim_signing_attributes")
 
@@ -97,7 +100,7 @@ class GetEmailIdentityResult:
     @pulumi.getter(name="identityType")
     def identity_type(self) -> _builtins.str:
         """
-        The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
+        Email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
         """
         return pulumi.get(self, "identity_type")
 
@@ -118,7 +121,7 @@ class GetEmailIdentityResult:
     @pulumi.getter(name="verificationStatus")
     def verification_status(self) -> _builtins.str:
         """
-        The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+        Verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
         """
         return pulumi.get(self, "verification_status")
 
@@ -126,7 +129,7 @@ class GetEmailIdentityResult:
     @pulumi.getter(name="verifiedForSendingStatus")
     def verified_for_sending_status(self) -> _builtins.bool:
         """
-        Specifies whether or not the identity is verified.
+        Whether or not the identity is verified.
         """
         return pulumi.get(self, "verified_for_sending_status")
 
@@ -168,7 +171,7 @@ def get_email_identity(email_identity: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str email_identity: The name of the email identity.
+    :param _builtins.str email_identity: Name of the email identity.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Key-value mapping of resource tags.
     """
@@ -209,7 +212,7 @@ def get_email_identity_output(email_identity: pulumi.Input[Optional[_builtins.st
     ```
 
 
-    :param _builtins.str email_identity: The name of the email identity.
+    :param _builtins.str email_identity: Name of the email identity.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Key-value mapping of resource tags.
     """

@@ -312,7 +312,7 @@ namespace Pulumi.Aws.Ec2
     public partial class VpcEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the VPC endpoint.
+        /// ARN of the VPC endpoint.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -658,7 +658,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcEndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the VPC endpoint.
+        /// ARN of the VPC endpoint.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

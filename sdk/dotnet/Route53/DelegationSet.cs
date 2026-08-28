@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Route53
     public partial class DelegationSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Delegation Set.
+        /// ARN of the Delegation Set.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.Route53
     public sealed class DelegationSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Delegation Set.
+        /// ARN of the Delegation Set.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

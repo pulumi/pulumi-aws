@@ -77,7 +77,7 @@ export class ThreatIntelSet extends pulumi.CustomResource {
      */
     declare public readonly activate: pulumi.Output<boolean>;
     /**
-     * Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
+     * ARN of the GuardDuty ThreatIntelSet.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -175,7 +175,7 @@ export interface ThreatIntelSetState {
      */
     activate?: pulumi.Input<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
+     * ARN of the GuardDuty ThreatIntelSet.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

@@ -7,7 +7,7 @@ import * as utilities from "./utilities";
 /**
  * Parses an ARN into its constituent parts.
  *
- * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+ * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on ARNs.
  *
  * ## Signature
  */
@@ -28,7 +28,7 @@ export interface ArnParseResult {
 /**
  * Parses an ARN into its constituent parts.
  *
- * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+ * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on ARNs.
  *
  * ## Signature
  */

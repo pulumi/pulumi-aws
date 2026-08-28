@@ -56,10 +56,10 @@ type TenantResourceAssociation struct {
 	// AWS region for SESv2 operations. If not specified, the default provider region is used.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the SES resource to associate with the tenant.
-	//
-	// The following arguments are optional:
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// Name of SES Tenant.
+	//
+	// The following arguments are optional:
 	TenantName pulumi.StringOutput `pulumi:"tenantName"`
 }
 
@@ -102,10 +102,10 @@ type tenantResourceAssociationState struct {
 	// AWS region for SESv2 operations. If not specified, the default provider region is used.
 	Region *string `pulumi:"region"`
 	// ARN of the SES resource to associate with the tenant.
-	//
-	// The following arguments are optional:
 	ResourceArn *string `pulumi:"resourceArn"`
 	// Name of SES Tenant.
+	//
+	// The following arguments are optional:
 	TenantName *string `pulumi:"tenantName"`
 }
 
@@ -113,10 +113,10 @@ type TenantResourceAssociationState struct {
 	// AWS region for SESv2 operations. If not specified, the default provider region is used.
 	Region pulumi.StringPtrInput
 	// ARN of the SES resource to associate with the tenant.
-	//
-	// The following arguments are optional:
 	ResourceArn pulumi.StringPtrInput
 	// Name of SES Tenant.
+	//
+	// The following arguments are optional:
 	TenantName pulumi.StringPtrInput
 }
 
@@ -128,10 +128,10 @@ type tenantResourceAssociationArgs struct {
 	// AWS region for SESv2 operations. If not specified, the default provider region is used.
 	Region *string `pulumi:"region"`
 	// ARN of the SES resource to associate with the tenant.
-	//
-	// The following arguments are optional:
 	ResourceArn string `pulumi:"resourceArn"`
 	// Name of SES Tenant.
+	//
+	// The following arguments are optional:
 	TenantName string `pulumi:"tenantName"`
 }
 
@@ -140,10 +140,10 @@ type TenantResourceAssociationArgs struct {
 	// AWS region for SESv2 operations. If not specified, the default provider region is used.
 	Region pulumi.StringPtrInput
 	// ARN of the SES resource to associate with the tenant.
-	//
-	// The following arguments are optional:
 	ResourceArn pulumi.StringInput
 	// Name of SES Tenant.
+	//
+	// The following arguments are optional:
 	TenantName pulumi.StringInput
 }
 
@@ -240,13 +240,13 @@ func (o TenantResourceAssociationOutput) Region() pulumi.StringOutput {
 }
 
 // ARN of the SES resource to associate with the tenant.
-//
-// The following arguments are optional:
 func (o TenantResourceAssociationOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TenantResourceAssociation) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
 // Name of SES Tenant.
+//
+// The following arguments are optional:
 func (o TenantResourceAssociationOutput) TenantName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TenantResourceAssociation) pulumi.StringOutput { return v.TenantName }).(pulumi.StringOutput)
 }

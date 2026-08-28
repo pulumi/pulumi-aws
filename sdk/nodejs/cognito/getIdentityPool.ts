@@ -85,7 +85,7 @@ export interface GetIdentityPoolResult {
     readonly openidConnectProviderArns: string[];
     readonly region: string;
     /**
-     * An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+     * Array of ARNs of the SAML provider for your identity.
      */
     readonly samlProviderArns: string[];
     /**

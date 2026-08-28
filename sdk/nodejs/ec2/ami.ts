@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The AMI resource allows the creation and management of a completely-custom
- * *Amazon Machine Image* (AMI).
+ * AMI.
  *
  * If you just want to duplicate an existing AMI, possibly copying it to another
  * region, it's better to use `aws.ec2.AmiCopy` instead.
@@ -84,7 +84,7 @@ export class Ami extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+     * Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the EC2 User Guide.
      */
     declare public readonly bootMode: pulumi.Output<string | undefined>;
     /**
@@ -175,7 +175,7 @@ export class Ami extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+     * If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the EC2 User Guide.
      */
     declare public readonly tpmSupport: pulumi.Output<string | undefined>;
     /**
@@ -291,7 +291,7 @@ export interface AmiState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+     * Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the EC2 User Guide.
      */
     bootMode?: pulumi.Input<string | undefined>;
     /**
@@ -382,7 +382,7 @@ export interface AmiState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+     * If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the EC2 User Guide.
      */
     tpmSupport?: pulumi.Input<string | undefined>;
     /**
@@ -410,7 +410,7 @@ export interface AmiArgs {
      */
     architecture?: pulumi.Input<string | undefined>;
     /**
-     * Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+     * Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the EC2 User Guide.
      */
     bootMode?: pulumi.Input<string | undefined>;
     /**
@@ -460,7 +460,7 @@ export interface AmiArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+     * If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the EC2 User Guide.
      */
     tpmSupport?: pulumi.Input<string | undefined>;
     /**

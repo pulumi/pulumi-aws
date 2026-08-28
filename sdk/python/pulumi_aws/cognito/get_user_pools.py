@@ -47,7 +47,7 @@ class GetUserPoolsResult:
     @pulumi.getter
     def arns(self) -> Sequence[_builtins.str]:
         """
-        Set of cognito user pool Amazon Resource Names (ARNs).
+        Set of cognito user pool ARNs.
         """
         return pulumi.get(self, "arns")
 

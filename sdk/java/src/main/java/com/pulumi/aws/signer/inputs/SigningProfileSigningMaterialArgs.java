@@ -15,14 +15,14 @@ public final class SigningProfileSigningMaterialArgs extends com.pulumi.resource
     public static final SigningProfileSigningMaterialArgs Empty = new SigningProfileSigningMaterialArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
+     * ARN of the certificates that is used to sign your code.
      * 
      */
     @Import(name="certificateArn", required=true)
     private Output<String> certificateArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
+     * @return ARN of the certificates that is used to sign your code.
      * 
      */
     public Output<String> certificateArn() {
@@ -54,7 +54,7 @@ public final class SigningProfileSigningMaterialArgs extends com.pulumi.resource
         }
 
         /**
-         * @param certificateArn The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
+         * @param certificateArn ARN of the certificates that is used to sign your code.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class SigningProfileSigningMaterialArgs extends com.pulumi.resource
         }
 
         /**
-         * @param certificateArn The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
+         * @param certificateArn ARN of the certificates that is used to sign your code.
          * 
          * @return builder
          * 

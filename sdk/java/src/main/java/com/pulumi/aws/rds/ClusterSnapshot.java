@@ -109,14 +109,14 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
         return this.dbClusterIdentifier;
     }
     /**
-     * The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
+     * ARN for the DB Cluster Snapshot.
      * 
      */
     @Export(name="dbClusterSnapshotArn", refs={String.class}, tree="[0]")
     private Output<String> dbClusterSnapshotArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
+     * @return ARN for the DB Cluster Snapshot.
      * 
      */
     public Output<String> dbClusterSnapshotArn() {

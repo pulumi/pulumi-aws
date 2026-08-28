@@ -36,14 +36,14 @@ public final class ImageRecipeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the image recipe.
+     * ARN of the image recipe.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the image recipe.
+     * @return ARN of the image recipe.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -341,7 +341,7 @@ public final class ImageRecipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the image recipe.
+         * @param arn ARN of the image recipe.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class ImageRecipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the image recipe.
+         * @param arn ARN of the image recipe.
          * 
          * @return builder
          * 

@@ -62,7 +62,7 @@ export class RepositoryAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) identifying the repository association.
+     * ARN identifying the repository association.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -70,7 +70,7 @@ export class RepositoryAssociation extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly associationId: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+     * ARN of an AWS CodeStar Connections connection.
      */
     declare public /*out*/ readonly connectionArn: pulumi.Output<string>;
     /**
@@ -168,7 +168,7 @@ export class RepositoryAssociation extends pulumi.CustomResource {
  */
 export interface RepositoryAssociationState {
     /**
-     * The Amazon Resource Name (ARN) identifying the repository association.
+     * ARN identifying the repository association.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -176,7 +176,7 @@ export interface RepositoryAssociationState {
      */
     associationId?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+     * ARN of an AWS CodeStar Connections connection.
      */
     connectionArn?: pulumi.Input<string | undefined>;
     /**

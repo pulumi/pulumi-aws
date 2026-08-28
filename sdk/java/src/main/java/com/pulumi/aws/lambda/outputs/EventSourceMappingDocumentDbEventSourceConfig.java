@@ -23,7 +23,7 @@ public final class EventSourceMappingDocumentDbEventSourceConfig {
      */
     private String databaseName;
     /**
-     * @return Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
+     * @return DocumentDB behavior during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
      * 
      */
     private @Nullable String fullDocument;
@@ -44,7 +44,7 @@ public final class EventSourceMappingDocumentDbEventSourceConfig {
         return this.databaseName;
     }
     /**
-     * @return Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
+     * @return DocumentDB behavior during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
      * 
      */
     public Optional<String> fullDocument() {

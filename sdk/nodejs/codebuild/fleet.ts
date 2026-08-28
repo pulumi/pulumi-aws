@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild fleet.
+ * - `arn` (String) ARN of the CodeBuild fleet.
  *
  * Using `pulumi import`, import CodeBuild Fleet using the `name`. For example:
  *
@@ -115,7 +115,7 @@ export class Fleet extends pulumi.CustomResource {
      */
     declare public readonly fleetServiceRole: pulumi.Output<string | undefined>;
     /**
-     * The Amazon Machine Image (AMI) of the compute fleet.
+     * AMI of the compute fleet.
      */
     declare public readonly imageId: pulumi.Output<string | undefined>;
     /**
@@ -251,7 +251,7 @@ export interface FleetState {
      */
     fleetServiceRole?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Machine Image (AMI) of the compute fleet.
+     * AMI of the compute fleet.
      */
     imageId?: pulumi.Input<string | undefined>;
     /**
@@ -316,7 +316,7 @@ export interface FleetArgs {
      */
     fleetServiceRole?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Machine Image (AMI) of the compute fleet.
+     * AMI of the compute fleet.
      */
     imageId?: pulumi.Input<string | undefined>;
     /**

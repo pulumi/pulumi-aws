@@ -106,7 +106,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the load balancer.
+ * - `arn` (String) ARN of the load balancer.
  *
  * Using `pulumi import`, import LBs using their ARN. For example:
  *

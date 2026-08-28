@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Ec2
     public partial class LaunchConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name of the launch configuration.
+        /// ARN of the launch configuration.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -389,7 +389,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class LaunchConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name of the launch configuration.
+        /// ARN of the launch configuration.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

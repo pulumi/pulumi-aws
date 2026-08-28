@@ -63,14 +63,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:location/geofenceCollection:GeofenceCollection")
 public class GeofenceCollection extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
+     * ARN for the geofence collection resource. Used when you need to specify a resource across all AWS.
      * 
      */
     @Export(name="collectionArn", refs={String.class}, tree="[0]")
     private Output<String> collectionArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
+     * @return ARN for the geofence collection resource. Used when you need to specify a resource across all AWS.
      * 
      */
     public Output<String> collectionArn() {

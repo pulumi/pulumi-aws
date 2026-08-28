@@ -17,14 +17,14 @@ public final class ClusterClientAuthenticationTlsArgs extends com.pulumi.resourc
     public static final ClusterClientAuthenticationTlsArgs Empty = new ClusterClientAuthenticationTlsArgs();
 
     /**
-     * List of ACM Certificate Authority Amazon Resource Names (ARNs).
+     * List of ACM Certificate Authority ARNs.
      * 
      */
     @Import(name="certificateAuthorityArns")
     private @Nullable Output<List<String>> certificateAuthorityArns;
 
     /**
-     * @return List of ACM Certificate Authority Amazon Resource Names (ARNs).
+     * @return List of ACM Certificate Authority ARNs.
      * 
      */
     public Optional<Output<List<String>>> certificateAuthorityArns() {
@@ -56,7 +56,7 @@ public final class ClusterClientAuthenticationTlsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param certificateAuthorityArns List of ACM Certificate Authority Amazon Resource Names (ARNs).
+         * @param certificateAuthorityArns List of ACM Certificate Authority ARNs.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class ClusterClientAuthenticationTlsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param certificateAuthorityArns List of ACM Certificate Authority Amazon Resource Names (ARNs).
+         * @param certificateAuthorityArns List of ACM Certificate Authority ARNs.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class ClusterClientAuthenticationTlsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param certificateAuthorityArns List of ACM Certificate Authority Amazon Resource Names (ARNs).
+         * @param certificateAuthorityArns List of ACM Certificate Authority ARNs.
          * 
          * @return builder
          * 

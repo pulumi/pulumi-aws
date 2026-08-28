@@ -72,7 +72,7 @@ type MountTarget struct {
 	AvailabilityZoneName pulumi.StringOutput `pulumi:"availabilityZoneName"`
 	// The DNS name for the EFS file system.
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
-	// Amazon Resource Name of the file system.
+	// ARN of the file system.
 	FileSystemArn pulumi.StringOutput `pulumi:"fileSystemArn"`
 	// The ID of the file system for which the mount target is intended.
 	FileSystemId pulumi.StringOutput `pulumi:"fileSystemId"`
@@ -140,7 +140,7 @@ type mountTargetState struct {
 	AvailabilityZoneName *string `pulumi:"availabilityZoneName"`
 	// The DNS name for the EFS file system.
 	DnsName *string `pulumi:"dnsName"`
-	// Amazon Resource Name of the file system.
+	// ARN of the file system.
 	FileSystemArn *string `pulumi:"fileSystemArn"`
 	// The ID of the file system for which the mount target is intended.
 	FileSystemId *string `pulumi:"fileSystemId"`
@@ -173,7 +173,7 @@ type MountTargetState struct {
 	AvailabilityZoneName pulumi.StringPtrInput
 	// The DNS name for the EFS file system.
 	DnsName pulumi.StringPtrInput
-	// Amazon Resource Name of the file system.
+	// ARN of the file system.
 	FileSystemArn pulumi.StringPtrInput
 	// The ID of the file system for which the mount target is intended.
 	FileSystemId pulumi.StringPtrInput
@@ -344,7 +344,7 @@ func (o MountTargetOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *MountTarget) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name of the file system.
+// ARN of the file system.
 func (o MountTargetOutput) FileSystemArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MountTarget) pulumi.StringOutput { return v.FileSystemArn }).(pulumi.StringOutput)
 }

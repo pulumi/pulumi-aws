@@ -134,14 +134,14 @@ public class NotebookInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.additionalCodeRepositories);
     }
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
+     * ARN assigned by AWS to this notebook instance.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
+     * @return ARN assigned by AWS to this notebook instance.
      * 
      */
     public Output<String> arn() {
@@ -204,14 +204,14 @@ public class NotebookInstance extends com.pulumi.resources.CustomResource {
         return this.instanceType;
     }
     /**
-     * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+     * KMS key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyId;
 
     /**
-     * @return The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+     * @return KMS key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
      * 
      */
     public Output<Optional<String>> kmsKeyId() {

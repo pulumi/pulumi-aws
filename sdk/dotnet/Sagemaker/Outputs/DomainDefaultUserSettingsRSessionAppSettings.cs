@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DomainDefaultUserSettingsRSessionAppSettingsCustomImage> CustomImages;
         /// <summary>
-        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `DefaultResourceSpec` Block above.
+        /// Default instance type and the ARN of the SageMaker AI image created on the instance. see `DefaultResourceSpec` Block above.
         /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec? DefaultResourceSpec;
 

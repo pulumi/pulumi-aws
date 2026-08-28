@@ -85,7 +85,7 @@ namespace Pulumi.Aws.Rds
         public Output<bool> ApplyImmediately { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of cluster instance
+        /// ARN of cluster instance
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -525,7 +525,7 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? ApplyImmediately { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of cluster instance
+        /// ARN of cluster instance
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

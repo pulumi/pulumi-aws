@@ -169,14 +169,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cfg/conformancePack:ConformancePack")
 public class ConformancePack extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the conformance pack.
+     * ARN of the conformance pack.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the conformance pack.
+     * @return ARN of the conformance pack.
      * 
      */
     public Output<String> arn() {

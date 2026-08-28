@@ -1470,7 +1470,7 @@ func (o ExperimentTemplateLogConfigurationPtrOutput) S3Configuration() Experimen
 }
 
 type ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration struct {
-	// Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
+	// ARN of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
 	LogGroupArn string `pulumi:"logGroupArn"`
 }
 
@@ -1486,7 +1486,7 @@ type ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationInput interfac
 }
 
 type ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs struct {
-	// Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
+	// ARN of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
 	LogGroupArn pulumi.StringInput `pulumi:"logGroupArn"`
 }
 
@@ -1567,7 +1567,7 @@ func (o ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput) ToE
 	}).(ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
+// ARN of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
 func (o ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput) LogGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration) string { return v.LogGroupArn }).(pulumi.StringOutput)
 }
@@ -1596,7 +1596,7 @@ func (o ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput) 
 	}).(ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput)
 }
 
-// Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
+// ARN of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
 func (o ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput) LogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration) *string {
 		if v == nil {

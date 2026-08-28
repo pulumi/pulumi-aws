@@ -107,14 +107,14 @@ public class Detector extends com.pulumi.resources.CustomResource {
         return this.accountId;
     }
     /**
-     * Amazon Resource Name (ARN) of the GuardDuty detector
+     * ARN of the GuardDuty detector
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the GuardDuty detector
+     * @return ARN of the GuardDuty detector
      * 
      */
     public Output<String> arn() {

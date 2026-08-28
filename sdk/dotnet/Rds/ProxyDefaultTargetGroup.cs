@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Rds
     public partial class ProxyDefaultTargetGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) representing the target group.
+        /// ARN representing the target group.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -130,7 +130,7 @@ namespace Pulumi.Aws.Rds
     public sealed class ProxyDefaultTargetGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) representing the target group.
+        /// ARN representing the target group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

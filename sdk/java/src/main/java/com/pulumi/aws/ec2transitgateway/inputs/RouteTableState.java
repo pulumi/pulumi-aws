@@ -18,14 +18,14 @@ public final class RouteTableState extends com.pulumi.resources.ResourceArgs {
     public static final RouteTableState Empty = new RouteTableState();
 
     /**
-     * EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+     * EC2 Transit Gateway Route Table ARN.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+     * @return EC2 Transit Gateway Route Table ARN.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -153,7 +153,7 @@ public final class RouteTableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+         * @param arn EC2 Transit Gateway Route Table ARN.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class RouteTableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+         * @param arn EC2 Transit Gateway Route Table ARN.
          * 
          * @return builder
          * 

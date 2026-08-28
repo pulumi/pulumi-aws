@@ -16,14 +16,14 @@ public final class NetworkInsightsAnalysisAlternatePathHintArgs extends com.pulu
     public static final NetworkInsightsAnalysisAlternatePathHintArgs Empty = new NetworkInsightsAnalysisAlternatePathHintArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the component.
+     * ARN of the component.
      * 
      */
     @Import(name="componentArn")
     private @Nullable Output<String> componentArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the component.
+     * @return ARN of the component.
      * 
      */
     public Optional<Output<String>> componentArn() {
@@ -71,7 +71,7 @@ public final class NetworkInsightsAnalysisAlternatePathHintArgs extends com.pulu
         }
 
         /**
-         * @param componentArn The Amazon Resource Name (ARN) of the component.
+         * @param componentArn ARN of the component.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class NetworkInsightsAnalysisAlternatePathHintArgs extends com.pulu
         }
 
         /**
-         * @param componentArn The Amazon Resource Name (ARN) of the component.
+         * @param componentArn ARN of the component.
          * 
          * @return builder
          * 

@@ -33,14 +33,14 @@ public final class InstanceMasterUserSecretArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the secret.
+     * ARN of the secret.
      * 
      */
     @Import(name="secretArn")
     private @Nullable Output<String> secretArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the secret.
+     * @return ARN of the secret.
      * 
      */
     public Optional<Output<String>> secretArn() {
@@ -112,7 +112,7 @@ public final class InstanceMasterUserSecretArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param secretArn The Amazon Resource Name (ARN) of the secret.
+         * @param secretArn ARN of the secret.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class InstanceMasterUserSecretArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param secretArn The Amazon Resource Name (ARN) of the secret.
+         * @param secretArn ARN of the secret.
          * 
          * @return builder
          * 

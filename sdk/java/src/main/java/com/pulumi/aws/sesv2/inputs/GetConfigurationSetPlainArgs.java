@@ -17,14 +17,14 @@ public final class GetConfigurationSetPlainArgs extends com.pulumi.resources.Inv
     public static final GetConfigurationSetPlainArgs Empty = new GetConfigurationSetPlainArgs();
 
     /**
-     * The name of the configuration set.
+     * Name of the configuration set.
      * 
      */
     @Import(name="configurationSetName", required=true)
     private String configurationSetName;
 
     /**
-     * @return The name of the configuration set.
+     * @return Name of the configuration set.
      * 
      */
     public String configurationSetName() {
@@ -47,14 +47,14 @@ public final class GetConfigurationSetPlainArgs extends com.pulumi.resources.Inv
     }
 
     /**
-     * Key-value map of resource tags for the container recipe.
+     * Key-value map of resource tags.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return Key-value map of resource tags for the container recipe.
+     * @return Key-value map of resource tags.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -88,7 +88,7 @@ public final class GetConfigurationSetPlainArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param configurationSetName The name of the configuration set.
+         * @param configurationSetName Name of the configuration set.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class GetConfigurationSetPlainArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param tags Key-value map of resource tags for the container recipe.
+         * @param tags Key-value map of resource tags.
          * 
          * @return builder
          * 

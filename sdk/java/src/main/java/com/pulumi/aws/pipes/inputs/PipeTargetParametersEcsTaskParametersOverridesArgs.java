@@ -65,14 +65,14 @@ public final class PipeTargetParametersEcsTaskParametersOverridesArgs extends co
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
+     * ARN of the task execution IAM role override for the task.
      * 
      */
     @Import(name="executionRoleArn")
     private @Nullable Output<String> executionRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
+     * @return ARN of the task execution IAM role override for the task.
      * 
      */
     public Optional<Output<String>> executionRoleArn() {
@@ -110,14 +110,14 @@ public final class PipeTargetParametersEcsTaskParametersOverridesArgs extends co
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
+     * ARN of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
      * 
      */
     @Import(name="taskRoleArn")
     private @Nullable Output<String> taskRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
+     * @return ARN of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
      * 
      */
     public Optional<Output<String>> taskRoleArn() {
@@ -228,7 +228,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesArgs extends co
         }
 
         /**
-         * @param executionRoleArn The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
+         * @param executionRoleArn ARN of the task execution IAM role override for the task.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesArgs extends co
         }
 
         /**
-         * @param executionRoleArn The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
+         * @param executionRoleArn ARN of the task execution IAM role override for the task.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesArgs extends co
         }
 
         /**
-         * @param taskRoleArn The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
+         * @param taskRoleArn ARN of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesArgs extends co
         }
 
         /**
-         * @param taskRoleArn The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
+         * @param taskRoleArn ARN of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
          * 
          * @return builder
          * 

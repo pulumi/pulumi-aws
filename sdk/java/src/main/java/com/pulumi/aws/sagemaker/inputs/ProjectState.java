@@ -18,14 +18,14 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
     public static final ProjectState Empty = new ProjectState();
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Project.
+     * ARN assigned by AWS to this Project.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Project.
+     * @return ARN assigned by AWS to this Project.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -169,7 +169,7 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Project.
+         * @param arn ARN assigned by AWS to this Project.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Project.
+         * @param arn ARN assigned by AWS to this Project.
          * 
          * @return builder
          * 

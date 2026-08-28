@@ -86,9 +86,9 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the DataSync S3 location.
+// - `arn` (String) ARN of the DataSync S3 location.
 //
-// Using `pulumi import`, import `datasync.S3Location` using the DataSync Task Amazon Resource Name (ARN). For example:
+// Using `pulumi import`, import `datasync.S3Location` using the DataSync Task ARN. For example:
 //
 // ```sh
 // $ pulumi import aws:datasync/s3Location:S3Location example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
@@ -96,13 +96,13 @@ import (
 type S3Location struct {
 	pulumi.CustomResourceState
 
-	// (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
+	// (Amazon S3 on Outposts only) ARN of the DataSync agent on the Outpost.
 	AgentArns pulumi.StringArrayOutput `pulumi:"agentArns"`
-	// Amazon Resource Name (ARN) of the DataSync Location.
+	// ARN of the DataSync Location.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
+	// ARN of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
 	S3BucketArn pulumi.StringOutput `pulumi:"s3BucketArn"`
 	// Configuration block containing information for connecting to S3.
 	S3Config S3LocationS3ConfigOutput `pulumi:"s3Config"`
@@ -156,13 +156,13 @@ func GetS3Location(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering S3Location resources.
 type s3locationState struct {
-	// (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
+	// (Amazon S3 on Outposts only) ARN of the DataSync agent on the Outpost.
 	AgentArns []string `pulumi:"agentArns"`
-	// Amazon Resource Name (ARN) of the DataSync Location.
+	// ARN of the DataSync Location.
 	Arn *string `pulumi:"arn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
+	// ARN of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
 	S3BucketArn *string `pulumi:"s3BucketArn"`
 	// Configuration block containing information for connecting to S3.
 	S3Config *S3LocationS3Config `pulumi:"s3Config"`
@@ -178,13 +178,13 @@ type s3locationState struct {
 }
 
 type S3LocationState struct {
-	// (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
+	// (Amazon S3 on Outposts only) ARN of the DataSync agent on the Outpost.
 	AgentArns pulumi.StringArrayInput
-	// Amazon Resource Name (ARN) of the DataSync Location.
+	// ARN of the DataSync Location.
 	Arn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
+	// ARN of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
 	S3BucketArn pulumi.StringPtrInput
 	// Configuration block containing information for connecting to S3.
 	S3Config S3LocationS3ConfigPtrInput
@@ -204,11 +204,11 @@ func (S3LocationState) ElementType() reflect.Type {
 }
 
 type s3locationArgs struct {
-	// (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
+	// (Amazon S3 on Outposts only) ARN of the DataSync agent on the Outpost.
 	AgentArns []string `pulumi:"agentArns"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
+	// ARN of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
 	S3BucketArn string `pulumi:"s3BucketArn"`
 	// Configuration block containing information for connecting to S3.
 	S3Config S3LocationS3Config `pulumi:"s3Config"`
@@ -222,11 +222,11 @@ type s3locationArgs struct {
 
 // The set of arguments for constructing a S3Location resource.
 type S3LocationArgs struct {
-	// (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
+	// (Amazon S3 on Outposts only) ARN of the DataSync agent on the Outpost.
 	AgentArns pulumi.StringArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
+	// ARN of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
 	S3BucketArn pulumi.StringInput
 	// Configuration block containing information for connecting to S3.
 	S3Config S3LocationS3ConfigInput
@@ -325,12 +325,12 @@ func (o S3LocationOutput) ToS3LocationOutputWithContext(ctx context.Context) S3L
 	return o
 }
 
-// (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
+// (Amazon S3 on Outposts only) ARN of the DataSync agent on the Outpost.
 func (o S3LocationOutput) AgentArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *S3Location) pulumi.StringArrayOutput { return v.AgentArns }).(pulumi.StringArrayOutput)
 }
 
-// Amazon Resource Name (ARN) of the DataSync Location.
+// ARN of the DataSync Location.
 func (o S3LocationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *S3Location) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -340,7 +340,7 @@ func (o S3LocationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *S3Location) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
+// ARN of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
 func (o S3LocationOutput) S3BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *S3Location) pulumi.StringOutput { return v.S3BucketArn }).(pulumi.StringOutput)
 }

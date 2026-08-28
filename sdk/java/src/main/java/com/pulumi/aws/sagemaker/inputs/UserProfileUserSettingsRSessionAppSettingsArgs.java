@@ -33,14 +33,14 @@ public final class UserProfileUserSettingsRSessionAppSettingsArgs extends com.pu
     }
 
     /**
-     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+     * Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
      * 
      */
     @Import(name="defaultResourceSpec")
     private @Nullable Output<UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs> defaultResourceSpec;
 
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+     * @return Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
      * 
      */
     public Optional<Output<UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs>> defaultResourceSpec() {
@@ -104,7 +104,7 @@ public final class UserProfileUserSettingsRSessionAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+         * @param defaultResourceSpec Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class UserProfileUserSettingsRSessionAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+         * @param defaultResourceSpec Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
          * 
          * @return builder
          * 

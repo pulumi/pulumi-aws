@@ -272,6 +272,116 @@ import (
 //
 // ```
 //
+// ### VPC Endpoint Streaming
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpc"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspaces"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			workspacesStreaming, err := ec2.NewSecurityGroup(ctx, "workspaces_streaming", &ec2.SecurityGroupArgs{
+//				Name:  pulumi.String("workspaces-streaming-endpoint"),
+//				VpcId: pulumi.Any(exampleAwsVpc.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			workspaces2, err := ec2.NewVpcEndpoint(ctx, "workspaces", &ec2.VpcEndpointArgs{
+//				VpcId:           pulumi.Any(exampleAwsVpc.Id),
+//				ServiceName:     pulumi.Sprintf("com.amazonaws.%v.highlander", current.Region),
+//				VpcEndpointType: pulumi.String("Interface"),
+//				SubnetIds: pulumi.StringArray{
+//					exampleA.Id,
+//					exampleB.Id,
+//				},
+//				SecurityGroupIds: pulumi.StringArray{
+//					workspacesStreaming.ID().ToIDOutput().ToStringOutput(),
+//				},
+//				PrivateDnsEnabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = workspaces.NewDirectory(ctx, "example", &workspaces.DirectoryArgs{
+//				WorkspaceAccessProperties: &workspaces.DirectoryWorkspaceAccessPropertiesArgs{
+//					AccessEndpointConfig: &workspaces.DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs{
+//						AccessEndpoints: workspaces.DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArray{
+//							&workspaces.DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArgs{
+//								AccessEndpointType: pulumi.String("STREAMING_WSP"),
+//								VpcEndpointId:      workspaces2.ID().ToIDOutput().ToStringOutput(),
+//							},
+//						},
+//						InternetFallbackProtocols: pulumi.StringArray{
+//							pulumi.String("PCOIP"),
+//						},
+//					},
+//					DeviceTypeWindows: pulumi.String("ALLOW"),
+//				},
+//				DirectoryId: pulumi.Any(exampleAwsDirectoryServiceDirectory.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = vpc.NewSecurityGroupIngressRule(ctx, "workspaces_streaming_tcp_443", &vpc.SecurityGroupIngressRuleArgs{
+//				SecurityGroupId: workspacesStreaming.ID().ToIDOutput().ToStringOutput(),
+//				CidrIpv4:        pulumi.Any(exampleAwsVpc.CidrBlock),
+//				FromPort:        pulumi.Int(443),
+//				ToPort:          pulumi.Int(443),
+//				IpProtocol:      pulumi.String("tcp"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = vpc.NewSecurityGroupIngressRule(ctx, "workspaces_streaming_tcp_4195", &vpc.SecurityGroupIngressRuleArgs{
+//				SecurityGroupId: workspacesStreaming.ID().ToIDOutput().ToStringOutput(),
+//				CidrIpv4:        pulumi.Any(exampleAwsVpc.CidrBlock),
+//				FromPort:        pulumi.Int(4195),
+//				ToPort:          pulumi.Int(4195),
+//				IpProtocol:      pulumi.String("tcp"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = vpc.NewSecurityGroupIngressRule(ctx, "workspaces_streaming_udp_443", &vpc.SecurityGroupIngressRuleArgs{
+//				SecurityGroupId: workspacesStreaming.ID().ToIDOutput().ToStringOutput(),
+//				CidrIpv4:        pulumi.Any(exampleAwsVpc.CidrBlock),
+//				FromPort:        pulumi.Int(443),
+//				ToPort:          pulumi.Int(443),
+//				IpProtocol:      pulumi.String("udp"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = vpc.NewSecurityGroupIngressRule(ctx, "workspaces_streaming_udp_4195", &vpc.SecurityGroupIngressRuleArgs{
+//				SecurityGroupId: workspacesStreaming.ID().ToIDOutput().ToStringOutput(),
+//				CidrIpv4:        pulumi.Any(exampleAwsVpc.CidrBlock),
+//				FromPort:        pulumi.Int(4195),
+//				ToPort:          pulumi.Int(4195),
+//				IpProtocol:      pulumi.String("udp"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Workspaces directory using the directory ID. For example:

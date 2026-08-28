@@ -111,7 +111,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Cost Explorer anomaly monitor.
+ * - `arn` (String) ARN of the Cost Explorer anomaly monitor.
  * 
  * Using `pulumi import`, import `aws.costexplorer.AnomalyMonitor` using the `id`. For example:
  * 

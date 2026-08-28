@@ -106,9 +106,9 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the DataSync S3 location.
+ * - `arn` (String) ARN of the DataSync S3 location.
  * 
- * Using `pulumi import`, import `aws.datasync.S3Location` using the DataSync Task Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.datasync.S3Location` using the DataSync Task ARN. For example:
  * 
  * ```sh
  * $ pulumi import aws:datasync/s3Location:S3Location example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
@@ -118,28 +118,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:datasync/s3Location:S3Location")
 public class S3Location extends com.pulumi.resources.CustomResource {
     /**
-     * (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
+     * (Amazon S3 on Outposts only) ARN of the DataSync agent on the Outpost.
      * 
      */
     @Export(name="agentArns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> agentArns;
 
     /**
-     * @return (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
+     * @return (Amazon S3 on Outposts only) ARN of the DataSync agent on the Outpost.
      * 
      */
     public Output<Optional<List<String>>> agentArns() {
         return Codegen.optional(this.agentArns);
     }
     /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
+     * ARN of the DataSync Location.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the DataSync Location.
+     * @return ARN of the DataSync Location.
      * 
      */
     public Output<String> arn() {
@@ -160,14 +160,14 @@ public class S3Location extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
+     * ARN of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
      * 
      */
     @Export(name="s3BucketArn", refs={String.class}, tree="[0]")
     private Output<String> s3BucketArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
+     * @return ARN of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
      * 
      */
     public Output<String> s3BucketArn() {

@@ -22,7 +22,7 @@ public final class RouteTableRoute {
      */
     private @Nullable String cidrBlock;
     /**
-     * @return The Amazon Resource Name (ARN) of a core network.
+     * @return ARN of a core network.
      * 
      */
     private @Nullable String coreNetworkArn;
@@ -64,7 +64,7 @@ public final class RouteTableRoute {
      */
     private @Nullable String networkInterfaceId;
     /**
-     * @return The Amazon Resource Name (ARN) of an ODB network.
+     * @return ARN of an ODB network.
      * 
      */
     private @Nullable String odbNetworkArn;
@@ -102,7 +102,7 @@ public final class RouteTableRoute {
         return Optional.ofNullable(this.cidrBlock);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of a core network.
+     * @return ARN of a core network.
      * 
      */
     public Optional<String> coreNetworkArn() {
@@ -160,7 +160,7 @@ public final class RouteTableRoute {
         return Optional.ofNullable(this.networkInterfaceId);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of an ODB network.
+     * @return ARN of an ODB network.
      * 
      */
     public Optional<String> odbNetworkArn() {

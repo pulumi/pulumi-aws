@@ -25,7 +25,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<string> Mode { get; set; } = null!;
 
         /// <summary>
-        /// Listener's Transport Layer Security (TLS) validation context.
+        /// Listener's TLS validation context.
         /// </summary>
         [Input("validation")]
         public Input<Inputs.VirtualGatewaySpecListenerTlsValidationArgs>? Validation { get; set; }

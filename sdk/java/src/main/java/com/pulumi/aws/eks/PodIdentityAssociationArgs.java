@@ -94,14 +94,14 @@ public final class PodIdentityAssociationArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+     * ARN of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+     * @return ARN of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
      * 
      */
     public Output<String> roleArn() {
@@ -143,14 +143,14 @@ public final class PodIdentityAssociationArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `roleArn`.
+     * ARN of the IAM role to be chained to the the IAM role specified as `roleArn`.
      * 
      */
     @Import(name="targetRoleArn")
     private @Nullable Output<String> targetRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `roleArn`.
+     * @return ARN of the IAM role to be chained to the the IAM role specified as `roleArn`.
      * 
      */
     public Optional<Output<String>> targetRoleArn() {
@@ -295,7 +295,7 @@ public final class PodIdentityAssociationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+         * @param roleArn ARN of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class PodIdentityAssociationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+         * @param roleArn ARN of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class PodIdentityAssociationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param targetRoleArn The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `roleArn`.
+         * @param targetRoleArn ARN of the IAM role to be chained to the the IAM role specified as `roleArn`.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class PodIdentityAssociationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param targetRoleArn The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `roleArn`.
+         * @param targetRoleArn ARN of the IAM role to be chained to the the IAM role specified as `roleArn`.
          * 
          * @return builder
          * 

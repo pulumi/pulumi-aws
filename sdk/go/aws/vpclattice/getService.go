@@ -56,7 +56,7 @@ type LookupServiceArgs struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// ID or Amazon Resource Name (ARN) of the service.
+	// ID or ARN of the service.
 	ServiceIdentifier *string `pulumi:"serviceIdentifier"`
 	// List of tags associated with the service.
 	Tags map[string]string `pulumi:"tags"`
@@ -68,7 +68,7 @@ type LookupServiceResult struct {
 	Arn string `pulumi:"arn"`
 	// Type of IAM policy. Either `NONE` or `AWS_IAM`.
 	AuthType string `pulumi:"authType"`
-	// Amazon Resource Name (ARN) of the certificate.
+	// ARN of the certificate.
 	CertificateArn string `pulumi:"certificateArn"`
 	// Custom domain name of the service.
 	CustomDomainName string `pulumi:"customDomainName"`
@@ -98,7 +98,7 @@ type LookupServiceOutputArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// ID or Amazon Resource Name (ARN) of the service.
+	// ID or ARN of the service.
 	ServiceIdentifier pulumi.StringPtrInput `pulumi:"serviceIdentifier"`
 	// List of tags associated with the service.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -133,7 +133,7 @@ func (o LookupServiceResultOutput) AuthType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.AuthType }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the certificate.
+// ARN of the certificate.
 func (o LookupServiceResultOutput) CertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.CertificateArn }).(pulumi.StringOutput)
 }

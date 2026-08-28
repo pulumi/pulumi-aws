@@ -61,7 +61,7 @@ export class Space extends pulumi.CustomResource {
     }
 
     /**
-     * The space's Amazon Resource Name (ARN).
+     * Space's ARN.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -165,7 +165,7 @@ export class Space extends pulumi.CustomResource {
  */
 export interface SpaceState {
     /**
-     * The space's Amazon Resource Name (ARN).
+     * Space's ARN.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

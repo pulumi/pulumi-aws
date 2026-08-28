@@ -20,14 +20,14 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
     public static final GlobalClusterState Empty = new GlobalClusterState();
 
     /**
-     * RDS Global Cluster Amazon Resource Name (ARN).
+     * RDS Global Cluster ARN.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return RDS Global Cluster Amazon Resource Name (ARN).
+     * @return RDS Global Cluster ARN.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -211,14 +211,14 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
+     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
      * 
      */
     @Import(name="sourceDbClusterIdentifier")
     private @Nullable Output<String> sourceDbClusterIdentifier;
 
     /**
-     * @return Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
+     * @return ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
      * 
      */
     public Optional<Output<String>> sourceDbClusterIdentifier() {
@@ -315,7 +315,7 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn RDS Global Cluster Amazon Resource Name (ARN).
+         * @param arn RDS Global Cluster ARN.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn RDS Global Cluster Amazon Resource Name (ARN).
+         * @param arn RDS Global Cluster ARN.
          * 
          * @return builder
          * 
@@ -590,7 +590,7 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sourceDbClusterIdentifier Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
+         * @param sourceDbClusterIdentifier ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
          * 
          * @return builder
          * 
@@ -601,7 +601,7 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sourceDbClusterIdentifier Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
+         * @param sourceDbClusterIdentifier ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
          * 
          * @return builder
          * 

@@ -44,7 +44,7 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     /// #### Required
     /// 
-    /// - `ApplicationArn` (String) Amazon Resource Name (ARN) of the SSO application.
+    /// - `ApplicationArn` (String) ARN of the SSO application.
     /// 
     /// #### Optional
     /// 

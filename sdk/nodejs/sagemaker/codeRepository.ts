@@ -88,7 +88,7 @@ export class CodeRepository extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
+     * ARN assigned by AWS to this Code Repository.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -156,7 +156,7 @@ export class CodeRepository extends pulumi.CustomResource {
  */
 export interface CodeRepositoryState {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
+     * ARN assigned by AWS to this Code Repository.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

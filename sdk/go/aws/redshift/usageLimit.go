@@ -55,7 +55,7 @@ type UsageLimit struct {
 
 	// The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB). The value must be a positive number.
 	Amount pulumi.IntOutput `pulumi:"amount"`
-	// Amazon Resource Name (ARN) of the Redshift Usage Limit.
+	// ARN of the Redshift Usage Limit.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The action that Amazon Redshift takes when the limit is reached. The default is `log`. Valid values are `log`, `emit-metric`, and `disable`.
 	BreachAction pulumi.StringPtrOutput `pulumi:"breachAction"`
@@ -119,7 +119,7 @@ func GetUsageLimit(ctx *pulumi.Context,
 type usageLimitState struct {
 	// The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB). The value must be a positive number.
 	Amount *int `pulumi:"amount"`
-	// Amazon Resource Name (ARN) of the Redshift Usage Limit.
+	// ARN of the Redshift Usage Limit.
 	Arn *string `pulumi:"arn"`
 	// The action that Amazon Redshift takes when the limit is reached. The default is `log`. Valid values are `log`, `emit-metric`, and `disable`.
 	BreachAction *string `pulumi:"breachAction"`
@@ -142,7 +142,7 @@ type usageLimitState struct {
 type UsageLimitState struct {
 	// The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB). The value must be a positive number.
 	Amount pulumi.IntPtrInput
-	// Amazon Resource Name (ARN) of the Redshift Usage Limit.
+	// ARN of the Redshift Usage Limit.
 	Arn pulumi.StringPtrInput
 	// The action that Amazon Redshift takes when the limit is reached. The default is `log`. Valid values are `log`, `emit-metric`, and `disable`.
 	BreachAction pulumi.StringPtrInput
@@ -297,7 +297,7 @@ func (o UsageLimitOutput) Amount() pulumi.IntOutput {
 	return o.ApplyT(func(v *UsageLimit) pulumi.IntOutput { return v.Amount }).(pulumi.IntOutput)
 }
 
-// Amazon Resource Name (ARN) of the Redshift Usage Limit.
+// ARN of the Redshift Usage Limit.
 func (o UsageLimitOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *UsageLimit) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

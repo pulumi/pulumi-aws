@@ -169,7 +169,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the App Runner service.
+// - `arn` (String) ARN of the App Runner service.
 //
 // Using `pulumi import`, import App Runner Services using the `arn`. For example:
 //

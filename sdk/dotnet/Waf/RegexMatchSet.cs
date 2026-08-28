@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Waf
     public partial class RegexMatchSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN)
+        /// ARN
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.Waf
     public sealed class RegexMatchSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN)
+        /// ARN
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

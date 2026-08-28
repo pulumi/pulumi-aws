@@ -151,7 +151,7 @@ func (o SdkvoiceGlobalSettingsVoiceConnectorPtrOutput) CdrBucket() pulumi.String
 }
 
 type SdkvoiceSipMediaApplicationEndpoints struct {
-	// Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
+	// Valid ARN of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
 	LambdaArn string `pulumi:"lambdaArn"`
 }
 
@@ -167,7 +167,7 @@ type SdkvoiceSipMediaApplicationEndpointsInput interface {
 }
 
 type SdkvoiceSipMediaApplicationEndpointsArgs struct {
-	// Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
+	// Valid ARN of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
 	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
 }
 
@@ -248,7 +248,7 @@ func (o SdkvoiceSipMediaApplicationEndpointsOutput) ToSdkvoiceSipMediaApplicatio
 	}).(SdkvoiceSipMediaApplicationEndpointsPtrOutput)
 }
 
-// Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
+// Valid ARN of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
 func (o SdkvoiceSipMediaApplicationEndpointsOutput) LambdaArn() pulumi.StringOutput {
 	return o.ApplyT(func(v SdkvoiceSipMediaApplicationEndpoints) string { return v.LambdaArn }).(pulumi.StringOutput)
 }
@@ -277,7 +277,7 @@ func (o SdkvoiceSipMediaApplicationEndpointsPtrOutput) Elem() SdkvoiceSipMediaAp
 	}).(SdkvoiceSipMediaApplicationEndpointsOutput)
 }
 
-// Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
+// Valid ARN of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
 func (o SdkvoiceSipMediaApplicationEndpointsPtrOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SdkvoiceSipMediaApplicationEndpoints) *string {
 		if v == nil {

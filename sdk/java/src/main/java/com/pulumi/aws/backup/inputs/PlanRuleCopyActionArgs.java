@@ -18,14 +18,14 @@ public final class PlanRuleCopyActionArgs extends com.pulumi.resources.ResourceA
     public static final PlanRuleCopyActionArgs Empty = new PlanRuleCopyActionArgs();
 
     /**
-     * An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
+     * ARN that uniquely identifies the destination backup vault for the copied backup.
      * 
      */
     @Import(name="destinationVaultArn", required=true)
     private Output<String> destinationVaultArn;
 
     /**
-     * @return An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
+     * @return ARN that uniquely identifies the destination backup vault for the copied backup.
      * 
      */
     public Output<String> destinationVaultArn() {
@@ -73,7 +73,7 @@ public final class PlanRuleCopyActionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param destinationVaultArn An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
+         * @param destinationVaultArn ARN that uniquely identifies the destination backup vault for the copied backup.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class PlanRuleCopyActionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param destinationVaultArn An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
+         * @param destinationVaultArn ARN that uniquely identifies the destination backup vault for the copied backup.
          * 
          * @return builder
          * 

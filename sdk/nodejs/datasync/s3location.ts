@@ -50,9 +50,9 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the DataSync S3 location.
+ * - `arn` (String) ARN of the DataSync S3 location.
  *
- * Using `pulumi import`, import `aws.datasync.S3Location` using the DataSync Task Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.datasync.S3Location` using the DataSync Task ARN. For example:
  *
  * ```sh
  * $ pulumi import aws:datasync/s3Location:S3Location example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
@@ -87,11 +87,11 @@ export class S3Location extends pulumi.CustomResource {
     }
 
     /**
-     * (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
+     * (Amazon S3 on Outposts only) ARN of the DataSync agent on the Outpost.
      */
     declare public readonly agentArns: pulumi.Output<string[] | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
+     * ARN of the DataSync Location.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -99,7 +99,7 @@ export class S3Location extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
+     * ARN of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
      */
     declare public readonly s3BucketArn: pulumi.Output<string>;
     /**
@@ -179,11 +179,11 @@ export class S3Location extends pulumi.CustomResource {
  */
 export interface S3LocationState {
     /**
-     * (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
+     * (Amazon S3 on Outposts only) ARN of the DataSync agent on the Outpost.
      */
     agentArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
+     * ARN of the DataSync Location.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -191,7 +191,7 @@ export interface S3LocationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
+     * ARN of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
      */
     s3BucketArn?: pulumi.Input<string | undefined>;
     /**
@@ -222,7 +222,7 @@ export interface S3LocationState {
  */
 export interface S3LocationArgs {
     /**
-     * (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
+     * (Amazon S3 on Outposts only) ARN of the DataSync agent on the Outpost.
      */
     agentArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -230,7 +230,7 @@ export interface S3LocationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
+     * ARN of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
      */
     s3BucketArn: pulumi.Input<string>;
     /**

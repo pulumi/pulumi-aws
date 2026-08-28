@@ -7,7 +7,7 @@ import * as utilities from "./utilities";
 /**
  * Builds an ARN from its constituent parts.
  *
- * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+ * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on ARNs.
  *
  * ## Signature
  */
@@ -24,7 +24,7 @@ export function arnBuild(partition: string, service: string, region: string, acc
 /**
  * Builds an ARN from its constituent parts.
  *
- * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+ * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on ARNs.
  *
  * ## Signature
  */

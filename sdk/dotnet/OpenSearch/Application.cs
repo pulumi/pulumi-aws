@@ -270,7 +270,7 @@ namespace Pulumi.Aws.OpenSearch
         public Output<ImmutableArray<Outputs.ApplicationAppConfig>> AppConfigs { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the OpenSearch application.
+        /// ARN of the OpenSearch application.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -456,7 +456,7 @@ namespace Pulumi.Aws.OpenSearch
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the OpenSearch application.
+        /// ARN of the OpenSearch application.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

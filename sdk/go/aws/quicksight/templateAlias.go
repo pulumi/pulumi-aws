@@ -56,7 +56,7 @@ type TemplateAlias struct {
 
 	// Display name of the template alias.
 	AliasName pulumi.StringOutput `pulumi:"aliasName"`
-	// Amazon Resource Name (ARN) of the template alias.
+	// ARN of the template alias.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
@@ -111,7 +111,7 @@ func GetTemplateAlias(ctx *pulumi.Context,
 type templateAliasState struct {
 	// Display name of the template alias.
 	AliasName *string `pulumi:"aliasName"`
-	// Amazon Resource Name (ARN) of the template alias.
+	// ARN of the template alias.
 	Arn *string `pulumi:"arn"`
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
@@ -128,7 +128,7 @@ type templateAliasState struct {
 type TemplateAliasState struct {
 	// Display name of the template alias.
 	AliasName pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the template alias.
+	// ARN of the template alias.
 	Arn pulumi.StringPtrInput
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
@@ -269,7 +269,7 @@ func (o TemplateAliasOutput) AliasName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TemplateAlias) pulumi.StringOutput { return v.AliasName }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the template alias.
+// ARN of the template alias.
 func (o TemplateAliasOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TemplateAlias) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

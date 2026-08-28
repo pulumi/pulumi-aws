@@ -58,7 +58,7 @@ func LookupEmailIdentityMailFromAttributes(ctx *pulumi.Context, args *LookupEmai
 
 // A collection of arguments for invoking getEmailIdentityMailFromAttributes.
 type LookupEmailIdentityMailFromAttributesArgs struct {
-	// The name of the email identity.
+	// Name of the email identity.
 	EmailIdentity string `pulumi:"emailIdentity"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -66,12 +66,12 @@ type LookupEmailIdentityMailFromAttributesArgs struct {
 
 // A collection of values returned by getEmailIdentityMailFromAttributes.
 type LookupEmailIdentityMailFromAttributesResult struct {
-	// The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
+	// Action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
 	BehaviorOnMxFailure string `pulumi:"behaviorOnMxFailure"`
 	EmailIdentity       string `pulumi:"emailIdentity"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The custom MAIL FROM domain that you want the verified identity to use.
+	// Custom MAIL FROM domain that you want the verified identity to use.
 	MailFromDomain string `pulumi:"mailFromDomain"`
 	Region         string `pulumi:"region"`
 }
@@ -83,7 +83,7 @@ func LookupEmailIdentityMailFromAttributesOutput(ctx *pulumi.Context, args Looku
 
 // A collection of arguments for invoking getEmailIdentityMailFromAttributes.
 type LookupEmailIdentityMailFromAttributesOutputArgs struct {
-	// The name of the email identity.
+	// Name of the email identity.
 	EmailIdentity pulumi.StringInput `pulumi:"emailIdentity"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -108,7 +108,7 @@ func (o LookupEmailIdentityMailFromAttributesResultOutput) ToLookupEmailIdentity
 	return o
 }
 
-// The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
+// Action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
 func (o LookupEmailIdentityMailFromAttributesResultOutput) BehaviorOnMxFailure() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEmailIdentityMailFromAttributesResult) string { return v.BehaviorOnMxFailure }).(pulumi.StringOutput)
 }
@@ -122,7 +122,7 @@ func (o LookupEmailIdentityMailFromAttributesResultOutput) Id() pulumi.StringOut
 	return o.ApplyT(func(v LookupEmailIdentityMailFromAttributesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The custom MAIL FROM domain that you want the verified identity to use.
+// Custom MAIL FROM domain that you want the verified identity to use.
 func (o LookupEmailIdentityMailFromAttributesResultOutput) MailFromDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEmailIdentityMailFromAttributesResult) string { return v.MailFromDomain }).(pulumi.StringOutput)
 }

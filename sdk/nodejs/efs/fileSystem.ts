@@ -77,7 +77,7 @@ export class FileSystem extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -220,7 +220,7 @@ export class FileSystem extends pulumi.CustomResource {
  */
 export interface FileSystemState {
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

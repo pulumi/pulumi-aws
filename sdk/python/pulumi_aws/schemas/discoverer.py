@@ -100,7 +100,7 @@ class _DiscovererState:
         """
         Input properties used for looking up and filtering Discoverer resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the discoverer.
+        :param pulumi.Input[_builtins.str] arn: ARN of the discoverer.
         :param pulumi.Input[_builtins.str] description: The description of the discoverer. Maximum of 256 characters.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] source_arn: The ARN of the event bus to discover event schemas on.
@@ -124,7 +124,7 @@ class _DiscovererState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the discoverer.
+        ARN of the discoverer.
         """
         return pulumi.get(self, "arn")
 
@@ -328,7 +328,7 @@ class Discoverer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the discoverer.
+        :param pulumi.Input[_builtins.str] arn: ARN of the discoverer.
         :param pulumi.Input[_builtins.str] description: The description of the discoverer. Maximum of 256 characters.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] source_arn: The ARN of the event bus to discover event schemas on.
@@ -351,7 +351,7 @@ class Discoverer(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the discoverer.
+        ARN of the discoverer.
         """
         return pulumi.get(self, "arn")
 

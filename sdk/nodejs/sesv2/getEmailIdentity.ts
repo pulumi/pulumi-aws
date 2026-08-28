@@ -37,7 +37,7 @@ export function getEmailIdentity(args: GetEmailIdentityArgs, opts?: pulumi.Invok
  */
 export interface GetEmailIdentityArgs {
     /**
-     * The name of the email identity.
+     * Name of the email identity.
      */
     emailIdentity: string;
     /**
@@ -58,9 +58,12 @@ export interface GetEmailIdentityResult {
      * ARN of the Email Identity.
      */
     readonly arn: string;
+    /**
+     * Configuration set associated with the email identity.
+     */
     readonly configurationSetName: string;
     /**
-     * A list of objects that contains at most one element with information about the private key and selector that you want to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the identity, or, configures the key length to be used for Easy DKIM.
+     * List of objects that contains at most one element with information about the private key and selector that you want to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the identity, or, configures the key length to be used for Easy DKIM.
      */
     readonly dkimSigningAttributes: outputs.sesv2.GetEmailIdentityDkimSigningAttribute[];
     readonly emailIdentity: string;
@@ -69,7 +72,7 @@ export interface GetEmailIdentityResult {
      */
     readonly id: string;
     /**
-     * The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
+     * Email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
      */
     readonly identityType: string;
     readonly region: string;
@@ -78,11 +81,11 @@ export interface GetEmailIdentityResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+     * Verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
      */
     readonly verificationStatus: string;
     /**
-     * Specifies whether or not the identity is verified.
+     * Whether or not the identity is verified.
      */
     readonly verifiedForSendingStatus: boolean;
 }
@@ -116,7 +119,7 @@ export function getEmailIdentityOutput(args: GetEmailIdentityOutputArgs, opts?: 
  */
 export interface GetEmailIdentityOutputArgs {
     /**
-     * The name of the email identity.
+     * Name of the email identity.
      */
     emailIdentity: pulumi.Input<string>;
     /**

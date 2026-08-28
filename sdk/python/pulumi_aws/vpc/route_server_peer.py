@@ -367,7 +367,7 @@ class RouteServerPeer(pulumi.CustomResource):
                  timeouts: pulumi.Input[Optional[Union['RouteServerPeerTimeoutsArgs', 'RouteServerPeerTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Provides a resource for managing a VPC (Virtual Private Cloud) Route Server Peer.
+        Provides a resource for managing a VPC Route Server Peer.
 
         ## Example Usage
 
@@ -427,7 +427,7 @@ class RouteServerPeer(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import VPC (Virtual Private Cloud) Route Server using the `route_server_peer_id`. For example:
+        Using `pulumi import`, import VPC Route Server using the `route_server_peer_id`. For example:
 
         ```sh
         $ pulumi import aws:vpc/routeServerPeer:RouteServerPeer example rsp-12345678
@@ -451,7 +451,7 @@ class RouteServerPeer(pulumi.CustomResource):
                  args: RouteServerPeerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource for managing a VPC (Virtual Private Cloud) Route Server Peer.
+        Provides a resource for managing a VPC Route Server Peer.
 
         ## Example Usage
 
@@ -511,7 +511,7 @@ class RouteServerPeer(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import VPC (Virtual Private Cloud) Route Server using the `route_server_peer_id`. For example:
+        Using `pulumi import`, import VPC Route Server using the `route_server_peer_id`. For example:
 
         ```sh
         $ pulumi import aws:vpc/routeServerPeer:RouteServerPeer example rsp-12345678

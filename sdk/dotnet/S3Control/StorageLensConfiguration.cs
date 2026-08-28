@@ -101,7 +101,7 @@ namespace Pulumi.Aws.S3Control
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
+        /// ARN of the S3 Storage Lens configuration.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.S3Control
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
+        /// ARN of the S3 Storage Lens configuration.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -192,7 +192,7 @@ import (
 type ServerlessCache struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the serverless cache.
+	// ARN of the serverless cache.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
 	CacheUsageLimits ServerlessCacheCacheUsageLimitsPtrOutput `pulumi:"cacheUsageLimits"`
@@ -274,7 +274,7 @@ func GetServerlessCache(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerlessCache resources.
 type serverlessCacheState struct {
-	// The Amazon Resource Name (ARN) of the serverless cache.
+	// ARN of the serverless cache.
 	Arn *string `pulumi:"arn"`
 	// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
 	CacheUsageLimits *ServerlessCacheCacheUsageLimits `pulumi:"cacheUsageLimits"`
@@ -324,7 +324,7 @@ type serverlessCacheState struct {
 }
 
 type ServerlessCacheState struct {
-	// The Amazon Resource Name (ARN) of the serverless cache.
+	// ARN of the serverless cache.
 	Arn pulumi.StringPtrInput
 	// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
 	CacheUsageLimits ServerlessCacheCacheUsageLimitsPtrInput
@@ -539,7 +539,7 @@ func (o ServerlessCacheOutput) ToServerlessCacheOutputWithContext(ctx context.Co
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the serverless cache.
+// ARN of the serverless cache.
 func (o ServerlessCacheOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCache) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

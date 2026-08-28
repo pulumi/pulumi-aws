@@ -68,14 +68,14 @@ public final class PipeTargetParametersBatchJobParametersArgs extends com.pulumi
     }
 
     /**
-     * The job definition used by this job. This value can be one of name, name:revision, or the Amazon Resource Name (ARN) for the job definition. If name is specified without a revision then the latest active revision is used.
+     * Job definition used by this job. This value can be one of name, name:revision, or the ARN for the job definition. If name is specified without a revision then the latest active revision is used.
      * 
      */
     @Import(name="jobDefinition", required=true)
     private Output<String> jobDefinition;
 
     /**
-     * @return The job definition used by this job. This value can be one of name, name:revision, or the Amazon Resource Name (ARN) for the job definition. If name is specified without a revision then the latest active revision is used.
+     * @return Job definition used by this job. This value can be one of name, name:revision, or the ARN for the job definition. If name is specified without a revision then the latest active revision is used.
      * 
      */
     public Output<String> jobDefinition() {
@@ -231,7 +231,7 @@ public final class PipeTargetParametersBatchJobParametersArgs extends com.pulumi
         }
 
         /**
-         * @param jobDefinition The job definition used by this job. This value can be one of name, name:revision, or the Amazon Resource Name (ARN) for the job definition. If name is specified without a revision then the latest active revision is used.
+         * @param jobDefinition Job definition used by this job. This value can be one of name, name:revision, or the ARN for the job definition. If name is specified without a revision then the latest active revision is used.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class PipeTargetParametersBatchJobParametersArgs extends com.pulumi
         }
 
         /**
-         * @param jobDefinition The job definition used by this job. This value can be one of name, name:revision, or the Amazon Resource Name (ARN) for the job definition. If name is specified without a revision then the latest active revision is used.
+         * @param jobDefinition Job definition used by this job. This value can be one of name, name:revision, or the ARN for the job definition. If name is specified without a revision then the latest active revision is used.
          * 
          * @return builder
          * 

@@ -18,14 +18,14 @@ public final class PlanStageTargetChannelTargetInfoArgs extends com.pulumi.resou
     public static final PlanStageTargetChannelTargetInfoArgs Empty = new PlanStageTargetChannelTargetInfoArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the contact channel.
+     * The ARN of the contact channel.
      * 
      */
     @Import(name="contactChannelId", required=true)
     private Output<String> contactChannelId;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the contact channel.
+     * @return The ARN of the contact channel.
      * 
      */
     public Output<String> contactChannelId() {
@@ -73,7 +73,7 @@ public final class PlanStageTargetChannelTargetInfoArgs extends com.pulumi.resou
         }
 
         /**
-         * @param contactChannelId The Amazon Resource Name (ARN) of the contact channel.
+         * @param contactChannelId The ARN of the contact channel.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class PlanStageTargetChannelTargetInfoArgs extends com.pulumi.resou
         }
 
         /**
-         * @param contactChannelId The Amazon Resource Name (ARN) of the contact channel.
+         * @param contactChannelId The ARN of the contact channel.
          * 
          * @return builder
          * 

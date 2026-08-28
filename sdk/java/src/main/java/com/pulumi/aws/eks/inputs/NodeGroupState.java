@@ -28,14 +28,14 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
     public static final NodeGroupState Empty = new NodeGroupState();
 
     /**
-     * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
+     * Type of AMI associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     @Import(name="amiType")
     private @Nullable Output<String> amiType;
 
     /**
-     * @return Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
+     * @return Type of AMI associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     public Optional<Output<String>> amiType() {
@@ -43,14 +43,14 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the EKS Node Group.
+     * ARN of the EKS Node Group.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the EKS Node Group.
+     * @return ARN of the EKS Node Group.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -208,14 +208,14 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+     * ARN of the IAM Role that provides permissions for the EKS Node Group.
      * 
      */
     @Import(name="nodeRoleArn")
     private @Nullable Output<String> nodeRoleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+     * @return ARN of the IAM Role that provides permissions for the EKS Node Group.
      * 
      */
     public Optional<Output<String>> nodeRoleArn() {
@@ -471,7 +471,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param amiType Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
+         * @param amiType Type of AMI associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. The provider will only perform drift detection if a configuration value is provided.
          * 
          * @return builder
          * 
@@ -482,7 +482,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param amiType Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
+         * @param amiType Type of AMI associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. The provider will only perform drift detection if a configuration value is provided.
          * 
          * @return builder
          * 
@@ -492,7 +492,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the EKS Node Group.
+         * @param arn ARN of the EKS Node Group.
          * 
          * @return builder
          * 
@@ -503,7 +503,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the EKS Node Group.
+         * @param arn ARN of the EKS Node Group.
          * 
          * @return builder
          * 
@@ -733,7 +733,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodeRoleArn Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+         * @param nodeRoleArn ARN of the IAM Role that provides permissions for the EKS Node Group.
          * 
          * @return builder
          * 
@@ -744,7 +744,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodeRoleArn Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+         * @param nodeRoleArn ARN of the IAM Role that provides permissions for the EKS Node Group.
          * 
          * @return builder
          * 

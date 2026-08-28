@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Vpc
 {
     /// <summary>
-    /// Resource for enabling private DNS on an AWS VPC (Virtual Private Cloud) Endpoint.
+    /// Resource for enabling private DNS on an AWS VPC Endpoint.
     /// 
     /// &gt; When using this resource, the `PrivateDnsEnabled` argument should be omitted on the parent `aws.ec2.VpcEndpoint` resource.
     /// Setting the value both places can lead to unintended behavior and persistent differences.
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Vpc
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import a VPC (Virtual Private Cloud) Endpoint Private DNS using the `VpcEndpointId`. For example:
+    /// Using `pulumi import`, import a VPC Endpoint Private DNS using the `VpcEndpointId`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:vpc/endpointPrivateDns:EndpointPrivateDns example vpce-abcd-1234

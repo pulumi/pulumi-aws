@@ -63,7 +63,7 @@ export class Project extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Project.
+     * ARN assigned by AWS to this Project.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -143,7 +143,7 @@ export class Project extends pulumi.CustomResource {
  */
 export interface ProjectState {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Project.
+     * ARN assigned by AWS to this Project.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

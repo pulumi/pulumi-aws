@@ -96,7 +96,7 @@ namespace Pulumi.Aws.RedShift
         public Output<string> AquaConfigurationStatus { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of cluster
+        /// ARN of cluster
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.RedShift
         public Output<string> ClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The namespace Amazon Resource Name (ARN) of the cluster
+        /// Namespace ARN of the cluster
         /// </summary>
         [Output("clusterNamespaceArn")]
         public Output<string> ClusterNamespaceArn { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.RedShift
         public Output<string> ClusterRevisionNumber { get; private set; } = null!;
 
         /// <summary>
-        /// The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+        /// Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
         /// </summary>
         [Output("clusterSubnetGroupName")]
         public Output<string> ClusterSubnetGroupName { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.RedShift
         public Output<string> DatabaseName { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        /// ARN for the IAM role that was set as default for the cluster when the cluster was created.
         /// </summary>
         [Output("defaultIamRoleArn")]
         public Output<string> DefaultIamRoleArn { get; private set; } = null!;
@@ -393,7 +393,7 @@ namespace Pulumi.Aws.RedShift
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+        /// List of VPC security groups to be associated with the cluster.
         /// </summary>
         [Output("vpcSecurityGroupIds")]
         public Output<ImmutableArray<string>> VpcSecurityGroupIds { get; private set; } = null!;
@@ -500,7 +500,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? ClusterParameterGroupName { get; set; }
 
         /// <summary>
-        /// The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+        /// Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
         /// </summary>
         [Input("clusterSubnetGroupName")]
         public Input<string>? ClusterSubnetGroupName { get; set; }
@@ -526,7 +526,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        /// ARN for the IAM role that was set as default for the cluster when the cluster was created.
         /// </summary>
         [Input("defaultIamRoleArn")]
         public Input<string>? DefaultIamRoleArn { get; set; }
@@ -748,7 +748,7 @@ namespace Pulumi.Aws.RedShift
         private InputList<string>? _vpcSecurityGroupIds;
 
         /// <summary>
-        /// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+        /// List of VPC security groups to be associated with the cluster.
         /// </summary>
         public InputList<string> VpcSecurityGroupIds
         {
@@ -785,7 +785,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? AquaConfigurationStatus { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of cluster
+        /// ARN of cluster
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -815,7 +815,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? ClusterIdentifier { get; set; }
 
         /// <summary>
-        /// The namespace Amazon Resource Name (ARN) of the cluster
+        /// Namespace ARN of the cluster
         /// </summary>
         [Input("clusterNamespaceArn")]
         public Input<string>? ClusterNamespaceArn { get; set; }
@@ -851,7 +851,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? ClusterRevisionNumber { get; set; }
 
         /// <summary>
-        /// The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+        /// Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
         /// </summary>
         [Input("clusterSubnetGroupName")]
         public Input<string>? ClusterSubnetGroupName { get; set; }
@@ -877,7 +877,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        /// ARN for the IAM role that was set as default for the cluster when the cluster was created.
         /// </summary>
         [Input("defaultIamRoleArn")]
         public Input<string>? DefaultIamRoleArn { get; set; }
@@ -1129,7 +1129,7 @@ namespace Pulumi.Aws.RedShift
         private InputList<string>? _vpcSecurityGroupIds;
 
         /// <summary>
-        /// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+        /// List of VPC security groups to be associated with the cluster.
         /// </summary>
         public InputList<string> VpcSecurityGroupIds
         {

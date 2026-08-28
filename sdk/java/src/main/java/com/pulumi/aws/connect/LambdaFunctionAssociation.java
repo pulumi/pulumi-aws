@@ -63,14 +63,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation")
 public class LambdaFunctionAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+     * ARN of the Lambda Function, omitting any version or alias qualifier.
      * 
      */
     @Export(name="functionArn", refs={String.class}, tree="[0]")
     private Output<String> functionArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+     * @return ARN of the Lambda Function, omitting any version or alias qualifier.
      * 
      */
     public Output<String> functionArn() {

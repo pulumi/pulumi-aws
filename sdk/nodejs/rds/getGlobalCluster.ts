@@ -52,7 +52,7 @@ export interface GetGlobalClusterArgs {
  */
 export interface GetGlobalClusterResult {
     /**
-     * RDS Global Cluster Amazon Resource Name (ARN)
+     * RDS Global Cluster ARN
      */
     readonly arn: string;
     /**

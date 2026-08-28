@@ -37,7 +37,7 @@ class ExportTaskArgs:
         :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role to use for writing to the Amazon S3 bucket.
         :param pulumi.Input[_builtins.str] kms_key_id: ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
         :param pulumi.Input[_builtins.str] s3_bucket_name: Name of the Amazon S3 bucket to export the snapshot to.
-        :param pulumi.Input[_builtins.str] source_arn: Amazon Resource Name (ARN) of the snapshot to export.
+        :param pulumi.Input[_builtins.str] source_arn: ARN of the snapshot to export.
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] export_onlies: Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
@@ -110,7 +110,7 @@ class ExportTaskArgs:
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the snapshot to export.
+        ARN of the snapshot to export.
 
         The following arguments are optional:
         """
@@ -199,7 +199,7 @@ class _ExportTaskState:
         :param pulumi.Input[_builtins.str] s3_bucket_name: Name of the Amazon S3 bucket to export the snapshot to.
         :param pulumi.Input[_builtins.str] s3_prefix: Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
         :param pulumi.Input[_builtins.str] snapshot_time: Time that the snapshot was created.
-        :param pulumi.Input[_builtins.str] source_arn: Amazon Resource Name (ARN) of the snapshot to export.
+        :param pulumi.Input[_builtins.str] source_arn: ARN of the snapshot to export.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] source_type: Type of source for the export.
@@ -367,7 +367,7 @@ class _ExportTaskState:
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the snapshot to export.
+        ARN of the snapshot to export.
 
         The following arguments are optional:
         """
@@ -578,7 +578,7 @@ class ExportTask(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] s3_bucket_name: Name of the Amazon S3 bucket to export the snapshot to.
         :param pulumi.Input[_builtins.str] s3_prefix: Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
-        :param pulumi.Input[_builtins.str] source_arn: Amazon Resource Name (ARN) of the snapshot to export.
+        :param pulumi.Input[_builtins.str] source_arn: ARN of the snapshot to export.
                
                The following arguments are optional:
         """
@@ -798,7 +798,7 @@ class ExportTask(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] s3_bucket_name: Name of the Amazon S3 bucket to export the snapshot to.
         :param pulumi.Input[_builtins.str] s3_prefix: Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
         :param pulumi.Input[_builtins.str] snapshot_time: Time that the snapshot was created.
-        :param pulumi.Input[_builtins.str] source_arn: Amazon Resource Name (ARN) of the snapshot to export.
+        :param pulumi.Input[_builtins.str] source_arn: ARN of the snapshot to export.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] source_type: Type of source for the export.
@@ -914,7 +914,7 @@ class ExportTask(pulumi.CustomResource):
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the snapshot to export.
+        ARN of the snapshot to export.
 
         The following arguments are optional:
         """

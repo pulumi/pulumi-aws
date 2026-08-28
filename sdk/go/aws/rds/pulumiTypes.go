@@ -16,7 +16,7 @@ var _ = internal.GetEnvOrDefault
 type ClusterMasterUserSecret struct {
 	// ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Amazon Resource Name (ARN) of the secret.
+	// ARN of the secret.
 	SecretArn *string `pulumi:"secretArn"`
 	// Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
 	SecretStatus *string `pulumi:"secretStatus"`
@@ -36,7 +36,7 @@ type ClusterMasterUserSecretInput interface {
 type ClusterMasterUserSecretArgs struct {
 	// ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// Amazon Resource Name (ARN) of the secret.
+	// ARN of the secret.
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
 	// Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
 	SecretStatus pulumi.StringPtrInput `pulumi:"secretStatus"`
@@ -98,7 +98,7 @@ func (o ClusterMasterUserSecretOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterMasterUserSecret) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the secret.
+// ARN of the secret.
 func (o ClusterMasterUserSecretOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterMasterUserSecret) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
@@ -1388,7 +1388,7 @@ func (o ExportTaskTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 }
 
 type GlobalClusterGlobalClusterMember struct {
-	// Amazon Resource Name (ARN) of member DB Cluster.
+	// ARN of member DB Cluster.
 	DbClusterArn *string `pulumi:"dbClusterArn"`
 	// Whether the member is the primary DB Cluster.
 	IsWriter *bool `pulumi:"isWriter"`
@@ -1406,7 +1406,7 @@ type GlobalClusterGlobalClusterMemberInput interface {
 }
 
 type GlobalClusterGlobalClusterMemberArgs struct {
-	// Amazon Resource Name (ARN) of member DB Cluster.
+	// ARN of member DB Cluster.
 	DbClusterArn pulumi.StringPtrInput `pulumi:"dbClusterArn"`
 	// Whether the member is the primary DB Cluster.
 	IsWriter pulumi.BoolPtrInput `pulumi:"isWriter"`
@@ -1463,7 +1463,7 @@ func (o GlobalClusterGlobalClusterMemberOutput) ToGlobalClusterGlobalClusterMemb
 	return o
 }
 
-// Amazon Resource Name (ARN) of member DB Cluster.
+// ARN of member DB Cluster.
 func (o GlobalClusterGlobalClusterMemberOutput) DbClusterArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalClusterGlobalClusterMember) *string { return v.DbClusterArn }).(pulumi.StringPtrOutput)
 }
@@ -1937,7 +1937,7 @@ type InstanceMasterUserSecret struct {
 	// The ARN for the KMS encryption key. If creating an
 	// encrypted replica, set this to the destination KMS ARN.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The Amazon Resource Name (ARN) of the secret.
+	// ARN of the secret.
 	SecretArn *string `pulumi:"secretArn"`
 	// The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
 	SecretStatus *string `pulumi:"secretStatus"`
@@ -1958,7 +1958,7 @@ type InstanceMasterUserSecretArgs struct {
 	// The ARN for the KMS encryption key. If creating an
 	// encrypted replica, set this to the destination KMS ARN.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// The Amazon Resource Name (ARN) of the secret.
+	// ARN of the secret.
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
 	// The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
 	SecretStatus pulumi.StringPtrInput `pulumi:"secretStatus"`
@@ -2021,7 +2021,7 @@ func (o InstanceMasterUserSecretOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceMasterUserSecret) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the secret.
+// ARN of the secret.
 func (o InstanceMasterUserSecretOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceMasterUserSecret) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
@@ -3062,7 +3062,7 @@ type ProxyAuth struct {
 	Description *string `pulumi:"description"`
 	// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of `DISABLED`, `REQUIRED`.
 	IamAuth *string `pulumi:"iamAuth"`
-	// Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+	// ARN representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
 	SecretArn *string `pulumi:"secretArn"`
 	// Name of the database user to which the proxy connects.
 	Username *string `pulumi:"username"`
@@ -3088,7 +3088,7 @@ type ProxyAuthArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of `DISABLED`, `REQUIRED`.
 	IamAuth pulumi.StringPtrInput `pulumi:"iamAuth"`
-	// Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+	// ARN representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
 	// Name of the database user to which the proxy connects.
 	Username pulumi.StringPtrInput `pulumi:"username"`
@@ -3165,7 +3165,7 @@ func (o ProxyAuthOutput) IamAuth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProxyAuth) *string { return v.IamAuth }).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+// ARN representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
 func (o ProxyAuthOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProxyAuth) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
@@ -3996,7 +3996,7 @@ func (o GetEngineVersionFilterArrayOutput) Index(i pulumi.IntInput) GetEngineVer
 }
 
 type GetGlobalClusterMember struct {
-	// Amazon Resource Name (ARN) of member DB Cluster
+	// ARN of member DB Cluster
 	DbClusterArn string `pulumi:"dbClusterArn"`
 	// Whether the member is the primary DB Cluster
 	IsWriter bool `pulumi:"isWriter"`
@@ -4014,7 +4014,7 @@ type GetGlobalClusterMemberInput interface {
 }
 
 type GetGlobalClusterMemberArgs struct {
-	// Amazon Resource Name (ARN) of member DB Cluster
+	// ARN of member DB Cluster
 	DbClusterArn pulumi.StringInput `pulumi:"dbClusterArn"`
 	// Whether the member is the primary DB Cluster
 	IsWriter pulumi.BoolInput `pulumi:"isWriter"`
@@ -4071,7 +4071,7 @@ func (o GetGlobalClusterMemberOutput) ToGetGlobalClusterMemberOutputWithContext(
 	return o
 }
 
-// Amazon Resource Name (ARN) of member DB Cluster
+// ARN of member DB Cluster
 func (o GetGlobalClusterMemberOutput) DbClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGlobalClusterMember) string { return v.DbClusterArn }).(pulumi.StringOutput)
 }
@@ -4104,7 +4104,7 @@ func (o GetGlobalClusterMemberArrayOutput) Index(i pulumi.IntInput) GetGlobalClu
 type GetInstanceMasterUserSecret struct {
 	// The Amazon Web Services KMS key identifier that is used to encrypt the secret.
 	KmsKeyId string `pulumi:"kmsKeyId"`
-	// The Amazon Resource Name (ARN) of the secret.
+	// ARN of the secret.
 	SecretArn string `pulumi:"secretArn"`
 	// The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
 	SecretStatus string `pulumi:"secretStatus"`
@@ -4124,7 +4124,7 @@ type GetInstanceMasterUserSecretInput interface {
 type GetInstanceMasterUserSecretArgs struct {
 	// The Amazon Web Services KMS key identifier that is used to encrypt the secret.
 	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
-	// The Amazon Resource Name (ARN) of the secret.
+	// ARN of the secret.
 	SecretArn pulumi.StringInput `pulumi:"secretArn"`
 	// The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
 	SecretStatus pulumi.StringInput `pulumi:"secretStatus"`
@@ -4186,7 +4186,7 @@ func (o GetInstanceMasterUserSecretOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceMasterUserSecret) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the secret.
+// ARN of the secret.
 func (o GetInstanceMasterUserSecretOutput) SecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceMasterUserSecret) string { return v.SecretArn }).(pulumi.StringOutput)
 }

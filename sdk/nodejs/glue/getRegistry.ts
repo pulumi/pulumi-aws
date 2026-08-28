@@ -47,7 +47,7 @@ export interface GetRegistryArgs {
  */
 export interface GetRegistryResult {
     /**
-     * Amazon Resource Name (ARN) of Glue Registry.
+     * ARN of Glue Registry.
      */
     readonly arn: string;
     /**

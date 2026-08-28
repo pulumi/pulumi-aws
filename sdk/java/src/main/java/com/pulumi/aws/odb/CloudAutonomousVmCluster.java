@@ -138,14 +138,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:odb/cloudAutonomousVmCluster:CloudAutonomousVmCluster")
 public class CloudAutonomousVmCluster extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) for the Exadata infrastructure.
+     * ARN for the Exadata infrastructure.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) for the Exadata infrastructure.
+     * @return ARN for the Exadata infrastructure.
      * 
      */
     public Output<String> arn() {

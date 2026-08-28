@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Sagemaker
     public partial class Model : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) assigned by AWS to this model.
+        /// ARN assigned by AWS to this model.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -270,7 +270,7 @@ namespace Pulumi.Aws.Sagemaker
     public sealed class ModelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) assigned by AWS to this model.
+        /// ARN assigned by AWS to this model.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

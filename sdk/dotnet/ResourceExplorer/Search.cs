@@ -111,7 +111,7 @@ namespace Pulumi.Aws.ResourceExplorer
         public string? Region { get; set; }
 
         /// <summary>
-        /// Specifies the Amazon resource name (ARN) of the view to use for the query. If you don't specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn't have a default view or if you don't have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
+        /// ARN of the view to use for the query. If you don't specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn't have a default view or if you don't have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
         /// </summary>
         [Input("viewArn")]
         public string? ViewArn { get; set; }
@@ -139,7 +139,7 @@ namespace Pulumi.Aws.ResourceExplorer
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specifies the Amazon resource name (ARN) of the view to use for the query. If you don't specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn't have a default view or if you don't have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
+        /// ARN of the view to use for the query. If you don't specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn't have a default view or if you don't have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
         /// </summary>
         [Input("viewArn")]
         public Input<string>? ViewArn { get; set; }

@@ -91,14 +91,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:msk/clusterPolicy:ClusterPolicy")
 public class ClusterPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+     * ARN that uniquely identifies the cluster.
      * 
      */
     @Export(name="clusterArn", refs={String.class}, tree="[0]")
     private Output<String> clusterArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+     * @return ARN that uniquely identifies the cluster.
      * 
      */
     public Output<String> clusterArn() {

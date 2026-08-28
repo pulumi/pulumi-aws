@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Ebs
     public partial class DefaultKmsKey : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
+        /// ARN of the KMS customer master key (CMK) to use to encrypt the EBS volume.
         /// </summary>
         [Output("keyArn")]
         public Output<string> KeyArn { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.Ebs
     public sealed class DefaultKmsKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
+        /// ARN of the KMS customer master key (CMK) to use to encrypt the EBS volume.
         /// </summary>
         [Input("keyArn", required: true)]
         public Input<string> KeyArn { get; set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.Ebs
     public sealed class DefaultKmsKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
+        /// ARN of the KMS customer master key (CMK) to use to encrypt the EBS volume.
         /// </summary>
         [Input("keyArn")]
         public Input<string>? KeyArn { get; set; }

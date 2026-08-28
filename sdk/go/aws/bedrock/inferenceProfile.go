@@ -63,7 +63,7 @@ import (
 type InferenceProfile struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the inference profile.
+	// The ARN of the inference profile.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The time at which the inference profile was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
@@ -121,7 +121,7 @@ func GetInferenceProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InferenceProfile resources.
 type inferenceProfileState struct {
-	// The Amazon Resource Name (ARN) of the inference profile.
+	// The ARN of the inference profile.
 	Arn *string `pulumi:"arn"`
 	// The time at which the inference profile was created.
 	CreatedAt *string `pulumi:"createdAt"`
@@ -150,7 +150,7 @@ type inferenceProfileState struct {
 }
 
 type InferenceProfileState struct {
-	// The Amazon Resource Name (ARN) of the inference profile.
+	// The ARN of the inference profile.
 	Arn pulumi.StringPtrInput
 	// The time at which the inference profile was created.
 	CreatedAt pulumi.StringPtrInput
@@ -302,7 +302,7 @@ func (o InferenceProfileOutput) ToInferenceProfileOutputWithContext(ctx context.
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the inference profile.
+// The ARN of the inference profile.
 func (o InferenceProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InferenceProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the IAM OpenID Connect provider.
+    /// - `Arn` (String) ARN of the IAM OpenID Connect provider.
     /// 
     /// Using `pulumi import`, import IAM OpenID Connect Providers using the `Arn`. For example:
     /// 

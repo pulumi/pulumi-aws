@@ -34,7 +34,7 @@ class ExternalKeyArgs:
         """
         The set of arguments for constructing a ExternalKey resource.
 
-        :param pulumi.Input[_builtins.bool] bypass_policy_lockout_safety_check: Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] bypass_policy_lockout_safety_check: Whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the KMS Developer Guide. Defaults to `false`.
         :param pulumi.Input[_builtins.int] deletion_window_in_days: Duration in days after which the key is deleted after destruction of the resource. Must be between `7` and `30` days. Defaults to `30`.
         :param pulumi.Input[_builtins.str] description: Description of the key.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
@@ -76,7 +76,7 @@ class ExternalKeyArgs:
     @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
     def bypass_policy_lockout_safety_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
+        Whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the KMS Developer Guide. Defaults to `false`.
         """
         return pulumi.get(self, "bypass_policy_lockout_safety_check")
 
@@ -239,8 +239,8 @@ class _ExternalKeyState:
         """
         Input properties used for looking up and filtering ExternalKey resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the key.
-        :param pulumi.Input[_builtins.bool] bypass_policy_lockout_safety_check: Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] arn: ARN of the key.
+        :param pulumi.Input[_builtins.bool] bypass_policy_lockout_safety_check: Whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the KMS Developer Guide. Defaults to `false`.
         :param pulumi.Input[_builtins.int] deletion_window_in_days: Duration in days after which the key is deleted after destruction of the resource. Must be between `7` and `30` days. Defaults to `30`.
         :param pulumi.Input[_builtins.str] description: Description of the key.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
@@ -293,7 +293,7 @@ class _ExternalKeyState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the key.
+        ARN of the key.
         """
         return pulumi.get(self, "arn")
 
@@ -305,7 +305,7 @@ class _ExternalKeyState:
     @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
     def bypass_policy_lockout_safety_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
+        Whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the KMS Developer Guide. Defaults to `false`.
         """
         return pulumi.get(self, "bypass_policy_lockout_safety_check")
 
@@ -525,7 +525,7 @@ class ExternalKey(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] bypass_policy_lockout_safety_check: Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] bypass_policy_lockout_safety_check: Whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the KMS Developer Guide. Defaults to `false`.
         :param pulumi.Input[_builtins.int] deletion_window_in_days: Duration in days after which the key is deleted after destruction of the resource. Must be between `7` and `30` days. Defaults to `30`.
         :param pulumi.Input[_builtins.str] description: Description of the key.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
@@ -653,8 +653,8 @@ class ExternalKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the key.
-        :param pulumi.Input[_builtins.bool] bypass_policy_lockout_safety_check: Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] arn: ARN of the key.
+        :param pulumi.Input[_builtins.bool] bypass_policy_lockout_safety_check: Whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the KMS Developer Guide. Defaults to `false`.
         :param pulumi.Input[_builtins.int] deletion_window_in_days: Duration in days after which the key is deleted after destruction of the resource. Must be between `7` and `30` days. Defaults to `30`.
         :param pulumi.Input[_builtins.str] description: Description of the key.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
@@ -696,7 +696,7 @@ class ExternalKey(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the key.
+        ARN of the key.
         """
         return pulumi.get(self, "arn")
 
@@ -704,7 +704,7 @@ class ExternalKey(pulumi.CustomResource):
     @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
     def bypass_policy_lockout_safety_check(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
+        Whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the KMS Developer Guide. Defaults to `false`.
         """
         return pulumi.get(self, "bypass_policy_lockout_safety_check")
 

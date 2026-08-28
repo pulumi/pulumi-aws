@@ -81,14 +81,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cloudwatch/eventApiDestination:EventApiDestination")
 public class EventApiDestination extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the event API Destination.
+     * ARN of the event API Destination.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the event API Destination.
+     * @return ARN of the event API Destination.
      * 
      */
     public Output<String> arn() {

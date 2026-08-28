@@ -58,7 +58,7 @@ export class ProxyEndpoint extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the proxy endpoint.
+     * ARN for the proxy endpoint.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -162,7 +162,7 @@ export class ProxyEndpoint extends pulumi.CustomResource {
  */
 export interface ProxyEndpointState {
     /**
-     * The Amazon Resource Name (ARN) for the proxy endpoint.
+     * ARN for the proxy endpoint.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

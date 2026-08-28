@@ -60,13 +60,13 @@ import (
 type IngestionDestination struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the app bundle to use for the request.
+	// ARN of the app bundle to use for the request.
 	AppBundleArn pulumi.StringOutput `pulumi:"appBundleArn"`
 	// ARN of the Ingestion Destination.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration for the destination of ingested data. See `destinationConfiguration` Block below.
 	DestinationConfiguration IngestionDestinationDestinationConfigurationOutput `pulumi:"destinationConfiguration"`
-	// Amazon Resource Name (ARN) of the ingestion to use for the request.
+	// ARN of the ingestion to use for the request.
 	IngestionArn pulumi.StringOutput `pulumi:"ingestionArn"`
 	// Configuration for how ingested data is processed. See `processingConfiguration` Block below.
 	//
@@ -123,13 +123,13 @@ func GetIngestionDestination(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IngestionDestination resources.
 type ingestionDestinationState struct {
-	// Amazon Resource Name (ARN) of the app bundle to use for the request.
+	// ARN of the app bundle to use for the request.
 	AppBundleArn *string `pulumi:"appBundleArn"`
 	// ARN of the Ingestion Destination.
 	Arn *string `pulumi:"arn"`
 	// Configuration for the destination of ingested data. See `destinationConfiguration` Block below.
 	DestinationConfiguration *IngestionDestinationDestinationConfiguration `pulumi:"destinationConfiguration"`
-	// Amazon Resource Name (ARN) of the ingestion to use for the request.
+	// ARN of the ingestion to use for the request.
 	IngestionArn *string `pulumi:"ingestionArn"`
 	// Configuration for how ingested data is processed. See `processingConfiguration` Block below.
 	//
@@ -145,13 +145,13 @@ type ingestionDestinationState struct {
 }
 
 type IngestionDestinationState struct {
-	// Amazon Resource Name (ARN) of the app bundle to use for the request.
+	// ARN of the app bundle to use for the request.
 	AppBundleArn pulumi.StringPtrInput
 	// ARN of the Ingestion Destination.
 	Arn pulumi.StringPtrInput
 	// Configuration for the destination of ingested data. See `destinationConfiguration` Block below.
 	DestinationConfiguration IngestionDestinationDestinationConfigurationPtrInput
-	// Amazon Resource Name (ARN) of the ingestion to use for the request.
+	// ARN of the ingestion to use for the request.
 	IngestionArn pulumi.StringPtrInput
 	// Configuration for how ingested data is processed. See `processingConfiguration` Block below.
 	//
@@ -171,11 +171,11 @@ func (IngestionDestinationState) ElementType() reflect.Type {
 }
 
 type ingestionDestinationArgs struct {
-	// Amazon Resource Name (ARN) of the app bundle to use for the request.
+	// ARN of the app bundle to use for the request.
 	AppBundleArn string `pulumi:"appBundleArn"`
 	// Configuration for the destination of ingested data. See `destinationConfiguration` Block below.
 	DestinationConfiguration IngestionDestinationDestinationConfiguration `pulumi:"destinationConfiguration"`
-	// Amazon Resource Name (ARN) of the ingestion to use for the request.
+	// ARN of the ingestion to use for the request.
 	IngestionArn string `pulumi:"ingestionArn"`
 	// Configuration for how ingested data is processed. See `processingConfiguration` Block below.
 	//
@@ -190,11 +190,11 @@ type ingestionDestinationArgs struct {
 
 // The set of arguments for constructing a IngestionDestination resource.
 type IngestionDestinationArgs struct {
-	// Amazon Resource Name (ARN) of the app bundle to use for the request.
+	// ARN of the app bundle to use for the request.
 	AppBundleArn pulumi.StringInput
 	// Configuration for the destination of ingested data. See `destinationConfiguration` Block below.
 	DestinationConfiguration IngestionDestinationDestinationConfigurationInput
-	// Amazon Resource Name (ARN) of the ingestion to use for the request.
+	// ARN of the ingestion to use for the request.
 	IngestionArn pulumi.StringInput
 	// Configuration for how ingested data is processed. See `processingConfiguration` Block below.
 	//
@@ -294,7 +294,7 @@ func (o IngestionDestinationOutput) ToIngestionDestinationOutputWithContext(ctx 
 	return o
 }
 
-// Amazon Resource Name (ARN) of the app bundle to use for the request.
+// ARN of the app bundle to use for the request.
 func (o IngestionDestinationOutput) AppBundleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IngestionDestination) pulumi.StringOutput { return v.AppBundleArn }).(pulumi.StringOutput)
 }
@@ -311,7 +311,7 @@ func (o IngestionDestinationOutput) DestinationConfiguration() IngestionDestinat
 	}).(IngestionDestinationDestinationConfigurationOutput)
 }
 
-// Amazon Resource Name (ARN) of the ingestion to use for the request.
+// ARN of the ingestion to use for the request.
 func (o IngestionDestinationOutput) IngestionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IngestionDestination) pulumi.StringOutput { return v.IngestionArn }).(pulumi.StringOutput)
 }

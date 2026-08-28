@@ -17,14 +17,14 @@ public final class TrackerAssociationArgs extends com.pulumi.resources.ResourceA
     public static final TrackerAssociationArgs Empty = new TrackerAssociationArgs();
 
     /**
-     * The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
+     * ARN for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
      * 
      */
     @Import(name="consumerArn", required=true)
     private Output<String> consumerArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
+     * @return ARN for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
      * 
      */
     public Output<String> consumerArn() {
@@ -88,7 +88,7 @@ public final class TrackerAssociationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param consumerArn The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
+         * @param consumerArn ARN for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class TrackerAssociationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param consumerArn The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
+         * @param consumerArn ARN for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
          * 
          * @return builder
          * 

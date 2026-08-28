@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Kendra.Inputs
         public Input<Inputs.DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs>? InvocationCondition { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
+        /// ARN of a Lambda Function that can manipulate your document metadata fields or attributes and content.
         /// </summary>
         [Input("lambdaArn", required: true)]
         public Input<string> LambdaArn { get; set; } = null!;

@@ -83,7 +83,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the Image Builder workflow.
+// - `arn` (String) ARN of the Image Builder workflow.
 //
 // Using `pulumi import`, import EC2 Image Builder Workflow using the `arn`. For example:
 //
@@ -95,7 +95,7 @@ import (
 type Workflow struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the workflow.
+	// ARN of the workflow.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Change description of the workflow.
 	ChangeDescription pulumi.StringPtrOutput `pulumi:"changeDescription"`
@@ -105,7 +105,7 @@ type Workflow struct {
 	DateCreated pulumi.StringOutput `pulumi:"dateCreated"`
 	// Description of the workflow.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
+	// ARN of the KMS Key used to encrypt the workflow.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// Name of the workflow.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -162,7 +162,7 @@ func GetWorkflow(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workflow resources.
 type workflowState struct {
-	// Amazon Resource Name (ARN) of the workflow.
+	// ARN of the workflow.
 	Arn *string `pulumi:"arn"`
 	// Change description of the workflow.
 	ChangeDescription *string `pulumi:"changeDescription"`
@@ -172,7 +172,7 @@ type workflowState struct {
 	DateCreated *string `pulumi:"dateCreated"`
 	// Description of the workflow.
 	Description *string `pulumi:"description"`
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
+	// ARN of the KMS Key used to encrypt the workflow.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Name of the workflow.
 	Name *string `pulumi:"name"`
@@ -194,7 +194,7 @@ type workflowState struct {
 }
 
 type WorkflowState struct {
-	// Amazon Resource Name (ARN) of the workflow.
+	// ARN of the workflow.
 	Arn pulumi.StringPtrInput
 	// Change description of the workflow.
 	ChangeDescription pulumi.StringPtrInput
@@ -204,7 +204,7 @@ type WorkflowState struct {
 	DateCreated pulumi.StringPtrInput
 	// Description of the workflow.
 	Description pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
+	// ARN of the KMS Key used to encrypt the workflow.
 	KmsKeyId pulumi.StringPtrInput
 	// Name of the workflow.
 	Name pulumi.StringPtrInput
@@ -236,7 +236,7 @@ type workflowArgs struct {
 	Data *string `pulumi:"data"`
 	// Description of the workflow.
 	Description *string `pulumi:"description"`
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
+	// ARN of the KMS Key used to encrypt the workflow.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Name of the workflow.
 	Name *string `pulumi:"name"`
@@ -262,7 +262,7 @@ type WorkflowArgs struct {
 	Data pulumi.StringPtrInput
 	// Description of the workflow.
 	Description pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
+	// ARN of the KMS Key used to encrypt the workflow.
 	KmsKeyId pulumi.StringPtrInput
 	// Name of the workflow.
 	Name pulumi.StringPtrInput
@@ -367,7 +367,7 @@ func (o WorkflowOutput) ToWorkflowOutputWithContext(ctx context.Context) Workflo
 	return o
 }
 
-// Amazon Resource Name (ARN) of the workflow.
+// ARN of the workflow.
 func (o WorkflowOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -392,7 +392,7 @@ func (o WorkflowOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
+// ARN of the KMS Key used to encrypt the workflow.
 func (o WorkflowOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }

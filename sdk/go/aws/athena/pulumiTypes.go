@@ -512,7 +512,7 @@ type WorkgroupConfiguration struct {
 	PublishCloudwatchMetricsEnabled *bool `pulumi:"publishCloudwatchMetricsEnabled"`
 	// Configuration block for S3 access grants. See Query Results S3 Access Grants Configuration below.
 	QueryResultsS3AccessGrantsConfiguration *WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration `pulumi:"queryResultsS3AccessGrantsConfiguration"`
-	// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
+	// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the S3 Developer Guide.
 	RequesterPaysEnabled *bool `pulumi:"requesterPaysEnabled"`
 	// Configuration block with result settings. See Result Configuration below.
 	ResultConfiguration *WorkgroupConfigurationResultConfiguration `pulumi:"resultConfiguration"`
@@ -552,7 +552,7 @@ type WorkgroupConfigurationArgs struct {
 	PublishCloudwatchMetricsEnabled pulumi.BoolPtrInput `pulumi:"publishCloudwatchMetricsEnabled"`
 	// Configuration block for S3 access grants. See Query Results S3 Access Grants Configuration below.
 	QueryResultsS3AccessGrantsConfiguration WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrInput `pulumi:"queryResultsS3AccessGrantsConfiguration"`
-	// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
+	// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the S3 Developer Guide.
 	RequesterPaysEnabled pulumi.BoolPtrInput `pulumi:"requesterPaysEnabled"`
 	// Configuration block with result settings. See Result Configuration below.
 	ResultConfiguration WorkgroupConfigurationResultConfigurationPtrInput `pulumi:"resultConfiguration"`
@@ -700,7 +700,7 @@ func (o WorkgroupConfigurationOutput) QueryResultsS3AccessGrantsConfiguration() 
 	}).(WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput)
 }
 
-// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
+// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the S3 Developer Guide.
 func (o WorkgroupConfigurationOutput) RequesterPaysEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfiguration) *bool { return v.RequesterPaysEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -846,7 +846,7 @@ func (o WorkgroupConfigurationPtrOutput) QueryResultsS3AccessGrantsConfiguration
 	}).(WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationPtrOutput)
 }
 
-// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
+// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the S3 Developer Guide.
 func (o WorkgroupConfigurationPtrOutput) RequesterPaysEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfiguration) *bool {
 		if v == nil {

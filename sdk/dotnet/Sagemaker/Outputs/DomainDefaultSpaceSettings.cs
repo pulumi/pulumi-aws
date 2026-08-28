@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly Outputs.DomainDefaultSpaceSettingsKernelGatewayAppSettings? KernelGatewayAppSettings;
         /// <summary>
-        /// The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
+        /// Security groups for the VPC that the space uses for communication.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
         /// <summary>

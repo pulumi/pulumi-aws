@@ -269,7 +269,7 @@ class FileCacheDataRepositoryAssociationArgsDict(TypedDict):
     """
     resource_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Amazon Resource Name (ARN) of the data repository association.
+    ARN of the data repository association.
     """
     tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
@@ -300,7 +300,7 @@ class FileCacheDataRepositoryAssociationArgs:
         :param pulumi.Input[_builtins.str] file_system_path: Path to the data repository on the file system.
         :param pulumi.Input[_builtins.int] imported_file_chunk_size: Size, in mebibytes (MiB), of the data blocks used to represent imported files.
         :param pulumi.Input[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationNfArgs']]] nfs: Configuration for a data repository association linked to an NFS file system. See `nfs` Block below.
-        :param pulumi.Input[_builtins.str] resource_arn: Amazon Resource Name (ARN) of the data repository association.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN of the data repository association.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "data_repository_path", data_repository_path)
@@ -436,7 +436,7 @@ class FileCacheDataRepositoryAssociationArgs:
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the data repository association.
+        ARN of the data repository association.
         """
         return pulumi.get(self, "resource_arn")
 
@@ -634,7 +634,7 @@ class FileCacheLustreConfigurationArgs:
 class FileCacheLustreConfigurationLogConfigurationArgsDict(TypedDict):
     destination: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Amazon Resource Name (ARN) of the destination that receives the logs.
+    ARN of the destination that receives the logs.
     """
     level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -647,7 +647,7 @@ class FileCacheLustreConfigurationLogConfigurationArgs:
                  destination: pulumi.Input[Optional[_builtins.str]] = None,
                  level: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] destination: Amazon Resource Name (ARN) of the destination that receives the logs.
+        :param pulumi.Input[_builtins.str] destination: ARN of the destination that receives the logs.
         :param pulumi.Input[_builtins.str] level: Level of logging that Lustre logs write to the destination.
         """
         if destination is not None:
@@ -659,7 +659,7 @@ class FileCacheLustreConfigurationLogConfigurationArgs:
     @pulumi.getter
     def destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the destination that receives the logs.
+        ARN of the destination that receives the logs.
         """
         return pulumi.get(self, "destination")
 
@@ -759,7 +759,7 @@ class LustreFileSystemDataReadCacheConfigurationArgs:
 class LustreFileSystemLogConfigurationArgsDict(TypedDict):
     destination: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
+    ARN that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
     """
     level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -772,7 +772,7 @@ class LustreFileSystemLogConfigurationArgs:
                  destination: pulumi.Input[Optional[_builtins.str]] = None,
                  level: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] destination: Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
+        :param pulumi.Input[_builtins.str] destination: ARN that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
         :param pulumi.Input[_builtins.str] level: Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
         """
         if destination is not None:
@@ -784,7 +784,7 @@ class LustreFileSystemLogConfigurationArgs:
     @pulumi.getter
     def destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
+        ARN that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
         """
         return pulumi.get(self, "destination")
 
@@ -2525,7 +2525,7 @@ class OpenZfsVolumeOriginSnapshotArgsDict(TypedDict):
     """
     snapshot_arn: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the origin snapshot.
+    The ARN of the origin snapshot.
     """
 
 @pulumi.input_type
@@ -2535,7 +2535,7 @@ class OpenZfsVolumeOriginSnapshotArgs:
                  snapshot_arn: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] copy_strategy: Specifies the strategy used when copying data from the snapshot to the new volume. Valid values are `CLONE`, `FULL_COPY`, `INCREMENTAL_COPY`.
-        :param pulumi.Input[_builtins.str] snapshot_arn: The Amazon Resource Name (ARN) of the origin snapshot.
+        :param pulumi.Input[_builtins.str] snapshot_arn: The ARN of the origin snapshot.
         """
         pulumi.set(__self__, "copy_strategy", copy_strategy)
         pulumi.set(__self__, "snapshot_arn", snapshot_arn)
@@ -2556,7 +2556,7 @@ class OpenZfsVolumeOriginSnapshotArgs:
     @pulumi.getter(name="snapshotArn")
     def snapshot_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the origin snapshot.
+        The ARN of the origin snapshot.
         """
         return pulumi.get(self, "snapshot_arn")
 
@@ -2923,7 +2923,7 @@ class S3AccessPointAttachmentTimeoutsArgs:
 class WindowsFileSystemAuditLogConfigurationArgsDict(TypedDict):
     audit_log_destination: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `file_access_audit_log_level` and `file_share_access_audit_log_level` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `audit_log_destionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
+    ARN for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `file_access_audit_log_level` and `file_share_access_audit_log_level` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `audit_log_destionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
     """
     file_access_audit_log_level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -2941,7 +2941,7 @@ class WindowsFileSystemAuditLogConfigurationArgs:
                  file_access_audit_log_level: pulumi.Input[Optional[_builtins.str]] = None,
                  file_share_access_audit_log_level: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] audit_log_destination: Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `file_access_audit_log_level` and `file_share_access_audit_log_level` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `audit_log_destionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
+        :param pulumi.Input[_builtins.str] audit_log_destination: ARN for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `file_access_audit_log_level` and `file_share_access_audit_log_level` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `audit_log_destionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
         :param pulumi.Input[_builtins.str] file_access_audit_log_level: Sets which attempt type is logged by Amazon FSx for file and folder accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
         :param pulumi.Input[_builtins.str] file_share_access_audit_log_level: Sets which attempt type is logged by Amazon FSx for file share accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
         """
@@ -2956,7 +2956,7 @@ class WindowsFileSystemAuditLogConfigurationArgs:
     @pulumi.getter(name="auditLogDestination")
     def audit_log_destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `file_access_audit_log_level` and `file_share_access_audit_log_level` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `audit_log_destionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
+        ARN for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `file_access_audit_log_level` and `file_share_access_audit_log_level` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `audit_log_destionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
         """
         return pulumi.get(self, "audit_log_destination")
 
@@ -3049,7 +3049,7 @@ class WindowsFileSystemSelfManagedActiveDirectoryArgsDict(TypedDict):
     """
     domain_join_service_account_secret: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
+    ARN for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
     """
     file_system_administrators_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -3092,7 +3092,7 @@ class WindowsFileSystemSelfManagedActiveDirectoryArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_ips: List of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
         :param pulumi.Input[_builtins.str] domain_name: Fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
-        :param pulumi.Input[_builtins.str] domain_join_service_account_secret: Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
+        :param pulumi.Input[_builtins.str] domain_join_service_account_secret: ARN for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
         :param pulumi.Input[_builtins.str] file_system_administrators_group: Name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
         :param pulumi.Input[_builtins.str] organizational_unit_distinguished_name: Fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
         :param pulumi.Input[_builtins.str] password: Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domain_join_service_account_secret` and `password_wo`.
@@ -3146,7 +3146,7 @@ class WindowsFileSystemSelfManagedActiveDirectoryArgs:
     @pulumi.getter(name="domainJoinServiceAccountSecret")
     def domain_join_service_account_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
+        ARN for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
         """
         return pulumi.get(self, "domain_join_service_account_secret")
 

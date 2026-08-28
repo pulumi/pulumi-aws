@@ -64,7 +64,7 @@ type Resource struct {
 	Properties pulumi.StringOutput `pulumi:"properties"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+	// ARN of the IAM Role to assume for operations.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
 	Schema pulumi.StringOutput `pulumi:"schema"`
@@ -125,7 +125,7 @@ type resourceState struct {
 	Properties *string `pulumi:"properties"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+	// ARN of the IAM Role to assume for operations.
 	RoleArn *string `pulumi:"roleArn"`
 	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
 	Schema *string `pulumi:"schema"`
@@ -144,7 +144,7 @@ type ResourceState struct {
 	Properties pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+	// ARN of the IAM Role to assume for operations.
 	RoleArn pulumi.StringPtrInput
 	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
 	Schema pulumi.StringPtrInput
@@ -165,7 +165,7 @@ type resourceArgs struct {
 	DesiredState string `pulumi:"desiredState"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+	// ARN of the IAM Role to assume for operations.
 	RoleArn *string `pulumi:"roleArn"`
 	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
 	Schema *string `pulumi:"schema"`
@@ -183,7 +183,7 @@ type ResourceArgs struct {
 	DesiredState pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+	// ARN of the IAM Role to assume for operations.
 	RoleArn pulumi.StringPtrInput
 	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
 	Schema pulumi.StringPtrInput
@@ -297,7 +297,7 @@ func (o ResourceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+// ARN of the IAM Role to assume for operations.
 func (o ResourceOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }

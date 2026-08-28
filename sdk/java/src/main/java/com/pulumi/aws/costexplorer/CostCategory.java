@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Cost Explorer cost category.
+ * - `arn` (String) ARN of the Cost Explorer cost category.
  * 
  * Using `pulumi import`, import `aws.costexplorer.CostCategory` using the id. For example:
  * 

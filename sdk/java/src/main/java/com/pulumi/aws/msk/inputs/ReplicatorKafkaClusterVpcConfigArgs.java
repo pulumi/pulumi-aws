@@ -33,14 +33,14 @@ public final class ReplicatorKafkaClusterVpcConfigArgs extends com.pulumi.resour
     }
 
     /**
-     * The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
+     * List of subnets to connect to in the VPC. AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
      * 
      */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
     /**
-     * @return The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
+     * @return List of subnets to connect to in the VPC. AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
      * 
      */
     public Output<List<String>> subnetIds() {
@@ -104,7 +104,7 @@ public final class ReplicatorKafkaClusterVpcConfigArgs extends com.pulumi.resour
         }
 
         /**
-         * @param subnetIds The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
+         * @param subnetIds List of subnets to connect to in the VPC. AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ReplicatorKafkaClusterVpcConfigArgs extends com.pulumi.resour
         }
 
         /**
-         * @param subnetIds The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
+         * @param subnetIds List of subnets to connect to in the VPC. AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class ReplicatorKafkaClusterVpcConfigArgs extends com.pulumi.resour
         }
 
         /**
-         * @param subnetIds The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
+         * @param subnetIds List of subnets to connect to in the VPC. AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
          * 
          * @return builder
          * 

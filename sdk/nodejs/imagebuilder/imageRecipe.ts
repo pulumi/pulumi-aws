@@ -50,9 +50,9 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the Image Builder image recipe.
+ * - `arn` (String) ARN of the Image Builder image recipe.
  *
- * Using `pulumi import`, import `aws.imagebuilder.ImageRecipe` resources using the Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.imagebuilder.ImageRecipe` resources using the ARN. For example:
  *
  * ```sh
  * $ pulumi import aws:imagebuilder/imageRecipe:ImageRecipe example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
@@ -91,7 +91,7 @@ export class ImageRecipe extends pulumi.CustomResource {
      */
     declare public readonly amiTags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the image recipe.
+     * ARN of the image recipe.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -230,7 +230,7 @@ export interface ImageRecipeState {
      */
     amiTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the image recipe.
+     * ARN of the image recipe.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

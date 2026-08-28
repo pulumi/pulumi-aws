@@ -55,11 +55,11 @@ type ResourceShare struct {
 
 	// Whether principals outside your organization can be associated with a resource share.
 	AllowExternalPrincipals pulumi.BoolPtrOutput `pulumi:"allowExternalPrincipals"`
-	// Amazon Resource Name (ARN) of the resource share.
+	// ARN of the resource share.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name of the resource share.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+	// ARNs of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
 	PermissionArns pulumi.StringArrayOutput `pulumi:"permissionArns"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -103,11 +103,11 @@ func GetResourceShare(ctx *pulumi.Context,
 type resourceShareState struct {
 	// Whether principals outside your organization can be associated with a resource share.
 	AllowExternalPrincipals *bool `pulumi:"allowExternalPrincipals"`
-	// Amazon Resource Name (ARN) of the resource share.
+	// ARN of the resource share.
 	Arn *string `pulumi:"arn"`
 	// Name of the resource share.
 	Name *string `pulumi:"name"`
-	// Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+	// ARNs of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
 	PermissionArns []string `pulumi:"permissionArns"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -122,11 +122,11 @@ type resourceShareState struct {
 type ResourceShareState struct {
 	// Whether principals outside your organization can be associated with a resource share.
 	AllowExternalPrincipals pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) of the resource share.
+	// ARN of the resource share.
 	Arn pulumi.StringPtrInput
 	// Name of the resource share.
 	Name pulumi.StringPtrInput
-	// Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+	// ARNs of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
 	PermissionArns pulumi.StringArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -147,7 +147,7 @@ type resourceShareArgs struct {
 	AllowExternalPrincipals *bool `pulumi:"allowExternalPrincipals"`
 	// Name of the resource share.
 	Name *string `pulumi:"name"`
-	// Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+	// ARNs of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
 	PermissionArns []string `pulumi:"permissionArns"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -163,7 +163,7 @@ type ResourceShareArgs struct {
 	AllowExternalPrincipals pulumi.BoolPtrInput
 	// Name of the resource share.
 	Name pulumi.StringPtrInput
-	// Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+	// ARNs of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
 	PermissionArns pulumi.StringArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -265,7 +265,7 @@ func (o ResourceShareOutput) AllowExternalPrincipals() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResourceShare) pulumi.BoolPtrOutput { return v.AllowExternalPrincipals }).(pulumi.BoolPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the resource share.
+// ARN of the resource share.
 func (o ResourceShareOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceShare) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -275,7 +275,7 @@ func (o ResourceShareOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceShare) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+// ARNs of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
 func (o ResourceShareOutput) PermissionArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceShare) pulumi.StringArrayOutput { return v.PermissionArns }).(pulumi.StringArrayOutput)
 }

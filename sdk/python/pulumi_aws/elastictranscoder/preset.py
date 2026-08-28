@@ -220,7 +220,7 @@ class _PresetState:
         """
         Input properties used for looking up and filtering Preset resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Elastic Transcoder Preset.
         :param pulumi.Input['PresetAudioArgs'] audio: Audio parameters object (documented below).
         :param pulumi.Input['PresetAudioCodecOptionsArgs'] audio_codec_options: Codec options for the audio parameters (documented below)
         :param pulumi.Input[_builtins.str] container: The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
@@ -263,7 +263,7 @@ class _PresetState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
+        ARN of the Elastic Transcoder Preset.
         """
         return pulumi.get(self, "arn")
 
@@ -672,7 +672,7 @@ class Preset(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Elastic Transcoder Preset.
         :param pulumi.Input[Union['PresetAudioArgs', 'PresetAudioArgsDict']] audio: Audio parameters object (documented below).
         :param pulumi.Input[Union['PresetAudioCodecOptionsArgs', 'PresetAudioCodecOptionsArgsDict']] audio_codec_options: Codec options for the audio parameters (documented below)
         :param pulumi.Input[_builtins.str] container: The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
@@ -708,7 +708,7 @@ class Preset(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
+        ARN of the Elastic Transcoder Preset.
         """
         return pulumi.get(self, "arn")
 

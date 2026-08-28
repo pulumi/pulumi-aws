@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Route53
 {
     /// <summary>
-    /// Manages a Route53 Hosted Zone. For managing Domain Name System Security Extensions (DNSSEC), see the `aws.route53.KeySigningKey` and `aws.route53.HostedZoneDnsSec` resources.
+    /// Manages a Route53 Hosted Zone. For managing DNS Security Extensions (DNSSEC), see the `aws.route53.KeySigningKey` and `aws.route53.HostedZoneDnsSec` resources.
     /// 
     /// ## Example Usage
     /// 
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.Route53
     public partial class Zone : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Hosted Zone.
+        /// ARN of the Hosted Zone.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -323,7 +323,7 @@ namespace Pulumi.Aws.Route53
     public sealed class ZoneState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Hosted Zone.
+        /// ARN of the Hosted Zone.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

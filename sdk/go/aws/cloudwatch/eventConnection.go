@@ -378,7 +378,7 @@ import (
 type EventConnection struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the connection.
+	// ARN of the connection.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
 	AuthParameters EventConnectionAuthParametersOutput `pulumi:"authParameters"`
@@ -388,13 +388,13 @@ type EventConnection struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Parameters to use for invoking a private API. Documented below.
 	InvocationConnectivityParameters EventConnectionInvocationConnectivityParametersPtrOutput `pulumi:"invocationConnectivityParameters"`
-	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
 	KmsKeyIdentifier pulumi.StringPtrOutput `pulumi:"kmsKeyIdentifier"`
 	// The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
+	// ARN of the secret created from the authorization parameters specified for the connection.
 	SecretArn pulumi.StringOutput `pulumi:"secretArn"`
 }
 
@@ -434,7 +434,7 @@ func GetEventConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventConnection resources.
 type eventConnectionState struct {
-	// The Amazon Resource Name (ARN) of the connection.
+	// ARN of the connection.
 	Arn *string `pulumi:"arn"`
 	// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
 	AuthParameters *EventConnectionAuthParameters `pulumi:"authParameters"`
@@ -444,18 +444,18 @@ type eventConnectionState struct {
 	Description *string `pulumi:"description"`
 	// Parameters to use for invoking a private API. Documented below.
 	InvocationConnectivityParameters *EventConnectionInvocationConnectivityParameters `pulumi:"invocationConnectivityParameters"`
-	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
 	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
+	// ARN of the secret created from the authorization parameters specified for the connection.
 	SecretArn *string `pulumi:"secretArn"`
 }
 
 type EventConnectionState struct {
-	// The Amazon Resource Name (ARN) of the connection.
+	// ARN of the connection.
 	Arn pulumi.StringPtrInput
 	// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
 	AuthParameters EventConnectionAuthParametersPtrInput
@@ -465,13 +465,13 @@ type EventConnectionState struct {
 	Description pulumi.StringPtrInput
 	// Parameters to use for invoking a private API. Documented below.
 	InvocationConnectivityParameters EventConnectionInvocationConnectivityParametersPtrInput
-	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
 	KmsKeyIdentifier pulumi.StringPtrInput
 	// The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
+	// ARN of the secret created from the authorization parameters specified for the connection.
 	SecretArn pulumi.StringPtrInput
 }
 
@@ -488,7 +488,7 @@ type eventConnectionArgs struct {
 	Description *string `pulumi:"description"`
 	// Parameters to use for invoking a private API. Documented below.
 	InvocationConnectivityParameters *EventConnectionInvocationConnectivityParameters `pulumi:"invocationConnectivityParameters"`
-	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
 	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
 	Name *string `pulumi:"name"`
@@ -506,7 +506,7 @@ type EventConnectionArgs struct {
 	Description pulumi.StringPtrInput
 	// Parameters to use for invoking a private API. Documented below.
 	InvocationConnectivityParameters EventConnectionInvocationConnectivityParametersPtrInput
-	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
 	KmsKeyIdentifier pulumi.StringPtrInput
 	// The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
 	Name pulumi.StringPtrInput
@@ -601,7 +601,7 @@ func (o EventConnectionOutput) ToEventConnectionOutputWithContext(ctx context.Co
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the connection.
+// ARN of the connection.
 func (o EventConnectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventConnection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -628,7 +628,7 @@ func (o EventConnectionOutput) InvocationConnectivityParameters() EventConnectio
 	}).(EventConnectionInvocationConnectivityParametersPtrOutput)
 }
 
-// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
 func (o EventConnectionOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventConnection) pulumi.StringPtrOutput { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -643,7 +643,7 @@ func (o EventConnectionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventConnection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
+// ARN of the secret created from the authorization parameters specified for the connection.
 func (o EventConnectionOutput) SecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventConnection) pulumi.StringOutput { return v.SecretArn }).(pulumi.StringOutput)
 }

@@ -702,7 +702,7 @@ import (
 type Index struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the Index.
+	// ARN of the Index.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
 	CapacityUnits IndexCapacityUnitsOutput `pulumi:"capacityUnits"`
@@ -776,7 +776,7 @@ func GetIndex(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Index resources.
 type indexState struct {
-	// The Amazon Resource Name (ARN) of the Index.
+	// ARN of the Index.
 	Arn *string `pulumi:"arn"`
 	// A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
 	CapacityUnits *IndexCapacityUnits `pulumi:"capacityUnits"`
@@ -818,7 +818,7 @@ type indexState struct {
 }
 
 type IndexState struct {
-	// The Amazon Resource Name (ARN) of the Index.
+	// ARN of the Index.
 	Arn pulumi.StringPtrInput
 	// A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
 	CapacityUnits IndexCapacityUnitsPtrInput
@@ -1007,7 +1007,7 @@ func (o IndexOutput) ToIndexOutputWithContext(ctx context.Context) IndexOutput {
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Index.
+// ARN of the Index.
 func (o IndexOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

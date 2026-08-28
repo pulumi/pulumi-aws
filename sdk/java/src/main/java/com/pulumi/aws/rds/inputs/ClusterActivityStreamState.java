@@ -98,14 +98,14 @@ public final class ClusterActivityStreamState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the DB cluster.
+     * ARN of the DB cluster.
      * 
      */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the DB cluster.
+     * @return ARN of the DB cluster.
      * 
      */
     public Optional<Output<String>> resourceArn() {
@@ -253,7 +253,7 @@ public final class ClusterActivityStreamState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceArn The Amazon Resource Name (ARN) of the DB cluster.
+         * @param resourceArn ARN of the DB cluster.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class ClusterActivityStreamState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceArn The Amazon Resource Name (ARN) of the DB cluster.
+         * @param resourceArn ARN of the DB cluster.
          * 
          * @return builder
          * 

@@ -138,14 +138,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sagemaker/workforce:Workforce")
 public class Workforce extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
+     * ARN assigned by AWS to this Workforce.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
+     * @return ARN assigned by AWS to this Workforce.
      * 
      */
     public Output<String> arn() {

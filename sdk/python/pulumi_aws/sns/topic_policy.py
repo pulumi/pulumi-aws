@@ -206,7 +206,7 @@ class TopicPolicy(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the SNS topic.
+        - `arn` (String) ARN of the SNS topic.
 
         Using `pulumi import`, import SNS Topic Policy using the topic ARN. For example:
 
@@ -276,7 +276,7 @@ class TopicPolicy(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the SNS topic.
+        - `arn` (String) ARN of the SNS topic.
 
         Using `pulumi import`, import SNS Topic Policy using the topic ARN. For example:
 

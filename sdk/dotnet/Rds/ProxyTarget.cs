@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
+        /// ARN for the DB instance or DB cluster. Currently not returned by the RDS API.
         /// </summary>
         [Output("targetArn")]
         public Output<string> TargetArn { get; private set; } = null!;
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
+        /// ARN for the DB instance or DB cluster. Currently not returned by the RDS API.
         /// </summary>
         [Input("targetArn")]
         public Input<string>? TargetArn { get; set; }

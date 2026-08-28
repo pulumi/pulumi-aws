@@ -34,14 +34,14 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+     * Configuration set to use by default when sending from this identity. Any configuration set defined in the email sending request takes precedence.
      * 
      */
     @Import(name="configurationSetName")
     private @Nullable Output<String> configurationSetName;
 
     /**
-     * @return The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+     * @return Configuration set to use by default when sending from this identity. Any configuration set defined in the email sending request takes precedence.
      * 
      */
     public Optional<Output<String>> configurationSetName() {
@@ -49,14 +49,14 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The configuration of the DKIM authentication settings for an email domain identity.
+     * Configuration block for the DKIM authentication settings for an email domain identity. See `dkimSigningAttributes` Block below.
      * 
      */
     @Import(name="dkimSigningAttributes")
     private @Nullable Output<EmailIdentityDkimSigningAttributesArgs> dkimSigningAttributes;
 
     /**
-     * @return The configuration of the DKIM authentication settings for an email domain identity.
+     * @return Configuration block for the DKIM authentication settings for an email domain identity. See `dkimSigningAttributes` Block below.
      * 
      */
     public Optional<Output<EmailIdentityDkimSigningAttributesArgs>> dkimSigningAttributes() {
@@ -64,7 +64,7 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The email address or domain to verify.
+     * Email address or domain to verify.
      * 
      * The following arguments are optional:
      * 
@@ -73,7 +73,7 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
     private @Nullable Output<String> emailIdentity;
 
     /**
-     * @return The email address or domain to verify.
+     * @return Email address or domain to verify.
      * 
      * The following arguments are optional:
      * 
@@ -83,14 +83,14 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
+     * Email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
      * 
      */
     @Import(name="identityType")
     private @Nullable Output<String> identityType;
 
     /**
-     * @return The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
+     * @return Email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
      * 
      */
     public Optional<Output<String>> identityType() {
@@ -143,14 +143,14 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+     * Verification status of the identity. One of `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
      * 
      */
     @Import(name="verificationStatus")
     private @Nullable Output<String> verificationStatus;
 
     /**
-     * @return The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+     * @return Verification status of the identity. One of `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
      * 
      */
     public Optional<Output<String>> verificationStatus() {
@@ -158,14 +158,14 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies whether or not the identity is verified.
+     * Whether the identity is verified.
      * 
      */
     @Import(name="verifiedForSendingStatus")
     private @Nullable Output<Boolean> verifiedForSendingStatus;
 
     /**
-     * @return Specifies whether or not the identity is verified.
+     * @return Whether the identity is verified.
      * 
      */
     public Optional<Output<Boolean>> verifiedForSendingStatus() {
@@ -227,7 +227,7 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param configurationSetName The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+         * @param configurationSetName Configuration set to use by default when sending from this identity. Any configuration set defined in the email sending request takes precedence.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param configurationSetName The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+         * @param configurationSetName Configuration set to use by default when sending from this identity. Any configuration set defined in the email sending request takes precedence.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param dkimSigningAttributes The configuration of the DKIM authentication settings for an email domain identity.
+         * @param dkimSigningAttributes Configuration block for the DKIM authentication settings for an email domain identity. See `dkimSigningAttributes` Block below.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param dkimSigningAttributes The configuration of the DKIM authentication settings for an email domain identity.
+         * @param dkimSigningAttributes Configuration block for the DKIM authentication settings for an email domain identity. See `dkimSigningAttributes` Block below.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param emailIdentity The email address or domain to verify.
+         * @param emailIdentity Email address or domain to verify.
          * 
          * The following arguments are optional:
          * 
@@ -282,7 +282,7 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param emailIdentity The email address or domain to verify.
+         * @param emailIdentity Email address or domain to verify.
          * 
          * The following arguments are optional:
          * 
@@ -294,7 +294,7 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param identityType The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
+         * @param identityType Email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param identityType The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
+         * @param identityType Email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
          * 
          * @return builder
          * 
@@ -378,7 +378,7 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param verificationStatus The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+         * @param verificationStatus Verification status of the identity. One of `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param verificationStatus The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+         * @param verificationStatus Verification status of the identity. One of `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
          * 
          * @return builder
          * 
@@ -399,7 +399,7 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param verifiedForSendingStatus Specifies whether or not the identity is verified.
+         * @param verifiedForSendingStatus Whether the identity is verified.
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param verifiedForSendingStatus Specifies whether or not the identity is verified.
+         * @param verifiedForSendingStatus Whether the identity is verified.
          * 
          * @return builder
          * 

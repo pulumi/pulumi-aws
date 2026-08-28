@@ -96,7 +96,7 @@ import (
 type KxUser struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) identifier of the KX user.
+	// ARN identifier of the KX user.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Unique identifier for the KX environment.
 	EnvironmentId pulumi.StringOutput `pulumi:"environmentId"`
@@ -150,7 +150,7 @@ func GetKxUser(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KxUser resources.
 type kxUserState struct {
-	// Amazon Resource Name (ARN) identifier of the KX user.
+	// ARN identifier of the KX user.
 	Arn *string `pulumi:"arn"`
 	// Unique identifier for the KX environment.
 	EnvironmentId *string `pulumi:"environmentId"`
@@ -169,7 +169,7 @@ type kxUserState struct {
 }
 
 type KxUserState struct {
-	// Amazon Resource Name (ARN) identifier of the KX user.
+	// ARN identifier of the KX user.
 	Arn pulumi.StringPtrInput
 	// Unique identifier for the KX environment.
 	EnvironmentId pulumi.StringPtrInput
@@ -309,7 +309,7 @@ func (o KxUserOutput) ToKxUserOutputWithContext(ctx context.Context) KxUserOutpu
 	return o
 }
 
-// Amazon Resource Name (ARN) identifier of the KX user.
+// ARN identifier of the KX user.
 func (o KxUserOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxUser) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class ConnectorWorkerConfiguration {
     /**
-     * @return The Amazon Resource Name (ARN) of the worker configuration.
+     * @return ARN of the worker configuration.
      * 
      */
     private String arn;
@@ -24,7 +24,7 @@ public final class ConnectorWorkerConfiguration {
 
     private ConnectorWorkerConfiguration() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the worker configuration.
+     * @return ARN of the worker configuration.
      * 
      */
     public String arn() {

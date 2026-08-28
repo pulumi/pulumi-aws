@@ -25,7 +25,7 @@ class SingleScramSecretAssociationArgs:
         """
         The set of arguments for constructing a SingleScramSecretAssociation resource.
 
-        :param pulumi.Input[_builtins.str] cluster_arn: Amazon Resource Name (ARN) of the MSK cluster.
+        :param pulumi.Input[_builtins.str] cluster_arn: ARN of the MSK cluster.
         :param pulumi.Input[_builtins.str] secret_arn: AWS Secrets Manager secret ARN.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -38,7 +38,7 @@ class SingleScramSecretAssociationArgs:
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the MSK cluster.
+        ARN of the MSK cluster.
         """
         return pulumi.get(self, "cluster_arn")
 
@@ -80,7 +80,7 @@ class _SingleScramSecretAssociationState:
         """
         Input properties used for looking up and filtering SingleScramSecretAssociation resources.
 
-        :param pulumi.Input[_builtins.str] cluster_arn: Amazon Resource Name (ARN) of the MSK cluster.
+        :param pulumi.Input[_builtins.str] cluster_arn: ARN of the MSK cluster.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] secret_arn: AWS Secrets Manager secret ARN.
         """
@@ -95,7 +95,7 @@ class _SingleScramSecretAssociationState:
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the MSK cluster.
+        ARN of the MSK cluster.
         """
         return pulumi.get(self, "cluster_arn")
 
@@ -163,7 +163,7 @@ class SingleScramSecretAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cluster_arn: Amazon Resource Name (ARN) of the MSK cluster.
+        :param pulumi.Input[_builtins.str] cluster_arn: ARN of the MSK cluster.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] secret_arn: AWS Secrets Manager secret ARN.
         """
@@ -250,7 +250,7 @@ class SingleScramSecretAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cluster_arn: Amazon Resource Name (ARN) of the MSK cluster.
+        :param pulumi.Input[_builtins.str] cluster_arn: ARN of the MSK cluster.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] secret_arn: AWS Secrets Manager secret ARN.
         """
@@ -267,7 +267,7 @@ class SingleScramSecretAssociation(pulumi.CustomResource):
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the MSK cluster.
+        ARN of the MSK cluster.
         """
         return pulumi.get(self, "cluster_arn")
 

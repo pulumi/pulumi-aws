@@ -429,14 +429,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cloudwatch/eventConnection:EventConnection")
 public class EventConnection extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the connection.
+     * ARN of the connection.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the connection.
+     * @return ARN of the connection.
      * 
      */
     public Output<String> arn() {
@@ -499,14 +499,14 @@ public class EventConnection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.invocationConnectivityParameters);
     }
     /**
-     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
      * 
      */
     @Export(name="kmsKeyIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyIdentifier;
 
     /**
-     * @return Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     * @return Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
      * 
      */
     public Output<Optional<String>> kmsKeyIdentifier() {
@@ -541,14 +541,14 @@ public class EventConnection extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
+     * ARN of the secret created from the authorization parameters specified for the connection.
      * 
      */
     @Export(name="secretArn", refs={String.class}, tree="[0]")
     private Output<String> secretArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
+     * @return ARN of the secret created from the authorization parameters specified for the connection.
      * 
      */
     public Output<String> secretArn() {

@@ -105,14 +105,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig")
 public class ProvisionedConcurrencyConfig extends com.pulumi.resources.CustomResource {
     /**
-     * Name or Amazon Resource Name (ARN) of the Lambda Function.
+     * Name or ARN of the Lambda Function.
      * 
      */
     @Export(name="functionName", refs={String.class}, tree="[0]")
     private Output<String> functionName;
 
     /**
-     * @return Name or Amazon Resource Name (ARN) of the Lambda Function.
+     * @return Name or ARN of the Lambda Function.
      * 
      */
     public Output<String> functionName() {

@@ -105,7 +105,7 @@ export interface GetClusterResult {
      */
     readonly clusterIdentifier: string;
     /**
-     * The namespace Amazon Resource Name (ARN) of the cluster
+     * Namespace ARN of the cluster
      */
     readonly clusterNamespaceArn: string;
     /**

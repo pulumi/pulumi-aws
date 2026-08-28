@@ -66,7 +66,7 @@ export class ResourceShare extends pulumi.CustomResource {
      */
     declare public readonly allowExternalPrincipals: pulumi.Output<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the resource share.
+     * ARN of the resource share.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -74,7 +74,7 @@ export class ResourceShare extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+     * ARNs of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
      */
     declare public readonly permissionArns: pulumi.Output<string[]>;
     /**
@@ -140,7 +140,7 @@ export interface ResourceShareState {
      */
     allowExternalPrincipals?: pulumi.Input<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the resource share.
+     * ARN of the resource share.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -148,7 +148,7 @@ export interface ResourceShareState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+     * ARNs of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
      */
     permissionArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -182,7 +182,7 @@ export interface ResourceShareArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+     * ARNs of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
      */
     permissionArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

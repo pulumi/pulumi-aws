@@ -212,14 +212,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:bedrock/agentFlow:AgentFlow")
 public class AgentFlow extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the flow.
+     * ARN of the flow.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the flow.
+     * @return ARN of the flow.
      * 
      */
     public Output<String> arn() {
@@ -240,14 +240,14 @@ public class AgentFlow extends com.pulumi.resources.CustomResource {
         return this.createdAt;
     }
     /**
-     * The Amazon Resource Name (ARN) of the KMS key to encrypt the flow.
+     * ARN of the KMS key to encrypt the flow.
      * 
      */
     @Export(name="customerEncryptionKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customerEncryptionKeyArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the KMS key to encrypt the flow.
+     * @return ARN of the KMS key to encrypt the flow.
      * 
      */
     public Output<Optional<String>> customerEncryptionKeyArn() {
@@ -282,7 +282,7 @@ public class AgentFlow extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * The Amazon Resource Name (ARN) of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
+     * ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
      * 
      * The following arguments are optional:
      * 
@@ -291,7 +291,7 @@ public class AgentFlow extends com.pulumi.resources.CustomResource {
     private Output<String> executionRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
+     * @return ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
      * 
      * The following arguments are optional:
      * 

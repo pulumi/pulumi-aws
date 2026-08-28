@@ -101,7 +101,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly aquaConfigurationStatus: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of cluster
+     * ARN of cluster
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -121,7 +121,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly clusterIdentifier: pulumi.Output<string>;
     /**
-     * The namespace Amazon Resource Name (ARN) of the cluster
+     * Namespace ARN of the cluster
      */
     declare public /*out*/ readonly clusterNamespaceArn: pulumi.Output<string>;
     /**
@@ -141,7 +141,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly clusterRevisionNumber: pulumi.Output<string>;
     /**
-     * The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+     * Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
      */
     declare public readonly clusterSubnetGroupName: pulumi.Output<string>;
     /**
@@ -159,7 +159,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly databaseName: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+     * ARN for the IAM role that was set as default for the cluster when the cluster was created.
      */
     declare public readonly defaultIamRoleArn: pulumi.Output<string>;
     /**
@@ -306,7 +306,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+     * List of VPC security groups to be associated with the cluster.
      */
     declare public readonly vpcSecurityGroupIds: pulumi.Output<string[]>;
 
@@ -460,7 +460,7 @@ export interface ClusterState {
      */
     aquaConfigurationStatus?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of cluster
+     * ARN of cluster
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -480,7 +480,7 @@ export interface ClusterState {
      */
     clusterIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * The namespace Amazon Resource Name (ARN) of the cluster
+     * Namespace ARN of the cluster
      */
     clusterNamespaceArn?: pulumi.Input<string | undefined>;
     /**
@@ -500,7 +500,7 @@ export interface ClusterState {
      */
     clusterRevisionNumber?: pulumi.Input<string | undefined>;
     /**
-     * The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+     * Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
      */
     clusterSubnetGroupName?: pulumi.Input<string | undefined>;
     /**
@@ -518,7 +518,7 @@ export interface ClusterState {
      */
     databaseName?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+     * ARN for the IAM role that was set as default for the cluster when the cluster was created.
      */
     defaultIamRoleArn?: pulumi.Input<string | undefined>;
     /**
@@ -665,7 +665,7 @@ export interface ClusterState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+     * List of VPC security groups to be associated with the cluster.
      */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
@@ -711,7 +711,7 @@ export interface ClusterArgs {
      */
     clusterParameterGroupName?: pulumi.Input<string | undefined>;
     /**
-     * The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+     * Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
      */
     clusterSubnetGroupName?: pulumi.Input<string | undefined>;
     /**
@@ -729,7 +729,7 @@ export interface ClusterArgs {
      */
     databaseName?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+     * ARN for the IAM role that was set as default for the cluster when the cluster was created.
      */
     defaultIamRoleArn?: pulumi.Input<string | undefined>;
     /**
@@ -860,7 +860,7 @@ export interface ClusterArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+     * List of VPC security groups to be associated with the cluster.
      */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

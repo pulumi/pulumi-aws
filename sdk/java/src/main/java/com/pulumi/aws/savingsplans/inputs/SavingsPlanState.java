@@ -152,14 +152,14 @@ public final class SavingsPlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
+     * The time at which to purchase the Savings Plan, in UTC format (`YYYY-MM-DDTHH:MM:SSZ`). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
      * 
      */
     @Import(name="purchaseTime")
     private @Nullable Output<String> purchaseTime;
 
     /**
-     * @return The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
+     * @return The time at which to purchase the Savings Plan, in UTC format (`YYYY-MM-DDTHH:MM:SSZ`). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
      * 
      */
     public Optional<Output<String>> purchaseTime() {
@@ -354,14 +354,14 @@ public final class SavingsPlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The up-front payment amount.
+     * The up-front payment amount. Required for offerings with an `All Upfront` or `Partial Upfront` payment option. Must be omitted for `No Upfront` offerings.
      * 
      */
     @Import(name="upfrontPaymentAmount")
     private @Nullable Output<String> upfrontPaymentAmount;
 
     /**
-     * @return The up-front payment amount.
+     * @return The up-front payment amount. Required for offerings with an `All Upfront` or `Partial Upfront` payment option. Must be omitted for `No Upfront` offerings.
      * 
      */
     public Optional<Output<String>> upfrontPaymentAmount() {
@@ -605,7 +605,7 @@ public final class SavingsPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param purchaseTime The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
+         * @param purchaseTime The time at which to purchase the Savings Plan, in UTC format (`YYYY-MM-DDTHH:MM:SSZ`). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
          * 
          * @return builder
          * 
@@ -616,7 +616,7 @@ public final class SavingsPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param purchaseTime The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
+         * @param purchaseTime The time at which to purchase the Savings Plan, in UTC format (`YYYY-MM-DDTHH:MM:SSZ`). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
          * 
          * @return builder
          * 
@@ -887,7 +887,7 @@ public final class SavingsPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param upfrontPaymentAmount The up-front payment amount.
+         * @param upfrontPaymentAmount The up-front payment amount. Required for offerings with an `All Upfront` or `Partial Upfront` payment option. Must be omitted for `No Upfront` offerings.
          * 
          * @return builder
          * 
@@ -898,7 +898,7 @@ public final class SavingsPlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param upfrontPaymentAmount The up-front payment amount.
+         * @param upfrontPaymentAmount The up-front payment amount. Required for offerings with an `All Upfront` or `Partial Upfront` payment option. Must be omitted for `No Upfront` offerings.
          * 
          * @return builder
          * 

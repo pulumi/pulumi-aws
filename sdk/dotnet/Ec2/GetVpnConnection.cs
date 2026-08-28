@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Ec2
     public static class GetVpnConnection
     {
         /// <summary>
-        /// Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+        /// Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an IP security (IPsec) VPN connection between a VPC and an on-premises network.
         /// 
         /// ## Example Usage
         /// 
@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Ec2
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpnConnectionResult>("aws:ec2/getVpnConnection:getVpnConnection", args ?? new GetVpnConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+        /// Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an IP security (IPsec) VPN connection between a VPC and an on-premises network.
         /// 
         /// ## Example Usage
         /// 
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Ec2
             => global::Pulumi.Deployment.Instance.Invoke<GetVpnConnectionResult>("aws:ec2/getVpnConnection:getVpnConnection", args ?? new GetVpnConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+        /// Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an IP security (IPsec) VPN connection between a VPC and an on-premises network.
         /// 
         /// ## Example Usage
         /// 

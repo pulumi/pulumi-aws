@@ -66,7 +66,7 @@ export class SizeConstraintSet extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN).
+     * ARN.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -110,7 +110,7 @@ export class SizeConstraintSet extends pulumi.CustomResource {
  */
 export interface SizeConstraintSetState {
     /**
-     * Amazon Resource Name (ARN).
+     * ARN.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

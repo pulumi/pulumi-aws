@@ -75,7 +75,7 @@ namespace Pulumi.Aws.Sagemaker
     public partial class DataQualityJobDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
+        /// ARN assigned by AWS to this data quality job definition.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
+        /// ARN of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
@@ -247,7 +247,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
+        /// ARN of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -279,7 +279,7 @@ namespace Pulumi.Aws.Sagemaker
     public sealed class DataQualityJobDefinitionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
+        /// ARN assigned by AWS to this data quality job definition.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -333,7 +333,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
+        /// ARN of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

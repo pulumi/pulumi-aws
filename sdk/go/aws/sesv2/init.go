@@ -43,6 +43,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EmailIdentityMailFromAttributes{}
 	case "aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy":
 		r = &EmailIdentityPolicy{}
+	case "aws:sesv2/multiRegionEndpoint:MultiRegionEndpoint":
+		r = &MultiRegionEndpoint{}
 	case "aws:sesv2/tenant:Tenant":
 		r = &Tenant{}
 	case "aws:sesv2/tenantResourceAssociation:TenantResourceAssociation":
@@ -113,6 +115,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"sesv2/emailIdentityPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"sesv2/multiRegionEndpoint",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

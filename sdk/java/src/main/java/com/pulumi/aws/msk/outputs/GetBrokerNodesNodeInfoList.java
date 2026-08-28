@@ -28,7 +28,7 @@ public final class GetBrokerNodesNodeInfoList {
      */
     private String clientSubnet;
     /**
-     * @return The client virtual private cloud (VPC) IP address
+     * @return Client VPC IP address
      * 
      */
     private String clientVpcIpAddress;
@@ -66,7 +66,7 @@ public final class GetBrokerNodesNodeInfoList {
         return this.clientSubnet;
     }
     /**
-     * @return The client virtual private cloud (VPC) IP address
+     * @return Client VPC IP address
      * 
      */
     public String clientVpcIpAddress() {

@@ -115,7 +115,7 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the DynamoDB table export.
+    /// - `Arn` (String) ARN of the DynamoDB table export.
     /// 
     /// Using `pulumi import`, import DynamoDB table exports using the `Arn`. For example:
     /// 

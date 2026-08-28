@@ -406,7 +406,7 @@ class InstanceStorageConfigStorageConfigArgs:
 class InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgsDict(TypedDict):
     firehose_arn: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the delivery stream.
+    ARN of the delivery stream.
     """
 
 @pulumi.input_type
@@ -414,7 +414,7 @@ class InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs:
     def __init__(__self__, *,
                  firehose_arn: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] firehose_arn: The Amazon Resource Name (ARN) of the delivery stream.
+        :param pulumi.Input[_builtins.str] firehose_arn: ARN of the delivery stream.
         """
         pulumi.set(__self__, "firehose_arn", firehose_arn)
 
@@ -422,7 +422,7 @@ class InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs:
     @pulumi.getter(name="firehoseArn")
     def firehose_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the delivery stream.
+        ARN of the delivery stream.
         """
         return pulumi.get(self, "firehose_arn")
 
@@ -434,7 +434,7 @@ class InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs:
 class InstanceStorageConfigStorageConfigKinesisStreamConfigArgsDict(TypedDict):
     stream_arn: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the data stream.
+    ARN of the data stream.
     """
 
 @pulumi.input_type
@@ -442,7 +442,7 @@ class InstanceStorageConfigStorageConfigKinesisStreamConfigArgs:
     def __init__(__self__, *,
                  stream_arn: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] stream_arn: The Amazon Resource Name (ARN) of the data stream.
+        :param pulumi.Input[_builtins.str] stream_arn: ARN of the data stream.
         """
         pulumi.set(__self__, "stream_arn", stream_arn)
 
@@ -450,7 +450,7 @@ class InstanceStorageConfigStorageConfigKinesisStreamConfigArgs:
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the data stream.
+        ARN of the data stream.
         """
         return pulumi.get(self, "stream_arn")
 
@@ -1346,7 +1346,7 @@ class UserHierarchyGroupHierarchyPathArgs:
 class UserHierarchyGroupHierarchyPathLevelFifeArgsDict(TypedDict):
     arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Amazon Resource Name (ARN) of the hierarchy group.
+    The ARN of the hierarchy group.
     """
     id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1364,7 +1364,7 @@ class UserHierarchyGroupHierarchyPathLevelFifeArgs:
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the hierarchy group.
+        :param pulumi.Input[_builtins.str] arn: The ARN of the hierarchy group.
         :param pulumi.Input[_builtins.str] id: The identifier of the hierarchy group.
         :param pulumi.Input[_builtins.str] name: The name of the user hierarchy group. Must not be more than 100 characters.
         """
@@ -1379,7 +1379,7 @@ class UserHierarchyGroupHierarchyPathLevelFifeArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the hierarchy group.
+        The ARN of the hierarchy group.
         """
         return pulumi.get(self, "arn")
 
@@ -1415,7 +1415,7 @@ class UserHierarchyGroupHierarchyPathLevelFifeArgs:
 class UserHierarchyGroupHierarchyPathLevelFourArgsDict(TypedDict):
     arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Amazon Resource Name (ARN) of the hierarchy group.
+    The ARN of the hierarchy group.
     """
     id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1433,7 +1433,7 @@ class UserHierarchyGroupHierarchyPathLevelFourArgs:
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the hierarchy group.
+        :param pulumi.Input[_builtins.str] arn: The ARN of the hierarchy group.
         :param pulumi.Input[_builtins.str] id: The identifier of the hierarchy group.
         :param pulumi.Input[_builtins.str] name: The name of the user hierarchy group. Must not be more than 100 characters.
         """
@@ -1448,7 +1448,7 @@ class UserHierarchyGroupHierarchyPathLevelFourArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the hierarchy group.
+        The ARN of the hierarchy group.
         """
         return pulumi.get(self, "arn")
 
@@ -1484,7 +1484,7 @@ class UserHierarchyGroupHierarchyPathLevelFourArgs:
 class UserHierarchyGroupHierarchyPathLevelOneArgsDict(TypedDict):
     arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Amazon Resource Name (ARN) of the hierarchy group.
+    The ARN of the hierarchy group.
     """
     id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1502,7 +1502,7 @@ class UserHierarchyGroupHierarchyPathLevelOneArgs:
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the hierarchy group.
+        :param pulumi.Input[_builtins.str] arn: The ARN of the hierarchy group.
         :param pulumi.Input[_builtins.str] id: The identifier of the hierarchy group.
         :param pulumi.Input[_builtins.str] name: The name of the user hierarchy group. Must not be more than 100 characters.
         """
@@ -1517,7 +1517,7 @@ class UserHierarchyGroupHierarchyPathLevelOneArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the hierarchy group.
+        The ARN of the hierarchy group.
         """
         return pulumi.get(self, "arn")
 
@@ -1553,7 +1553,7 @@ class UserHierarchyGroupHierarchyPathLevelOneArgs:
 class UserHierarchyGroupHierarchyPathLevelThreeArgsDict(TypedDict):
     arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Amazon Resource Name (ARN) of the hierarchy group.
+    The ARN of the hierarchy group.
     """
     id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1571,7 +1571,7 @@ class UserHierarchyGroupHierarchyPathLevelThreeArgs:
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the hierarchy group.
+        :param pulumi.Input[_builtins.str] arn: The ARN of the hierarchy group.
         :param pulumi.Input[_builtins.str] id: The identifier of the hierarchy group.
         :param pulumi.Input[_builtins.str] name: The name of the user hierarchy group. Must not be more than 100 characters.
         """
@@ -1586,7 +1586,7 @@ class UserHierarchyGroupHierarchyPathLevelThreeArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the hierarchy group.
+        The ARN of the hierarchy group.
         """
         return pulumi.get(self, "arn")
 
@@ -1622,7 +1622,7 @@ class UserHierarchyGroupHierarchyPathLevelThreeArgs:
 class UserHierarchyGroupHierarchyPathLevelTwoArgsDict(TypedDict):
     arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Amazon Resource Name (ARN) of the hierarchy group.
+    The ARN of the hierarchy group.
     """
     id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1640,7 +1640,7 @@ class UserHierarchyGroupHierarchyPathLevelTwoArgs:
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the hierarchy group.
+        :param pulumi.Input[_builtins.str] arn: The ARN of the hierarchy group.
         :param pulumi.Input[_builtins.str] id: The identifier of the hierarchy group.
         :param pulumi.Input[_builtins.str] name: The name of the user hierarchy group. Must not be more than 100 characters.
         """
@@ -1655,7 +1655,7 @@ class UserHierarchyGroupHierarchyPathLevelTwoArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the hierarchy group.
+        The ARN of the hierarchy group.
         """
         return pulumi.get(self, "arn")
 
@@ -1810,7 +1810,7 @@ class UserHierarchyStructureHierarchyStructureLevelFiveArgsDict(TypedDict):
     """
     arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Amazon Resource Name (ARN) of the hierarchy level.
+    The ARN of the hierarchy level.
     """
     id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1825,7 +1825,7 @@ class UserHierarchyStructureHierarchyStructureLevelFiveArgs:
                  id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the user hierarchy level. Must not be more than 50 characters.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the hierarchy level.
+        :param pulumi.Input[_builtins.str] arn: The ARN of the hierarchy level.
         :param pulumi.Input[_builtins.str] id: The identifier of the hierarchy level.
         """
         pulumi.set(__self__, "name", name)
@@ -1850,7 +1850,7 @@ class UserHierarchyStructureHierarchyStructureLevelFiveArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the hierarchy level.
+        The ARN of the hierarchy level.
         """
         return pulumi.get(self, "arn")
 
@@ -1878,7 +1878,7 @@ class UserHierarchyStructureHierarchyStructureLevelFourArgsDict(TypedDict):
     """
     arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Amazon Resource Name (ARN) of the hierarchy level.
+    The ARN of the hierarchy level.
     """
     id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1893,7 +1893,7 @@ class UserHierarchyStructureHierarchyStructureLevelFourArgs:
                  id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the user hierarchy level. Must not be more than 50 characters.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the hierarchy level.
+        :param pulumi.Input[_builtins.str] arn: The ARN of the hierarchy level.
         :param pulumi.Input[_builtins.str] id: The identifier of the hierarchy level.
         """
         pulumi.set(__self__, "name", name)
@@ -1918,7 +1918,7 @@ class UserHierarchyStructureHierarchyStructureLevelFourArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the hierarchy level.
+        The ARN of the hierarchy level.
         """
         return pulumi.get(self, "arn")
 
@@ -1946,7 +1946,7 @@ class UserHierarchyStructureHierarchyStructureLevelOneArgsDict(TypedDict):
     """
     arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Amazon Resource Name (ARN) of the hierarchy level.
+    The ARN of the hierarchy level.
     """
     id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1961,7 +1961,7 @@ class UserHierarchyStructureHierarchyStructureLevelOneArgs:
                  id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the user hierarchy level. Must not be more than 50 characters.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the hierarchy level.
+        :param pulumi.Input[_builtins.str] arn: The ARN of the hierarchy level.
         :param pulumi.Input[_builtins.str] id: The identifier of the hierarchy level.
         """
         pulumi.set(__self__, "name", name)
@@ -1986,7 +1986,7 @@ class UserHierarchyStructureHierarchyStructureLevelOneArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the hierarchy level.
+        The ARN of the hierarchy level.
         """
         return pulumi.get(self, "arn")
 
@@ -2014,7 +2014,7 @@ class UserHierarchyStructureHierarchyStructureLevelThreeArgsDict(TypedDict):
     """
     arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Amazon Resource Name (ARN) of the hierarchy level.
+    The ARN of the hierarchy level.
     """
     id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -2029,7 +2029,7 @@ class UserHierarchyStructureHierarchyStructureLevelThreeArgs:
                  id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the user hierarchy level. Must not be more than 50 characters.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the hierarchy level.
+        :param pulumi.Input[_builtins.str] arn: The ARN of the hierarchy level.
         :param pulumi.Input[_builtins.str] id: The identifier of the hierarchy level.
         """
         pulumi.set(__self__, "name", name)
@@ -2054,7 +2054,7 @@ class UserHierarchyStructureHierarchyStructureLevelThreeArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the hierarchy level.
+        The ARN of the hierarchy level.
         """
         return pulumi.get(self, "arn")
 
@@ -2082,7 +2082,7 @@ class UserHierarchyStructureHierarchyStructureLevelTwoArgsDict(TypedDict):
     """
     arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Amazon Resource Name (ARN) of the hierarchy level.
+    The ARN of the hierarchy level.
     """
     id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -2097,7 +2097,7 @@ class UserHierarchyStructureHierarchyStructureLevelTwoArgs:
                  id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the user hierarchy level. Must not be more than 50 characters.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the hierarchy level.
+        :param pulumi.Input[_builtins.str] arn: The ARN of the hierarchy level.
         :param pulumi.Input[_builtins.str] id: The identifier of the hierarchy level.
         """
         pulumi.set(__self__, "name", name)
@@ -2122,7 +2122,7 @@ class UserHierarchyStructureHierarchyStructureLevelTwoArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the hierarchy level.
+        The ARN of the hierarchy level.
         """
         return pulumi.get(self, "arn")
 

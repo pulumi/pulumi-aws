@@ -52,14 +52,14 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Domain.
+     * ARN assigned by AWS to this Domain.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Domain.
+     * @return ARN assigned by AWS to this Domain.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -322,7 +322,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+     * ID of the VPC that Studio uses for communication.
      * 
      * The following arguments are optional:
      * 
@@ -331,7 +331,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+     * @return ID of the VPC that Studio uses for communication.
      * 
      * The following arguments are optional:
      * 
@@ -427,7 +427,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Domain.
+         * @param arn ARN assigned by AWS to this Domain.
          * 
          * @return builder
          * 
@@ -438,7 +438,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Domain.
+         * @param arn ARN assigned by AWS to this Domain.
          * 
          * @return builder
          * 
@@ -815,7 +815,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+         * @param vpcId ID of the VPC that Studio uses for communication.
          * 
          * The following arguments are optional:
          * 
@@ -828,7 +828,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+         * @param vpcId ID of the VPC that Studio uses for communication.
          * 
          * The following arguments are optional:
          * 

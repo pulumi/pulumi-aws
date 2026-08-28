@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig {
     /**
-     * @return An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
+     * @return ARN for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
      * 
      */
     private @Nullable String notificationArn;
@@ -30,7 +30,7 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
 
     private MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig() {}
     /**
-     * @return An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
+     * @return ARN for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
      * 
      */
     public Optional<String> notificationArn() {

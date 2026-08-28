@@ -240,7 +240,7 @@ import (
 //
 // #### Required
 //
-// - `resourceShareArn` (String) Amazon Resource Name (ARN) of the RAM resource share.
+// - `resourceShareArn` (String) ARN of the RAM resource share.
 //
 // Using `pulumi import`, import RAM Resource Share Association Exclusive using the `resourceShareArn`. For example:
 //
@@ -254,9 +254,9 @@ type ResourceShareAssociationsExclusive struct {
 	Principals pulumi.StringArrayOutput `pulumi:"principals"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+	// Set of ARNs of resources to associate with the resource share. Resources not configured in this argument will be removed.
 	ResourceArns pulumi.StringArrayOutput `pulumi:"resourceArns"`
-	// Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+	// ARN of the resource share. Changing this value forces creation of a new resource.
 	ResourceShareArn pulumi.StringOutput `pulumi:"resourceShareArn"`
 	// Set of AWS account IDs that restrict which accounts a service principal can access resources from. This argument can only be specified when `principals` contains only service principals. When specified, it limits the source accounts from which the service can access the shared resources.
 	Sources pulumi.StringArrayOutput `pulumi:"sources"`
@@ -299,9 +299,9 @@ type resourceShareAssociationsExclusiveState struct {
 	Principals []string `pulumi:"principals"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+	// Set of ARNs of resources to associate with the resource share. Resources not configured in this argument will be removed.
 	ResourceArns []string `pulumi:"resourceArns"`
-	// Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+	// ARN of the resource share. Changing this value forces creation of a new resource.
 	ResourceShareArn *string `pulumi:"resourceShareArn"`
 	// Set of AWS account IDs that restrict which accounts a service principal can access resources from. This argument can only be specified when `principals` contains only service principals. When specified, it limits the source accounts from which the service can access the shared resources.
 	Sources []string `pulumi:"sources"`
@@ -312,9 +312,9 @@ type ResourceShareAssociationsExclusiveState struct {
 	Principals pulumi.StringArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+	// Set of ARNs of resources to associate with the resource share. Resources not configured in this argument will be removed.
 	ResourceArns pulumi.StringArrayInput
-	// Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+	// ARN of the resource share. Changing this value forces creation of a new resource.
 	ResourceShareArn pulumi.StringPtrInput
 	// Set of AWS account IDs that restrict which accounts a service principal can access resources from. This argument can only be specified when `principals` contains only service principals. When specified, it limits the source accounts from which the service can access the shared resources.
 	Sources pulumi.StringArrayInput
@@ -329,9 +329,9 @@ type resourceShareAssociationsExclusiveArgs struct {
 	Principals []string `pulumi:"principals"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+	// Set of ARNs of resources to associate with the resource share. Resources not configured in this argument will be removed.
 	ResourceArns []string `pulumi:"resourceArns"`
-	// Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+	// ARN of the resource share. Changing this value forces creation of a new resource.
 	ResourceShareArn string `pulumi:"resourceShareArn"`
 	// Set of AWS account IDs that restrict which accounts a service principal can access resources from. This argument can only be specified when `principals` contains only service principals. When specified, it limits the source accounts from which the service can access the shared resources.
 	Sources []string `pulumi:"sources"`
@@ -343,9 +343,9 @@ type ResourceShareAssociationsExclusiveArgs struct {
 	Principals pulumi.StringArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+	// Set of ARNs of resources to associate with the resource share. Resources not configured in this argument will be removed.
 	ResourceArns pulumi.StringArrayInput
-	// Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+	// ARN of the resource share. Changing this value forces creation of a new resource.
 	ResourceShareArn pulumi.StringInput
 	// Set of AWS account IDs that restrict which accounts a service principal can access resources from. This argument can only be specified when `principals` contains only service principals. When specified, it limits the source accounts from which the service can access the shared resources.
 	Sources pulumi.StringArrayInput
@@ -448,12 +448,12 @@ func (o ResourceShareAssociationsExclusiveOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceShareAssociationsExclusive) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+// Set of ARNs of resources to associate with the resource share. Resources not configured in this argument will be removed.
 func (o ResourceShareAssociationsExclusiveOutput) ResourceArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceShareAssociationsExclusive) pulumi.StringArrayOutput { return v.ResourceArns }).(pulumi.StringArrayOutput)
 }
 
-// Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+// ARN of the resource share. Changing this value forces creation of a new resource.
 func (o ResourceShareAssociationsExclusiveOutput) ResourceShareArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceShareAssociationsExclusive) pulumi.StringOutput { return v.ResourceShareArn }).(pulumi.StringOutput)
 }

@@ -113,9 +113,9 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the Image Builder lifecycle policy.
+// - `arn` (String) ARN of the Image Builder lifecycle policy.
 //
-// Using `pulumi import`, import `imagebuilder.LifecyclePolicy` using the Amazon Resource Name (ARN). For example:
+// Using `pulumi import`, import `imagebuilder.LifecyclePolicy` using the ARN. For example:
 //
 // ```sh
 // $ pulumi import aws:imagebuilder/lifecyclePolicy:LifecyclePolicy example arn:aws:imagebuilder:us-east-1:123456789012:lifecycle-policy/example
@@ -123,11 +123,11 @@ import (
 type LifecyclePolicy struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the lifecycle policy.
+	// ARN of the lifecycle policy.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// description for the lifecycle policy.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
+	// ARN for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
 	ExecutionRole pulumi.StringOutput `pulumi:"executionRole"`
 	// The name of the lifecycle policy to create.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -191,11 +191,11 @@ func GetLifecyclePolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LifecyclePolicy resources.
 type lifecyclePolicyState struct {
-	// Amazon Resource Name (ARN) of the lifecycle policy.
+	// ARN of the lifecycle policy.
 	Arn *string `pulumi:"arn"`
 	// description for the lifecycle policy.
 	Description *string `pulumi:"description"`
-	// The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
+	// ARN for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
 	ExecutionRole *string `pulumi:"executionRole"`
 	// The name of the lifecycle policy to create.
 	Name *string `pulumi:"name"`
@@ -218,11 +218,11 @@ type lifecyclePolicyState struct {
 }
 
 type LifecyclePolicyState struct {
-	// Amazon Resource Name (ARN) of the lifecycle policy.
+	// ARN of the lifecycle policy.
 	Arn pulumi.StringPtrInput
 	// description for the lifecycle policy.
 	Description pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
+	// ARN for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
 	ExecutionRole pulumi.StringPtrInput
 	// The name of the lifecycle policy to create.
 	Name pulumi.StringPtrInput
@@ -251,7 +251,7 @@ func (LifecyclePolicyState) ElementType() reflect.Type {
 type lifecyclePolicyArgs struct {
 	// description for the lifecycle policy.
 	Description *string `pulumi:"description"`
-	// The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
+	// ARN for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
 	ExecutionRole string `pulumi:"executionRole"`
 	// The name of the lifecycle policy to create.
 	Name *string `pulumi:"name"`
@@ -275,7 +275,7 @@ type lifecyclePolicyArgs struct {
 type LifecyclePolicyArgs struct {
 	// description for the lifecycle policy.
 	Description pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
+	// ARN for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
 	ExecutionRole pulumi.StringInput
 	// The name of the lifecycle policy to create.
 	Name pulumi.StringPtrInput
@@ -382,7 +382,7 @@ func (o LifecyclePolicyOutput) ToLifecyclePolicyOutputWithContext(ctx context.Co
 	return o
 }
 
-// Amazon Resource Name (ARN) of the lifecycle policy.
+// ARN of the lifecycle policy.
 func (o LifecyclePolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -392,7 +392,7 @@ func (o LifecyclePolicyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
+// ARN for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
 func (o LifecyclePolicyOutput) ExecutionRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringOutput { return v.ExecutionRole }).(pulumi.StringOutput)
 }

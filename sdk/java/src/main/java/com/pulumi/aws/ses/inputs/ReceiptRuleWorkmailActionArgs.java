@@ -18,14 +18,14 @@ public final class ReceiptRuleWorkmailActionArgs extends com.pulumi.resources.Re
     public static final ReceiptRuleWorkmailActionArgs Empty = new ReceiptRuleWorkmailActionArgs();
 
     /**
-     * The ARN of the WorkMail organization
+     * ARN of the WorkMail organization.
      * 
      */
     @Import(name="organizationArn", required=true)
     private Output<String> organizationArn;
 
     /**
-     * @return The ARN of the WorkMail organization
+     * @return ARN of the WorkMail organization.
      * 
      */
     public Output<String> organizationArn() {
@@ -33,14 +33,14 @@ public final class ReceiptRuleWorkmailActionArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The position of the action in the receipt rule
+     * Position of the action in the receipt rule.
      * 
      */
     @Import(name="position", required=true)
     private Output<Integer> position;
 
     /**
-     * @return The position of the action in the receipt rule
+     * @return Position of the action in the receipt rule.
      * 
      */
     public Output<Integer> position() {
@@ -48,14 +48,14 @@ public final class ReceiptRuleWorkmailActionArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The ARN of an SNS topic to notify
+     * ARN of an SNS topic to notify.
      * 
      */
     @Import(name="topicArn")
     private @Nullable Output<String> topicArn;
 
     /**
-     * @return The ARN of an SNS topic to notify
+     * @return ARN of an SNS topic to notify.
      * 
      */
     public Optional<Output<String>> topicArn() {
@@ -89,7 +89,7 @@ public final class ReceiptRuleWorkmailActionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param organizationArn The ARN of the WorkMail organization
+         * @param organizationArn ARN of the WorkMail organization.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class ReceiptRuleWorkmailActionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param organizationArn The ARN of the WorkMail organization
+         * @param organizationArn ARN of the WorkMail organization.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class ReceiptRuleWorkmailActionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param position The position of the action in the receipt rule
+         * @param position Position of the action in the receipt rule.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class ReceiptRuleWorkmailActionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param position The position of the action in the receipt rule
+         * @param position Position of the action in the receipt rule.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ReceiptRuleWorkmailActionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param topicArn The ARN of an SNS topic to notify
+         * @param topicArn ARN of an SNS topic to notify.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class ReceiptRuleWorkmailActionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param topicArn The ARN of an SNS topic to notify
+         * @param topicArn ARN of an SNS topic to notify.
          * 
          * @return builder
          * 

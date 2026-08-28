@@ -82,14 +82,14 @@ public final class ModelPrimaryContainerArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+     * Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
      * 
      */
     @Import(name="imageConfig")
     private @Nullable Output<ModelPrimaryContainerImageConfigArgs> imageConfig;
 
     /**
-     * @return Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+     * @return Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
      * 
      */
     public Optional<Output<ModelPrimaryContainerImageConfigArgs>> imageConfig() {
@@ -149,7 +149,7 @@ public final class ModelPrimaryContainerArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Amazon Resource Name (ARN) of the model package to use to create the model.
+     * ARN of the model package to use to create the model.
      * A list of key value pairs.
      * 
      */
@@ -157,7 +157,7 @@ public final class ModelPrimaryContainerArgs extends com.pulumi.resources.Resour
     private @Nullable Output<String> modelPackageName;
 
     /**
-     * @return Amazon Resource Name (ARN) of the model package to use to create the model.
+     * @return ARN of the model package to use to create the model.
      * A list of key value pairs.
      * 
      */
@@ -309,7 +309,7 @@ public final class ModelPrimaryContainerArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param imageConfig Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+         * @param imageConfig Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
          * 
          * @return builder
          * 
@@ -320,7 +320,7 @@ public final class ModelPrimaryContainerArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param imageConfig Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+         * @param imageConfig Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
          * 
          * @return builder
          * 
@@ -402,7 +402,7 @@ public final class ModelPrimaryContainerArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param modelPackageName Amazon Resource Name (ARN) of the model package to use to create the model.
+         * @param modelPackageName ARN of the model package to use to create the model.
          * A list of key value pairs.
          * 
          * @return builder
@@ -414,7 +414,7 @@ public final class ModelPrimaryContainerArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param modelPackageName Amazon Resource Name (ARN) of the model package to use to create the model.
+         * @param modelPackageName ARN of the model package to use to create the model.
          * A list of key value pairs.
          * 
          * @return builder

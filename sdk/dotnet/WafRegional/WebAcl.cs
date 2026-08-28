@@ -164,7 +164,7 @@ namespace Pulumi.Aws.WafRegional
     public partial class WebAcl : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the WAF Regional WebACL.
+        /// ARN of the WAF Regional WebACL.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -326,7 +326,7 @@ namespace Pulumi.Aws.WafRegional
     public sealed class WebAclState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the WAF Regional WebACL.
+        /// ARN of the WAF Regional WebACL.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

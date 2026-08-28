@@ -14,11 +14,11 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     public sealed class GetFirewallEncryptionConfigurationResult
     {
         /// <summary>
-        /// The ID of the AWS Key Management Service (AWS KMS) customer managed key.
+        /// The ID of the KMS customer managed key.
         /// </summary>
         public readonly string KeyId;
         /// <summary>
-        /// The type of the AWS Key Management Service (AWS KMS) key use by the firewall.
+        /// The type of the KMS key use by the firewall.
         /// </summary>
         public readonly string Type;
 

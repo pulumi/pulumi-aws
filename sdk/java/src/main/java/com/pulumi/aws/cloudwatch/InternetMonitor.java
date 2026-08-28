@@ -155,14 +155,14 @@ public class InternetMonitor extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
+     * Resources to include in a monitor, which you provide as a set of ARNs.
      * 
      */
     @Export(name="resources", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> resources;
 
     /**
-     * @return The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
+     * @return Resources to include in a monitor, which you provide as a set of ARNs.
      * 
      */
     public Output<Optional<List<String>>> resources() {

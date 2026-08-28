@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the resource for which to create or update the resource policy.
+        /// ARN of the resource for which to create or update the resource policy.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -174,7 +174,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the resource for which to create or update the resource policy.
+        /// ARN of the resource for which to create or update the resource policy.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the resource for which to create or update the resource policy.
+        /// ARN of the resource for which to create or update the resource policy.
         /// 
         /// The following arguments are optional:
         /// </summary>

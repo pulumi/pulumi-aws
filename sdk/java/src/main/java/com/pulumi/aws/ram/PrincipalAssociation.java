@@ -142,14 +142,14 @@ public class PrincipalAssociation extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Amazon Resource Name (ARN) of the resource share.
+     * ARN of the resource share.
      * 
      */
     @Export(name="resourceShareArn", refs={String.class}, tree="[0]")
     private Output<String> resourceShareArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the resource share.
+     * @return ARN of the resource share.
      * 
      */
     public Output<String> resourceShareArn() {

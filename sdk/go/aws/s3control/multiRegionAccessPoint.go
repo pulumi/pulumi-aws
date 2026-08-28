@@ -94,7 +94,7 @@ type MultiRegionAccessPoint struct {
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Alias for the Multi-Region Access Point.
 	Alias pulumi.StringOutput `pulumi:"alias"`
-	// Amazon Resource Name (ARN) of the Multi-Region Access Point.
+	// ARN of the Multi-Region Access Point.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration block containing details about the Multi-Region Access Point. See `details` Block below.
 	Details MultiRegionAccessPointDetailsOutput `pulumi:"details"`
@@ -145,7 +145,7 @@ type multiRegionAccessPointState struct {
 	AccountId *string `pulumi:"accountId"`
 	// Alias for the Multi-Region Access Point.
 	Alias *string `pulumi:"alias"`
-	// Amazon Resource Name (ARN) of the Multi-Region Access Point.
+	// ARN of the Multi-Region Access Point.
 	Arn *string `pulumi:"arn"`
 	// Configuration block containing details about the Multi-Region Access Point. See `details` Block below.
 	Details *MultiRegionAccessPointDetails `pulumi:"details"`
@@ -164,7 +164,7 @@ type MultiRegionAccessPointState struct {
 	AccountId pulumi.StringPtrInput
 	// Alias for the Multi-Region Access Point.
 	Alias pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the Multi-Region Access Point.
+	// ARN of the Multi-Region Access Point.
 	Arn pulumi.StringPtrInput
 	// Configuration block containing details about the Multi-Region Access Point. See `details` Block below.
 	Details MultiRegionAccessPointDetailsPtrInput
@@ -298,7 +298,7 @@ func (o MultiRegionAccessPointOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPoint) pulumi.StringOutput { return v.Alias }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the Multi-Region Access Point.
+// ARN of the Multi-Region Access Point.
 func (o MultiRegionAccessPointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

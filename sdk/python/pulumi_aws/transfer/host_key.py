@@ -138,7 +138,7 @@ class _HostKeyState:
         """
         Input properties used for looking up and filtering HostKey resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of host key.
+        :param pulumi.Input[_builtins.str] arn: ARN of host key.
         :param pulumi.Input[_builtins.str] description: Text description.
         :param pulumi.Input[_builtins.str] host_key_body: Private key portion of an SSH key pair.
         :param pulumi.Input[_builtins.str] host_key_body_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
@@ -175,7 +175,7 @@ class _HostKeyState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of host key.
+        ARN of host key.
         """
         return pulumi.get(self, "arn")
 
@@ -441,7 +441,7 @@ class HostKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of host key.
+        :param pulumi.Input[_builtins.str] arn: ARN of host key.
         :param pulumi.Input[_builtins.str] description: Text description.
         :param pulumi.Input[_builtins.str] host_key_body: Private key portion of an SSH key pair.
         :param pulumi.Input[_builtins.str] host_key_body_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
@@ -473,7 +473,7 @@ class HostKey(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of host key.
+        ARN of host key.
         """
         return pulumi.get(self, "arn")
 

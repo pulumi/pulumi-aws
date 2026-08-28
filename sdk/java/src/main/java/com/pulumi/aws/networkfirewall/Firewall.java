@@ -143,14 +143,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:networkfirewall/firewall:Firewall")
 public class Firewall extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) that identifies the firewall.
+     * ARN that identifies the firewall.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) that identifies the firewall.
+     * @return ARN that identifies the firewall.
      * 
      */
     public Output<String> arn() {
@@ -241,14 +241,14 @@ public class Firewall extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.encryptionConfiguration);
     }
     /**
-     * The Amazon Resource Name (ARN) of the VPC Firewall policy.
+     * ARN of the VPC Firewall policy.
      * 
      */
     @Export(name="firewallPolicyArn", refs={String.class}, tree="[0]")
     private Output<String> firewallPolicyArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the VPC Firewall policy.
+     * @return ARN of the VPC Firewall policy.
      * 
      */
     public Output<String> firewallPolicyArn() {

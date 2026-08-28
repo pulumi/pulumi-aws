@@ -49,7 +49,7 @@ namespace Pulumi.Aws.RedShift
     public partial class ClusterSnapshot : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the snapshot.
+        /// ARN of the snapshot.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.RedShift
         public Output<string> ClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
+        /// KMS key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.RedShift
     public sealed class ClusterSnapshotState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the snapshot.
+        /// ARN of the snapshot.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -205,7 +205,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? ClusterIdentifier { get; set; }
 
         /// <summary>
-        /// The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
+        /// KMS key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }

@@ -34,14 +34,14 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
     }
 
     /**
-     * Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
+     * ARN for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
      * 
      */
     @Import(name="domainJoinServiceAccountSecret")
     private @Nullable Output<String> domainJoinServiceAccountSecret;
 
     /**
-     * @return Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
+     * @return ARN for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
      * 
      */
     public Optional<Output<String>> domainJoinServiceAccountSecret() {
@@ -219,7 +219,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
         }
 
         /**
-         * @param domainJoinServiceAccountSecret Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
+         * @param domainJoinServiceAccountSecret ARN for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
         }
 
         /**
-         * @param domainJoinServiceAccountSecret Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
+         * @param domainJoinServiceAccountSecret ARN for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
          * 
          * @return builder
          * 

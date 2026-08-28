@@ -67,7 +67,7 @@ export interface GetReplicationInstanceResult {
      */
     readonly id: string;
     /**
-     * The Amazon Resource Name (ARN) for the KMS key used to encrypt the connection parameters.
+     * ARN for the KMS key used to encrypt the connection parameters.
      */
     readonly kmsKeyArn: string;
     /**
@@ -88,7 +88,7 @@ export interface GetReplicationInstanceResult {
     readonly publiclyAccessible: boolean;
     readonly region: string;
     /**
-     * The Amazon Resource Name (ARN) of the replication instance.
+     * ARN of the replication instance.
      */
     readonly replicationInstanceArn: string;
     /**

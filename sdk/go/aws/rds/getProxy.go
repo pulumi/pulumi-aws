@@ -78,7 +78,7 @@ type LookupProxyResult struct {
 	IdleClientTimeout int    `pulumi:"idleClientTimeout"`
 	Name              string `pulumi:"name"`
 	Region            string `pulumi:"region"`
-	// Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
+	// Whether TLS encryption is required for connections to the proxy.
 	RequireTls bool `pulumi:"requireTls"`
 	// ARN for the IAM role that the proxy uses to access Amazon Secrets Manager.
 	RoleArn string `pulumi:"roleArn"`
@@ -177,7 +177,7 @@ func (o LookupProxyResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProxyResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
+// Whether TLS encryption is required for connections to the proxy.
 func (o LookupProxyResultOutput) RequireTls() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupProxyResult) bool { return v.RequireTls }).(pulumi.BoolOutput)
 }

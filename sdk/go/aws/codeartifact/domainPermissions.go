@@ -83,7 +83,7 @@ import (
 //
 // #### Required
 //
-// - `resourceArn` (String) Amazon Resource Name (ARN) of the CodeArtifact domain.
+// - `resourceArn` (String) ARN of the CodeArtifact domain.
 //
 // Using `pulumi import`, import CodeArtifact Domain Permissions Policies using the CodeArtifact Domain ARN. For example:
 //

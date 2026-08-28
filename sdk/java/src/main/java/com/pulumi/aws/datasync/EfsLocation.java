@@ -65,9 +65,9 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the DataSync EFS location.
+ * - `arn` (String) ARN of the DataSync EFS location.
  * 
- * Using `pulumi import`, import `aws.datasync.EfsLocation` using the DataSync Task Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.datasync.EfsLocation` using the DataSync Task ARN. For example:
  * 
  * ```sh
  * $ pulumi import aws:datasync/efsLocation:EfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
@@ -77,28 +77,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:datasync/efsLocation:EfsLocation")
 public class EfsLocation extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
+     * ARN of the access point that DataSync uses to access the Amazon EFS file system.
      * 
      */
     @Export(name="accessPointArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessPointArn;
 
     /**
-     * @return Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
+     * @return ARN of the access point that DataSync uses to access the Amazon EFS file system.
      * 
      */
     public Output<Optional<String>> accessPointArn() {
         return Codegen.optional(this.accessPointArn);
     }
     /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
+     * ARN of the DataSync Location.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the DataSync Location.
+     * @return ARN of the DataSync Location.
      * 
      */
     public Output<String> arn() {
@@ -119,14 +119,14 @@ public class EfsLocation extends com.pulumi.resources.CustomResource {
         return this.ec2Config;
     }
     /**
-     * Amazon Resource Name (ARN) of EFS File System.
+     * ARN of EFS File System.
      * 
      */
     @Export(name="efsFileSystemArn", refs={String.class}, tree="[0]")
     private Output<String> efsFileSystemArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of EFS File System.
+     * @return ARN of EFS File System.
      * 
      */
     public Output<String> efsFileSystemArn() {

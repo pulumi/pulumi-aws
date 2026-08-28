@@ -207,14 +207,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sagemaker/flowDefinition:FlowDefinition")
 public class FlowDefinition extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
+     * ARN assigned by AWS to this Flow Definition.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
+     * @return ARN assigned by AWS to this Flow Definition.
      * 
      */
     public Output<String> arn() {
@@ -305,14 +305,14 @@ public class FlowDefinition extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
+     * ARN of the role needed to call other services on your behalf.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
+     * @return ARN of the role needed to call other services on your behalf.
      * 
      */
     public Output<String> roleArn() {

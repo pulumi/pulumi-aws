@@ -14,7 +14,7 @@ namespace Pulumi.Aws.VpcLattice.Outputs
     public sealed class ListenerDefaultActionForwardTargetGroup
     {
         /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the target group.
+        /// ID or ARN of the target group.
         /// </summary>
         public readonly string? TargetGroupIdentifier;
         /// <summary>

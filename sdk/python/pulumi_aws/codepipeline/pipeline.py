@@ -35,7 +35,7 @@ class PipelineArgs:
         The set of arguments for constructing a Pipeline resource.
 
         :param pulumi.Input[Sequence[pulumi.Input['PipelineArtifactStoreArgs']]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
-        :param pulumi.Input[_builtins.str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+        :param pulumi.Input[_builtins.str] role_arn: Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]] stages: A stage block. Stages are documented below.
         :param pulumi.Input[_builtins.str] execution_mode: The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
         :param pulumi.Input[_builtins.str] name: The name of the pipeline.
@@ -81,7 +81,7 @@ class PipelineArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+        Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         """
         return pulumi.get(self, "role_arn")
 
@@ -213,7 +213,7 @@ class _PipelineState:
         :param pulumi.Input[_builtins.str] name: The name of the pipeline.
         :param pulumi.Input[_builtins.str] pipeline_type: Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+        :param pulumi.Input[_builtins.str] role_arn: Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]] stages: A stage block. Stages are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -326,7 +326,7 @@ class _PipelineState:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+        Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         """
         return pulumi.get(self, "role_arn")
 
@@ -581,7 +581,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the pipeline.
         :param pulumi.Input[_builtins.str] pipeline_type: Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+        :param pulumi.Input[_builtins.str] role_arn: Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineStageArgs', 'PipelineStageArgsDict']]]] stages: A stage block. Stages are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineTriggerArgs', 'PipelineTriggerArgsDict']]]] triggers: A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
@@ -832,7 +832,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the pipeline.
         :param pulumi.Input[_builtins.str] pipeline_type: Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+        :param pulumi.Input[_builtins.str] role_arn: Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineStageArgs', 'PipelineStageArgsDict']]]] stages: A stage block. Stages are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -913,7 +913,7 @@ class Pipeline(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+        Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         """
         return pulumi.get(self, "role_arn")
 

@@ -81,6 +81,21 @@ public final class SecretRotationArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Whether automatic rotation is enabled for the secret. Set to `false` to disable rotation on a secret whose rotation is otherwise managed by AWS (for example, an RDS master user password secret). When `false`, `rotationRules` must be omitted. Defaults to enabled when `rotationRules` is configured. Destroying this resource does not re-enable the automatic rotation that AWS configured.
+     * 
+     */
+    @Import(name="rotationEnabled")
+    private @Nullable Output<Boolean> rotationEnabled;
+
+    /**
+     * @return Whether automatic rotation is enabled for the secret. Set to `false` to disable rotation on a secret whose rotation is otherwise managed by AWS (for example, an RDS master user password secret). When `false`, `rotationRules` must be omitted. Defaults to enabled when `rotationRules` is configured. Destroying this resource does not re-enable the automatic rotation that AWS configured.
+     * 
+     */
+    public Optional<Output<Boolean>> rotationEnabled() {
+        return Optional.ofNullable(this.rotationEnabled);
+    }
+
+    /**
      * ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
      * 
      */
@@ -96,29 +111,29 @@ public final class SecretRotationArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Structure that defines the rotation configuration for this secret. Defined below.
+     * Structure that defines the rotation configuration for this secret. Required unless `rotationEnabled` is `false`. Defined below.
      * 
      */
-    @Import(name="rotationRules", required=true)
-    private Output<SecretRotationRotationRulesArgs> rotationRules;
+    @Import(name="rotationRules")
+    private @Nullable Output<SecretRotationRotationRulesArgs> rotationRules;
 
     /**
-     * @return Structure that defines the rotation configuration for this secret. Defined below.
+     * @return Structure that defines the rotation configuration for this secret. Required unless `rotationEnabled` is `false`. Defined below.
      * 
      */
-    public Output<SecretRotationRotationRulesArgs> rotationRules() {
-        return this.rotationRules;
+    public Optional<Output<SecretRotationRotationRulesArgs>> rotationRules() {
+        return Optional.ofNullable(this.rotationRules);
     }
 
     /**
-     * Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+     * Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
      * 
      */
     @Import(name="secretId", required=true)
     private Output<String> secretId;
 
     /**
-     * @return Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+     * @return Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
      * 
      */
     public Output<String> secretId() {
@@ -132,6 +147,7 @@ public final class SecretRotationArgs extends com.pulumi.resources.ResourceArgs 
         this.externalSecretRotationRoleArn = $.externalSecretRotationRoleArn;
         this.region = $.region;
         this.rotateImmediately = $.rotateImmediately;
+        this.rotationEnabled = $.rotationEnabled;
         this.rotationLambdaArn = $.rotationLambdaArn;
         this.rotationRules = $.rotationRules;
         this.secretId = $.secretId;
@@ -250,6 +266,27 @@ public final class SecretRotationArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
+         * @param rotationEnabled Whether automatic rotation is enabled for the secret. Set to `false` to disable rotation on a secret whose rotation is otherwise managed by AWS (for example, an RDS master user password secret). When `false`, `rotationRules` must be omitted. Defaults to enabled when `rotationRules` is configured. Destroying this resource does not re-enable the automatic rotation that AWS configured.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rotationEnabled(@Nullable Output<Boolean> rotationEnabled) {
+            $.rotationEnabled = rotationEnabled;
+            return this;
+        }
+
+        /**
+         * @param rotationEnabled Whether automatic rotation is enabled for the secret. Set to `false` to disable rotation on a secret whose rotation is otherwise managed by AWS (for example, an RDS master user password secret). When `false`, `rotationRules` must be omitted. Defaults to enabled when `rotationRules` is configured. Destroying this resource does not re-enable the automatic rotation that AWS configured.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rotationEnabled(Boolean rotationEnabled) {
+            return rotationEnabled(Output.of(rotationEnabled));
+        }
+
+        /**
          * @param rotationLambdaArn ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
          * 
          * @return builder
@@ -271,18 +308,18 @@ public final class SecretRotationArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param rotationRules Structure that defines the rotation configuration for this secret. Defined below.
+         * @param rotationRules Structure that defines the rotation configuration for this secret. Required unless `rotationEnabled` is `false`. Defined below.
          * 
          * @return builder
          * 
          */
-        public Builder rotationRules(Output<SecretRotationRotationRulesArgs> rotationRules) {
+        public Builder rotationRules(@Nullable Output<SecretRotationRotationRulesArgs> rotationRules) {
             $.rotationRules = rotationRules;
             return this;
         }
 
         /**
-         * @param rotationRules Structure that defines the rotation configuration for this secret. Defined below.
+         * @param rotationRules Structure that defines the rotation configuration for this secret. Required unless `rotationEnabled` is `false`. Defined below.
          * 
          * @return builder
          * 
@@ -292,7 +329,7 @@ public final class SecretRotationArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param secretId Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+         * @param secretId Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
          * 
          * @return builder
          * 
@@ -303,7 +340,7 @@ public final class SecretRotationArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param secretId Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+         * @param secretId Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
          * 
          * @return builder
          * 
@@ -313,9 +350,6 @@ public final class SecretRotationArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public SecretRotationArgs build() {
-            if ($.rotationRules == null) {
-                throw new MissingRequiredPropertyException("SecretRotationArgs", "rotationRules");
-            }
             if ($.secretId == null) {
                 throw new MissingRequiredPropertyException("SecretRotationArgs", "secretId");
             }

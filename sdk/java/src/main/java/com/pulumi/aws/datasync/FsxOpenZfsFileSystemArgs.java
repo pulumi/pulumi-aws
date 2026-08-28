@@ -20,14 +20,14 @@ public final class FsxOpenZfsFileSystemArgs extends com.pulumi.resources.Resourc
     public static final FsxOpenZfsFileSystemArgs Empty = new FsxOpenZfsFileSystemArgs();
 
     /**
-     * The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.
+     * ARN for the FSx for OpenZfs file system.
      * 
      */
     @Import(name="fsxFilesystemArn", required=true)
     private Output<String> fsxFilesystemArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.
+     * @return ARN for the FSx for OpenZfs file system.
      * 
      */
     public Output<String> fsxFilesystemArn() {
@@ -65,14 +65,14 @@ public final class FsxOpenZfsFileSystemArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
+     * ARNs of the security groups that are to use to configure the FSx for openzfs file system.
      * 
      */
     @Import(name="securityGroupArns", required=true)
     private Output<List<String>> securityGroupArns;
 
     /**
-     * @return The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
+     * @return ARNs of the security groups that are to use to configure the FSx for openzfs file system.
      * 
      */
     public Output<List<String>> securityGroupArns() {
@@ -139,7 +139,7 @@ public final class FsxOpenZfsFileSystemArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param fsxFilesystemArn The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.
+         * @param fsxFilesystemArn ARN for the FSx for OpenZfs file system.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class FsxOpenZfsFileSystemArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param fsxFilesystemArn The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.
+         * @param fsxFilesystemArn ARN for the FSx for OpenZfs file system.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class FsxOpenZfsFileSystemArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param securityGroupArns The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
+         * @param securityGroupArns ARNs of the security groups that are to use to configure the FSx for openzfs file system.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class FsxOpenZfsFileSystemArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param securityGroupArns The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
+         * @param securityGroupArns ARNs of the security groups that are to use to configure the FSx for openzfs file system.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class FsxOpenZfsFileSystemArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param securityGroupArns The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
+         * @param securityGroupArns ARNs of the security groups that are to use to configure the FSx for openzfs file system.
          * 
          * @return builder
          * 

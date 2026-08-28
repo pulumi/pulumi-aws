@@ -44,7 +44,7 @@ namespace Pulumi.Aws.RedshiftServerless
     public partial class Namespace : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of namespace's admin user credentials secret.
+        /// ARN of namespace's admin user credentials secret.
         /// </summary>
         [Output("adminPasswordSecretArn")]
         public Output<string> AdminPasswordSecretArn { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<string> AdminUsername { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+        /// ARN of the Redshift Serverless Namespace.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -95,7 +95,7 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<string> DbName { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `DefaultIamRoleArn`, it also must be part of `IamRoles`.
+        /// ARN of the IAM role to set as a default in the namespace. When specifying `DefaultIamRoleArn`, it also must be part of `IamRoles`.
         /// </summary>
         [Output("defaultIamRoleArn")]
         public Output<string?> DefaultIamRoleArn { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<ImmutableArray<string>> IamRoles { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+        /// ARN of the Amazon Web Services KMS key used to encrypt your data.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.RedshiftServerless
         public Input<string>? DbName { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `DefaultIamRoleArn`, it also must be part of `IamRoles`.
+        /// ARN of the IAM role to set as a default in the namespace. When specifying `DefaultIamRoleArn`, it also must be part of `IamRoles`.
         /// </summary>
         [Input("defaultIamRoleArn")]
         public Input<string>? DefaultIamRoleArn { get; set; }
@@ -295,7 +295,7 @@ namespace Pulumi.Aws.RedshiftServerless
         }
 
         /// <summary>
-        /// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+        /// ARN of the Amazon Web Services KMS key used to encrypt your data.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -352,7 +352,7 @@ namespace Pulumi.Aws.RedshiftServerless
     public sealed class NamespaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of namespace's admin user credentials secret.
+        /// ARN of namespace's admin user credentials secret.
         /// </summary>
         [Input("adminPasswordSecretArn")]
         public Input<string>? AdminPasswordSecretArn { get; set; }
@@ -421,7 +421,7 @@ namespace Pulumi.Aws.RedshiftServerless
         }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+        /// ARN of the Redshift Serverless Namespace.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -433,7 +433,7 @@ namespace Pulumi.Aws.RedshiftServerless
         public Input<string>? DbName { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `DefaultIamRoleArn`, it also must be part of `IamRoles`.
+        /// ARN of the IAM role to set as a default in the namespace. When specifying `DefaultIamRoleArn`, it also must be part of `IamRoles`.
         /// </summary>
         [Input("defaultIamRoleArn")]
         public Input<string>? DefaultIamRoleArn { get; set; }
@@ -451,7 +451,7 @@ namespace Pulumi.Aws.RedshiftServerless
         }
 
         /// <summary>
-        /// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+        /// ARN of the Amazon Web Services KMS key used to encrypt your data.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }

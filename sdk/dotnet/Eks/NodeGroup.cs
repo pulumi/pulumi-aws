@@ -222,13 +222,13 @@ namespace Pulumi.Aws.Eks
     public partial class NodeGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
+        /// Type of AMI associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Output("amiType")]
         public Output<string> AmiType { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the EKS Node Group.
+        /// ARN of the EKS Node Group.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -294,7 +294,7 @@ namespace Pulumi.Aws.Eks
         public Output<Outputs.NodeGroupNodeRepairConfig> NodeRepairConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+        /// ARN of the IAM Role that provides permissions for the EKS Node Group.
         /// </summary>
         [Output("nodeRoleArn")]
         public Output<string> NodeRoleArn { get; private set; } = null!;
@@ -426,7 +426,7 @@ namespace Pulumi.Aws.Eks
     public sealed class NodeGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
+        /// Type of AMI associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("amiType")]
         public Input<string>? AmiType { get; set; }
@@ -504,7 +504,7 @@ namespace Pulumi.Aws.Eks
         public Input<Inputs.NodeGroupNodeRepairConfigArgs>? NodeRepairConfig { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+        /// ARN of the IAM Role that provides permissions for the EKS Node Group.
         /// </summary>
         [Input("nodeRoleArn", required: true)]
         public Input<string> NodeRoleArn { get; set; } = null!;
@@ -598,13 +598,13 @@ namespace Pulumi.Aws.Eks
     public sealed class NodeGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
+        /// Type of AMI associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("amiType")]
         public Input<string>? AmiType { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the EKS Node Group.
+        /// ARN of the EKS Node Group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -682,7 +682,7 @@ namespace Pulumi.Aws.Eks
         public Input<Inputs.NodeGroupNodeRepairConfigGetArgs>? NodeRepairConfig { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+        /// ARN of the IAM Role that provides permissions for the EKS Node Group.
         /// </summary>
         [Input("nodeRoleArn")]
         public Input<string>? NodeRoleArn { get; set; }

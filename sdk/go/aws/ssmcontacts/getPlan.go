@@ -52,7 +52,7 @@ func LookupPlan(ctx *pulumi.Context, args *LookupPlanArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getPlan.
 type LookupPlanArgs struct {
-	// The Amazon Resource Name (ARN) of the contact or escalation plan.
+	// ARN of the contact or escalation plan.
 	ContactId string `pulumi:"contactId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -75,7 +75,7 @@ func LookupPlanOutput(ctx *pulumi.Context, args LookupPlanOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getPlan.
 type LookupPlanOutputArgs struct {
-	// The Amazon Resource Name (ARN) of the contact or escalation plan.
+	// ARN of the contact or escalation plan.
 	ContactId pulumi.StringInput `pulumi:"contactId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`

@@ -42,7 +42,7 @@ class RouteArgs:
                
                One of the following destination arguments must be supplied:
         :param pulumi.Input[_builtins.str] carrier_gateway_id: Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
-        :param pulumi.Input[_builtins.str] core_network_arn: The Amazon Resource Name (ARN) of a core network.
+        :param pulumi.Input[_builtins.str] core_network_arn: ARN of a core network.
         :param pulumi.Input[_builtins.str] destination_cidr_block: The destination CIDR block.
         :param pulumi.Input[_builtins.str] destination_ipv6_cidr_block: The destination IPv6 CIDR block.
         :param pulumi.Input[_builtins.str] destination_prefix_list_id: The ID of a managed prefix list destination.
@@ -53,7 +53,7 @@ class RouteArgs:
         :param pulumi.Input[_builtins.str] local_gateway_id: Identifier of a Outpost local gateway.
         :param pulumi.Input[_builtins.str] nat_gateway_id: Identifier of a VPC NAT gateway.
         :param pulumi.Input[_builtins.str] network_interface_id: Identifier of an EC2 network interface.
-        :param pulumi.Input[_builtins.str] odb_network_arn: The Amazon Resource Name (ARN) of an ODB network.
+        :param pulumi.Input[_builtins.str] odb_network_arn: ARN of an ODB network.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] transit_gateway_id: Identifier of an EC2 Transit Gateway.
         :param pulumi.Input[_builtins.str] vpc_endpoint_id: Identifier of a VPC Endpoint.
@@ -123,7 +123,7 @@ class RouteArgs:
     @pulumi.getter(name="coreNetworkArn")
     def core_network_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of a core network.
+        ARN of a core network.
         """
         return pulumi.get(self, "core_network_arn")
 
@@ -233,7 +233,7 @@ class RouteArgs:
     @pulumi.getter(name="odbNetworkArn")
     def odb_network_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of an ODB network.
+        ARN of an ODB network.
         """
         return pulumi.get(self, "odb_network_arn")
 
@@ -319,7 +319,7 @@ class _RouteState:
         Input properties used for looking up and filtering Route resources.
 
         :param pulumi.Input[_builtins.str] carrier_gateway_id: Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
-        :param pulumi.Input[_builtins.str] core_network_arn: The Amazon Resource Name (ARN) of a core network.
+        :param pulumi.Input[_builtins.str] core_network_arn: ARN of a core network.
         :param pulumi.Input[_builtins.str] destination_cidr_block: The destination CIDR block.
         :param pulumi.Input[_builtins.str] destination_ipv6_cidr_block: The destination IPv6 CIDR block.
         :param pulumi.Input[_builtins.str] destination_prefix_list_id: The ID of a managed prefix list destination.
@@ -332,7 +332,7 @@ class _RouteState:
         :param pulumi.Input[_builtins.str] local_gateway_id: Identifier of a Outpost local gateway.
         :param pulumi.Input[_builtins.str] nat_gateway_id: Identifier of a VPC NAT gateway.
         :param pulumi.Input[_builtins.str] network_interface_id: Identifier of an EC2 network interface.
-        :param pulumi.Input[_builtins.str] odb_network_arn: The Amazon Resource Name (ARN) of an ODB network.
+        :param pulumi.Input[_builtins.str] odb_network_arn: ARN of an ODB network.
         :param pulumi.Input[_builtins.str] origin: How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] route_table_id: The ID of the routing table.
@@ -402,7 +402,7 @@ class _RouteState:
     @pulumi.getter(name="coreNetworkArn")
     def core_network_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of a core network.
+        ARN of a core network.
         """
         return pulumi.get(self, "core_network_arn")
 
@@ -536,7 +536,7 @@ class _RouteState:
     @pulumi.getter(name="odbNetworkArn")
     def odb_network_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of an ODB network.
+        ARN of an ODB network.
         """
         return pulumi.get(self, "odb_network_arn")
 
@@ -737,7 +737,7 @@ class Route(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] carrier_gateway_id: Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
-        :param pulumi.Input[_builtins.str] core_network_arn: The Amazon Resource Name (ARN) of a core network.
+        :param pulumi.Input[_builtins.str] core_network_arn: ARN of a core network.
         :param pulumi.Input[_builtins.str] destination_cidr_block: The destination CIDR block.
         :param pulumi.Input[_builtins.str] destination_ipv6_cidr_block: The destination IPv6 CIDR block.
         :param pulumi.Input[_builtins.str] destination_prefix_list_id: The ID of a managed prefix list destination.
@@ -748,7 +748,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] local_gateway_id: Identifier of a Outpost local gateway.
         :param pulumi.Input[_builtins.str] nat_gateway_id: Identifier of a VPC NAT gateway.
         :param pulumi.Input[_builtins.str] network_interface_id: Identifier of an EC2 network interface.
-        :param pulumi.Input[_builtins.str] odb_network_arn: The Amazon Resource Name (ARN) of an ODB network.
+        :param pulumi.Input[_builtins.str] odb_network_arn: ARN of an ODB network.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] route_table_id: The ID of the routing table.
                
@@ -943,7 +943,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] carrier_gateway_id: Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
-        :param pulumi.Input[_builtins.str] core_network_arn: The Amazon Resource Name (ARN) of a core network.
+        :param pulumi.Input[_builtins.str] core_network_arn: ARN of a core network.
         :param pulumi.Input[_builtins.str] destination_cidr_block: The destination CIDR block.
         :param pulumi.Input[_builtins.str] destination_ipv6_cidr_block: The destination IPv6 CIDR block.
         :param pulumi.Input[_builtins.str] destination_prefix_list_id: The ID of a managed prefix list destination.
@@ -956,7 +956,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] local_gateway_id: Identifier of a Outpost local gateway.
         :param pulumi.Input[_builtins.str] nat_gateway_id: Identifier of a VPC NAT gateway.
         :param pulumi.Input[_builtins.str] network_interface_id: Identifier of an EC2 network interface.
-        :param pulumi.Input[_builtins.str] odb_network_arn: The Amazon Resource Name (ARN) of an ODB network.
+        :param pulumi.Input[_builtins.str] odb_network_arn: ARN of an ODB network.
         :param pulumi.Input[_builtins.str] origin: How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] route_table_id: The ID of the routing table.
@@ -1007,7 +1007,7 @@ class Route(pulumi.CustomResource):
     @pulumi.getter(name="coreNetworkArn")
     def core_network_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of a core network.
+        ARN of a core network.
         """
         return pulumi.get(self, "core_network_arn")
 
@@ -1097,7 +1097,7 @@ class Route(pulumi.CustomResource):
     @pulumi.getter(name="odbNetworkArn")
     def odb_network_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of an ODB network.
+        ARN of an ODB network.
         """
         return pulumi.get(self, "odb_network_arn")
 

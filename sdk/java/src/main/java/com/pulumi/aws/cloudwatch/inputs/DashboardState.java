@@ -16,14 +16,14 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
     public static final DashboardState Empty = new DashboardState();
 
     /**
-     * The Amazon Resource Name (ARN) of the dashboard.
+     * ARN of the dashboard.
      * 
      */
     @Import(name="dashboardArn")
     private @Nullable Output<String> dashboardArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the dashboard.
+     * @return ARN of the dashboard.
      * 
      */
     public Optional<Output<String>> dashboardArn() {
@@ -103,7 +103,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dashboardArn The Amazon Resource Name (ARN) of the dashboard.
+         * @param dashboardArn ARN of the dashboard.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dashboardArn The Amazon Resource Name (ARN) of the dashboard.
+         * @param dashboardArn ARN of the dashboard.
          * 
          * @return builder
          * 

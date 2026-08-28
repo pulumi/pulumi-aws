@@ -101,11 +101,11 @@ export class PermissionsBoundaryAttachment extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+     * ARN of the SSO Instance under which the operation will be executed.
      */
     declare public readonly instanceArn: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
+     * ARN of the Permission Set.
      */
     declare public readonly permissionSetArn: pulumi.Output<string>;
     /**
@@ -160,11 +160,11 @@ export class PermissionsBoundaryAttachment extends pulumi.CustomResource {
  */
 export interface PermissionsBoundaryAttachmentState {
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+     * ARN of the SSO Instance under which the operation will be executed.
      */
     instanceArn?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
+     * ARN of the Permission Set.
      */
     permissionSetArn?: pulumi.Input<string | undefined>;
     /**
@@ -182,11 +182,11 @@ export interface PermissionsBoundaryAttachmentState {
  */
 export interface PermissionsBoundaryAttachmentArgs {
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+     * ARN of the SSO Instance under which the operation will be executed.
      */
     instanceArn: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
+     * ARN of the Permission Set.
      */
     permissionSetArn: pulumi.Input<string>;
     /**

@@ -52,7 +52,7 @@ func LookupContactsRotation(ctx *pulumi.Context, args *LookupContactsRotationArg
 
 // A collection of arguments for invoking getContactsRotation.
 type LookupContactsRotationArgs struct {
-	// The Amazon Resource Name (ARN) of the rotation.
+	// ARN of the rotation.
 	Arn string `pulumi:"arn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -61,7 +61,7 @@ type LookupContactsRotationArgs struct {
 // A collection of values returned by getContactsRotation.
 type LookupContactsRotationResult struct {
 	Arn string `pulumi:"arn"`
-	// The Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+	// ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
 	ContactIds []string `pulumi:"contactIds"`
 	Id         string   `pulumi:"id"`
 	// The name for the rotation.
@@ -84,7 +84,7 @@ func LookupContactsRotationOutput(ctx *pulumi.Context, args LookupContactsRotati
 
 // A collection of arguments for invoking getContactsRotation.
 type LookupContactsRotationOutputArgs struct {
-	// The Amazon Resource Name (ARN) of the rotation.
+	// ARN of the rotation.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -113,7 +113,7 @@ func (o LookupContactsRotationResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactsRotationResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+// ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
 func (o LookupContactsRotationResultOutput) ContactIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupContactsRotationResult) []string { return v.ContactIds }).(pulumi.StringArrayOutput)
 }

@@ -79,7 +79,7 @@ type SnapshotCopy struct {
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
 	// Whether to copy existing tags. Defaults to `false`.
 	CopyTags pulumi.BoolPtrOutput `pulumi:"copyTags"`
-	// The Amazon Resource Name (ARN) for the DB snapshot.
+	// ARN for the DB snapshot.
 	DbSnapshotArn pulumi.StringOutput `pulumi:"dbSnapshotArn"`
 	// The Destination region to place snapshot copy.
 	DestinationRegion pulumi.StringPtrOutput `pulumi:"destinationRegion"`
@@ -165,7 +165,7 @@ type snapshotCopyState struct {
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// Whether to copy existing tags. Defaults to `false`.
 	CopyTags *bool `pulumi:"copyTags"`
-	// The Amazon Resource Name (ARN) for the DB snapshot.
+	// ARN for the DB snapshot.
 	DbSnapshotArn *string `pulumi:"dbSnapshotArn"`
 	// The Destination region to place snapshot copy.
 	DestinationRegion *string `pulumi:"destinationRegion"`
@@ -216,7 +216,7 @@ type SnapshotCopyState struct {
 	AvailabilityZone pulumi.StringPtrInput
 	// Whether to copy existing tags. Defaults to `false`.
 	CopyTags pulumi.BoolPtrInput
-	// The Amazon Resource Name (ARN) for the DB snapshot.
+	// ARN for the DB snapshot.
 	DbSnapshotArn pulumi.StringPtrInput
 	// The Destination region to place snapshot copy.
 	DestinationRegion pulumi.StringPtrInput
@@ -417,7 +417,7 @@ func (o SnapshotCopyOutput) CopyTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.BoolPtrOutput { return v.CopyTags }).(pulumi.BoolPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for the DB snapshot.
+// ARN for the DB snapshot.
 func (o SnapshotCopyOutput) DbSnapshotArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.DbSnapshotArn }).(pulumi.StringOutput)
 }

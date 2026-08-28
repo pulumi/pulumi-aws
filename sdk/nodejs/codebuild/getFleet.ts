@@ -111,7 +111,7 @@ export interface GetFleetResult {
      */
     readonly id: string;
     /**
-     * The Amazon Machine Image (AMI) of the compute fleet.
+     * AMI of the compute fleet.
      */
     readonly imageId: string;
     /**

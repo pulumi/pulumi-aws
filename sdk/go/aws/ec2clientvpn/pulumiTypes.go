@@ -149,7 +149,7 @@ func (o EndpointAuthenticationOptionArrayOutput) Index(i pulumi.IntInput) Endpoi
 type EndpointClientConnectOptions struct {
 	// Indicates whether client connect options are enabled. The default is `false` (not enabled).
 	Enabled *bool `pulumi:"enabled"`
-	// The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
+	// ARN of the Lambda function used for connection authorization.
 	LambdaFunctionArn *string `pulumi:"lambdaFunctionArn"`
 }
 
@@ -167,7 +167,7 @@ type EndpointClientConnectOptionsInput interface {
 type EndpointClientConnectOptionsArgs struct {
 	// Indicates whether client connect options are enabled. The default is `false` (not enabled).
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
+	// ARN of the Lambda function used for connection authorization.
 	LambdaFunctionArn pulumi.StringPtrInput `pulumi:"lambdaFunctionArn"`
 }
 
@@ -253,7 +253,7 @@ func (o EndpointClientConnectOptionsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointClientConnectOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
+// ARN of the Lambda function used for connection authorization.
 func (o EndpointClientConnectOptionsOutput) LambdaFunctionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointClientConnectOptions) *string { return v.LambdaFunctionArn }).(pulumi.StringPtrOutput)
 }
@@ -292,7 +292,7 @@ func (o EndpointClientConnectOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
+// ARN of the Lambda function used for connection authorization.
 func (o EndpointClientConnectOptionsPtrOutput) LambdaFunctionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointClientConnectOptions) *string {
 		if v == nil {

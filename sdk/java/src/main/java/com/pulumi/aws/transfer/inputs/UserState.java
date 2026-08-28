@@ -20,14 +20,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     public static final UserState Empty = new UserState();
 
     /**
-     * Amazon Resource Name (ARN) of Transfer User
+     * ARN of Transfer User
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of Transfer User
+     * @return ARN of Transfer User
      * 
      */
     public Optional<Output<String>> arn() {
@@ -125,14 +125,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
+     * ARN of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
      * 
      */
     @Import(name="role")
     private @Nullable Output<String> role;
 
     /**
-     * @return Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
+     * @return ARN of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
      * 
      */
     public Optional<Output<String>> role() {
@@ -235,7 +235,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of Transfer User
+         * @param arn ARN of Transfer User
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of Transfer User
+         * @param arn ARN of Transfer User
          * 
          * @return builder
          * 
@@ -392,7 +392,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param role Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
+         * @param role ARN of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
          * 
          * @return builder
          * 
@@ -403,7 +403,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param role Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
+         * @param role ARN of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
          * 
          * @return builder
          * 

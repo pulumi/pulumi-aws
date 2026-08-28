@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ses.Outputs
     public sealed class EventDestinationSnsDestination
     {
         /// <summary>
-        /// The ARN of the SNS topic
+        /// ARN of the SNS topic
         /// </summary>
         public readonly string TopicArn;
 

@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class AliasRoutingConfiguration {
     /**
-     * @return The Amazon Resource Name (ARN) of the state machine version.
+     * @return ARN of the state machine version.
      * 
      */
     private String stateMachineVersionArn;
@@ -24,7 +24,7 @@ public final class AliasRoutingConfiguration {
 
     private AliasRoutingConfiguration() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the state machine version.
+     * @return ARN of the state machine version.
      * 
      */
     public String stateMachineVersionArn() {

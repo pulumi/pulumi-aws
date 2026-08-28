@@ -76,7 +76,7 @@ type LookupFileSystemArgs struct {
 
 // A collection of values returned by getFileSystem.
 type LookupFileSystemResult struct {
-	// Amazon Resource Name of the file system.
+	// ARN of the file system.
 	Arn string `pulumi:"arn"`
 	// The identifier of the Availability Zone in which the file system's One Zone storage classes exist.
 	AvailabilityZoneId string `pulumi:"availabilityZoneId"`
@@ -146,7 +146,7 @@ func (o LookupFileSystemResultOutput) ToLookupFileSystemResultOutputWithContext(
 	return o
 }
 
-// Amazon Resource Name of the file system.
+// ARN of the file system.
 func (o LookupFileSystemResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) string { return v.Arn }).(pulumi.StringOutput)
 }

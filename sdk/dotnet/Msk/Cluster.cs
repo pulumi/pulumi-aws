@@ -268,7 +268,7 @@ namespace Pulumi.Aws.Msk
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the MSK cluster.
+    /// - `Arn` (String) ARN of the MSK cluster.
     /// 
     /// Using `pulumi import`, import MSK cluster using the cluster ARN. For example:
     /// 
@@ -280,7 +280,7 @@ namespace Pulumi.Aws.Msk
     public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the MSK cluster.
+        /// ARN of the MSK cluster.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -634,7 +634,7 @@ namespace Pulumi.Aws.Msk
     public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the MSK cluster.
+        /// ARN of the MSK cluster.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

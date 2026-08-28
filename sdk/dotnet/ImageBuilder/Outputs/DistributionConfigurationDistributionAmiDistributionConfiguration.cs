@@ -22,7 +22,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
+        /// ARN of the KMS Key to encrypt the distributed AMI.
         /// </summary>
         public readonly string? KmsKeyId;
         /// <summary>

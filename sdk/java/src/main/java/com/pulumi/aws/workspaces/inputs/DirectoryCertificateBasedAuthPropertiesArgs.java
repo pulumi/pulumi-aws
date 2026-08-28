@@ -16,14 +16,14 @@ public final class DirectoryCertificateBasedAuthPropertiesArgs extends com.pulum
     public static final DirectoryCertificateBasedAuthPropertiesArgs Empty = new DirectoryCertificateBasedAuthPropertiesArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
+     * ARN of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
      * 
      */
     @Import(name="certificateAuthorityArn")
     private @Nullable Output<String> certificateAuthorityArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
+     * @return ARN of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
      * 
      */
     public Optional<Output<String>> certificateAuthorityArn() {
@@ -71,7 +71,7 @@ public final class DirectoryCertificateBasedAuthPropertiesArgs extends com.pulum
         }
 
         /**
-         * @param certificateAuthorityArn The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
+         * @param certificateAuthorityArn ARN of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class DirectoryCertificateBasedAuthPropertiesArgs extends com.pulum
         }
 
         /**
-         * @param certificateAuthorityArn The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
+         * @param certificateAuthorityArn ARN of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
          * 
          * @return builder
          * 

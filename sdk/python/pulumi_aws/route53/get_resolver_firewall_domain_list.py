@@ -68,7 +68,7 @@ class GetResolverFirewallDomainListResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the firewall domain list.
+        ARN of the firewall domain list.
         """
         return pulumi.get(self, "arn")
 

@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Quicksight
     public partial class Group : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of group
+        /// ARN of group
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Quicksight
     public sealed class GroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of group
+        /// ARN of group
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

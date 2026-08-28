@@ -52,7 +52,7 @@ export interface GetNetworkArgs {
  */
 export interface GetNetworkResult {
     /**
-     * Amazon Resource Name (ARN) of the odb network resource.
+     * ARN of the odb network resource.
      */
     readonly arn: string;
     /**

@@ -124,7 +124,7 @@ public class AgentcoreResourcePolicy extends com.pulumi.resources.CustomResource
         return this.region;
     }
     /**
-     * Amazon Resource Name (ARN) of the resource for which to create or update the resource policy.
+     * ARN of the resource for which to create or update the resource policy.
      * 
      * The following arguments are optional:
      * 
@@ -133,7 +133,7 @@ public class AgentcoreResourcePolicy extends com.pulumi.resources.CustomResource
     private Output<String> resourceArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the resource for which to create or update the resource policy.
+     * @return ARN of the resource for which to create or update the resource policy.
      * 
      * The following arguments are optional:
      * 

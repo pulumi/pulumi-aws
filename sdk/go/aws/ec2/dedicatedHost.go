@@ -69,7 +69,7 @@ type DedicatedHost struct {
 	InstanceFamily pulumi.StringPtrOutput `pulumi:"instanceFamily"`
 	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instanceFamily` or `instanceType` must be specified.
 	InstanceType pulumi.StringPtrOutput `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+	// ARN of the AWS Outpost on which to allocate the Dedicated Host.
 	OutpostArn pulumi.StringPtrOutput `pulumi:"outpostArn"`
 	// The ID of the AWS account that owns the Dedicated Host.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
@@ -128,7 +128,7 @@ type dedicatedHostState struct {
 	InstanceFamily *string `pulumi:"instanceFamily"`
 	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instanceFamily` or `instanceType` must be specified.
 	InstanceType *string `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+	// ARN of the AWS Outpost on which to allocate the Dedicated Host.
 	OutpostArn *string `pulumi:"outpostArn"`
 	// The ID of the AWS account that owns the Dedicated Host.
 	OwnerId *string `pulumi:"ownerId"`
@@ -155,7 +155,7 @@ type DedicatedHostState struct {
 	InstanceFamily pulumi.StringPtrInput
 	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instanceFamily` or `instanceType` must be specified.
 	InstanceType pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+	// ARN of the AWS Outpost on which to allocate the Dedicated Host.
 	OutpostArn pulumi.StringPtrInput
 	// The ID of the AWS account that owns the Dedicated Host.
 	OwnerId pulumi.StringPtrInput
@@ -184,7 +184,7 @@ type dedicatedHostArgs struct {
 	InstanceFamily *string `pulumi:"instanceFamily"`
 	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instanceFamily` or `instanceType` must be specified.
 	InstanceType *string `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+	// ARN of the AWS Outpost on which to allocate the Dedicated Host.
 	OutpostArn *string `pulumi:"outpostArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -206,7 +206,7 @@ type DedicatedHostArgs struct {
 	InstanceFamily pulumi.StringPtrInput
 	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instanceFamily` or `instanceType` must be specified.
 	InstanceType pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+	// ARN of the AWS Outpost on which to allocate the Dedicated Host.
 	OutpostArn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -336,7 +336,7 @@ func (o DedicatedHostOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DedicatedHost) pulumi.StringPtrOutput { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+// ARN of the AWS Outpost on which to allocate the Dedicated Host.
 func (o DedicatedHostOutput) OutpostArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DedicatedHost) pulumi.StringPtrOutput { return v.OutpostArn }).(pulumi.StringPtrOutput)
 }

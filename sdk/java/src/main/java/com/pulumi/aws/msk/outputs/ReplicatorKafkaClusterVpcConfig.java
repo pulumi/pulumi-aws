@@ -18,7 +18,7 @@ public final class ReplicatorKafkaClusterVpcConfig {
      */
     private @Nullable List<String> securityGroupsIds;
     /**
-     * @return The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
+     * @return List of subnets to connect to in the VPC. AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
      * 
      */
     private List<String> subnetIds;
@@ -32,7 +32,7 @@ public final class ReplicatorKafkaClusterVpcConfig {
         return this.securityGroupsIds == null ? List.of() : this.securityGroupsIds;
     }
     /**
-     * @return The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
+     * @return List of subnets to connect to in the VPC. AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
      * 
      */
     public List<String> subnetIds() {

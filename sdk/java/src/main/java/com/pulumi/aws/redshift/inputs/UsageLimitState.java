@@ -33,14 +33,14 @@ public final class UsageLimitState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Redshift Usage Limit.
+     * ARN of the Redshift Usage Limit.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Redshift Usage Limit.
+     * @return ARN of the Redshift Usage Limit.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -222,7 +222,7 @@ public final class UsageLimitState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Redshift Usage Limit.
+         * @param arn ARN of the Redshift Usage Limit.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class UsageLimitState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Redshift Usage Limit.
+         * @param arn ARN of the Redshift Usage Limit.
          * 
          * @return builder
          * 

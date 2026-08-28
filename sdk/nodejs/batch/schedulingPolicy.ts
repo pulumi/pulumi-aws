@@ -75,7 +75,7 @@ export class SchedulingPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name of the scheduling policy.
+     * ARN of the scheduling policy.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     declare public readonly fairSharePolicy: pulumi.Output<outputs.batch.SchedulingPolicyFairSharePolicy | undefined>;
@@ -134,7 +134,7 @@ export class SchedulingPolicy extends pulumi.CustomResource {
  */
 export interface SchedulingPolicyState {
     /**
-     * The Amazon Resource Name of the scheduling policy.
+     * ARN of the scheduling policy.
      */
     arn?: pulumi.Input<string | undefined>;
     fairSharePolicy?: pulumi.Input<inputs.batch.SchedulingPolicyFairSharePolicy | undefined>;

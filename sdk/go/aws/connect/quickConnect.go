@@ -64,7 +64,7 @@ import (
 type QuickConnect struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the Quick Connect.
+	// ARN of the Quick Connect.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies the description of the Quick Connect.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -120,7 +120,7 @@ func GetQuickConnect(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering QuickConnect resources.
 type quickConnectState struct {
-	// The Amazon Resource Name (ARN) of the Quick Connect.
+	// ARN of the Quick Connect.
 	Arn *string `pulumi:"arn"`
 	// Specifies the description of the Quick Connect.
 	Description *string `pulumi:"description"`
@@ -141,7 +141,7 @@ type quickConnectState struct {
 }
 
 type QuickConnectState struct {
-	// The Amazon Resource Name (ARN) of the Quick Connect.
+	// ARN of the Quick Connect.
 	Arn pulumi.StringPtrInput
 	// Specifies the description of the Quick Connect.
 	Description pulumi.StringPtrInput
@@ -283,7 +283,7 @@ func (o QuickConnectOutput) ToQuickConnectOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Quick Connect.
+// ARN of the Quick Connect.
 func (o QuickConnectOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *QuickConnect) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

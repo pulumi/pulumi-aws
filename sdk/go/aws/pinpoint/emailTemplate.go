@@ -64,7 +64,7 @@ import (
 type EmailTemplate struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the message template.
+	// ARN of the message template.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Content and settings for a message template that can be used in messages that are sent through the email channel. See below.
 	//
@@ -115,7 +115,7 @@ func GetEmailTemplate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EmailTemplate resources.
 type emailTemplateState struct {
-	// Amazon Resource Name (ARN) of the message template.
+	// ARN of the message template.
 	Arn *string `pulumi:"arn"`
 	// Content and settings for a message template that can be used in messages that are sent through the email channel. See below.
 	//
@@ -134,7 +134,7 @@ type emailTemplateState struct {
 }
 
 type EmailTemplateState struct {
-	// Amazon Resource Name (ARN) of the message template.
+	// ARN of the message template.
 	Arn pulumi.StringPtrInput
 	// Content and settings for a message template that can be used in messages that are sent through the email channel. See below.
 	//
@@ -274,7 +274,7 @@ func (o EmailTemplateOutput) ToEmailTemplateOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Amazon Resource Name (ARN) of the message template.
+// ARN of the message template.
 func (o EmailTemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailTemplate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

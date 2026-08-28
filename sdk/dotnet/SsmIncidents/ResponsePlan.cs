@@ -194,7 +194,7 @@ namespace Pulumi.Aws.SsmIncidents
         public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+        /// ARN for the contacts and escalation plans that the response plan engages during an incident.
         /// </summary>
         [Output("engagements")]
         public Output<ImmutableArray<string>> Engagements { get; private set; } = null!;
@@ -309,7 +309,7 @@ namespace Pulumi.Aws.SsmIncidents
         private InputList<string>? _engagements;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+        /// ARN for the contacts and escalation plans that the response plan engages during an incident.
         /// </summary>
         public InputList<string> Engagements
         {
@@ -395,7 +395,7 @@ namespace Pulumi.Aws.SsmIncidents
         private InputList<string>? _engagements;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+        /// ARN for the contacts and escalation plans that the response plan engages during an incident.
         /// </summary>
         public InputList<string> Engagements
         {

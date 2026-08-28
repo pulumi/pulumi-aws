@@ -667,10 +667,9 @@ func (o GetTransitGatewayRouteTablesFilterArrayOutput) Index(i pulumi.IntInput) 
 type GetVpcCidrBlockAssociation struct {
 	// Association ID for the IPv4 CIDR block.
 	AssociationId string `pulumi:"associationId"`
-	// Cidr block of the desired VPC.
+	// CIDR block of the desired VPC.
 	CidrBlock string `pulumi:"cidrBlock"`
-	// Current state of the desired VPC.
-	// Can be either `"pending"` or `"available"`.
+	// Current state of the desired VPC. Can be either `"pending"` or `"available"`.
 	State string `pulumi:"state"`
 }
 
@@ -688,10 +687,9 @@ type GetVpcCidrBlockAssociationInput interface {
 type GetVpcCidrBlockAssociationArgs struct {
 	// Association ID for the IPv4 CIDR block.
 	AssociationId pulumi.StringInput `pulumi:"associationId"`
-	// Cidr block of the desired VPC.
+	// CIDR block of the desired VPC.
 	CidrBlock pulumi.StringInput `pulumi:"cidrBlock"`
-	// Current state of the desired VPC.
-	// Can be either `"pending"` or `"available"`.
+	// Current state of the desired VPC. Can be either `"pending"` or `"available"`.
 	State pulumi.StringInput `pulumi:"state"`
 }
 
@@ -751,13 +749,12 @@ func (o GetVpcCidrBlockAssociationOutput) AssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcCidrBlockAssociation) string { return v.AssociationId }).(pulumi.StringOutput)
 }
 
-// Cidr block of the desired VPC.
+// CIDR block of the desired VPC.
 func (o GetVpcCidrBlockAssociationOutput) CidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcCidrBlockAssociation) string { return v.CidrBlock }).(pulumi.StringOutput)
 }
 
-// Current state of the desired VPC.
-// Can be either `"pending"` or `"available"`.
+// Current state of the desired VPC. Can be either `"pending"` or `"available"`.
 func (o GetVpcCidrBlockAssociationOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcCidrBlockAssociation) string { return v.State }).(pulumi.StringOutput)
 }
@@ -1343,11 +1340,9 @@ func (o GetVpcEndpointServiceFilterArrayOutput) Index(i pulumi.IntInput) GetVpcE
 }
 
 type GetVpcFilter struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
+	// Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
 	Name string `pulumi:"name"`
-	// Set of values that are accepted for the given field.
-	// A VPC will be selected if any one of the given values matches.
+	// Set of values that are accepted for the given field. A VPC will be selected if any one of the given values matches.
 	Values []string `pulumi:"values"`
 }
 
@@ -1363,11 +1358,9 @@ type GetVpcFilterInput interface {
 }
 
 type GetVpcFilterArgs struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
+	// Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
 	Name pulumi.StringInput `pulumi:"name"`
-	// Set of values that are accepted for the given field.
-	// A VPC will be selected if any one of the given values matches.
+	// Set of values that are accepted for the given field. A VPC will be selected if any one of the given values matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -1422,14 +1415,12 @@ func (o GetVpcFilterOutput) ToGetVpcFilterOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Name of the field to filter by, as defined by
-// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
+// Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
 func (o GetVpcFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Set of values that are accepted for the given field.
-// A VPC will be selected if any one of the given values matches.
+// Set of values that are accepted for the given field. A VPC will be selected if any one of the given values matches.
 func (o GetVpcFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVpcFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -2787,9 +2778,9 @@ func (o GetVpcIpamsIpamOperatingRegionArrayOutput) Index(i pulumi.IntInput) GetV
 type GetVpcIpv6CidrBlockAssociationType struct {
 	// Association ID for the IPv4 CIDR block.
 	AssociationId string `pulumi:"associationId"`
-	// The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
+	// Source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
 	IpSource string `pulumi:"ipSource"`
-	// Indicates whether the address is `public` or `private`.
+	// Whether the address is `public` or `private`.
 	Ipv6AddressAttribute string `pulumi:"ipv6AddressAttribute"`
 	// IPv6 CIDR block for the association.
 	Ipv6CidrBlock string `pulumi:"ipv6CidrBlock"`
@@ -2797,8 +2788,7 @@ type GetVpcIpv6CidrBlockAssociationType struct {
 	Ipv6Pool string `pulumi:"ipv6Pool"`
 	// Name of association's network border group.
 	NetworkBorderGroup string `pulumi:"networkBorderGroup"`
-	// Current state of the desired VPC.
-	// Can be either `"pending"` or `"available"`.
+	// Current state of the desired VPC. Can be either `"pending"` or `"available"`.
 	State string `pulumi:"state"`
 }
 
@@ -2816,9 +2806,9 @@ type GetVpcIpv6CidrBlockAssociationTypeInput interface {
 type GetVpcIpv6CidrBlockAssociationTypeArgs struct {
 	// Association ID for the IPv4 CIDR block.
 	AssociationId pulumi.StringInput `pulumi:"associationId"`
-	// The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
+	// Source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
 	IpSource pulumi.StringInput `pulumi:"ipSource"`
-	// Indicates whether the address is `public` or `private`.
+	// Whether the address is `public` or `private`.
 	Ipv6AddressAttribute pulumi.StringInput `pulumi:"ipv6AddressAttribute"`
 	// IPv6 CIDR block for the association.
 	Ipv6CidrBlock pulumi.StringInput `pulumi:"ipv6CidrBlock"`
@@ -2826,8 +2816,7 @@ type GetVpcIpv6CidrBlockAssociationTypeArgs struct {
 	Ipv6Pool pulumi.StringInput `pulumi:"ipv6Pool"`
 	// Name of association's network border group.
 	NetworkBorderGroup pulumi.StringInput `pulumi:"networkBorderGroup"`
-	// Current state of the desired VPC.
-	// Can be either `"pending"` or `"available"`.
+	// Current state of the desired VPC. Can be either `"pending"` or `"available"`.
 	State pulumi.StringInput `pulumi:"state"`
 }
 
@@ -2887,12 +2876,12 @@ func (o GetVpcIpv6CidrBlockAssociationTypeOutput) AssociationId() pulumi.StringO
 	return o.ApplyT(func(v GetVpcIpv6CidrBlockAssociationType) string { return v.AssociationId }).(pulumi.StringOutput)
 }
 
-// The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
+// Source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
 func (o GetVpcIpv6CidrBlockAssociationTypeOutput) IpSource() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpv6CidrBlockAssociationType) string { return v.IpSource }).(pulumi.StringOutput)
 }
 
-// Indicates whether the address is `public` or `private`.
+// Whether the address is `public` or `private`.
 func (o GetVpcIpv6CidrBlockAssociationTypeOutput) Ipv6AddressAttribute() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpv6CidrBlockAssociationType) string { return v.Ipv6AddressAttribute }).(pulumi.StringOutput)
 }
@@ -2912,8 +2901,7 @@ func (o GetVpcIpv6CidrBlockAssociationTypeOutput) NetworkBorderGroup() pulumi.St
 	return o.ApplyT(func(v GetVpcIpv6CidrBlockAssociationType) string { return v.NetworkBorderGroup }).(pulumi.StringOutput)
 }
 
-// Current state of the desired VPC.
-// Can be either `"pending"` or `"available"`.
+// Current state of the desired VPC. Can be either `"pending"` or `"available"`.
 func (o GetVpcIpv6CidrBlockAssociationTypeOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpv6CidrBlockAssociationType) string { return v.State }).(pulumi.StringOutput)
 }

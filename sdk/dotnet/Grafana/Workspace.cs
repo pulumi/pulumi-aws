@@ -119,7 +119,7 @@ namespace Pulumi.Aws.Grafana
         public Output<string> AccountAccessType { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Grafana workspace.
+        /// ARN of the Grafana workspace.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -444,7 +444,7 @@ namespace Pulumi.Aws.Grafana
         public Input<string>? AccountAccessType { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Grafana workspace.
+        /// ARN of the Grafana workspace.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

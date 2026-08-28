@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Synthetics
     public partial class Canary : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Canary.
+        /// ARN of the Canary.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -381,7 +381,7 @@ namespace Pulumi.Aws.Synthetics
     public sealed class CanaryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Canary.
+        /// ARN of the Canary.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

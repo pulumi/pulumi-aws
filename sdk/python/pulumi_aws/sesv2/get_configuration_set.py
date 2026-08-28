@@ -65,6 +65,9 @@ class GetConfigurationSetResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
+        """
+        ARN of the configuration set.
+        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -76,7 +79,7 @@ class GetConfigurationSetResult:
     @pulumi.getter(name="deliveryOptions")
     def delivery_options(self) -> Sequence['outputs.GetConfigurationSetDeliveryOptionResult']:
         """
-        An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
+        Object that defines the dedicated IP pool used to send emails with the configuration set.
         """
         return pulumi.get(self, "delivery_options")
 
@@ -97,7 +100,7 @@ class GetConfigurationSetResult:
     @pulumi.getter(name="reputationOptions")
     def reputation_options(self) -> Sequence['outputs.GetConfigurationSetReputationOptionResult']:
         """
-        An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
+        Object that defines whether Amazon SES collects reputation metrics for emails sent with the configuration set.
         """
         return pulumi.get(self, "reputation_options")
 
@@ -105,7 +108,7 @@ class GetConfigurationSetResult:
     @pulumi.getter(name="sendingOptions")
     def sending_options(self) -> Sequence['outputs.GetConfigurationSetSendingOptionResult']:
         """
-        An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+        Object that defines whether Amazon SES can send email sent with the configuration set.
         """
         return pulumi.get(self, "sending_options")
 
@@ -113,7 +116,7 @@ class GetConfigurationSetResult:
     @pulumi.getter(name="suppressionOptions")
     def suppression_options(self) -> Sequence['outputs.GetConfigurationSetSuppressionOptionResult']:
         """
-        An object that contains information about the suppression list preferences for your account.
+        Object that contains information about the suppression list preferences for your account.
         """
         return pulumi.get(self, "suppression_options")
 
@@ -121,7 +124,7 @@ class GetConfigurationSetResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
         """
-        Key-value map of resource tags for the container recipe.
+        Key-value map of resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -129,7 +132,7 @@ class GetConfigurationSetResult:
     @pulumi.getter(name="trackingOptions")
     def tracking_options(self) -> Sequence['outputs.GetConfigurationSetTrackingOptionResult']:
         """
-        An object that defines the open and click tracking options for emails that you send using the configuration set.
+        Object that defines the open and click tracking options for emails sent with the configuration set.
         """
         return pulumi.get(self, "tracking_options")
 
@@ -137,7 +140,7 @@ class GetConfigurationSetResult:
     @pulumi.getter(name="vdmOptions")
     def vdm_options(self) -> Sequence['outputs.GetConfigurationSetVdmOptionResult']:
         """
-        An object that contains information about the VDM preferences for your configuration set.
+        Object that contains information about the VDM preferences for your configuration set.
         """
         return pulumi.get(self, "vdm_options")
 
@@ -180,9 +183,9 @@ def get_configuration_set(configuration_set_name: Optional[_builtins.str] = None
     ```
 
 
-    :param _builtins.str configuration_set_name: The name of the configuration set.
+    :param _builtins.str configuration_set_name: Name of the configuration set.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags for the container recipe.
+    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags.
     """
     __args__ = dict()
     __args__['configurationSetName'] = configuration_set_name
@@ -222,9 +225,9 @@ def get_configuration_set_output(configuration_set_name: pulumi.Input[Optional[_
     ```
 
 
-    :param _builtins.str configuration_set_name: The name of the configuration set.
+    :param _builtins.str configuration_set_name: Name of the configuration set.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags for the container recipe.
+    :param Mapping[str, _builtins.str] tags: Key-value map of resource tags.
     """
     __args__ = dict()
     __args__['configurationSetName'] = configuration_set_name

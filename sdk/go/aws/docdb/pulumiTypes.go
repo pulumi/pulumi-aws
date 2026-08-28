@@ -763,7 +763,7 @@ func (o ElasticClusterTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type GlobalClusterGlobalClusterMember struct {
-	// Amazon Resource Name (ARN) of member DB Cluster.
+	// ARN of member DB Cluster.
 	DbClusterArn *string `pulumi:"dbClusterArn"`
 	// Whether the member is the primary DB Cluster.
 	IsWriter *bool `pulumi:"isWriter"`
@@ -781,7 +781,7 @@ type GlobalClusterGlobalClusterMemberInput interface {
 }
 
 type GlobalClusterGlobalClusterMemberArgs struct {
-	// Amazon Resource Name (ARN) of member DB Cluster.
+	// ARN of member DB Cluster.
 	DbClusterArn pulumi.StringPtrInput `pulumi:"dbClusterArn"`
 	// Whether the member is the primary DB Cluster.
 	IsWriter pulumi.BoolPtrInput `pulumi:"isWriter"`
@@ -838,7 +838,7 @@ func (o GlobalClusterGlobalClusterMemberOutput) ToGlobalClusterGlobalClusterMemb
 	return o
 }
 
-// Amazon Resource Name (ARN) of member DB Cluster.
+// ARN of member DB Cluster.
 func (o GlobalClusterGlobalClusterMemberOutput) DbClusterArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalClusterGlobalClusterMember) *string { return v.DbClusterArn }).(pulumi.StringPtrOutput)
 }

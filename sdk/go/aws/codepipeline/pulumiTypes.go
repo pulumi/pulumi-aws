@@ -671,7 +671,7 @@ func (o CustomActionTypeSettingsPtrOutput) ThirdPartyConfigurationUrl() pulumi.S
 }
 
 type PipelineArtifactStore struct {
-	// The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryptionKey` block is documented below.
+	// Encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as a KMS key. If you don't specify a key, AWS CodePipeline uses the default key for S3. An `encryptionKey` block is documented below.
 	EncryptionKey *PipelineArtifactStoreEncryptionKey `pulumi:"encryptionKey"`
 	// The location where AWS CodePipeline stores artifacts for a pipeline; currently only `S3` is supported.
 	Location string `pulumi:"location"`
@@ -693,7 +693,7 @@ type PipelineArtifactStoreInput interface {
 }
 
 type PipelineArtifactStoreArgs struct {
-	// The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryptionKey` block is documented below.
+	// Encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as a KMS key. If you don't specify a key, AWS CodePipeline uses the default key for S3. An `encryptionKey` block is documented below.
 	EncryptionKey PipelineArtifactStoreEncryptionKeyPtrInput `pulumi:"encryptionKey"`
 	// The location where AWS CodePipeline stores artifacts for a pipeline; currently only `S3` is supported.
 	Location pulumi.StringInput `pulumi:"location"`
@@ -754,7 +754,7 @@ func (o PipelineArtifactStoreOutput) ToPipelineArtifactStoreOutputWithContext(ct
 	return o
 }
 
-// The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryptionKey` block is documented below.
+// Encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as a KMS key. If you don't specify a key, AWS CodePipeline uses the default key for S3. An `encryptionKey` block is documented below.
 func (o PipelineArtifactStoreOutput) EncryptionKey() PipelineArtifactStoreEncryptionKeyPtrOutput {
 	return o.ApplyT(func(v PipelineArtifactStore) *PipelineArtifactStoreEncryptionKey { return v.EncryptionKey }).(PipelineArtifactStoreEncryptionKeyPtrOutput)
 }

@@ -137,7 +137,7 @@ namespace Pulumi.Aws.SecretsManager
         public Output<string?> SecretBinary { get; private set; } = null!;
 
         /// <summary>
-        /// Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+        /// Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
         /// </summary>
         [Output("secretId")]
         public Output<string> SecretId { get; private set; } = null!;
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.SecretsManager
         }
 
         /// <summary>
-        /// Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+        /// Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
         /// </summary>
         [Input("secretId", required: true)]
         public Input<string> SecretId { get; set; } = null!;
@@ -357,7 +357,7 @@ namespace Pulumi.Aws.SecretsManager
         }
 
         /// <summary>
-        /// Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+        /// Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
         /// </summary>
         [Input("secretId")]
         public Input<string>? SecretId { get; set; }

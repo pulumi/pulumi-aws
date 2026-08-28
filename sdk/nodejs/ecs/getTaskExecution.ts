@@ -71,7 +71,7 @@ export interface GetTaskExecutionArgs {
      */
     clientToken?: string;
     /**
-     * Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
+     * Short name or full ARN of the cluster to run the task on.
      */
     cluster: string;
     /**
@@ -238,7 +238,7 @@ export interface GetTaskExecutionOutputArgs {
      */
     clientToken?: pulumi.Input<string | undefined>;
     /**
-     * Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
+     * Short name or full ARN of the cluster to run the task on.
      */
     cluster: pulumi.Input<string>;
     /**

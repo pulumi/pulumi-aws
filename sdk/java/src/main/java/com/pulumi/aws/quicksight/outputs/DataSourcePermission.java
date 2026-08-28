@@ -17,7 +17,7 @@ public final class DataSourcePermission {
      */
     private List<String> actions;
     /**
-     * @return The Amazon Resource Name (ARN) of the principal.
+     * @return ARN of the principal.
      * 
      */
     private String principal;
@@ -31,7 +31,7 @@ public final class DataSourcePermission {
         return this.actions;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the principal.
+     * @return ARN of the principal.
      * 
      */
     public String principal() {

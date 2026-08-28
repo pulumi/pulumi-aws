@@ -15,14 +15,14 @@ public final class GetDistributionTenantPlainArgs extends com.pulumi.resources.I
     public static final GetDistributionTenantPlainArgs Empty = new GetDistributionTenantPlainArgs();
 
     /**
-     * ARN (Amazon Resource Name) for the distribution tenant.
+     * ARN for the distribution tenant.
      * 
      */
     @Import(name="arn")
     private @Nullable String arn;
 
     /**
-     * @return ARN (Amazon Resource Name) for the distribution tenant.
+     * @return ARN for the distribution tenant.
      * 
      */
     public Optional<String> arn() {
@@ -94,7 +94,7 @@ public final class GetDistributionTenantPlainArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param arn ARN (Amazon Resource Name) for the distribution tenant.
+         * @param arn ARN for the distribution tenant.
          * 
          * @return builder
          * 

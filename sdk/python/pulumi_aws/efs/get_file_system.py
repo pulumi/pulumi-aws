@@ -87,7 +87,7 @@ class GetFileSystemResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        Amazon Resource Name of the file system.
+        ARN of the file system.
         """
         return pulumi.get(self, "arn")
 

@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Adds a launch permission to an Amazon Machine Image (AMI).
+// Adds a launch permission to an AMI.
 //
 // ## Example Usage
 //

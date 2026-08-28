@@ -51,7 +51,7 @@ namespace Pulumi.Aws.SesV2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
+        /// Reasons that email addresses are automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
         /// </summary>
         [Output("suppressedReasons")]
         public Output<ImmutableArray<string>> SuppressedReasons { get; private set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.SesV2
         private InputList<string>? _suppressedReasons;
 
         /// <summary>
-        /// A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
+        /// Reasons that email addresses are automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
         /// </summary>
         public InputList<string> SuppressedReasons
         {
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.SesV2
         private InputList<string>? _suppressedReasons;
 
         /// <summary>
-        /// A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
+        /// Reasons that email addresses are automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
         /// </summary>
         public InputList<string> SuppressedReasons
         {

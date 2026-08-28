@@ -56,7 +56,7 @@ namespace Pulumi.Aws.DataSync
     public partial class FsxOpenZfsFileSystem : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the DataSync Location.
+        /// ARN of the DataSync Location.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.Aws.DataSync
         public Output<string> CreationTime { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.
+        /// ARN for the FSx for OpenZfs file system.
         /// </summary>
         [Output("fsxFilesystemArn")]
         public Output<string> FsxFilesystemArn { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.Aws.DataSync
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
+        /// ARNs of the security groups that are to use to configure the FSx for openzfs file system.
         /// </summary>
         [Output("securityGroupArns")]
         public Output<ImmutableArray<string>> SecurityGroupArns { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.DataSync
     public sealed class FsxOpenZfsFileSystemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.
+        /// ARN for the FSx for OpenZfs file system.
         /// </summary>
         [Input("fsxFilesystemArn", required: true)]
         public Input<string> FsxFilesystemArn { get; set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.DataSync
         private InputList<string>? _securityGroupArns;
 
         /// <summary>
-        /// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
+        /// ARNs of the security groups that are to use to configure the FSx for openzfs file system.
         /// </summary>
         public InputList<string> SecurityGroupArns
         {
@@ -218,7 +218,7 @@ namespace Pulumi.Aws.DataSync
     public sealed class FsxOpenZfsFileSystemState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the DataSync Location.
+        /// ARN of the DataSync Location.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -230,7 +230,7 @@ namespace Pulumi.Aws.DataSync
         public Input<string>? CreationTime { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.
+        /// ARN for the FSx for OpenZfs file system.
         /// </summary>
         [Input("fsxFilesystemArn")]
         public Input<string>? FsxFilesystemArn { get; set; }
@@ -251,7 +251,7 @@ namespace Pulumi.Aws.DataSync
         private InputList<string>? _securityGroupArns;
 
         /// <summary>
-        /// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
+        /// ARNs of the security groups that are to use to configure the FSx for openzfs file system.
         /// </summary>
         public InputList<string> SecurityGroupArns
         {

@@ -17,14 +17,14 @@ public final class UserHierarchyStructureHierarchyStructureLevelThreeArgs extend
     public static final UserHierarchyStructureHierarchyStructureLevelThreeArgs Empty = new UserHierarchyStructureHierarchyStructureLevelThreeArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the hierarchy level.
+     * The ARN of the hierarchy level.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the hierarchy level.
+     * @return The ARN of the hierarchy level.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -88,7 +88,7 @@ public final class UserHierarchyStructureHierarchyStructureLevelThreeArgs extend
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the hierarchy level.
+         * @param arn The ARN of the hierarchy level.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class UserHierarchyStructureHierarchyStructureLevelThreeArgs extend
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the hierarchy level.
+         * @param arn The ARN of the hierarchy level.
          * 
          * @return builder
          * 

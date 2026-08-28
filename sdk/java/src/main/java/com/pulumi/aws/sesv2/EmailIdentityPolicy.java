@@ -93,14 +93,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy")
 public class EmailIdentityPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The email identity.
+     * Email identity.
      * 
      */
     @Export(name="emailIdentity", refs={String.class}, tree="[0]")
     private Output<String> emailIdentity;
 
     /**
-     * @return The email identity.
+     * @return Email identity.
      * 
      */
     public Output<String> emailIdentity() {

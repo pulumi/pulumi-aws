@@ -949,14 +949,14 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
+     * AMI ID of the instance. See String Filter below for more details.
      * 
      */
     @Import(name="resourceAwsEc2InstanceImageIds")
     private @Nullable Output<List<InsightFiltersResourceAwsEc2InstanceImageIdArgs>> resourceAwsEc2InstanceImageIds;
 
     /**
-     * @return The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
+     * @return AMI ID of the instance. See String Filter below for more details.
      * 
      */
     public Optional<Output<List<InsightFiltersResourceAwsEc2InstanceImageIdArgs>>> resourceAwsEc2InstanceImageIds() {
@@ -3356,7 +3356,7 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param resourceAwsEc2InstanceImageIds The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
+         * @param resourceAwsEc2InstanceImageIds AMI ID of the instance. See String Filter below for more details.
          * 
          * @return builder
          * 
@@ -3367,7 +3367,7 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param resourceAwsEc2InstanceImageIds The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
+         * @param resourceAwsEc2InstanceImageIds AMI ID of the instance. See String Filter below for more details.
          * 
          * @return builder
          * 
@@ -3377,7 +3377,7 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param resourceAwsEc2InstanceImageIds The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
+         * @param resourceAwsEc2InstanceImageIds AMI ID of the instance. See String Filter below for more details.
          * 
          * @return builder
          * 

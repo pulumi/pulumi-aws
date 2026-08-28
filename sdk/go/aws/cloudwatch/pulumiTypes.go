@@ -464,7 +464,7 @@ func (o AlarmMuteRuleRuleSchedulePtrOutput) Timezone() pulumi.StringPtrOutput {
 }
 
 type CompositeAlarmActionsSuppressor struct {
-	// Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+	// Can be an AlarmName or an ARN from an existing alarm.
 	Alarm string `pulumi:"alarm"`
 	// The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
 	ExtensionPeriod int `pulumi:"extensionPeriod"`
@@ -484,7 +484,7 @@ type CompositeAlarmActionsSuppressorInput interface {
 }
 
 type CompositeAlarmActionsSuppressorArgs struct {
-	// Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+	// Can be an AlarmName or an ARN from an existing alarm.
 	Alarm pulumi.StringInput `pulumi:"alarm"`
 	// The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
 	ExtensionPeriod pulumi.IntInput `pulumi:"extensionPeriod"`
@@ -569,7 +569,7 @@ func (o CompositeAlarmActionsSuppressorOutput) ToCompositeAlarmActionsSuppressor
 	}).(CompositeAlarmActionsSuppressorPtrOutput)
 }
 
-// Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+// Can be an AlarmName or an ARN from an existing alarm.
 func (o CompositeAlarmActionsSuppressorOutput) Alarm() pulumi.StringOutput {
 	return o.ApplyT(func(v CompositeAlarmActionsSuppressor) string { return v.Alarm }).(pulumi.StringOutput)
 }
@@ -608,7 +608,7 @@ func (o CompositeAlarmActionsSuppressorPtrOutput) Elem() CompositeAlarmActionsSu
 	}).(CompositeAlarmActionsSuppressorOutput)
 }
 
-// Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+// Can be an AlarmName or an ARN from an existing alarm.
 func (o CompositeAlarmActionsSuppressorPtrOutput) Alarm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CompositeAlarmActionsSuppressor) *string {
 		if v == nil {

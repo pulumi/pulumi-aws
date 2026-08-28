@@ -420,7 +420,7 @@ class SigningProfileSignatureValidityPeriodArgs:
 class SigningProfileSigningMaterialArgsDict(TypedDict):
     certificate_arn: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
+    ARN of the certificates that is used to sign your code.
     """
 
 @pulumi.input_type
@@ -428,7 +428,7 @@ class SigningProfileSigningMaterialArgs:
     def __init__(__self__, *,
                  certificate_arn: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] certificate_arn: The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
+        :param pulumi.Input[_builtins.str] certificate_arn: ARN of the certificates that is used to sign your code.
         """
         pulumi.set(__self__, "certificate_arn", certificate_arn)
 
@@ -436,7 +436,7 @@ class SigningProfileSigningMaterialArgs:
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
+        ARN of the certificates that is used to sign your code.
         """
         return pulumi.get(self, "certificate_arn")
 

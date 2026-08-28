@@ -73,7 +73,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -161,7 +161,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly rootVolumeId: pulumi.Output<string>;
     /**
-     * (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
+     * (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
      */
     declare public readonly routeTableIds: pulumi.Output<string[]>;
     /**
@@ -199,7 +199,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
      */
     declare public readonly throughputCapacity: pulumi.Output<number>;
     /**
-     * Identifier of the Virtual Private Cloud for the file system.
+     * Identifier of the VPC for the file system.
      */
     declare public /*out*/ readonly vpcId: pulumi.Output<string>;
     /**
@@ -308,7 +308,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
  */
 export interface OpenZfsFileSystemState {
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -396,7 +396,7 @@ export interface OpenZfsFileSystemState {
      */
     rootVolumeId?: pulumi.Input<string | undefined>;
     /**
-     * (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
+     * (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
      */
     routeTableIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -434,7 +434,7 @@ export interface OpenZfsFileSystemState {
      */
     throughputCapacity?: pulumi.Input<number | undefined>;
     /**
-     * Identifier of the Virtual Private Cloud for the file system.
+     * Identifier of the VPC for the file system.
      */
     vpcId?: pulumi.Input<string | undefined>;
     /**
@@ -512,7 +512,7 @@ export interface OpenZfsFileSystemArgs {
      */
     rootVolumeConfiguration?: pulumi.Input<inputs.fsx.OpenZfsFileSystemRootVolumeConfiguration | undefined>;
     /**
-     * (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
+     * (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
      */
     routeTableIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

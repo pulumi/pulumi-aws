@@ -52,7 +52,7 @@ import (
 type OpenZfsVolume struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name of the file system.
+	// ARN of the file system.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Whether tags for the file system should be copied to snapshots. Default is false.
 	CopyTagsToSnapshots pulumi.BoolPtrOutput `pulumi:"copyTagsToSnapshots"`
@@ -121,7 +121,7 @@ func GetOpenZfsVolume(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OpenZfsVolume resources.
 type openZfsVolumeState struct {
-	// Amazon Resource Name of the file system.
+	// ARN of the file system.
 	Arn *string `pulumi:"arn"`
 	// Whether tags for the file system should be copied to snapshots. Default is false.
 	CopyTagsToSnapshots *bool `pulumi:"copyTagsToSnapshots"`
@@ -158,7 +158,7 @@ type openZfsVolumeState struct {
 }
 
 type OpenZfsVolumeState struct {
-	// Amazon Resource Name of the file system.
+	// ARN of the file system.
 	Arn pulumi.StringPtrInput
 	// Whether tags for the file system should be copied to snapshots. Default is false.
 	CopyTagsToSnapshots pulumi.BoolPtrInput
@@ -352,7 +352,7 @@ func (o OpenZfsVolumeOutput) ToOpenZfsVolumeOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Amazon Resource Name of the file system.
+// ARN of the file system.
 func (o OpenZfsVolumeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

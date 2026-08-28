@@ -180,28 +180,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ssoadmin/accountAssignment:AccountAssignment")
 public class AccountAssignment extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance.
+     * ARN of the SSO Instance.
      * 
      */
     @Export(name="instanceArn", refs={String.class}, tree="[0]")
     private Output<String> instanceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the SSO Instance.
+     * @return ARN of the SSO Instance.
      * 
      */
     public Output<String> instanceArn() {
         return this.instanceArn;
     }
     /**
-     * The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+     * ARN of the Permission Set that the admin wants to grant the principal access to.
      * 
      */
     @Export(name="permissionSetArn", refs={String.class}, tree="[0]")
     private Output<String> permissionSetArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+     * @return ARN of the Permission Set that the admin wants to grant the principal access to.
      * 
      */
     public Output<String> permissionSetArn() {

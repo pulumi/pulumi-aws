@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS EC2 (Elastic Compute Cloud) VPC Block Public Access Exclusion.
+// Resource for managing an AWS EC2 VPC Block Public Access Exclusion.
 //
 // ## Example Usage
 //
@@ -91,7 +91,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import EC2 (Elastic Compute Cloud) VPC Block Public Access Exclusion using the `id`. For example:
+// Using `pulumi import`, import EC2 VPC Block Public Access Exclusion using the `id`. For example:
 //
 // ```sh
 // $ pulumi import aws:ec2/vpcBlockPublicAccessExclusion:VpcBlockPublicAccessExclusion example vpcbpa-exclude-1234abcd
@@ -105,7 +105,7 @@ type VpcBlockPublicAccessExclusion struct {
 	InternetGatewayExclusionMode pulumi.StringOutput `pulumi:"internetGatewayExclusionMode"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) the excluded resource.
+	// ARN the excluded resource.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// Id of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
@@ -157,7 +157,7 @@ type vpcBlockPublicAccessExclusionState struct {
 	InternetGatewayExclusionMode *string `pulumi:"internetGatewayExclusionMode"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) the excluded resource.
+	// ARN the excluded resource.
 	ResourceArn *string `pulumi:"resourceArn"`
 	// Id of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
 	SubnetId *string `pulumi:"subnetId"`
@@ -177,7 +177,7 @@ type VpcBlockPublicAccessExclusionState struct {
 	InternetGatewayExclusionMode pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) the excluded resource.
+	// ARN the excluded resource.
 	ResourceArn pulumi.StringPtrInput
 	// Id of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
 	SubnetId pulumi.StringPtrInput
@@ -326,7 +326,7 @@ func (o VpcBlockPublicAccessExclusionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcBlockPublicAccessExclusion) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) the excluded resource.
+// ARN the excluded resource.
 func (o VpcBlockPublicAccessExclusionOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcBlockPublicAccessExclusion) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }

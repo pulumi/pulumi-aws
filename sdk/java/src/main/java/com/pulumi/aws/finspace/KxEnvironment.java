@@ -209,14 +209,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:finspace/kxEnvironment:KxEnvironment")
 public class KxEnvironment extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) identifier of the KX environment.
+     * ARN identifier of the KX environment.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) identifier of the KX environment.
+     * @return ARN identifier of the KX environment.
      * 
      */
     public Output<String> arn() {

@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetOrganizationalUnitDescendantAccountsAccount {
     /**
-     * @return The Amazon Resource Name (ARN) of the account.
+     * @return The ARN of the account.
      * 
      */
     private String arn;
@@ -57,7 +57,7 @@ public final class GetOrganizationalUnitDescendantAccountsAccount {
 
     private GetOrganizationalUnitDescendantAccountsAccount() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the account.
+     * @return The ARN of the account.
      * 
      */
     public String arn() {

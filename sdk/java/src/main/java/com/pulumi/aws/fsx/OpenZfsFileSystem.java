@@ -109,14 +109,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:fsx/openZfsFileSystem:OpenZfsFileSystem")
 public class OpenZfsFileSystem extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name of the file system.
+     * @return ARN of the file system.
      * 
      */
     public Output<String> arn() {
@@ -417,14 +417,14 @@ public class OpenZfsFileSystem extends com.pulumi.resources.CustomResource {
         return this.rootVolumeId;
     }
     /**
-     * (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
+     * (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
      * 
      */
     @Export(name="routeTableIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> routeTableIds;
 
     /**
-     * @return (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
+     * @return (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
      * 
      */
     public Output<List<String>> routeTableIds() {
@@ -547,14 +547,14 @@ public class OpenZfsFileSystem extends com.pulumi.resources.CustomResource {
         return this.throughputCapacity;
     }
     /**
-     * Identifier of the Virtual Private Cloud for the file system.
+     * Identifier of the VPC for the file system.
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
-     * @return Identifier of the Virtual Private Cloud for the file system.
+     * @return Identifier of the VPC for the file system.
      * 
      */
     public Output<String> vpcId() {

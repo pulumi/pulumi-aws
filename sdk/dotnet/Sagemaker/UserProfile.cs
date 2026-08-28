@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Sagemaker
     public partial class UserProfile : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The user profile Amazon Resource Name (ARN).
+        /// User profile ARN.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -219,7 +219,7 @@ namespace Pulumi.Aws.Sagemaker
     public sealed class UserProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The user profile Amazon Resource Name (ARN).
+        /// User profile ARN.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

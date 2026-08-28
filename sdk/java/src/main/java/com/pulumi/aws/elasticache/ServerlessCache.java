@@ -195,14 +195,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:elasticache/serverlessCache:ServerlessCache")
 public class ServerlessCache extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the serverless cache.
+     * ARN of the serverless cache.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the serverless cache.
+     * @return ARN of the serverless cache.
      * 
      */
     public Output<String> arn() {

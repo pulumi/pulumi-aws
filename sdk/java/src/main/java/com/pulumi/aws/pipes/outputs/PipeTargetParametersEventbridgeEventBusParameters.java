@@ -23,12 +23,12 @@ public final class PipeTargetParametersEventbridgeEventBusParameters {
      */
     private @Nullable String endpointId;
     /**
-     * @return List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
+     * @return List of AWS resources, identified by ARN, which the event primarily concerns. Any number, including zero, may be present.
      * 
      */
     private @Nullable List<String> resources;
     /**
-     * @return Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use &#39;smk://&#39; followed by the bootstrap server&#39;s address.
+     * @return Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use &#39;smk://&#39; followed by the bootstrap server&#39;s address.
      * 
      */
     private @Nullable String source;
@@ -54,14 +54,14 @@ public final class PipeTargetParametersEventbridgeEventBusParameters {
         return Optional.ofNullable(this.endpointId);
     }
     /**
-     * @return List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
+     * @return List of AWS resources, identified by ARN, which the event primarily concerns. Any number, including zero, may be present.
      * 
      */
     public List<String> resources() {
         return this.resources == null ? List.of() : this.resources;
     }
     /**
-     * @return Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use &#39;smk://&#39; followed by the bootstrap server&#39;s address.
+     * @return Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use &#39;smk://&#39; followed by the bootstrap server&#39;s address.
      * 
      */
     public Optional<String> source() {

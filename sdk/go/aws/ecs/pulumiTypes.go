@@ -1218,7 +1218,7 @@ type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequi
 	AcceleratorNames []string `pulumi:"acceleratorNames"`
 	// Minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory. Detailed below.
 	AcceleratorTotalMemoryMib *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMib"`
-	// Accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
+	// Accelerator types to include. You can specify `gpu` for GPUs, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
 	AcceleratorTypes []string `pulumi:"acceleratorTypes"`
 	// Instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified. Maximum of 400 instance types. You can specify instance type patterns using wildcards (e.g., `m5.*`).
 	AllowedInstanceTypes []string `pulumi:"allowedInstanceTypes"`
@@ -1280,7 +1280,7 @@ type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequi
 	AcceleratorNames pulumi.StringArrayInput `pulumi:"acceleratorNames"`
 	// Minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory. Detailed below.
 	AcceleratorTotalMemoryMib CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrInput `pulumi:"acceleratorTotalMemoryMib"`
-	// Accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
+	// Accelerator types to include. You can specify `gpu` for GPUs, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
 	AcceleratorTypes pulumi.StringArrayInput `pulumi:"acceleratorTypes"`
 	// Instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified. Maximum of 400 instance types. You can specify instance type patterns using wildcards (e.g., `m5.*`).
 	AllowedInstanceTypes pulumi.StringArrayInput `pulumi:"allowedInstanceTypes"`
@@ -1427,7 +1427,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
 }
 
-// Accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
+// Accelerator types to include. You can specify `gpu` for GPUs, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) AcceleratorTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
 		return v.AcceleratorTypes
@@ -1631,7 +1631,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
 }
 
-// Accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
+// Accelerator types to include. You can specify `gpu` for GPUs, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) AcceleratorTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -3985,7 +3985,7 @@ func (o ClusterConfigurationPtrOutput) ManagedStorageConfiguration() ClusterConf
 }
 
 type ClusterConfigurationExecuteCommandConfiguration struct {
-	// AWS Key Management Service key ID to encrypt the data between the local client and the container.
+	// KMS key ID to encrypt the data between the local client and the container.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Log configuration for the results of the execute command actions. Required when `logging` is `OVERRIDE`. See `logConfiguration` Block for details.
 	LogConfiguration *ClusterConfigurationExecuteCommandConfigurationLogConfiguration `pulumi:"logConfiguration"`
@@ -4005,7 +4005,7 @@ type ClusterConfigurationExecuteCommandConfigurationInput interface {
 }
 
 type ClusterConfigurationExecuteCommandConfigurationArgs struct {
-	// AWS Key Management Service key ID to encrypt the data between the local client and the container.
+	// KMS key ID to encrypt the data between the local client and the container.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// Log configuration for the results of the execute command actions. Required when `logging` is `OVERRIDE`. See `logConfiguration` Block for details.
 	LogConfiguration ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrInput `pulumi:"logConfiguration"`
@@ -4090,7 +4090,7 @@ func (o ClusterConfigurationExecuteCommandConfigurationOutput) ToClusterConfigur
 	}).(ClusterConfigurationExecuteCommandConfigurationPtrOutput)
 }
 
-// AWS Key Management Service key ID to encrypt the data between the local client and the container.
+// KMS key ID to encrypt the data between the local client and the container.
 func (o ClusterConfigurationExecuteCommandConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterConfigurationExecuteCommandConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -4131,7 +4131,7 @@ func (o ClusterConfigurationExecuteCommandConfigurationPtrOutput) Elem() Cluster
 	}).(ClusterConfigurationExecuteCommandConfigurationOutput)
 }
 
-// AWS Key Management Service key ID to encrypt the data between the local client and the container.
+// KMS key ID to encrypt the data between the local client and the container.
 func (o ClusterConfigurationExecuteCommandConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterConfigurationExecuteCommandConfiguration) *string {
 		if v == nil {
@@ -4381,9 +4381,9 @@ func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput
 }
 
 type ClusterConfigurationManagedStorageConfiguration struct {
-	// AWS Key Management Service key ARN for the Fargate ephemeral storage.
+	// KMS key ARN for the Fargate ephemeral storage.
 	FargateEphemeralStorageKmsKeyId *string `pulumi:"fargateEphemeralStorageKmsKeyId"`
-	// AWS Key Management Service key ARN to encrypt the managed storage.
+	// KMS key ARN to encrypt the managed storage.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 }
 
@@ -4399,9 +4399,9 @@ type ClusterConfigurationManagedStorageConfigurationInput interface {
 }
 
 type ClusterConfigurationManagedStorageConfigurationArgs struct {
-	// AWS Key Management Service key ARN for the Fargate ephemeral storage.
+	// KMS key ARN for the Fargate ephemeral storage.
 	FargateEphemeralStorageKmsKeyId pulumi.StringPtrInput `pulumi:"fargateEphemeralStorageKmsKeyId"`
-	// AWS Key Management Service key ARN to encrypt the managed storage.
+	// KMS key ARN to encrypt the managed storage.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 }
 
@@ -4482,14 +4482,14 @@ func (o ClusterConfigurationManagedStorageConfigurationOutput) ToClusterConfigur
 	}).(ClusterConfigurationManagedStorageConfigurationPtrOutput)
 }
 
-// AWS Key Management Service key ARN for the Fargate ephemeral storage.
+// KMS key ARN for the Fargate ephemeral storage.
 func (o ClusterConfigurationManagedStorageConfigurationOutput) FargateEphemeralStorageKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterConfigurationManagedStorageConfiguration) *string {
 		return v.FargateEphemeralStorageKmsKeyId
 	}).(pulumi.StringPtrOutput)
 }
 
-// AWS Key Management Service key ARN to encrypt the managed storage.
+// KMS key ARN to encrypt the managed storage.
 func (o ClusterConfigurationManagedStorageConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterConfigurationManagedStorageConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -4518,7 +4518,7 @@ func (o ClusterConfigurationManagedStorageConfigurationPtrOutput) Elem() Cluster
 	}).(ClusterConfigurationManagedStorageConfigurationOutput)
 }
 
-// AWS Key Management Service key ARN for the Fargate ephemeral storage.
+// KMS key ARN for the Fargate ephemeral storage.
 func (o ClusterConfigurationManagedStorageConfigurationPtrOutput) FargateEphemeralStorageKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterConfigurationManagedStorageConfiguration) *string {
 		if v == nil {
@@ -4528,7 +4528,7 @@ func (o ClusterConfigurationManagedStorageConfigurationPtrOutput) FargateEphemer
 	}).(pulumi.StringPtrOutput)
 }
 
-// AWS Key Management Service key ARN to encrypt the managed storage.
+// KMS key ARN to encrypt the managed storage.
 func (o ClusterConfigurationManagedStorageConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterConfigurationManagedStorageConfiguration) *string {
 		if v == nil {
@@ -12045,7 +12045,7 @@ type ServiceServiceConnectConfigurationService struct {
 	PortName string `pulumi:"portName"`
 	// Configuration timeouts for Service Connect
 	Timeout *ServiceServiceConnectConfigurationServiceTimeout `pulumi:"timeout"`
-	// Configuration for enabling Transport Layer Security (TLS)
+	// Configuration for enabling TLS
 	Tls *ServiceServiceConnectConfigurationServiceTls `pulumi:"tls"`
 }
 
@@ -12071,7 +12071,7 @@ type ServiceServiceConnectConfigurationServiceArgs struct {
 	PortName pulumi.StringInput `pulumi:"portName"`
 	// Configuration timeouts for Service Connect
 	Timeout ServiceServiceConnectConfigurationServiceTimeoutPtrInput `pulumi:"timeout"`
-	// Configuration for enabling Transport Layer Security (TLS)
+	// Configuration for enabling TLS
 	Tls ServiceServiceConnectConfigurationServiceTlsPtrInput `pulumi:"tls"`
 }
 
@@ -12155,7 +12155,7 @@ func (o ServiceServiceConnectConfigurationServiceOutput) Timeout() ServiceServic
 	}).(ServiceServiceConnectConfigurationServiceTimeoutPtrOutput)
 }
 
-// Configuration for enabling Transport Layer Security (TLS)
+// Configuration for enabling TLS
 func (o ServiceServiceConnectConfigurationServiceOutput) Tls() ServiceServiceConnectConfigurationServiceTlsPtrOutput {
 	return o.ApplyT(func(v ServiceServiceConnectConfigurationService) *ServiceServiceConnectConfigurationServiceTls {
 		return v.Tls
@@ -13528,7 +13528,7 @@ type ServiceVolumeConfigurationManagedEbsVolume struct {
 	FileSystemType *string `pulumi:"fileSystemType"`
 	// Number of I/O operations per second (IOPS).
 	Iops *int `pulumi:"iops"`
-	// Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption.
+	// ARN identifier of the Amazon Web Services KMS key to use for Amazon EBS encryption.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Amazon ECS infrastructure IAM role that is used to manage your Amazon Web Services infrastructure. Recommended using the Amazon ECS-managed `AmazonECSInfrastructureRolePolicyForVolumes` IAM policy with this role.
 	RoleArn string `pulumi:"roleArn"`
@@ -13564,7 +13564,7 @@ type ServiceVolumeConfigurationManagedEbsVolumeArgs struct {
 	FileSystemType pulumi.StringPtrInput `pulumi:"fileSystemType"`
 	// Number of I/O operations per second (IOPS).
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption.
+	// ARN identifier of the Amazon Web Services KMS key to use for Amazon EBS encryption.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// Amazon ECS infrastructure IAM role that is used to manage your Amazon Web Services infrastructure. Recommended using the Amazon ECS-managed `AmazonECSInfrastructureRolePolicyForVolumes` IAM policy with this role.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
@@ -13674,7 +13674,7 @@ func (o ServiceVolumeConfigurationManagedEbsVolumeOutput) Iops() pulumi.IntPtrOu
 	return o.ApplyT(func(v ServiceVolumeConfigurationManagedEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption.
+// ARN identifier of the Amazon Web Services KMS key to use for Amazon EBS encryption.
 func (o ServiceVolumeConfigurationManagedEbsVolumeOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceVolumeConfigurationManagedEbsVolume) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -13770,7 +13770,7 @@ func (o ServiceVolumeConfigurationManagedEbsVolumePtrOutput) Iops() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption.
+// ARN identifier of the Amazon Web Services KMS key to use for Amazon EBS encryption.
 func (o ServiceVolumeConfigurationManagedEbsVolumePtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceVolumeConfigurationManagedEbsVolume) *string {
 		if v == nil {
@@ -15575,7 +15575,7 @@ func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput) Ro
 }
 
 type TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig struct {
-	// Authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+	// Authorization credential option to use. The authorization credential options can be provided using either the ARN of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
 	CredentialsParameter string `pulumi:"credentialsParameter"`
 	// Fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
 	Domain string `pulumi:"domain"`
@@ -15593,7 +15593,7 @@ type TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationCon
 }
 
 type TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs struct {
-	// Authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+	// Authorization credential option to use. The authorization credential options can be provided using either the ARN of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
 	CredentialsParameter pulumi.StringInput `pulumi:"credentialsParameter"`
 	// Fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
 	Domain pulumi.StringInput `pulumi:"domain"`
@@ -15676,7 +15676,7 @@ func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorization
 	}).(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput)
 }
 
-// Authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+// Authorization credential option to use. The authorization credential options can be provided using either the ARN of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
 func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput) CredentialsParameter() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig) string {
 		return v.CredentialsParameter
@@ -15714,7 +15714,7 @@ func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorization
 	}).(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput)
 }
 
-// Authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+// Authorization credential option to use. The authorization credential options can be provided using either the ARN of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
 func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput) CredentialsParameter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig) *string {
 		if v == nil {
@@ -15931,7 +15931,7 @@ func (o TaskDefinitionVolumeS3filesVolumeConfigurationPtrOutput) TransitEncrypti
 type TaskSetCapacityProviderStrategy struct {
 	// Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
 	Base *int `pulumi:"base"`
-	// Short name or full Amazon Resource Name (ARN) of the capacity provider.
+	// Short name or full ARN of the capacity provider.
 	CapacityProvider string `pulumi:"capacityProvider"`
 	// Relative percentage of the total number of launched tasks that should use the specified capacity provider.
 	Weight int `pulumi:"weight"`
@@ -15951,7 +15951,7 @@ type TaskSetCapacityProviderStrategyInput interface {
 type TaskSetCapacityProviderStrategyArgs struct {
 	// Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
 	Base pulumi.IntPtrInput `pulumi:"base"`
-	// Short name or full Amazon Resource Name (ARN) of the capacity provider.
+	// Short name or full ARN of the capacity provider.
 	CapacityProvider pulumi.StringInput `pulumi:"capacityProvider"`
 	// Relative percentage of the total number of launched tasks that should use the specified capacity provider.
 	Weight pulumi.IntInput `pulumi:"weight"`
@@ -16013,7 +16013,7 @@ func (o TaskSetCapacityProviderStrategyOutput) Base() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskSetCapacityProviderStrategy) *int { return v.Base }).(pulumi.IntPtrOutput)
 }
 
-// Short name or full Amazon Resource Name (ARN) of the capacity provider.
+// Short name or full ARN of the capacity provider.
 func (o TaskSetCapacityProviderStrategyOutput) CapacityProvider() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskSetCapacityProviderStrategy) string { return v.CapacityProvider }).(pulumi.StringOutput)
 }
@@ -20597,11 +20597,11 @@ type GetTaskExecutionOverrides struct {
 	ContainerOverrides []GetTaskExecutionOverridesContainerOverride `pulumi:"containerOverrides"`
 	// CPU override for the task.
 	Cpu *string `pulumi:"cpu"`
-	// Amazon Resource Name (ARN) of the task execution role override for the task.
+	// ARN of the task execution role override for the task.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// Memory override for the task.
 	Memory *string `pulumi:"memory"`
-	// Amazon Resource Name (ARN) of the role that containers in this task can assume.
+	// ARN of the role that containers in this task can assume.
 	TaskRoleArn *string `pulumi:"taskRoleArn"`
 }
 
@@ -20621,11 +20621,11 @@ type GetTaskExecutionOverridesArgs struct {
 	ContainerOverrides GetTaskExecutionOverridesContainerOverrideArrayInput `pulumi:"containerOverrides"`
 	// CPU override for the task.
 	Cpu pulumi.StringPtrInput `pulumi:"cpu"`
-	// Amazon Resource Name (ARN) of the task execution role override for the task.
+	// ARN of the task execution role override for the task.
 	ExecutionRoleArn pulumi.StringPtrInput `pulumi:"executionRoleArn"`
 	// Memory override for the task.
 	Memory pulumi.StringPtrInput `pulumi:"memory"`
-	// Amazon Resource Name (ARN) of the role that containers in this task can assume.
+	// ARN of the role that containers in this task can assume.
 	TaskRoleArn pulumi.StringPtrInput `pulumi:"taskRoleArn"`
 }
 
@@ -20718,7 +20718,7 @@ func (o GetTaskExecutionOverridesOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTaskExecutionOverrides) *string { return v.Cpu }).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the task execution role override for the task.
+// ARN of the task execution role override for the task.
 func (o GetTaskExecutionOverridesOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTaskExecutionOverrides) *string { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -20728,7 +20728,7 @@ func (o GetTaskExecutionOverridesOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTaskExecutionOverrides) *string { return v.Memory }).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the role that containers in this task can assume.
+// ARN of the role that containers in this task can assume.
 func (o GetTaskExecutionOverridesOutput) TaskRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTaskExecutionOverrides) *string { return v.TaskRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -20777,7 +20777,7 @@ func (o GetTaskExecutionOverridesPtrOutput) Cpu() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the task execution role override for the task.
+// ARN of the task execution role override for the task.
 func (o GetTaskExecutionOverridesPtrOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetTaskExecutionOverrides) *string {
 		if v == nil {
@@ -20797,7 +20797,7 @@ func (o GetTaskExecutionOverridesPtrOutput) Memory() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the role that containers in this task can assume.
+// ARN of the role that containers in this task can assume.
 func (o GetTaskExecutionOverridesPtrOutput) TaskRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetTaskExecutionOverrides) *string {
 		if v == nil {

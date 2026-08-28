@@ -421,7 +421,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the job definition.
+ * - `arn` (String) ARN of the job definition.
  * 
  * Using `pulumi import`, import Batch Job Definition using the `arn`. For example:
  * 

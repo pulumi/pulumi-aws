@@ -253,7 +253,7 @@ namespace Pulumi.Aws.Fsx
     public sealed class GetOpenZfsSnapshotResult
     {
         /// <summary>
-        /// Amazon Resource Name of the snapshot.
+        /// ARN of the snapshot.
         /// </summary>
         public readonly string Arn;
         /// <summary>

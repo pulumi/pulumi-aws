@@ -167,14 +167,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:eks/podIdentityAssociation:PodIdentityAssociation")
 public class PodIdentityAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the association.
+     * ARN of the association.
      * 
      */
     @Export(name="associationArn", refs={String.class}, tree="[0]")
     private Output<String> associationArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the association.
+     * @return ARN of the association.
      * 
      */
     public Output<String> associationArn() {
@@ -279,14 +279,14 @@ public class PodIdentityAssociation extends com.pulumi.resources.CustomResource 
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+     * ARN of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+     * @return ARN of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
      * 
      */
     public Output<String> roleArn() {
@@ -339,14 +339,14 @@ public class PodIdentityAssociation extends com.pulumi.resources.CustomResource 
         return this.tagsAll;
     }
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `roleArn`.
+     * ARN of the IAM role to be chained to the the IAM role specified as `roleArn`.
      * 
      */
     @Export(name="targetRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> targetRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `roleArn`.
+     * @return ARN of the IAM role to be chained to the the IAM role specified as `roleArn`.
      * 
      */
     public Output<Optional<String>> targetRoleArn() {

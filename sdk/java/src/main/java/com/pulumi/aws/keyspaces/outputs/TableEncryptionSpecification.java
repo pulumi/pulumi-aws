@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TableEncryptionSpecification {
     /**
-     * @return The Amazon Resource Name (ARN) of the customer managed KMS key.
+     * @return ARN of the customer managed KMS key.
      * 
      */
     private @Nullable String kmsKeyIdentifier;
@@ -24,7 +24,7 @@ public final class TableEncryptionSpecification {
 
     private TableEncryptionSpecification() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the customer managed KMS key.
+     * @return ARN of the customer managed KMS key.
      * 
      */
     public Optional<String> kmsKeyIdentifier() {

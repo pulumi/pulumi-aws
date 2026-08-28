@@ -48,14 +48,14 @@ public final class HostVpcConfigurationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
+     * Value of the TLS certificate associated with the infrastructure where your provider type is installed.
      * 
      */
     @Import(name="tlsCertificate")
     private @Nullable Output<String> tlsCertificate;
 
     /**
-     * @return The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
+     * @return Value of the TLS certificate associated with the infrastructure where your provider type is installed.
      * 
      */
     public Optional<Output<String>> tlsCertificate() {
@@ -167,7 +167,7 @@ public final class HostVpcConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tlsCertificate The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
+         * @param tlsCertificate Value of the TLS certificate associated with the infrastructure where your provider type is installed.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class HostVpcConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tlsCertificate The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
+         * @param tlsCertificate Value of the TLS certificate associated with the infrastructure where your provider type is installed.
          * 
          * @return builder
          * 

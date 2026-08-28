@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Msk.Outputs
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupsIds;
         /// <summary>
-        /// The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
+        /// List of subnets to connect to in the VPC. AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
 

@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Batch
     public partial class SchedulingPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name of the scheduling policy.
+        /// ARN of the scheduling policy.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.Batch
     public sealed class SchedulingPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name of the scheduling policy.
+        /// ARN of the scheduling policy.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -19,14 +19,14 @@ public final class ReplicationConfigState extends com.pulumi.resources.ResourceA
     public static final ReplicationConfigState Empty = new ReplicationConfigState();
 
     /**
-     * The Amazon Resource Name (ARN) for the serverless replication config.
+     * ARN for the serverless replication config.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the serverless replication config.
+     * @return ARN for the serverless replication config.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -109,14 +109,14 @@ public final class ReplicationConfigState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
+     * Unique value or name that you set for a given resource that can be used to construct an ARN for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
      * 
      */
     @Import(name="resourceIdentifier")
     private @Nullable Output<String> resourceIdentifier;
 
     /**
-     * @return Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
+     * @return Unique value or name that you set for a given resource that can be used to construct an ARN for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
      * 
      */
     public Optional<Output<String>> resourceIdentifier() {
@@ -124,14 +124,14 @@ public final class ReplicationConfigState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+     * ARN string that uniquely identifies the source endpoint.
      * 
      */
     @Import(name="sourceEndpointArn")
     private @Nullable Output<String> sourceEndpointArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+     * @return ARN string that uniquely identifies the source endpoint.
      * 
      */
     public Optional<Output<String>> sourceEndpointArn() {
@@ -214,14 +214,14 @@ public final class ReplicationConfigState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+     * ARN string that uniquely identifies the target endpoint.
      * 
      */
     @Import(name="targetEndpointArn")
     private @Nullable Output<String> targetEndpointArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+     * @return ARN string that uniquely identifies the target endpoint.
      * 
      */
     public Optional<Output<String>> targetEndpointArn() {
@@ -266,7 +266,7 @@ public final class ReplicationConfigState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) for the serverless replication config.
+         * @param arn ARN for the serverless replication config.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class ReplicationConfigState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) for the serverless replication config.
+         * @param arn ARN for the serverless replication config.
          * 
          * @return builder
          * 
@@ -392,7 +392,7 @@ public final class ReplicationConfigState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param resourceIdentifier Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
+         * @param resourceIdentifier Unique value or name that you set for a given resource that can be used to construct an ARN for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
          * 
          * @return builder
          * 
@@ -403,7 +403,7 @@ public final class ReplicationConfigState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param resourceIdentifier Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
+         * @param resourceIdentifier Unique value or name that you set for a given resource that can be used to construct an ARN for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
          * 
          * @return builder
          * 
@@ -413,7 +413,7 @@ public final class ReplicationConfigState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sourceEndpointArn The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+         * @param sourceEndpointArn ARN string that uniquely identifies the source endpoint.
          * 
          * @return builder
          * 
@@ -424,7 +424,7 @@ public final class ReplicationConfigState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sourceEndpointArn The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+         * @param sourceEndpointArn ARN string that uniquely identifies the source endpoint.
          * 
          * @return builder
          * 
@@ -539,7 +539,7 @@ public final class ReplicationConfigState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param targetEndpointArn The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+         * @param targetEndpointArn ARN string that uniquely identifies the target endpoint.
          * 
          * @return builder
          * 
@@ -550,7 +550,7 @@ public final class ReplicationConfigState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param targetEndpointArn The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+         * @param targetEndpointArn ARN string that uniquely identifies the target endpoint.
          * 
          * @return builder
          * 

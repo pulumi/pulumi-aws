@@ -64,7 +64,7 @@ type LookupNetworkPeeringConnectionArgs struct {
 
 // A collection of values returned by getNetworkPeeringConnection.
 type LookupNetworkPeeringConnectionResult struct {
-	// Amazon Resource Name (ARN) for the  ODB network peering connection.
+	// ARN for the  ODB network peering connection.
 	Arn string `pulumi:"arn"`
 	// Created time of the ODB network peering connection.
 	CreatedAt string `pulumi:"createdAt"`
@@ -124,7 +124,7 @@ func (o LookupNetworkPeeringConnectionResultOutput) ToLookupNetworkPeeringConnec
 	return o
 }
 
-// Amazon Resource Name (ARN) for the  ODB network peering connection.
+// ARN for the  ODB network peering connection.
 func (o LookupNetworkPeeringConnectionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkPeeringConnectionResult) string { return v.Arn }).(pulumi.StringOutput)
 }

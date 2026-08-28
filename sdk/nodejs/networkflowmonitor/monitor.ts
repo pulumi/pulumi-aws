@@ -82,7 +82,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     declare public readonly localResources: pulumi.Output<outputs.networkflowmonitor.MonitorLocalResource[]>;
     /**
-     * The Amazon Resource Name (ARN) of the monitor.
+     * ARN of the monitor.
      */
     declare public /*out*/ readonly monitorArn: pulumi.Output<string>;
     /**
@@ -98,7 +98,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     declare public readonly remoteResources: pulumi.Output<outputs.networkflowmonitor.MonitorRemoteResource[] | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
+     * ARN of the scope for the monitor. Cannot be changed after creation.
      *
      * The following arguments are optional:
      */
@@ -170,7 +170,7 @@ export interface MonitorState {
      */
     localResources?: pulumi.Input<pulumi.Input<inputs.networkflowmonitor.MonitorLocalResource>[] | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the monitor.
+     * ARN of the monitor.
      */
     monitorArn?: pulumi.Input<string | undefined>;
     /**
@@ -186,7 +186,7 @@ export interface MonitorState {
      */
     remoteResources?: pulumi.Input<pulumi.Input<inputs.networkflowmonitor.MonitorRemoteResource>[] | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
+     * ARN of the scope for the monitor. Cannot be changed after creation.
      *
      * The following arguments are optional:
      */
@@ -223,7 +223,7 @@ export interface MonitorArgs {
      */
     remoteResources?: pulumi.Input<pulumi.Input<inputs.networkflowmonitor.MonitorRemoteResource>[] | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
+     * ARN of the scope for the monitor. Cannot be changed after creation.
      *
      * The following arguments are optional:
      */

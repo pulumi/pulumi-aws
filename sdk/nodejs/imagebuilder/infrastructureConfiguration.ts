@@ -47,9 +47,9 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the Image Builder infrastructure configuration.
+ * - `arn` (String) ARN of the Image Builder infrastructure configuration.
  *
- * Using `pulumi import`, import `aws.imagebuilder.InfrastructureConfiguration` using the Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.imagebuilder.InfrastructureConfiguration` using the ARN. For example:
  *
  * ```sh
  * $ pulumi import aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
@@ -84,7 +84,7 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the configuration.
+     * ARN of the configuration.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -142,7 +142,7 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
      */
     declare public readonly securityGroupIds: pulumi.Output<string[] | undefined>;
     /**
-     * Amazon Resource Name (ARN) of SNS Topic.
+     * ARN of SNS Topic.
      */
     declare public readonly snsTopicArn: pulumi.Output<string | undefined>;
     /**
@@ -229,7 +229,7 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
  */
 export interface InfrastructureConfigurationState {
     /**
-     * Amazon Resource Name (ARN) of the configuration.
+     * ARN of the configuration.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -287,7 +287,7 @@ export interface InfrastructureConfigurationState {
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Amazon Resource Name (ARN) of SNS Topic.
+     * ARN of SNS Topic.
      */
     snsTopicArn?: pulumi.Input<string | undefined>;
     /**
@@ -359,7 +359,7 @@ export interface InfrastructureConfigurationArgs {
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Amazon Resource Name (ARN) of SNS Topic.
+     * ARN of SNS Topic.
      */
     snsTopicArn?: pulumi.Input<string | undefined>;
     /**

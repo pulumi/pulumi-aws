@@ -116,14 +116,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:odb/network:Network")
 public class Network extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the odb network resource.
+     * ARN of the odb network resource.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the odb network resource.
+     * @return ARN of the odb network resource.
      * 
      */
     public Output<String> arn() {

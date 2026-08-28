@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Route53
     public partial class ResolverFirewallRuleGroupAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN (Amazon Resource Name) of the firewall rule group association.
+        /// ARN of the firewall rule group association.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Aws.Route53
     public sealed class ResolverFirewallRuleGroupAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN (Amazon Resource Name) of the firewall rule group association.
+        /// ARN of the firewall rule group association.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

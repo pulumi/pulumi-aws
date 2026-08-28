@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentFlowDefinitionNodeConfigurationLex
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.
+        /// ARN of the Amazon Lex bot alias to invoke.
         /// </summary>
         public readonly string BotAliasArn;
         /// <summary>

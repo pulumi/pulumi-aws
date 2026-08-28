@@ -119,14 +119,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return this.applyImmediately;
     }
     /**
-     * Amazon Resource Name (ARN) of neptune instance
+     * ARN of neptune instance
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of neptune instance
+     * @return ARN of neptune instance
      * 
      */
     public Output<String> arn() {

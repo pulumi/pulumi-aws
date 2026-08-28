@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Sfn
     public partial class Activity : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the activity.
+        /// ARN of the activity.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.Sfn
     public sealed class ActivityState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the activity.
+        /// ARN of the activity.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

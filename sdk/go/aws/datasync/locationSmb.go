@@ -54,9 +54,9 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the DataSync SMB location.
+// - `arn` (String) ARN of the DataSync SMB location.
 //
-// Using `pulumi import`, import `datasync.LocationSmb` using the Amazon Resource Name (ARN). For example:
+// Using `pulumi import`, import `datasync.LocationSmb` using the ARN. For example:
 //
 // ```sh
 // $ pulumi import aws:datasync/locationSmb:LocationSmb example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
@@ -66,7 +66,7 @@ type LocationSmb struct {
 
 	// A list of DataSync Agent ARNs with which this location will be associated.
 	AgentArns pulumi.StringArrayOutput `pulumi:"agentArns"`
-	// Amazon Resource Name (ARN) of the DataSync Location.
+	// ARN of the DataSync Location.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the Windows domain the SMB server belongs to.
 	Domain pulumi.StringOutput `pulumi:"domain"`
@@ -143,7 +143,7 @@ func GetLocationSmb(ctx *pulumi.Context,
 type locationSmbState struct {
 	// A list of DataSync Agent ARNs with which this location will be associated.
 	AgentArns []string `pulumi:"agentArns"`
-	// Amazon Resource Name (ARN) of the DataSync Location.
+	// ARN of the DataSync Location.
 	Arn *string `pulumi:"arn"`
 	// The name of the Windows domain the SMB server belongs to.
 	Domain *string `pulumi:"domain"`
@@ -169,7 +169,7 @@ type locationSmbState struct {
 type LocationSmbState struct {
 	// A list of DataSync Agent ARNs with which this location will be associated.
 	AgentArns pulumi.StringArrayInput
-	// Amazon Resource Name (ARN) of the DataSync Location.
+	// ARN of the DataSync Location.
 	Arn pulumi.StringPtrInput
 	// The name of the Windows domain the SMB server belongs to.
 	Domain pulumi.StringPtrInput
@@ -331,7 +331,7 @@ func (o LocationSmbOutput) AgentArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LocationSmb) pulumi.StringArrayOutput { return v.AgentArns }).(pulumi.StringArrayOutput)
 }
 
-// Amazon Resource Name (ARN) of the DataSync Location.
+// ARN of the DataSync Location.
 func (o LocationSmbOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationSmb) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

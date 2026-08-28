@@ -147,7 +147,7 @@ class NotificationChannelFiltersArgs:
 class NotificationChannelSnsArgsDict(TypedDict):
     topic_arn: pulumi.Input[_builtins.str]
     """
-    Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+    ARN of an Amazon Simple Notification Service topic.
     """
 
 @pulumi.input_type
@@ -155,7 +155,7 @@ class NotificationChannelSnsArgs:
     def __init__(__self__, *,
                  topic_arn: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] topic_arn: Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+        :param pulumi.Input[_builtins.str] topic_arn: ARN of an Amazon Simple Notification Service topic.
         """
         pulumi.set(__self__, "topic_arn", topic_arn)
 
@@ -163,7 +163,7 @@ class NotificationChannelSnsArgs:
     @pulumi.getter(name="topicArn")
     def topic_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+        ARN of an Amazon Simple Notification Service topic.
         """
         return pulumi.get(self, "topic_arn")
 
@@ -424,7 +424,7 @@ class GetNotificationChannelFilterArgs:
 class GetNotificationChannelSnArgsDict(TypedDict):
     topic_arn: _builtins.str
     """
-    Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+    ARN of an Amazon Simple Notification Service topic.
     """
 
 @pulumi.input_type
@@ -432,7 +432,7 @@ class GetNotificationChannelSnArgs:
     def __init__(__self__, *,
                  topic_arn: _builtins.str):
         """
-        :param _builtins.str topic_arn: Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+        :param _builtins.str topic_arn: ARN of an Amazon Simple Notification Service topic.
         """
         pulumi.set(__self__, "topic_arn", topic_arn)
 
@@ -440,7 +440,7 @@ class GetNotificationChannelSnArgs:
     @pulumi.getter(name="topicArn")
     def topic_arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+        ARN of an Amazon Simple Notification Service topic.
         """
         return pulumi.get(self, "topic_arn")
 

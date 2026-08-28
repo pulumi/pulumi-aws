@@ -92,7 +92,7 @@ import (
 type OrganizationCustomRule struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the rule
+	// ARN of the rule
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Description of the rule
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -100,7 +100,7 @@ type OrganizationCustomRule struct {
 	ExcludedAccounts pulumi.StringArrayOutput `pulumi:"excludedAccounts"`
 	// A string in JSON format that is passed to the AWS Config Rule Lambda Function
 	InputParameters pulumi.StringPtrOutput `pulumi:"inputParameters"`
-	// Amazon Resource Name (ARN) of the rule Lambda Function
+	// ARN of the rule Lambda Function
 	LambdaFunctionArn pulumi.StringOutput `pulumi:"lambdaFunctionArn"`
 	// The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
 	MaximumExecutionFrequency pulumi.StringPtrOutput `pulumi:"maximumExecutionFrequency"`
@@ -156,7 +156,7 @@ func GetOrganizationCustomRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OrganizationCustomRule resources.
 type organizationCustomRuleState struct {
-	// Amazon Resource Name (ARN) of the rule
+	// ARN of the rule
 	Arn *string `pulumi:"arn"`
 	// Description of the rule
 	Description *string `pulumi:"description"`
@@ -164,7 +164,7 @@ type organizationCustomRuleState struct {
 	ExcludedAccounts []string `pulumi:"excludedAccounts"`
 	// A string in JSON format that is passed to the AWS Config Rule Lambda Function
 	InputParameters *string `pulumi:"inputParameters"`
-	// Amazon Resource Name (ARN) of the rule Lambda Function
+	// ARN of the rule Lambda Function
 	LambdaFunctionArn *string `pulumi:"lambdaFunctionArn"`
 	// The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
 	MaximumExecutionFrequency *string `pulumi:"maximumExecutionFrequency"`
@@ -185,7 +185,7 @@ type organizationCustomRuleState struct {
 }
 
 type OrganizationCustomRuleState struct {
-	// Amazon Resource Name (ARN) of the rule
+	// ARN of the rule
 	Arn pulumi.StringPtrInput
 	// Description of the rule
 	Description pulumi.StringPtrInput
@@ -193,7 +193,7 @@ type OrganizationCustomRuleState struct {
 	ExcludedAccounts pulumi.StringArrayInput
 	// A string in JSON format that is passed to the AWS Config Rule Lambda Function
 	InputParameters pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the rule Lambda Function
+	// ARN of the rule Lambda Function
 	LambdaFunctionArn pulumi.StringPtrInput
 	// The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
 	MaximumExecutionFrequency pulumi.StringPtrInput
@@ -224,7 +224,7 @@ type organizationCustomRuleArgs struct {
 	ExcludedAccounts []string `pulumi:"excludedAccounts"`
 	// A string in JSON format that is passed to the AWS Config Rule Lambda Function
 	InputParameters *string `pulumi:"inputParameters"`
-	// Amazon Resource Name (ARN) of the rule Lambda Function
+	// ARN of the rule Lambda Function
 	LambdaFunctionArn string `pulumi:"lambdaFunctionArn"`
 	// The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
 	MaximumExecutionFrequency *string `pulumi:"maximumExecutionFrequency"`
@@ -252,7 +252,7 @@ type OrganizationCustomRuleArgs struct {
 	ExcludedAccounts pulumi.StringArrayInput
 	// A string in JSON format that is passed to the AWS Config Rule Lambda Function
 	InputParameters pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the rule Lambda Function
+	// ARN of the rule Lambda Function
 	LambdaFunctionArn pulumi.StringInput
 	// The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
 	MaximumExecutionFrequency pulumi.StringPtrInput
@@ -359,7 +359,7 @@ func (o OrganizationCustomRuleOutput) ToOrganizationCustomRuleOutputWithContext(
 	return o
 }
 
-// Amazon Resource Name (ARN) of the rule
+// ARN of the rule
 func (o OrganizationCustomRuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationCustomRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -379,7 +379,7 @@ func (o OrganizationCustomRuleOutput) InputParameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationCustomRule) pulumi.StringPtrOutput { return v.InputParameters }).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the rule Lambda Function
+// ARN of the rule Lambda Function
 func (o OrganizationCustomRuleOutput) LambdaFunctionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationCustomRule) pulumi.StringOutput { return v.LambdaFunctionArn }).(pulumi.StringOutput)
 }

@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Comprehend entity recognizer.
+ * - `arn` (String) ARN of the Comprehend entity recognizer.
  * 
  * Using `pulumi import`, import Comprehend Entity Recognizer using the ARN. For example:
  * 

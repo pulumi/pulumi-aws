@@ -232,7 +232,7 @@ class _RoleState:
         """
         Input properties used for looking up and filtering Role resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) specifying the role.
+        :param pulumi.Input[_builtins.str] arn: ARN specifying the role.
         :param pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']] assume_role_policy: Policy that grants an entity permission to assume the role.
                
                > **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `iam.Policy` resource.  However, it _can_ use an `iam_get_policy_document` data source. See the example above of how this works.
@@ -287,7 +287,7 @@ class _RoleState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) specifying the role.
+        ARN specifying the role.
         """
         return pulumi.get(self, "arn")
 
@@ -968,7 +968,7 @@ class Role(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) specifying the role.
+        :param pulumi.Input[_builtins.str] arn: ARN specifying the role.
         :param pulumi.Input[Union[_builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] assume_role_policy: Policy that grants an entity permission to assume the role.
                
                > **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `iam.Policy` resource.  However, it _can_ use an `iam_get_policy_document` data source. See the example above of how this works.
@@ -1013,7 +1013,7 @@ class Role(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) specifying the role.
+        ARN specifying the role.
         """
         return pulumi.get(self, "arn")
 

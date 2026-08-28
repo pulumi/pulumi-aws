@@ -223,7 +223,7 @@ class GetClusterResult:
     @pulumi.getter(name="clusterNamespaceArn")
     def cluster_namespace_arn(self) -> _builtins.str:
         """
-        The namespace Amazon Resource Name (ARN) of the cluster
+        Namespace ARN of the cluster
         """
         return pulumi.get(self, "cluster_namespace_arn")
 

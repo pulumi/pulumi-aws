@@ -359,7 +359,7 @@ import (
 type Job struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of Glue Job
+	// ARN of Glue Job
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The command of the job. Defined below.
 	Command JobCommandOutput `pulumi:"command"`
@@ -447,7 +447,7 @@ func GetJob(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Job resources.
 type jobState struct {
-	// Amazon Resource Name (ARN) of Glue Job
+	// ARN of Glue Job
 	Arn *string `pulumi:"arn"`
 	// The command of the job. Defined below.
 	Command *JobCommand `pulumi:"command"`
@@ -500,7 +500,7 @@ type jobState struct {
 }
 
 type JobState struct {
-	// Amazon Resource Name (ARN) of Glue Job
+	// ARN of Glue Job
 	Arn pulumi.StringPtrInput
 	// The command of the job. Defined below.
 	Command JobCommandPtrInput
@@ -742,7 +742,7 @@ func (o JobOutput) ToJobOutputWithContext(ctx context.Context) JobOutput {
 	return o
 }
 
-// Amazon Resource Name (ARN) of Glue Job
+// ARN of Glue Job
 func (o JobOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

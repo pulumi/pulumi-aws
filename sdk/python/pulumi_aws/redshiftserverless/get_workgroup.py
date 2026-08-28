@@ -69,7 +69,7 @@ class GetWorkgroupResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+        ARN of the Redshift Serverless Workgroup.
         """
         return pulumi.get(self, "arn")
 
@@ -85,7 +85,7 @@ class GetWorkgroupResult:
     @pulumi.getter(name="enhancedVpcRouting")
     def enhanced_vpc_routing(self) -> _builtins.bool:
         """
-        The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+        Value that specifies whether to turn on enhanced VPC routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
         """
         return pulumi.get(self, "enhanced_vpc_routing")
 

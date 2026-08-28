@@ -420,7 +420,7 @@ namespace Pulumi.Aws.Batch
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the job definition.
+    /// - `Arn` (String) ARN of the job definition.
     /// 
     /// Using `pulumi import`, import Batch Job Definition using the `Arn`. For example:
     /// 

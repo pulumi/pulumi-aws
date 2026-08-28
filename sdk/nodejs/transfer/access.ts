@@ -111,7 +111,7 @@ export class Access extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+     * ARN of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
      */
     declare public readonly role: pulumi.Output<string | undefined>;
     /**
@@ -197,7 +197,7 @@ export interface AccessState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+     * ARN of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
      */
     role?: pulumi.Input<string | undefined>;
     /**
@@ -239,7 +239,7 @@ export interface AccessArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+     * ARN of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
      */
     role?: pulumi.Input<string | undefined>;
     /**

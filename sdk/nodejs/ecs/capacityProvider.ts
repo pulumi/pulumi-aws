@@ -92,7 +92,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the ECS capacity provider.
+ * - `arn` (String) ARN of the ECS capacity provider.
  *
  * Using `pulumi import`, import ECS Capacity Providers using the `arn`. For example:
  *

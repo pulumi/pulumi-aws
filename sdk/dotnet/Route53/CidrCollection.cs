@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Route53
     public partial class CidrCollection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the CIDR collection.
+        /// ARN of the CIDR collection.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.Aws.Route53
     public sealed class CidrCollectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the CIDR collection.
+        /// ARN of the CIDR collection.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -689,6 +689,10 @@
     {
       "old": "Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
       "new": "Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:"
+    },
+    {
+      "old": "* `source_db_cluster_identifier` - (Optional) ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value.\n",
+      "new": "* `source_db_cluster_identifier` - (Optional) ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.\n"
     }
   ],
   "dx_connection.html.markdown": [
@@ -1971,6 +1975,10 @@
     {
       "old": "* `database_name` - (Optional, Forces new resources) Name for an automatically created database on cluster creation. Terraform will only perform drift detection if a configuration value is provided.\n",
       "new": "* `database_name` - (Optional, Forces new resources) Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.\n"
+    },
+    {
+      "old": "* `source_db_cluster_identifier` - (Optional) ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engine_version`. This allows upgrading the engine version of the Global Cluster.\n",
+      "new": "* `source_db_cluster_identifier` - (Optional) ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engine_version`. This allows upgrading the engine version of the Global Cluster.\n"
     }
   ],
   "route.html.markdown": [
@@ -2783,6 +2791,10 @@
     {
       "old": "Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
       "new": "Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:"
+    },
+    {
+      "old": "* `gateway_vpc_endpoint` - (Optional) VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running terraform. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).\n",
+      "new": "* `gateway_vpc_endpoint` - (Optional) VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).\n"
     }
   ],
   "transfer_access.html.markdown": [

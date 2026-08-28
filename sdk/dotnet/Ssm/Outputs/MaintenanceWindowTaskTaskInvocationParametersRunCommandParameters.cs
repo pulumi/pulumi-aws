@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Ssm.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter> Parameters;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
+        /// ARN of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
         /// </summary>
         public readonly string? ServiceRoleArn;
         /// <summary>

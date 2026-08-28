@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetServerlessCollectionResult {
     /**
-     * @return Amazon Resource Name (ARN) of the collection.
+     * @return ARN of the collection.
      * 
      */
     private String arn;
@@ -73,7 +73,7 @@ public final class GetServerlessCollectionResult {
 
     private GetServerlessCollectionResult() {}
     /**
-     * @return Amazon Resource Name (ARN) of the collection.
+     * @return ARN of the collection.
      * 
      */
     public String arn() {

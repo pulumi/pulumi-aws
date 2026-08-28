@@ -25,7 +25,7 @@ class AppBundleArgs:
         """
         The set of arguments for constructing a AppBundle resource.
 
-        :param pulumi.Input[_builtins.str] customer_managed_key_arn: Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
+        :param pulumi.Input[_builtins.str] customer_managed_key_arn: ARN of the KMS key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -40,7 +40,7 @@ class AppBundleArgs:
     @pulumi.getter(name="customerManagedKeyArn")
     def customer_managed_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
+        ARN of the KMS key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
         """
         return pulumi.get(self, "customer_managed_key_arn")
 
@@ -85,7 +85,7 @@ class _AppBundleState:
         Input properties used for looking up and filtering AppBundle resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the AppBundle.
-        :param pulumi.Input[_builtins.str] customer_managed_key_arn: Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
+        :param pulumi.Input[_builtins.str] customer_managed_key_arn: ARN of the KMS key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -117,7 +117,7 @@ class _AppBundleState:
     @pulumi.getter(name="customerManagedKeyArn")
     def customer_managed_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
+        ARN of the KMS key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
         """
         return pulumi.get(self, "customer_managed_key_arn")
 
@@ -196,7 +196,7 @@ class AppBundle(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the AppFabric app bundle.
+        - `arn` (String) ARN of the AppFabric app bundle.
 
         Using `pulumi import`, import AppFabric AppBundle using the `arn`. For example:
 
@@ -207,7 +207,7 @@ class AppBundle(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] customer_managed_key_arn: Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
+        :param pulumi.Input[_builtins.str] customer_managed_key_arn: ARN of the KMS key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -241,7 +241,7 @@ class AppBundle(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the AppFabric app bundle.
+        - `arn` (String) ARN of the AppFabric app bundle.
 
         Using `pulumi import`, import AppFabric AppBundle using the `arn`. For example:
 
@@ -305,7 +305,7 @@ class AppBundle(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the AppBundle.
-        :param pulumi.Input[_builtins.str] customer_managed_key_arn: Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
+        :param pulumi.Input[_builtins.str] customer_managed_key_arn: ARN of the KMS key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -333,7 +333,7 @@ class AppBundle(pulumi.CustomResource):
     @pulumi.getter(name="customerManagedKeyArn")
     def customer_managed_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
+        ARN of the KMS key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
         """
         return pulumi.get(self, "customer_managed_key_arn")
 

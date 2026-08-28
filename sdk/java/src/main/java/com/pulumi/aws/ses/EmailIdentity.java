@@ -61,28 +61,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ses/emailIdentity:EmailIdentity")
 public class EmailIdentity extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the email identity.
+     * ARN of the email identity.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the email identity.
+     * @return ARN of the email identity.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The email address to assign to SES.
+     * Email address to assign to SES.
      * 
      */
     @Export(name="email", refs={String.class}, tree="[0]")
     private Output<String> email;
 
     /**
-     * @return The email address to assign to SES.
+     * @return Email address to assign to SES.
      * 
      */
     public Output<String> email() {

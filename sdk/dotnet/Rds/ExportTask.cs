@@ -250,7 +250,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> SnapshotTime { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the snapshot to export.
+        /// ARN of the snapshot to export.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -385,7 +385,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? S3Prefix { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the snapshot to export.
+        /// ARN of the snapshot to export.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -470,7 +470,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? SnapshotTime { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the snapshot to export.
+        /// ARN of the snapshot to export.
         /// 
         /// The following arguments are optional:
         /// </summary>

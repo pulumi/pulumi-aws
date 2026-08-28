@@ -140,7 +140,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the DynamoDB table export.
+// - `arn` (String) ARN of the DynamoDB table export.
 //
 // Using `pulumi import`, import DynamoDB table exports using the `arn`. For example:
 //

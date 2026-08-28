@@ -61,7 +61,7 @@ type StudioSessionMapping struct {
 	IdentityType pulumi.StringOutput `pulumi:"identityType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
+	// ARN for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
 	SessionPolicyArn pulumi.StringOutput `pulumi:"sessionPolicyArn"`
 	// The ID of the Amazon EMR Studio to which the user or group will be mapped.
 	StudioId pulumi.StringOutput `pulumi:"studioId"`
@@ -114,7 +114,7 @@ type studioSessionMappingState struct {
 	IdentityType *string `pulumi:"identityType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
+	// ARN for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
 	SessionPolicyArn *string `pulumi:"sessionPolicyArn"`
 	// The ID of the Amazon EMR Studio to which the user or group will be mapped.
 	StudioId *string `pulumi:"studioId"`
@@ -129,7 +129,7 @@ type StudioSessionMappingState struct {
 	IdentityType pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
+	// ARN for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
 	SessionPolicyArn pulumi.StringPtrInput
 	// The ID of the Amazon EMR Studio to which the user or group will be mapped.
 	StudioId pulumi.StringPtrInput
@@ -148,7 +148,7 @@ type studioSessionMappingArgs struct {
 	IdentityType string `pulumi:"identityType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
+	// ARN for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
 	SessionPolicyArn string `pulumi:"sessionPolicyArn"`
 	// The ID of the Amazon EMR Studio to which the user or group will be mapped.
 	StudioId string `pulumi:"studioId"`
@@ -164,7 +164,7 @@ type StudioSessionMappingArgs struct {
 	IdentityType pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
+	// ARN for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
 	SessionPolicyArn pulumi.StringInput
 	// The ID of the Amazon EMR Studio to which the user or group will be mapped.
 	StudioId pulumi.StringInput
@@ -277,7 +277,7 @@ func (o StudioSessionMappingOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioSessionMapping) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
+// ARN for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
 func (o StudioSessionMappingOutput) SessionPolicyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioSessionMapping) pulumi.StringOutput { return v.SessionPolicyArn }).(pulumi.StringOutput)
 }

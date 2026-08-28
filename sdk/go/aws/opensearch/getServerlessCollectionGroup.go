@@ -64,7 +64,7 @@ type LookupServerlessCollectionGroupArgs struct {
 
 // A collection of values returned by getServerlessCollectionGroup.
 type LookupServerlessCollectionGroupResult struct {
-	// Amazon Resource Name (ARN) of the collection group.
+	// ARN of the collection group.
 	Arn string `pulumi:"arn"`
 	// Capacity limits configured for the collection group. See `capacityLimits` below for details.
 	CapacityLimits []GetServerlessCollectionGroupCapacityLimit `pulumi:"capacityLimits"`
@@ -119,7 +119,7 @@ func (o LookupServerlessCollectionGroupResultOutput) ToLookupServerlessCollectio
 	return o
 }
 
-// Amazon Resource Name (ARN) of the collection group.
+// ARN of the collection group.
 func (o LookupServerlessCollectionGroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCollectionGroupResult) string { return v.Arn }).(pulumi.StringOutput)
 }

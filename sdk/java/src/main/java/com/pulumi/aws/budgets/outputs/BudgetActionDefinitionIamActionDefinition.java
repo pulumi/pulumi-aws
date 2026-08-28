@@ -18,7 +18,7 @@ public final class BudgetActionDefinitionIamActionDefinition {
      */
     private @Nullable List<String> groups;
     /**
-     * @return The Amazon Resource Name (ARN) of the policy to be attached.
+     * @return ARN of the policy to be attached.
      * 
      */
     private String policyArn;
@@ -42,7 +42,7 @@ public final class BudgetActionDefinitionIamActionDefinition {
         return this.groups == null ? List.of() : this.groups;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the policy to be attached.
+     * @return ARN of the policy to be attached.
      * 
      */
     public String policyArn() {

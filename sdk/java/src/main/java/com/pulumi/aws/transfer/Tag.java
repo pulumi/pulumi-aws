@@ -107,14 +107,14 @@ public class Tag extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Amazon Resource Name (ARN) of the Transfer Family resource to tag.
+     * ARN of the Transfer Family resource to tag.
      * 
      */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Transfer Family resource to tag.
+     * @return ARN of the Transfer Family resource to tag.
      * 
      */
     public Output<String> resourceArn() {

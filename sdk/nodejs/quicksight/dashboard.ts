@@ -174,7 +174,7 @@ export class Dashboard extends pulumi.CustomResource {
      */
     declare public readonly sourceEntity: pulumi.Output<outputs.quicksight.DashboardSourceEntity | undefined>;
     /**
-     * Amazon Resource Name (ARN) of a template that was used to create this dashboard.
+     * ARN of a template that was used to create this dashboard.
      */
     declare public /*out*/ readonly sourceEntityArn: pulumi.Output<string>;
     /**
@@ -190,7 +190,7 @@ export class Dashboard extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+     * ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
      */
     declare public readonly themeArn: pulumi.Output<string | undefined>;
     /**
@@ -319,7 +319,7 @@ export interface DashboardState {
      */
     sourceEntity?: pulumi.Input<inputs.quicksight.DashboardSourceEntity | undefined>;
     /**
-     * Amazon Resource Name (ARN) of a template that was used to create this dashboard.
+     * ARN of a template that was used to create this dashboard.
      */
     sourceEntityArn?: pulumi.Input<string | undefined>;
     /**
@@ -335,7 +335,7 @@ export interface DashboardState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+     * ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
      */
     themeArn?: pulumi.Input<string | undefined>;
     /**
@@ -391,7 +391,7 @@ export interface DashboardArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+     * ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
      */
     themeArn?: pulumi.Input<string | undefined>;
     /**

@@ -36,7 +36,7 @@ export function getContactChannel(args: GetContactChannelArgs, opts?: pulumi.Inv
  */
 export interface GetContactChannelArgs {
     /**
-     * Amazon Resource Name (ARN) of the contact channel.
+     * ARN of the contact channel.
      */
     arn: string;
     /**
@@ -55,7 +55,7 @@ export interface GetContactChannelResult {
     readonly activationStatus: string;
     readonly arn: string;
     /**
-     * Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
+     * ARN of the AWS SSM Contact that the contact channel belongs to.
      */
     readonly contactId: string;
     /**
@@ -105,7 +105,7 @@ export function getContactChannelOutput(args: GetContactChannelOutputArgs, opts?
  */
 export interface GetContactChannelOutputArgs {
     /**
-     * Amazon Resource Name (ARN) of the contact channel.
+     * ARN of the contact channel.
      */
     arn: pulumi.Input<string>;
     /**

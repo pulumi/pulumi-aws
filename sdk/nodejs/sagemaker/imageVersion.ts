@@ -78,7 +78,7 @@ export class ImageVersion extends pulumi.CustomResource {
      */
     declare public readonly aliases: pulumi.Output<string[] | undefined>;
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
+     * ARN assigned by AWS to this Image Version.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -197,7 +197,7 @@ export interface ImageVersionState {
      */
     aliases?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
+     * ARN assigned by AWS to this Image Version.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

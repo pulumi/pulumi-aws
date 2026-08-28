@@ -59,7 +59,7 @@ export interface GetInferenceProfileResult {
      */
     readonly description: string;
     /**
-     * The Amazon Resource Name (ARN) of the inference profile.
+     * The ARN of the inference profile.
      */
     readonly inferenceProfileArn: string;
     readonly inferenceProfileId: string;

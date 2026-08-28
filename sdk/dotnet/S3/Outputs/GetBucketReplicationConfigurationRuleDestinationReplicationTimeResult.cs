@@ -14,7 +14,7 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class GetBucketReplicationConfigurationRuleDestinationReplicationTimeResult
     {
         /// <summary>
-        /// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+        /// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
         /// </summary>
         public readonly string Status;
         /// <summary>

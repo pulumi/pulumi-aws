@@ -89,14 +89,14 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     }
 
     /**
-     * Accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
+     * Accelerator types to include. You can specify `gpu` for GPUs, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
      * 
      */
     @Import(name="acceleratorTypes")
     private @Nullable Output<List<String>> acceleratorTypes;
 
     /**
-     * @return Accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
+     * @return Accelerator types to include. You can specify `gpu` for GPUs, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
      * 
      */
     public Optional<Output<List<String>>> acceleratorTypes() {
@@ -540,7 +540,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param acceleratorTypes Accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
+         * @param acceleratorTypes Accelerator types to include. You can specify `gpu` for GPUs, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
          * 
          * @return builder
          * 
@@ -551,7 +551,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param acceleratorTypes Accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
+         * @param acceleratorTypes Accelerator types to include. You can specify `gpu` for GPUs, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
          * 
          * @return builder
          * 
@@ -561,7 +561,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param acceleratorTypes Accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
+         * @param acceleratorTypes Accelerator types to include. You can specify `gpu` for GPUs, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
          * 
          * @return builder
          * 

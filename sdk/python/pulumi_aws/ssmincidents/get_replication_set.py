@@ -60,7 +60,7 @@ class GetReplicationSetResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the replication set.
+        ARN of the replication set.
         """
         return pulumi.get(self, "arn")
 

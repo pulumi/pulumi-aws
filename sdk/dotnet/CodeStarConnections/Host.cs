@@ -40,7 +40,7 @@ namespace Pulumi.Aws.CodeStarConnections
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the CodeStar connections host.
+    /// - `Arn` (String) ARN of the CodeStar connections host.
     /// 
     /// Using `pulumi import`, import CodeStar Host using the ARN. For example:
     /// 

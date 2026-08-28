@@ -14536,7 +14536,7 @@ func (o VirtualGatewaySpecBackendDefaultsPtrOutput) ClientPolicy() VirtualGatewa
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicy struct {
-	// Transport Layer Security (TLS) client policy. See `spec.backend_defaults.client_policy.tls` Block for details.
+	// TLS client policy. See `spec.backend_defaults.client_policy.tls` Block for details.
 	Tls *VirtualGatewaySpecBackendDefaultsClientPolicyTls `pulumi:"tls"`
 }
 
@@ -14552,7 +14552,7 @@ type VirtualGatewaySpecBackendDefaultsClientPolicyInput interface {
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyArgs struct {
-	// Transport Layer Security (TLS) client policy. See `spec.backend_defaults.client_policy.tls` Block for details.
+	// TLS client policy. See `spec.backend_defaults.client_policy.tls` Block for details.
 	Tls VirtualGatewaySpecBackendDefaultsClientPolicyTlsPtrInput `pulumi:"tls"`
 }
 
@@ -14633,7 +14633,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyOutput) ToVirtualGatewaySpe
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyPtrOutput)
 }
 
-// Transport Layer Security (TLS) client policy. See `spec.backend_defaults.client_policy.tls` Block for details.
+// TLS client policy. See `spec.backend_defaults.client_policy.tls` Block for details.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyOutput) Tls() VirtualGatewaySpecBackendDefaultsClientPolicyTlsPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicy) *VirtualGatewaySpecBackendDefaultsClientPolicyTls {
 		return v.Tls
@@ -14664,7 +14664,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyPtrOutput) Elem() VirtualGa
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyOutput)
 }
 
-// Transport Layer Security (TLS) client policy. See `spec.backend_defaults.client_policy.tls` Block for details.
+// TLS client policy. See `spec.backend_defaults.client_policy.tls` Block for details.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyPtrOutput) Tls() VirtualGatewaySpecBackendDefaultsClientPolicyTlsPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicy) *VirtualGatewaySpecBackendDefaultsClientPolicyTls {
 		if v == nil {
@@ -14681,7 +14681,7 @@ type VirtualGatewaySpecBackendDefaultsClientPolicyTls struct {
 	Enforce *bool `pulumi:"enforce"`
 	// One or more ports that the policy is enforced for.
 	Ports []int `pulumi:"ports"`
-	// Listener's Transport Layer Security (TLS) validation context.
+	// Listener's TLS validation context.
 	Validation VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation `pulumi:"validation"`
 }
 
@@ -14703,7 +14703,7 @@ type VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs struct {
 	Enforce pulumi.BoolPtrInput `pulumi:"enforce"`
 	// One or more ports that the policy is enforced for.
 	Ports pulumi.IntArrayInput `pulumi:"ports"`
-	// Listener's Transport Layer Security (TLS) validation context.
+	// Listener's TLS validation context.
 	Validation VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationInput `pulumi:"validation"`
 }
 
@@ -14801,7 +14801,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsOutput) Ports() pulumi.I
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTls) []int { return v.Ports }).(pulumi.IntArrayOutput)
 }
 
-// Listener's Transport Layer Security (TLS) validation context.
+// Listener's TLS validation context.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsOutput) Validation() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTls) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation {
 		return v.Validation
@@ -14862,7 +14862,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsPtrOutput) Ports() pulum
 	}).(pulumi.IntArrayOutput)
 }
 
-// Listener's Transport Layer Security (TLS) validation context.
+// Listener's TLS validation context.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsPtrOutput) Validation() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTls) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation {
 		if v == nil {
@@ -15187,7 +15187,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds struct {
-	// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -15203,7 +15203,7 @@ type VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsInput interfa
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgs struct {
-	// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -15284,7 +15284,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput) To
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput)
 }
 
-// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+// Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -15313,7 +15313,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput)
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput)
 }
 
-// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+// Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput) SecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds) *string {
 		if v == nil {
@@ -15324,7 +15324,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput)
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation struct {
-	// SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+	// SANs for a virtual gateway's listener's TLS validation context.
 	SubjectAlternativeNames *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames `pulumi:"subjectAlternativeNames"`
 	// TLS validation context trust.
 	Trust VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust `pulumi:"trust"`
@@ -15342,7 +15342,7 @@ type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationInput interface {
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs struct {
-	// SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+	// SANs for a virtual gateway's listener's TLS validation context.
 	SubjectAlternativeNames VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrInput `pulumi:"subjectAlternativeNames"`
 	// TLS validation context trust.
 	Trust VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustInput `pulumi:"trust"`
@@ -15425,7 +15425,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationOutput) ToVirt
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationPtrOutput)
 }
 
-// SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+// SANs for a virtual gateway's listener's TLS validation context.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationOutput) SubjectAlternativeNames() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames {
 		return v.SubjectAlternativeNames
@@ -15463,7 +15463,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationPtrOutput) Ele
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationOutput)
 }
 
-// SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+// SANs for a virtual gateway's listener's TLS validation context.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationPtrOutput) SubjectAlternativeNames() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames {
 		if v == nil {
@@ -16217,7 +16217,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOu
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds struct {
-	// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -16233,7 +16233,7 @@ type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsInput int
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs struct {
-	// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -16314,7 +16314,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput)
 }
 
-// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+// Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -16343,7 +16343,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOut
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput)
 }
 
-// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+// Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput) SecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds) *string {
 		if v == nil {
@@ -16360,7 +16360,7 @@ type VirtualGatewaySpecListener struct {
 	HealthCheck *VirtualGatewaySpecListenerHealthCheck `pulumi:"healthCheck"`
 	// Port mapping information for the listener. See `portMapping` Block for details.
 	PortMapping VirtualGatewaySpecListenerPortMapping `pulumi:"portMapping"`
-	// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+	// TLS properties for the listener. See `spec.listener.tls` Block for details.
 	Tls *VirtualGatewaySpecListenerTls `pulumi:"tls"`
 }
 
@@ -16382,7 +16382,7 @@ type VirtualGatewaySpecListenerArgs struct {
 	HealthCheck VirtualGatewaySpecListenerHealthCheckPtrInput `pulumi:"healthCheck"`
 	// Port mapping information for the listener. See `portMapping` Block for details.
 	PortMapping VirtualGatewaySpecListenerPortMappingInput `pulumi:"portMapping"`
-	// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+	// TLS properties for the listener. See `spec.listener.tls` Block for details.
 	Tls VirtualGatewaySpecListenerTlsPtrInput `pulumi:"tls"`
 }
 
@@ -16452,7 +16452,7 @@ func (o VirtualGatewaySpecListenerOutput) PortMapping() VirtualGatewaySpecListen
 	return o.ApplyT(func(v VirtualGatewaySpecListener) VirtualGatewaySpecListenerPortMapping { return v.PortMapping }).(VirtualGatewaySpecListenerPortMappingOutput)
 }
 
-// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+// TLS properties for the listener. See `spec.listener.tls` Block for details.
 func (o VirtualGatewaySpecListenerOutput) Tls() VirtualGatewaySpecListenerTlsPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListener) *VirtualGatewaySpecListenerTls { return v.Tls }).(VirtualGatewaySpecListenerTlsPtrOutput)
 }
@@ -17405,7 +17405,7 @@ type VirtualGatewaySpecListenerTls struct {
 	Certificate VirtualGatewaySpecListenerTlsCertificate `pulumi:"certificate"`
 	// Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
 	Mode string `pulumi:"mode"`
-	// Listener's Transport Layer Security (TLS) validation context.
+	// Listener's TLS validation context.
 	Validation *VirtualGatewaySpecListenerTlsValidation `pulumi:"validation"`
 }
 
@@ -17425,7 +17425,7 @@ type VirtualGatewaySpecListenerTlsArgs struct {
 	Certificate VirtualGatewaySpecListenerTlsCertificateInput `pulumi:"certificate"`
 	// Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
 	Mode pulumi.StringInput `pulumi:"mode"`
-	// Listener's Transport Layer Security (TLS) validation context.
+	// Listener's TLS validation context.
 	Validation VirtualGatewaySpecListenerTlsValidationPtrInput `pulumi:"validation"`
 }
 
@@ -17516,7 +17516,7 @@ func (o VirtualGatewaySpecListenerTlsOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerTls) string { return v.Mode }).(pulumi.StringOutput)
 }
 
-// Listener's Transport Layer Security (TLS) validation context.
+// Listener's TLS validation context.
 func (o VirtualGatewaySpecListenerTlsOutput) Validation() VirtualGatewaySpecListenerTlsValidationPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerTls) *VirtualGatewaySpecListenerTlsValidation { return v.Validation }).(VirtualGatewaySpecListenerTlsValidationPtrOutput)
 }
@@ -17565,7 +17565,7 @@ func (o VirtualGatewaySpecListenerTlsPtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Listener's Transport Layer Security (TLS) validation context.
+// Listener's TLS validation context.
 func (o VirtualGatewaySpecListenerTlsPtrOutput) Validation() VirtualGatewaySpecListenerTlsValidationPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTls) *VirtualGatewaySpecListenerTlsValidation {
 		if v == nil {
@@ -18046,7 +18046,7 @@ func (o VirtualGatewaySpecListenerTlsCertificateFilePtrOutput) PrivateKey() pulu
 }
 
 type VirtualGatewaySpecListenerTlsCertificateSds struct {
-	// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -18062,7 +18062,7 @@ type VirtualGatewaySpecListenerTlsCertificateSdsInput interface {
 }
 
 type VirtualGatewaySpecListenerTlsCertificateSdsArgs struct {
-	// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -18143,7 +18143,7 @@ func (o VirtualGatewaySpecListenerTlsCertificateSdsOutput) ToVirtualGatewaySpecL
 	}).(VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput)
 }
 
-// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+// Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
 func (o VirtualGatewaySpecListenerTlsCertificateSdsOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsCertificateSds) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -18172,7 +18172,7 @@ func (o VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput) Elem() VirtualGate
 	}).(VirtualGatewaySpecListenerTlsCertificateSdsOutput)
 }
 
-// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+// Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
 func (o VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput) SecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsCertificateSds) *string {
 		if v == nil {
@@ -18183,7 +18183,7 @@ func (o VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput) SecretName() pulum
 }
 
 type VirtualGatewaySpecListenerTlsValidation struct {
-	// SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+	// SANs for a virtual gateway's listener's TLS validation context.
 	SubjectAlternativeNames *VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames `pulumi:"subjectAlternativeNames"`
 	// TLS validation context trust.
 	Trust VirtualGatewaySpecListenerTlsValidationTrust `pulumi:"trust"`
@@ -18201,7 +18201,7 @@ type VirtualGatewaySpecListenerTlsValidationInput interface {
 }
 
 type VirtualGatewaySpecListenerTlsValidationArgs struct {
-	// SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+	// SANs for a virtual gateway's listener's TLS validation context.
 	SubjectAlternativeNames VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrInput `pulumi:"subjectAlternativeNames"`
 	// TLS validation context trust.
 	Trust VirtualGatewaySpecListenerTlsValidationTrustInput `pulumi:"trust"`
@@ -18284,7 +18284,7 @@ func (o VirtualGatewaySpecListenerTlsValidationOutput) ToVirtualGatewaySpecListe
 	}).(VirtualGatewaySpecListenerTlsValidationPtrOutput)
 }
 
-// SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+// SANs for a virtual gateway's listener's TLS validation context.
 func (o VirtualGatewaySpecListenerTlsValidationOutput) SubjectAlternativeNames() VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsValidation) *VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames {
 		return v.SubjectAlternativeNames
@@ -18322,7 +18322,7 @@ func (o VirtualGatewaySpecListenerTlsValidationPtrOutput) Elem() VirtualGatewayS
 	}).(VirtualGatewaySpecListenerTlsValidationOutput)
 }
 
-// SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+// SANs for a virtual gateway's listener's TLS validation context.
 func (o VirtualGatewaySpecListenerTlsValidationPtrOutput) SubjectAlternativeNames() VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsValidation) *VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames {
 		if v == nil {
@@ -18912,7 +18912,7 @@ func (o VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput) CertificateCh
 }
 
 type VirtualGatewaySpecListenerTlsValidationTrustSds struct {
-	// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -18928,7 +18928,7 @@ type VirtualGatewaySpecListenerTlsValidationTrustSdsInput interface {
 }
 
 type VirtualGatewaySpecListenerTlsValidationTrustSdsArgs struct {
-	// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -19009,7 +19009,7 @@ func (o VirtualGatewaySpecListenerTlsValidationTrustSdsOutput) ToVirtualGatewayS
 	}).(VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput)
 }
 
-// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+// Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
 func (o VirtualGatewaySpecListenerTlsValidationTrustSdsOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsValidationTrustSds) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -19038,7 +19038,7 @@ func (o VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput) Elem() Virtual
 	}).(VirtualGatewaySpecListenerTlsValidationTrustSdsOutput)
 }
 
-// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+// Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
 func (o VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput) SecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsValidationTrustSds) *string {
 		if v == nil {
@@ -20190,7 +20190,7 @@ func (o VirtualNodeSpecBackendDefaultsPtrOutput) ClientPolicy() VirtualNodeSpecB
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicy struct {
-	// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+	// TLS properties for the listener. See `spec.listener.tls` Block for details.
 	Tls *VirtualNodeSpecBackendDefaultsClientPolicyTls `pulumi:"tls"`
 }
 
@@ -20206,7 +20206,7 @@ type VirtualNodeSpecBackendDefaultsClientPolicyInput interface {
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyArgs struct {
-	// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+	// TLS properties for the listener. See `spec.listener.tls` Block for details.
 	Tls VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrInput `pulumi:"tls"`
 }
 
@@ -20287,7 +20287,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyOutput) ToVirtualNodeSpecBacke
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput)
 }
 
-// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+// TLS properties for the listener. See `spec.listener.tls` Block for details.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyOutput) Tls() VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicy) *VirtualNodeSpecBackendDefaultsClientPolicyTls {
 		return v.Tls
@@ -20318,7 +20318,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput) Elem() VirtualNodeS
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyOutput)
 }
 
-// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+// TLS properties for the listener. See `spec.listener.tls` Block for details.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput) Tls() VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicy) *VirtualNodeSpecBackendDefaultsClientPolicyTls {
 		if v == nil {
@@ -20335,7 +20335,7 @@ type VirtualNodeSpecBackendDefaultsClientPolicyTls struct {
 	Enforce *bool `pulumi:"enforce"`
 	// One or more ports that the policy is enforced for.
 	Ports []int `pulumi:"ports"`
-	// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+	// Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
 	Validation VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation `pulumi:"validation"`
 }
 
@@ -20357,7 +20357,7 @@ type VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs struct {
 	Enforce pulumi.BoolPtrInput `pulumi:"enforce"`
 	// One or more ports that the policy is enforced for.
 	Ports pulumi.IntArrayInput `pulumi:"ports"`
-	// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+	// Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
 	Validation VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationInput `pulumi:"validation"`
 }
 
@@ -20455,7 +20455,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput) Ports() pulumi.IntA
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTls) []int { return v.Ports }).(pulumi.IntArrayOutput)
 }
 
-// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+// Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput) Validation() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTls) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation {
 		return v.Validation
@@ -20516,7 +20516,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput) Ports() pulumi.I
 	}).(pulumi.IntArrayOutput)
 }
 
-// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+// Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput) Validation() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTls) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation {
 		if v == nil {
@@ -20843,7 +20843,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput) P
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -20859,7 +20859,7 @@ type VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsInput interface 
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgs struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -20940,7 +20940,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput) ToVir
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput)
 }
 
-// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -20969,7 +20969,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput) El
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput)
 }
 
-// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput) SecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds) *string {
 		if v == nil {
@@ -21877,7 +21877,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutpu
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -21893,7 +21893,7 @@ type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsInput interf
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -21974,7 +21974,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput) T
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput)
 }
 
-// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -22003,7 +22003,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput)
 }
 
-// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput) SecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds) *string {
 		if v == nil {
@@ -22077,7 +22077,7 @@ func (o VirtualNodeSpecBackendVirtualServiceOutput) VirtualServiceName() pulumi.
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicy struct {
-	// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+	// TLS properties for the listener. See `spec.listener.tls` Block for details.
 	Tls *VirtualNodeSpecBackendVirtualServiceClientPolicyTls `pulumi:"tls"`
 }
 
@@ -22093,7 +22093,7 @@ type VirtualNodeSpecBackendVirtualServiceClientPolicyInput interface {
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyArgs struct {
-	// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+	// TLS properties for the listener. See `spec.listener.tls` Block for details.
 	Tls VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrInput `pulumi:"tls"`
 }
 
@@ -22174,7 +22174,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyOutput) ToVirtualNodeSpe
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput)
 }
 
-// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+// TLS properties for the listener. See `spec.listener.tls` Block for details.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyOutput) Tls() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicy) *VirtualNodeSpecBackendVirtualServiceClientPolicyTls {
 		return v.Tls
@@ -22205,7 +22205,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput) Elem() Virtua
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyOutput)
 }
 
-// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+// TLS properties for the listener. See `spec.listener.tls` Block for details.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput) Tls() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicy) *VirtualNodeSpecBackendVirtualServiceClientPolicyTls {
 		if v == nil {
@@ -22222,7 +22222,7 @@ type VirtualNodeSpecBackendVirtualServiceClientPolicyTls struct {
 	Enforce *bool `pulumi:"enforce"`
 	// One or more ports that the policy is enforced for.
 	Ports []int `pulumi:"ports"`
-	// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+	// Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
 	Validation VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation `pulumi:"validation"`
 }
 
@@ -22244,7 +22244,7 @@ type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs struct {
 	Enforce pulumi.BoolPtrInput `pulumi:"enforce"`
 	// One or more ports that the policy is enforced for.
 	Ports pulumi.IntArrayInput `pulumi:"ports"`
-	// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+	// Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
 	Validation VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationInput `pulumi:"validation"`
 }
 
@@ -22342,7 +22342,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput) Ports() pulum
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTls) []int { return v.Ports }).(pulumi.IntArrayOutput)
 }
 
-// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+// Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput) Validation() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTls) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation {
 		return v.Validation
@@ -22403,7 +22403,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput) Ports() pu
 	}).(pulumi.IntArrayOutput)
 }
 
-// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+// Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput) Validation() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTls) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation {
 		if v == nil {
@@ -22732,7 +22732,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOut
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -22748,7 +22748,7 @@ type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsInput inte
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgs struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -22829,7 +22829,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput)
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput)
 }
 
-// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -22858,7 +22858,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutp
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput)
 }
 
-// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput) SecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds) *string {
 		if v == nil {
@@ -23766,7 +23766,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePt
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -23782,7 +23782,7 @@ type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsInput 
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgs struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -23863,7 +23863,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOut
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput)
 }
 
-// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds) string {
 		return v.SecretName
@@ -23894,7 +23894,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtr
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutput)
 }
 
-// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput) SecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds) *string {
 		if v == nil {
@@ -23915,7 +23915,7 @@ type VirtualNodeSpecListener struct {
 	PortMapping VirtualNodeSpecListenerPortMapping `pulumi:"portMapping"`
 	// Timeouts for different protocols. See `spec.listener.timeout` Block for details.
 	Timeout *VirtualNodeSpecListenerTimeout `pulumi:"timeout"`
-	// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+	// TLS properties for the listener. See `spec.listener.tls` Block for details.
 	Tls *VirtualNodeSpecListenerTls `pulumi:"tls"`
 }
 
@@ -23941,7 +23941,7 @@ type VirtualNodeSpecListenerArgs struct {
 	PortMapping VirtualNodeSpecListenerPortMappingInput `pulumi:"portMapping"`
 	// Timeouts for different protocols. See `spec.listener.timeout` Block for details.
 	Timeout VirtualNodeSpecListenerTimeoutPtrInput `pulumi:"timeout"`
-	// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+	// TLS properties for the listener. See `spec.listener.tls` Block for details.
 	Tls VirtualNodeSpecListenerTlsPtrInput `pulumi:"tls"`
 }
 
@@ -24021,7 +24021,7 @@ func (o VirtualNodeSpecListenerOutput) Timeout() VirtualNodeSpecListenerTimeoutP
 	return o.ApplyT(func(v VirtualNodeSpecListener) *VirtualNodeSpecListenerTimeout { return v.Timeout }).(VirtualNodeSpecListenerTimeoutPtrOutput)
 }
 
-// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+// TLS properties for the listener. See `spec.listener.tls` Block for details.
 func (o VirtualNodeSpecListenerOutput) Tls() VirtualNodeSpecListenerTlsPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListener) *VirtualNodeSpecListenerTls { return v.Tls }).(VirtualNodeSpecListenerTlsPtrOutput)
 }
@@ -27409,7 +27409,7 @@ type VirtualNodeSpecListenerTls struct {
 	Certificate VirtualNodeSpecListenerTlsCertificate `pulumi:"certificate"`
 	// Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
 	Mode string `pulumi:"mode"`
-	// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+	// Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
 	Validation *VirtualNodeSpecListenerTlsValidation `pulumi:"validation"`
 }
 
@@ -27429,7 +27429,7 @@ type VirtualNodeSpecListenerTlsArgs struct {
 	Certificate VirtualNodeSpecListenerTlsCertificateInput `pulumi:"certificate"`
 	// Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
 	Mode pulumi.StringInput `pulumi:"mode"`
-	// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+	// Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
 	Validation VirtualNodeSpecListenerTlsValidationPtrInput `pulumi:"validation"`
 }
 
@@ -27520,7 +27520,7 @@ func (o VirtualNodeSpecListenerTlsOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTls) string { return v.Mode }).(pulumi.StringOutput)
 }
 
-// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+// Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
 func (o VirtualNodeSpecListenerTlsOutput) Validation() VirtualNodeSpecListenerTlsValidationPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTls) *VirtualNodeSpecListenerTlsValidation { return v.Validation }).(VirtualNodeSpecListenerTlsValidationPtrOutput)
 }
@@ -27569,7 +27569,7 @@ func (o VirtualNodeSpecListenerTlsPtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+// Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
 func (o VirtualNodeSpecListenerTlsPtrOutput) Validation() VirtualNodeSpecListenerTlsValidationPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTls) *VirtualNodeSpecListenerTlsValidation {
 		if v == nil {
@@ -28050,7 +28050,7 @@ func (o VirtualNodeSpecListenerTlsCertificateFilePtrOutput) PrivateKey() pulumi.
 }
 
 type VirtualNodeSpecListenerTlsCertificateSds struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -28066,7 +28066,7 @@ type VirtualNodeSpecListenerTlsCertificateSdsInput interface {
 }
 
 type VirtualNodeSpecListenerTlsCertificateSdsArgs struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -28147,7 +28147,7 @@ func (o VirtualNodeSpecListenerTlsCertificateSdsOutput) ToVirtualNodeSpecListene
 	}).(VirtualNodeSpecListenerTlsCertificateSdsPtrOutput)
 }
 
-// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 func (o VirtualNodeSpecListenerTlsCertificateSdsOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTlsCertificateSds) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -28176,7 +28176,7 @@ func (o VirtualNodeSpecListenerTlsCertificateSdsPtrOutput) Elem() VirtualNodeSpe
 	}).(VirtualNodeSpecListenerTlsCertificateSdsOutput)
 }
 
-// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 func (o VirtualNodeSpecListenerTlsCertificateSdsPtrOutput) SecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsCertificateSds) *string {
 		if v == nil {
@@ -28918,7 +28918,7 @@ func (o VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput) CertificateChain
 }
 
 type VirtualNodeSpecListenerTlsValidationTrustSds struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -28934,7 +28934,7 @@ type VirtualNodeSpecListenerTlsValidationTrustSdsInput interface {
 }
 
 type VirtualNodeSpecListenerTlsValidationTrustSdsArgs struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -29015,7 +29015,7 @@ func (o VirtualNodeSpecListenerTlsValidationTrustSdsOutput) ToVirtualNodeSpecLis
 	}).(VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput)
 }
 
-// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 func (o VirtualNodeSpecListenerTlsValidationTrustSdsOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTlsValidationTrustSds) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -29044,7 +29044,7 @@ func (o VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput) Elem() VirtualNod
 	}).(VirtualNodeSpecListenerTlsValidationTrustSdsOutput)
 }
 
-// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 func (o VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput) SecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsValidationTrustSds) *string {
 		if v == nil {
@@ -44577,7 +44577,7 @@ func (o GetVirtualNodeSpecBackendDefaultArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicy struct {
-	// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+	// TLS properties for the listener. See `spec.listener.tls` Block for details.
 	Tls []GetVirtualNodeSpecBackendDefaultClientPolicyTl `pulumi:"tls"`
 }
 
@@ -44593,7 +44593,7 @@ type GetVirtualNodeSpecBackendDefaultClientPolicyInput interface {
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyArgs struct {
-	// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+	// TLS properties for the listener. See `spec.listener.tls` Block for details.
 	Tls GetVirtualNodeSpecBackendDefaultClientPolicyTlArrayInput `pulumi:"tls"`
 }
 
@@ -44648,7 +44648,7 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyOutput) ToGetVirtualNodeSpec
 	return o
 }
 
-// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+// TLS properties for the listener. See `spec.listener.tls` Block for details.
 func (o GetVirtualNodeSpecBackendDefaultClientPolicyOutput) Tls() GetVirtualNodeSpecBackendDefaultClientPolicyTlArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicy) []GetVirtualNodeSpecBackendDefaultClientPolicyTl {
 		return v.Tls
@@ -44682,7 +44682,7 @@ type GetVirtualNodeSpecBackendDefaultClientPolicyTl struct {
 	Enforce bool `pulumi:"enforce"`
 	// One or more ports that the policy is enforced for.
 	Ports []int `pulumi:"ports"`
-	// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+	// Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
 	Validations []GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation `pulumi:"validations"`
 }
 
@@ -44704,7 +44704,7 @@ type GetVirtualNodeSpecBackendDefaultClientPolicyTlArgs struct {
 	Enforce pulumi.BoolInput `pulumi:"enforce"`
 	// One or more ports that the policy is enforced for.
 	Ports pulumi.IntArrayInput `pulumi:"ports"`
-	// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+	// Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
 	Validations GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationArrayInput `pulumi:"validations"`
 }
 
@@ -44776,7 +44776,7 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlOutput) Ports() pulumi.Int
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTl) []int { return v.Ports }).(pulumi.IntArrayOutput)
 }
 
-// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+// Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
 func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlOutput) Validations() GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTl) []GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation {
 		return v.Validations
@@ -45022,7 +45022,7 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileArrayOutput
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSd struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -45038,7 +45038,7 @@ type GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdInput interface 
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdArgs struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -45093,7 +45093,7 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdOutput) ToGet
 	return o
 }
 
-// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSd) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -45746,7 +45746,7 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileArrayOu
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSd struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -45762,7 +45762,7 @@ type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdInput interf
 }
 
 type GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdArgs struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -45817,7 +45817,7 @@ func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdOutput) T
 	return o
 }
 
-// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 func (o GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSd) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -45951,7 +45951,7 @@ func (o GetVirtualNodeSpecBackendVirtualServiceArrayOutput) Index(i pulumi.IntIn
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicy struct {
-	// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+	// TLS properties for the listener. See `spec.listener.tls` Block for details.
 	Tls []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl `pulumi:"tls"`
 }
 
@@ -45967,7 +45967,7 @@ type GetVirtualNodeSpecBackendVirtualServiceClientPolicyInput interface {
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyArgs struct {
-	// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+	// TLS properties for the listener. See `spec.listener.tls` Block for details.
 	Tls GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlArrayInput `pulumi:"tls"`
 }
 
@@ -46022,7 +46022,7 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyOutput) ToGetVirtualN
 	return o
 }
 
-// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+// TLS properties for the listener. See `spec.listener.tls` Block for details.
 func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyOutput) Tls() GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicy) []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl {
 		return v.Tls
@@ -46056,7 +46056,7 @@ type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl struct {
 	Enforce bool `pulumi:"enforce"`
 	// One or more ports that the policy is enforced for.
 	Ports []int `pulumi:"ports"`
-	// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+	// Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
 	Validations []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation `pulumi:"validations"`
 }
 
@@ -46078,7 +46078,7 @@ type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlArgs struct {
 	Enforce pulumi.BoolInput `pulumi:"enforce"`
 	// One or more ports that the policy is enforced for.
 	Ports pulumi.IntArrayInput `pulumi:"ports"`
-	// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+	// Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
 	Validations GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationArrayInput `pulumi:"validations"`
 }
 
@@ -46150,7 +46150,7 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlOutput) Ports() pul
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl) []int { return v.Ports }).(pulumi.IntArrayOutput)
 }
 
-// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+// Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
 func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlOutput) Validations() GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl) []GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation {
 		return v.Validations
@@ -46398,7 +46398,7 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileArra
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSd struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -46414,7 +46414,7 @@ type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdInput int
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdArgs struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -46469,7 +46469,7 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdOutput
 	return o
 }
 
-// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSd) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -47122,7 +47122,7 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSd struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -47138,7 +47138,7 @@ type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdInput
 }
 
 type GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdArgs struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -47193,7 +47193,7 @@ func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdOu
 	return o
 }
 
-// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 func (o GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSd) string {
 		return v.SecretName
@@ -47231,7 +47231,7 @@ type GetVirtualNodeSpecListener struct {
 	PortMappings []GetVirtualNodeSpecListenerPortMapping `pulumi:"portMappings"`
 	// Timeouts for different protocols. See `spec.listener.timeout` Block for details.
 	Timeouts []GetVirtualNodeSpecListenerTimeout `pulumi:"timeouts"`
-	// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+	// TLS properties for the listener. See `spec.listener.tls` Block for details.
 	Tls []GetVirtualNodeSpecListenerTl `pulumi:"tls"`
 }
 
@@ -47257,7 +47257,7 @@ type GetVirtualNodeSpecListenerArgs struct {
 	PortMappings GetVirtualNodeSpecListenerPortMappingArrayInput `pulumi:"portMappings"`
 	// Timeouts for different protocols. See `spec.listener.timeout` Block for details.
 	Timeouts GetVirtualNodeSpecListenerTimeoutArrayInput `pulumi:"timeouts"`
-	// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+	// TLS properties for the listener. See `spec.listener.tls` Block for details.
 	Tls GetVirtualNodeSpecListenerTlArrayInput `pulumi:"tls"`
 }
 
@@ -47341,7 +47341,7 @@ func (o GetVirtualNodeSpecListenerOutput) Timeouts() GetVirtualNodeSpecListenerT
 	return o.ApplyT(func(v GetVirtualNodeSpecListener) []GetVirtualNodeSpecListenerTimeout { return v.Timeouts }).(GetVirtualNodeSpecListenerTimeoutArrayOutput)
 }
 
-// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+// TLS properties for the listener. See `spec.listener.tls` Block for details.
 func (o GetVirtualNodeSpecListenerOutput) Tls() GetVirtualNodeSpecListenerTlArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListener) []GetVirtualNodeSpecListenerTl { return v.Tls }).(GetVirtualNodeSpecListenerTlArrayOutput)
 }
@@ -49792,7 +49792,7 @@ type GetVirtualNodeSpecListenerTl struct {
 	Certificates []GetVirtualNodeSpecListenerTlCertificate `pulumi:"certificates"`
 	// Listener's TLS mode.
 	Mode string `pulumi:"mode"`
-	// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+	// Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
 	Validations []GetVirtualNodeSpecListenerTlValidation `pulumi:"validations"`
 }
 
@@ -49812,7 +49812,7 @@ type GetVirtualNodeSpecListenerTlArgs struct {
 	Certificates GetVirtualNodeSpecListenerTlCertificateArrayInput `pulumi:"certificates"`
 	// Listener's TLS mode.
 	Mode pulumi.StringInput `pulumi:"mode"`
-	// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+	// Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
 	Validations GetVirtualNodeSpecListenerTlValidationArrayInput `pulumi:"validations"`
 }
 
@@ -49877,7 +49877,7 @@ func (o GetVirtualNodeSpecListenerTlOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTl) string { return v.Mode }).(pulumi.StringOutput)
 }
 
-// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+// Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
 func (o GetVirtualNodeSpecListenerTlOutput) Validations() GetVirtualNodeSpecListenerTlValidationArrayOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTl) []GetVirtualNodeSpecListenerTlValidation { return v.Validations }).(GetVirtualNodeSpecListenerTlValidationArrayOutput)
 }
@@ -50227,7 +50227,7 @@ func (o GetVirtualNodeSpecListenerTlCertificateFileArrayOutput) Index(i pulumi.I
 }
 
 type GetVirtualNodeSpecListenerTlCertificateSd struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -50243,7 +50243,7 @@ type GetVirtualNodeSpecListenerTlCertificateSdInput interface {
 }
 
 type GetVirtualNodeSpecListenerTlCertificateSdArgs struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -50298,7 +50298,7 @@ func (o GetVirtualNodeSpecListenerTlCertificateSdOutput) ToGetVirtualNodeSpecLis
 	return o
 }
 
-// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 func (o GetVirtualNodeSpecListenerTlCertificateSdOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTlCertificateSd) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -50837,7 +50837,7 @@ func (o GetVirtualNodeSpecListenerTlValidationTrustFileArrayOutput) Index(i pulu
 }
 
 type GetVirtualNodeSpecListenerTlValidationTrustSd struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -50853,7 +50853,7 @@ type GetVirtualNodeSpecListenerTlValidationTrustSdInput interface {
 }
 
 type GetVirtualNodeSpecListenerTlValidationTrustSdArgs struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+	// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -50908,7 +50908,7 @@ func (o GetVirtualNodeSpecListenerTlValidationTrustSdOutput) ToGetVirtualNodeSpe
 	return o
 }
 
-// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+// Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
 func (o GetVirtualNodeSpecListenerTlValidationTrustSdOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNodeSpecListenerTlValidationTrustSd) string { return v.SecretName }).(pulumi.StringOutput)
 }

@@ -874,7 +874,7 @@ type DataSourceConfigurationWebCrawlerConfiguration struct {
 	UrlExclusionPatterns []string `pulumi:"urlExclusionPatterns"`
 	// A list of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don't match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
 	UrlInclusionPatterns []string `pulumi:"urlInclusionPatterns"`
-	// A block that specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl. You can include website subdomains. You can list up to `100` seed URLs and up to `3` sitemap URLs. You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling. When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index. Detailed below.
+	// Block that specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl. You can include website subdomains. You can list up to `100` seed URLs and up to `3` sitemap URLs. You can only crawl websites that use the secure communication protocol, HTTPS. If you receive an error when crawling a website, it could be that the website is blocked from crawling. When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index. Detailed below.
 	Urls DataSourceConfigurationWebCrawlerConfigurationUrls `pulumi:"urls"`
 }
 
@@ -906,7 +906,7 @@ type DataSourceConfigurationWebCrawlerConfigurationArgs struct {
 	UrlExclusionPatterns pulumi.StringArrayInput `pulumi:"urlExclusionPatterns"`
 	// A list of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don't match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
 	UrlInclusionPatterns pulumi.StringArrayInput `pulumi:"urlInclusionPatterns"`
-	// A block that specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl. You can include website subdomains. You can list up to `100` seed URLs and up to `3` sitemap URLs. You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling. When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index. Detailed below.
+	// Block that specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl. You can include website subdomains. You can list up to `100` seed URLs and up to `3` sitemap URLs. You can only crawl websites that use the secure communication protocol, HTTPS. If you receive an error when crawling a website, it could be that the website is blocked from crawling. When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index. Detailed below.
 	Urls DataSourceConfigurationWebCrawlerConfigurationUrlsInput `pulumi:"urls"`
 }
 
@@ -1033,7 +1033,7 @@ func (o DataSourceConfigurationWebCrawlerConfigurationOutput) UrlInclusionPatter
 	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfiguration) []string { return v.UrlInclusionPatterns }).(pulumi.StringArrayOutput)
 }
 
-// A block that specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl. You can include website subdomains. You can list up to `100` seed URLs and up to `3` sitemap URLs. You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling. When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index. Detailed below.
+// Block that specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl. You can include website subdomains. You can list up to `100` seed URLs and up to `3` sitemap URLs. You can only crawl websites that use the secure communication protocol, HTTPS. If you receive an error when crawling a website, it could be that the website is blocked from crawling. When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index. Detailed below.
 func (o DataSourceConfigurationWebCrawlerConfigurationOutput) Urls() DataSourceConfigurationWebCrawlerConfigurationUrlsOutput {
 	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfiguration) DataSourceConfigurationWebCrawlerConfigurationUrls {
 		return v.Urls
@@ -1144,7 +1144,7 @@ func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) UrlInclusionPat
 	}).(pulumi.StringArrayOutput)
 }
 
-// A block that specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl. You can include website subdomains. You can list up to `100` seed URLs and up to `3` sitemap URLs. You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling. When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index. Detailed below.
+// Block that specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl. You can include website subdomains. You can list up to `100` seed URLs and up to `3` sitemap URLs. You can only crawl websites that use the secure communication protocol, HTTPS. If you receive an error when crawling a website, it could be that the website is blocked from crawling. When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index. Detailed below.
 func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) Urls() DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput {
 	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfiguration) *DataSourceConfigurationWebCrawlerConfigurationUrls {
 		if v == nil {
@@ -2067,7 +2067,7 @@ type DataSourceCustomDocumentEnrichmentConfiguration struct {
 	PostExtractionHookConfiguration *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration `pulumi:"postExtractionHookConfiguration"`
 	// Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
 	PreExtractionHookConfiguration *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration `pulumi:"preExtractionHookConfiguration"`
-	// The Amazon Resource Name (ARN) of a role with permission to run `preExtractionHookConfiguration` and `postExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+	// ARN of a role with permission to run `preExtractionHookConfiguration` and `postExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn *string `pulumi:"roleArn"`
 }
 
@@ -2089,7 +2089,7 @@ type DataSourceCustomDocumentEnrichmentConfigurationArgs struct {
 	PostExtractionHookConfiguration DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrInput `pulumi:"postExtractionHookConfiguration"`
 	// Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
 	PreExtractionHookConfiguration DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrInput `pulumi:"preExtractionHookConfiguration"`
-	// The Amazon Resource Name (ARN) of a role with permission to run `preExtractionHookConfiguration` and `postExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+	// ARN of a role with permission to run `preExtractionHookConfiguration` and `postExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 }
 
@@ -2191,7 +2191,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationOutput) PreExtractionHook
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of a role with permission to run `preExtractionHookConfiguration` and `postExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+// ARN of a role with permission to run `preExtractionHookConfiguration` and `postExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 func (o DataSourceCustomDocumentEnrichmentConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfiguration) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
@@ -2250,7 +2250,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) PreExtractionH
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of a role with permission to run `preExtractionHookConfiguration` and `postExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+// ARN of a role with permission to run `preExtractionHookConfiguration` and `postExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfiguration) *string {
 		if v == nil {
@@ -3142,7 +3142,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget
 type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration struct {
 	// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
 	InvocationCondition *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition `pulumi:"invocationCondition"`
-	// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
+	// ARN of a Lambda Function that can manipulate your document metadata fields or attributes and content.
 	LambdaArn string `pulumi:"lambdaArn"`
 	// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
 	S3Bucket string `pulumi:"s3Bucket"`
@@ -3162,7 +3162,7 @@ type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurat
 type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs struct {
 	// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
 	InvocationCondition DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrInput `pulumi:"invocationCondition"`
-	// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
+	// ARN of a Lambda Function that can manipulate your document metadata fields or attributes and content.
 	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
 	// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
 	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
@@ -3252,7 +3252,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
+// ARN of a Lambda Function that can manipulate your document metadata fields or attributes and content.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput) LambdaArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration) string {
 		return v.LambdaArn
@@ -3300,7 +3300,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
+// ARN of a Lambda Function that can manipulate your document metadata fields or attributes and content.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration) *string {
 		if v == nil {
@@ -3702,7 +3702,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration struct {
 	// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
 	InvocationCondition *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition `pulumi:"invocationCondition"`
-	// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
+	// ARN of a Lambda Function that can manipulate your document metadata fields or attributes and content.
 	LambdaArn string `pulumi:"lambdaArn"`
 	// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
 	S3Bucket string `pulumi:"s3Bucket"`
@@ -3722,7 +3722,7 @@ type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurati
 type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs struct {
 	// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
 	InvocationCondition DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrInput `pulumi:"invocationCondition"`
-	// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
+	// ARN of a Lambda Function that can manipulate your document metadata fields or attributes and content.
 	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
 	// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
 	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
@@ -3812,7 +3812,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
+// ARN of a Lambda Function that can manipulate your document metadata fields or attributes and content.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput) LambdaArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration) string {
 		return v.LambdaArn
@@ -3860,7 +3860,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
+// ARN of a Lambda Function that can manipulate your document metadata fields or attributes and content.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration) *string {
 		if v == nil {
@@ -6602,7 +6602,7 @@ type IndexUserTokenConfigurationsJwtTokenTypeConfiguration struct {
 	Issuer *string `pulumi:"issuer"`
 	// The location of the key. Valid values are `URL` or `SECRET_MANAGER`
 	KeyLocation string `pulumi:"keyLocation"`
-	// The Amazon Resource Name (ARN) of the secret.
+	// ARN of the secret.
 	SecretsManagerArn *string `pulumi:"secretsManagerArn"`
 	// The signing key URL. Valid pattern is `^(https?|ftp|file):\/\/([^\s]*)`
 	Url *string `pulumi:"url"`
@@ -6630,7 +6630,7 @@ type IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs struct {
 	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
 	// The location of the key. Valid values are `URL` or `SECRET_MANAGER`
 	KeyLocation pulumi.StringInput `pulumi:"keyLocation"`
-	// The Amazon Resource Name (ARN) of the secret.
+	// ARN of the secret.
 	SecretsManagerArn pulumi.StringPtrInput `pulumi:"secretsManagerArn"`
 	// The signing key URL. Valid pattern is `^(https?|ftp|file):\/\/([^\s]*)`
 	Url pulumi.StringPtrInput `pulumi:"url"`
@@ -6735,7 +6735,7 @@ func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationOutput) KeyLocation
 	return o.ApplyT(func(v IndexUserTokenConfigurationsJwtTokenTypeConfiguration) string { return v.KeyLocation }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the secret.
+// ARN of the secret.
 func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationOutput) SecretsManagerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IndexUserTokenConfigurationsJwtTokenTypeConfiguration) *string { return v.SecretsManagerArn }).(pulumi.StringPtrOutput)
 }
@@ -6814,7 +6814,7 @@ func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput) KeyLocat
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the secret.
+// ARN of the secret.
 func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput) SecretsManagerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IndexUserTokenConfigurationsJwtTokenTypeConfiguration) *string {
 		if v == nil {

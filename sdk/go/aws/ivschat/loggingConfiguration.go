@@ -182,7 +182,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the IVS Chat logging configuration.
+// - `arn` (String) ARN of the IVS Chat logging configuration.
 //
 // Using `pulumi import`, import IVS (Interactive Video) Chat Logging Configuration using the ARN. For example:
 //

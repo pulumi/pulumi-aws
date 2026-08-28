@@ -17,14 +17,14 @@ public final class StreamConsumerState extends com.pulumi.resources.ResourceArgs
     public static final StreamConsumerState Empty = new StreamConsumerState();
 
     /**
-     * Amazon Resource Name (ARN) of the stream consumer.
+     * ARN of the stream consumer.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the stream consumer.
+     * @return ARN of the stream consumer.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -77,14 +77,14 @@ public final class StreamConsumerState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+     * ARN of the data stream the consumer is registered with.
      * 
      */
     @Import(name="streamArn")
     private @Nullable Output<String> streamArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+     * @return ARN of the data stream the consumer is registered with.
      * 
      */
     public Optional<Output<String>> streamArn() {
@@ -136,7 +136,7 @@ public final class StreamConsumerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the stream consumer.
+         * @param arn ARN of the stream consumer.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class StreamConsumerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the stream consumer.
+         * @param arn ARN of the stream consumer.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class StreamConsumerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param streamArn Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+         * @param streamArn ARN of the data stream the consumer is registered with.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class StreamConsumerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param streamArn Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+         * @param streamArn ARN of the data stream the consumer is registered with.
          * 
          * @return builder
          * 

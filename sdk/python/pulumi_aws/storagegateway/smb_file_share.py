@@ -50,12 +50,12 @@ class SmbFileShareArgs:
         """
         The set of arguments for constructing a SmbFileShare resource.
 
-        :param pulumi.Input[_builtins.str] gateway_arn: Amazon Resource Name (ARN) of the file gateway.
+        :param pulumi.Input[_builtins.str] gateway_arn: ARN of the file gateway.
         :param pulumi.Input[_builtins.str] location_arn: The ARN of the backed storage used for storing file data.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
         :param pulumi.Input[_builtins.bool] access_based_enumeration: The files and folders on this share will only be visible to users with read access. Default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_user_lists: A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
-        :param pulumi.Input[_builtins.str] audit_destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+        :param pulumi.Input[_builtins.str] audit_destination_arn: ARN of the CloudWatch Log Group used for the audit logs.
         :param pulumi.Input[_builtins.str] authentication: The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
         :param pulumi.Input[_builtins.str] bucket_region: The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
         :param pulumi.Input['SmbFileShareCacheAttributesArgs'] cache_attributes: Refresh cache information. see `cache_attributes` Block for more details.
@@ -65,7 +65,7 @@ class SmbFileShareArgs:
         :param pulumi.Input[_builtins.bool] guess_mime_type_enabled: Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] invalid_user_lists: A list of users in the Active Directory that are not allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
         :param pulumi.Input[_builtins.bool] kms_encrypted: Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] kms_key_arn: Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
         :param pulumi.Input[_builtins.str] notification_policy: The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
         :param pulumi.Input[_builtins.str] object_acl: Access Control List permission for S3 objects. Defaults to `private`.
         :param pulumi.Input[_builtins.bool] oplocks_enabled: Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
@@ -133,7 +133,7 @@ class SmbFileShareArgs:
     @pulumi.getter(name="gatewayArn")
     def gateway_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the file gateway.
+        ARN of the file gateway.
         """
         return pulumi.get(self, "gateway_arn")
 
@@ -193,7 +193,7 @@ class SmbFileShareArgs:
     @pulumi.getter(name="auditDestinationArn")
     def audit_destination_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+        ARN of the CloudWatch Log Group used for the audit logs.
         """
         return pulumi.get(self, "audit_destination_arn")
 
@@ -313,7 +313,7 @@ class SmbFileShareArgs:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+        ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -482,8 +482,8 @@ class _SmbFileShareState:
 
         :param pulumi.Input[_builtins.bool] access_based_enumeration: The files and folders on this share will only be visible to users with read access. Default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_user_lists: A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the SMB File Share.
-        :param pulumi.Input[_builtins.str] audit_destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+        :param pulumi.Input[_builtins.str] arn: ARN of the SMB File Share.
+        :param pulumi.Input[_builtins.str] audit_destination_arn: ARN of the CloudWatch Log Group used for the audit logs.
         :param pulumi.Input[_builtins.str] authentication: The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
         :param pulumi.Input[_builtins.str] bucket_region: The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
         :param pulumi.Input['SmbFileShareCacheAttributesArgs'] cache_attributes: Refresh cache information. see `cache_attributes` Block for more details.
@@ -491,11 +491,11 @@ class _SmbFileShareState:
         :param pulumi.Input[_builtins.str] default_storage_class: The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         :param pulumi.Input[_builtins.str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
         :param pulumi.Input[_builtins.str] fileshare_id: ID of the SMB File Share.
-        :param pulumi.Input[_builtins.str] gateway_arn: Amazon Resource Name (ARN) of the file gateway.
+        :param pulumi.Input[_builtins.str] gateway_arn: ARN of the file gateway.
         :param pulumi.Input[_builtins.bool] guess_mime_type_enabled: Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] invalid_user_lists: A list of users in the Active Directory that are not allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
         :param pulumi.Input[_builtins.bool] kms_encrypted: Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] kms_key_arn: Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
         :param pulumi.Input[_builtins.str] location_arn: The ARN of the backed storage used for storing file data.
         :param pulumi.Input[_builtins.str] notification_policy: The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
         :param pulumi.Input[_builtins.str] object_acl: Access Control List permission for S3 objects. Defaults to `private`.
@@ -602,7 +602,7 @@ class _SmbFileShareState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the SMB File Share.
+        ARN of the SMB File Share.
         """
         return pulumi.get(self, "arn")
 
@@ -614,7 +614,7 @@ class _SmbFileShareState:
     @pulumi.getter(name="auditDestinationArn")
     def audit_destination_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+        ARN of the CloudWatch Log Group used for the audit logs.
         """
         return pulumi.get(self, "audit_destination_arn")
 
@@ -710,7 +710,7 @@ class _SmbFileShareState:
     @pulumi.getter(name="gatewayArn")
     def gateway_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the file gateway.
+        ARN of the file gateway.
         """
         return pulumi.get(self, "gateway_arn")
 
@@ -758,7 +758,7 @@ class _SmbFileShareState:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+        ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -1007,7 +1007,7 @@ class SmbFileShare(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `storagegateway.SmbFileShare` using the SMB File Share Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `storagegateway.SmbFileShare` using the SMB File Share ARN. For example:
 
         ```sh
         $ pulumi import aws:storagegateway/smbFileShare:SmbFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
@@ -1018,18 +1018,18 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] access_based_enumeration: The files and folders on this share will only be visible to users with read access. Default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_user_lists: A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
-        :param pulumi.Input[_builtins.str] audit_destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+        :param pulumi.Input[_builtins.str] audit_destination_arn: ARN of the CloudWatch Log Group used for the audit logs.
         :param pulumi.Input[_builtins.str] authentication: The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
         :param pulumi.Input[_builtins.str] bucket_region: The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
         :param pulumi.Input[Union['SmbFileShareCacheAttributesArgs', 'SmbFileShareCacheAttributesArgsDict']] cache_attributes: Refresh cache information. see `cache_attributes` Block for more details.
         :param pulumi.Input[_builtins.str] case_sensitivity: The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
         :param pulumi.Input[_builtins.str] default_storage_class: The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         :param pulumi.Input[_builtins.str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
-        :param pulumi.Input[_builtins.str] gateway_arn: Amazon Resource Name (ARN) of the file gateway.
+        :param pulumi.Input[_builtins.str] gateway_arn: ARN of the file gateway.
         :param pulumi.Input[_builtins.bool] guess_mime_type_enabled: Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] invalid_user_lists: A list of users in the Active Directory that are not allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
         :param pulumi.Input[_builtins.bool] kms_encrypted: Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] kms_key_arn: Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
         :param pulumi.Input[_builtins.str] location_arn: The ARN of the backed storage used for storing file data.
         :param pulumi.Input[_builtins.str] notification_policy: The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
         :param pulumi.Input[_builtins.str] object_acl: Access Control List permission for S3 objects. Defaults to `private`.
@@ -1088,7 +1088,7 @@ class SmbFileShare(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `storagegateway.SmbFileShare` using the SMB File Share Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `storagegateway.SmbFileShare` using the SMB File Share ARN. For example:
 
         ```sh
         $ pulumi import aws:storagegateway/smbFileShare:SmbFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
@@ -1230,8 +1230,8 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] access_based_enumeration: The files and folders on this share will only be visible to users with read access. Default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_user_lists: A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the SMB File Share.
-        :param pulumi.Input[_builtins.str] audit_destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+        :param pulumi.Input[_builtins.str] arn: ARN of the SMB File Share.
+        :param pulumi.Input[_builtins.str] audit_destination_arn: ARN of the CloudWatch Log Group used for the audit logs.
         :param pulumi.Input[_builtins.str] authentication: The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
         :param pulumi.Input[_builtins.str] bucket_region: The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
         :param pulumi.Input[Union['SmbFileShareCacheAttributesArgs', 'SmbFileShareCacheAttributesArgsDict']] cache_attributes: Refresh cache information. see `cache_attributes` Block for more details.
@@ -1239,11 +1239,11 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] default_storage_class: The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         :param pulumi.Input[_builtins.str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
         :param pulumi.Input[_builtins.str] fileshare_id: ID of the SMB File Share.
-        :param pulumi.Input[_builtins.str] gateway_arn: Amazon Resource Name (ARN) of the file gateway.
+        :param pulumi.Input[_builtins.str] gateway_arn: ARN of the file gateway.
         :param pulumi.Input[_builtins.bool] guess_mime_type_enabled: Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] invalid_user_lists: A list of users in the Active Directory that are not allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
         :param pulumi.Input[_builtins.bool] kms_encrypted: Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] kms_key_arn: Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
         :param pulumi.Input[_builtins.str] location_arn: The ARN of the backed storage used for storing file data.
         :param pulumi.Input[_builtins.str] notification_policy: The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
         :param pulumi.Input[_builtins.str] object_acl: Access Control List permission for S3 objects. Defaults to `private`.
@@ -1317,7 +1317,7 @@ class SmbFileShare(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the SMB File Share.
+        ARN of the SMB File Share.
         """
         return pulumi.get(self, "arn")
 
@@ -1325,7 +1325,7 @@ class SmbFileShare(pulumi.CustomResource):
     @pulumi.getter(name="auditDestinationArn")
     def audit_destination_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+        ARN of the CloudWatch Log Group used for the audit logs.
         """
         return pulumi.get(self, "audit_destination_arn")
 
@@ -1389,7 +1389,7 @@ class SmbFileShare(pulumi.CustomResource):
     @pulumi.getter(name="gatewayArn")
     def gateway_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the file gateway.
+        ARN of the file gateway.
         """
         return pulumi.get(self, "gateway_arn")
 
@@ -1421,7 +1421,7 @@ class SmbFileShare(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+        ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
         """
         return pulumi.get(self, "kms_key_arn")
 

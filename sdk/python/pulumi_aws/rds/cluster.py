@@ -1192,7 +1192,7 @@ class _ClusterState:
         :param pulumi.Input[_builtins.int] allocated_storage: The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
         :param pulumi.Input[_builtins.bool] allow_major_version_upgrade: Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of cluster
+        :param pulumi.Input[_builtins.str] arn: ARN of cluster
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Whether to apply minor engine upgrades automatically to the DB cluster during the maintenance window. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
                RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
@@ -1473,7 +1473,7 @@ class _ClusterState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of cluster
+        ARN of cluster
         """
         return pulumi.get(self, "arn")
 
@@ -2608,6 +2608,33 @@ class Cluster(pulumi.CustomResource):
             master_user_secret_kms_key_id=example.key_id)
         ```
 
+        ### Disabling Master Password Rotation
+
+        > **Note:** The `secretsmanager.SecretRotation` resource must depend on a cluster instance, otherwise AWS re-enables rotation once the instance finishes provisioning. Use `depends_on` as shown below when the cluster and its instance are created together.
+
+        When `manage_master_user_password` is enabled, Secrets Manager rotates the master user password automatically (every 7 days by default). To disable that rotation while keeping the managed secret, manage the secret's rotation with `secretsmanager.SecretRotation` and set `rotation_enabled = false`.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.rds.Cluster("test",
+            cluster_identifier="example",
+            database_name="test",
+            manage_master_user_password=True,
+            master_username="test")
+        test_cluster_instance = aws.rds.ClusterInstance("test",
+            cluster_identifier=test.id,
+            identifier="example-1",
+            instance_class=aws.rds.InstanceType.R6_G_LARGE,
+            engine=test.engine.apply(lambda x: aws.rds.EngineType(x)),
+            engine_version=test.engine_version)
+        test_secret_rotation = aws.secretsmanager.SecretRotation("test",
+            secret_id=test.master_user_secrets[0].secret_arn,
+            rotation_enabled=False,
+            opts = pulumi.ResourceOptions(depends_on=[test_cluster_instance]))
+        ```
+
         ### Global Cluster Restored From Snapshot
 
         ```python
@@ -2914,6 +2941,33 @@ class Cluster(pulumi.CustomResource):
             manage_master_user_password=True,
             master_username="test",
             master_user_secret_kms_key_id=example.key_id)
+        ```
+
+        ### Disabling Master Password Rotation
+
+        > **Note:** The `secretsmanager.SecretRotation` resource must depend on a cluster instance, otherwise AWS re-enables rotation once the instance finishes provisioning. Use `depends_on` as shown below when the cluster and its instance are created together.
+
+        When `manage_master_user_password` is enabled, Secrets Manager rotates the master user password automatically (every 7 days by default). To disable that rotation while keeping the managed secret, manage the secret's rotation with `secretsmanager.SecretRotation` and set `rotation_enabled = false`.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.rds.Cluster("test",
+            cluster_identifier="example",
+            database_name="test",
+            manage_master_user_password=True,
+            master_username="test")
+        test_cluster_instance = aws.rds.ClusterInstance("test",
+            cluster_identifier=test.id,
+            identifier="example-1",
+            instance_class=aws.rds.InstanceType.R6_G_LARGE,
+            engine=test.engine.apply(lambda x: aws.rds.EngineType(x)),
+            engine_version=test.engine_version)
+        test_secret_rotation = aws.secretsmanager.SecretRotation("test",
+            secret_id=test.master_user_secrets[0].secret_arn,
+            rotation_enabled=False,
+            opts = pulumi.ResourceOptions(depends_on=[test_cluster_instance]))
         ```
 
         ### Global Cluster Restored From Snapshot
@@ -3225,7 +3279,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] allocated_storage: The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
         :param pulumi.Input[_builtins.bool] allow_major_version_upgrade: Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of cluster
+        :param pulumi.Input[_builtins.str] arn: ARN of cluster
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Whether to apply minor engine upgrades automatically to the DB cluster during the maintenance window. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
                RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
@@ -3423,7 +3477,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of cluster
+        ARN of cluster
         """
         return pulumi.get(self, "arn")
 

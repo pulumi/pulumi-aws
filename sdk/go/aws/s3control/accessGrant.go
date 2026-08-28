@@ -73,7 +73,7 @@ import (
 type AccessGrant struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the S3 Access Grant.
+	// ARN of the S3 Access Grant.
 	AccessGrantArn pulumi.StringOutput `pulumi:"accessGrantArn"`
 	// Unique ID of the S3 Access Grant.
 	AccessGrantId pulumi.StringOutput `pulumi:"accessGrantId"`
@@ -138,7 +138,7 @@ func GetAccessGrant(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccessGrant resources.
 type accessGrantState struct {
-	// Amazon Resource Name (ARN) of the S3 Access Grant.
+	// ARN of the S3 Access Grant.
 	AccessGrantArn *string `pulumi:"accessGrantArn"`
 	// Unique ID of the S3 Access Grant.
 	AccessGrantId *string `pulumi:"accessGrantId"`
@@ -165,7 +165,7 @@ type accessGrantState struct {
 }
 
 type AccessGrantState struct {
-	// Amazon Resource Name (ARN) of the S3 Access Grant.
+	// ARN of the S3 Access Grant.
 	AccessGrantArn pulumi.StringPtrInput
 	// Unique ID of the S3 Access Grant.
 	AccessGrantId pulumi.StringPtrInput
@@ -321,7 +321,7 @@ func (o AccessGrantOutput) ToAccessGrantOutputWithContext(ctx context.Context) A
 	return o
 }
 
-// Amazon Resource Name (ARN) of the S3 Access Grant.
+// ARN of the S3 Access Grant.
 func (o AccessGrantOutput) AccessGrantArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrant) pulumi.StringOutput { return v.AccessGrantArn }).(pulumi.StringOutput)
 }

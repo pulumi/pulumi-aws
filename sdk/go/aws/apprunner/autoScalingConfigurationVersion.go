@@ -52,7 +52,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the App Runner auto scaling configuration version.
+// - `arn` (String) ARN of the App Runner auto scaling configuration version.
 //
 // Using `pulumi import`, import App Runner AutoScaling Configuration Versions using the `arn`. For example:
 //

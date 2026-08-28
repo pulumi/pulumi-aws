@@ -36,7 +36,7 @@ class AppArgs:
         :param pulumi.Input[_builtins.str] app_type: The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
         :param pulumi.Input[_builtins.str] domain_id: The domain ID.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['AppResourceSpecArgs'] resource_spec: The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
+        :param pulumi.Input['AppResourceSpecArgs'] resource_spec: Instance type and the ARN of the SageMaker AI image created on the instance. See Resource Spec below.
         :param pulumi.Input[_builtins.str] space_name: The name of the space. At least one of `user_profile_name` or `space_name` required.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] user_profile_name: The user profile name. At least one of `user_profile_name` or `space_name` required.
@@ -107,7 +107,7 @@ class AppArgs:
     @pulumi.getter(name="resourceSpec")
     def resource_spec(self) -> pulumi.Input[Optional['AppResourceSpecArgs']]:
         """
-        The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
+        Instance type and the ARN of the SageMaker AI image created on the instance. See Resource Spec below.
         """
         return pulumi.get(self, "resource_spec")
 
@@ -170,10 +170,10 @@ class _AppState:
 
         :param pulumi.Input[_builtins.str] app_name: The name of the app.
         :param pulumi.Input[_builtins.str] app_type: The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the app.
+        :param pulumi.Input[_builtins.str] arn: ARN of the app.
         :param pulumi.Input[_builtins.str] domain_id: The domain ID.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['AppResourceSpecArgs'] resource_spec: The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
+        :param pulumi.Input['AppResourceSpecArgs'] resource_spec: Instance type and the ARN of the SageMaker AI image created on the instance. See Resource Spec below.
         :param pulumi.Input[_builtins.str] space_name: The name of the space. At least one of `user_profile_name` or `space_name` required.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -228,7 +228,7 @@ class _AppState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the app.
+        ARN of the app.
         """
         return pulumi.get(self, "arn")
 
@@ -264,7 +264,7 @@ class _AppState:
     @pulumi.getter(name="resourceSpec")
     def resource_spec(self) -> pulumi.Input[Optional['AppResourceSpecArgs']]:
         """
-        The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
+        Instance type and the ARN of the SageMaker AI image created on the instance. See Resource Spec below.
         """
         return pulumi.get(self, "resource_spec")
 
@@ -369,7 +369,7 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] app_type: The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
         :param pulumi.Input[_builtins.str] domain_id: The domain ID.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AppResourceSpecArgs', 'AppResourceSpecArgsDict']] resource_spec: The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
+        :param pulumi.Input[Union['AppResourceSpecArgs', 'AppResourceSpecArgsDict']] resource_spec: Instance type and the ARN of the SageMaker AI image created on the instance. See Resource Spec below.
         :param pulumi.Input[_builtins.str] space_name: The name of the space. At least one of `user_profile_name` or `space_name` required.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] user_profile_name: The user profile name. At least one of `user_profile_name` or `space_name` required.
@@ -484,10 +484,10 @@ class App(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_name: The name of the app.
         :param pulumi.Input[_builtins.str] app_type: The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the app.
+        :param pulumi.Input[_builtins.str] arn: ARN of the app.
         :param pulumi.Input[_builtins.str] domain_id: The domain ID.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AppResourceSpecArgs', 'AppResourceSpecArgsDict']] resource_spec: The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
+        :param pulumi.Input[Union['AppResourceSpecArgs', 'AppResourceSpecArgsDict']] resource_spec: Instance type and the ARN of the SageMaker AI image created on the instance. See Resource Spec below.
         :param pulumi.Input[_builtins.str] space_name: The name of the space. At least one of `user_profile_name` or `space_name` required.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -529,7 +529,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the app.
+        ARN of the app.
         """
         return pulumi.get(self, "arn")
 
@@ -553,7 +553,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter(name="resourceSpec")
     def resource_spec(self) -> pulumi.Output['outputs.AppResourceSpec']:
         """
-        The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
+        Instance type and the ARN of the SageMaker AI image created on the instance. See Resource Spec below.
         """
         return pulumi.get(self, "resource_spec")
 

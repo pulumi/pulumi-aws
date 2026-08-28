@@ -189,14 +189,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ssmcontacts/plan:Plan")
 public class Plan extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the contact or escalation plan.
+     * The ARN of the contact or escalation plan.
      * 
      */
     @Export(name="contactId", refs={String.class}, tree="[0]")
     private Output<String> contactId;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the contact or escalation plan.
+     * @return The ARN of the contact or escalation plan.
      * 
      */
     public Output<String> contactId() {

@@ -71,7 +71,7 @@ export class KeyValueStore extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
+     * ARN identifying your CloudFront KeyValueStore.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -135,7 +135,7 @@ export class KeyValueStore extends pulumi.CustomResource {
  */
 export interface KeyValueStoreState {
     /**
-     * Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
+     * ARN identifying your CloudFront KeyValueStore.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Image Builder workflow.
+ * - `arn` (String) ARN of the Image Builder workflow.
  * 
  * Using `pulumi import`, import EC2 Image Builder Workflow using the `arn`. For example:
  * 
@@ -105,14 +105,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:imagebuilder/workflow:Workflow")
 public class Workflow extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the workflow.
+     * ARN of the workflow.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the workflow.
+     * @return ARN of the workflow.
      * 
      */
     public Output<String> arn() {
@@ -175,14 +175,14 @@ public class Workflow extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
+     * ARN of the KMS Key used to encrypt the workflow.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyId;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
+     * @return ARN of the KMS Key used to encrypt the workflow.
      * 
      */
     public Output<Optional<String>> kmsKeyId() {

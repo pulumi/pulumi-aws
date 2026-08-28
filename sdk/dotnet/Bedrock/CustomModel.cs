@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// #### Required
     /// 
-    /// - `JobArn` (String) Amazon Resource Name (ARN) of the Bedrock custom model job.
+    /// - `JobArn` (String) ARN of the Bedrock custom model job.
     /// 
     /// Using `pulumi import`, import Bedrock custom model using the `JobArn`. For example:
     /// 
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Bedrock
     public partial class CustomModel : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the base model.
+        /// ARN of the base model.
         /// </summary>
         [Output("baseModelIdentifier")]
         public Output<string> BaseModelIdentifier { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
+        /// ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<ImmutableArray<Outputs.CustomModelValidationMetric>> ValidationMetrics { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
+        /// Configuration parameters for the private VPC that contains the resources you are using for this job.
         /// </summary>
         [Output("vpcConfig")]
         public Output<Outputs.CustomModelVpcConfig?> VpcConfig { get; private set; } = null!;
@@ -247,7 +247,7 @@ namespace Pulumi.Aws.Bedrock
     public sealed class CustomModelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the base model.
+        /// ARN of the base model.
         /// </summary>
         [Input("baseModelIdentifier", required: true)]
         public Input<string> BaseModelIdentifier { get; set; } = null!;
@@ -301,7 +301,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
+        /// ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -334,7 +334,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<Inputs.CustomModelValidationDataConfigArgs>? ValidationDataConfig { get; set; }
 
         /// <summary>
-        /// Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
+        /// Configuration parameters for the private VPC that contains the resources you are using for this job.
         /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.CustomModelVpcConfigArgs>? VpcConfig { get; set; }
@@ -348,7 +348,7 @@ namespace Pulumi.Aws.Bedrock
     public sealed class CustomModelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the base model.
+        /// ARN of the base model.
         /// </summary>
         [Input("baseModelIdentifier")]
         public Input<string>? BaseModelIdentifier { get; set; }
@@ -420,7 +420,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
+        /// ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
@@ -489,7 +489,7 @@ namespace Pulumi.Aws.Bedrock
         }
 
         /// <summary>
-        /// Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
+        /// Configuration parameters for the private VPC that contains the resources you are using for this job.
         /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.CustomModelVpcConfigGetArgs>? VpcConfig { get; set; }

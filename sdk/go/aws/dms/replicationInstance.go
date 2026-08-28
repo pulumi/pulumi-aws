@@ -159,7 +159,7 @@ type ReplicationInstance struct {
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// Configuration block for settings required for Kerberos authentication. See below.
 	KerberosAuthenticationSettings ReplicationInstanceKerberosAuthenticationSettingsPtrOutput `pulumi:"kerberosAuthenticationSettings"`
-	// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+	// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
 	// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
 	MultiAz pulumi.BoolOutput `pulumi:"multiAz"`
@@ -171,7 +171,7 @@ type ReplicationInstance struct {
 	PubliclyAccessible pulumi.BoolOutput `pulumi:"publiclyAccessible"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the replication instance.
+	// ARN of the replication instance.
 	ReplicationInstanceArn pulumi.StringOutput `pulumi:"replicationInstanceArn"`
 	// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
 	ReplicationInstanceClass pulumi.StringOutput `pulumi:"replicationInstanceClass"`
@@ -243,7 +243,7 @@ type replicationInstanceState struct {
 	EngineVersion *string `pulumi:"engineVersion"`
 	// Configuration block for settings required for Kerberos authentication. See below.
 	KerberosAuthenticationSettings *ReplicationInstanceKerberosAuthenticationSettings `pulumi:"kerberosAuthenticationSettings"`
-	// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+	// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
 	MultiAz *bool `pulumi:"multiAz"`
@@ -255,7 +255,7 @@ type replicationInstanceState struct {
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the replication instance.
+	// ARN of the replication instance.
 	ReplicationInstanceArn *string `pulumi:"replicationInstanceArn"`
 	// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
 	ReplicationInstanceClass *string `pulumi:"replicationInstanceClass"`
@@ -292,7 +292,7 @@ type ReplicationInstanceState struct {
 	EngineVersion pulumi.StringPtrInput
 	// Configuration block for settings required for Kerberos authentication. See below.
 	KerberosAuthenticationSettings ReplicationInstanceKerberosAuthenticationSettingsPtrInput
-	// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+	// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 	KmsKeyArn pulumi.StringPtrInput
 	// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
 	MultiAz pulumi.BoolPtrInput
@@ -304,7 +304,7 @@ type ReplicationInstanceState struct {
 	PubliclyAccessible pulumi.BoolPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the replication instance.
+	// ARN of the replication instance.
 	ReplicationInstanceArn pulumi.StringPtrInput
 	// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
 	ReplicationInstanceClass pulumi.StringPtrInput
@@ -345,7 +345,7 @@ type replicationInstanceArgs struct {
 	EngineVersion *string `pulumi:"engineVersion"`
 	// Configuration block for settings required for Kerberos authentication. See below.
 	KerberosAuthenticationSettings *ReplicationInstanceKerberosAuthenticationSettings `pulumi:"kerberosAuthenticationSettings"`
-	// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+	// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
 	MultiAz *bool `pulumi:"multiAz"`
@@ -387,7 +387,7 @@ type ReplicationInstanceArgs struct {
 	EngineVersion pulumi.StringPtrInput
 	// Configuration block for settings required for Kerberos authentication. See below.
 	KerberosAuthenticationSettings ReplicationInstanceKerberosAuthenticationSettingsPtrInput
-	// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+	// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 	KmsKeyArn pulumi.StringPtrInput
 	// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
 	MultiAz pulumi.BoolPtrInput
@@ -540,7 +540,7 @@ func (o ReplicationInstanceOutput) KerberosAuthenticationSettings() ReplicationI
 	}).(ReplicationInstanceKerberosAuthenticationSettingsPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 func (o ReplicationInstanceOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringOutput { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
@@ -570,7 +570,7 @@ func (o ReplicationInstanceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the replication instance.
+// ARN of the replication instance.
 func (o ReplicationInstanceOutput) ReplicationInstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringOutput { return v.ReplicationInstanceArn }).(pulumi.StringOutput)
 }

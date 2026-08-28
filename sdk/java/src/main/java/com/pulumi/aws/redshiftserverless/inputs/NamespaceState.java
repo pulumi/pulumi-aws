@@ -20,14 +20,14 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     public static final NamespaceState Empty = new NamespaceState();
 
     /**
-     * Amazon Resource Name (ARN) of namespace&#39;s admin user credentials secret.
+     * ARN of namespace&#39;s admin user credentials secret.
      * 
      */
     @Import(name="adminPasswordSecretArn")
     private @Nullable Output<String> adminPasswordSecretArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of namespace&#39;s admin user credentials secret.
+     * @return ARN of namespace&#39;s admin user credentials secret.
      * 
      */
     public Optional<Output<String>> adminPasswordSecretArn() {
@@ -116,14 +116,14 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+     * ARN of the Redshift Serverless Namespace.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+     * @return ARN of the Redshift Serverless Namespace.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -146,14 +146,14 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+     * ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
      * 
      */
     @Import(name="defaultIamRoleArn")
     private @Nullable Output<String> defaultIamRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+     * @return ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
      * 
      */
     public Optional<Output<String>> defaultIamRoleArn() {
@@ -176,14 +176,14 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+     * ARN of the Amazon Web Services KMS key used to encrypt your data.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+     * @return ARN of the Amazon Web Services KMS key used to encrypt your data.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -339,7 +339,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param adminPasswordSecretArn Amazon Resource Name (ARN) of namespace&#39;s admin user credentials secret.
+         * @param adminPasswordSecretArn ARN of namespace&#39;s admin user credentials secret.
          * 
          * @return builder
          * 
@@ -350,7 +350,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param adminPasswordSecretArn Amazon Resource Name (ARN) of namespace&#39;s admin user credentials secret.
+         * @param adminPasswordSecretArn ARN of namespace&#39;s admin user credentials secret.
          * 
          * @return builder
          * 
@@ -471,7 +471,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+         * @param arn ARN of the Redshift Serverless Namespace.
          * 
          * @return builder
          * 
@@ -482,7 +482,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+         * @param arn ARN of the Redshift Serverless Namespace.
          * 
          * @return builder
          * 
@@ -513,7 +513,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultIamRoleArn The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+         * @param defaultIamRoleArn ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
          * 
          * @return builder
          * 
@@ -524,7 +524,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultIamRoleArn The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+         * @param defaultIamRoleArn ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
          * 
          * @return builder
          * 
@@ -565,7 +565,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+         * @param kmsKeyId ARN of the Amazon Web Services KMS key used to encrypt your data.
          * 
          * @return builder
          * 
@@ -576,7 +576,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+         * @param kmsKeyId ARN of the Amazon Web Services KMS key used to encrypt your data.
          * 
          * @return builder
          * 

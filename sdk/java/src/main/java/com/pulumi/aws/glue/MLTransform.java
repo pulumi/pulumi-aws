@@ -157,14 +157,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:glue/mLTransform:MLTransform")
 public class MLTransform extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of Glue ML Transform.
+     * ARN of Glue ML Transform.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of Glue ML Transform.
+     * @return ARN of Glue ML Transform.
      * 
      */
     public Output<String> arn() {

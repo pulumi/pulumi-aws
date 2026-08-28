@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<string>? ServerSideEncryptionKmsKeyId { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
+        /// ARN of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
         /// </summary>
         [Input("serviceAccessRoleArn")]
         public Input<string>? ServiceAccessRoleArn { get; set; }

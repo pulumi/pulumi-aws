@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class JobQueueComputeEnvironmentOrder {
     /**
-     * @return The Amazon Resource Name (ARN) of the compute environment.
+     * @return ARN of the compute environment.
      * 
      */
     private String computeEnvironment;
@@ -24,7 +24,7 @@ public final class JobQueueComputeEnvironmentOrder {
 
     private JobQueueComputeEnvironmentOrder() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the compute environment.
+     * @return ARN of the compute environment.
      * 
      */
     public String computeEnvironment() {

@@ -66,14 +66,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ses/identityNotificationTopic:IdentityNotificationTopic")
 public class IdentityNotificationTopic extends com.pulumi.resources.CustomResource {
     /**
-     * The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
+     * Identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its ARN.
      * 
      */
     @Export(name="identity", refs={String.class}, tree="[0]")
     private Output<String> identity;
 
     /**
-     * @return The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
+     * @return Identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its ARN.
      * 
      */
     public Output<String> identity() {
@@ -94,14 +94,14 @@ public class IdentityNotificationTopic extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.includeOriginalHeaders);
     }
     /**
-     * The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
+     * Type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
      * 
      */
     @Export(name="notificationType", refs={String.class}, tree="[0]")
     private Output<String> notificationType;
 
     /**
-     * @return The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
+     * @return Type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
      * 
      */
     public Output<String> notificationType() {
@@ -122,14 +122,14 @@ public class IdentityNotificationTopic extends com.pulumi.resources.CustomResour
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `&#34;&#34;` (an empty string) to disable publishing.
+     * ARN of the Amazon SNS topic. Can be set to `&#34;&#34;` (an empty string) to disable publishing.
      * 
      */
     @Export(name="topicArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> topicArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `&#34;&#34;` (an empty string) to disable publishing.
+     * @return ARN of the Amazon SNS topic. Can be set to `&#34;&#34;` (an empty string) to disable publishing.
      * 
      */
     public Output<Optional<String>> topicArn() {

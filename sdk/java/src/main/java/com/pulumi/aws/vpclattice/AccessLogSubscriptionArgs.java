@@ -18,14 +18,14 @@ public final class AccessLogSubscriptionArgs extends com.pulumi.resources.Resour
     public static final AccessLogSubscriptionArgs Empty = new AccessLogSubscriptionArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the log destination.
+     * ARN of the log destination.
      * 
      */
     @Import(name="destinationArn", required=true)
     private Output<String> destinationArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the log destination.
+     * @return ARN of the log destination.
      * 
      */
     public Output<String> destinationArn() {
@@ -125,7 +125,7 @@ public final class AccessLogSubscriptionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param destinationArn Amazon Resource Name (ARN) of the log destination.
+         * @param destinationArn ARN of the log destination.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class AccessLogSubscriptionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param destinationArn Amazon Resource Name (ARN) of the log destination.
+         * @param destinationArn ARN of the log destination.
          * 
          * @return builder
          * 

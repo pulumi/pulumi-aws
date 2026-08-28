@@ -75,14 +75,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:route53/delegationSet:DelegationSet")
 public class DelegationSet extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the Delegation Set.
+     * ARN of the Delegation Set.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Delegation Set.
+     * @return ARN of the Delegation Set.
      * 
      */
     public Output<String> arn() {

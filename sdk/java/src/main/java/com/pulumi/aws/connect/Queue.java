@@ -154,14 +154,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:connect/queue:Queue")
 public class Queue extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the Queue.
+     * ARN of the Queue.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Queue.
+     * @return ARN of the Queue.
      * 
      */
     public Output<String> arn() {

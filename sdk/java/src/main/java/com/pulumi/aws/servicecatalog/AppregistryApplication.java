@@ -121,14 +121,14 @@ public class AppregistryApplication extends com.pulumi.resources.CustomResource 
         return this.applicationTag;
     }
     /**
-     * ARN (Amazon Resource Name) of the application.
+     * ARN of the application.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN (Amazon Resource Name) of the application.
+     * @return ARN of the application.
      * 
      */
     public Output<String> arn() {

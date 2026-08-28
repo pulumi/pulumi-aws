@@ -38,42 +38,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cloudfront/function:Function")
 public class Function extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) identifying your CloudFront Function.
+     * ARN identifying your CloudFront Function.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) identifying your CloudFront Function.
+     * @return ARN identifying your CloudFront Function.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * Source code of the function
+     * Source code of the function. Must be between 1 and 40960 bytes.
      * 
      */
     @Export(name="code", refs={String.class}, tree="[0]")
     private Output<String> code;
 
     /**
-     * @return Source code of the function
+     * @return Source code of the function. Must be between 1 and 40960 bytes.
      * 
      */
     public Output<String> code() {
         return this.code;
     }
     /**
-     * Comment.
+     * Comment. Must not exceed 128 characters.
      * 
      */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
-     * @return Comment.
+     * @return Comment. Must not exceed 128 characters.
      * 
      */
     public Output<Optional<String>> comment() {
@@ -122,14 +122,14 @@ public class Function extends com.pulumi.resources.CustomResource {
         return this.liveStageEtag;
     }
     /**
-     * Unique name for your CloudFront Function.
+     * Unique name for your CloudFront Function. Valid names contain only alphanumeric characters, hyphens, and underscores, and must be between 1 and 64 characters.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Unique name for your CloudFront Function.
+     * @return Unique name for your CloudFront Function. Valid names contain only alphanumeric characters, hyphens, and underscores, and must be between 1 and 64 characters.
      * 
      */
     public Output<String> name() {

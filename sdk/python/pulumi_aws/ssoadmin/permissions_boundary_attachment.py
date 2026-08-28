@@ -28,8 +28,8 @@ class PermissionsBoundaryAttachmentArgs:
         """
         The set of arguments for constructing a PermissionsBoundaryAttachment resource.
 
-        :param pulumi.Input[_builtins.str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-        :param pulumi.Input[_builtins.str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
+        :param pulumi.Input[_builtins.str] instance_arn: ARN of the SSO Instance under which the operation will be executed.
+        :param pulumi.Input[_builtins.str] permission_set_arn: ARN of the Permission Set.
         :param pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryArgs'] permissions_boundary: The permissions boundary policy. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -43,7 +43,7 @@ class PermissionsBoundaryAttachmentArgs:
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        ARN of the SSO Instance under which the operation will be executed.
         """
         return pulumi.get(self, "instance_arn")
 
@@ -55,7 +55,7 @@ class PermissionsBoundaryAttachmentArgs:
     @pulumi.getter(name="permissionSetArn")
     def permission_set_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the Permission Set.
+        ARN of the Permission Set.
         """
         return pulumi.get(self, "permission_set_arn")
 
@@ -98,8 +98,8 @@ class _PermissionsBoundaryAttachmentState:
         """
         Input properties used for looking up and filtering PermissionsBoundaryAttachment resources.
 
-        :param pulumi.Input[_builtins.str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-        :param pulumi.Input[_builtins.str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
+        :param pulumi.Input[_builtins.str] instance_arn: ARN of the SSO Instance under which the operation will be executed.
+        :param pulumi.Input[_builtins.str] permission_set_arn: ARN of the Permission Set.
         :param pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryArgs'] permissions_boundary: The permissions boundary policy. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -116,7 +116,7 @@ class _PermissionsBoundaryAttachmentState:
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        ARN of the SSO Instance under which the operation will be executed.
         """
         return pulumi.get(self, "instance_arn")
 
@@ -128,7 +128,7 @@ class _PermissionsBoundaryAttachmentState:
     @pulumi.getter(name="permissionSetArn")
     def permission_set_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the Permission Set.
+        ARN of the Permission Set.
         """
         return pulumi.get(self, "permission_set_arn")
 
@@ -237,8 +237,8 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-        :param pulumi.Input[_builtins.str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
+        :param pulumi.Input[_builtins.str] instance_arn: ARN of the SSO Instance under which the operation will be executed.
+        :param pulumi.Input[_builtins.str] permission_set_arn: ARN of the Permission Set.
         :param pulumi.Input[Union['PermissionsBoundaryAttachmentPermissionsBoundaryArgs', 'PermissionsBoundaryAttachmentPermissionsBoundaryArgsDict']] permissions_boundary: The permissions boundary policy. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -370,8 +370,8 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-        :param pulumi.Input[_builtins.str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
+        :param pulumi.Input[_builtins.str] instance_arn: ARN of the SSO Instance under which the operation will be executed.
+        :param pulumi.Input[_builtins.str] permission_set_arn: ARN of the Permission Set.
         :param pulumi.Input[Union['PermissionsBoundaryAttachmentPermissionsBoundaryArgs', 'PermissionsBoundaryAttachmentPermissionsBoundaryArgsDict']] permissions_boundary: The permissions boundary policy. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -389,7 +389,7 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        ARN of the SSO Instance under which the operation will be executed.
         """
         return pulumi.get(self, "instance_arn")
 
@@ -397,7 +397,7 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
     @pulumi.getter(name="permissionSetArn")
     def permission_set_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the Permission Set.
+        ARN of the Permission Set.
         """
         return pulumi.get(self, "permission_set_arn")
 

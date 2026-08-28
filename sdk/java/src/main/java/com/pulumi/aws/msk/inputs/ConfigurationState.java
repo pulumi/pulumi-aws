@@ -18,14 +18,14 @@ public final class ConfigurationState extends com.pulumi.resources.ResourceArgs 
     public static final ConfigurationState Empty = new ConfigurationState();
 
     /**
-     * Amazon Resource Name (ARN) of the configuration.
+     * ARN of the configuration.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the configuration.
+     * @return ARN of the configuration.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -153,7 +153,7 @@ public final class ConfigurationState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the configuration.
+         * @param arn ARN of the configuration.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class ConfigurationState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the configuration.
+         * @param arn ARN of the configuration.
          * 
          * @return builder
          * 

@@ -204,7 +204,7 @@ type Flow struct {
 	DestinationFlowConfigs FlowDestinationFlowConfigArrayOutput `pulumi:"destinationFlowConfigs"`
 	// Current status of the flow.
 	FlowStatus pulumi.StringOutput `pulumi:"flowStatus"`
-	// ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
+	// ARN of the KMS key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
 	KmsArn pulumi.StringOutput `pulumi:"kmsArn"`
 	// Configuration that determines how Amazon AppFlow catalogs the data that the flow transfers. See the `metadataCatalogConfig` Block for details.
 	MetadataCatalogConfig FlowMetadataCatalogConfigOutput `pulumi:"metadataCatalogConfig"`
@@ -274,7 +274,7 @@ type flowState struct {
 	DestinationFlowConfigs []FlowDestinationFlowConfig `pulumi:"destinationFlowConfigs"`
 	// Current status of the flow.
 	FlowStatus *string `pulumi:"flowStatus"`
-	// ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
+	// ARN of the KMS key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
 	KmsArn *string `pulumi:"kmsArn"`
 	// Configuration that determines how Amazon AppFlow catalogs the data that the flow transfers. See the `metadataCatalogConfig` Block for details.
 	MetadataCatalogConfig *FlowMetadataCatalogConfig `pulumi:"metadataCatalogConfig"`
@@ -303,7 +303,7 @@ type FlowState struct {
 	DestinationFlowConfigs FlowDestinationFlowConfigArrayInput
 	// Current status of the flow.
 	FlowStatus pulumi.StringPtrInput
-	// ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
+	// ARN of the KMS key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
 	KmsArn pulumi.StringPtrInput
 	// Configuration that determines how Amazon AppFlow catalogs the data that the flow transfers. See the `metadataCatalogConfig` Block for details.
 	MetadataCatalogConfig FlowMetadataCatalogConfigPtrInput
@@ -332,7 +332,7 @@ type flowArgs struct {
 	Description *string `pulumi:"description"`
 	// Configuration that controls how Amazon AppFlow places data in the destination connector. See the `destinationFlowConfig` Block for details.
 	DestinationFlowConfigs []FlowDestinationFlowConfig `pulumi:"destinationFlowConfigs"`
-	// ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
+	// ARN of the KMS key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
 	KmsArn *string `pulumi:"kmsArn"`
 	// Configuration that determines how Amazon AppFlow catalogs the data that the flow transfers. See the `metadataCatalogConfig` Block for details.
 	MetadataCatalogConfig *FlowMetadataCatalogConfig `pulumi:"metadataCatalogConfig"`
@@ -356,7 +356,7 @@ type FlowArgs struct {
 	Description pulumi.StringPtrInput
 	// Configuration that controls how Amazon AppFlow places data in the destination connector. See the `destinationFlowConfig` Block for details.
 	DestinationFlowConfigs FlowDestinationFlowConfigArrayInput
-	// ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
+	// ARN of the KMS key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
 	KmsArn pulumi.StringPtrInput
 	// Configuration that determines how Amazon AppFlow catalogs the data that the flow transfers. See the `metadataCatalogConfig` Block for details.
 	MetadataCatalogConfig FlowMetadataCatalogConfigPtrInput
@@ -481,7 +481,7 @@ func (o FlowOutput) FlowStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.FlowStatus }).(pulumi.StringOutput)
 }
 
-// ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
+// ARN of the KMS key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
 func (o FlowOutput) KmsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.KmsArn }).(pulumi.StringOutput)
 }

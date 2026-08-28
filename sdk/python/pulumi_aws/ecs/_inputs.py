@@ -803,7 +803,7 @@ class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequ
     """
     accelerator_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    Accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
+    Accelerator types to include. You can specify `gpu` for GPUs, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
     """
     allowed_instance_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
@@ -908,7 +908,7 @@ class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequ
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accelerator_manufacturers: Accelerator manufacturers to include. You can specify `nvidia`, `amd`, `amazon-web-services`, `xilinx`, or `habana` depending on your accelerator requirements. Valid values are `amazon-web-services`, `amd`, `nvidia`, `xilinx`, `habana`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accelerator_names: Specific accelerator names to include. For example, you can specify `a100`, `v100`, `k80`, or other specific accelerator models. Valid values are `a100`, `inferentia`, `k520`, `k80`, `m60`, `radeon-pro-v520`, `t4`, `vu9p`, `v100`, `a10g`, `h100`, `t4g`.
         :param pulumi.Input['CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs'] accelerator_total_memory_mib: Minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accelerator_types: Accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accelerator_types: Accelerator types to include. You can specify `gpu` for GPUs, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_instance_types: Instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified. Maximum of 400 instance types. You can specify instance type patterns using wildcards (e.g., `m5.*`).
         :param pulumi.Input[_builtins.str] bare_metal: Whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances. Valid values are `included`, `excluded`, `required`.
         :param pulumi.Input['CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs'] baseline_ebs_bandwidth_mbps: Minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps). This is important for workloads with high storage I/O requirements. Detailed below.
@@ -1050,7 +1050,7 @@ class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequ
     @pulumi.getter(name="acceleratorTypes")
     def accelerator_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
+        Accelerator types to include. You can specify `gpu` for GPUs, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
         """
         return pulumi.get(self, "accelerator_types")
 
@@ -1927,7 +1927,7 @@ class ClusterConfigurationArgs:
 class ClusterConfigurationExecuteCommandConfigurationArgsDict(TypedDict):
     kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    AWS Key Management Service key ID to encrypt the data between the local client and the container.
+    KMS key ID to encrypt the data between the local client and the container.
     """
     log_configuration: NotRequired[pulumi.Input[Optional['ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgsDict']]]
     """
@@ -1945,7 +1945,7 @@ class ClusterConfigurationExecuteCommandConfigurationArgs:
                  log_configuration: pulumi.Input[Optional['ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs']] = None,
                  logging: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] kms_key_id: AWS Key Management Service key ID to encrypt the data between the local client and the container.
+        :param pulumi.Input[_builtins.str] kms_key_id: KMS key ID to encrypt the data between the local client and the container.
         :param pulumi.Input['ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs'] log_configuration: Log configuration for the results of the execute command actions. Required when `logging` is `OVERRIDE`. See `log_configuration` Block for details.
         :param pulumi.Input[_builtins.str] logging: Log setting to use for redirecting logs for your execute command results. Valid values: `NONE`, `DEFAULT`, `OVERRIDE`.
         """
@@ -1960,7 +1960,7 @@ class ClusterConfigurationExecuteCommandConfigurationArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        AWS Key Management Service key ID to encrypt the data between the local client and the container.
+        KMS key ID to encrypt the data between the local client and the container.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -2105,11 +2105,11 @@ class ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs:
 class ClusterConfigurationManagedStorageConfigurationArgsDict(TypedDict):
     fargate_ephemeral_storage_kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    AWS Key Management Service key ARN for the Fargate ephemeral storage.
+    KMS key ARN for the Fargate ephemeral storage.
     """
     kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    AWS Key Management Service key ARN to encrypt the managed storage.
+    KMS key ARN to encrypt the managed storage.
     """
 
 @pulumi.input_type
@@ -2118,8 +2118,8 @@ class ClusterConfigurationManagedStorageConfigurationArgs:
                  fargate_ephemeral_storage_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] fargate_ephemeral_storage_kms_key_id: AWS Key Management Service key ARN for the Fargate ephemeral storage.
-        :param pulumi.Input[_builtins.str] kms_key_id: AWS Key Management Service key ARN to encrypt the managed storage.
+        :param pulumi.Input[_builtins.str] fargate_ephemeral_storage_kms_key_id: KMS key ARN for the Fargate ephemeral storage.
+        :param pulumi.Input[_builtins.str] kms_key_id: KMS key ARN to encrypt the managed storage.
         """
         if fargate_ephemeral_storage_kms_key_id is not None:
             pulumi.set(__self__, "fargate_ephemeral_storage_kms_key_id", fargate_ephemeral_storage_kms_key_id)
@@ -2130,7 +2130,7 @@ class ClusterConfigurationManagedStorageConfigurationArgs:
     @pulumi.getter(name="fargateEphemeralStorageKmsKeyId")
     def fargate_ephemeral_storage_kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        AWS Key Management Service key ARN for the Fargate ephemeral storage.
+        KMS key ARN for the Fargate ephemeral storage.
         """
         return pulumi.get(self, "fargate_ephemeral_storage_kms_key_id")
 
@@ -2142,7 +2142,7 @@ class ClusterConfigurationManagedStorageConfigurationArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        AWS Key Management Service key ARN to encrypt the managed storage.
+        KMS key ARN to encrypt the managed storage.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -5814,7 +5814,7 @@ class ServiceServiceConnectConfigurationServiceArgsDict(TypedDict):
     """
     tls: NotRequired[pulumi.Input[Optional['ServiceServiceConnectConfigurationServiceTlsArgsDict']]]
     """
-    Configuration for enabling Transport Layer Security (TLS)
+    Configuration for enabling TLS
     """
 
 @pulumi.input_type
@@ -5832,7 +5832,7 @@ class ServiceServiceConnectConfigurationServiceArgs:
         :param pulumi.Input[_builtins.str] discovery_name: Name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
         :param pulumi.Input[_builtins.int] ingress_port_override: Port number for the Service Connect proxy to listen on.
         :param pulumi.Input['ServiceServiceConnectConfigurationServiceTimeoutArgs'] timeout: Configuration timeouts for Service Connect
-        :param pulumi.Input['ServiceServiceConnectConfigurationServiceTlsArgs'] tls: Configuration for enabling Transport Layer Security (TLS)
+        :param pulumi.Input['ServiceServiceConnectConfigurationServiceTlsArgs'] tls: Configuration for enabling TLS
         """
         pulumi.set(__self__, "port_name", port_name)
         if client_alias is not None:
@@ -5910,7 +5910,7 @@ class ServiceServiceConnectConfigurationServiceArgs:
     @pulumi.getter
     def tls(self) -> pulumi.Input[Optional['ServiceServiceConnectConfigurationServiceTlsArgs']]:
         """
-        Configuration for enabling Transport Layer Security (TLS)
+        Configuration for enabling TLS
         """
         return pulumi.get(self, "tls")
 
@@ -6390,7 +6390,7 @@ class ServiceVolumeConfigurationManagedEbsVolumeArgsDict(TypedDict):
     """
     kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption.
+    ARN identifier of the Amazon Web Services KMS key to use for Amazon EBS encryption.
     """
     size_in_gb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -6436,7 +6436,7 @@ class ServiceVolumeConfigurationManagedEbsVolumeArgs:
         :param pulumi.Input[_builtins.bool] encrypted: Whether the volume should be encrypted. Default value is `true`.
         :param pulumi.Input[_builtins.str] file_system_type: Linux filesystem type for the volume. For volumes created from a snapshot, same filesystem type must be specified that the volume was using when the snapshot was created. Valid values are `ext3`, `ext4`, `xfs`. Default value is `xfs`.
         :param pulumi.Input[_builtins.int] iops: Number of I/O operations per second (IOPS).
-        :param pulumi.Input[_builtins.str] kms_key_id: Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption.
+        :param pulumi.Input[_builtins.str] kms_key_id: ARN identifier of the Amazon Web Services KMS key to use for Amazon EBS encryption.
         :param pulumi.Input[_builtins.int] size_in_gb: Size of the volume in GiB. You must specify either a `size_in_gb` or a `snapshot_id`. You can optionally specify a volume size greater than or equal to the snapshot size.
         :param pulumi.Input[_builtins.str] snapshot_id: Snapshot that Amazon ECS uses to create the volume. You must specify either a `size_in_gb` or a `snapshot_id`.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs']]] tag_specifications: Tags to apply to the volume. See below.
@@ -6518,7 +6518,7 @@ class ServiceVolumeConfigurationManagedEbsVolumeArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption.
+        ARN identifier of the Amazon Web Services KMS key to use for Amazon EBS encryption.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -7409,7 +7409,7 @@ class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs:
 class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgsDict(TypedDict):
     credentials_parameter: pulumi.Input[_builtins.str]
     """
-    Authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+    Authorization credential option to use. The authorization credential options can be provided using either the ARN of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
     """
     domain: pulumi.Input[_builtins.str]
     """
@@ -7422,7 +7422,7 @@ class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationCo
                  credentials_parameter: pulumi.Input[_builtins.str],
                  domain: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] credentials_parameter: Authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+        :param pulumi.Input[_builtins.str] credentials_parameter: Authorization credential option to use. The authorization credential options can be provided using either the ARN of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
         :param pulumi.Input[_builtins.str] domain: Fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
         """
         pulumi.set(__self__, "credentials_parameter", credentials_parameter)
@@ -7432,7 +7432,7 @@ class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationCo
     @pulumi.getter(name="credentialsParameter")
     def credentials_parameter(self) -> pulumi.Input[_builtins.str]:
         """
-        Authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+        Authorization credential option to use. The authorization credential options can be provided using either the ARN of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
         """
         return pulumi.get(self, "credentials_parameter")
 
@@ -7544,7 +7544,7 @@ class TaskDefinitionVolumeS3filesVolumeConfigurationArgs:
 class TaskSetCapacityProviderStrategyArgsDict(TypedDict):
     capacity_provider: pulumi.Input[_builtins.str]
     """
-    Short name or full Amazon Resource Name (ARN) of the capacity provider.
+    Short name or full ARN of the capacity provider.
     """
     weight: pulumi.Input[_builtins.int]
     """
@@ -7562,7 +7562,7 @@ class TaskSetCapacityProviderStrategyArgs:
                  weight: pulumi.Input[_builtins.int],
                  base: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.str] capacity_provider: Short name or full Amazon Resource Name (ARN) of the capacity provider.
+        :param pulumi.Input[_builtins.str] capacity_provider: Short name or full ARN of the capacity provider.
         :param pulumi.Input[_builtins.int] weight: Relative percentage of the total number of launched tasks that should use the specified capacity provider.
         :param pulumi.Input[_builtins.int] base: Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
         """
@@ -7575,7 +7575,7 @@ class TaskSetCapacityProviderStrategyArgs:
     @pulumi.getter(name="capacityProvider")
     def capacity_provider(self) -> pulumi.Input[_builtins.str]:
         """
-        Short name or full Amazon Resource Name (ARN) of the capacity provider.
+        Short name or full ARN of the capacity provider.
         """
         return pulumi.get(self, "capacity_provider")
 
@@ -8054,7 +8054,7 @@ class GetTaskExecutionOverridesArgsDict(TypedDict):
     """
     execution_role_arn: NotRequired[_builtins.str]
     """
-    Amazon Resource Name (ARN) of the task execution role override for the task.
+    ARN of the task execution role override for the task.
     """
     memory: NotRequired[_builtins.str]
     """
@@ -8062,7 +8062,7 @@ class GetTaskExecutionOverridesArgsDict(TypedDict):
     """
     task_role_arn: NotRequired[_builtins.str]
     """
-    Amazon Resource Name (ARN) of the role that containers in this task can assume.
+    ARN of the role that containers in this task can assume.
     """
 
 @pulumi.input_type
@@ -8076,9 +8076,9 @@ class GetTaskExecutionOverridesArgs:
         """
         :param Sequence['GetTaskExecutionOverridesContainerOverrideArgs'] container_overrides: One or more container overrides that are sent to a task. See below.
         :param _builtins.str cpu: CPU override for the task.
-        :param _builtins.str execution_role_arn: Amazon Resource Name (ARN) of the task execution role override for the task.
+        :param _builtins.str execution_role_arn: ARN of the task execution role override for the task.
         :param _builtins.str memory: Memory override for the task.
-        :param _builtins.str task_role_arn: Amazon Resource Name (ARN) of the role that containers in this task can assume.
+        :param _builtins.str task_role_arn: ARN of the role that containers in this task can assume.
         """
         if container_overrides is not None:
             pulumi.set(__self__, "container_overrides", container_overrides)
@@ -8119,7 +8119,7 @@ class GetTaskExecutionOverridesArgs:
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> Optional[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the task execution role override for the task.
+        ARN of the task execution role override for the task.
         """
         return pulumi.get(self, "execution_role_arn")
 
@@ -8143,7 +8143,7 @@ class GetTaskExecutionOverridesArgs:
     @pulumi.getter(name="taskRoleArn")
     def task_role_arn(self) -> Optional[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the role that containers in this task can assume.
+        ARN of the role that containers in this task can assume.
         """
         return pulumi.get(self, "task_role_arn")
 

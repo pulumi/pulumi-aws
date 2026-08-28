@@ -62,7 +62,7 @@ import (
 type KeyValueStore struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
+	// ARN identifying your CloudFront KeyValueStore.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Comment.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
@@ -108,7 +108,7 @@ func GetKeyValueStore(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KeyValueStore resources.
 type keyValueStoreState struct {
-	// Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
+	// ARN identifying your CloudFront KeyValueStore.
 	Arn *string `pulumi:"arn"`
 	// Comment.
 	Comment *string `pulumi:"comment"`
@@ -125,7 +125,7 @@ type keyValueStoreState struct {
 }
 
 type KeyValueStoreState struct {
-	// Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
+	// ARN identifying your CloudFront KeyValueStore.
 	Arn pulumi.StringPtrInput
 	// Comment.
 	Comment pulumi.StringPtrInput
@@ -255,7 +255,7 @@ func (o KeyValueStoreOutput) ToKeyValueStoreOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
+// ARN identifying your CloudFront KeyValueStore.
 func (o KeyValueStoreOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyValueStore) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

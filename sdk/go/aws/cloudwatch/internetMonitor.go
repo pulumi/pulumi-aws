@@ -64,7 +64,7 @@ type InternetMonitor struct {
 	MonitorName pulumi.StringOutput `pulumi:"monitorName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
+	// Resources to include in a monitor, which you provide as a set of ARNs.
 	Resources pulumi.StringArrayOutput `pulumi:"resources"`
 	// The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
@@ -123,7 +123,7 @@ type internetMonitorState struct {
 	MonitorName *string `pulumi:"monitorName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
+	// Resources to include in a monitor, which you provide as a set of ARNs.
 	Resources []string `pulumi:"resources"`
 	// The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
 	Status *string `pulumi:"status"`
@@ -150,7 +150,7 @@ type InternetMonitorState struct {
 	MonitorName pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
+	// Resources to include in a monitor, which you provide as a set of ARNs.
 	Resources pulumi.StringArrayInput
 	// The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
 	Status pulumi.StringPtrInput
@@ -179,7 +179,7 @@ type internetMonitorArgs struct {
 	MonitorName string `pulumi:"monitorName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
+	// Resources to include in a monitor, which you provide as a set of ARNs.
 	Resources []string `pulumi:"resources"`
 	// The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
 	Status *string `pulumi:"status"`
@@ -203,7 +203,7 @@ type InternetMonitorArgs struct {
 	MonitorName pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
+	// Resources to include in a monitor, which you provide as a set of ARNs.
 	Resources pulumi.StringArrayInput
 	// The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
 	Status pulumi.StringPtrInput
@@ -334,7 +334,7 @@ func (o InternetMonitorOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InternetMonitor) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
+// Resources to include in a monitor, which you provide as a set of ARNs.
 func (o InternetMonitorOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InternetMonitor) pulumi.StringArrayOutput { return v.Resources }).(pulumi.StringArrayOutput)
 }

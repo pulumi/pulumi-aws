@@ -34,14 +34,14 @@ public final class SdkvoiceSipMediaApplicationArgs extends com.pulumi.resources.
     }
 
     /**
-     * List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
+     * List of endpoints (Lambda ARNs) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
      * 
      */
     @Import(name="endpoints", required=true)
     private Output<SdkvoiceSipMediaApplicationEndpointsArgs> endpoints;
 
     /**
-     * @return List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
+     * @return List of endpoints (Lambda ARNs) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
      * 
      */
     public Output<SdkvoiceSipMediaApplicationEndpointsArgs> endpoints() {
@@ -147,7 +147,7 @@ public final class SdkvoiceSipMediaApplicationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param endpoints List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
+         * @param endpoints List of endpoints (Lambda ARNs) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class SdkvoiceSipMediaApplicationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param endpoints List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
+         * @param endpoints List of endpoints (Lambda ARNs) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
          * 
          * @return builder
          * 

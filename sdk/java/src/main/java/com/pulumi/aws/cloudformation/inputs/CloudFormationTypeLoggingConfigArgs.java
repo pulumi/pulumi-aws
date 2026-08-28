@@ -30,14 +30,14 @@ public final class CloudFormationTypeLoggingConfigArgs extends com.pulumi.resour
     }
 
     /**
-     * Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
+     * ARN of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
      * 
      */
     @Import(name="logRoleArn", required=true)
     private Output<String> logRoleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
+     * @return ARN of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
      * 
      */
     public Output<String> logRoleArn() {
@@ -91,7 +91,7 @@ public final class CloudFormationTypeLoggingConfigArgs extends com.pulumi.resour
         }
 
         /**
-         * @param logRoleArn Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
+         * @param logRoleArn ARN of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class CloudFormationTypeLoggingConfigArgs extends com.pulumi.resour
         }
 
         /**
-         * @param logRoleArn Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
+         * @param logRoleArn ARN of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
          * 
          * @return builder
          * 

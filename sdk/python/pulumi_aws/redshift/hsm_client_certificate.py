@@ -84,7 +84,7 @@ class _HsmClientCertificateState:
         """
         Input properties used for looking up and filtering HsmClientCertificate resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Hsm Client Certificate.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Hsm Client Certificate.
         :param pulumi.Input[_builtins.str] hsm_client_certificate_identifier: The identifier of the HSM client certificate.
         :param pulumi.Input[_builtins.str] hsm_client_certificate_public_key: The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -108,7 +108,7 @@ class _HsmClientCertificateState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the Hsm Client Certificate.
+        ARN of the Hsm Client Certificate.
         """
         return pulumi.get(self, "arn")
 
@@ -299,7 +299,7 @@ class HsmClientCertificate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Hsm Client Certificate.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Hsm Client Certificate.
         :param pulumi.Input[_builtins.str] hsm_client_certificate_identifier: The identifier of the HSM client certificate.
         :param pulumi.Input[_builtins.str] hsm_client_certificate_public_key: The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -322,7 +322,7 @@ class HsmClientCertificate(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the Hsm Client Certificate.
+        ARN of the Hsm Client Certificate.
         """
         return pulumi.get(self, "arn")
 

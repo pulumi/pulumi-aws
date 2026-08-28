@@ -127,7 +127,7 @@ import (
 type CloudAutonomousVmCluster struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) for the Exadata infrastructure.
+	// ARN for the Exadata infrastructure.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Progress of the current operation on the Autonomous VM cluster, as a percentage.
 	AutonomousDataStoragePercentage pulumi.Float64Output `pulumi:"autonomousDataStoragePercentage"`
@@ -295,7 +295,7 @@ func GetCloudAutonomousVmCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CloudAutonomousVmCluster resources.
 type cloudAutonomousVmClusterState struct {
-	// Amazon Resource Name (ARN) for the Exadata infrastructure.
+	// ARN for the Exadata infrastructure.
 	Arn *string `pulumi:"arn"`
 	// Progress of the current operation on the Autonomous VM cluster, as a percentage.
 	AutonomousDataStoragePercentage *float64 `pulumi:"autonomousDataStoragePercentage"`
@@ -407,7 +407,7 @@ type cloudAutonomousVmClusterState struct {
 }
 
 type CloudAutonomousVmClusterState struct {
-	// Amazon Resource Name (ARN) for the Exadata infrastructure.
+	// ARN for the Exadata infrastructure.
 	Arn pulumi.StringPtrInput
 	// Progress of the current operation on the Autonomous VM cluster, as a percentage.
 	AutonomousDataStoragePercentage pulumi.Float64PtrInput
@@ -698,7 +698,7 @@ func (o CloudAutonomousVmClusterOutput) ToCloudAutonomousVmClusterOutputWithCont
 	return o
 }
 
-// Amazon Resource Name (ARN) for the Exadata infrastructure.
+// ARN for the Exadata infrastructure.
 func (o CloudAutonomousVmClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudAutonomousVmCluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

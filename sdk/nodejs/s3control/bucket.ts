@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *
  * - `arn` (String) ARN of the bucket.
  *
- * Using `pulumi import`, import S3 Control Buckets using Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import S3 Control Buckets using ARN. For example:
  *
  * ```sh
  * $ pulumi import aws:s3control/bucket:Bucket example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
@@ -64,7 +64,7 @@ export class Bucket extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the bucket.
+     * ARN of the bucket.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -144,7 +144,7 @@ export class Bucket extends pulumi.CustomResource {
  */
 export interface BucketState {
     /**
-     * Amazon Resource Name (ARN) of the bucket.
+     * ARN of the bucket.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

@@ -20725,7 +20725,7 @@ func (o GetDistributionTenantCustomizationArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetDistributionTenantCustomizationCertificate struct {
-	// ARN (Amazon Resource Name) for the distribution tenant.
+	// ARN for the distribution tenant.
 	Arn string `pulumi:"arn"`
 }
 
@@ -20741,7 +20741,7 @@ type GetDistributionTenantCustomizationCertificateInput interface {
 }
 
 type GetDistributionTenantCustomizationCertificateArgs struct {
-	// ARN (Amazon Resource Name) for the distribution tenant.
+	// ARN for the distribution tenant.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -20796,7 +20796,7 @@ func (o GetDistributionTenantCustomizationCertificateOutput) ToGetDistributionTe
 	return o
 }
 
-// ARN (Amazon Resource Name) for the distribution tenant.
+// ARN for the distribution tenant.
 func (o GetDistributionTenantCustomizationCertificateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDistributionTenantCustomizationCertificate) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -20923,7 +20923,7 @@ func (o GetDistributionTenantCustomizationGeoRestrictionArrayOutput) Index(i pul
 
 type GetDistributionTenantCustomizationWebAcl struct {
 	Action string `pulumi:"action"`
-	// ARN (Amazon Resource Name) for the distribution tenant.
+	// ARN for the distribution tenant.
 	Arn string `pulumi:"arn"`
 }
 
@@ -20940,7 +20940,7 @@ type GetDistributionTenantCustomizationWebAclInput interface {
 
 type GetDistributionTenantCustomizationWebAclArgs struct {
 	Action pulumi.StringInput `pulumi:"action"`
-	// ARN (Amazon Resource Name) for the distribution tenant.
+	// ARN for the distribution tenant.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -20999,7 +20999,7 @@ func (o GetDistributionTenantCustomizationWebAclOutput) Action() pulumi.StringOu
 	return o.ApplyT(func(v GetDistributionTenantCustomizationWebAcl) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// ARN (Amazon Resource Name) for the distribution tenant.
+// ARN for the distribution tenant.
 func (o GetDistributionTenantCustomizationWebAclOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDistributionTenantCustomizationWebAcl) string { return v.Arn }).(pulumi.StringOutput)
 }

@@ -328,28 +328,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:transfer/server:Server")
 public class Server extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of Transfer Server
+     * ARN of Transfer Server
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of Transfer Server
+     * @return ARN of Transfer Server
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
+     * ARN of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
      * 
      */
     @Export(name="certificate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificate;
 
     /**
-     * @return Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
+     * @return ARN of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
      * 
      */
     public Output<Optional<String>> certificate() {
@@ -398,14 +398,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return this.endpoint;
     }
     /**
-     * Virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
+     * VPC endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
      * 
      */
     @Export(name="endpointDetails", refs={ServerEndpointDetails.class}, tree="[0]")
     private Output</* @Nullable */ ServerEndpointDetails> endpointDetails;
 
     /**
-     * @return Virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
+     * @return VPC endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
      * 
      */
     public Output<Optional<ServerEndpointDetails>> endpointDetails() {
@@ -496,14 +496,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identityProviderType);
     }
     /**
-     * Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
+     * ARN of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
      * 
      */
     @Export(name="invocationRole", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> invocationRole;
 
     /**
-     * @return Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
+     * @return ARN of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
      * 
      */
     public Output<Optional<String>> invocationRole() {
@@ -524,14 +524,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return this.ipAddressType;
     }
     /**
-     * Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
+     * ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      * 
      */
     @Export(name="loggingRole", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> loggingRole;
 
     /**
-     * @return Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
+     * @return ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      * 
      */
     public Output<Optional<String>> loggingRole() {

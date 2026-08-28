@@ -282,42 +282,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination")
 public class ConfigurationSetEventDestination extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the configuration set.
+     * Name of the configuration set.
      * 
      */
     @Export(name="configurationSetName", refs={String.class}, tree="[0]")
     private Output<String> configurationSetName;
 
     /**
-     * @return The name of the configuration set.
+     * @return Name of the configuration set.
      * 
      */
     public Output<String> configurationSetName() {
         return this.configurationSetName;
     }
     /**
-     * An object that defines the event destination. See `eventDestination` Block for details.
+     * Object that defines the event destination. See `eventDestination` Block for details.
      * 
      */
     @Export(name="eventDestination", refs={ConfigurationSetEventDestinationEventDestination.class}, tree="[0]")
     private Output<ConfigurationSetEventDestinationEventDestination> eventDestination;
 
     /**
-     * @return An object that defines the event destination. See `eventDestination` Block for details.
+     * @return Object that defines the event destination. See `eventDestination` Block for details.
      * 
      */
     public Output<ConfigurationSetEventDestinationEventDestination> eventDestination() {
         return this.eventDestination;
     }
     /**
-     * A name that identifies the event destination within the configuration set.
+     * Name that identifies the event destination within the configuration set.
      * 
      */
     @Export(name="eventDestinationName", refs={String.class}, tree="[0]")
     private Output<String> eventDestinationName;
 
     /**
-     * @return A name that identifies the event destination within the configuration set.
+     * @return Name that identifies the event destination within the configuration set.
      * 
      */
     public Output<String> eventDestinationName() {

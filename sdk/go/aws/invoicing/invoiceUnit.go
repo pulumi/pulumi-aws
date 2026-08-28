@@ -58,7 +58,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the invoice unit.
+// - `arn` (String) ARN of the invoice unit.
 //
 // Using `pulumi import`, import Invoice Units using the ARN. For example:
 //

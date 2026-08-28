@@ -62,14 +62,14 @@ public final class TrafficMirrorTargetArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+     * ARN of the Network Load Balancer that is associated with the target.
      * 
      */
     @Import(name="networkLoadBalancerArn")
     private @Nullable Output<String> networkLoadBalancerArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+     * @return ARN of the Network Load Balancer that is associated with the target.
      * 
      */
     public Optional<Output<String>> networkLoadBalancerArn() {
@@ -203,7 +203,7 @@ public final class TrafficMirrorTargetArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param networkLoadBalancerArn The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+         * @param networkLoadBalancerArn ARN of the Network Load Balancer that is associated with the target.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class TrafficMirrorTargetArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param networkLoadBalancerArn The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+         * @param networkLoadBalancerArn ARN of the Network Load Balancer that is associated with the target.
          * 
          * @return builder
          * 

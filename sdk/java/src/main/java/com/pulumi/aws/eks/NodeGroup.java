@@ -305,28 +305,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:eks/nodeGroup:NodeGroup")
 public class NodeGroup extends com.pulumi.resources.CustomResource {
     /**
-     * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
+     * Type of AMI associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     @Export(name="amiType", refs={String.class}, tree="[0]")
     private Output<String> amiType;
 
     /**
-     * @return Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
+     * @return Type of AMI associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     public Output<String> amiType() {
         return this.amiType;
     }
     /**
-     * Amazon Resource Name (ARN) of the EKS Node Group.
+     * ARN of the EKS Node Group.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the EKS Node Group.
+     * @return ARN of the EKS Node Group.
      * 
      */
     public Output<String> arn() {
@@ -473,14 +473,14 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
         return this.nodeRepairConfig;
     }
     /**
-     * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+     * ARN of the IAM Role that provides permissions for the EKS Node Group.
      * 
      */
     @Export(name="nodeRoleArn", refs={String.class}, tree="[0]")
     private Output<String> nodeRoleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+     * @return ARN of the IAM Role that provides permissions for the EKS Node Group.
      * 
      */
     public Output<String> nodeRoleArn() {

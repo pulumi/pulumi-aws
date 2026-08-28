@@ -93,7 +93,7 @@ export class TrustAnchor extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Trust Anchor
+     * ARN of the Trust Anchor
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -161,7 +161,7 @@ export class TrustAnchor extends pulumi.CustomResource {
  */
 export interface TrustAnchorState {
     /**
-     * Amazon Resource Name (ARN) of the Trust Anchor
+     * ARN of the Trust Anchor
      */
     arn?: pulumi.Input<string | undefined>;
     /**

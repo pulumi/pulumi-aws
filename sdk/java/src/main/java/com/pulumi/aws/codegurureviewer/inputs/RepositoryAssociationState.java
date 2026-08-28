@@ -21,14 +21,14 @@ public final class RepositoryAssociationState extends com.pulumi.resources.Resou
     public static final RepositoryAssociationState Empty = new RepositoryAssociationState();
 
     /**
-     * The Amazon Resource Name (ARN) identifying the repository association.
+     * ARN identifying the repository association.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) identifying the repository association.
+     * @return ARN identifying the repository association.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -51,14 +51,14 @@ public final class RepositoryAssociationState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+     * ARN of an AWS CodeStar Connections connection.
      * 
      */
     @Import(name="connectionArn")
     private @Nullable Output<String> connectionArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+     * @return ARN of an AWS CodeStar Connections connection.
      * 
      */
     public Optional<Output<String>> connectionArn() {
@@ -248,7 +248,7 @@ public final class RepositoryAssociationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) identifying the repository association.
+         * @param arn ARN identifying the repository association.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class RepositoryAssociationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) identifying the repository association.
+         * @param arn ARN identifying the repository association.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class RepositoryAssociationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param connectionArn The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+         * @param connectionArn ARN of an AWS CodeStar Connections connection.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class RepositoryAssociationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param connectionArn The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+         * @param connectionArn ARN of an AWS CodeStar Connections connection.
          * 
          * @return builder
          * 

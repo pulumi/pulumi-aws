@@ -66,7 +66,7 @@ class _RegexPatternSetState:
         """
         Input properties used for looking up and filtering RegexPatternSet resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN)
+        :param pulumi.Input[_builtins.str] arn: ARN
         :param pulumi.Input[_builtins.str] name: The name or description of the Regex Pattern Set.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regex_pattern_strings: A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
         """
@@ -81,7 +81,7 @@ class _RegexPatternSetState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN)
+        ARN
         """
         return pulumi.get(self, "arn")
 
@@ -235,7 +235,7 @@ class RegexPatternSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN)
+        :param pulumi.Input[_builtins.str] arn: ARN
         :param pulumi.Input[_builtins.str] name: The name or description of the Regex Pattern Set.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regex_pattern_strings: A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
         """
@@ -252,7 +252,7 @@ class RegexPatternSet(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN)
+        ARN
         """
         return pulumi.get(self, "arn")
 

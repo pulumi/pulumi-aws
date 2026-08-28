@@ -44,7 +44,7 @@ class WorkgroupArgs:
                The following arguments are optional:
         :param pulumi.Input[_builtins.int] base_capacity: The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
         :param pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigParameterArgs']]] config_parameters: An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
-        :param pulumi.Input[_builtins.bool] enhanced_vpc_routing: The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+        :param pulumi.Input[_builtins.bool] enhanced_vpc_routing: Value that specifies whether to turn on enhanced VPC routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
         :param pulumi.Input[_builtins.int] max_capacity: The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
         :param pulumi.Input[_builtins.int] port: The port number on which the cluster accepts incoming connections.
         :param pulumi.Input['WorkgroupPricePerformanceTargetArgs'] price_performance_target: Price-performance scaling for the workgroup. See `Price Performance Target` below.
@@ -136,7 +136,7 @@ class WorkgroupArgs:
     @pulumi.getter(name="enhancedVpcRouting")
     def enhanced_vpc_routing(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+        Value that specifies whether to turn on enhanced VPC routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
         """
         return pulumi.get(self, "enhanced_vpc_routing")
 
@@ -277,11 +277,11 @@ class _WorkgroupState:
         """
         Input properties used for looking up and filtering Workgroup resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Redshift Serverless Workgroup.
         :param pulumi.Input[_builtins.int] base_capacity: The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
         :param pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigParameterArgs']]] config_parameters: An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
         :param pulumi.Input[Sequence[pulumi.Input['WorkgroupEndpointArgs']]] endpoints: The endpoint that is created from the workgroup. See `Endpoint` below.
-        :param pulumi.Input[_builtins.bool] enhanced_vpc_routing: The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+        :param pulumi.Input[_builtins.bool] enhanced_vpc_routing: Value that specifies whether to turn on enhanced VPC routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
         :param pulumi.Input[_builtins.int] max_capacity: The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
         :param pulumi.Input[_builtins.str] namespace_name: The name of the namespace.
         :param pulumi.Input[_builtins.int] port: The port number on which the cluster accepts incoming connections.
@@ -339,7 +339,7 @@ class _WorkgroupState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+        ARN of the Redshift Serverless Workgroup.
         """
         return pulumi.get(self, "arn")
 
@@ -387,7 +387,7 @@ class _WorkgroupState:
     @pulumi.getter(name="enhancedVpcRouting")
     def enhanced_vpc_routing(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+        Value that specifies whether to turn on enhanced VPC routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
         """
         return pulumi.get(self, "enhanced_vpc_routing")
 
@@ -602,7 +602,7 @@ class Workgroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] base_capacity: The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
         :param pulumi.Input[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict']]]] config_parameters: An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
-        :param pulumi.Input[_builtins.bool] enhanced_vpc_routing: The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+        :param pulumi.Input[_builtins.bool] enhanced_vpc_routing: Value that specifies whether to turn on enhanced VPC routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
         :param pulumi.Input[_builtins.int] max_capacity: The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
         :param pulumi.Input[_builtins.str] namespace_name: The name of the namespace.
         :param pulumi.Input[_builtins.int] port: The port number on which the cluster accepts incoming connections.
@@ -741,11 +741,11 @@ class Workgroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Redshift Serverless Workgroup.
         :param pulumi.Input[_builtins.int] base_capacity: The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
         :param pulumi.Input[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict']]]] config_parameters: An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WorkgroupEndpointArgs', 'WorkgroupEndpointArgsDict']]]] endpoints: The endpoint that is created from the workgroup. See `Endpoint` below.
-        :param pulumi.Input[_builtins.bool] enhanced_vpc_routing: The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+        :param pulumi.Input[_builtins.bool] enhanced_vpc_routing: Value that specifies whether to turn on enhanced VPC routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
         :param pulumi.Input[_builtins.int] max_capacity: The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
         :param pulumi.Input[_builtins.str] namespace_name: The name of the namespace.
         :param pulumi.Input[_builtins.int] port: The port number on which the cluster accepts incoming connections.
@@ -790,7 +790,7 @@ class Workgroup(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+        ARN of the Redshift Serverless Workgroup.
         """
         return pulumi.get(self, "arn")
 
@@ -822,7 +822,7 @@ class Workgroup(pulumi.CustomResource):
     @pulumi.getter(name="enhancedVpcRouting")
     def enhanced_vpc_routing(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+        Value that specifies whether to turn on enhanced VPC routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
         """
         return pulumi.get(self, "enhanced_vpc_routing")
 

@@ -33,14 +33,14 @@ public final class IPSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the GuardDuty IPSet.
+     * ARN of the GuardDuty IPSet.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the GuardDuty IPSet.
+     * @return ARN of the GuardDuty IPSet.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -222,7 +222,7 @@ public final class IPSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the GuardDuty IPSet.
+         * @param arn ARN of the GuardDuty IPSet.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class IPSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the GuardDuty IPSet.
+         * @param arn ARN of the GuardDuty IPSet.
          * 
          * @return builder
          * 

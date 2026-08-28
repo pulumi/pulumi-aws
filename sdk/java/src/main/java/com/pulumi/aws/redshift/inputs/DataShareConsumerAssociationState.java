@@ -47,14 +47,14 @@ public final class DataShareConsumerAssociationState extends com.pulumi.resource
     }
 
     /**
-     * Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
+     * ARN of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
      * 
      */
     @Import(name="consumerArn")
     private @Nullable Output<String> consumerArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
+     * @return ARN of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
      * 
      */
     public Optional<Output<String>> consumerArn() {
@@ -77,7 +77,7 @@ public final class DataShareConsumerAssociationState extends com.pulumi.resource
     }
 
     /**
-     * Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
+     * ARN of the datashare that the consumer is to use with the account or the namespace.
      * 
      * The following arguments are optional:
      * 
@@ -86,7 +86,7 @@ public final class DataShareConsumerAssociationState extends com.pulumi.resource
     private @Nullable Output<String> dataShareArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
+     * @return ARN of the datashare that the consumer is to use with the account or the namespace.
      * 
      * The following arguments are optional:
      * 
@@ -111,14 +111,14 @@ public final class DataShareConsumerAssociationState extends com.pulumi.resource
     }
 
     /**
-     * Amazon Resource Name (ARN) of the producer.
+     * ARN of the producer.
      * 
      */
     @Import(name="producerArn")
     private @Nullable Output<String> producerArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the producer.
+     * @return ARN of the producer.
      * 
      */
     public Optional<Output<String>> producerArn() {
@@ -214,7 +214,7 @@ public final class DataShareConsumerAssociationState extends com.pulumi.resource
         }
 
         /**
-         * @param consumerArn Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
+         * @param consumerArn ARN of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class DataShareConsumerAssociationState extends com.pulumi.resource
         }
 
         /**
-         * @param consumerArn Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
+         * @param consumerArn ARN of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class DataShareConsumerAssociationState extends com.pulumi.resource
         }
 
         /**
-         * @param dataShareArn Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
+         * @param dataShareArn ARN of the datashare that the consumer is to use with the account or the namespace.
          * 
          * The following arguments are optional:
          * 
@@ -269,7 +269,7 @@ public final class DataShareConsumerAssociationState extends com.pulumi.resource
         }
 
         /**
-         * @param dataShareArn Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
+         * @param dataShareArn ARN of the datashare that the consumer is to use with the account or the namespace.
          * 
          * The following arguments are optional:
          * 
@@ -302,7 +302,7 @@ public final class DataShareConsumerAssociationState extends com.pulumi.resource
         }
 
         /**
-         * @param producerArn Amazon Resource Name (ARN) of the producer.
+         * @param producerArn ARN of the producer.
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class DataShareConsumerAssociationState extends com.pulumi.resource
         }
 
         /**
-         * @param producerArn Amazon Resource Name (ARN) of the producer.
+         * @param producerArn ARN of the producer.
          * 
          * @return builder
          * 

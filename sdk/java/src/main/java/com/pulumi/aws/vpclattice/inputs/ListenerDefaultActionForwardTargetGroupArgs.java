@@ -17,14 +17,14 @@ public final class ListenerDefaultActionForwardTargetGroupArgs extends com.pulum
     public static final ListenerDefaultActionForwardTargetGroupArgs Empty = new ListenerDefaultActionForwardTargetGroupArgs();
 
     /**
-     * ID or Amazon Resource Name (ARN) of the target group.
+     * ID or ARN of the target group.
      * 
      */
     @Import(name="targetGroupIdentifier")
     private @Nullable Output<String> targetGroupIdentifier;
 
     /**
-     * @return ID or Amazon Resource Name (ARN) of the target group.
+     * @return ID or ARN of the target group.
      * 
      */
     public Optional<Output<String>> targetGroupIdentifier() {
@@ -72,7 +72,7 @@ public final class ListenerDefaultActionForwardTargetGroupArgs extends com.pulum
         }
 
         /**
-         * @param targetGroupIdentifier ID or Amazon Resource Name (ARN) of the target group.
+         * @param targetGroupIdentifier ID or ARN of the target group.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ListenerDefaultActionForwardTargetGroupArgs extends com.pulum
         }
 
         /**
-         * @param targetGroupIdentifier ID or Amazon Resource Name (ARN) of the target group.
+         * @param targetGroupIdentifier ID or ARN of the target group.
          * 
          * @return builder
          * 

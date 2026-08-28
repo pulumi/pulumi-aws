@@ -53,7 +53,7 @@ type TransitGateway struct {
 	//
 	// > **NOTE:** Modifying `amazonSideAsn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazonSideAsn`.
 	AmazonSideAsn pulumi.IntPtrOutput `pulumi:"amazonSideAsn"`
-	// EC2 Transit Gateway Amazon Resource Name (ARN)
+	// EC2 Transit Gateway ARN
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Identifier of the default association route table
 	AssociationDefaultRouteTableId pulumi.StringOutput `pulumi:"associationDefaultRouteTableId"`
@@ -123,7 +123,7 @@ type transitGatewayState struct {
 	//
 	// > **NOTE:** Modifying `amazonSideAsn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazonSideAsn`.
 	AmazonSideAsn *int `pulumi:"amazonSideAsn"`
-	// EC2 Transit Gateway Amazon Resource Name (ARN)
+	// EC2 Transit Gateway ARN
 	Arn *string `pulumi:"arn"`
 	// Identifier of the default association route table
 	AssociationDefaultRouteTableId *string `pulumi:"associationDefaultRouteTableId"`
@@ -164,7 +164,7 @@ type TransitGatewayState struct {
 	//
 	// > **NOTE:** Modifying `amazonSideAsn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazonSideAsn`.
 	AmazonSideAsn pulumi.IntPtrInput
-	// EC2 Transit Gateway Amazon Resource Name (ARN)
+	// EC2 Transit Gateway ARN
 	Arn pulumi.StringPtrInput
 	// Identifier of the default association route table
 	AssociationDefaultRouteTableId pulumi.StringPtrInput
@@ -361,7 +361,7 @@ func (o TransitGatewayOutput) AmazonSideAsn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.IntPtrOutput { return v.AmazonSideAsn }).(pulumi.IntPtrOutput)
 }
 
-// EC2 Transit Gateway Amazon Resource Name (ARN)
+// EC2 Transit Gateway ARN
 func (o TransitGatewayOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

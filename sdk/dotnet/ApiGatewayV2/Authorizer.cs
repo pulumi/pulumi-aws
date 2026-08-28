@@ -108,7 +108,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string> AuthorizerType { get; private set; } = null!;
 
         /// <summary>
-        /// Authorizer's Uniform Resource Identifier (URI). For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `InvokeArn` attribute of the `aws.lambda.Function` resource. Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
+        /// Authorizer's URI. For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `InvokeArn` attribute of the `aws.lambda.Function` resource. Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
         /// </summary>
         [Output("authorizerUri")]
         public Output<string?> AuthorizerUri { get; private set; } = null!;
@@ -220,7 +220,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string> AuthorizerType { get; set; } = null!;
 
         /// <summary>
-        /// Authorizer's Uniform Resource Identifier (URI). For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `InvokeArn` attribute of the `aws.lambda.Function` resource. Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
+        /// Authorizer's URI. For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `InvokeArn` attribute of the `aws.lambda.Function` resource. Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
         /// </summary>
         [Input("authorizerUri")]
         public Input<string>? AuthorizerUri { get; set; }
@@ -300,7 +300,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? AuthorizerType { get; set; }
 
         /// <summary>
-        /// Authorizer's Uniform Resource Identifier (URI). For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `InvokeArn` attribute of the `aws.lambda.Function` resource. Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
+        /// Authorizer's URI. For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `InvokeArn` attribute of the `aws.lambda.Function` resource. Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
         /// </summary>
         [Input("authorizerUri")]
         public Input<string>? AuthorizerUri { get; set; }

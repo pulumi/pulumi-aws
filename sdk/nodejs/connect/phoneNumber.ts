@@ -141,7 +141,7 @@ export class PhoneNumber extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
+     * ARN for Amazon Connect instances that phone numbers are claimed to.
      */
     declare public readonly targetArn: pulumi.Output<string>;
     /**
@@ -242,7 +242,7 @@ export interface PhoneNumberState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
+     * ARN for Amazon Connect instances that phone numbers are claimed to.
      */
     targetArn?: pulumi.Input<string | undefined>;
     /**
@@ -276,7 +276,7 @@ export interface PhoneNumberArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
+     * ARN for Amazon Connect instances that phone numbers are claimed to.
      */
     targetArn: pulumi.Input<string>;
     /**

@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * * `clusterArn` (String) Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
+ * * `clusterArn` (String) ARN that uniquely identifies MSK Cluster.
  * * `name` (String) Name of Topic.
  * 
  * #### Optional
@@ -103,14 +103,14 @@ public class Topic extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
+     * ARN that uniquely identifies MSK Cluster.
      * 
      */
     @Export(name="clusterArn", refs={String.class}, tree="[0]")
     private Output<String> clusterArn;
 
     /**
-     * @return Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
+     * @return ARN that uniquely identifies MSK Cluster.
      * 
      */
     public Output<String> clusterArn() {

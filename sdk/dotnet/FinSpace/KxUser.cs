@@ -81,7 +81,7 @@ namespace Pulumi.Aws.FinSpace
     public partial class KxUser : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) identifier of the KX user.
+        /// ARN identifier of the KX user.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -217,7 +217,7 @@ namespace Pulumi.Aws.FinSpace
     public sealed class KxUserState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) identifier of the KX user.
+        /// ARN identifier of the KX user.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

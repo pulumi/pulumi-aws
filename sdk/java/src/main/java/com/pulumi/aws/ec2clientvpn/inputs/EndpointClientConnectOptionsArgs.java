@@ -32,14 +32,14 @@ public final class EndpointClientConnectOptionsArgs extends com.pulumi.resources
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
+     * ARN of the Lambda function used for connection authorization.
      * 
      */
     @Import(name="lambdaFunctionArn")
     private @Nullable Output<String> lambdaFunctionArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
+     * @return ARN of the Lambda function used for connection authorization.
      * 
      */
     public Optional<Output<String>> lambdaFunctionArn() {
@@ -93,7 +93,7 @@ public final class EndpointClientConnectOptionsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param lambdaFunctionArn The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
+         * @param lambdaFunctionArn ARN of the Lambda function used for connection authorization.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class EndpointClientConnectOptionsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param lambdaFunctionArn The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
+         * @param lambdaFunctionArn ARN of the Lambda function used for connection authorization.
          * 
          * @return builder
          * 

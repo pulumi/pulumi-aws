@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class TlsInspectionConfigurationEncryptionConfiguration {
     /**
-     * @return ARN of the Amazon Web Services Key Management Service (KMS) customer managed key.
+     * @return ARN of the Amazon Web Services KMS customer managed key.
      * 
      */
     private String keyId;
@@ -23,7 +23,7 @@ public final class TlsInspectionConfigurationEncryptionConfiguration {
 
     private TlsInspectionConfigurationEncryptionConfiguration() {}
     /**
-     * @return ARN of the Amazon Web Services Key Management Service (KMS) customer managed key.
+     * @return ARN of the Amazon Web Services KMS customer managed key.
      * 
      */
     public String keyId() {

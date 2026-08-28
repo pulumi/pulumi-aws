@@ -42,7 +42,7 @@ public final class GetVirtualNodeSpecListener {
      */
     private List<GetVirtualNodeSpecListenerTimeout> timeouts;
     /**
-     * @return Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+     * @return TLS properties for the listener. See `spec.listener.tls` Block for details.
      * 
      */
     private List<GetVirtualNodeSpecListenerTl> tls;
@@ -84,7 +84,7 @@ public final class GetVirtualNodeSpecListener {
         return this.timeouts;
     }
     /**
-     * @return Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+     * @return TLS properties for the listener. See `spec.listener.tls` Block for details.
      * 
      */
     public List<GetVirtualNodeSpecListenerTl> tls() {

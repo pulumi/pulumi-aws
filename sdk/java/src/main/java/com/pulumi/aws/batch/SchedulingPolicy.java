@@ -80,14 +80,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:batch/schedulingPolicy:SchedulingPolicy")
 public class SchedulingPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name of the scheduling policy.
+     * ARN of the scheduling policy.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name of the scheduling policy.
+     * @return ARN of the scheduling policy.
      * 
      */
     public Output<String> arn() {

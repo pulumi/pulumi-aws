@@ -99,9 +99,9 @@ type CustomerManagedPolicyAttachment struct {
 
 	// Specifies the name and path of a customer managed policy. See below.
 	CustomerManagedPolicyReference CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceOutput `pulumi:"customerManagedPolicyReference"`
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+	// ARN of the SSO Instance under which the operation will be executed.
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
-	// The Amazon Resource Name (ARN) of the Permission Set.
+	// ARN of the Permission Set.
 	PermissionSetArn pulumi.StringOutput `pulumi:"permissionSetArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -148,9 +148,9 @@ func GetCustomerManagedPolicyAttachment(ctx *pulumi.Context,
 type customerManagedPolicyAttachmentState struct {
 	// Specifies the name and path of a customer managed policy. See below.
 	CustomerManagedPolicyReference *CustomerManagedPolicyAttachmentCustomerManagedPolicyReference `pulumi:"customerManagedPolicyReference"`
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+	// ARN of the SSO Instance under which the operation will be executed.
 	InstanceArn *string `pulumi:"instanceArn"`
-	// The Amazon Resource Name (ARN) of the Permission Set.
+	// ARN of the Permission Set.
 	PermissionSetArn *string `pulumi:"permissionSetArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -159,9 +159,9 @@ type customerManagedPolicyAttachmentState struct {
 type CustomerManagedPolicyAttachmentState struct {
 	// Specifies the name and path of a customer managed policy. See below.
 	CustomerManagedPolicyReference CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrInput
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+	// ARN of the SSO Instance under which the operation will be executed.
 	InstanceArn pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the Permission Set.
+	// ARN of the Permission Set.
 	PermissionSetArn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -174,9 +174,9 @@ func (CustomerManagedPolicyAttachmentState) ElementType() reflect.Type {
 type customerManagedPolicyAttachmentArgs struct {
 	// Specifies the name and path of a customer managed policy. See below.
 	CustomerManagedPolicyReference CustomerManagedPolicyAttachmentCustomerManagedPolicyReference `pulumi:"customerManagedPolicyReference"`
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+	// ARN of the SSO Instance under which the operation will be executed.
 	InstanceArn string `pulumi:"instanceArn"`
-	// The Amazon Resource Name (ARN) of the Permission Set.
+	// ARN of the Permission Set.
 	PermissionSetArn string `pulumi:"permissionSetArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -186,9 +186,9 @@ type customerManagedPolicyAttachmentArgs struct {
 type CustomerManagedPolicyAttachmentArgs struct {
 	// Specifies the name and path of a customer managed policy. See below.
 	CustomerManagedPolicyReference CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceInput
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+	// ARN of the SSO Instance under which the operation will be executed.
 	InstanceArn pulumi.StringInput
-	// The Amazon Resource Name (ARN) of the Permission Set.
+	// ARN of the Permission Set.
 	PermissionSetArn pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -288,12 +288,12 @@ func (o CustomerManagedPolicyAttachmentOutput) CustomerManagedPolicyReference() 
 	}).(CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceOutput)
 }
 
-// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+// ARN of the SSO Instance under which the operation will be executed.
 func (o CustomerManagedPolicyAttachmentOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomerManagedPolicyAttachment) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Permission Set.
+// ARN of the Permission Set.
 func (o CustomerManagedPolicyAttachmentOutput) PermissionSetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomerManagedPolicyAttachment) pulumi.StringOutput { return v.PermissionSetArn }).(pulumi.StringOutput)
 }

@@ -34,7 +34,7 @@ namespace Pulumi.Aws.ApiGatewayV2.Outputs
         /// </summary>
         public readonly string? OwnershipVerificationCertificateArn;
         /// <summary>
-        /// Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
+        /// TLS version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
         /// </summary>
         public readonly string SecurityPolicy;
         /// <summary>

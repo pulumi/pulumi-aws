@@ -22,14 +22,14 @@ public final class InfrastructureConfigurationState extends com.pulumi.resources
     public static final InfrastructureConfigurationState Empty = new InfrastructureConfigurationState();
 
     /**
-     * Amazon Resource Name (ARN) of the configuration.
+     * ARN of the configuration.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the configuration.
+     * @return ARN of the configuration.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -236,14 +236,14 @@ public final class InfrastructureConfigurationState extends com.pulumi.resources
     }
 
     /**
-     * Amazon Resource Name (ARN) of SNS Topic.
+     * ARN of SNS Topic.
      * 
      */
     @Import(name="snsTopicArn")
     private @Nullable Output<String> snsTopicArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of SNS Topic.
+     * @return ARN of SNS Topic.
      * 
      */
     public Optional<Output<String>> snsTopicArn() {
@@ -353,7 +353,7 @@ public final class InfrastructureConfigurationState extends com.pulumi.resources
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the configuration.
+         * @param arn ARN of the configuration.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class InfrastructureConfigurationState extends com.pulumi.resources
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the configuration.
+         * @param arn ARN of the configuration.
          * 
          * @return builder
          * 
@@ -671,7 +671,7 @@ public final class InfrastructureConfigurationState extends com.pulumi.resources
         }
 
         /**
-         * @param snsTopicArn Amazon Resource Name (ARN) of SNS Topic.
+         * @param snsTopicArn ARN of SNS Topic.
          * 
          * @return builder
          * 
@@ -682,7 +682,7 @@ public final class InfrastructureConfigurationState extends com.pulumi.resources
         }
 
         /**
-         * @param snsTopicArn Amazon Resource Name (ARN) of SNS Topic.
+         * @param snsTopicArn ARN of SNS Topic.
          * 
          * @return builder
          * 

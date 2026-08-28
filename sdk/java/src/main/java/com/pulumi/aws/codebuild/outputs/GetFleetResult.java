@@ -58,7 +58,7 @@ public final class GetFleetResult {
      */
     private String id;
     /**
-     * @return The Amazon Machine Image (AMI) of the compute fleet.
+     * @return AMI of the compute fleet.
      * 
      */
     private String imageId;
@@ -153,7 +153,7 @@ public final class GetFleetResult {
         return this.id;
     }
     /**
-     * @return The Amazon Machine Image (AMI) of the compute fleet.
+     * @return AMI of the compute fleet.
      * 
      */
     public String imageId() {

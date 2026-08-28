@@ -165,7 +165,7 @@ class GetCloudVmClusterResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) for the cloud vm cluster.
+        ARN for the cloud vm cluster.
         """
         return pulumi.get(self, "arn")
 

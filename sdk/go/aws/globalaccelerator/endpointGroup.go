@@ -52,7 +52,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator endpoint group.
+// - `arn` (String) ARN of the Global Accelerator endpoint group.
 //
 // Using `pulumi import`, import Global Accelerator endpoint groups using the `id`. For example:
 //
@@ -62,7 +62,7 @@ import (
 type EndpointGroup struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the endpoint group.
+	// ARN of the endpoint group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The list of endpoint objects. Fields documented below.
 	EndpointConfigurations EndpointGroupEndpointConfigurationArrayOutput `pulumi:"endpointConfigurations"`
@@ -77,7 +77,7 @@ type EndpointGroup struct {
 	HealthCheckPort pulumi.IntOutput `pulumi:"healthCheckPort"`
 	// The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
 	HealthCheckProtocol pulumi.StringPtrOutput `pulumi:"healthCheckProtocol"`
-	// The Amazon Resource Name (ARN) of the listener.
+	// ARN of the listener.
 	ListenerArn pulumi.StringOutput `pulumi:"listenerArn"`
 	// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
 	PortOverrides EndpointGroupPortOverrideArrayOutput `pulumi:"portOverrides"`
@@ -120,7 +120,7 @@ func GetEndpointGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EndpointGroup resources.
 type endpointGroupState struct {
-	// The Amazon Resource Name (ARN) of the endpoint group.
+	// ARN of the endpoint group.
 	Arn *string `pulumi:"arn"`
 	// The list of endpoint objects. Fields documented below.
 	EndpointConfigurations []EndpointGroupEndpointConfiguration `pulumi:"endpointConfigurations"`
@@ -135,7 +135,7 @@ type endpointGroupState struct {
 	HealthCheckPort *int `pulumi:"healthCheckPort"`
 	// The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
 	HealthCheckProtocol *string `pulumi:"healthCheckProtocol"`
-	// The Amazon Resource Name (ARN) of the listener.
+	// ARN of the listener.
 	ListenerArn *string `pulumi:"listenerArn"`
 	// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
 	PortOverrides []EndpointGroupPortOverride `pulumi:"portOverrides"`
@@ -146,7 +146,7 @@ type endpointGroupState struct {
 }
 
 type EndpointGroupState struct {
-	// The Amazon Resource Name (ARN) of the endpoint group.
+	// ARN of the endpoint group.
 	Arn pulumi.StringPtrInput
 	// The list of endpoint objects. Fields documented below.
 	EndpointConfigurations EndpointGroupEndpointConfigurationArrayInput
@@ -161,7 +161,7 @@ type EndpointGroupState struct {
 	HealthCheckPort pulumi.IntPtrInput
 	// The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
 	HealthCheckProtocol pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the listener.
+	// ARN of the listener.
 	ListenerArn pulumi.StringPtrInput
 	// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
 	PortOverrides EndpointGroupPortOverrideArrayInput
@@ -189,7 +189,7 @@ type endpointGroupArgs struct {
 	HealthCheckPort *int `pulumi:"healthCheckPort"`
 	// The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
 	HealthCheckProtocol *string `pulumi:"healthCheckProtocol"`
-	// The Amazon Resource Name (ARN) of the listener.
+	// ARN of the listener.
 	ListenerArn string `pulumi:"listenerArn"`
 	// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
 	PortOverrides []EndpointGroupPortOverride `pulumi:"portOverrides"`
@@ -214,7 +214,7 @@ type EndpointGroupArgs struct {
 	HealthCheckPort pulumi.IntPtrInput
 	// The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
 	HealthCheckProtocol pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the listener.
+	// ARN of the listener.
 	ListenerArn pulumi.StringInput
 	// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
 	PortOverrides EndpointGroupPortOverrideArrayInput
@@ -311,7 +311,7 @@ func (o EndpointGroupOutput) ToEndpointGroupOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the endpoint group.
+// ARN of the endpoint group.
 func (o EndpointGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -347,7 +347,7 @@ func (o EndpointGroupOutput) HealthCheckProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointGroup) pulumi.StringPtrOutput { return v.HealthCheckProtocol }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the listener.
+// ARN of the listener.
 func (o EndpointGroupOutput) ListenerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointGroup) pulumi.StringOutput { return v.ListenerArn }).(pulumi.StringOutput)
 }

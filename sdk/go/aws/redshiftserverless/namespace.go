@@ -52,7 +52,7 @@ import (
 type Namespace struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of namespace's admin user credentials secret.
+	// ARN of namespace's admin user credentials secret.
 	AdminPasswordSecretArn pulumi.StringOutput `pulumi:"adminPasswordSecretArn"`
 	// ID of the KMS key used to encrypt the namespace's admin credentials secret.
 	AdminPasswordSecretKmsKeyId pulumi.StringOutput `pulumi:"adminPasswordSecretKmsKeyId"`
@@ -67,15 +67,15 @@ type Namespace struct {
 	AdminUserPasswordWoVersion pulumi.IntPtrOutput `pulumi:"adminUserPasswordWoVersion"`
 	// The username of the administrator for the first database created in the namespace.
 	AdminUsername pulumi.StringOutput `pulumi:"adminUsername"`
-	// Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+	// ARN of the Redshift Serverless Namespace.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the first database created in the namespace.
 	DbName pulumi.StringOutput `pulumi:"dbName"`
-	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+	// ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
 	DefaultIamRoleArn pulumi.StringPtrOutput `pulumi:"defaultIamRoleArn"`
 	// A list of IAM roles to associate with the namespace.
 	IamRoles pulumi.StringArrayOutput `pulumi:"iamRoles"`
-	// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+	// ARN of the Amazon Web Services KMS key used to encrypt your data.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
 	LogExports pulumi.StringArrayOutput `pulumi:"logExports"`
@@ -142,7 +142,7 @@ func GetNamespace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Namespace resources.
 type namespaceState struct {
-	// Amazon Resource Name (ARN) of namespace's admin user credentials secret.
+	// ARN of namespace's admin user credentials secret.
 	AdminPasswordSecretArn *string `pulumi:"adminPasswordSecretArn"`
 	// ID of the KMS key used to encrypt the namespace's admin credentials secret.
 	AdminPasswordSecretKmsKeyId *string `pulumi:"adminPasswordSecretKmsKeyId"`
@@ -157,15 +157,15 @@ type namespaceState struct {
 	AdminUserPasswordWoVersion *int `pulumi:"adminUserPasswordWoVersion"`
 	// The username of the administrator for the first database created in the namespace.
 	AdminUsername *string `pulumi:"adminUsername"`
-	// Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+	// ARN of the Redshift Serverless Namespace.
 	Arn *string `pulumi:"arn"`
 	// The name of the first database created in the namespace.
 	DbName *string `pulumi:"dbName"`
-	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+	// ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
 	DefaultIamRoleArn *string `pulumi:"defaultIamRoleArn"`
 	// A list of IAM roles to associate with the namespace.
 	IamRoles []string `pulumi:"iamRoles"`
-	// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+	// ARN of the Amazon Web Services KMS key used to encrypt your data.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
 	LogExports []string `pulumi:"logExports"`
@@ -185,7 +185,7 @@ type namespaceState struct {
 }
 
 type NamespaceState struct {
-	// Amazon Resource Name (ARN) of namespace's admin user credentials secret.
+	// ARN of namespace's admin user credentials secret.
 	AdminPasswordSecretArn pulumi.StringPtrInput
 	// ID of the KMS key used to encrypt the namespace's admin credentials secret.
 	AdminPasswordSecretKmsKeyId pulumi.StringPtrInput
@@ -200,15 +200,15 @@ type NamespaceState struct {
 	AdminUserPasswordWoVersion pulumi.IntPtrInput
 	// The username of the administrator for the first database created in the namespace.
 	AdminUsername pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+	// ARN of the Redshift Serverless Namespace.
 	Arn pulumi.StringPtrInput
 	// The name of the first database created in the namespace.
 	DbName pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+	// ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
 	DefaultIamRoleArn pulumi.StringPtrInput
 	// A list of IAM roles to associate with the namespace.
 	IamRoles pulumi.StringArrayInput
-	// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+	// ARN of the Amazon Web Services KMS key used to encrypt your data.
 	KmsKeyId pulumi.StringPtrInput
 	// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
 	LogExports pulumi.StringArrayInput
@@ -247,11 +247,11 @@ type namespaceArgs struct {
 	AdminUsername *string `pulumi:"adminUsername"`
 	// The name of the first database created in the namespace.
 	DbName *string `pulumi:"dbName"`
-	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+	// ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
 	DefaultIamRoleArn *string `pulumi:"defaultIamRoleArn"`
 	// A list of IAM roles to associate with the namespace.
 	IamRoles []string `pulumi:"iamRoles"`
-	// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+	// ARN of the Amazon Web Services KMS key used to encrypt your data.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
 	LogExports []string `pulumi:"logExports"`
@@ -283,11 +283,11 @@ type NamespaceArgs struct {
 	AdminUsername pulumi.StringPtrInput
 	// The name of the first database created in the namespace.
 	DbName pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+	// ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
 	DefaultIamRoleArn pulumi.StringPtrInput
 	// A list of IAM roles to associate with the namespace.
 	IamRoles pulumi.StringArrayInput
-	// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+	// ARN of the Amazon Web Services KMS key used to encrypt your data.
 	KmsKeyId pulumi.StringPtrInput
 	// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
 	LogExports pulumi.StringArrayInput
@@ -389,7 +389,7 @@ func (o NamespaceOutput) ToNamespaceOutputWithContext(ctx context.Context) Names
 	return o
 }
 
-// Amazon Resource Name (ARN) of namespace's admin user credentials secret.
+// ARN of namespace's admin user credentials secret.
 func (o NamespaceOutput) AdminPasswordSecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.AdminPasswordSecretArn }).(pulumi.StringOutput)
 }
@@ -422,7 +422,7 @@ func (o NamespaceOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+// ARN of the Redshift Serverless Namespace.
 func (o NamespaceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -432,7 +432,7 @@ func (o NamespaceOutput) DbName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.DbName }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+// ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
 func (o NamespaceOutput) DefaultIamRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringPtrOutput { return v.DefaultIamRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -442,7 +442,7 @@ func (o NamespaceOutput) IamRoles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringArrayOutput { return v.IamRoles }).(pulumi.StringArrayOutput)
 }
 
-// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+// ARN of the Amazon Web Services KMS key used to encrypt your data.
 func (o NamespaceOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }

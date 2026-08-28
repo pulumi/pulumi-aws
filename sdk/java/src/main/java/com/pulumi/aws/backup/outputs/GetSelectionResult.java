@@ -29,7 +29,7 @@ public final class GetSelectionResult {
     private String planId;
     private String region;
     /**
-     * @return An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..
+     * @return Array of strings that either contain ARNs or match patterns of resources to assign to a backup plan.
      * 
      */
     private List<String> resources;
@@ -64,7 +64,7 @@ public final class GetSelectionResult {
         return this.region;
     }
     /**
-     * @return An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..
+     * @return Array of strings that either contain ARNs or match patterns of resources to assign to a backup plan.
      * 
      */
     public List<String> resources() {

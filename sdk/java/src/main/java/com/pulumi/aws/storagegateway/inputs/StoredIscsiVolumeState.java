@@ -19,14 +19,14 @@ public final class StoredIscsiVolumeState extends com.pulumi.resources.ResourceA
     public static final StoredIscsiVolumeState Empty = new StoredIscsiVolumeState();
 
     /**
-     * Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+     * Volume ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+     * @return Volume ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -64,14 +64,14 @@ public final class StoredIscsiVolumeState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the gateway.
+     * ARN of the gateway.
      * 
      */
     @Import(name="gatewayArn")
     private @Nullable Output<String> gatewayArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the gateway.
+     * @return ARN of the gateway.
      * 
      */
     public Optional<Output<String>> gatewayArn() {
@@ -94,14 +94,14 @@ public final class StoredIscsiVolumeState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
+     * ARN of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
      * 
      */
     @Import(name="kmsKey")
     private @Nullable Output<String> kmsKey;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
+     * @return ARN of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
      * 
      */
     public Optional<Output<String>> kmsKey() {
@@ -229,14 +229,14 @@ public final class StoredIscsiVolumeState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+     * Target ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
      * 
      */
     @Import(name="targetArn")
     private @Nullable Output<String> targetArn;
 
     /**
-     * @return Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+     * @return Target ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
      * 
      */
     public Optional<Output<String>> targetArn() {
@@ -378,7 +378,7 @@ public final class StoredIscsiVolumeState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+         * @param arn Volume ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class StoredIscsiVolumeState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+         * @param arn Volume ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
          * 
          * @return builder
          * 
@@ -441,7 +441,7 @@ public final class StoredIscsiVolumeState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param gatewayArn The Amazon Resource Name (ARN) of the gateway.
+         * @param gatewayArn ARN of the gateway.
          * 
          * @return builder
          * 
@@ -452,7 +452,7 @@ public final class StoredIscsiVolumeState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param gatewayArn The Amazon Resource Name (ARN) of the gateway.
+         * @param gatewayArn ARN of the gateway.
          * 
          * @return builder
          * 
@@ -483,7 +483,7 @@ public final class StoredIscsiVolumeState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param kmsKey The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
+         * @param kmsKey ARN of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
          * 
          * @return builder
          * 
@@ -494,7 +494,7 @@ public final class StoredIscsiVolumeState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param kmsKey The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
+         * @param kmsKey ARN of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
          * 
          * @return builder
          * 
@@ -672,7 +672,7 @@ public final class StoredIscsiVolumeState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param targetArn Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+         * @param targetArn Target ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
          * 
          * @return builder
          * 
@@ -683,7 +683,7 @@ public final class StoredIscsiVolumeState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param targetArn Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+         * @param targetArn Target ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
          * 
          * @return builder
          * 

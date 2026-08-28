@@ -44,7 +44,7 @@ namespace Pulumi.Aws.DeviceFarm
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Device Farm test grid project.
+    /// - `Arn` (String) ARN of the Device Farm test grid project.
     /// 
     /// Using `pulumi import`, import DeviceFarm Test Grid Projects using their ARN. For example:
     /// 
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.DeviceFarm
     public partial class TestGridProject : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name of this Test Grid Project.
+        /// ARN of this Test Grid Project.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.DeviceFarm
     public sealed class TestGridProjectState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name of this Test Grid Project.
+        /// ARN of this Test Grid Project.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

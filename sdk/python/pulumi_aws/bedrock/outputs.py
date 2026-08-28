@@ -445,6 +445,24 @@ __all__ = [
     'AgentcoreMemoryStrategyConfigurationConsolidation',
     'AgentcoreMemoryStrategyConfigurationExtraction',
     'AgentcoreMemoryStrategyConfigurationReflection',
+    'AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration',
+    'AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfiguration',
+    'AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions',
+    'AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActual',
+    'AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTrigger',
+    'AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTrigger',
+    'AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTrigger',
+    'AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger',
+    'AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger',
+    'AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger',
+    'AgentcoreMemoryStrategyMemoryRecordSchema',
+    'AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchema',
+    'AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfig',
+    'AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfig',
+    'AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidation',
+    'AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidation',
+    'AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidation',
+    'AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidation',
     'AgentcoreMemoryStrategyReflectionConfiguration',
     'AgentcoreMemoryStrategyTimeouts',
     'AgentcoreMemoryStreamDeliveryResources',
@@ -1902,7 +1920,7 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigu
                  host_url: _builtins.str):
         """
         :param _builtins.str auth_type: The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
-        :param _builtins.str credentials_secret_arn: The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+        :param _builtins.str credentials_secret_arn: ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
         :param _builtins.str host_type: The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
         :param _builtins.str host_url: The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\\s]*$`.
         """
@@ -1923,7 +1941,7 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigu
     @pulumi.getter(name="credentialsSecretArn")
     def credentials_secret_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+        ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
         """
         return pulumi.get(self, "credentials_secret_arn")
 
@@ -2519,7 +2537,7 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigu
                  host_url: _builtins.str):
         """
         :param _builtins.str auth_type: The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
-        :param _builtins.str credentials_secret_arn: The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+        :param _builtins.str credentials_secret_arn: ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
         :param _builtins.str host_url: The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\\s]*$`.
         """
         pulumi.set(__self__, "auth_type", auth_type)
@@ -2538,7 +2556,7 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigu
     @pulumi.getter(name="credentialsSecretArn")
     def credentials_secret_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+        ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
         """
         return pulumi.get(self, "credentials_secret_arn")
 
@@ -2788,7 +2806,7 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigu
                  tenant_id: Optional[_builtins.str] = None):
         """
         :param _builtins.str auth_type: The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
-        :param _builtins.str credentials_secret_arn: The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+        :param _builtins.str credentials_secret_arn: ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
         :param _builtins.str domain: The domain of your SharePoint instance or site URL/URLs.
         :param _builtins.str host_type: The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
         :param Sequence[_builtins.str] site_urls: A list of one or more SharePoint site URLs.
@@ -2814,7 +2832,7 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigu
     @pulumi.getter(name="credentialsSecretArn")
     def credentials_secret_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+        ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
         """
         return pulumi.get(self, "credentials_secret_arn")
 
@@ -4415,7 +4433,7 @@ class AgentFlowDefinitionNodeConfigurationAgent(dict):
     def __init__(__self__, *,
                  agent_alias_arn: _builtins.str):
         """
-        :param _builtins.str agent_alias_arn: The Amazon Resource Name (ARN) of the alias of the agent to invoke.
+        :param _builtins.str agent_alias_arn: ARN of the alias of the agent to invoke.
         """
         pulumi.set(__self__, "agent_alias_arn", agent_alias_arn)
 
@@ -4423,7 +4441,7 @@ class AgentFlowDefinitionNodeConfigurationAgent(dict):
     @pulumi.getter(name="agentAliasArn")
     def agent_alias_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the alias of the agent to invoke.
+        ARN of the alias of the agent to invoke.
         """
         return pulumi.get(self, "agent_alias_arn")
 
@@ -4771,7 +4789,7 @@ class AgentFlowDefinitionNodeConfigurationLambdaFunction(dict):
     def __init__(__self__, *,
                  lambda_arn: _builtins.str):
         """
-        :param _builtins.str lambda_arn: The Amazon Resource Name (ARN) of the Lambda function to invoke.
+        :param _builtins.str lambda_arn: ARN of the Lambda function to invoke.
         """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
 
@@ -4779,7 +4797,7 @@ class AgentFlowDefinitionNodeConfigurationLambdaFunction(dict):
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the Lambda function to invoke.
+        ARN of the Lambda function to invoke.
         """
         return pulumi.get(self, "lambda_arn")
 
@@ -4809,7 +4827,7 @@ class AgentFlowDefinitionNodeConfigurationLex(dict):
                  bot_alias_arn: _builtins.str,
                  locale_id: _builtins.str):
         """
-        :param _builtins.str bot_alias_arn: The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.
+        :param _builtins.str bot_alias_arn: ARN of the Amazon Lex bot alias to invoke.
         :param _builtins.str locale_id: The Region to invoke the Amazon Lex bot in
         """
         pulumi.set(__self__, "bot_alias_arn", bot_alias_arn)
@@ -4819,7 +4837,7 @@ class AgentFlowDefinitionNodeConfigurationLex(dict):
     @pulumi.getter(name="botAliasArn")
     def bot_alias_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.
+        ARN of the Amazon Lex bot alias to invoke.
         """
         return pulumi.get(self, "bot_alias_arn")
 
@@ -5818,7 +5836,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource(dict
     def __init__(__self__, *,
                  prompt_arn: _builtins.str):
         """
-        :param _builtins.str prompt_arn: The Amazon Resource Name (ARN) of the prompt from Prompt management.
+        :param _builtins.str prompt_arn: ARN of the prompt from Prompt management.
         """
         pulumi.set(__self__, "prompt_arn", prompt_arn)
 
@@ -5826,7 +5844,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource(dict
     @pulumi.getter(name="promptArn")
     def prompt_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the prompt from Prompt management.
+        ARN of the prompt from Prompt management.
         """
         return pulumi.get(self, "prompt_arn")
 
@@ -21255,16 +21273,35 @@ class AgentcoreMemoryIndexedKey(dict):
 
 @pulumi.output_type
 class AgentcoreMemoryStrategyConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "selfManagedConfiguration":
+            suggest = "self_managed_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreMemoryStrategyConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreMemoryStrategyConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreMemoryStrategyConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: _builtins.str,
                  consolidation: Optional['outputs.AgentcoreMemoryStrategyConfigurationConsolidation'] = None,
                  extraction: Optional['outputs.AgentcoreMemoryStrategyConfigurationExtraction'] = None,
-                 reflection: Optional['outputs.AgentcoreMemoryStrategyConfigurationReflection'] = None):
+                 reflection: Optional['outputs.AgentcoreMemoryStrategyConfigurationReflection'] = None,
+                 self_managed_configuration: Optional['outputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration'] = None):
         """
-        :param _builtins.str type: Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
-        :param 'AgentcoreMemoryStrategyConfigurationConsolidationArgs' consolidation: Consolidation configuration for the memory strategy. See `consolidation` Block below. Once added, this block cannot be removed without recreating the resource.
-        :param 'AgentcoreMemoryStrategyConfigurationExtractionArgs' extraction: Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+        :param _builtins.str type: Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`, `SELF_MANAGED`. Changing this forces a new resource.
+        :param 'AgentcoreMemoryStrategyConfigurationConsolidationArgs' consolidation: Consolidation configuration for the memory strategy. See `consolidation` Block below. Cannot be used with `type` set to `SELF_MANAGED`. Once added, this block cannot be removed without recreating the resource.
+        :param 'AgentcoreMemoryStrategyConfigurationExtractionArgs' extraction: Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE` or `SELF_MANAGED`. Once added, this block cannot be removed without recreating the resource.
         :param 'AgentcoreMemoryStrategyConfigurationReflectionArgs' reflection: Reflection configuration for the memory strategy. See `reflection` Block below. Can only be used, and is required, with `type` set to `EPISODIC_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+        :param 'AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationArgs' self_managed_configuration: Self-managed processing configuration. Required when `type` is `SELF_MANAGED` and only valid for that type. See `self_managed_configuration` Block below.
         """
         pulumi.set(__self__, "type", type)
         if consolidation is not None:
@@ -21273,12 +21310,14 @@ class AgentcoreMemoryStrategyConfiguration(dict):
             pulumi.set(__self__, "extraction", extraction)
         if reflection is not None:
             pulumi.set(__self__, "reflection", reflection)
+        if self_managed_configuration is not None:
+            pulumi.set(__self__, "self_managed_configuration", self_managed_configuration)
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
+        Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`, `SELF_MANAGED`. Changing this forces a new resource.
         """
         return pulumi.get(self, "type")
 
@@ -21286,7 +21325,7 @@ class AgentcoreMemoryStrategyConfiguration(dict):
     @pulumi.getter
     def consolidation(self) -> Optional['outputs.AgentcoreMemoryStrategyConfigurationConsolidation']:
         """
-        Consolidation configuration for the memory strategy. See `consolidation` Block below. Once added, this block cannot be removed without recreating the resource.
+        Consolidation configuration for the memory strategy. See `consolidation` Block below. Cannot be used with `type` set to `SELF_MANAGED`. Once added, this block cannot be removed without recreating the resource.
         """
         return pulumi.get(self, "consolidation")
 
@@ -21294,7 +21333,7 @@ class AgentcoreMemoryStrategyConfiguration(dict):
     @pulumi.getter
     def extraction(self) -> Optional['outputs.AgentcoreMemoryStrategyConfigurationExtraction']:
         """
-        Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+        Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE` or `SELF_MANAGED`. Once added, this block cannot be removed without recreating the resource.
         """
         return pulumi.get(self, "extraction")
 
@@ -21305,6 +21344,14 @@ class AgentcoreMemoryStrategyConfiguration(dict):
         Reflection configuration for the memory strategy. See `reflection` Block below. Can only be used, and is required, with `type` set to `EPISODIC_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
         """
         return pulumi.get(self, "reflection")
+
+    @_builtins.property
+    @pulumi.getter(name="selfManagedConfiguration")
+    def self_managed_configuration(self) -> Optional['outputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration']:
+        """
+        Self-managed processing configuration. Required when `type` is `SELF_MANAGED` and only valid for that type. See `self_managed_configuration` Block below.
+        """
+        return pulumi.get(self, "self_managed_configuration")
 
 
 @pulumi.output_type
@@ -21465,6 +21512,869 @@ class AgentcoreMemoryStrategyConfigurationReflection(dict):
 
 
 @pulumi.output_type
+class AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "invocationConfiguration":
+            suggest = "invocation_configuration"
+        elif key == "historicalContextWindowSize":
+            suggest = "historical_context_window_size"
+        elif key == "triggerConditions":
+            suggest = "trigger_conditions"
+        elif key == "triggerConditionsActuals":
+            suggest = "trigger_conditions_actuals"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 invocation_configuration: 'outputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfiguration',
+                 historical_context_window_size: Optional[_builtins.int] = None,
+                 trigger_conditions: Optional['outputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions'] = None,
+                 trigger_conditions_actuals: Optional[Sequence['outputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActual']] = None):
+        """
+        :param 'AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationArgs' invocation_configuration: Configuration used to invoke the self-managed memory processing pipeline. See `invocation_configuration` Block below.
+        :param _builtins.int historical_context_window_size: Number of historical messages to include in processing context. Valid range: `0` to `50`. Defaults to `4`.
+        :param 'AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsArgs' trigger_conditions: Conditions that trigger memory processing. See `trigger_conditions` Block below. When omitted, the service supplies the documented defaults for all three trigger types.
+        :param Sequence['AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualArgs'] trigger_conditions_actuals: Actual deployed trigger conditions.
+        """
+        pulumi.set(__self__, "invocation_configuration", invocation_configuration)
+        if historical_context_window_size is not None:
+            pulumi.set(__self__, "historical_context_window_size", historical_context_window_size)
+        if trigger_conditions is not None:
+            pulumi.set(__self__, "trigger_conditions", trigger_conditions)
+        if trigger_conditions_actuals is not None:
+            pulumi.set(__self__, "trigger_conditions_actuals", trigger_conditions_actuals)
+
+    @_builtins.property
+    @pulumi.getter(name="invocationConfiguration")
+    def invocation_configuration(self) -> 'outputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfiguration':
+        """
+        Configuration used to invoke the self-managed memory processing pipeline. See `invocation_configuration` Block below.
+        """
+        return pulumi.get(self, "invocation_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="historicalContextWindowSize")
+    def historical_context_window_size(self) -> Optional[_builtins.int]:
+        """
+        Number of historical messages to include in processing context. Valid range: `0` to `50`. Defaults to `4`.
+        """
+        return pulumi.get(self, "historical_context_window_size")
+
+    @_builtins.property
+    @pulumi.getter(name="triggerConditions")
+    def trigger_conditions(self) -> Optional['outputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions']:
+        """
+        Conditions that trigger memory processing. See `trigger_conditions` Block below. When omitted, the service supplies the documented defaults for all three trigger types.
+        """
+        return pulumi.get(self, "trigger_conditions")
+
+    @_builtins.property
+    @pulumi.getter(name="triggerConditionsActuals")
+    def trigger_conditions_actuals(self) -> Optional[Sequence['outputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActual']]:
+        """
+        Actual deployed trigger conditions.
+        """
+        return pulumi.get(self, "trigger_conditions_actuals")
+
+
+@pulumi.output_type
+class AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "payloadDeliveryBucketName":
+            suggest = "payload_delivery_bucket_name"
+        elif key == "topicArn":
+            suggest = "topic_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 payload_delivery_bucket_name: _builtins.str,
+                 topic_arn: _builtins.str):
+        """
+        :param _builtins.str payload_delivery_bucket_name: S3 bucket name for event payload delivery.
+        :param _builtins.str topic_arn: ARN of the SNS topic for job notifications.
+        """
+        pulumi.set(__self__, "payload_delivery_bucket_name", payload_delivery_bucket_name)
+        pulumi.set(__self__, "topic_arn", topic_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="payloadDeliveryBucketName")
+    def payload_delivery_bucket_name(self) -> _builtins.str:
+        """
+        S3 bucket name for event payload delivery.
+        """
+        return pulumi.get(self, "payload_delivery_bucket_name")
+
+    @_builtins.property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> _builtins.str:
+        """
+        ARN of the SNS topic for job notifications.
+        """
+        return pulumi.get(self, "topic_arn")
+
+
+@pulumi.output_type
+class AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "messageBasedTrigger":
+            suggest = "message_based_trigger"
+        elif key == "timeBasedTrigger":
+            suggest = "time_based_trigger"
+        elif key == "tokenBasedTrigger":
+            suggest = "token_based_trigger"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 message_based_trigger: Optional['outputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger'] = None,
+                 time_based_trigger: Optional['outputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger'] = None,
+                 token_based_trigger: Optional['outputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger'] = None):
+        """
+        :param 'AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerArgs' message_based_trigger: Message-based condition. See `message_based_trigger` Block below.
+        :param 'AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerArgs' time_based_trigger: Idle-time condition. See `time_based_trigger` Block below.
+        :param 'AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerArgs' token_based_trigger: Token-based condition. See `token_based_trigger` Block below.
+        """
+        if message_based_trigger is not None:
+            pulumi.set(__self__, "message_based_trigger", message_based_trigger)
+        if time_based_trigger is not None:
+            pulumi.set(__self__, "time_based_trigger", time_based_trigger)
+        if token_based_trigger is not None:
+            pulumi.set(__self__, "token_based_trigger", token_based_trigger)
+
+    @_builtins.property
+    @pulumi.getter(name="messageBasedTrigger")
+    def message_based_trigger(self) -> Optional['outputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger']:
+        """
+        Message-based condition. See `message_based_trigger` Block below.
+        """
+        return pulumi.get(self, "message_based_trigger")
+
+    @_builtins.property
+    @pulumi.getter(name="timeBasedTrigger")
+    def time_based_trigger(self) -> Optional['outputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger']:
+        """
+        Idle-time condition. See `time_based_trigger` Block below.
+        """
+        return pulumi.get(self, "time_based_trigger")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenBasedTrigger")
+    def token_based_trigger(self) -> Optional['outputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger']:
+        """
+        Token-based condition. See `token_based_trigger` Block below.
+        """
+        return pulumi.get(self, "token_based_trigger")
+
+
+@pulumi.output_type
+class AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActual(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "messageBasedTriggers":
+            suggest = "message_based_triggers"
+        elif key == "timeBasedTriggers":
+            suggest = "time_based_triggers"
+        elif key == "tokenBasedTriggers":
+            suggest = "token_based_triggers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActual. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActual.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActual.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 message_based_triggers: Sequence['outputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTrigger'],
+                 time_based_triggers: Sequence['outputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTrigger'],
+                 token_based_triggers: Sequence['outputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTrigger']):
+        """
+        :param Sequence['AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTriggerArgs'] message_based_triggers: Message-based condition.
+        :param Sequence['AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTriggerArgs'] time_based_triggers: Idle-time condition.
+        :param Sequence['AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTriggerArgs'] token_based_triggers: Token-based condition.
+        """
+        pulumi.set(__self__, "message_based_triggers", message_based_triggers)
+        pulumi.set(__self__, "time_based_triggers", time_based_triggers)
+        pulumi.set(__self__, "token_based_triggers", token_based_triggers)
+
+    @_builtins.property
+    @pulumi.getter(name="messageBasedTriggers")
+    def message_based_triggers(self) -> Sequence['outputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTrigger']:
+        """
+        Message-based condition.
+        """
+        return pulumi.get(self, "message_based_triggers")
+
+    @_builtins.property
+    @pulumi.getter(name="timeBasedTriggers")
+    def time_based_triggers(self) -> Sequence['outputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTrigger']:
+        """
+        Idle-time condition.
+        """
+        return pulumi.get(self, "time_based_triggers")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenBasedTriggers")
+    def token_based_triggers(self) -> Sequence['outputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTrigger']:
+        """
+        Token-based condition.
+        """
+        return pulumi.get(self, "token_based_triggers")
+
+
+@pulumi.output_type
+class AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTrigger(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "messageCount":
+            suggest = "message_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTrigger. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTrigger.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTrigger.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 message_count: _builtins.int):
+        """
+        :param _builtins.int message_count: Number of messages that trigger memory processing. Accepts values from `1` to `50`.
+        """
+        pulumi.set(__self__, "message_count", message_count)
+
+    @_builtins.property
+    @pulumi.getter(name="messageCount")
+    def message_count(self) -> _builtins.int:
+        """
+        Number of messages that trigger memory processing. Accepts values from `1` to `50`.
+        """
+        return pulumi.get(self, "message_count")
+
+
+@pulumi.output_type
+class AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTrigger(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleSessionTimeout":
+            suggest = "idle_session_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTrigger. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTrigger.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTrigger.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_session_timeout: _builtins.int):
+        """
+        :param _builtins.int idle_session_timeout: Idle session timeout (seconds) that triggers memory processing. Accepts values from `10` to `3000`.
+        """
+        pulumi.set(__self__, "idle_session_timeout", idle_session_timeout)
+
+    @_builtins.property
+    @pulumi.getter(name="idleSessionTimeout")
+    def idle_session_timeout(self) -> _builtins.int:
+        """
+        Idle session timeout (seconds) that triggers memory processing. Accepts values from `10` to `3000`.
+        """
+        return pulumi.get(self, "idle_session_timeout")
+
+
+@pulumi.output_type
+class AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTrigger(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tokenCount":
+            suggest = "token_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTrigger. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTrigger.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTrigger.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 token_count: _builtins.int):
+        """
+        :param _builtins.int token_count: Number of tokens that trigger memory processing. Accepts values from `100` to `500000`.
+        """
+        pulumi.set(__self__, "token_count", token_count)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenCount")
+    def token_count(self) -> _builtins.int:
+        """
+        Number of tokens that trigger memory processing. Accepts values from `100` to `500000`.
+        """
+        return pulumi.get(self, "token_count")
+
+
+@pulumi.output_type
+class AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "messageCount":
+            suggest = "message_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 message_count: _builtins.int):
+        """
+        :param _builtins.int message_count: Number of messages that trigger memory processing. Accepts values from `1` to `50`.
+        """
+        pulumi.set(__self__, "message_count", message_count)
+
+    @_builtins.property
+    @pulumi.getter(name="messageCount")
+    def message_count(self) -> _builtins.int:
+        """
+        Number of messages that trigger memory processing. Accepts values from `1` to `50`.
+        """
+        return pulumi.get(self, "message_count")
+
+
+@pulumi.output_type
+class AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleSessionTimeout":
+            suggest = "idle_session_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_session_timeout: _builtins.int):
+        """
+        :param _builtins.int idle_session_timeout: Idle session timeout (seconds) that triggers memory processing. Accepts values from `10` to `3000`.
+        """
+        pulumi.set(__self__, "idle_session_timeout", idle_session_timeout)
+
+    @_builtins.property
+    @pulumi.getter(name="idleSessionTimeout")
+    def idle_session_timeout(self) -> _builtins.int:
+        """
+        Idle session timeout (seconds) that triggers memory processing. Accepts values from `10` to `3000`.
+        """
+        return pulumi.get(self, "idle_session_timeout")
+
+
+@pulumi.output_type
+class AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tokenCount":
+            suggest = "token_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 token_count: _builtins.int):
+        """
+        :param _builtins.int token_count: Number of tokens that trigger memory processing. Accepts values from `100` to `500000`.
+        """
+        pulumi.set(__self__, "token_count", token_count)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenCount")
+    def token_count(self) -> _builtins.int:
+        """
+        Number of tokens that trigger memory processing. Accepts values from `100` to `500000`.
+        """
+        return pulumi.get(self, "token_count")
+
+
+@pulumi.output_type
+class AgentcoreMemoryStrategyMemoryRecordSchema(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metadataSchemas":
+            suggest = "metadata_schemas"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreMemoryStrategyMemoryRecordSchema. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreMemoryStrategyMemoryRecordSchema.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreMemoryStrategyMemoryRecordSchema.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metadata_schemas: Optional[Sequence['outputs.AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchema']] = None):
+        """
+        :param Sequence['AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaArgs'] metadata_schemas: List of metadata field definitions for records generated by this strategy. See `metadata_schema` Block below.
+        """
+        if metadata_schemas is not None:
+            pulumi.set(__self__, "metadata_schemas", metadata_schemas)
+
+    @_builtins.property
+    @pulumi.getter(name="metadataSchemas")
+    def metadata_schemas(self) -> Optional[Sequence['outputs.AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchema']]:
+        """
+        List of metadata field definitions for records generated by this strategy. See `metadata_schema` Block below.
+        """
+        return pulumi.get(self, "metadata_schemas")
+
+
+@pulumi.output_type
+class AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchema(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "extractionConfig":
+            suggest = "extraction_config"
+        elif key == "extractionType":
+            suggest = "extraction_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchema. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchema.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchema.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 extraction_config: Optional['outputs.AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfig'] = None,
+                 extraction_type: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str key: Metadata field name. Must match an indexed key to be queryable via metadata filters.
+        :param 'AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigArgs' extraction_config: Configuration for extracting this metadata value from conversational content. Applicable only when `extraction_type` is `LLM_INFERRED`. See `extraction_config` Block below.
+        :param _builtins.str extraction_type: Whether the metadata value is extracted by the LLM or passed through deterministically from the event. Valid values: `LLM_INFERRED`, `STRICTLY_CONSISTENT`.
+        :param _builtins.str type: Metadata value type. Valid values: `STRING`, `STRINGLIST`, `NUMBER`.
+        """
+        pulumi.set(__self__, "key", key)
+        if extraction_config is not None:
+            pulumi.set(__self__, "extraction_config", extraction_config)
+        if extraction_type is not None:
+            pulumi.set(__self__, "extraction_type", extraction_type)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Metadata field name. Must match an indexed key to be queryable via metadata filters.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter(name="extractionConfig")
+    def extraction_config(self) -> Optional['outputs.AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfig']:
+        """
+        Configuration for extracting this metadata value from conversational content. Applicable only when `extraction_type` is `LLM_INFERRED`. See `extraction_config` Block below.
+        """
+        return pulumi.get(self, "extraction_config")
+
+    @_builtins.property
+    @pulumi.getter(name="extractionType")
+    def extraction_type(self) -> Optional[_builtins.str]:
+        """
+        Whether the metadata value is extracted by the LLM or passed through deterministically from the event. Valid values: `LLM_INFERRED`, `STRICTLY_CONSISTENT`.
+        """
+        return pulumi.get(self, "extraction_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        Metadata value type. Valid values: `STRING`, `STRINGLIST`, `NUMBER`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "llmExtractionConfig":
+            suggest = "llm_extraction_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 llm_extraction_config: Optional['outputs.AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfig'] = None):
+        """
+        :param 'AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigArgs' llm_extraction_config: Model-based extraction configuration. See `llm_extraction_config` Block below.
+        """
+        if llm_extraction_config is not None:
+            pulumi.set(__self__, "llm_extraction_config", llm_extraction_config)
+
+    @_builtins.property
+    @pulumi.getter(name="llmExtractionConfig")
+    def llm_extraction_config(self) -> Optional['outputs.AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfig']:
+        """
+        Model-based extraction configuration. See `llm_extraction_config` Block below.
+        """
+        return pulumi.get(self, "llm_extraction_config")
+
+
+@pulumi.output_type
+class AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "llmExtractionInstruction":
+            suggest = "llm_extraction_instruction"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 definition: _builtins.str,
+                 llm_extraction_instruction: Optional[_builtins.str] = None,
+                 validation: Optional['outputs.AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidation'] = None):
+        """
+        :param _builtins.str definition: Description of what this metadata field represents.
+        :param _builtins.str llm_extraction_instruction: Instructions for extraction. Supports built-in operators like `LATEST_VALUE` or custom natural-language instructions.
+        :param 'AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationArgs' validation: Validation rules to constrain extracted values. See `validation` Block below.
+        """
+        pulumi.set(__self__, "definition", definition)
+        if llm_extraction_instruction is not None:
+            pulumi.set(__self__, "llm_extraction_instruction", llm_extraction_instruction)
+        if validation is not None:
+            pulumi.set(__self__, "validation", validation)
+
+    @_builtins.property
+    @pulumi.getter
+    def definition(self) -> _builtins.str:
+        """
+        Description of what this metadata field represents.
+        """
+        return pulumi.get(self, "definition")
+
+    @_builtins.property
+    @pulumi.getter(name="llmExtractionInstruction")
+    def llm_extraction_instruction(self) -> Optional[_builtins.str]:
+        """
+        Instructions for extraction. Supports built-in operators like `LATEST_VALUE` or custom natural-language instructions.
+        """
+        return pulumi.get(self, "llm_extraction_instruction")
+
+    @_builtins.property
+    @pulumi.getter
+    def validation(self) -> Optional['outputs.AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidation']:
+        """
+        Validation rules to constrain extracted values. See `validation` Block below.
+        """
+        return pulumi.get(self, "validation")
+
+
+@pulumi.output_type
+class AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "numberValidation":
+            suggest = "number_validation"
+        elif key == "stringListValidation":
+            suggest = "string_list_validation"
+        elif key == "stringValidation":
+            suggest = "string_validation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 number_validation: Optional['outputs.AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidation'] = None,
+                 string_list_validation: Optional['outputs.AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidation'] = None,
+                 string_validation: Optional['outputs.AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidation'] = None):
+        """
+        :param 'AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidationArgs' number_validation: Validation for `NUMBER` fields. See `number_validation` Block below.
+        :param 'AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidationArgs' string_list_validation: Validation for `STRINGLIST` fields. See `string_list_validation` Block below.
+        :param 'AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidationArgs' string_validation: Validation for `STRING` fields. See `string_validation` Block below.
+        """
+        if number_validation is not None:
+            pulumi.set(__self__, "number_validation", number_validation)
+        if string_list_validation is not None:
+            pulumi.set(__self__, "string_list_validation", string_list_validation)
+        if string_validation is not None:
+            pulumi.set(__self__, "string_validation", string_validation)
+
+    @_builtins.property
+    @pulumi.getter(name="numberValidation")
+    def number_validation(self) -> Optional['outputs.AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidation']:
+        """
+        Validation for `NUMBER` fields. See `number_validation` Block below.
+        """
+        return pulumi.get(self, "number_validation")
+
+    @_builtins.property
+    @pulumi.getter(name="stringListValidation")
+    def string_list_validation(self) -> Optional['outputs.AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidation']:
+        """
+        Validation for `STRINGLIST` fields. See `string_list_validation` Block below.
+        """
+        return pulumi.get(self, "string_list_validation")
+
+    @_builtins.property
+    @pulumi.getter(name="stringValidation")
+    def string_validation(self) -> Optional['outputs.AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidation']:
+        """
+        Validation for `STRING` fields. See `string_validation` Block below.
+        """
+        return pulumi.get(self, "string_validation")
+
+
+@pulumi.output_type
+class AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxValue":
+            suggest = "max_value"
+        elif key == "minValue":
+            suggest = "min_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_value: Optional[_builtins.float] = None,
+                 min_value: Optional[_builtins.float] = None):
+        """
+        :param _builtins.float max_value: Maximum allowed value.
+        :param _builtins.float min_value: Minimum allowed value.
+        """
+        if max_value is not None:
+            pulumi.set(__self__, "max_value", max_value)
+        if min_value is not None:
+            pulumi.set(__self__, "min_value", min_value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxValue")
+    def max_value(self) -> Optional[_builtins.float]:
+        """
+        Maximum allowed value.
+        """
+        return pulumi.get(self, "max_value")
+
+    @_builtins.property
+    @pulumi.getter(name="minValue")
+    def min_value(self) -> Optional[_builtins.float]:
+        """
+        Minimum allowed value.
+        """
+        return pulumi.get(self, "min_value")
+
+
+@pulumi.output_type
+class AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedValues":
+            suggest = "allowed_values"
+        elif key == "maxItems":
+            suggest = "max_items"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_values: Optional[Sequence[_builtins.str]] = None,
+                 max_items: Optional[_builtins.int] = None):
+        """
+        :param Sequence[_builtins.str] allowed_values: Allowed values for items in this `STRINGLIST` field.
+        :param _builtins.int max_items: Maximum number of items in the string list.
+        """
+        if allowed_values is not None:
+            pulumi.set(__self__, "allowed_values", allowed_values)
+        if max_items is not None:
+            pulumi.set(__self__, "max_items", max_items)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Allowed values for items in this `STRINGLIST` field.
+        """
+        return pulumi.get(self, "allowed_values")
+
+    @_builtins.property
+    @pulumi.getter(name="maxItems")
+    def max_items(self) -> Optional[_builtins.int]:
+        """
+        Maximum number of items in the string list.
+        """
+        return pulumi.get(self, "max_items")
+
+
+@pulumi.output_type
+class AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedValues":
+            suggest = "allowed_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_values: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] allowed_values: Allowed values for this `STRING` field.
+        """
+        pulumi.set(__self__, "allowed_values", allowed_values)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> Sequence[_builtins.str]:
+        """
+        Allowed values for this `STRING` field.
+        """
+        return pulumi.get(self, "allowed_values")
+
+
+@pulumi.output_type
 class AgentcoreMemoryStrategyReflectionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -21547,7 +22457,7 @@ class AgentcoreMemoryStreamDeliveryResources(dict):
     def __init__(__self__, *,
                  resource: Optional['outputs.AgentcoreMemoryStreamDeliveryResourcesResource'] = None):
         """
-        :param 'AgentcoreMemoryStreamDeliveryResourcesResourceArgs' resource: List of stream delivery resource configurations. See `resource` below.
+        :param 'AgentcoreMemoryStreamDeliveryResourcesResourceArgs' resource: List of stream delivery resource configurations. See `resource` Block below.
         """
         if resource is not None:
             pulumi.set(__self__, "resource", resource)
@@ -21556,7 +22466,7 @@ class AgentcoreMemoryStreamDeliveryResources(dict):
     @pulumi.getter
     def resource(self) -> Optional['outputs.AgentcoreMemoryStreamDeliveryResourcesResource']:
         """
-        List of stream delivery resource configurations. See `resource` below.
+        List of stream delivery resource configurations. See `resource` Block below.
         """
         return pulumi.get(self, "resource")
 
@@ -21566,7 +22476,7 @@ class AgentcoreMemoryStreamDeliveryResourcesResource(dict):
     def __init__(__self__, *,
                  kinesis: Optional['outputs.AgentcoreMemoryStreamDeliveryResourcesResourceKinesis'] = None):
         """
-        :param 'AgentcoreMemoryStreamDeliveryResourcesResourceKinesisArgs' kinesis: Kinesis Data Stream configuration. See `kinesis` below.
+        :param 'AgentcoreMemoryStreamDeliveryResourcesResourceKinesisArgs' kinesis: Kinesis Data Stream configuration. See `kinesis` Block below.
         """
         if kinesis is not None:
             pulumi.set(__self__, "kinesis", kinesis)
@@ -21575,7 +22485,7 @@ class AgentcoreMemoryStreamDeliveryResourcesResource(dict):
     @pulumi.getter
     def kinesis(self) -> Optional['outputs.AgentcoreMemoryStreamDeliveryResourcesResourceKinesis']:
         """
-        Kinesis Data Stream configuration. See `kinesis` below.
+        Kinesis Data Stream configuration. See `kinesis` Block below.
         """
         return pulumi.get(self, "kinesis")
 
@@ -21585,10 +22495,10 @@ class AgentcoreMemoryStreamDeliveryResourcesResourceKinesis(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataStreamArn":
-            suggest = "data_stream_arn"
-        elif key == "contentConfiguration":
+        if key == "contentConfiguration":
             suggest = "content_configuration"
+        elif key == "dataStreamArn":
+            suggest = "data_stream_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentcoreMemoryStreamDeliveryResourcesResourceKinesis. Access the value via the '{suggest}' property getter instead.")
@@ -21602,15 +22512,22 @@ class AgentcoreMemoryStreamDeliveryResourcesResourceKinesis(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 data_stream_arn: _builtins.str,
-                 content_configuration: Optional['outputs.AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfiguration'] = None):
+                 content_configuration: 'outputs.AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfiguration',
+                 data_stream_arn: _builtins.str):
         """
+        :param 'AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfigurationArgs' content_configuration: Content configurations for stream delivery. See `content_configuration` Block below.
         :param _builtins.str data_stream_arn: ARN of the Kinesis Data Stream.
-        :param 'AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfigurationArgs' content_configuration: Content configurations for stream delivery. See `content_configuration` below.
         """
+        pulumi.set(__self__, "content_configuration", content_configuration)
         pulumi.set(__self__, "data_stream_arn", data_stream_arn)
-        if content_configuration is not None:
-            pulumi.set(__self__, "content_configuration", content_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="contentConfiguration")
+    def content_configuration(self) -> 'outputs.AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfiguration':
+        """
+        Content configurations for stream delivery. See `content_configuration` Block below.
+        """
+        return pulumi.get(self, "content_configuration")
 
     @_builtins.property
     @pulumi.getter(name="dataStreamArn")
@@ -21619,14 +22536,6 @@ class AgentcoreMemoryStreamDeliveryResourcesResourceKinesis(dict):
         ARN of the Kinesis Data Stream.
         """
         return pulumi.get(self, "data_stream_arn")
-
-    @_builtins.property
-    @pulumi.getter(name="contentConfiguration")
-    def content_configuration(self) -> Optional['outputs.AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfiguration']:
-        """
-        Content configurations for stream delivery. See `content_configuration` below.
-        """
-        return pulumi.get(self, "content_configuration")
 
 
 @pulumi.output_type
@@ -27488,7 +28397,7 @@ class InferenceProfileModel(dict):
     def __init__(__self__, *,
                  model_arn: _builtins.str):
         """
-        :param _builtins.str model_arn: The Amazon Resource Name (ARN) of the model.
+        :param _builtins.str model_arn: The ARN of the model.
         """
         pulumi.set(__self__, "model_arn", model_arn)
 
@@ -27496,7 +28405,7 @@ class InferenceProfileModel(dict):
     @pulumi.getter(name="modelArn")
     def model_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the model.
+        The ARN of the model.
         """
         return pulumi.get(self, "model_arn")
 
@@ -27523,7 +28432,7 @@ class InferenceProfileModelSource(dict):
     def __init__(__self__, *,
                  copy_from: _builtins.str):
         """
-        :param _builtins.str copy_from: The Amazon Resource Name (ARN) of the model.
+        :param _builtins.str copy_from: The ARN of the model.
         """
         pulumi.set(__self__, "copy_from", copy_from)
 
@@ -27531,7 +28440,7 @@ class InferenceProfileModelSource(dict):
     @pulumi.getter(name="copyFrom")
     def copy_from(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the model.
+        The ARN of the model.
         """
         return pulumi.get(self, "copy_from")
 
@@ -27863,7 +28772,7 @@ class GetInferenceProfileModelResult(dict):
     def __init__(__self__, *,
                  model_arn: _builtins.str):
         """
-        :param _builtins.str model_arn: The Amazon Resource Name (ARN) of the model.
+        :param _builtins.str model_arn: The ARN of the model.
         """
         pulumi.set(__self__, "model_arn", model_arn)
 
@@ -27871,7 +28780,7 @@ class GetInferenceProfileModelResult(dict):
     @pulumi.getter(name="modelArn")
     def model_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the model.
+        The ARN of the model.
         """
         return pulumi.get(self, "model_arn")
 
@@ -27891,7 +28800,7 @@ class GetInferenceProfilesInferenceProfileSummaryResult(dict):
         """
         :param _builtins.str created_at: Time at which the inference profile was created.
         :param _builtins.str description: Description of the inference profile.
-        :param _builtins.str inference_profile_arn: Amazon Resource Name (ARN) of the inference profile.
+        :param _builtins.str inference_profile_arn: ARN of the inference profile.
         :param _builtins.str inference_profile_id: Unique identifier of the inference profile.
         :param _builtins.str inference_profile_name: Name of the inference profile.
         :param Sequence['GetInferenceProfilesInferenceProfileSummaryModelArgs'] models: List of information about each model in the inference profile. See `models` Block.
@@ -27929,7 +28838,7 @@ class GetInferenceProfilesInferenceProfileSummaryResult(dict):
     @pulumi.getter(name="inferenceProfileArn")
     def inference_profile_arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) of the inference profile.
+        ARN of the inference profile.
         """
         return pulumi.get(self, "inference_profile_arn")
 
@@ -27987,7 +28896,7 @@ class GetInferenceProfilesInferenceProfileSummaryModelResult(dict):
     def __init__(__self__, *,
                  model_arn: _builtins.str):
         """
-        :param _builtins.str model_arn: Amazon Resource Name (ARN) of the model.
+        :param _builtins.str model_arn: ARN of the model.
         """
         pulumi.set(__self__, "model_arn", model_arn)
 
@@ -27995,7 +28904,7 @@ class GetInferenceProfilesInferenceProfileSummaryModelResult(dict):
     @pulumi.getter(name="modelArn")
     def model_arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) of the model.
+        ARN of the model.
         """
         return pulumi.get(self, "model_arn")
 

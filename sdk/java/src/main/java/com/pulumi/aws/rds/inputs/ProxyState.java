@@ -21,14 +21,14 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
     public static final ProxyState Empty = new ProxyState();
 
     /**
-     * Amazon Resource Name (ARN) for the proxy.
+     * ARN for the proxy.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) for the proxy.
+     * @return ARN for the proxy.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -171,14 +171,14 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
+     * Whether TLS encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
      * 
      */
     @Import(name="requireTls")
     private @Nullable Output<Boolean> requireTls;
 
     /**
-     * @return Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
+     * @return Whether TLS encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
      * 
      */
     public Optional<Output<Boolean>> requireTls() {
@@ -186,14 +186,14 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+     * ARN of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+     * @return ARN of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -316,7 +316,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) for the proxy.
+         * @param arn ARN for the proxy.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) for the proxy.
+         * @param arn ARN for the proxy.
          * 
          * @return builder
          * 
@@ -536,7 +536,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requireTls Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
+         * @param requireTls Whether TLS encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
          * 
          * @return builder
          * 
@@ -547,7 +547,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requireTls Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
+         * @param requireTls Whether TLS encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
          * 
          * @return builder
          * 
@@ -557,7 +557,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+         * @param roleArn ARN of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
          * 
          * @return builder
          * 
@@ -568,7 +568,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+         * @param roleArn ARN of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
          * 
          * @return builder
          * 

@@ -22,14 +22,14 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
     public static final LaunchConfigurationState Empty = new LaunchConfigurationState();
 
     /**
-     * The Amazon Resource Name of the launch configuration.
+     * ARN of the launch configuration.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name of the launch configuration.
+     * @return ARN of the launch configuration.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -369,7 +369,7 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param arn The Amazon Resource Name of the launch configuration.
+         * @param arn ARN of the launch configuration.
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param arn The Amazon Resource Name of the launch configuration.
+         * @param arn ARN of the launch configuration.
          * 
          * @return builder
          * 

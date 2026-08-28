@@ -128,7 +128,7 @@ type Workspace struct {
 
 	// The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
 	Alias pulumi.StringPtrOutput `pulumi:"alias"`
-	// Amazon Resource Name (ARN) of the workspace.
+	// ARN of the workspace.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
@@ -176,7 +176,7 @@ func GetWorkspace(ctx *pulumi.Context,
 type workspaceState struct {
 	// The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
 	Alias *string `pulumi:"alias"`
-	// Amazon Resource Name (ARN) of the workspace.
+	// ARN of the workspace.
 	Arn *string `pulumi:"arn"`
 	// The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
@@ -195,7 +195,7 @@ type workspaceState struct {
 type WorkspaceState struct {
 	// The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
 	Alias pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the workspace.
+	// ARN of the workspace.
 	Arn pulumi.StringPtrInput
 	// The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
 	KmsKeyArn pulumi.StringPtrInput
@@ -334,7 +334,7 @@ func (o WorkspaceOutput) Alias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.Alias }).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the workspace.
+// ARN of the workspace.
 func (o WorkspaceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

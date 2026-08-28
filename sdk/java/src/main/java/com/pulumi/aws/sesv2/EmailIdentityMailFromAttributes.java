@@ -72,42 +72,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes")
 public class EmailIdentityMailFromAttributes extends com.pulumi.resources.CustomResource {
     /**
-     * The action to take if the required MX record isn&#39;t found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
+     * Action to take if the required MX record isn&#39;t found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
      * 
      */
     @Export(name="behaviorOnMxFailure", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> behaviorOnMxFailure;
 
     /**
-     * @return The action to take if the required MX record isn&#39;t found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
+     * @return Action to take if the required MX record isn&#39;t found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
      * 
      */
     public Output<Optional<String>> behaviorOnMxFailure() {
         return Codegen.optional(this.behaviorOnMxFailure);
     }
     /**
-     * The verified email identity.
+     * Verified email identity.
      * 
      */
     @Export(name="emailIdentity", refs={String.class}, tree="[0]")
     private Output<String> emailIdentity;
 
     /**
-     * @return The verified email identity.
+     * @return Verified email identity.
      * 
      */
     public Output<String> emailIdentity() {
         return this.emailIdentity;
     }
     /**
-     * The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
+     * Custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
      * 
      */
     @Export(name="mailFromDomain", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mailFromDomain;
 
     /**
-     * @return The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
+     * @return Custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
      * 
      */
     public Output<Optional<String>> mailFromDomain() {

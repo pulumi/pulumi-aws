@@ -23,7 +23,7 @@ public final class GetOntapStorageVirtualMachineResult {
      */
     private List<GetOntapStorageVirtualMachineActiveDirectoryConfiguration> activeDirectoryConfigurations;
     /**
-     * @return Amazon Resource Name of the SVM.
+     * @return ARN of the SVM.
      * 
      */
     private String arn;
@@ -89,7 +89,7 @@ public final class GetOntapStorageVirtualMachineResult {
         return this.activeDirectoryConfigurations;
     }
     /**
-     * @return Amazon Resource Name of the SVM.
+     * @return ARN of the SVM.
      * 
      */
     public String arn() {

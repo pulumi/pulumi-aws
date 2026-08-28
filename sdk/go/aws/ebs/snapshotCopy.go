@@ -65,7 +65,7 @@ import (
 type SnapshotCopy struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the EBS Snapshot.
+	// ARN of the EBS Snapshot.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
 	CompletionDurationMinutes pulumi.IntPtrOutput `pulumi:"completionDurationMinutes"`
@@ -139,7 +139,7 @@ func GetSnapshotCopy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SnapshotCopy resources.
 type snapshotCopyState struct {
-	// Amazon Resource Name (ARN) of the EBS Snapshot.
+	// ARN of the EBS Snapshot.
 	Arn *string `pulumi:"arn"`
 	// Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
 	CompletionDurationMinutes *int `pulumi:"completionDurationMinutes"`
@@ -178,7 +178,7 @@ type snapshotCopyState struct {
 }
 
 type SnapshotCopyState struct {
-	// Amazon Resource Name (ARN) of the EBS Snapshot.
+	// ARN of the EBS Snapshot.
 	Arn pulumi.StringPtrInput
 	// Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
 	CompletionDurationMinutes pulumi.IntPtrInput
@@ -358,7 +358,7 @@ func (o SnapshotCopyOutput) ToSnapshotCopyOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Amazon Resource Name (ARN) of the EBS Snapshot.
+// ARN of the EBS Snapshot.
 func (o SnapshotCopyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

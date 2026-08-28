@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.RedShift
 {
     /// <summary>
-    /// Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating Amazon Redshift subnet group.
+    /// Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing VPC when creating Amazon Redshift subnet group.
     /// 
     /// ## Example Usage
     /// 
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.RedShift
     public partial class SubnetGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Redshift Subnet group name
+        /// ARN of the Redshift Subnet group name
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -217,7 +217,7 @@ namespace Pulumi.Aws.RedShift
     public sealed class SubnetGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Redshift Subnet group name
+        /// ARN of the Redshift Subnet group name
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -85,7 +85,7 @@ import (
 type FileSystem struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name of the file system.
+	// ARN of the file system.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The identifier of the Availability Zone in which the file system's One Zone storage classes exist.
 	AvailabilityZoneId pulumi.StringOutput `pulumi:"availabilityZoneId"`
@@ -158,7 +158,7 @@ func GetFileSystem(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FileSystem resources.
 type fileSystemState struct {
-	// Amazon Resource Name of the file system.
+	// ARN of the file system.
 	Arn *string `pulumi:"arn"`
 	// The identifier of the Availability Zone in which the file system's One Zone storage classes exist.
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
@@ -202,7 +202,7 @@ type fileSystemState struct {
 }
 
 type FileSystemState struct {
-	// Amazon Resource Name of the file system.
+	// ARN of the file system.
 	Arn pulumi.StringPtrInput
 	// The identifier of the Availability Zone in which the file system's One Zone storage classes exist.
 	AvailabilityZoneId pulumi.StringPtrInput
@@ -393,7 +393,7 @@ func (o FileSystemOutput) ToFileSystemOutputWithContext(ctx context.Context) Fil
 	return o
 }
 
-// Amazon Resource Name of the file system.
+// ARN of the file system.
 func (o FileSystemOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileSystem) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

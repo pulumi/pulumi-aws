@@ -77,14 +77,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:pinpoint/emailTemplate:EmailTemplate")
 public class EmailTemplate extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the message template.
+     * ARN of the message template.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the message template.
+     * @return ARN of the message template.
      * 
      */
     public Output<String> arn() {

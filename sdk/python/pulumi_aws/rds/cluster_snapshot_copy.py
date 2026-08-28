@@ -213,7 +213,7 @@ class _ClusterSnapshotCopyState:
 
         :param pulumi.Input[_builtins.int] allocated_storage: Specifies the allocated storage size in gigabytes (GB).
         :param pulumi.Input[_builtins.bool] copy_tags: Whether to copy existing tags. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] db_cluster_snapshot_arn: The Amazon Resource Name (ARN) for the DB cluster snapshot.
+        :param pulumi.Input[_builtins.str] db_cluster_snapshot_arn: ARN for the DB cluster snapshot.
         :param pulumi.Input[_builtins.str] destination_region: The Destination region to place snapshot copy.
         :param pulumi.Input[_builtins.str] engine: Specifies the name of the database engine.
         :param pulumi.Input[_builtins.str] engine_version: Specifies the version of the database engine.
@@ -301,7 +301,7 @@ class _ClusterSnapshotCopyState:
     @pulumi.getter(name="dbClusterSnapshotArn")
     def db_cluster_snapshot_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the DB cluster snapshot.
+        ARN for the DB cluster snapshot.
         """
         return pulumi.get(self, "db_cluster_snapshot_arn")
 
@@ -710,7 +710,7 @@ class ClusterSnapshotCopy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] allocated_storage: Specifies the allocated storage size in gigabytes (GB).
         :param pulumi.Input[_builtins.bool] copy_tags: Whether to copy existing tags. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] db_cluster_snapshot_arn: The Amazon Resource Name (ARN) for the DB cluster snapshot.
+        :param pulumi.Input[_builtins.str] db_cluster_snapshot_arn: ARN for the DB cluster snapshot.
         :param pulumi.Input[_builtins.str] destination_region: The Destination region to place snapshot copy.
         :param pulumi.Input[_builtins.str] engine: Specifies the name of the database engine.
         :param pulumi.Input[_builtins.str] engine_version: Specifies the version of the database engine.
@@ -775,7 +775,7 @@ class ClusterSnapshotCopy(pulumi.CustomResource):
     @pulumi.getter(name="dbClusterSnapshotArn")
     def db_cluster_snapshot_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) for the DB cluster snapshot.
+        ARN for the DB cluster snapshot.
         """
         return pulumi.get(self, "db_cluster_snapshot_arn")
 

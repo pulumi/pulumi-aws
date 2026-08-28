@@ -63,9 +63,9 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Image Builder infrastructure configuration.
+    /// - `Arn` (String) ARN of the Image Builder infrastructure configuration.
     /// 
-    /// Using `pulumi import`, import `aws.imagebuilder.InfrastructureConfiguration` using the Amazon Resource Name (ARN). For example:
+    /// Using `pulumi import`, import `aws.imagebuilder.InfrastructureConfiguration` using the ARN. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
@@ -75,7 +75,7 @@ namespace Pulumi.Aws.ImageBuilder
     public partial class InfrastructureConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the configuration.
+        /// ARN of the configuration.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -161,7 +161,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of SNS Topic.
+        /// ARN of SNS Topic.
         /// </summary>
         [Output("snsTopicArn")]
         public Output<string?> SnsTopicArn { get; private set; } = null!;
@@ -323,7 +323,7 @@ namespace Pulumi.Aws.ImageBuilder
         }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of SNS Topic.
+        /// ARN of SNS Topic.
         /// </summary>
         [Input("snsTopicArn")]
         public Input<string>? SnsTopicArn { get; set; }
@@ -361,7 +361,7 @@ namespace Pulumi.Aws.ImageBuilder
     public sealed class InfrastructureConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the configuration.
+        /// ARN of the configuration.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -465,7 +465,7 @@ namespace Pulumi.Aws.ImageBuilder
         }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of SNS Topic.
+        /// ARN of SNS Topic.
         /// </summary>
         [Input("snsTopicArn")]
         public Input<string>? SnsTopicArn { get; set; }

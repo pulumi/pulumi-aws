@@ -74,6 +74,8 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:directconnect/transitVirtualInterface:TransitVirtualInterface test dxvif-33cc44dd
  * ```
  * 
+ * &gt; **Note:** When a virtual interface uses an ASN in the `bgpAsn` range (`1` to `2147483646`), AWS returns the value in both the `asn` and `asnLong` API fields, so import always populates `bgpAsn` rather than `bgpAsnLong`. If the virtual interface was originally created with `bgpAsnLong` set to a value in that range, update your configuration to use `bgpAsn` after import to avoid a difference. Virtual interfaces using a 4-byte ASN (greater than `2147483646`) import into `bgpAsnLong` as expected.
+ * 
  */
 @ResourceType(type="aws:directconnect/transitVirtualInterface:TransitVirtualInterface")
 public class TransitVirtualInterface extends com.pulumi.resources.CustomResource {
@@ -140,18 +142,32 @@ public class TransitVirtualInterface extends com.pulumi.resources.CustomResource
         return this.awsDevice;
     }
     /**
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
      * 
      */
     @Export(name="bgpAsn", refs={Integer.class}, tree="[0]")
-    private Output<Integer> bgpAsn;
+    private Output</* @Nullable */ Integer> bgpAsn;
 
     /**
-     * @return The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * @return BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
      * 
      */
-    public Output<Integer> bgpAsn() {
-        return this.bgpAsn;
+    public Output<Optional<Integer>> bgpAsn() {
+        return Codegen.optional(this.bgpAsn);
+    }
+    /**
+     * BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+     * 
+     */
+    @Export(name="bgpAsnLong", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> bgpAsnLong;
+
+    /**
+     * @return BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+     * 
+     */
+    public Output<Optional<String>> bgpAsnLong() {
+        return Codegen.optional(this.bgpAsnLong);
     }
     /**
      * The authentication key for BGP configuration.

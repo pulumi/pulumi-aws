@@ -18,14 +18,14 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
     public static final VpcIpamResourceDiscoveryAssociationState Empty = new VpcIpamResourceDiscoveryAssociationState();
 
     /**
-     * The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
+     * ARN of IPAM Resource Discovery Association.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
+     * @return ARN of IPAM Resource Discovery Association.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -33,14 +33,14 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the IPAM.
+     * ARN of the IPAM.
      * 
      */
     @Import(name="ipamArn")
     private @Nullable Output<String> ipamArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IPAM.
+     * @return ARN of the IPAM.
      * 
      */
     public Optional<Output<String>> ipamArn() {
@@ -217,7 +217,7 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
+         * @param arn ARN of IPAM Resource Discovery Association.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
+         * @param arn ARN of IPAM Resource Discovery Association.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
         }
 
         /**
-         * @param ipamArn The Amazon Resource Name (ARN) of the IPAM.
+         * @param ipamArn ARN of the IPAM.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
         }
 
         /**
-         * @param ipamArn The Amazon Resource Name (ARN) of the IPAM.
+         * @param ipamArn ARN of the IPAM.
          * 
          * @return builder
          * 

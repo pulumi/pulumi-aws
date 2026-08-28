@@ -71,7 +71,7 @@ class _DelegatedAdministratorState:
         Input properties used for looking up and filtering DelegatedAdministrator resources.
 
         :param pulumi.Input[_builtins.str] account_id: The account ID number of the member account in the organization to register as a delegated administrator.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the delegated administrator's account.
+        :param pulumi.Input[_builtins.str] arn: ARN of the delegated administrator's account.
         :param pulumi.Input[_builtins.str] delegation_enabled_date: The date when the account was made a delegated administrator.
         :param pulumi.Input[_builtins.str] email: The email address that is associated with the delegated administrator's AWS account.
         :param pulumi.Input[_builtins.str] joined_method: The method by which the delegated administrator's account joined the organization.
@@ -115,7 +115,7 @@ class _DelegatedAdministratorState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the delegated administrator's account.
+        ARN of the delegated administrator's account.
         """
         return pulumi.get(self, "arn")
 
@@ -362,7 +362,7 @@ class DelegatedAdministrator(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The account ID number of the member account in the organization to register as a delegated administrator.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the delegated administrator's account.
+        :param pulumi.Input[_builtins.str] arn: ARN of the delegated administrator's account.
         :param pulumi.Input[_builtins.str] delegation_enabled_date: The date when the account was made a delegated administrator.
         :param pulumi.Input[_builtins.str] email: The email address that is associated with the delegated administrator's AWS account.
         :param pulumi.Input[_builtins.str] joined_method: The method by which the delegated administrator's account joined the organization.
@@ -398,7 +398,7 @@ class DelegatedAdministrator(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the delegated administrator's account.
+        ARN of the delegated administrator's account.
         """
         return pulumi.get(self, "arn")
 

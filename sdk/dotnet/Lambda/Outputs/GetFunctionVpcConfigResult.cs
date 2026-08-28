@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class GetFunctionVpcConfigResult
     {
+        /// <summary>
+        /// Whether IPv6 is allowed for dual-stack VPC.
+        /// </summary>
         public readonly bool Ipv6AllowedForDualStack;
         /// <summary>
         /// List of security group IDs associated with the Lambda function.

@@ -5939,7 +5939,7 @@ class FirehoseDeliveryStreamOpensearchserverlessConfiguration(dict):
         """
         :param _builtins.str collection_endpoint: The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
         :param _builtins.str index_name: The Serverless offering for Amazon OpenSearch Service index name.
-        :param _builtins.str role_arn: The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        :param _builtins.str role_arn: ARN of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
         :param 'FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs' s3_configuration: The S3 Configuration. See `s3_configuration` block below for details.
         :param _builtins.int buffering_interval: Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
         :param _builtins.int buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
@@ -5988,7 +5988,7 @@ class FirehoseDeliveryStreamOpensearchserverlessConfiguration(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+        ARN of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
         """
         return pulumi.get(self, "role_arn")
 
@@ -7387,7 +7387,7 @@ class FirehoseDeliveryStreamServerSideEncryption(dict):
                  key_type: Optional[_builtins.str] = None):
         """
         :param _builtins.bool enabled: Whether to enable encryption at rest. Default is `false`.
-        :param _builtins.str key_arn: Amazon Resource Name (ARN) of the encryption key. Required when `key_type` is `CUSTOMER_MANAGED_CMK`.
+        :param _builtins.str key_arn: ARN of the encryption key. Required when `key_type` is `CUSTOMER_MANAGED_CMK`.
         :param _builtins.str key_type: Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
         """
         if enabled is not None:
@@ -7409,7 +7409,7 @@ class FirehoseDeliveryStreamServerSideEncryption(dict):
     @pulumi.getter(name="keyArn")
     def key_arn(self) -> Optional[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the encryption key. Required when `key_type` is `CUSTOMER_MANAGED_CMK`.
+        ARN of the encryption key. Required when `key_type` is `CUSTOMER_MANAGED_CMK`.
         """
         return pulumi.get(self, "key_arn")
 

@@ -49,14 +49,14 @@ public final class ControlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the control.
+     * ARN of the control.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the control.
+     * @return ARN of the control.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -256,7 +256,7 @@ public final class ControlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the control.
+         * @param arn ARN of the control.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class ControlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the control.
+         * @param arn ARN of the control.
          * 
          * @return builder
          * 

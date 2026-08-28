@@ -170,7 +170,7 @@ public final class LaunchTemplateInstanceRequirementsArgs extends com.pulumi.res
     /**
      * List of CPU manufacturer names. Default is any manufacturer.
      * 
-     * &gt; **NOTE:** Don&#39;t confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+     * &gt; **NOTE:** Don&#39;t confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the AMI that you specify in your launch template.
      * 
      */
     @Import(name="cpuManufacturers")
@@ -179,7 +179,7 @@ public final class LaunchTemplateInstanceRequirementsArgs extends com.pulumi.res
     /**
      * @return List of CPU manufacturer names. Default is any manufacturer.
      * 
-     * &gt; **NOTE:** Don&#39;t confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+     * &gt; **NOTE:** Don&#39;t confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the AMI that you specify in your launch template.
      * 
      */
     public Optional<Output<List<String>>> cpuManufacturers() {
@@ -693,7 +693,7 @@ public final class LaunchTemplateInstanceRequirementsArgs extends com.pulumi.res
         /**
          * @param cpuManufacturers List of CPU manufacturer names. Default is any manufacturer.
          * 
-         * &gt; **NOTE:** Don&#39;t confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+         * &gt; **NOTE:** Don&#39;t confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the AMI that you specify in your launch template.
          * 
          * @return builder
          * 
@@ -706,7 +706,7 @@ public final class LaunchTemplateInstanceRequirementsArgs extends com.pulumi.res
         /**
          * @param cpuManufacturers List of CPU manufacturer names. Default is any manufacturer.
          * 
-         * &gt; **NOTE:** Don&#39;t confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+         * &gt; **NOTE:** Don&#39;t confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the AMI that you specify in your launch template.
          * 
          * @return builder
          * 
@@ -718,7 +718,7 @@ public final class LaunchTemplateInstanceRequirementsArgs extends com.pulumi.res
         /**
          * @param cpuManufacturers List of CPU manufacturer names. Default is any manufacturer.
          * 
-         * &gt; **NOTE:** Don&#39;t confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+         * &gt; **NOTE:** Don&#39;t confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the AMI that you specify in your launch template.
          * 
          * @return builder
          * 

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Amplify.Inputs
         public Input<string>? CertificateVerificationDnsRecord { get; set; }
 
         /// <summary>
-        /// The Amazon resource name (ARN) for the custom certificate.
+        /// ARN for the custom certificate.
         /// Required when `Type` is `CUSTOM`.
         /// </summary>
         [Input("customCertificateArn")]

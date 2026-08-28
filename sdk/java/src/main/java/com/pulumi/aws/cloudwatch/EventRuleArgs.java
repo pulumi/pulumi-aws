@@ -146,14 +146,14 @@ public final class EventRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
+     * ARN associated with the role that is used for target invocation.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
+     * @return ARN associated with the role that is used for target invocation.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -421,7 +421,7 @@ public final class EventRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
+         * @param roleArn ARN associated with the role that is used for target invocation.
          * 
          * @return builder
          * 
@@ -432,7 +432,7 @@ public final class EventRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
+         * @param roleArn ARN associated with the role that is used for target invocation.
          * 
          * @return builder
          * 

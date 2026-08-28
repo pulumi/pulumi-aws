@@ -25,7 +25,7 @@ public final class EndpointGroupEndpointConfiguration {
      */
     private @Nullable Boolean clientIpPreservationEnabled;
     /**
-     * @return An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
+     * @return ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the ARN of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
      * 
      */
     private @Nullable String endpointId;
@@ -52,7 +52,7 @@ public final class EndpointGroupEndpointConfiguration {
         return Optional.ofNullable(this.clientIpPreservationEnabled);
     }
     /**
-     * @return An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
+     * @return ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the ARN of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
      * 
      */
     public Optional<String> endpointId() {

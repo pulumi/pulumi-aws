@@ -116,7 +116,7 @@ namespace Pulumi.Aws.Efs
         public Output<Outputs.ReplicationConfigurationDestination> Destination { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
+        /// ARN of the original source Amazon EFS file system in the replication configuration.
         /// </summary>
         [Output("originalSourceFileSystemArn")]
         public Output<string> OriginalSourceFileSystemArn { get; private set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.Aws.Efs
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
+        /// ARN of the current source file system in the replication configuration.
         /// </summary>
         [Output("sourceFileSystemArn")]
         public Output<string> SourceFileSystemArn { get; private set; } = null!;
@@ -232,7 +232,7 @@ namespace Pulumi.Aws.Efs
         public Input<Inputs.ReplicationConfigurationDestinationGetArgs>? Destination { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
+        /// ARN of the original source Amazon EFS file system in the replication configuration.
         /// </summary>
         [Input("originalSourceFileSystemArn")]
         public Input<string>? OriginalSourceFileSystemArn { get; set; }
@@ -244,7 +244,7 @@ namespace Pulumi.Aws.Efs
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
+        /// ARN of the current source file system in the replication configuration.
         /// </summary>
         [Input("sourceFileSystemArn")]
         public Input<string>? SourceFileSystemArn { get; set; }

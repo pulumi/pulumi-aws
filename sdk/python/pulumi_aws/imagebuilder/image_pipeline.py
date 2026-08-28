@@ -40,13 +40,13 @@ class ImagePipelineArgs:
         """
         The set of arguments for constructing a ImagePipeline resource.
 
-        :param pulumi.Input[_builtins.str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
-        :param pulumi.Input[_builtins.str] container_recipe_arn: Amazon Resource Name (ARN) of the container recipe.
+        :param pulumi.Input[_builtins.str] infrastructure_configuration_arn: ARN of the Image Builder Infrastructure Configuration.
+        :param pulumi.Input[_builtins.str] container_recipe_arn: ARN of the container recipe.
         :param pulumi.Input[_builtins.str] description: Description of the image pipeline.
-        :param pulumi.Input[_builtins.str] distribution_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+        :param pulumi.Input[_builtins.str] distribution_configuration_arn: ARN of the Image Builder Distribution Configuration.
         :param pulumi.Input[_builtins.bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] execution_role: Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
-        :param pulumi.Input[_builtins.str] image_recipe_arn: Amazon Resource Name (ARN) of the image recipe.
+        :param pulumi.Input[_builtins.str] execution_role: ARN of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+        :param pulumi.Input[_builtins.str] image_recipe_arn: ARN of the image recipe.
         :param pulumi.Input['ImagePipelineImageScanningConfigurationArgs'] image_scanning_configuration: Configuration block with image scanning configuration. Detailed below.
         :param pulumi.Input['ImagePipelineImageTestsConfigurationArgs'] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
         :param pulumi.Input['ImagePipelineLoggingConfigurationArgs'] logging_configuration: Configuration block with logging configuration. Detailed below.
@@ -95,7 +95,7 @@ class ImagePipelineArgs:
     @pulumi.getter(name="infrastructureConfigurationArn")
     def infrastructure_configuration_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+        ARN of the Image Builder Infrastructure Configuration.
         """
         return pulumi.get(self, "infrastructure_configuration_arn")
 
@@ -107,7 +107,7 @@ class ImagePipelineArgs:
     @pulumi.getter(name="containerRecipeArn")
     def container_recipe_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the container recipe.
+        ARN of the container recipe.
         """
         return pulumi.get(self, "container_recipe_arn")
 
@@ -131,7 +131,7 @@ class ImagePipelineArgs:
     @pulumi.getter(name="distributionConfigurationArn")
     def distribution_configuration_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+        ARN of the Image Builder Distribution Configuration.
         """
         return pulumi.get(self, "distribution_configuration_arn")
 
@@ -155,7 +155,7 @@ class ImagePipelineArgs:
     @pulumi.getter(name="executionRole")
     def execution_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+        ARN of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
         """
         return pulumi.get(self, "execution_role")
 
@@ -167,7 +167,7 @@ class ImagePipelineArgs:
     @pulumi.getter(name="imageRecipeArn")
     def image_recipe_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the image recipe.
+        ARN of the image recipe.
         """
         return pulumi.get(self, "image_recipe_arn")
 
@@ -315,20 +315,20 @@ class _ImagePipelineState:
         """
         Input properties used for looking up and filtering ImagePipeline resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the image pipeline.
-        :param pulumi.Input[_builtins.str] container_recipe_arn: Amazon Resource Name (ARN) of the container recipe.
+        :param pulumi.Input[_builtins.str] arn: ARN of the image pipeline.
+        :param pulumi.Input[_builtins.str] container_recipe_arn: ARN of the container recipe.
         :param pulumi.Input[_builtins.str] date_created: Date the image pipeline was created.
         :param pulumi.Input[_builtins.str] date_last_run: Date the image pipeline was last run.
         :param pulumi.Input[_builtins.str] date_next_run: Date the image pipeline will run next.
         :param pulumi.Input[_builtins.str] date_updated: Date the image pipeline was updated.
         :param pulumi.Input[_builtins.str] description: Description of the image pipeline.
-        :param pulumi.Input[_builtins.str] distribution_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+        :param pulumi.Input[_builtins.str] distribution_configuration_arn: ARN of the Image Builder Distribution Configuration.
         :param pulumi.Input[_builtins.bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] execution_role: Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
-        :param pulumi.Input[_builtins.str] image_recipe_arn: Amazon Resource Name (ARN) of the image recipe.
+        :param pulumi.Input[_builtins.str] execution_role: ARN of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+        :param pulumi.Input[_builtins.str] image_recipe_arn: ARN of the image recipe.
         :param pulumi.Input['ImagePipelineImageScanningConfigurationArgs'] image_scanning_configuration: Configuration block with image scanning configuration. Detailed below.
         :param pulumi.Input['ImagePipelineImageTestsConfigurationArgs'] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
-        :param pulumi.Input[_builtins.str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+        :param pulumi.Input[_builtins.str] infrastructure_configuration_arn: ARN of the Image Builder Infrastructure Configuration.
         :param pulumi.Input['ImagePipelineLoggingConfigurationArgs'] logging_configuration: Configuration block with logging configuration. Detailed below.
         :param pulumi.Input[_builtins.str] name: Name of the image pipeline.
                
@@ -392,7 +392,7 @@ class _ImagePipelineState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the image pipeline.
+        ARN of the image pipeline.
         """
         return pulumi.get(self, "arn")
 
@@ -404,7 +404,7 @@ class _ImagePipelineState:
     @pulumi.getter(name="containerRecipeArn")
     def container_recipe_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the container recipe.
+        ARN of the container recipe.
         """
         return pulumi.get(self, "container_recipe_arn")
 
@@ -476,7 +476,7 @@ class _ImagePipelineState:
     @pulumi.getter(name="distributionConfigurationArn")
     def distribution_configuration_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+        ARN of the Image Builder Distribution Configuration.
         """
         return pulumi.get(self, "distribution_configuration_arn")
 
@@ -500,7 +500,7 @@ class _ImagePipelineState:
     @pulumi.getter(name="executionRole")
     def execution_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+        ARN of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
         """
         return pulumi.get(self, "execution_role")
 
@@ -512,7 +512,7 @@ class _ImagePipelineState:
     @pulumi.getter(name="imageRecipeArn")
     def image_recipe_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the image recipe.
+        ARN of the image recipe.
         """
         return pulumi.get(self, "image_recipe_arn")
 
@@ -548,7 +548,7 @@ class _ImagePipelineState:
     @pulumi.getter(name="infrastructureConfigurationArn")
     def infrastructure_configuration_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+        ARN of the Image Builder Infrastructure Configuration.
         """
         return pulumi.get(self, "infrastructure_configuration_arn")
 
@@ -697,9 +697,9 @@ class ImagePipeline(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Image Builder image pipeline.
+        - `arn` (String) ARN of the Image Builder image pipeline.
 
-        Using `pulumi import`, import `imagebuilder.ImagePipeline` resources using the Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `imagebuilder.ImagePipeline` resources using the ARN. For example:
 
         ```sh
         $ pulumi import aws:imagebuilder/imagePipeline:ImagePipeline example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example
@@ -708,15 +708,15 @@ class ImagePipeline(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] container_recipe_arn: Amazon Resource Name (ARN) of the container recipe.
+        :param pulumi.Input[_builtins.str] container_recipe_arn: ARN of the container recipe.
         :param pulumi.Input[_builtins.str] description: Description of the image pipeline.
-        :param pulumi.Input[_builtins.str] distribution_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+        :param pulumi.Input[_builtins.str] distribution_configuration_arn: ARN of the Image Builder Distribution Configuration.
         :param pulumi.Input[_builtins.bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] execution_role: Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
-        :param pulumi.Input[_builtins.str] image_recipe_arn: Amazon Resource Name (ARN) of the image recipe.
+        :param pulumi.Input[_builtins.str] execution_role: ARN of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+        :param pulumi.Input[_builtins.str] image_recipe_arn: ARN of the image recipe.
         :param pulumi.Input[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict']] image_scanning_configuration: Configuration block with image scanning configuration. Detailed below.
         :param pulumi.Input[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict']] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
-        :param pulumi.Input[_builtins.str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+        :param pulumi.Input[_builtins.str] infrastructure_configuration_arn: ARN of the Image Builder Infrastructure Configuration.
         :param pulumi.Input[Union['ImagePipelineLoggingConfigurationArgs', 'ImagePipelineLoggingConfigurationArgsDict']] logging_configuration: Configuration block with logging configuration. Detailed below.
         :param pulumi.Input[_builtins.str] name: Name of the image pipeline.
                
@@ -740,9 +740,9 @@ class ImagePipeline(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Image Builder image pipeline.
+        - `arn` (String) ARN of the Image Builder image pipeline.
 
-        Using `pulumi import`, import `imagebuilder.ImagePipeline` resources using the Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `imagebuilder.ImagePipeline` resources using the ARN. For example:
 
         ```sh
         $ pulumi import aws:imagebuilder/imagePipeline:ImagePipeline example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example
@@ -854,20 +854,20 @@ class ImagePipeline(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the image pipeline.
-        :param pulumi.Input[_builtins.str] container_recipe_arn: Amazon Resource Name (ARN) of the container recipe.
+        :param pulumi.Input[_builtins.str] arn: ARN of the image pipeline.
+        :param pulumi.Input[_builtins.str] container_recipe_arn: ARN of the container recipe.
         :param pulumi.Input[_builtins.str] date_created: Date the image pipeline was created.
         :param pulumi.Input[_builtins.str] date_last_run: Date the image pipeline was last run.
         :param pulumi.Input[_builtins.str] date_next_run: Date the image pipeline will run next.
         :param pulumi.Input[_builtins.str] date_updated: Date the image pipeline was updated.
         :param pulumi.Input[_builtins.str] description: Description of the image pipeline.
-        :param pulumi.Input[_builtins.str] distribution_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+        :param pulumi.Input[_builtins.str] distribution_configuration_arn: ARN of the Image Builder Distribution Configuration.
         :param pulumi.Input[_builtins.bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] execution_role: Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
-        :param pulumi.Input[_builtins.str] image_recipe_arn: Amazon Resource Name (ARN) of the image recipe.
+        :param pulumi.Input[_builtins.str] execution_role: ARN of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+        :param pulumi.Input[_builtins.str] image_recipe_arn: ARN of the image recipe.
         :param pulumi.Input[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict']] image_scanning_configuration: Configuration block with image scanning configuration. Detailed below.
         :param pulumi.Input[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict']] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
-        :param pulumi.Input[_builtins.str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+        :param pulumi.Input[_builtins.str] infrastructure_configuration_arn: ARN of the Image Builder Infrastructure Configuration.
         :param pulumi.Input[Union['ImagePipelineLoggingConfigurationArgs', 'ImagePipelineLoggingConfigurationArgsDict']] logging_configuration: Configuration block with logging configuration. Detailed below.
         :param pulumi.Input[_builtins.str] name: Name of the image pipeline.
                
@@ -913,7 +913,7 @@ class ImagePipeline(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the image pipeline.
+        ARN of the image pipeline.
         """
         return pulumi.get(self, "arn")
 
@@ -921,7 +921,7 @@ class ImagePipeline(pulumi.CustomResource):
     @pulumi.getter(name="containerRecipeArn")
     def container_recipe_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the container recipe.
+        ARN of the container recipe.
         """
         return pulumi.get(self, "container_recipe_arn")
 
@@ -969,7 +969,7 @@ class ImagePipeline(pulumi.CustomResource):
     @pulumi.getter(name="distributionConfigurationArn")
     def distribution_configuration_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+        ARN of the Image Builder Distribution Configuration.
         """
         return pulumi.get(self, "distribution_configuration_arn")
 
@@ -985,7 +985,7 @@ class ImagePipeline(pulumi.CustomResource):
     @pulumi.getter(name="executionRole")
     def execution_role(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+        ARN of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
         """
         return pulumi.get(self, "execution_role")
 
@@ -993,7 +993,7 @@ class ImagePipeline(pulumi.CustomResource):
     @pulumi.getter(name="imageRecipeArn")
     def image_recipe_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the image recipe.
+        ARN of the image recipe.
         """
         return pulumi.get(self, "image_recipe_arn")
 
@@ -1017,7 +1017,7 @@ class ImagePipeline(pulumi.CustomResource):
     @pulumi.getter(name="infrastructureConfigurationArn")
     def infrastructure_configuration_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+        ARN of the Image Builder Infrastructure Configuration.
         """
         return pulumi.get(self, "infrastructure_configuration_arn")
 

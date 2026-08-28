@@ -46,14 +46,14 @@ public final class AuthPolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     * ID or ARN of the service network or service for which the policy is created.
      * 
      */
     @Import(name="resourceIdentifier")
     private @Nullable Output<String> resourceIdentifier;
 
     /**
-     * @return ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     * @return ID or ARN of the service network or service for which the policy is created.
      * 
      */
     public Optional<Output<String>> resourceIdentifier() {
@@ -145,7 +145,7 @@ public final class AuthPolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceIdentifier ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+         * @param resourceIdentifier ID or ARN of the service network or service for which the policy is created.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class AuthPolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceIdentifier ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+         * @param resourceIdentifier ID or ARN of the service network or service for which the policy is created.
          * 
          * @return builder
          * 

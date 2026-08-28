@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `resourceArn` (String) Amazon Resource Name (ARN) of the DynamoDB table.
+ * - `resourceArn` (String) ARN of the DynamoDB table.
  *
  * Using `pulumi import`, import DynamoDB Resource Policy using the `resourceArn`. For example:
  *
@@ -78,7 +78,7 @@ export class ResourcePolicy extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams. You can control index permissions using the base table's policy. To specify the same permission level for your table and its indexes, you can provide both the table and index Amazon Resource Name (ARN)s in the Resource field of a given Statement in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple Statement fields in your policy document.
+     * ARN of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams. You can control index permissions using the base table's policy. To specify the same permission level for your table and its indexes, you can provide both the table and index ARNs in the Resource field of a given Statement in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple Statement fields in your policy document.
      */
     declare public readonly resourceArn: pulumi.Output<string>;
     /**
@@ -142,7 +142,7 @@ export interface ResourcePolicyState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams. You can control index permissions using the base table's policy. To specify the same permission level for your table and its indexes, you can provide both the table and index Amazon Resource Name (ARN)s in the Resource field of a given Statement in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple Statement fields in your policy document.
+     * ARN of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams. You can control index permissions using the base table's policy. To specify the same permission level for your table and its indexes, you can provide both the table and index ARNs in the Resource field of a given Statement in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple Statement fields in your policy document.
      */
     resourceArn?: pulumi.Input<string | undefined>;
     /**
@@ -170,7 +170,7 @@ export interface ResourcePolicyArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams. You can control index permissions using the base table's policy. To specify the same permission level for your table and its indexes, you can provide both the table and index Amazon Resource Name (ARN)s in the Resource field of a given Statement in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple Statement fields in your policy document.
+     * ARN of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams. You can control index permissions using the base table's policy. To specify the same permission level for your table and its indexes, you can provide both the table and index ARNs in the Resource field of a given Statement in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple Statement fields in your policy document.
      */
     resourceArn: pulumi.Input<string>;
 }

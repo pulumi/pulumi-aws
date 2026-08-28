@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource {
     /**
-     * @return The Amazon Resource Name (ARN) of the prompt from Prompt management.
+     * @return ARN of the prompt from Prompt management.
      * 
      */
     private String promptArn;
 
     private AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the prompt from Prompt management.
+     * @return ARN of the prompt from Prompt management.
      * 
      */
     public String promptArn() {

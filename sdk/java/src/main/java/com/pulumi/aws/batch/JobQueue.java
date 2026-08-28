@@ -138,7 +138,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the job queue.
+ * - `arn` (String) ARN of the job queue.
  * 
  * Using `pulumi import`, import Batch Job Queue using the `arn`. For example:
  * 
@@ -150,14 +150,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:batch/jobQueue:JobQueue")
 public class JobQueue extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name of the job queue.
+     * ARN of the job queue.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name of the job queue.
+     * @return ARN of the job queue.
      * 
      */
     public Output<String> arn() {

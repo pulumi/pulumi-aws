@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DistributionConfigurationDistribution {
     /**
-     * @return Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
+     * @return Configuration block with AMI distribution settings. Detailed below.
      * 
      */
     private @Nullable DistributionConfigurationDistributionAmiDistributionConfiguration amiDistributionConfiguration;
@@ -40,7 +40,7 @@ public final class DistributionConfigurationDistribution {
      */
     private @Nullable List<DistributionConfigurationDistributionLaunchTemplateConfiguration> launchTemplateConfigurations;
     /**
-     * @return Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+     * @return Set of ARNs of License Manager License Configurations.
      * 
      */
     private @Nullable List<String> licenseConfigurationArns;
@@ -62,7 +62,7 @@ public final class DistributionConfigurationDistribution {
 
     private DistributionConfigurationDistribution() {}
     /**
-     * @return Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
+     * @return Configuration block with AMI distribution settings. Detailed below.
      * 
      */
     public Optional<DistributionConfigurationDistributionAmiDistributionConfiguration> amiDistributionConfiguration() {
@@ -90,7 +90,7 @@ public final class DistributionConfigurationDistribution {
         return this.launchTemplateConfigurations == null ? List.of() : this.launchTemplateConfigurations;
     }
     /**
-     * @return Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+     * @return Set of ARNs of License Manager License Configurations.
      * 
      */
     public List<String> licenseConfigurationArns() {

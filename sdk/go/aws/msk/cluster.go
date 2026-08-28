@@ -269,7 +269,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the MSK cluster.
+// - `arn` (String) ARN of the MSK cluster.
 //
 // Using `pulumi import`, import MSK cluster using the cluster ARN. For example:
 //
@@ -279,7 +279,7 @@ import (
 type Cluster struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the MSK cluster.
+	// ARN of the MSK cluster.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
 	BootstrapBrokers pulumi.StringOutput `pulumi:"bootstrapBrokers"`
@@ -390,7 +390,7 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
-	// Amazon Resource Name (ARN) of the MSK cluster.
+	// ARN of the MSK cluster.
 	Arn *string `pulumi:"arn"`
 	// Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
 	BootstrapBrokers *string `pulumi:"bootstrapBrokers"`
@@ -463,7 +463,7 @@ type clusterState struct {
 }
 
 type ClusterState struct {
-	// Amazon Resource Name (ARN) of the MSK cluster.
+	// ARN of the MSK cluster.
 	Arn pulumi.StringPtrInput
 	// Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
 	BootstrapBrokers pulumi.StringPtrInput
@@ -689,7 +689,7 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
-// Amazon Resource Name (ARN) of the MSK cluster.
+// ARN of the MSK cluster.
 func (o ClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

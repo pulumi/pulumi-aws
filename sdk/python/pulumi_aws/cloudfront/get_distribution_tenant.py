@@ -75,7 +75,7 @@ class GetDistributionTenantResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        ARN (Amazon Resource Name) for the distribution tenant.
+        ARN for the distribution tenant.
         """
         return pulumi.get(self, "arn")
 
@@ -206,7 +206,7 @@ def get_distribution_tenant(arn: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str arn: ARN (Amazon Resource Name) for the distribution tenant.
+    :param _builtins.str arn: ARN for the distribution tenant.
     :param _builtins.str domain: An associated domain of the distribution tenant. Exactly one of `id` or `domain` must be specified.
     :param _builtins.str id: Identifier for the distribution tenant. For example: `EDFDVBD632BHDS5`. Exactly one of `id` or `domain` must be specified.
     """
@@ -251,7 +251,7 @@ def get_distribution_tenant_output(arn: pulumi.Input[Optional[Optional[_builtins
     ```
 
 
-    :param _builtins.str arn: ARN (Amazon Resource Name) for the distribution tenant.
+    :param _builtins.str arn: ARN for the distribution tenant.
     :param _builtins.str domain: An associated domain of the distribution tenant. Exactly one of `id` or `domain` must be specified.
     :param _builtins.str id: Identifier for the distribution tenant. For example: `EDFDVBD632BHDS5`. Exactly one of `id` or `domain` must be specified.
     """

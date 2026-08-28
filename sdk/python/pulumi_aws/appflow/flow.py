@@ -39,7 +39,7 @@ class FlowArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FlowTaskArgs']]] tasks: Tasks that Amazon AppFlow performs while transferring the data in the flow run. See the `task` Block for details.
         :param pulumi.Input['FlowTriggerConfigArgs'] trigger_config: Configuration that determines how and when the flow runs. See the `trigger_config` Block for details.
         :param pulumi.Input[_builtins.str] description: Description of the flow.
-        :param pulumi.Input[_builtins.str] kms_arn: ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
+        :param pulumi.Input[_builtins.str] kms_arn: ARN of the KMS key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
         :param pulumi.Input['FlowMetadataCatalogConfigArgs'] metadata_catalog_config: Configuration that determines how Amazon AppFlow catalogs the data that the flow transfers. See the `metadata_catalog_config` Block for details.
         :param pulumi.Input[_builtins.str] name: Name of the flow.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -126,7 +126,7 @@ class FlowArgs:
     @pulumi.getter(name="kmsArn")
     def kms_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
+        ARN of the KMS key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
         """
         return pulumi.get(self, "kms_arn")
 
@@ -206,7 +206,7 @@ class _FlowState:
         :param pulumi.Input[_builtins.str] description: Description of the flow.
         :param pulumi.Input[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]] destination_flow_configs: Configuration that controls how Amazon AppFlow places data in the destination connector. See the `destination_flow_config` Block for details.
         :param pulumi.Input[_builtins.str] flow_status: Current status of the flow.
-        :param pulumi.Input[_builtins.str] kms_arn: ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
+        :param pulumi.Input[_builtins.str] kms_arn: ARN of the KMS key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
         :param pulumi.Input['FlowMetadataCatalogConfigArgs'] metadata_catalog_config: Configuration that determines how Amazon AppFlow catalogs the data that the flow transfers. See the `metadata_catalog_config` Block for details.
         :param pulumi.Input[_builtins.str] name: Name of the flow.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -295,7 +295,7 @@ class _FlowState:
     @pulumi.getter(name="kmsArn")
     def kms_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
+        ARN of the KMS key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
         """
         return pulumi.get(self, "kms_arn")
 
@@ -535,7 +535,7 @@ class Flow(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the flow.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FlowDestinationFlowConfigArgs', 'FlowDestinationFlowConfigArgsDict']]]] destination_flow_configs: Configuration that controls how Amazon AppFlow places data in the destination connector. See the `destination_flow_config` Block for details.
-        :param pulumi.Input[_builtins.str] kms_arn: ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
+        :param pulumi.Input[_builtins.str] kms_arn: ARN of the KMS key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
         :param pulumi.Input[Union['FlowMetadataCatalogConfigArgs', 'FlowMetadataCatalogConfigArgsDict']] metadata_catalog_config: Configuration that determines how Amazon AppFlow catalogs the data that the flow transfers. See the `metadata_catalog_config` Block for details.
         :param pulumi.Input[_builtins.str] name: Name of the flow.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -753,7 +753,7 @@ class Flow(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of the flow.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FlowDestinationFlowConfigArgs', 'FlowDestinationFlowConfigArgsDict']]]] destination_flow_configs: Configuration that controls how Amazon AppFlow places data in the destination connector. See the `destination_flow_config` Block for details.
         :param pulumi.Input[_builtins.str] flow_status: Current status of the flow.
-        :param pulumi.Input[_builtins.str] kms_arn: ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
+        :param pulumi.Input[_builtins.str] kms_arn: ARN of the KMS key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
         :param pulumi.Input[Union['FlowMetadataCatalogConfigArgs', 'FlowMetadataCatalogConfigArgsDict']] metadata_catalog_config: Configuration that determines how Amazon AppFlow catalogs the data that the flow transfers. See the `metadata_catalog_config` Block for details.
         :param pulumi.Input[_builtins.str] name: Name of the flow.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -818,7 +818,7 @@ class Flow(pulumi.CustomResource):
     @pulumi.getter(name="kmsArn")
     def kms_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
+        ARN of the KMS key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
         """
         return pulumi.get(self, "kms_arn")
 

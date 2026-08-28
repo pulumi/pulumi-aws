@@ -36,7 +36,7 @@ public final class GetFunctionResult {
      */
     private String arn;
     /**
-     * @return Configuration for Lambda function&#39;s capacity provider. See below.
+     * @return Configuration for Lambda function&#39;s capacity provider. See `capacityProviderConfig` below.
      * 
      */
     private List<GetFunctionCapacityProviderConfig> capacityProviderConfigs;
@@ -51,7 +51,7 @@ public final class GetFunctionResult {
      */
     private String codeSigningConfigArn;
     /**
-     * @return Configuration for the function&#39;s dead letter queue. See below.
+     * @return Configuration for the function&#39;s dead letter queue. See `deadLetterConfig` below.
      * 
      */
     private GetFunctionDeadLetterConfig deadLetterConfig;
@@ -61,22 +61,22 @@ public final class GetFunctionResult {
      */
     private String description;
     /**
-     * @return Configuration for the function&#39;s durable settings. See below.
+     * @return Configuration for the function&#39;s durable settings. See `durableConfig` below.
      * 
      */
     private List<GetFunctionDurableConfig> durableConfigs;
     /**
-     * @return Lambda environment&#39;s configuration settings. See below.
+     * @return Lambda environment&#39;s configuration settings. See `environment` below.
      * 
      */
     private GetFunctionEnvironment environment;
     /**
-     * @return Amount of ephemeral storage (`/tmp`) allocated for the Lambda Function. See below.
+     * @return Amount of ephemeral storage (`/tmp`) allocated for the Lambda Function. See `ephemeralStorage` below.
      * 
      */
     private List<GetFunctionEphemeralStorage> ephemeralStorages;
     /**
-     * @return Connection settings for an Amazon EFS file system. See below.
+     * @return Connection settings for an Amazon EFS file system. See `fileSystemConfig` below.
      * 
      */
     private List<GetFunctionFileSystemConfig> fileSystemConfigs;
@@ -117,7 +117,7 @@ public final class GetFunctionResult {
      */
     private List<String> layers;
     /**
-     * @return Advanced logging settings. See below.
+     * @return Advanced logging settings. See `loggingConfig` below.
      * 
      */
     private List<GetFunctionLoggingConfig> loggingConfigs;
@@ -183,7 +183,7 @@ public final class GetFunctionResult {
      */
     private Integer sourceCodeSize;
     /**
-     * @return ARN of the AWS Key Management Service key used to encrypt the function&#39;s `.zip` deployment package.
+     * @return ARN of the KMS key used to encrypt the function&#39;s `.zip` deployment package.
      * 
      */
     private String sourceKmsKeyArn;
@@ -193,7 +193,7 @@ public final class GetFunctionResult {
      */
     private Map<String,String> tags;
     /**
-     * @return Tenancy settings of the function. See below.
+     * @return Tenancy settings of the function. See `tenancyConfig` below.
      * 
      */
     private List<GetFunctionTenancyConfig> tenancyConfigs;
@@ -203,7 +203,7 @@ public final class GetFunctionResult {
      */
     private Integer timeout;
     /**
-     * @return Tracing settings of the function. See below.
+     * @return Tracing settings of the function. See `tracingConfig` below.
      * 
      */
     private GetFunctionTracingConfig tracingConfig;
@@ -213,7 +213,7 @@ public final class GetFunctionResult {
      */
     private String version;
     /**
-     * @return VPC configuration associated with your Lambda function. See below.
+     * @return VPC configuration associated with your Lambda function. See `vpcConfig` below.
      * 
      */
     private GetFunctionVpcConfig vpcConfig;
@@ -234,7 +234,7 @@ public final class GetFunctionResult {
         return this.arn;
     }
     /**
-     * @return Configuration for Lambda function&#39;s capacity provider. See below.
+     * @return Configuration for Lambda function&#39;s capacity provider. See `capacityProviderConfig` below.
      * 
      */
     public List<GetFunctionCapacityProviderConfig> capacityProviderConfigs() {
@@ -255,7 +255,7 @@ public final class GetFunctionResult {
         return this.codeSigningConfigArn;
     }
     /**
-     * @return Configuration for the function&#39;s dead letter queue. See below.
+     * @return Configuration for the function&#39;s dead letter queue. See `deadLetterConfig` below.
      * 
      */
     public GetFunctionDeadLetterConfig deadLetterConfig() {
@@ -269,28 +269,28 @@ public final class GetFunctionResult {
         return this.description;
     }
     /**
-     * @return Configuration for the function&#39;s durable settings. See below.
+     * @return Configuration for the function&#39;s durable settings. See `durableConfig` below.
      * 
      */
     public List<GetFunctionDurableConfig> durableConfigs() {
         return this.durableConfigs;
     }
     /**
-     * @return Lambda environment&#39;s configuration settings. See below.
+     * @return Lambda environment&#39;s configuration settings. See `environment` below.
      * 
      */
     public GetFunctionEnvironment environment() {
         return this.environment;
     }
     /**
-     * @return Amount of ephemeral storage (`/tmp`) allocated for the Lambda Function. See below.
+     * @return Amount of ephemeral storage (`/tmp`) allocated for the Lambda Function. See `ephemeralStorage` below.
      * 
      */
     public List<GetFunctionEphemeralStorage> ephemeralStorages() {
         return this.ephemeralStorages;
     }
     /**
-     * @return Connection settings for an Amazon EFS file system. See below.
+     * @return Connection settings for an Amazon EFS file system. See `fileSystemConfig` below.
      * 
      */
     public List<GetFunctionFileSystemConfig> fileSystemConfigs() {
@@ -349,7 +349,7 @@ public final class GetFunctionResult {
         return this.layers;
     }
     /**
-     * @return Advanced logging settings. See below.
+     * @return Advanced logging settings. See `loggingConfig` below.
      * 
      */
     public List<GetFunctionLoggingConfig> loggingConfigs() {
@@ -443,7 +443,7 @@ public final class GetFunctionResult {
         return this.sourceCodeSize;
     }
     /**
-     * @return ARN of the AWS Key Management Service key used to encrypt the function&#39;s `.zip` deployment package.
+     * @return ARN of the KMS key used to encrypt the function&#39;s `.zip` deployment package.
      * 
      */
     public String sourceKmsKeyArn() {
@@ -457,7 +457,7 @@ public final class GetFunctionResult {
         return this.tags;
     }
     /**
-     * @return Tenancy settings of the function. See below.
+     * @return Tenancy settings of the function. See `tenancyConfig` below.
      * 
      */
     public List<GetFunctionTenancyConfig> tenancyConfigs() {
@@ -471,7 +471,7 @@ public final class GetFunctionResult {
         return this.timeout;
     }
     /**
-     * @return Tracing settings of the function. See below.
+     * @return Tracing settings of the function. See `tracingConfig` below.
      * 
      */
     public GetFunctionTracingConfig tracingConfig() {
@@ -485,7 +485,7 @@ public final class GetFunctionResult {
         return this.version;
     }
     /**
-     * @return VPC configuration associated with your Lambda function. See below.
+     * @return VPC configuration associated with your Lambda function. See `vpcConfig` below.
      * 
      */
     public GetFunctionVpcConfig vpcConfig() {

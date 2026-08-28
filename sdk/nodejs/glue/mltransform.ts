@@ -138,7 +138,7 @@ export class MLTransform extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of Glue ML Transform.
+     * ARN of Glue ML Transform.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -275,7 +275,7 @@ export class MLTransform extends pulumi.CustomResource {
  */
 export interface MLTransformState {
     /**
-     * Amazon Resource Name (ARN) of Glue ML Transform.
+     * ARN of Glue ML Transform.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

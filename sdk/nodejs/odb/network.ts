@@ -87,7 +87,7 @@ export class Network extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the odb network resource.
+     * ARN of the odb network resource.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -331,7 +331,7 @@ export class Network extends pulumi.CustomResource {
  */
 export interface NetworkState {
     /**
-     * Amazon Resource Name (ARN) of the odb network resource.
+     * ARN of the odb network resource.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

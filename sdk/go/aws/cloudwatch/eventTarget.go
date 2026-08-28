@@ -926,7 +926,7 @@ type EventTarget struct {
 
 	// Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
 	AppsyncTarget EventTargetAppsyncTargetPtrOutput `pulumi:"appsyncTarget"`
-	// The Amazon Resource Name (ARN) of the target.
+	// ARN of the target.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
 	BatchTarget EventTargetBatchTargetPtrOutput `pulumi:"batchTarget"`
@@ -955,7 +955,7 @@ type EventTarget struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
 	RetryPolicy EventTargetRetryPolicyPtrOutput `pulumi:"retryPolicy"`
-	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
+	// ARN of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// The name of the rule you want to add targets to.
 	//
@@ -1009,7 +1009,7 @@ func GetEventTarget(ctx *pulumi.Context,
 type eventTargetState struct {
 	// Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
 	AppsyncTarget *EventTargetAppsyncTarget `pulumi:"appsyncTarget"`
-	// The Amazon Resource Name (ARN) of the target.
+	// ARN of the target.
 	Arn *string `pulumi:"arn"`
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
 	BatchTarget *EventTargetBatchTarget `pulumi:"batchTarget"`
@@ -1038,7 +1038,7 @@ type eventTargetState struct {
 	Region *string `pulumi:"region"`
 	// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
 	RetryPolicy *EventTargetRetryPolicy `pulumi:"retryPolicy"`
-	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
+	// ARN of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
 	RoleArn *string `pulumi:"roleArn"`
 	// The name of the rule you want to add targets to.
 	//
@@ -1057,7 +1057,7 @@ type eventTargetState struct {
 type EventTargetState struct {
 	// Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
 	AppsyncTarget EventTargetAppsyncTargetPtrInput
-	// The Amazon Resource Name (ARN) of the target.
+	// ARN of the target.
 	Arn pulumi.StringPtrInput
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
 	BatchTarget EventTargetBatchTargetPtrInput
@@ -1086,7 +1086,7 @@ type EventTargetState struct {
 	Region pulumi.StringPtrInput
 	// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
 	RetryPolicy EventTargetRetryPolicyPtrInput
-	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
+	// ARN of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
 	RoleArn pulumi.StringPtrInput
 	// The name of the rule you want to add targets to.
 	//
@@ -1109,7 +1109,7 @@ func (EventTargetState) ElementType() reflect.Type {
 type eventTargetArgs struct {
 	// Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
 	AppsyncTarget *EventTargetAppsyncTarget `pulumi:"appsyncTarget"`
-	// The Amazon Resource Name (ARN) of the target.
+	// ARN of the target.
 	Arn string `pulumi:"arn"`
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
 	BatchTarget *EventTargetBatchTarget `pulumi:"batchTarget"`
@@ -1138,7 +1138,7 @@ type eventTargetArgs struct {
 	Region *string `pulumi:"region"`
 	// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
 	RetryPolicy *EventTargetRetryPolicy `pulumi:"retryPolicy"`
-	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
+	// ARN of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
 	RoleArn *string `pulumi:"roleArn"`
 	// The name of the rule you want to add targets to.
 	//
@@ -1158,7 +1158,7 @@ type eventTargetArgs struct {
 type EventTargetArgs struct {
 	// Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
 	AppsyncTarget EventTargetAppsyncTargetPtrInput
-	// The Amazon Resource Name (ARN) of the target.
+	// ARN of the target.
 	Arn pulumi.StringInput
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
 	BatchTarget EventTargetBatchTargetPtrInput
@@ -1187,7 +1187,7 @@ type EventTargetArgs struct {
 	Region pulumi.StringPtrInput
 	// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
 	RetryPolicy EventTargetRetryPolicyPtrInput
-	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
+	// ARN of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
 	RoleArn pulumi.StringPtrInput
 	// The name of the rule you want to add targets to.
 	//
@@ -1295,7 +1295,7 @@ func (o EventTargetOutput) AppsyncTarget() EventTargetAppsyncTargetPtrOutput {
 	return o.ApplyT(func(v *EventTarget) EventTargetAppsyncTargetPtrOutput { return v.AppsyncTarget }).(EventTargetAppsyncTargetPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the target.
+// ARN of the target.
 func (o EventTargetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventTarget) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -1366,7 +1366,7 @@ func (o EventTargetOutput) RetryPolicy() EventTargetRetryPolicyPtrOutput {
 	return o.ApplyT(func(v *EventTarget) EventTargetRetryPolicyPtrOutput { return v.RetryPolicy }).(EventTargetRetryPolicyPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
+// ARN of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
 func (o EventTargetOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventTarget) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }

@@ -35,7 +35,7 @@ type RoleAssociation struct {
 	FeatureName pulumi.StringOutput `pulumi:"featureName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+	// ARN of the IAM Role to associate with the DB Instance.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 }
 
@@ -84,7 +84,7 @@ type roleAssociationState struct {
 	FeatureName *string `pulumi:"featureName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+	// ARN of the IAM Role to associate with the DB Instance.
 	RoleArn *string `pulumi:"roleArn"`
 }
 
@@ -95,7 +95,7 @@ type RoleAssociationState struct {
 	FeatureName pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+	// ARN of the IAM Role to associate with the DB Instance.
 	RoleArn pulumi.StringPtrInput
 }
 
@@ -110,7 +110,7 @@ type roleAssociationArgs struct {
 	FeatureName string `pulumi:"featureName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+	// ARN of the IAM Role to associate with the DB Instance.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -122,7 +122,7 @@ type RoleAssociationArgs struct {
 	FeatureName pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+	// ARN of the IAM Role to associate with the DB Instance.
 	RoleArn pulumi.StringInput
 }
 
@@ -228,7 +228,7 @@ func (o RoleAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+// ARN of the IAM Role to associate with the DB Instance.
 func (o RoleAssociationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleAssociation) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }

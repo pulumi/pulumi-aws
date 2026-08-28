@@ -80,16 +80,12 @@ public class TenantResourceAssociation extends com.pulumi.resources.CustomResour
     /**
      * ARN of the SES resource to associate with the tenant.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
      * @return ARN of the SES resource to associate with the tenant.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> resourceArn() {
@@ -98,12 +94,16 @@ public class TenantResourceAssociation extends com.pulumi.resources.CustomResour
     /**
      * Name of SES Tenant.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="tenantName", refs={String.class}, tree="[0]")
     private Output<String> tenantName;
 
     /**
      * @return Name of SES Tenant.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> tenantName() {

@@ -85,7 +85,7 @@ export interface GetSecretResult {
      */
     readonly id: string;
     /**
-     * Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
+     * KMS Customer Master Key (CMK) associated with the secret.
      */
     readonly kmsKeyId: string;
     /**

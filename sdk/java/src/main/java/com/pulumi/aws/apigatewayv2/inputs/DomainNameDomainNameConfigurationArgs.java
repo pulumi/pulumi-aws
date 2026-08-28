@@ -92,14 +92,14 @@ public final class DomainNameDomainNameConfigurationArgs extends com.pulumi.reso
     }
 
     /**
-     * Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
+     * TLS version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
      * 
      */
     @Import(name="securityPolicy", required=true)
     private Output<String> securityPolicy;
 
     /**
-     * @return Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
+     * @return TLS version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
      * 
      */
     public Output<String> securityPolicy() {
@@ -257,7 +257,7 @@ public final class DomainNameDomainNameConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param securityPolicy Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
+         * @param securityPolicy TLS version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class DomainNameDomainNameConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param securityPolicy Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
+         * @param securityPolicy TLS version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
          * 
          * @return builder
          * 

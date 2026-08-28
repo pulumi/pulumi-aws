@@ -160,7 +160,7 @@ namespace Pulumi.Aws.Observabilityadmin
     public partial class S3TableIntegration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the S3 Table integration.
+        /// ARN of the S3 Table integration.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.Observabilityadmin
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM role that grants the S3 Table integration permissions to access necessary resources.
+        /// ARN of the IAM role that grants the S3 Table integration permissions to access necessary resources.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.Observabilityadmin
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM role that grants the S3 Table integration permissions to access necessary resources.
+        /// ARN of the IAM role that grants the S3 Table integration permissions to access necessary resources.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -292,7 +292,7 @@ namespace Pulumi.Aws.Observabilityadmin
     public sealed class S3TableIntegrationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the S3 Table integration.
+        /// ARN of the S3 Table integration.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -316,7 +316,7 @@ namespace Pulumi.Aws.Observabilityadmin
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM role that grants the S3 Table integration permissions to access necessary resources.
+        /// ARN of the IAM role that grants the S3 Table integration permissions to access necessary resources.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

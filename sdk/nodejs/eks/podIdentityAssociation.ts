@@ -124,7 +124,7 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the association.
+     * ARN of the association.
      */
     declare public /*out*/ readonly associationArn: pulumi.Output<string>;
     /**
@@ -156,7 +156,7 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+     * ARN of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
@@ -174,7 +174,7 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `roleArn`.
+     * ARN of the IAM role to be chained to the the IAM role specified as `roleArn`.
      */
     declare public readonly targetRoleArn: pulumi.Output<string | undefined>;
 
@@ -242,7 +242,7 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
  */
 export interface PodIdentityAssociationState {
     /**
-     * The Amazon Resource Name (ARN) of the association.
+     * ARN of the association.
      */
     associationArn?: pulumi.Input<string | undefined>;
     /**
@@ -274,7 +274,7 @@ export interface PodIdentityAssociationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+     * ARN of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
@@ -292,7 +292,7 @@ export interface PodIdentityAssociationState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `roleArn`.
+     * ARN of the IAM role to be chained to the the IAM role specified as `roleArn`.
      */
     targetRoleArn?: pulumi.Input<string | undefined>;
 }
@@ -322,7 +322,7 @@ export interface PodIdentityAssociationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+     * ARN of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
      */
     roleArn: pulumi.Input<string>;
     /**
@@ -336,7 +336,7 @@ export interface PodIdentityAssociationArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `roleArn`.
+     * ARN of the IAM role to be chained to the the IAM role specified as `roleArn`.
      */
     targetRoleArn?: pulumi.Input<string | undefined>;
 }

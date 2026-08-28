@@ -51,7 +51,7 @@ export class ProxyDefaultTargetGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) representing the target group.
+     * ARN representing the target group.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -110,7 +110,7 @@ export class ProxyDefaultTargetGroup extends pulumi.CustomResource {
  */
 export interface ProxyDefaultTargetGroupState {
     /**
-     * The Amazon Resource Name (ARN) representing the target group.
+     * ARN representing the target group.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

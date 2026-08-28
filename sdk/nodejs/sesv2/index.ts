@@ -80,6 +80,11 @@ export const getEmailIdentityMailFromAttributes: typeof import("./getEmailIdenti
 export const getEmailIdentityMailFromAttributesOutput: typeof import("./getEmailIdentityMailFromAttributes").getEmailIdentityMailFromAttributesOutput = null as any;
 utilities.lazyLoad(exports, ["getEmailIdentityMailFromAttributes","getEmailIdentityMailFromAttributesOutput"], () => require("./getEmailIdentityMailFromAttributes"));
 
+export { MultiRegionEndpointArgs, MultiRegionEndpointState } from "./multiRegionEndpoint";
+export type MultiRegionEndpoint = import("./multiRegionEndpoint").MultiRegionEndpoint;
+export const MultiRegionEndpoint: typeof import("./multiRegionEndpoint").MultiRegionEndpoint = null as any;
+utilities.lazyLoad(exports, ["MultiRegionEndpoint"], () => require("./multiRegionEndpoint"));
+
 export { TenantArgs, TenantState } from "./tenant";
 export type Tenant = import("./tenant").Tenant;
 export const Tenant: typeof import("./tenant").Tenant = null as any;
@@ -117,6 +122,8 @@ const _module = {
                 return new EmailIdentityMailFromAttributes(name, <any>undefined, { urn })
             case "aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy":
                 return new EmailIdentityPolicy(name, <any>undefined, { urn })
+            case "aws:sesv2/multiRegionEndpoint:MultiRegionEndpoint":
+                return new MultiRegionEndpoint(name, <any>undefined, { urn })
             case "aws:sesv2/tenant:Tenant":
                 return new Tenant(name, <any>undefined, { urn })
             case "aws:sesv2/tenantResourceAssociation:TenantResourceAssociation":
@@ -137,5 +144,6 @@ pulumi.runtime.registerResourceModule("aws", "sesv2/emailIdentity", _module)
 pulumi.runtime.registerResourceModule("aws", "sesv2/emailIdentityFeedbackAttributes", _module)
 pulumi.runtime.registerResourceModule("aws", "sesv2/emailIdentityMailFromAttributes", _module)
 pulumi.runtime.registerResourceModule("aws", "sesv2/emailIdentityPolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "sesv2/multiRegionEndpoint", _module)
 pulumi.runtime.registerResourceModule("aws", "sesv2/tenant", _module)
 pulumi.runtime.registerResourceModule("aws", "sesv2/tenantResourceAssociation", _module)

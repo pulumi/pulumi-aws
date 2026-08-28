@@ -255,14 +255,14 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.kerberosAuthenticationSettings);
     }
     /**
-     * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      * 
      */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     * @return ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      * 
      */
     public Output<String> kmsKeyArn() {
@@ -339,14 +339,14 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) of the replication instance.
+     * ARN of the replication instance.
      * 
      */
     @Export(name="replicationInstanceArn", refs={String.class}, tree="[0]")
     private Output<String> replicationInstanceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the replication instance.
+     * @return ARN of the replication instance.
      * 
      */
     public Output<String> replicationInstanceArn() {

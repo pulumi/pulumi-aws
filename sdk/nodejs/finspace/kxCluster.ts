@@ -95,7 +95,7 @@ export class KxCluster extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) identifier of the KX cluster.
+     * ARN identifier of the KX cluster.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -300,7 +300,7 @@ export class KxCluster extends pulumi.CustomResource {
  */
 export interface KxClusterState {
     /**
-     * Amazon Resource Name (ARN) identifier of the KX cluster.
+     * ARN identifier of the KX cluster.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

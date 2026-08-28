@@ -97,7 +97,7 @@ export class VpcIpam extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of IPAM
+     * ARN of IPAM
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -217,7 +217,7 @@ export class VpcIpam extends pulumi.CustomResource {
  */
 export interface VpcIpamState {
     /**
-     * Amazon Resource Name (ARN) of IPAM
+     * ARN of IPAM
      */
     arn?: pulumi.Input<string | undefined>;
     /**

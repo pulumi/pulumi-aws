@@ -144,7 +144,7 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the listener.
+        /// ID or ARN of the listener.
         /// </summary>
         [Output("listenerIdentifier")]
         public Output<string> ListenerIdentifier { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> RuleId { get; private set; } = null!;
 
         /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the service.
+        /// ID or ARN of the service.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -252,7 +252,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<Inputs.ListenerRuleActionArgs> Action { get; set; } = null!;
 
         /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the listener.
+        /// ID or ARN of the listener.
         /// </summary>
         [Input("listenerIdentifier", required: true)]
         public Input<string> ListenerIdentifier { get; set; } = null!;
@@ -282,7 +282,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the service.
+        /// ID or ARN of the service.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -322,7 +322,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the listener.
+        /// ID or ARN of the listener.
         /// </summary>
         [Input("listenerIdentifier")]
         public Input<string>? ListenerIdentifier { get; set; }
@@ -358,7 +358,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? RuleId { get; set; }
 
         /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the service.
+        /// ID or ARN of the service.
         /// 
         /// The following arguments are optional:
         /// </summary>

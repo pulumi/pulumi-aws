@@ -221,7 +221,7 @@ class _UserState:
         """
         Input properties used for looking up and filtering User resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the user.
+        :param pulumi.Input[_builtins.str] arn: ARN of the user.
         :param pulumi.Input[_builtins.str] directory_user_id: The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
         :param pulumi.Input[_builtins.str] hierarchy_group_id: The identifier of the hierarchy group for the user.
         :param pulumi.Input['UserIdentityInfoArgs'] identity_info: A block that contains information about the identity of the user. Documented below.
@@ -270,7 +270,7 @@ class _UserState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the user.
+        ARN of the user.
         """
         return pulumi.get(self, "arn")
 
@@ -815,7 +815,7 @@ class User(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the user.
+        :param pulumi.Input[_builtins.str] arn: ARN of the user.
         :param pulumi.Input[_builtins.str] directory_user_id: The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
         :param pulumi.Input[_builtins.str] hierarchy_group_id: The identifier of the hierarchy group for the user.
         :param pulumi.Input[Union['UserIdentityInfoArgs', 'UserIdentityInfoArgsDict']] identity_info: A block that contains information about the identity of the user. Documented below.
@@ -855,7 +855,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the user.
+        ARN of the user.
         """
         return pulumi.get(self, "arn")
 

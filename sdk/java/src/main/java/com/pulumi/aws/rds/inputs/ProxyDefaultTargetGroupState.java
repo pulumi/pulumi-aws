@@ -17,14 +17,14 @@ public final class ProxyDefaultTargetGroupState extends com.pulumi.resources.Res
     public static final ProxyDefaultTargetGroupState Empty = new ProxyDefaultTargetGroupState();
 
     /**
-     * The Amazon Resource Name (ARN) representing the target group.
+     * ARN representing the target group.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) representing the target group.
+     * @return ARN representing the target group.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -120,7 +120,7 @@ public final class ProxyDefaultTargetGroupState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) representing the target group.
+         * @param arn ARN representing the target group.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ProxyDefaultTargetGroupState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) representing the target group.
+         * @param arn ARN representing the target group.
          * 
          * @return builder
          * 

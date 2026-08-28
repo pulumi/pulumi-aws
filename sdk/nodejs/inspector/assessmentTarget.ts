@@ -29,9 +29,9 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the Inspector assessment target.
+ * - `arn` (String) ARN of the Inspector assessment target.
  *
- * Using `pulumi import`, import Inspector Classic Assessment Targets using their Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import Inspector Classic Assessment Targets using their ARN. For example:
  *
  * ```sh
  * $ pulumi import aws:inspector/assessmentTarget:AssessmentTarget example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
@@ -78,7 +78,7 @@ export class AssessmentTarget extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+     * Inspector Resource Group ARN stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
      */
     declare public readonly resourceGroupArn: pulumi.Output<string | undefined>;
 
@@ -128,7 +128,7 @@ export interface AssessmentTargetState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+     * Inspector Resource Group ARN stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
      */
     resourceGroupArn?: pulumi.Input<string | undefined>;
 }
@@ -146,7 +146,7 @@ export interface AssessmentTargetArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+     * Inspector Resource Group ARN stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
      */
     resourceGroupArn?: pulumi.Input<string | undefined>;
 }

@@ -22,14 +22,14 @@ public final class FileCacheState extends com.pulumi.resources.ResourceArgs {
     public static final FileCacheState Empty = new FileCacheState();
 
     /**
-     * Amazon Resource Name (ARN) of the cache.
+     * ARN of the cache.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the cache.
+     * @return ARN of the cache.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -82,14 +82,14 @@ public final class FileCacheState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Domain Name System (DNS) name for the cache.
+     * DNS name for the cache.
      * 
      */
     @Import(name="dnsName")
     private @Nullable Output<String> dnsName;
 
     /**
-     * @return Domain Name System (DNS) name for the cache.
+     * @return DNS name for the cache.
      * 
      */
     public Optional<Output<String>> dnsName() {
@@ -142,14 +142,14 @@ public final class FileCacheState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ID of the AWS Key Management Service (KMS) key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
+     * ID of the KMS key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return ID of the AWS Key Management Service (KMS) key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
+     * @return ID of the KMS key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -284,14 +284,14 @@ public final class FileCacheState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ID of your virtual private cloud (VPC).
+     * ID of your VPC.
      * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return ID of your virtual private cloud (VPC).
+     * @return ID of your VPC.
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -341,7 +341,7 @@ public final class FileCacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the cache.
+         * @param arn ARN of the cache.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class FileCacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the cache.
+         * @param arn ARN of the cache.
          * 
          * @return builder
          * 
@@ -445,7 +445,7 @@ public final class FileCacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsName Domain Name System (DNS) name for the cache.
+         * @param dnsName DNS name for the cache.
          * 
          * @return builder
          * 
@@ -456,7 +456,7 @@ public final class FileCacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsName Domain Name System (DNS) name for the cache.
+         * @param dnsName DNS name for the cache.
          * 
          * @return builder
          * 
@@ -529,7 +529,7 @@ public final class FileCacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId ID of the AWS Key Management Service (KMS) key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
+         * @param kmsKeyId ID of the KMS key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
          * 
          * @return builder
          * 
@@ -540,7 +540,7 @@ public final class FileCacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId ID of the AWS Key Management Service (KMS) key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
+         * @param kmsKeyId ID of the KMS key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
          * 
          * @return builder
          * 
@@ -767,7 +767,7 @@ public final class FileCacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId ID of your virtual private cloud (VPC).
+         * @param vpcId ID of your VPC.
          * 
          * @return builder
          * 
@@ -778,7 +778,7 @@ public final class FileCacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId ID of your virtual private cloud (VPC).
+         * @param vpcId ID of your VPC.
          * 
          * @return builder
          * 

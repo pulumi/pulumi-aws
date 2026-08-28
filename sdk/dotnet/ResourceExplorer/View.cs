@@ -58,7 +58,7 @@ namespace Pulumi.Aws.ResourceExplorer
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Resource Explorer view.
+    /// - `Arn` (String) ARN of the Resource Explorer view.
     /// 
     /// Using `pulumi import`, import Resource Explorer views using the `Arn`. For example:
     /// 
@@ -70,7 +70,7 @@ namespace Pulumi.Aws.ResourceExplorer
     public partial class View : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Resource Explorer view.
+        /// ARN of the Resource Explorer view.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -232,7 +232,7 @@ namespace Pulumi.Aws.ResourceExplorer
     public sealed class ViewState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Resource Explorer view.
+        /// ARN of the Resource Explorer view.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

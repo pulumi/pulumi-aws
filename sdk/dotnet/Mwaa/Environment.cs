@@ -233,13 +233,13 @@ namespace Pulumi.Aws.Mwaa
         public Output<string> EnvironmentClass { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
+        /// ARN of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
         /// </summary>
         [Output("executionRoleArn")]
         public Output<string> ExecutionRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
+        /// ARN of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
         /// </summary>
         [Output("kmsKey")]
         public Output<string?> KmsKey { get; private set; } = null!;
@@ -332,7 +332,7 @@ namespace Pulumi.Aws.Mwaa
         public Output<string> ServiceRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
+        /// ARN of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
         /// </summary>
         [Output("sourceBucketArn")]
         public Output<string> SourceBucketArn { get; private set; } = null!;
@@ -488,13 +488,13 @@ namespace Pulumi.Aws.Mwaa
         public Input<string>? EnvironmentClass { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
+        /// ARN of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
         /// </summary>
         [Input("executionRoleArn", required: true)]
         public Input<string> ExecutionRoleArn { get; set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
+        /// ARN of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
         /// </summary>
         [Input("kmsKey")]
         public Input<string>? KmsKey { get; set; }
@@ -578,7 +578,7 @@ namespace Pulumi.Aws.Mwaa
         public Input<int>? Schedulers { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
+        /// ARN of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
         /// </summary>
         [Input("sourceBucketArn", required: true)]
         public Input<string> SourceBucketArn { get; set; } = null!;
@@ -693,13 +693,13 @@ namespace Pulumi.Aws.Mwaa
         public Input<string>? EnvironmentClass { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
+        /// ARN of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
         /// </summary>
         [Input("executionRoleArn")]
         public Input<string>? ExecutionRoleArn { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
+        /// ARN of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
         /// </summary>
         [Input("kmsKey")]
         public Input<string>? KmsKey { get; set; }
@@ -797,7 +797,7 @@ namespace Pulumi.Aws.Mwaa
         public Input<string>? ServiceRoleArn { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
+        /// ARN of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
         /// </summary>
         [Input("sourceBucketArn")]
         public Input<string>? SourceBucketArn { get; set; }

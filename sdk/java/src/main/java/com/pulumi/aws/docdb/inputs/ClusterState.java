@@ -57,14 +57,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of cluster
+     * ARN of cluster
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of cluster
+     * @return ARN of cluster
      * 
      */
     public Optional<Output<String>> arn() {
@@ -770,7 +770,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of cluster
+         * @param arn ARN of cluster
          * 
          * @return builder
          * 
@@ -781,7 +781,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of cluster
+         * @param arn ARN of cluster
          * 
          * @return builder
          * 

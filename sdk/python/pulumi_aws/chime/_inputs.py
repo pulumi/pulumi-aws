@@ -65,7 +65,7 @@ class SdkvoiceGlobalSettingsVoiceConnectorArgs:
 class SdkvoiceSipMediaApplicationEndpointsArgsDict(TypedDict):
     lambda_arn: pulumi.Input[_builtins.str]
     """
-    Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
+    Valid ARN of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
     """
 
 @pulumi.input_type
@@ -73,7 +73,7 @@ class SdkvoiceSipMediaApplicationEndpointsArgs:
     def __init__(__self__, *,
                  lambda_arn: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] lambda_arn: Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
+        :param pulumi.Input[_builtins.str] lambda_arn: Valid ARN of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
         """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
 
@@ -81,7 +81,7 @@ class SdkvoiceSipMediaApplicationEndpointsArgs:
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
+        Valid ARN of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
         """
         return pulumi.get(self, "lambda_arn")
 

@@ -80,14 +80,14 @@ public class EndpointAccess extends com.pulumi.resources.CustomResource {
         return this.address;
     }
     /**
-     * Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
+     * ARN of the Redshift Serverless Endpoint Access.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
+     * @return ARN of the Redshift Serverless Endpoint Access.
      * 
      */
     public Output<String> arn() {

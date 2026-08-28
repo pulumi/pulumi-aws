@@ -511,7 +511,7 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the CloudTrail trail.
+    /// - `Arn` (String) ARN of the CloudTrail trail.
     /// 
     /// Using `pulumi import`, import Cloudtrails using the `Arn`. For example:
     /// 

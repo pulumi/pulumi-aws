@@ -63,12 +63,12 @@ export class TenantResourceAssociation extends pulumi.CustomResource {
     declare public readonly region: pulumi.Output<string>;
     /**
      * ARN of the SES resource to associate with the tenant.
-     *
-     * The following arguments are optional:
      */
     declare public readonly resourceArn: pulumi.Output<string>;
     /**
      * Name of SES Tenant.
+     *
+     * The following arguments are optional:
      */
     declare public readonly tenantName: pulumi.Output<string>;
 
@@ -115,12 +115,12 @@ export interface TenantResourceAssociationState {
     region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the SES resource to associate with the tenant.
-     *
-     * The following arguments are optional:
      */
     resourceArn?: pulumi.Input<string | undefined>;
     /**
      * Name of SES Tenant.
+     *
+     * The following arguments are optional:
      */
     tenantName?: pulumi.Input<string | undefined>;
 }
@@ -135,12 +135,12 @@ export interface TenantResourceAssociationArgs {
     region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the SES resource to associate with the tenant.
-     *
-     * The following arguments are optional:
      */
     resourceArn: pulumi.Input<string>;
     /**
      * Name of SES Tenant.
+     *
+     * The following arguments are optional:
      */
     tenantName: pulumi.Input<string>;
 }

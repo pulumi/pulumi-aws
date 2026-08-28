@@ -514,14 +514,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:networkfirewall/ruleGroup:RuleGroup")
 public class RuleGroup extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) that identifies the rule group.
+     * ARN that identifies the rule group.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) that identifies the rule group.
+     * @return ARN that identifies the rule group.
      * 
      */
     public Output<String> arn() {

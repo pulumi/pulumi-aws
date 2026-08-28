@@ -59,7 +59,7 @@ class GetParametersByPathResult:
     @pulumi.getter
     def arns(self) -> Sequence[_builtins.str]:
         """
-        A list that contains the Amazon Resource Names (ARNs) of the retrieved parameters.
+        List that contains the ARNs of the retrieved parameters.
         """
         return pulumi.get(self, "arns")
 

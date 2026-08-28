@@ -17,14 +17,14 @@ public final class ContactFlowModuleState extends com.pulumi.resources.ResourceA
     public static final ContactFlowModuleState Empty = new ContactFlowModuleState();
 
     /**
-     * The Amazon Resource Name (ARN) of the Contact Flow Module.
+     * ARN of the Contact Flow Module.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Contact Flow Module.
+     * @return ARN of the Contact Flow Module.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -216,7 +216,7 @@ public final class ContactFlowModuleState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Contact Flow Module.
+         * @param arn ARN of the Contact Flow Module.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class ContactFlowModuleState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Contact Flow Module.
+         * @param arn ARN of the Contact Flow Module.
          * 
          * @return builder
          * 

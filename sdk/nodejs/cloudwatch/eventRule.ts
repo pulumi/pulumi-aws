@@ -93,7 +93,7 @@ export class EventRule extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the rule.
+     * ARN of the rule.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -131,7 +131,7 @@ export class EventRule extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
+     * ARN associated with the role that is used for target invocation.
      */
     declare public readonly roleArn: pulumi.Output<string | undefined>;
     /**
@@ -207,7 +207,7 @@ export class EventRule extends pulumi.CustomResource {
  */
 export interface EventRuleState {
     /**
-     * The Amazon Resource Name (ARN) of the rule.
+     * ARN of the rule.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -245,7 +245,7 @@ export interface EventRuleState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
+     * ARN associated with the role that is used for target invocation.
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
@@ -307,7 +307,7 @@ export interface EventRuleArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
+     * ARN associated with the role that is used for target invocation.
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**

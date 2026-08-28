@@ -99,11 +99,11 @@ import (
 type ReplicaKey struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
+	// ARN of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A flag to indicate whether to bypass the key policy lockout safety check.
 	// Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-	// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
+	// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
 	// The default value is `false`.
 	BypassPolicyLockoutSafetyCheck pulumi.BoolPtrOutput `pulumi:"bypassPolicyLockoutSafetyCheck"`
 	// The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
@@ -166,11 +166,11 @@ func GetReplicaKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReplicaKey resources.
 type replicaKeyState struct {
-	// The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
+	// ARN of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
 	Arn *string `pulumi:"arn"`
 	// A flag to indicate whether to bypass the key policy lockout safety check.
 	// Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-	// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
+	// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
 	// The default value is `false`.
 	BypassPolicyLockoutSafetyCheck *bool `pulumi:"bypassPolicyLockoutSafetyCheck"`
 	// The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
@@ -201,11 +201,11 @@ type replicaKeyState struct {
 }
 
 type ReplicaKeyState struct {
-	// The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
+	// ARN of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
 	Arn pulumi.StringPtrInput
 	// A flag to indicate whether to bypass the key policy lockout safety check.
 	// Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-	// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
+	// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
 	// The default value is `false`.
 	BypassPolicyLockoutSafetyCheck pulumi.BoolPtrInput
 	// The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
@@ -242,7 +242,7 @@ func (ReplicaKeyState) ElementType() reflect.Type {
 type replicaKeyArgs struct {
 	// A flag to indicate whether to bypass the key policy lockout safety check.
 	// Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-	// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
+	// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
 	// The default value is `false`.
 	BypassPolicyLockoutSafetyCheck *bool `pulumi:"bypassPolicyLockoutSafetyCheck"`
 	// The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
@@ -266,7 +266,7 @@ type replicaKeyArgs struct {
 type ReplicaKeyArgs struct {
 	// A flag to indicate whether to bypass the key policy lockout safety check.
 	// Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-	// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
+	// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
 	// The default value is `false`.
 	BypassPolicyLockoutSafetyCheck pulumi.BoolPtrInput
 	// The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
@@ -373,14 +373,14 @@ func (o ReplicaKeyOutput) ToReplicaKeyOutputWithContext(ctx context.Context) Rep
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
+// ARN of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
 func (o ReplicaKeyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicaKey) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // A flag to indicate whether to bypass the key policy lockout safety check.
 // Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
+// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
 // The default value is `false`.
 func (o ReplicaKeyOutput) BypassPolicyLockoutSafetyCheck() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ReplicaKey) pulumi.BoolPtrOutput { return v.BypassPolicyLockoutSafetyCheck }).(pulumi.BoolPtrOutput)

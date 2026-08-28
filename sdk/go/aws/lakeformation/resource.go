@@ -54,7 +54,7 @@ import (
 type Resource struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the resource.
+	// ARN of the resource.
 	//
 	// The following arguments are optional:
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -109,7 +109,7 @@ func GetResource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Resource resources.
 type resourceState struct {
-	// Amazon Resource Name (ARN) of the resource.
+	// ARN of the resource.
 	//
 	// The following arguments are optional:
 	Arn *string `pulumi:"arn"`
@@ -132,7 +132,7 @@ type resourceState struct {
 }
 
 type ResourceState struct {
-	// Amazon Resource Name (ARN) of the resource.
+	// ARN of the resource.
 	//
 	// The following arguments are optional:
 	Arn pulumi.StringPtrInput
@@ -159,7 +159,7 @@ func (ResourceState) ElementType() reflect.Type {
 }
 
 type resourceArgs struct {
-	// Amazon Resource Name (ARN) of the resource.
+	// ARN of the resource.
 	//
 	// The following arguments are optional:
 	Arn string `pulumi:"arn"`
@@ -181,7 +181,7 @@ type resourceArgs struct {
 
 // The set of arguments for constructing a Resource resource.
 type ResourceArgs struct {
-	// Amazon Resource Name (ARN) of the resource.
+	// ARN of the resource.
 	//
 	// The following arguments are optional:
 	Arn pulumi.StringInput
@@ -288,7 +288,7 @@ func (o ResourceOutput) ToResourceOutputWithContext(ctx context.Context) Resourc
 	return o
 }
 
-// Amazon Resource Name (ARN) of the resource.
+// ARN of the resource.
 //
 // The following arguments are optional:
 func (o ResourceOutput) Arn() pulumi.StringOutput {

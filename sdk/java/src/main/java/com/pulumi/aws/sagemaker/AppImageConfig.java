@@ -168,14 +168,14 @@ public class AppImageConfig extends com.pulumi.resources.CustomResource {
         return this.appImageConfigName;
     }
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
+     * ARN assigned by AWS to this App Image Config.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
+     * @return ARN assigned by AWS to this App Image Config.
      * 
      */
     public Output<String> arn() {

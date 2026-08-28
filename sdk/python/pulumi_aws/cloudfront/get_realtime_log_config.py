@@ -51,7 +51,7 @@ class GetRealtimeLogConfigResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+        ARN of the CloudFront real-time log configuration.
         """
         return pulumi.get(self, "arn")
 

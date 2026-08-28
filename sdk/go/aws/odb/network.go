@@ -94,7 +94,7 @@ import (
 type Network struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the odb network resource.
+	// ARN of the odb network resource.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `availabilityZone` maps correctly with `availabilityZoneId`.
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
@@ -212,7 +212,7 @@ func GetNetwork(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Network resources.
 type networkState struct {
-	// Amazon Resource Name (ARN) of the odb network resource.
+	// ARN of the odb network resource.
 	Arn *string `pulumi:"arn"`
 	// Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `availabilityZone` maps correctly with `availabilityZoneId`.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
@@ -283,7 +283,7 @@ type networkState struct {
 }
 
 type NetworkState struct {
-	// Amazon Resource Name (ARN) of the odb network resource.
+	// ARN of the odb network resource.
 	Arn pulumi.StringPtrInput
 	// Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `availabilityZone` maps correctly with `availabilityZoneId`.
 	AvailabilityZone pulumi.StringPtrInput
@@ -529,7 +529,7 @@ func (o NetworkOutput) ToNetworkOutputWithContext(ctx context.Context) NetworkOu
 	return o
 }
 
-// Amazon Resource Name (ARN) of the odb network resource.
+// ARN of the odb network resource.
 func (o NetworkOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

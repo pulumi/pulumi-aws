@@ -87,7 +87,7 @@ import (
 type FileCache struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the cache.
+	// ARN of the cache.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Whether to copy tags for the cache to data repository associations. Defaults to `false`.
 	CopyTagsToDataRepositoryAssociations pulumi.BoolPtrOutput `pulumi:"copyTagsToDataRepositoryAssociations"`
@@ -95,7 +95,7 @@ type FileCache struct {
 	DataRepositoryAssociationIds pulumi.StringArrayOutput `pulumi:"dataRepositoryAssociationIds"`
 	// Configurations for up to 8 data repository associations (DRAs) to create during cache creation. All configurations must be of the same data repository type, either all S3 or all NFS. Maximum of 8. See `dataRepositoryAssociation` Block below.
 	DataRepositoryAssociations FileCacheDataRepositoryAssociationArrayOutput `pulumi:"dataRepositoryAssociations"`
-	// Domain Name System (DNS) name for the cache.
+	// DNS name for the cache.
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
 	// System-generated, unique ID of the cache.
 	FileCacheId pulumi.StringOutput `pulumi:"fileCacheId"`
@@ -103,7 +103,7 @@ type FileCache struct {
 	FileCacheType pulumi.StringOutput `pulumi:"fileCacheType"`
 	// Version for the type of cache to create. The only supported value is `2.12`.
 	FileCacheTypeVersion pulumi.StringOutput `pulumi:"fileCacheTypeVersion"`
-	// ID of the AWS Key Management Service (KMS) key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
+	// ID of the KMS key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// Configuration for the Lustre cache. Required when `fileCacheType` is `LUSTRE`. See `lustreConfiguration` Block below.
 	LustreConfigurations FileCacheLustreConfigurationArrayOutput `pulumi:"lustreConfigurations"`
@@ -122,7 +122,7 @@ type FileCache struct {
 	// Map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// ID of your virtual private cloud (VPC).
+	// ID of your VPC.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
@@ -168,7 +168,7 @@ func GetFileCache(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FileCache resources.
 type fileCacheState struct {
-	// Amazon Resource Name (ARN) of the cache.
+	// ARN of the cache.
 	Arn *string `pulumi:"arn"`
 	// Whether to copy tags for the cache to data repository associations. Defaults to `false`.
 	CopyTagsToDataRepositoryAssociations *bool `pulumi:"copyTagsToDataRepositoryAssociations"`
@@ -176,7 +176,7 @@ type fileCacheState struct {
 	DataRepositoryAssociationIds []string `pulumi:"dataRepositoryAssociationIds"`
 	// Configurations for up to 8 data repository associations (DRAs) to create during cache creation. All configurations must be of the same data repository type, either all S3 or all NFS. Maximum of 8. See `dataRepositoryAssociation` Block below.
 	DataRepositoryAssociations []FileCacheDataRepositoryAssociation `pulumi:"dataRepositoryAssociations"`
-	// Domain Name System (DNS) name for the cache.
+	// DNS name for the cache.
 	DnsName *string `pulumi:"dnsName"`
 	// System-generated, unique ID of the cache.
 	FileCacheId *string `pulumi:"fileCacheId"`
@@ -184,7 +184,7 @@ type fileCacheState struct {
 	FileCacheType *string `pulumi:"fileCacheType"`
 	// Version for the type of cache to create. The only supported value is `2.12`.
 	FileCacheTypeVersion *string `pulumi:"fileCacheTypeVersion"`
-	// ID of the AWS Key Management Service (KMS) key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
+	// ID of the KMS key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Configuration for the Lustre cache. Required when `fileCacheType` is `LUSTRE`. See `lustreConfiguration` Block below.
 	LustreConfigurations []FileCacheLustreConfiguration `pulumi:"lustreConfigurations"`
@@ -203,12 +203,12 @@ type fileCacheState struct {
 	// Map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// ID of your virtual private cloud (VPC).
+	// ID of your VPC.
 	VpcId *string `pulumi:"vpcId"`
 }
 
 type FileCacheState struct {
-	// Amazon Resource Name (ARN) of the cache.
+	// ARN of the cache.
 	Arn pulumi.StringPtrInput
 	// Whether to copy tags for the cache to data repository associations. Defaults to `false`.
 	CopyTagsToDataRepositoryAssociations pulumi.BoolPtrInput
@@ -216,7 +216,7 @@ type FileCacheState struct {
 	DataRepositoryAssociationIds pulumi.StringArrayInput
 	// Configurations for up to 8 data repository associations (DRAs) to create during cache creation. All configurations must be of the same data repository type, either all S3 or all NFS. Maximum of 8. See `dataRepositoryAssociation` Block below.
 	DataRepositoryAssociations FileCacheDataRepositoryAssociationArrayInput
-	// Domain Name System (DNS) name for the cache.
+	// DNS name for the cache.
 	DnsName pulumi.StringPtrInput
 	// System-generated, unique ID of the cache.
 	FileCacheId pulumi.StringPtrInput
@@ -224,7 +224,7 @@ type FileCacheState struct {
 	FileCacheType pulumi.StringPtrInput
 	// Version for the type of cache to create. The only supported value is `2.12`.
 	FileCacheTypeVersion pulumi.StringPtrInput
-	// ID of the AWS Key Management Service (KMS) key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
+	// ID of the KMS key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
 	KmsKeyId pulumi.StringPtrInput
 	// Configuration for the Lustre cache. Required when `fileCacheType` is `LUSTRE`. See `lustreConfiguration` Block below.
 	LustreConfigurations FileCacheLustreConfigurationArrayInput
@@ -243,7 +243,7 @@ type FileCacheState struct {
 	// Map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
-	// ID of your virtual private cloud (VPC).
+	// ID of your VPC.
 	VpcId pulumi.StringPtrInput
 }
 
@@ -260,7 +260,7 @@ type fileCacheArgs struct {
 	FileCacheType string `pulumi:"fileCacheType"`
 	// Version for the type of cache to create. The only supported value is `2.12`.
 	FileCacheTypeVersion string `pulumi:"fileCacheTypeVersion"`
-	// ID of the AWS Key Management Service (KMS) key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
+	// ID of the KMS key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Configuration for the Lustre cache. Required when `fileCacheType` is `LUSTRE`. See `lustreConfiguration` Block below.
 	LustreConfigurations []FileCacheLustreConfiguration `pulumi:"lustreConfigurations"`
@@ -286,7 +286,7 @@ type FileCacheArgs struct {
 	FileCacheType pulumi.StringInput
 	// Version for the type of cache to create. The only supported value is `2.12`.
 	FileCacheTypeVersion pulumi.StringInput
-	// ID of the AWS Key Management Service (KMS) key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
+	// ID of the KMS key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
 	KmsKeyId pulumi.StringPtrInput
 	// Configuration for the Lustre cache. Required when `fileCacheType` is `LUSTRE`. See `lustreConfiguration` Block below.
 	LustreConfigurations FileCacheLustreConfigurationArrayInput
@@ -389,7 +389,7 @@ func (o FileCacheOutput) ToFileCacheOutputWithContext(ctx context.Context) FileC
 	return o
 }
 
-// Amazon Resource Name (ARN) of the cache.
+// ARN of the cache.
 func (o FileCacheOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileCache) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -409,7 +409,7 @@ func (o FileCacheOutput) DataRepositoryAssociations() FileCacheDataRepositoryAss
 	return o.ApplyT(func(v *FileCache) FileCacheDataRepositoryAssociationArrayOutput { return v.DataRepositoryAssociations }).(FileCacheDataRepositoryAssociationArrayOutput)
 }
 
-// Domain Name System (DNS) name for the cache.
+// DNS name for the cache.
 func (o FileCacheOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileCache) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
 }
@@ -429,7 +429,7 @@ func (o FileCacheOutput) FileCacheTypeVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileCache) pulumi.StringOutput { return v.FileCacheTypeVersion }).(pulumi.StringOutput)
 }
 
-// ID of the AWS Key Management Service (KMS) key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
+// ID of the KMS key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
 func (o FileCacheOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileCache) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }
@@ -478,7 +478,7 @@ func (o FileCacheOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FileCache) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// ID of your virtual private cloud (VPC).
+// ID of your VPC.
 func (o FileCacheOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileCache) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

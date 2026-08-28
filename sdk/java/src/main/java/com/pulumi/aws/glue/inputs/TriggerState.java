@@ -37,14 +37,14 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of Glue Trigger
+     * ARN of Glue Trigger
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of Glue Trigger
+     * @return ARN of Glue Trigger
      * 
      */
     public Optional<Output<String>> arn() {
@@ -316,7 +316,7 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of Glue Trigger
+         * @param arn ARN of Glue Trigger
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of Glue Trigger
+         * @param arn ARN of Glue Trigger
          * 
          * @return builder
          * 

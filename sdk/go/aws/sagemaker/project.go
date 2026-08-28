@@ -55,7 +55,7 @@ import (
 type Project struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) assigned by AWS to this Project.
+	// ARN assigned by AWS to this Project.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A description for the project.
 	ProjectDescription pulumi.StringPtrOutput `pulumi:"projectDescription"`
@@ -109,7 +109,7 @@ func GetProject(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Project resources.
 type projectState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Project.
+	// ARN assigned by AWS to this Project.
 	Arn *string `pulumi:"arn"`
 	// A description for the project.
 	ProjectDescription *string `pulumi:"projectDescription"`
@@ -128,7 +128,7 @@ type projectState struct {
 }
 
 type ProjectState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Project.
+	// ARN assigned by AWS to this Project.
 	Arn pulumi.StringPtrInput
 	// A description for the project.
 	ProjectDescription pulumi.StringPtrInput
@@ -264,7 +264,7 @@ func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOu
 	return o
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this Project.
+// ARN assigned by AWS to this Project.
 func (o ProjectOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

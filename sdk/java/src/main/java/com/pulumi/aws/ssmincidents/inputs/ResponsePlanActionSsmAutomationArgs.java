@@ -80,14 +80,14 @@ public final class ResponsePlanActionSsmAutomationArgs extends com.pulumi.resour
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
+     * The ARN of the role that the automation document assumes when it runs commands.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
+     * @return The ARN of the role that the automation document assumes when it runs commands.
      * 
      */
     public Output<String> roleArn() {
@@ -233,7 +233,7 @@ public final class ResponsePlanActionSsmAutomationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
+         * @param roleArn The ARN of the role that the automation document assumes when it runs commands.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class ResponsePlanActionSsmAutomationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
+         * @param roleArn The ARN of the role that the automation document assumes when it runs commands.
          * 
          * @return builder
          * 

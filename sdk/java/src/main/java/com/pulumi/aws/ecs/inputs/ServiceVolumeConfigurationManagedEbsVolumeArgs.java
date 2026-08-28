@@ -66,14 +66,14 @@ public final class ServiceVolumeConfigurationManagedEbsVolumeArgs extends com.pu
     }
 
     /**
-     * Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption.
+     * ARN identifier of the Amazon Web Services KMS key to use for Amazon EBS encryption.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption.
+     * @return ARN identifier of the Amazon Web Services KMS key to use for Amazon EBS encryption.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -283,7 +283,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolumeArgs extends com.pu
         }
 
         /**
-         * @param kmsKeyId Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption.
+         * @param kmsKeyId ARN identifier of the Amazon Web Services KMS key to use for Amazon EBS encryption.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolumeArgs extends com.pu
         }
 
         /**
-         * @param kmsKeyId Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption.
+         * @param kmsKeyId ARN identifier of the Amazon Web Services KMS key to use for Amazon EBS encryption.
          * 
          * @return builder
          * 

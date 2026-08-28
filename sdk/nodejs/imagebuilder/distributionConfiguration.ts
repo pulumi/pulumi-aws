@@ -42,9 +42,9 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the Image Builder distribution configuration.
+ * - `arn` (String) ARN of the Image Builder distribution configuration.
  *
- * Using `pulumi import`, import `aws.imagebuilder.getDistributionConfigurations` resources using the Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.imagebuilder.getDistributionConfigurations` resources using the ARN. For example:
  *
  * ```sh
  * $ pulumi import aws:imagebuilder/distributionConfiguration:DistributionConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
@@ -79,7 +79,7 @@ export class DistributionConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * (Required) Amazon Resource Name (ARN) of the distribution configuration.
+     * (Required) ARN of the distribution configuration.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -164,7 +164,7 @@ export class DistributionConfiguration extends pulumi.CustomResource {
  */
 export interface DistributionConfigurationState {
     /**
-     * (Required) Amazon Resource Name (ARN) of the distribution configuration.
+     * (Required) ARN of the distribution configuration.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

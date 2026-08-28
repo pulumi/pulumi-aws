@@ -107,9 +107,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:sesv2/contactList:ContactList")
 public class ContactList extends com.pulumi.resources.CustomResource {
+    /**
+     * ARN of the contact list.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the contact list.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }

@@ -496,14 +496,14 @@ public class Subnet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.mapPublicIpOnLaunch);
     }
     /**
-     * The Amazon Resource Name (ARN) of the Outpost.
+     * ARN of the Outpost.
      * 
      */
     @Export(name="outpostArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> outpostArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Outpost.
+     * @return ARN of the Outpost.
      * 
      */
     public Output<Optional<String>> outpostArn() {

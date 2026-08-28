@@ -20,14 +20,14 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     public static final DomainState Empty = new DomainState();
 
     /**
-     * The Amazon Resource Name (ARN) of the Customer Profiles Domain.
+     * ARN of the Customer Profiles Domain.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Customer Profiles Domain.
+     * @return ARN of the Customer Profiles Domain.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -207,7 +207,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Customer Profiles Domain.
+         * @param arn ARN of the Customer Profiles Domain.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Customer Profiles Domain.
+         * @param arn ARN of the Customer Profiles Domain.
          * 
          * @return builder
          * 

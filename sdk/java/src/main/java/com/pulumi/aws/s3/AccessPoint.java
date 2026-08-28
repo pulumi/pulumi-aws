@@ -405,14 +405,14 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
+     * Configuration block to restrict access to this access point to requests from the specified VPC. Required for S3 on Outposts. Detailed below.
      * 
      */
     @Export(name="vpcConfiguration", refs={AccessPointVpcConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ AccessPointVpcConfiguration> vpcConfiguration;
 
     /**
-     * @return Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
+     * @return Configuration block to restrict access to this access point to requests from the specified VPC. Required for S3 on Outposts. Detailed below.
      * 
      */
     public Output<Optional<AccessPointVpcConfiguration>> vpcConfiguration() {

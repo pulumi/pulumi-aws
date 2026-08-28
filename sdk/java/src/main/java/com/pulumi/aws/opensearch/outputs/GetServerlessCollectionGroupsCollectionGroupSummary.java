@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetServerlessCollectionGroupsCollectionGroupSummary {
     /**
-     * @return Amazon Resource Name (ARN) of the collection group.
+     * @return ARN of the collection group.
      * 
      */
     private String arn;
@@ -51,7 +51,7 @@ public final class GetServerlessCollectionGroupsCollectionGroupSummary {
 
     private GetServerlessCollectionGroupsCollectionGroupSummary() {}
     /**
-     * @return Amazon Resource Name (ARN) of the collection group.
+     * @return ARN of the collection group.
      * 
      */
     public String arn() {

@@ -81,7 +81,7 @@ import (
 type RoutingProfile struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the Routing Profile.
+	// ARN of the Routing Profile.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies the default outbound queue for the Routing Profile.
 	DefaultOutboundQueueId pulumi.StringOutput `pulumi:"defaultOutboundQueueId"`
@@ -148,7 +148,7 @@ func GetRoutingProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RoutingProfile resources.
 type routingProfileState struct {
-	// Amazon Resource Name (ARN) of the Routing Profile.
+	// ARN of the Routing Profile.
 	Arn *string `pulumi:"arn"`
 	// Specifies the default outbound queue for the Routing Profile.
 	DefaultOutboundQueueId *string `pulumi:"defaultOutboundQueueId"`
@@ -174,7 +174,7 @@ type routingProfileState struct {
 }
 
 type RoutingProfileState struct {
-	// Amazon Resource Name (ARN) of the Routing Profile.
+	// ARN of the Routing Profile.
 	Arn pulumi.StringPtrInput
 	// Specifies the default outbound queue for the Routing Profile.
 	DefaultOutboundQueueId pulumi.StringPtrInput
@@ -331,7 +331,7 @@ func (o RoutingProfileOutput) ToRoutingProfileOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Routing Profile.
+// ARN of the Routing Profile.
 func (o RoutingProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoutingProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

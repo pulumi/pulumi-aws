@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetSecurityGroupRuleResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the security group rule.
+     * @return ARN of the security group rule.
      * 
      */
     private String arn;
@@ -83,7 +83,7 @@ public final class GetSecurityGroupRuleResult {
 
     private GetSecurityGroupRuleResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the security group rule.
+     * @return ARN of the security group rule.
      * 
      */
     public String arn() {

@@ -134,7 +134,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `storagegateway.FileSystemAssociation` using the FSx file system association Amazon Resource Name (ARN). For example:
+// Using `pulumi import`, import `storagegateway.FileSystemAssociation` using the FSx file system association ARN. For example:
 //
 // ```sh
 // $ pulumi import aws:storagegateway/fileSystemAssociation:FileSystemAssociation example arn:aws:storagegateway:us-east-1:123456789012:fs-association/fsa-0DA347732FDB40125
@@ -142,15 +142,15 @@ import (
 type FileSystemAssociation struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the newly created file system association.
+	// ARN of the newly created file system association.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The Amazon Resource Name (ARN) of the storage used for the audit logs.
+	// ARN of the storage used for the audit logs.
 	AuditDestinationArn pulumi.StringPtrOutput `pulumi:"auditDestinationArn"`
 	// Refresh cache information. see Cache Attributes for more details.
 	CacheAttributes FileSystemAssociationCacheAttributesPtrOutput `pulumi:"cacheAttributes"`
-	// The Amazon Resource Name (ARN) of the gateway.
+	// ARN of the gateway.
 	GatewayArn pulumi.StringOutput `pulumi:"gatewayArn"`
-	// The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+	// ARN of the Amazon FSx file system to associate with the FSx File Gateway.
 	LocationArn pulumi.StringOutput `pulumi:"locationArn"`
 	// The password of the user credential.
 	Password pulumi.StringOutput `pulumi:"password"`
@@ -213,15 +213,15 @@ func GetFileSystemAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FileSystemAssociation resources.
 type fileSystemAssociationState struct {
-	// Amazon Resource Name (ARN) of the newly created file system association.
+	// ARN of the newly created file system association.
 	Arn *string `pulumi:"arn"`
-	// The Amazon Resource Name (ARN) of the storage used for the audit logs.
+	// ARN of the storage used for the audit logs.
 	AuditDestinationArn *string `pulumi:"auditDestinationArn"`
 	// Refresh cache information. see Cache Attributes for more details.
 	CacheAttributes *FileSystemAssociationCacheAttributes `pulumi:"cacheAttributes"`
-	// The Amazon Resource Name (ARN) of the gateway.
+	// ARN of the gateway.
 	GatewayArn *string `pulumi:"gatewayArn"`
-	// The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+	// ARN of the Amazon FSx file system to associate with the FSx File Gateway.
 	LocationArn *string `pulumi:"locationArn"`
 	// The password of the user credential.
 	Password *string `pulumi:"password"`
@@ -236,15 +236,15 @@ type fileSystemAssociationState struct {
 }
 
 type FileSystemAssociationState struct {
-	// Amazon Resource Name (ARN) of the newly created file system association.
+	// ARN of the newly created file system association.
 	Arn pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the storage used for the audit logs.
+	// ARN of the storage used for the audit logs.
 	AuditDestinationArn pulumi.StringPtrInput
 	// Refresh cache information. see Cache Attributes for more details.
 	CacheAttributes FileSystemAssociationCacheAttributesPtrInput
-	// The Amazon Resource Name (ARN) of the gateway.
+	// ARN of the gateway.
 	GatewayArn pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+	// ARN of the Amazon FSx file system to associate with the FSx File Gateway.
 	LocationArn pulumi.StringPtrInput
 	// The password of the user credential.
 	Password pulumi.StringPtrInput
@@ -263,13 +263,13 @@ func (FileSystemAssociationState) ElementType() reflect.Type {
 }
 
 type fileSystemAssociationArgs struct {
-	// The Amazon Resource Name (ARN) of the storage used for the audit logs.
+	// ARN of the storage used for the audit logs.
 	AuditDestinationArn *string `pulumi:"auditDestinationArn"`
 	// Refresh cache information. see Cache Attributes for more details.
 	CacheAttributes *FileSystemAssociationCacheAttributes `pulumi:"cacheAttributes"`
-	// The Amazon Resource Name (ARN) of the gateway.
+	// ARN of the gateway.
 	GatewayArn string `pulumi:"gatewayArn"`
-	// The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+	// ARN of the Amazon FSx file system to associate with the FSx File Gateway.
 	LocationArn string `pulumi:"locationArn"`
 	// The password of the user credential.
 	Password string `pulumi:"password"`
@@ -283,13 +283,13 @@ type fileSystemAssociationArgs struct {
 
 // The set of arguments for constructing a FileSystemAssociation resource.
 type FileSystemAssociationArgs struct {
-	// The Amazon Resource Name (ARN) of the storage used for the audit logs.
+	// ARN of the storage used for the audit logs.
 	AuditDestinationArn pulumi.StringPtrInput
 	// Refresh cache information. see Cache Attributes for more details.
 	CacheAttributes FileSystemAssociationCacheAttributesPtrInput
-	// The Amazon Resource Name (ARN) of the gateway.
+	// ARN of the gateway.
 	GatewayArn pulumi.StringInput
-	// The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+	// ARN of the Amazon FSx file system to associate with the FSx File Gateway.
 	LocationArn pulumi.StringInput
 	// The password of the user credential.
 	Password pulumi.StringInput
@@ -388,12 +388,12 @@ func (o FileSystemAssociationOutput) ToFileSystemAssociationOutputWithContext(ct
 	return o
 }
 
-// Amazon Resource Name (ARN) of the newly created file system association.
+// ARN of the newly created file system association.
 func (o FileSystemAssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileSystemAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the storage used for the audit logs.
+// ARN of the storage used for the audit logs.
 func (o FileSystemAssociationOutput) AuditDestinationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileSystemAssociation) pulumi.StringPtrOutput { return v.AuditDestinationArn }).(pulumi.StringPtrOutput)
 }
@@ -403,12 +403,12 @@ func (o FileSystemAssociationOutput) CacheAttributes() FileSystemAssociationCach
 	return o.ApplyT(func(v *FileSystemAssociation) FileSystemAssociationCacheAttributesPtrOutput { return v.CacheAttributes }).(FileSystemAssociationCacheAttributesPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the gateway.
+// ARN of the gateway.
 func (o FileSystemAssociationOutput) GatewayArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileSystemAssociation) pulumi.StringOutput { return v.GatewayArn }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+// ARN of the Amazon FSx file system to associate with the FSx File Gateway.
 func (o FileSystemAssociationOutput) LocationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileSystemAssociation) pulumi.StringOutput { return v.LocationArn }).(pulumi.StringOutput)
 }

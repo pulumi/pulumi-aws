@@ -66,7 +66,7 @@ import (
 type KxDataview struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) identifier of the KX dataview.
+	// ARN identifier of the KX dataview.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Whether to apply all the future additions and corrections automatically to the dataview when you ingest new changesets. Defaults to `false`.
 	AutoUpdate pulumi.BoolOutput `pulumi:"autoUpdate"`
@@ -146,7 +146,7 @@ func GetKxDataview(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KxDataview resources.
 type kxDataviewState struct {
-	// Amazon Resource Name (ARN) identifier of the KX dataview.
+	// ARN identifier of the KX dataview.
 	Arn *string `pulumi:"arn"`
 	// Whether to apply all the future additions and corrections automatically to the dataview when you ingest new changesets. Defaults to `false`.
 	AutoUpdate *bool `pulumi:"autoUpdate"`
@@ -185,7 +185,7 @@ type kxDataviewState struct {
 }
 
 type KxDataviewState struct {
-	// Amazon Resource Name (ARN) identifier of the KX dataview.
+	// ARN identifier of the KX dataview.
 	Arn pulumi.StringPtrInput
 	// Whether to apply all the future additions and corrections automatically to the dataview when you ingest new changesets. Defaults to `false`.
 	AutoUpdate pulumi.BoolPtrInput
@@ -373,7 +373,7 @@ func (o KxDataviewOutput) ToKxDataviewOutputWithContext(ctx context.Context) KxD
 	return o
 }
 
-// Amazon Resource Name (ARN) identifier of the KX dataview.
+// ARN identifier of the KX dataview.
 func (o KxDataviewOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxDataview) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

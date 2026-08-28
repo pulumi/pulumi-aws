@@ -61,7 +61,7 @@ type AppAuthorization struct {
 
 	// Name of the application. For valid values, see the [CreateAppAuthorization API reference](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html).
 	App pulumi.StringOutput `pulumi:"app"`
-	// Amazon Resource Name (ARN) of the app bundle to use for the request.
+	// ARN of the app bundle to use for the request.
 	AppBundleArn pulumi.StringOutput `pulumi:"appBundleArn"`
 	// ARN of the App Authorization.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -137,7 +137,7 @@ func GetAppAuthorization(ctx *pulumi.Context,
 type appAuthorizationState struct {
 	// Name of the application. For valid values, see the [CreateAppAuthorization API reference](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html).
 	App *string `pulumi:"app"`
-	// Amazon Resource Name (ARN) of the app bundle to use for the request.
+	// ARN of the app bundle to use for the request.
 	AppBundleArn *string `pulumi:"appBundleArn"`
 	// ARN of the App Authorization.
 	Arn *string `pulumi:"arn"`
@@ -169,7 +169,7 @@ type appAuthorizationState struct {
 type AppAuthorizationState struct {
 	// Name of the application. For valid values, see the [CreateAppAuthorization API reference](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html).
 	App pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the app bundle to use for the request.
+	// ARN of the app bundle to use for the request.
 	AppBundleArn pulumi.StringPtrInput
 	// ARN of the App Authorization.
 	Arn pulumi.StringPtrInput
@@ -205,7 +205,7 @@ func (AppAuthorizationState) ElementType() reflect.Type {
 type appAuthorizationArgs struct {
 	// Name of the application. For valid values, see the [CreateAppAuthorization API reference](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html).
 	App string `pulumi:"app"`
-	// Amazon Resource Name (ARN) of the app bundle to use for the request.
+	// ARN of the app bundle to use for the request.
 	AppBundleArn string `pulumi:"appBundleArn"`
 	// Authorization type for the app authorization. Valid values are `oauth2` and `apiKey`.
 	AuthType string `pulumi:"authType"`
@@ -226,7 +226,7 @@ type appAuthorizationArgs struct {
 type AppAuthorizationArgs struct {
 	// Name of the application. For valid values, see the [CreateAppAuthorization API reference](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html).
 	App pulumi.StringInput
-	// Amazon Resource Name (ARN) of the app bundle to use for the request.
+	// ARN of the app bundle to use for the request.
 	AppBundleArn pulumi.StringInput
 	// Authorization type for the app authorization. Valid values are `oauth2` and `apiKey`.
 	AuthType pulumi.StringInput
@@ -335,7 +335,7 @@ func (o AppAuthorizationOutput) App() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppAuthorization) pulumi.StringOutput { return v.App }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the app bundle to use for the request.
+// ARN of the app bundle to use for the request.
 func (o AppAuthorizationOutput) AppBundleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppAuthorization) pulumi.StringOutput { return v.AppBundleArn }).(pulumi.StringOutput)
 }

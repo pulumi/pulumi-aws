@@ -21,14 +21,14 @@ public final class SnapshotImportState extends com.pulumi.resources.ResourceArgs
     public static final SnapshotImportState Empty = new SnapshotImportState();
 
     /**
-     * Amazon Resource Name (ARN) of the EBS Snapshot.
+     * ARN of the EBS Snapshot.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the EBS Snapshot.
+     * @return ARN of the EBS Snapshot.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -332,7 +332,7 @@ public final class SnapshotImportState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the EBS Snapshot.
+         * @param arn ARN of the EBS Snapshot.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class SnapshotImportState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the EBS Snapshot.
+         * @param arn ARN of the EBS Snapshot.
          * 
          * @return builder
          * 

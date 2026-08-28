@@ -161,14 +161,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:route53/resolverRule:ResolverRule")
 public class ResolverRule extends com.pulumi.resources.CustomResource {
     /**
-     * ARN (Amazon Resource Name) for the resolver rule.
+     * ARN for the resolver rule.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN (Amazon Resource Name) for the resolver rule.
+     * @return ARN for the resolver rule.
      * 
      */
     public Output<String> arn() {

@@ -15,14 +15,14 @@ public final class InstanceStorageConfigStorageConfigKinesisStreamConfigArgs ext
     public static final InstanceStorageConfigStorageConfigKinesisStreamConfigArgs Empty = new InstanceStorageConfigStorageConfigKinesisStreamConfigArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the data stream.
+     * ARN of the data stream.
      * 
      */
     @Import(name="streamArn", required=true)
     private Output<String> streamArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the data stream.
+     * @return ARN of the data stream.
      * 
      */
     public Output<String> streamArn() {
@@ -54,7 +54,7 @@ public final class InstanceStorageConfigStorageConfigKinesisStreamConfigArgs ext
         }
 
         /**
-         * @param streamArn The Amazon Resource Name (ARN) of the data stream.
+         * @param streamArn ARN of the data stream.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class InstanceStorageConfigStorageConfigKinesisStreamConfigArgs ext
         }
 
         /**
-         * @param streamArn The Amazon Resource Name (ARN) of the data stream.
+         * @param streamArn ARN of the data stream.
          * 
          * @return builder
          * 

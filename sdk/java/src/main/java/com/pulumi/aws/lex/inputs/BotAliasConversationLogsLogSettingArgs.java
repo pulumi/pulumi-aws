@@ -32,14 +32,14 @@ public final class BotAliasConversationLogsLogSettingArgs extends com.pulumi.res
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
+     * ARN of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
      * 
      */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
+     * @return ARN of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
@@ -62,14 +62,14 @@ public final class BotAliasConversationLogsLogSettingArgs extends com.pulumi.res
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered. Must be less than or equal to 2048 characters in length.
+     * ARN of the CloudWatch Logs log group or S3 bucket where the logs are delivered. Must be less than or equal to 2048 characters in length.
      * 
      */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered. Must be less than or equal to 2048 characters in length.
+     * @return ARN of the CloudWatch Logs log group or S3 bucket where the logs are delivered. Must be less than or equal to 2048 characters in length.
      * 
      */
     public Output<String> resourceArn() {
@@ -141,7 +141,7 @@ public final class BotAliasConversationLogsLogSettingArgs extends com.pulumi.res
         }
 
         /**
-         * @param kmsKeyArn The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
+         * @param kmsKeyArn ARN of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class BotAliasConversationLogsLogSettingArgs extends com.pulumi.res
         }
 
         /**
-         * @param kmsKeyArn The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
+         * @param kmsKeyArn ARN of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class BotAliasConversationLogsLogSettingArgs extends com.pulumi.res
         }
 
         /**
-         * @param resourceArn The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered. Must be less than or equal to 2048 characters in length.
+         * @param resourceArn ARN of the CloudWatch Logs log group or S3 bucket where the logs are delivered. Must be less than or equal to 2048 characters in length.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class BotAliasConversationLogsLogSettingArgs extends com.pulumi.res
         }
 
         /**
-         * @param resourceArn The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered. Must be less than or equal to 2048 characters in length.
+         * @param resourceArn ARN of the CloudWatch Logs log group or S3 bucket where the logs are delivered. Must be less than or equal to 2048 characters in length.
          * 
          * @return builder
          * 

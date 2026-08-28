@@ -44,7 +44,7 @@ namespace Pulumi.Aws.RedShift
     public partial class SnapshotSchedule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
+        /// ARN of the Redshift Snapshot Schedule.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -208,7 +208,7 @@ namespace Pulumi.Aws.RedShift
     public sealed class SnapshotScheduleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
+        /// ARN of the Redshift Snapshot Schedule.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

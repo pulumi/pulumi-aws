@@ -121,14 +121,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ecs/taskSet:TaskSet")
 public class TaskSet extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) that identifies the task set.
+     * ARN that identifies the task set.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) that identifies the task set.
+     * @return ARN that identifies the task set.
      * 
      */
     public Output<String> arn() {

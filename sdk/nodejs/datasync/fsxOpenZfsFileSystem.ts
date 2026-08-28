@@ -66,7 +66,7 @@ export class FsxOpenZfsFileSystem extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
+     * ARN of the DataSync Location.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -74,7 +74,7 @@ export class FsxOpenZfsFileSystem extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.
+     * ARN for the FSx for OpenZfs file system.
      */
     declare public readonly fsxFilesystemArn: pulumi.Output<string>;
     /**
@@ -86,7 +86,7 @@ export class FsxOpenZfsFileSystem extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
+     * ARNs of the security groups that are to use to configure the FSx for openzfs file system.
      */
     declare public readonly securityGroupArns: pulumi.Output<string[]>;
     /**
@@ -161,7 +161,7 @@ export class FsxOpenZfsFileSystem extends pulumi.CustomResource {
  */
 export interface FsxOpenZfsFileSystemState {
     /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
+     * ARN of the DataSync Location.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -169,7 +169,7 @@ export interface FsxOpenZfsFileSystemState {
      */
     creationTime?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.
+     * ARN for the FSx for OpenZfs file system.
      */
     fsxFilesystemArn?: pulumi.Input<string | undefined>;
     /**
@@ -181,7 +181,7 @@ export interface FsxOpenZfsFileSystemState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
+     * ARNs of the security groups that are to use to configure the FSx for openzfs file system.
      */
     securityGroupArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -207,7 +207,7 @@ export interface FsxOpenZfsFileSystemState {
  */
 export interface FsxOpenZfsFileSystemArgs {
     /**
-     * The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.
+     * ARN for the FSx for OpenZfs file system.
      */
     fsxFilesystemArn: pulumi.Input<string>;
     /**
@@ -219,7 +219,7 @@ export interface FsxOpenZfsFileSystemArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
+     * ARNs of the security groups that are to use to configure the FSx for openzfs file system.
      */
     securityGroupArns: pulumi.Input<pulumi.Input<string>[]>;
     /**

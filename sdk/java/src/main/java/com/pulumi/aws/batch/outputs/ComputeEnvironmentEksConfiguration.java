@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class ComputeEnvironmentEksConfiguration {
     /**
-     * @return The Amazon Resource Name (ARN) of the Amazon EKS cluster.
+     * @return ARN of the Amazon EKS cluster.
      * 
      */
     private String eksClusterArn;
@@ -23,7 +23,7 @@ public final class ComputeEnvironmentEksConfiguration {
 
     private ComputeEnvironmentEksConfiguration() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the Amazon EKS cluster.
+     * @return ARN of the Amazon EKS cluster.
      * 
      */
     public String eksClusterArn() {

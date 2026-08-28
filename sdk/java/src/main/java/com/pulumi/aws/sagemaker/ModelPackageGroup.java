@@ -65,14 +65,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sagemaker/modelPackageGroup:ModelPackageGroup")
 public class ModelPackageGroup extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
+     * ARN assigned by AWS to this Model Package Group.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
+     * @return ARN assigned by AWS to this Model Package Group.
      * 
      */
     public Output<String> arn() {

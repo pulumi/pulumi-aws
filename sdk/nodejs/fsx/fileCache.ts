@@ -85,7 +85,7 @@ export class FileCache extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the cache.
+     * ARN of the cache.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -101,7 +101,7 @@ export class FileCache extends pulumi.CustomResource {
      */
     declare public readonly dataRepositoryAssociations: pulumi.Output<outputs.fsx.FileCacheDataRepositoryAssociation[] | undefined>;
     /**
-     * Domain Name System (DNS) name for the cache.
+     * DNS name for the cache.
      */
     declare public /*out*/ readonly dnsName: pulumi.Output<string>;
     /**
@@ -117,7 +117,7 @@ export class FileCache extends pulumi.CustomResource {
      */
     declare public readonly fileCacheTypeVersion: pulumi.Output<string>;
     /**
-     * ID of the AWS Key Management Service (KMS) key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
+     * ID of the KMS key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
      */
     declare public readonly kmsKeyId: pulumi.Output<string>;
     /**
@@ -154,7 +154,7 @@ export class FileCache extends pulumi.CustomResource {
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * ID of your virtual private cloud (VPC).
+     * ID of your VPC.
      */
     declare public /*out*/ readonly vpcId: pulumi.Output<string>;
 
@@ -234,7 +234,7 @@ export class FileCache extends pulumi.CustomResource {
  */
 export interface FileCacheState {
     /**
-     * Amazon Resource Name (ARN) of the cache.
+     * ARN of the cache.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -250,7 +250,7 @@ export interface FileCacheState {
      */
     dataRepositoryAssociations?: pulumi.Input<pulumi.Input<inputs.fsx.FileCacheDataRepositoryAssociation>[] | undefined>;
     /**
-     * Domain Name System (DNS) name for the cache.
+     * DNS name for the cache.
      */
     dnsName?: pulumi.Input<string | undefined>;
     /**
@@ -266,7 +266,7 @@ export interface FileCacheState {
      */
     fileCacheTypeVersion?: pulumi.Input<string | undefined>;
     /**
-     * ID of the AWS Key Management Service (KMS) key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
+     * ID of the KMS key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**
@@ -303,7 +303,7 @@ export interface FileCacheState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * ID of your virtual private cloud (VPC).
+     * ID of your VPC.
      */
     vpcId?: pulumi.Input<string | undefined>;
 }
@@ -329,7 +329,7 @@ export interface FileCacheArgs {
      */
     fileCacheTypeVersion: pulumi.Input<string>;
     /**
-     * ID of the AWS Key Management Service (KMS) key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
+     * ID of the KMS key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**

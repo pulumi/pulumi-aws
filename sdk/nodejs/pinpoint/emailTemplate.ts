@@ -68,7 +68,7 @@ export class EmailTemplate extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the message template.
+     * ARN of the message template.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -137,7 +137,7 @@ export class EmailTemplate extends pulumi.CustomResource {
  */
 export interface EmailTemplateState {
     /**
-     * Amazon Resource Name (ARN) of the message template.
+     * ARN of the message template.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

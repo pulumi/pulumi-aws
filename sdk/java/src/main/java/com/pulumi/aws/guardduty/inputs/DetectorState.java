@@ -34,14 +34,14 @@ public final class DetectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the GuardDuty detector
+     * ARN of the GuardDuty detector
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the GuardDuty detector
+     * @return ARN of the GuardDuty detector
      * 
      */
     public Optional<Output<String>> arn() {
@@ -199,7 +199,7 @@ public final class DetectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the GuardDuty detector
+         * @param arn ARN of the GuardDuty detector
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class DetectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the GuardDuty detector
+         * @param arn ARN of the GuardDuty detector
          * 
          * @return builder
          * 

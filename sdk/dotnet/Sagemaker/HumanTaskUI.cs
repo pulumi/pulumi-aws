@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Sagemaker
     public partial class HumanTaskUI : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
+        /// ARN assigned by AWS to this Human Task UI.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.Sagemaker
     public sealed class HumanTaskUIState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
+        /// ARN assigned by AWS to this Human Task UI.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

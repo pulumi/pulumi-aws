@@ -162,7 +162,7 @@ class _KxEnvironmentState:
         """
         Input properties used for looking up and filtering KxEnvironment resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifier of the KX environment.
+        :param pulumi.Input[_builtins.str] arn: ARN identifier of the KX environment.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: AWS Availability Zone IDs that this environment is available in. Important when selecting VPC subnets to use in cluster creation.
         :param pulumi.Input[_builtins.str] created_timestamp: Timestamp at which the environment is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         :param pulumi.Input[Sequence[pulumi.Input['KxEnvironmentCustomDnsConfigurationArgs']]] custom_dns_configurations: List of DNS server name and server IP. This is used to set up Route-53 outbound resolvers. Defined below.
@@ -212,7 +212,7 @@ class _KxEnvironmentState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) identifier of the KX environment.
+        ARN identifier of the KX environment.
         """
         return pulumi.get(self, "arn")
 
@@ -669,7 +669,7 @@ class KxEnvironment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifier of the KX environment.
+        :param pulumi.Input[_builtins.str] arn: ARN identifier of the KX environment.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: AWS Availability Zone IDs that this environment is available in. Important when selecting VPC subnets to use in cluster creation.
         :param pulumi.Input[_builtins.str] created_timestamp: Timestamp at which the environment is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         :param pulumi.Input[Sequence[pulumi.Input[Union['KxEnvironmentCustomDnsConfigurationArgs', 'KxEnvironmentCustomDnsConfigurationArgsDict']]]] custom_dns_configurations: List of DNS server name and server IP. This is used to set up Route-53 outbound resolvers. Defined below.
@@ -710,7 +710,7 @@ class KxEnvironment(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) identifier of the KX environment.
+        ARN identifier of the KX environment.
         """
         return pulumi.get(self, "arn")
 

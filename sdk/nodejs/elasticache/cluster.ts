@@ -304,7 +304,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly securityGroupIds: pulumi.Output<string[]>;
     /**
-     * Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
+     * Single-element string list containing an ARN of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
      */
     declare public readonly snapshotArns: pulumi.Output<string | undefined>;
     /**
@@ -332,7 +332,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) for more details.
+     * Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. For Redis or Valkey transit encryption, use `aws.elasticache.ReplicationGroup` instead. See the [ElastiCache in-transit encryption documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) for more details.
      */
     declare public readonly transitEncryptionEnabled: pulumi.Output<boolean>;
 
@@ -560,7 +560,7 @@ export interface ClusterState {
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
+     * Single-element string list containing an ARN of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
      */
     snapshotArns?: pulumi.Input<string | undefined>;
     /**
@@ -588,7 +588,7 @@ export interface ClusterState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) for more details.
+     * Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. For Redis or Valkey transit encryption, use `aws.elasticache.ReplicationGroup` instead. See the [ElastiCache in-transit encryption documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) for more details.
      */
     transitEncryptionEnabled?: pulumi.Input<boolean | undefined>;
 }
@@ -704,7 +704,7 @@ export interface ClusterArgs {
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
+     * Single-element string list containing an ARN of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
      */
     snapshotArns?: pulumi.Input<string | undefined>;
     /**
@@ -728,7 +728,7 @@ export interface ClusterArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Enable encryption in-transit. Supported with Memcached versions `1.6.12` and later, Redis OSS versions `3.2.6`, `4.0.10` and later, running in a VPC. See the [ElastiCache in-transit encryption documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) for more details.
+     * Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. For Redis or Valkey transit encryption, use `aws.elasticache.ReplicationGroup` instead. See the [ElastiCache in-transit encryption documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/in-transit-encryption.html#in-transit-encryption-constraints) for more details.
      */
     transitEncryptionEnabled?: pulumi.Input<boolean | undefined>;
 }

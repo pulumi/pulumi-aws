@@ -33,9 +33,9 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the DataSync NFS location.
+ * - `arn` (String) ARN of the DataSync NFS location.
  *
- * Using `pulumi import`, import `aws.datasync.NfsLocation` using the DataSync Task Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.datasync.NfsLocation` using the DataSync Task ARN. For example:
  *
  * ```sh
  * $ pulumi import aws:datasync/nfsLocation:NfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
@@ -70,7 +70,7 @@ export class NfsLocation extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
+     * ARN of the DataSync Location.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -156,7 +156,7 @@ export class NfsLocation extends pulumi.CustomResource {
  */
 export interface NfsLocationState {
     /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
+     * ARN of the DataSync Location.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

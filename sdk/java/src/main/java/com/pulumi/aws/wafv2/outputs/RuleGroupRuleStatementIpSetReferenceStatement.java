@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RuleGroupRuleStatementIpSetReferenceStatement {
     /**
-     * @return The Amazon Resource Name (ARN) of the IP Set that this statement references.
+     * @return ARN of the IP Set that this statement references.
      * 
      */
     private String arn;
@@ -26,7 +26,7 @@ public final class RuleGroupRuleStatementIpSetReferenceStatement {
 
     private RuleGroupRuleStatementIpSetReferenceStatement() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the IP Set that this statement references.
+     * @return ARN of the IP Set that this statement references.
      * 
      */
     public String arn() {

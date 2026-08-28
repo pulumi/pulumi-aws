@@ -120,6 +120,52 @@ import javax.annotation.Nullable;
  * 
  * For more information about managed external secrets and partner-specific metadata requirements, see the [AWS documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/managed-external-secrets.html) and [partner-specific guides](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html).
  * 
+ * ### Disable Rotation for a Managed Secret
+ * 
+ * When a secret is managed by AWS, such as an RDS master user password secret created via `manageMasterUserPassword`, rotation is enabled automatically. Set `rotationEnabled` to `false` (and omit `rotationRules`) to turn that rotation off:
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.rds.Instance;
+ * import com.pulumi.aws.rds.InstanceArgs;
+ * import com.pulumi.aws.secretsmanager.SecretRotation;
+ * import com.pulumi.aws.secretsmanager.SecretRotationArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Instance("example", InstanceArgs.builder()
+ *             .manageMasterUserPassword(true)
+ *             .build());
+ * 
+ *         var exampleSecretRotation = new SecretRotation("exampleSecretRotation", SecretRotationArgs.builder()
+ *             .secretId(example.masterUserSecrets().applyValue(_masterUserSecrets -> _masterUserSecrets[0].secretArn()))
+ *             .rotationEnabled(false)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * &gt; **NOTE:** For Amazon Aurora and other clustered engines, rotation is finalized once a cluster instance is available, and AWS re-enables rotation if it is cancelled before then. Ensure this resource depends on the cluster instance (for example, with `dependsOn = [aws_rds_cluster_instance.example]`) so the cancellation is applied after the instance is available.
+ * 
+ * When `rotationEnabled` is `false`, `rotationRules` must be omitted. If you toggle rotation on and off through a variable (for example, in a module), gate the block with a `dynamic` block so it is only present when rotation is enabled:
+ * 
  * ### Rotation Configuration
  * 
  * To enable automatic secret rotation, the Secrets Manager service requires usage of a Lambda function. The [Rotate Secrets section in the Secrets Manager User Guide](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html) provides additional information about deploying a prebuilt Lambda functions for supported credential rotation (e.g., RDS) or deploying a custom Lambda function.
@@ -134,9 +180,9 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `secretId` (String) Amazon Resource Name (ARN) of the Secrets Manager secret.
+ * - `secretId` (String) ARN of the Secrets Manager secret.
  * 
- * Using `pulumi import`, import `aws.secretsmanager.SecretRotation` using the secret Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.secretsmanager.SecretRotation` using the secret ARN. For example:
  * 
  * ```sh
  * $ pulumi import aws:secretsmanager/secretRotation:SecretRotation example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
@@ -202,14 +248,14 @@ public class SecretRotation extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.rotateImmediately);
     }
     /**
-     * Whether automatic rotation is enabled for this secret.
+     * Whether automatic rotation is enabled for the secret. Set to `false` to disable rotation on a secret whose rotation is otherwise managed by AWS (for example, an RDS master user password secret). When `false`, `rotationRules` must be omitted. Defaults to enabled when `rotationRules` is configured. Destroying this resource does not re-enable the automatic rotation that AWS configured.
      * 
      */
     @Export(name="rotationEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> rotationEnabled;
 
     /**
-     * @return Whether automatic rotation is enabled for this secret.
+     * @return Whether automatic rotation is enabled for the secret. Set to `false` to disable rotation on a secret whose rotation is otherwise managed by AWS (for example, an RDS master user password secret). When `false`, `rotationRules` must be omitted. Defaults to enabled when `rotationRules` is configured. Destroying this resource does not re-enable the automatic rotation that AWS configured.
      * 
      */
     public Output<Boolean> rotationEnabled() {
@@ -230,28 +276,28 @@ public class SecretRotation extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.rotationLambdaArn);
     }
     /**
-     * Structure that defines the rotation configuration for this secret. Defined below.
+     * Structure that defines the rotation configuration for this secret. Required unless `rotationEnabled` is `false`. Defined below.
      * 
      */
     @Export(name="rotationRules", refs={SecretRotationRotationRules.class}, tree="[0]")
-    private Output<SecretRotationRotationRules> rotationRules;
+    private Output</* @Nullable */ SecretRotationRotationRules> rotationRules;
 
     /**
-     * @return Structure that defines the rotation configuration for this secret. Defined below.
+     * @return Structure that defines the rotation configuration for this secret. Required unless `rotationEnabled` is `false`. Defined below.
      * 
      */
-    public Output<SecretRotationRotationRules> rotationRules() {
-        return this.rotationRules;
+    public Output<Optional<SecretRotationRotationRules>> rotationRules() {
+        return Codegen.optional(this.rotationRules);
     }
     /**
-     * Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+     * Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
      * 
      */
     @Export(name="secretId", refs={String.class}, tree="[0]")
     private Output<String> secretId;
 
     /**
-     * @return Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+     * @return Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
      * 
      */
     public Output<String> secretId() {

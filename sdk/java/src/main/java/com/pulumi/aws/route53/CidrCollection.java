@@ -62,14 +62,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:route53/cidrCollection:CidrCollection")
 public class CidrCollection extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the CIDR collection.
+     * ARN of the CIDR collection.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the CIDR collection.
+     * @return ARN of the CIDR collection.
      * 
      */
     public Output<String> arn() {

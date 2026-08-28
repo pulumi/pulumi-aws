@@ -216,6 +216,14 @@ export class CentralizationRuleForOrganization extends pulumi.CustomResource {
      */
     declare public readonly ruleName: pulumi.Output<string>;
     /**
+     * Reason tag propagation is unhealthy, when applicable (for example, `RoleNotAssumable` or `RoleLacksPermissions`).
+     */
+    declare public /*out*/ readonly tagPropagationFailureReason: pulumi.Output<string>;
+    /**
+     * Health status of tag propagation for the rule (for example, `Healthy` or `Unhealthy`). Independent of the overall rule health.
+     */
+    declare public /*out*/ readonly tagPropagationStatus: pulumi.Output<string>;
+    /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
@@ -242,6 +250,8 @@ export class CentralizationRuleForOrganization extends pulumi.CustomResource {
             resourceInputs["rule"] = state?.rule;
             resourceInputs["ruleArn"] = state?.ruleArn;
             resourceInputs["ruleName"] = state?.ruleName;
+            resourceInputs["tagPropagationFailureReason"] = state?.tagPropagationFailureReason;
+            resourceInputs["tagPropagationStatus"] = state?.tagPropagationStatus;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
             resourceInputs["timeouts"] = state?.timeouts;
@@ -259,6 +269,8 @@ export class CentralizationRuleForOrganization extends pulumi.CustomResource {
             resourceInputs["tags"] = args?.tags;
             resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["ruleArn"] = undefined /*out*/;
+            resourceInputs["tagPropagationFailureReason"] = undefined /*out*/;
+            resourceInputs["tagPropagationStatus"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -288,6 +300,14 @@ export interface CentralizationRuleForOrganizationState {
      * Name of the centralization rule. Must be unique within the organization.
      */
     ruleName?: pulumi.Input<string | undefined>;
+    /**
+     * Reason tag propagation is unhealthy, when applicable (for example, `RoleNotAssumable` or `RoleLacksPermissions`).
+     */
+    tagPropagationFailureReason?: pulumi.Input<string | undefined>;
+    /**
+     * Health status of tag propagation for the rule (for example, `Healthy` or `Unhealthy`). Independent of the overall rule health.
+     */
+    tagPropagationStatus?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

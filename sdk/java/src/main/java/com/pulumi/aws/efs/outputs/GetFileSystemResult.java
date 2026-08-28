@@ -18,7 +18,7 @@ import java.util.Objects;
 @CustomType
 public final class GetFileSystemResult {
     /**
-     * @return Amazon Resource Name of the file system.
+     * @return ARN of the file system.
      * 
      */
     private String arn;
@@ -94,7 +94,7 @@ public final class GetFileSystemResult {
 
     private GetFileSystemResult() {}
     /**
-     * @return Amazon Resource Name of the file system.
+     * @return ARN of the file system.
      * 
      */
     public String arn() {

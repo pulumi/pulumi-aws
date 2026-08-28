@@ -67,49 +67,49 @@ namespace Pulumi.Aws.Ses
     public partial class ReceiptRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of Add Header Action blocks. Documented below.
+        /// Configuration block for adding a header to received emails. Detailed below.
         /// </summary>
         [Output("addHeaderActions")]
         public Output<ImmutableArray<Outputs.ReceiptRuleAddHeaderAction>> AddHeaderActions { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the rule to place this rule after
+        /// Name of the rule to place this rule after.
         /// </summary>
         [Output("after")]
         public Output<string?> After { get; private set; } = null!;
 
         /// <summary>
-        /// The SES receipt rule ARN.
+        /// SES receipt rule ARN.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A list of Bounce Action blocks. Documented below.
+        /// Configuration block for rejecting received emails. Detailed below.
         /// </summary>
         [Output("bounceActions")]
         public Output<ImmutableArray<Outputs.ReceiptRuleBounceAction>> BounceActions { get; private set; } = null!;
 
         /// <summary>
-        /// If true, the rule will be enabled
+        /// If true, the rule will be enabled.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// A list of Lambda Action blocks. Documented below.
+        /// Configuration block for calling an AWS Lambda function. Detailed below.
         /// </summary>
         [Output("lambdaActions")]
         public Output<ImmutableArray<Outputs.ReceiptRuleLambdaAction>> LambdaActions { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the rule
+        /// Name of the rule.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A list of email addresses
+        /// List of email addresses.
         /// </summary>
         [Output("recipients")]
         public Output<ImmutableArray<string>> Recipients { get; private set; } = null!;
@@ -121,43 +121,45 @@ namespace Pulumi.Aws.Ses
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the rule set
+        /// Name of the rule set.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("ruleSetName")]
         public Output<string> RuleSetName { get; private set; } = null!;
 
         /// <summary>
-        /// A list of S3 Action blocks. Documented below.
+        /// Configuration block for storing received emails in an S3 bucket. Detailed below.
         /// </summary>
         [Output("s3Actions")]
         public Output<ImmutableArray<Outputs.ReceiptRuleS3Action>> S3Actions { get; private set; } = null!;
 
         /// <summary>
-        /// If true, incoming emails will be scanned for spam and viruses
+        /// If true, incoming emails will be scanned for spam and viruses.
         /// </summary>
         [Output("scanEnabled")]
         public Output<bool?> ScanEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A list of SNS Action blocks. Documented below.
+        /// Configuration block for publishing to an SNS topic. Detailed below.
         /// </summary>
         [Output("snsActions")]
         public Output<ImmutableArray<Outputs.ReceiptRuleSnsAction>> SnsActions { get; private set; } = null!;
 
         /// <summary>
-        /// A list of Stop Action blocks. Documented below.
+        /// Configuration block for terminating the evaluation of the receipt rule set. Detailed below.
         /// </summary>
         [Output("stopActions")]
         public Output<ImmutableArray<Outputs.ReceiptRuleStopAction>> StopActions { get; private set; } = null!;
 
         /// <summary>
-        /// `Require` or `Optional`
+        /// `Require` or `Optional`.
         /// </summary>
         [Output("tlsPolicy")]
         public Output<string> TlsPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// A list of WorkMail Action blocks. Documented below.
+        /// Configuration block for calling Amazon WorkMail. Detailed below.
         /// </summary>
         [Output("workmailActions")]
         public Output<ImmutableArray<Outputs.ReceiptRuleWorkmailAction>> WorkmailActions { get; private set; } = null!;
@@ -212,7 +214,7 @@ namespace Pulumi.Aws.Ses
         private InputList<Inputs.ReceiptRuleAddHeaderActionArgs>? _addHeaderActions;
 
         /// <summary>
-        /// A list of Add Header Action blocks. Documented below.
+        /// Configuration block for adding a header to received emails. Detailed below.
         /// </summary>
         public InputList<Inputs.ReceiptRuleAddHeaderActionArgs> AddHeaderActions
         {
@@ -221,7 +223,7 @@ namespace Pulumi.Aws.Ses
         }
 
         /// <summary>
-        /// The name of the rule to place this rule after
+        /// Name of the rule to place this rule after.
         /// </summary>
         [Input("after")]
         public Input<string>? After { get; set; }
@@ -230,7 +232,7 @@ namespace Pulumi.Aws.Ses
         private InputList<Inputs.ReceiptRuleBounceActionArgs>? _bounceActions;
 
         /// <summary>
-        /// A list of Bounce Action blocks. Documented below.
+        /// Configuration block for rejecting received emails. Detailed below.
         /// </summary>
         public InputList<Inputs.ReceiptRuleBounceActionArgs> BounceActions
         {
@@ -239,7 +241,7 @@ namespace Pulumi.Aws.Ses
         }
 
         /// <summary>
-        /// If true, the rule will be enabled
+        /// If true, the rule will be enabled.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -248,7 +250,7 @@ namespace Pulumi.Aws.Ses
         private InputList<Inputs.ReceiptRuleLambdaActionArgs>? _lambdaActions;
 
         /// <summary>
-        /// A list of Lambda Action blocks. Documented below.
+        /// Configuration block for calling an AWS Lambda function. Detailed below.
         /// </summary>
         public InputList<Inputs.ReceiptRuleLambdaActionArgs> LambdaActions
         {
@@ -257,7 +259,7 @@ namespace Pulumi.Aws.Ses
         }
 
         /// <summary>
-        /// The name of the rule
+        /// Name of the rule.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -266,7 +268,7 @@ namespace Pulumi.Aws.Ses
         private InputList<string>? _recipients;
 
         /// <summary>
-        /// A list of email addresses
+        /// List of email addresses.
         /// </summary>
         public InputList<string> Recipients
         {
@@ -281,7 +283,9 @@ namespace Pulumi.Aws.Ses
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The name of the rule set
+        /// Name of the rule set.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("ruleSetName", required: true)]
         public Input<string> RuleSetName { get; set; } = null!;
@@ -290,7 +294,7 @@ namespace Pulumi.Aws.Ses
         private InputList<Inputs.ReceiptRuleS3ActionArgs>? _s3Actions;
 
         /// <summary>
-        /// A list of S3 Action blocks. Documented below.
+        /// Configuration block for storing received emails in an S3 bucket. Detailed below.
         /// </summary>
         public InputList<Inputs.ReceiptRuleS3ActionArgs> S3Actions
         {
@@ -299,7 +303,7 @@ namespace Pulumi.Aws.Ses
         }
 
         /// <summary>
-        /// If true, incoming emails will be scanned for spam and viruses
+        /// If true, incoming emails will be scanned for spam and viruses.
         /// </summary>
         [Input("scanEnabled")]
         public Input<bool>? ScanEnabled { get; set; }
@@ -308,7 +312,7 @@ namespace Pulumi.Aws.Ses
         private InputList<Inputs.ReceiptRuleSnsActionArgs>? _snsActions;
 
         /// <summary>
-        /// A list of SNS Action blocks. Documented below.
+        /// Configuration block for publishing to an SNS topic. Detailed below.
         /// </summary>
         public InputList<Inputs.ReceiptRuleSnsActionArgs> SnsActions
         {
@@ -320,7 +324,7 @@ namespace Pulumi.Aws.Ses
         private InputList<Inputs.ReceiptRuleStopActionArgs>? _stopActions;
 
         /// <summary>
-        /// A list of Stop Action blocks. Documented below.
+        /// Configuration block for terminating the evaluation of the receipt rule set. Detailed below.
         /// </summary>
         public InputList<Inputs.ReceiptRuleStopActionArgs> StopActions
         {
@@ -329,7 +333,7 @@ namespace Pulumi.Aws.Ses
         }
 
         /// <summary>
-        /// `Require` or `Optional`
+        /// `Require` or `Optional`.
         /// </summary>
         [Input("tlsPolicy")]
         public Input<string>? TlsPolicy { get; set; }
@@ -338,7 +342,7 @@ namespace Pulumi.Aws.Ses
         private InputList<Inputs.ReceiptRuleWorkmailActionArgs>? _workmailActions;
 
         /// <summary>
-        /// A list of WorkMail Action blocks. Documented below.
+        /// Configuration block for calling Amazon WorkMail. Detailed below.
         /// </summary>
         public InputList<Inputs.ReceiptRuleWorkmailActionArgs> WorkmailActions
         {
@@ -358,7 +362,7 @@ namespace Pulumi.Aws.Ses
         private InputList<Inputs.ReceiptRuleAddHeaderActionGetArgs>? _addHeaderActions;
 
         /// <summary>
-        /// A list of Add Header Action blocks. Documented below.
+        /// Configuration block for adding a header to received emails. Detailed below.
         /// </summary>
         public InputList<Inputs.ReceiptRuleAddHeaderActionGetArgs> AddHeaderActions
         {
@@ -367,13 +371,13 @@ namespace Pulumi.Aws.Ses
         }
 
         /// <summary>
-        /// The name of the rule to place this rule after
+        /// Name of the rule to place this rule after.
         /// </summary>
         [Input("after")]
         public Input<string>? After { get; set; }
 
         /// <summary>
-        /// The SES receipt rule ARN.
+        /// SES receipt rule ARN.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -382,7 +386,7 @@ namespace Pulumi.Aws.Ses
         private InputList<Inputs.ReceiptRuleBounceActionGetArgs>? _bounceActions;
 
         /// <summary>
-        /// A list of Bounce Action blocks. Documented below.
+        /// Configuration block for rejecting received emails. Detailed below.
         /// </summary>
         public InputList<Inputs.ReceiptRuleBounceActionGetArgs> BounceActions
         {
@@ -391,7 +395,7 @@ namespace Pulumi.Aws.Ses
         }
 
         /// <summary>
-        /// If true, the rule will be enabled
+        /// If true, the rule will be enabled.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -400,7 +404,7 @@ namespace Pulumi.Aws.Ses
         private InputList<Inputs.ReceiptRuleLambdaActionGetArgs>? _lambdaActions;
 
         /// <summary>
-        /// A list of Lambda Action blocks. Documented below.
+        /// Configuration block for calling an AWS Lambda function. Detailed below.
         /// </summary>
         public InputList<Inputs.ReceiptRuleLambdaActionGetArgs> LambdaActions
         {
@@ -409,7 +413,7 @@ namespace Pulumi.Aws.Ses
         }
 
         /// <summary>
-        /// The name of the rule
+        /// Name of the rule.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -418,7 +422,7 @@ namespace Pulumi.Aws.Ses
         private InputList<string>? _recipients;
 
         /// <summary>
-        /// A list of email addresses
+        /// List of email addresses.
         /// </summary>
         public InputList<string> Recipients
         {
@@ -433,7 +437,9 @@ namespace Pulumi.Aws.Ses
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The name of the rule set
+        /// Name of the rule set.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("ruleSetName")]
         public Input<string>? RuleSetName { get; set; }
@@ -442,7 +448,7 @@ namespace Pulumi.Aws.Ses
         private InputList<Inputs.ReceiptRuleS3ActionGetArgs>? _s3Actions;
 
         /// <summary>
-        /// A list of S3 Action blocks. Documented below.
+        /// Configuration block for storing received emails in an S3 bucket. Detailed below.
         /// </summary>
         public InputList<Inputs.ReceiptRuleS3ActionGetArgs> S3Actions
         {
@@ -451,7 +457,7 @@ namespace Pulumi.Aws.Ses
         }
 
         /// <summary>
-        /// If true, incoming emails will be scanned for spam and viruses
+        /// If true, incoming emails will be scanned for spam and viruses.
         /// </summary>
         [Input("scanEnabled")]
         public Input<bool>? ScanEnabled { get; set; }
@@ -460,7 +466,7 @@ namespace Pulumi.Aws.Ses
         private InputList<Inputs.ReceiptRuleSnsActionGetArgs>? _snsActions;
 
         /// <summary>
-        /// A list of SNS Action blocks. Documented below.
+        /// Configuration block for publishing to an SNS topic. Detailed below.
         /// </summary>
         public InputList<Inputs.ReceiptRuleSnsActionGetArgs> SnsActions
         {
@@ -472,7 +478,7 @@ namespace Pulumi.Aws.Ses
         private InputList<Inputs.ReceiptRuleStopActionGetArgs>? _stopActions;
 
         /// <summary>
-        /// A list of Stop Action blocks. Documented below.
+        /// Configuration block for terminating the evaluation of the receipt rule set. Detailed below.
         /// </summary>
         public InputList<Inputs.ReceiptRuleStopActionGetArgs> StopActions
         {
@@ -481,7 +487,7 @@ namespace Pulumi.Aws.Ses
         }
 
         /// <summary>
-        /// `Require` or `Optional`
+        /// `Require` or `Optional`.
         /// </summary>
         [Input("tlsPolicy")]
         public Input<string>? TlsPolicy { get; set; }
@@ -490,7 +496,7 @@ namespace Pulumi.Aws.Ses
         private InputList<Inputs.ReceiptRuleWorkmailActionGetArgs>? _workmailActions;
 
         /// <summary>
-        /// A list of WorkMail Action blocks. Documented below.
+        /// Configuration block for calling Amazon WorkMail. Detailed below.
         /// </summary>
         public InputList<Inputs.ReceiptRuleWorkmailActionGetArgs> WorkmailActions
         {

@@ -134,7 +134,7 @@ namespace Pulumi.Aws.RedshiftServerless
         /// </summary>
         public readonly string AdminUsername;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+        /// ARN of the Redshift Serverless Namespace.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.RedshiftServerless
         /// </summary>
         public readonly string DbName;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `DefaultIamRoleArn`, it also must be part of `IamRoles`.
+        /// ARN of the IAM role to set as a default in the namespace. When specifying `DefaultIamRoleArn`, it also must be part of `IamRoles`.
         /// </summary>
         public readonly string DefaultIamRoleArn;
         /// <summary>
@@ -154,7 +154,7 @@ namespace Pulumi.Aws.RedshiftServerless
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+        /// ARN of the Amazon Web Services KMS key used to encrypt your data.
         /// </summary>
         public readonly string KmsKeyId;
         /// <summary>

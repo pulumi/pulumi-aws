@@ -228,7 +228,7 @@ class BudgetActionDefinitionIamActionDefinition(dict):
                  roles: Optional[Sequence[_builtins.str]] = None,
                  users: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str policy_arn: The Amazon Resource Name (ARN) of the policy to be attached.
+        :param _builtins.str policy_arn: ARN of the policy to be attached.
         :param Sequence[_builtins.str] groups: A list of groups to be attached. There must be at least one group.
         :param Sequence[_builtins.str] roles: A list of roles to be attached. There must be at least one role.
         :param Sequence[_builtins.str] users: A list of users to be attached. There must be at least one user.
@@ -245,7 +245,7 @@ class BudgetActionDefinitionIamActionDefinition(dict):
     @pulumi.getter(name="policyArn")
     def policy_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the policy to be attached.
+        ARN of the policy to be attached.
         """
         return pulumi.get(self, "policy_arn")
 

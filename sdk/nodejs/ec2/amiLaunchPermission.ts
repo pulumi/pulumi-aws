@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Adds a launch permission to an Amazon Machine Image (AMI).
+ * Adds a launch permission to an AMI.
  *
  * ## Example Usage
  *

@@ -18,14 +18,14 @@ public final class TestGridProjectState extends com.pulumi.resources.ResourceArg
     public static final TestGridProjectState Empty = new TestGridProjectState();
 
     /**
-     * The Amazon Resource Name of this Test Grid Project.
+     * ARN of this Test Grid Project.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name of this Test Grid Project.
+     * @return ARN of this Test Grid Project.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -153,7 +153,7 @@ public final class TestGridProjectState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn The Amazon Resource Name of this Test Grid Project.
+         * @param arn ARN of this Test Grid Project.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class TestGridProjectState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn The Amazon Resource Name of this Test Grid Project.
+         * @param arn ARN of this Test Grid Project.
          * 
          * @return builder
          * 

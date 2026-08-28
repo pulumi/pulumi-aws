@@ -237,7 +237,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the Network Firewall TLS inspection configuration.
+ * - `arn` (String) ARN of the Network Firewall TLS inspection configuration.
  *
  * Using `pulumi import`, import Network Firewall TLS Inspection Configuration using the `arn`. For example:
  *

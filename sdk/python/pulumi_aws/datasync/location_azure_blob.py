@@ -188,7 +188,7 @@ class _LocationAzureBlobState:
 
         :param pulumi.Input[_builtins.str] access_tier: The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Location.
+        :param pulumi.Input[_builtins.str] arn: ARN of the DataSync Location.
         :param pulumi.Input[_builtins.str] authentication_type: The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
         :param pulumi.Input[_builtins.str] blob_type: The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
         :param pulumi.Input[_builtins.str] container_url: The URL of the Azure Blob Storage container involved in your transfer.
@@ -251,7 +251,7 @@ class _LocationAzureBlobState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the DataSync Location.
+        ARN of the DataSync Location.
         """
         return pulumi.get(self, "arn")
 
@@ -407,9 +407,9 @@ class LocationAzureBlob(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the DataSync Azure Blob location.
+        - `arn` (String) ARN of the DataSync Azure Blob location.
 
-        Using `pulumi import`, import `datasync.LocationAzureBlob` using the Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `datasync.LocationAzureBlob` using the ARN. For example:
 
         ```sh
         $ pulumi import aws:datasync/locationAzureBlob:LocationAzureBlob example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
@@ -460,9 +460,9 @@ class LocationAzureBlob(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the DataSync Azure Blob location.
+        - `arn` (String) ARN of the DataSync Azure Blob location.
 
-        Using `pulumi import`, import `datasync.LocationAzureBlob` using the Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `datasync.LocationAzureBlob` using the ARN. For example:
 
         ```sh
         $ pulumi import aws:datasync/locationAzureBlob:LocationAzureBlob example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
@@ -551,7 +551,7 @@ class LocationAzureBlob(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_tier: The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Location.
+        :param pulumi.Input[_builtins.str] arn: ARN of the DataSync Location.
         :param pulumi.Input[_builtins.str] authentication_type: The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
         :param pulumi.Input[_builtins.str] blob_type: The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
         :param pulumi.Input[_builtins.str] container_url: The URL of the Azure Blob Storage container involved in your transfer.
@@ -599,7 +599,7 @@ class LocationAzureBlob(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the DataSync Location.
+        ARN of the DataSync Location.
         """
         return pulumi.get(self, "arn")
 

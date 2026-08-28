@@ -65,7 +65,7 @@ import (
 type VpcConnection struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the VPC connection.
+	// ARN of the VPC connection.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
 	Authentication pulumi.StringOutput `pulumi:"authentication"`
@@ -79,7 +79,7 @@ type VpcConnection struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The Amazon Resource Name (ARN) of the cluster.
+	// ARN of the cluster.
 	TargetClusterArn pulumi.StringOutput `pulumi:"targetClusterArn"`
 	// The VPC ID of the remote client.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -130,7 +130,7 @@ func GetVpcConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcConnection resources.
 type vpcConnectionState struct {
-	// Amazon Resource Name (ARN) of the VPC connection.
+	// ARN of the VPC connection.
 	Arn *string `pulumi:"arn"`
 	// The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
 	Authentication *string `pulumi:"authentication"`
@@ -144,14 +144,14 @@ type vpcConnectionState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The Amazon Resource Name (ARN) of the cluster.
+	// ARN of the cluster.
 	TargetClusterArn *string `pulumi:"targetClusterArn"`
 	// The VPC ID of the remote client.
 	VpcId *string `pulumi:"vpcId"`
 }
 
 type VpcConnectionState struct {
-	// Amazon Resource Name (ARN) of the VPC connection.
+	// ARN of the VPC connection.
 	Arn pulumi.StringPtrInput
 	// The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
 	Authentication pulumi.StringPtrInput
@@ -165,7 +165,7 @@ type VpcConnectionState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The Amazon Resource Name (ARN) of the cluster.
+	// ARN of the cluster.
 	TargetClusterArn pulumi.StringPtrInput
 	// The VPC ID of the remote client.
 	VpcId pulumi.StringPtrInput
@@ -186,7 +186,7 @@ type vpcConnectionArgs struct {
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The Amazon Resource Name (ARN) of the cluster.
+	// ARN of the cluster.
 	TargetClusterArn string `pulumi:"targetClusterArn"`
 	// The VPC ID of the remote client.
 	VpcId string `pulumi:"vpcId"`
@@ -204,7 +204,7 @@ type VpcConnectionArgs struct {
 	SecurityGroups pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The Amazon Resource Name (ARN) of the cluster.
+	// ARN of the cluster.
 	TargetClusterArn pulumi.StringInput
 	// The VPC ID of the remote client.
 	VpcId pulumi.StringInput
@@ -297,7 +297,7 @@ func (o VpcConnectionOutput) ToVpcConnectionOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Amazon Resource Name (ARN) of the VPC connection.
+// ARN of the VPC connection.
 func (o VpcConnectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -332,7 +332,7 @@ func (o VpcConnectionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The Amazon Resource Name (ARN) of the cluster.
+// ARN of the cluster.
 func (o VpcConnectionOutput) TargetClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.TargetClusterArn }).(pulumi.StringOutput)
 }

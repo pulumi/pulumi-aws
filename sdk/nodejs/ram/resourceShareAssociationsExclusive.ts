@@ -121,7 +121,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `resourceShareArn` (String) Amazon Resource Name (ARN) of the RAM resource share.
+ * - `resourceShareArn` (String) ARN of the RAM resource share.
  *
  * Using `pulumi import`, import RAM Resource Share Association Exclusive using the `resourceShareArn`. For example:
  *
@@ -166,11 +166,11 @@ export class ResourceShareAssociationsExclusive extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+     * Set of ARNs of resources to associate with the resource share. Resources not configured in this argument will be removed.
      */
     declare public readonly resourceArns: pulumi.Output<string[] | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+     * ARN of the resource share. Changing this value forces creation of a new resource.
      */
     declare public readonly resourceShareArn: pulumi.Output<string>;
     /**
@@ -225,11 +225,11 @@ export interface ResourceShareAssociationsExclusiveState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+     * Set of ARNs of resources to associate with the resource share. Resources not configured in this argument will be removed.
      */
     resourceArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+     * ARN of the resource share. Changing this value forces creation of a new resource.
      */
     resourceShareArn?: pulumi.Input<string | undefined>;
     /**
@@ -251,11 +251,11 @@ export interface ResourceShareAssociationsExclusiveArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+     * Set of ARNs of resources to associate with the resource share. Resources not configured in this argument will be removed.
      */
     resourceArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+     * ARN of the resource share. Changing this value forces creation of a new resource.
      */
     resourceShareArn: pulumi.Input<string>;
     /**

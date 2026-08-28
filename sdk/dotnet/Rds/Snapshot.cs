@@ -75,7 +75,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> DbInstanceIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the DB snapshot.
+        /// ARN for the DB snapshot.
         /// </summary>
         [Output("dbSnapshotArn")]
         public Output<string> DbSnapshotArn { get; private set; } = null!;
@@ -303,7 +303,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DbInstanceIdentifier { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the DB snapshot.
+        /// ARN for the DB snapshot.
         /// </summary>
         [Input("dbSnapshotArn")]
         public Input<string>? DbSnapshotArn { get; set; }

@@ -185,7 +185,7 @@ class _LocationSmbState:
         Input properties used for looking up and filtering LocationSmb resources.
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Location.
+        :param pulumi.Input[_builtins.str] arn: ARN of the DataSync Location.
         :param pulumi.Input[_builtins.str] domain: The name of the Windows domain the SMB server belongs to.
         :param pulumi.Input['LocationSmbMountOptionsArgs'] mount_options: Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
         :param pulumi.Input[_builtins.str] password: The password of the user who can mount the share and has file permissions in the SMB.
@@ -237,7 +237,7 @@ class _LocationSmbState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the DataSync Location.
+        ARN of the DataSync Location.
         """
         return pulumi.get(self, "arn")
 
@@ -404,9 +404,9 @@ class LocationSmb(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the DataSync SMB location.
+        - `arn` (String) ARN of the DataSync SMB location.
 
-        Using `pulumi import`, import `datasync.LocationSmb` using the Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `datasync.LocationSmb` using the ARN. For example:
 
         ```sh
         $ pulumi import aws:datasync/locationSmb:LocationSmb example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
@@ -456,9 +456,9 @@ class LocationSmb(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the DataSync SMB location.
+        - `arn` (String) ARN of the DataSync SMB location.
 
-        Using `pulumi import`, import `datasync.LocationSmb` using the Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `datasync.LocationSmb` using the ARN. For example:
 
         ```sh
         $ pulumi import aws:datasync/locationSmb:LocationSmb example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
@@ -552,7 +552,7 @@ class LocationSmb(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Location.
+        :param pulumi.Input[_builtins.str] arn: ARN of the DataSync Location.
         :param pulumi.Input[_builtins.str] domain: The name of the Windows domain the SMB server belongs to.
         :param pulumi.Input[Union['LocationSmbMountOptionsArgs', 'LocationSmbMountOptionsArgsDict']] mount_options: Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
         :param pulumi.Input[_builtins.str] password: The password of the user who can mount the share and has file permissions in the SMB.
@@ -593,7 +593,7 @@ class LocationSmb(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the DataSync Location.
+        ARN of the DataSync Location.
         """
         return pulumi.get(self, "arn")
 

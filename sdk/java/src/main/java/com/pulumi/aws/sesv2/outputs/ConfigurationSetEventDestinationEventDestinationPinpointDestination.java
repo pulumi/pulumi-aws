@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class ConfigurationSetEventDestinationEventDestinationPinpointDestination {
+    /**
+     * @return ARN of the AWS End User Messaging project to send email events to.
+     * 
+     */
     private String applicationArn;
 
     private ConfigurationSetEventDestinationEventDestinationPinpointDestination() {}
+    /**
+     * @return ARN of the AWS End User Messaging project to send email events to.
+     * 
+     */
     public String applicationArn() {
         return this.applicationArn;
     }

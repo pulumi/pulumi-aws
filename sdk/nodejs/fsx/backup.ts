@@ -108,7 +108,7 @@ export class Backup extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name of the backup.
+     * ARN of the backup.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -116,7 +116,7 @@ export class Backup extends pulumi.CustomResource {
      */
     declare public readonly fileSystemId: pulumi.Output<string | undefined>;
     /**
-     * ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
+     * ID of the KMS key used to encrypt the backup of the Amazon FSx file system's data at rest.
      */
     declare public /*out*/ readonly kmsKeyId: pulumi.Output<string>;
     /**
@@ -188,7 +188,7 @@ export class Backup extends pulumi.CustomResource {
  */
 export interface BackupState {
     /**
-     * Amazon Resource Name of the backup.
+     * ARN of the backup.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -196,7 +196,7 @@ export interface BackupState {
      */
     fileSystemId?: pulumi.Input<string | undefined>;
     /**
-     * ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
+     * ID of the KMS key used to encrypt the backup of the Amazon FSx file system's data at rest.
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**

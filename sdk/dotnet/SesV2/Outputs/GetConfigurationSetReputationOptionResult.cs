@@ -14,11 +14,11 @@ namespace Pulumi.Aws.SesV2.Outputs
     public sealed class GetConfigurationSetReputationOptionResult
     {
         /// <summary>
-        /// The date and time (in Unix time) when the reputation metrics were last given a fresh start.
+        /// Date and time (in Unix time) when the reputation metrics were last given a fresh start.
         /// </summary>
         public readonly string LastFreshStart;
         /// <summary>
-        /// Specifies whether tracking of reputation metrics is enabled.
+        /// Whether tracking of reputation metrics is enabled.
         /// </summary>
         public readonly bool ReputationMetricsEnabled;
 

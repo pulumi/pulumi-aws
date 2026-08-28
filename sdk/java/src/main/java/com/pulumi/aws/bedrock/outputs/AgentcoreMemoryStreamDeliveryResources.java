@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreMemoryStreamDeliveryResources {
     /**
-     * @return List of stream delivery resource configurations. See `resource` below.
+     * @return List of stream delivery resource configurations. See `resource` Block below.
      * 
      */
     private @Nullable AgentcoreMemoryStreamDeliveryResourcesResource resource;
 
     private AgentcoreMemoryStreamDeliveryResources() {}
     /**
-     * @return List of stream delivery resource configurations. See `resource` below.
+     * @return List of stream delivery resource configurations. See `resource` Block below.
      * 
      */
     public Optional<AgentcoreMemoryStreamDeliveryResourcesResource> resource() {

@@ -72,7 +72,7 @@ export class XssMatchSet extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN)
+     * ARN
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -116,7 +116,7 @@ export class XssMatchSet extends pulumi.CustomResource {
  */
 export interface XssMatchSetState {
     /**
-     * Amazon Resource Name (ARN)
+     * ARN
      */
     arn?: pulumi.Input<string | undefined>;
     /**

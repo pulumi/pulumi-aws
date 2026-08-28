@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Route53
     public partial class QueryLog : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Query Logging Config.
+        /// ARN of the Query Logging Config.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.Route53
     public sealed class QueryLogState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Query Logging Config.
+        /// ARN of the Query Logging Config.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

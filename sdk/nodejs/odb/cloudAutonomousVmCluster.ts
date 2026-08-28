@@ -130,7 +130,7 @@ export class CloudAutonomousVmCluster extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) for the Exadata infrastructure.
+     * ARN for the Exadata infrastructure.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -506,7 +506,7 @@ export class CloudAutonomousVmCluster extends pulumi.CustomResource {
  */
 export interface CloudAutonomousVmClusterState {
     /**
-     * Amazon Resource Name (ARN) for the Exadata infrastructure.
+     * ARN for the Exadata infrastructure.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

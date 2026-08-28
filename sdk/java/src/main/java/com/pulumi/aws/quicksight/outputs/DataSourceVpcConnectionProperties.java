@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class DataSourceVpcConnectionProperties {
     /**
-     * @return The Amazon Resource Name (ARN) for the VPC connection.
+     * @return ARN for the VPC connection.
      * 
      */
     private String vpcConnectionArn;
 
     private DataSourceVpcConnectionProperties() {}
     /**
-     * @return The Amazon Resource Name (ARN) for the VPC connection.
+     * @return ARN for the VPC connection.
      * 
      */
     public String vpcConnectionArn() {

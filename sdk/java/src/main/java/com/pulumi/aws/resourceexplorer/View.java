@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Resource Explorer view.
+ * - `arn` (String) ARN of the Resource Explorer view.
  * 
  * Using `pulumi import`, import Resource Explorer views using the `arn`. For example:
  * 
@@ -90,14 +90,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:resourceexplorer/view:View")
 public class View extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the Resource Explorer view.
+     * ARN of the Resource Explorer view.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Resource Explorer view.
+     * @return ARN of the Resource Explorer view.
      * 
      */
     public Output<String> arn() {

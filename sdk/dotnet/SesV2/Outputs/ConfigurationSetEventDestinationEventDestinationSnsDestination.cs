@@ -14,7 +14,7 @@ namespace Pulumi.Aws.SesV2.Outputs
     public sealed class ConfigurationSetEventDestinationEventDestinationSnsDestination
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon SNS topic to publish email events to.
+        /// ARN of the Amazon SNS topic to publish email events to.
         /// </summary>
         public readonly string TopicArn;
 

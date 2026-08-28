@@ -32,14 +32,14 @@ public final class AppregistryApplicationState extends com.pulumi.resources.Reso
     }
 
     /**
-     * ARN (Amazon Resource Name) of the application.
+     * ARN of the application.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN (Amazon Resource Name) of the application.
+     * @return ARN of the application.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -177,7 +177,7 @@ public final class AppregistryApplicationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param arn ARN (Amazon Resource Name) of the application.
+         * @param arn ARN of the application.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class AppregistryApplicationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param arn ARN (Amazon Resource Name) of the application.
+         * @param arn ARN of the application.
          * 
          * @return builder
          * 

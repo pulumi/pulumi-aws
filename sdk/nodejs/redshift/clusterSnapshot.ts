@@ -60,7 +60,7 @@ export class ClusterSnapshot extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the snapshot.
+     * ARN of the snapshot.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -68,7 +68,7 @@ export class ClusterSnapshot extends pulumi.CustomResource {
      */
     declare public readonly clusterIdentifier: pulumi.Output<string>;
     /**
-     * The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
+     * KMS key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
      */
     declare public /*out*/ readonly kmsKeyId: pulumi.Output<string>;
     /**
@@ -146,7 +146,7 @@ export class ClusterSnapshot extends pulumi.CustomResource {
  */
 export interface ClusterSnapshotState {
     /**
-     * Amazon Resource Name (ARN) of the snapshot.
+     * ARN of the snapshot.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -154,7 +154,7 @@ export interface ClusterSnapshotState {
      */
     clusterIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
+     * KMS key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**

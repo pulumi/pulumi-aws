@@ -59,7 +59,7 @@ export interface GetNodeGroupArgs {
  */
 export interface GetNodeGroupResult {
     /**
-     * Type of Amazon Machine Image (AMI) associated with the EKS Node Group.
+     * Type of AMI associated with the EKS Node Group.
      */
     readonly amiType: string;
     /**

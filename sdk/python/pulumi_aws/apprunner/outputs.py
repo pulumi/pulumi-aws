@@ -353,7 +353,7 @@ class ServiceNetworkConfiguration(dict):
         """
         :param 'ServiceNetworkConfigurationEgressConfigurationArgs' egress_configuration: Network configuration settings for outbound message traffic. See `egress_configuration` below.
         :param 'ServiceNetworkConfigurationIngressConfigurationArgs' ingress_configuration: Network configuration settings for inbound network traffic. See `ingress_configuration` below.
-        :param _builtins.str ip_address_type: App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
+        :param _builtins.str ip_address_type: App Runner provides you with the option to choose between IP version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
         """
         if egress_configuration is not None:
             pulumi.set(__self__, "egress_configuration", egress_configuration)
@@ -382,7 +382,7 @@ class ServiceNetworkConfiguration(dict):
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[_builtins.str]:
         """
-        App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
+        App Runner provides you with the option to choose between IP version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
         """
         return pulumi.get(self, "ip_address_type")
 
@@ -413,7 +413,7 @@ class ServiceNetworkConfigurationEgressConfiguration(dict):
                  vpc_connector_arn: Optional[_builtins.str] = None):
         """
         :param _builtins.str egress_type: Type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
-        :param _builtins.str vpc_connector_arn: Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
+        :param _builtins.str vpc_connector_arn: ARN of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
         """
         if egress_type is not None:
             pulumi.set(__self__, "egress_type", egress_type)
@@ -432,7 +432,7 @@ class ServiceNetworkConfigurationEgressConfiguration(dict):
     @pulumi.getter(name="vpcConnectorArn")
     def vpc_connector_arn(self) -> Optional[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
+        ARN of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
         """
         return pulumi.get(self, "vpc_connector_arn")
 

@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class SigningProfileSigningMaterial {
     /**
-     * @return The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
+     * @return ARN of the certificates that is used to sign your code.
      * 
      */
     private String certificateArn;
 
     private SigningProfileSigningMaterial() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
+     * @return ARN of the certificates that is used to sign your code.
      * 
      */
     public String certificateArn() {

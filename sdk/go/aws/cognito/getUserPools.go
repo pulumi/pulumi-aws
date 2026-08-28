@@ -82,7 +82,7 @@ type GetUserPoolsArgs struct {
 
 // A collection of values returned by getUserPools.
 type GetUserPoolsResult struct {
-	// Set of cognito user pool Amazon Resource Names (ARNs).
+	// Set of cognito user pool ARNs.
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -124,7 +124,7 @@ func (o GetUserPoolsResultOutput) ToGetUserPoolsResultOutputWithContext(ctx cont
 	return o
 }
 
-// Set of cognito user pool Amazon Resource Names (ARNs).
+// Set of cognito user pool ARNs.
 func (o GetUserPoolsResultOutput) Arns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetUserPoolsResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
 }

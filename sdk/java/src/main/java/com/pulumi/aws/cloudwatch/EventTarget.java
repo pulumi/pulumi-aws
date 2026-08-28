@@ -899,14 +899,14 @@ public class EventTarget extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.appsyncTarget);
     }
     /**
-     * The Amazon Resource Name (ARN) of the target.
+     * ARN of the target.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the target.
+     * @return ARN of the target.
      * 
      */
     public Output<String> arn() {
@@ -1097,14 +1097,14 @@ public class EventTarget extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.retryPolicy);
     }
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
+     * ARN of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
+     * @return ARN of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
      * 
      */
     public Output<Optional<String>> roleArn() {

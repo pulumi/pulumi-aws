@@ -58,7 +58,7 @@ namespace Pulumi.Aws.AppFabric
     public partial class IngestionDestination : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the app bundle to use for the request.
+        /// ARN of the app bundle to use for the request.
         /// </summary>
         [Output("appBundleArn")]
         public Output<string> AppBundleArn { get; private set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.AppFabric
         public Output<Outputs.IngestionDestinationDestinationConfiguration> DestinationConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the ingestion to use for the request.
+        /// ARN of the ingestion to use for the request.
         /// </summary>
         [Output("ingestionArn")]
         public Output<string> IngestionArn { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.AppFabric
     public sealed class IngestionDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the app bundle to use for the request.
+        /// ARN of the app bundle to use for the request.
         /// </summary>
         [Input("appBundleArn", required: true)]
         public Input<string> AppBundleArn { get; set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.AppFabric
         public Input<Inputs.IngestionDestinationDestinationConfigurationArgs> DestinationConfiguration { get; set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the ingestion to use for the request.
+        /// ARN of the ingestion to use for the request.
         /// </summary>
         [Input("ingestionArn", required: true)]
         public Input<string> IngestionArn { get; set; } = null!;
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.AppFabric
     public sealed class IngestionDestinationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the app bundle to use for the request.
+        /// ARN of the app bundle to use for the request.
         /// </summary>
         [Input("appBundleArn")]
         public Input<string>? AppBundleArn { get; set; }
@@ -230,7 +230,7 @@ namespace Pulumi.Aws.AppFabric
         public Input<Inputs.IngestionDestinationDestinationConfigurationGetArgs>? DestinationConfiguration { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the ingestion to use for the request.
+        /// ARN of the ingestion to use for the request.
         /// </summary>
         [Input("ingestionArn")]
         public Input<string>? IngestionArn { get; set; }

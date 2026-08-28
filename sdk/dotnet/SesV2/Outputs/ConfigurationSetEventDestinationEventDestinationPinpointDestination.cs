@@ -13,6 +13,9 @@ namespace Pulumi.Aws.SesV2.Outputs
     [OutputType]
     public sealed class ConfigurationSetEventDestinationEventDestinationPinpointDestination
     {
+        /// <summary>
+        /// ARN of the AWS End User Messaging project to send email events to.
+        /// </summary>
         public readonly string ApplicationArn;
 
         [OutputConstructor]

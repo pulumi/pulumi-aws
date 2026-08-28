@@ -90,7 +90,7 @@ export class OntapVolume extends pulumi.CustomResource {
      */
     declare public readonly aggregateConfiguration: pulumi.Output<outputs.fsx.OntapVolumeAggregateConfiguration | undefined>;
     /**
-     * Amazon Resource Name of the volune.
+     * ARN of the volune.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -271,7 +271,7 @@ export interface OntapVolumeState {
      */
     aggregateConfiguration?: pulumi.Input<inputs.fsx.OntapVolumeAggregateConfiguration | undefined>;
     /**
-     * Amazon Resource Name of the volune.
+     * ARN of the volune.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

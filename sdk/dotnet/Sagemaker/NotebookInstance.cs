@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<ImmutableArray<string>> AdditionalCodeRepositories { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
+        /// ARN assigned by AWS to this notebook instance.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> InstanceType { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+        /// KMS key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
@@ -288,7 +288,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string> InstanceType { get; set; } = null!;
 
         /// <summary>
-        /// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+        /// KMS key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -387,7 +387,7 @@ namespace Pulumi.Aws.Sagemaker
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
+        /// ARN assigned by AWS to this notebook instance.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -417,7 +417,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? InstanceType { get; set; }
 
         /// <summary>
-        /// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+        /// KMS key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }

@@ -79,14 +79,14 @@ public final class ConfigurationProfileState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+     * Identifier for a KMS key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the ARN of the key ID or alias.
      * 
      */
     @Import(name="kmsKeyIdentifier")
     private @Nullable Output<String> kmsKeyIdentifier;
 
     /**
-     * @return Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+     * @return Identifier for a KMS key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the ARN of the key ID or alias.
      * 
      */
     public Optional<Output<String>> kmsKeyIdentifier() {
@@ -334,7 +334,7 @@ public final class ConfigurationProfileState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param kmsKeyIdentifier Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+         * @param kmsKeyIdentifier Identifier for a KMS key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the ARN of the key ID or alias.
          * 
          * @return builder
          * 
@@ -345,7 +345,7 @@ public final class ConfigurationProfileState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param kmsKeyIdentifier Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+         * @param kmsKeyIdentifier Identifier for a KMS key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the ARN of the key ID or alias.
          * 
          * @return builder
          * 

@@ -17,14 +17,14 @@ public final class AppBundleArgs extends com.pulumi.resources.ResourceArgs {
     public static final AppBundleArgs Empty = new AppBundleArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
+     * ARN of the KMS key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
      * 
      */
     @Import(name="customerManagedKeyArn")
     private @Nullable Output<String> customerManagedKeyArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
+     * @return ARN of the KMS key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
      * 
      */
     public Optional<Output<String>> customerManagedKeyArn() {
@@ -88,7 +88,7 @@ public final class AppBundleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerManagedKeyArn Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
+         * @param customerManagedKeyArn ARN of the KMS key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class AppBundleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerManagedKeyArn Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
+         * @param customerManagedKeyArn ARN of the KMS key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
          * 
          * @return builder
          * 

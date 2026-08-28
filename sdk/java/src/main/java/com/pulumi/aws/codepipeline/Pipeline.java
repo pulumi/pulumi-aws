@@ -312,14 +312,14 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+     * Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+     * @return Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      * 
      */
     public Output<String> roleArn() {

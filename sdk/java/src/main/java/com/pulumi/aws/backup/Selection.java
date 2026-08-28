@@ -332,14 +332,14 @@ public class Selection extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
+     * Array of strings that either contain ARNs or match patterns of resources to exclude from a backup plan.
      * 
      */
     @Export(name="notResources", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> notResources;
 
     /**
-     * @return An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
+     * @return Array of strings that either contain ARNs or match patterns of resources to exclude from a backup plan.
      * 
      */
     public Output<List<String>> notResources() {
@@ -374,14 +374,14 @@ public class Selection extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
+     * Array of strings that either contain ARNs or match patterns of resources to assign to a backup plan.
      * 
      */
     @Export(name="resources", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> resources;
 
     /**
-     * @return An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
+     * @return Array of strings that either contain ARNs or match patterns of resources to assign to a backup plan.
      * 
      */
     public Output<Optional<List<String>>> resources() {

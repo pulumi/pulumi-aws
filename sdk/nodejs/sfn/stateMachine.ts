@@ -235,7 +235,7 @@ export class StateMachine extends pulumi.CustomResource {
     declare public readonly region: pulumi.Output<string>;
     declare public /*out*/ readonly revisionId: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+     * ARN of the IAM role to use for this state machine.
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
@@ -372,7 +372,7 @@ export interface StateMachineState {
     region?: pulumi.Input<string | undefined>;
     revisionId?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+     * ARN of the IAM role to use for this state machine.
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
@@ -435,7 +435,7 @@ export interface StateMachineArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+     * ARN of the IAM role to use for this state machine.
      */
     roleArn: pulumi.Input<string>;
     /**

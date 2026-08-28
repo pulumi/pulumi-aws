@@ -61,7 +61,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         public Input<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputGetArgs>? KinesisFirehoseInput { get; set; }
 
         /// <summary>
-        /// If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
+        /// If the streaming source is a Kinesis data stream, identifies the stream's ARN.
         /// </summary>
         [Input("kinesisStreamsInput")]
         public Input<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputGetArgs>? KinesisStreamsInput { get; set; }

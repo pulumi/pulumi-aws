@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Transfer.Outputs
         /// </summary>
         public readonly string? VpcEndpointId;
         /// <summary>
-        /// VPC ID of the virtual private cloud in which the SFTP server's endpoint will be hosted. This property can only be used when `EndpointType` is set to `VPC`.
+        /// VPC ID of the VPC in which the SFTP server's endpoint will be hosted. This property can only be used when `EndpointType` is set to `VPC`.
         /// </summary>
         public readonly string? VpcId;
 

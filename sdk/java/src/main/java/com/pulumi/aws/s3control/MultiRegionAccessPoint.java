@@ -128,14 +128,14 @@ public class MultiRegionAccessPoint extends com.pulumi.resources.CustomResource 
         return this.alias;
     }
     /**
-     * Amazon Resource Name (ARN) of the Multi-Region Access Point.
+     * ARN of the Multi-Region Access Point.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Multi-Region Access Point.
+     * @return ARN of the Multi-Region Access Point.
      * 
      */
     public Output<String> arn() {

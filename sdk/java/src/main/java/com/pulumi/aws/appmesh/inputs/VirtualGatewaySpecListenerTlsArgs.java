@@ -49,14 +49,14 @@ public final class VirtualGatewaySpecListenerTlsArgs extends com.pulumi.resource
     }
 
     /**
-     * Listener&#39;s Transport Layer Security (TLS) validation context.
+     * Listener&#39;s TLS validation context.
      * 
      */
     @Import(name="validation")
     private @Nullable Output<VirtualGatewaySpecListenerTlsValidationArgs> validation;
 
     /**
-     * @return Listener&#39;s Transport Layer Security (TLS) validation context.
+     * @return Listener&#39;s TLS validation context.
      * 
      */
     public Optional<Output<VirtualGatewaySpecListenerTlsValidationArgs>> validation() {
@@ -132,7 +132,7 @@ public final class VirtualGatewaySpecListenerTlsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param validation Listener&#39;s Transport Layer Security (TLS) validation context.
+         * @param validation Listener&#39;s TLS validation context.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class VirtualGatewaySpecListenerTlsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param validation Listener&#39;s Transport Layer Security (TLS) validation context.
+         * @param validation Listener&#39;s TLS validation context.
          * 
          * @return builder
          * 

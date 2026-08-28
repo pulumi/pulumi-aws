@@ -140,14 +140,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:msk/scramSecretAssociation:ScramSecretAssociation")
 public class ScramSecretAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the MSK cluster.
+     * ARN of the MSK cluster.
      * 
      */
     @Export(name="clusterArn", refs={String.class}, tree="[0]")
     private Output<String> clusterArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the MSK cluster.
+     * @return ARN of the MSK cluster.
      * 
      */
     public Output<String> clusterArn() {

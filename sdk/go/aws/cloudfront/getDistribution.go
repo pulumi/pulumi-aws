@@ -61,7 +61,7 @@ type LookupDistributionResult struct {
 	Aliases []string `pulumi:"aliases"`
 	// ID of the Anycast static IP list that is associated with the distribution, if any.
 	AnycastIpListId string `pulumi:"anycastIpListId"`
-	// ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
+	// ARN for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
 	Arn string `pulumi:"arn"`
 	// Domain name corresponding to the distribution. For
 	// example: `d604721fxaaqy9.cloudfront.net`.
@@ -131,7 +131,7 @@ func (o LookupDistributionResultOutput) AnycastIpListId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDistributionResult) string { return v.AnycastIpListId }).(pulumi.StringOutput)
 }
 
-// ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
+// ARN for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
 func (o LookupDistributionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDistributionResult) string { return v.Arn }).(pulumi.StringOutput)
 }

@@ -158,7 +158,7 @@ namespace Pulumi.Aws.IvsChat
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the IVS Chat logging configuration.
+    /// - `Arn` (String) ARN of the IVS Chat logging configuration.
     /// 
     /// Using `pulumi import`, import IVS (Interactive Video) Chat Logging Configuration using the ARN. For example:
     /// 

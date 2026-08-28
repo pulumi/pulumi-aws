@@ -17,14 +17,14 @@ public final class TaskTaskReportConfigS3DestinationArgs extends com.pulumi.reso
     public static final TaskTaskReportConfigS3DestinationArgs Empty = new TaskTaskReportConfigS3DestinationArgs();
 
     /**
-     * Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
+     * ARN of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
      * 
      */
     @Import(name="bucketAccessRoleArn", required=true)
     private Output<String> bucketAccessRoleArn;
 
     /**
-     * @return Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
+     * @return ARN of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
      * 
      */
     public Output<String> bucketAccessRoleArn() {
@@ -88,7 +88,7 @@ public final class TaskTaskReportConfigS3DestinationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param bucketAccessRoleArn Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
+         * @param bucketAccessRoleArn ARN of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class TaskTaskReportConfigS3DestinationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param bucketAccessRoleArn Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
+         * @param bucketAccessRoleArn ARN of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
          * 
          * @return builder
          * 

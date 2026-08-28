@@ -18,14 +18,14 @@ public final class UserProfileState extends com.pulumi.resources.ResourceArgs {
     public static final UserProfileState Empty = new UserProfileState();
 
     /**
-     * The user profile Amazon Resource Name (ARN).
+     * User profile ARN.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The user profile Amazon Resource Name (ARN).
+     * @return User profile ARN.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -201,7 +201,7 @@ public final class UserProfileState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The user profile Amazon Resource Name (ARN).
+         * @param arn User profile ARN.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class UserProfileState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The user profile Amazon Resource Name (ARN).
+         * @param arn User profile ARN.
          * 
          * @return builder
          * 

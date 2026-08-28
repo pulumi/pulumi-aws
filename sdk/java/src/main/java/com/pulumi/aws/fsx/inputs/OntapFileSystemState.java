@@ -21,14 +21,14 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
     public static final OntapFileSystemState Empty = new OntapFileSystemState();
 
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name of the file system.
+     * @return ARN of the file system.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -231,14 +231,14 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+     * ID for a subnet. A subnet is a range of IP addresses in your VPC.
      * 
      */
     @Import(name="preferredSubnetId")
     private @Nullable Output<String> preferredSubnetId;
 
     /**
-     * @return ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+     * @return ID for a subnet. A subnet is a range of IP addresses in your VPC.
      * 
      */
     public Optional<Output<String>> preferredSubnetId() {
@@ -396,14 +396,14 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Identifier of the Virtual Private Cloud for the file system.
+     * Identifier of the VPC for the file system.
      * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return Identifier of the Virtual Private Cloud for the file system.
+     * @return Identifier of the VPC for the file system.
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -476,7 +476,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn Amazon Resource Name of the file system.
+         * @param arn ARN of the file system.
          * 
          * @return builder
          * 
@@ -487,7 +487,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn Amazon Resource Name of the file system.
+         * @param arn ARN of the file system.
          * 
          * @return builder
          * 
@@ -790,7 +790,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param preferredSubnetId ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+         * @param preferredSubnetId ID for a subnet. A subnet is a range of IP addresses in your VPC.
          * 
          * @return builder
          * 
@@ -801,7 +801,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param preferredSubnetId ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+         * @param preferredSubnetId ID for a subnet. A subnet is a range of IP addresses in your VPC.
          * 
          * @return builder
          * 
@@ -1051,7 +1051,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param vpcId Identifier of the Virtual Private Cloud for the file system.
+         * @param vpcId Identifier of the VPC for the file system.
          * 
          * @return builder
          * 
@@ -1062,7 +1062,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param vpcId Identifier of the Virtual Private Cloud for the file system.
+         * @param vpcId Identifier of the VPC for the file system.
          * 
          * @return builder
          * 

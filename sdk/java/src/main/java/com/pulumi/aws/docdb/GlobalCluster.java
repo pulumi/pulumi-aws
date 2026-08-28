@@ -187,14 +187,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:docdb/globalCluster:GlobalCluster")
 public class GlobalCluster extends com.pulumi.resources.CustomResource {
     /**
-     * Global Cluster Amazon Resource Name (ARN)
+     * Global Cluster ARN
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Global Cluster Amazon Resource Name (ARN)
+     * @return Global Cluster ARN
      * 
      */
     public Output<String> arn() {
@@ -315,14 +315,14 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value.
      * 
      */
     @Export(name="sourceDbClusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> sourceDbClusterIdentifier;
 
     /**
-     * @return Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+     * @return ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value.
      * 
      */
     public Output<String> sourceDbClusterIdentifier() {

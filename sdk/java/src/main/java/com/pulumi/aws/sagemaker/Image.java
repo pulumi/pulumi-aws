@@ -66,14 +66,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sagemaker/image:Image")
 public class Image extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Image.
+     * ARN assigned by AWS to this Image.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Image.
+     * @return ARN assigned by AWS to this Image.
      * 
      */
     public Output<String> arn() {
@@ -136,14 +136,14 @@ public class Image extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
+     * ARN of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
+     * @return ARN of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
      * 
      */
     public Output<String> roleArn() {

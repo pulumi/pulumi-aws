@@ -66,11 +66,11 @@ export interface GetReplicationTaskResult {
     readonly migrationType: string;
     readonly region: string;
     /**
-     * The Amazon Resource Name (ARN) of the replication instance.
+     * ARN of the replication instance.
      */
     readonly replicationInstanceArn: string;
     /**
-     * The Amazon Resource Name (ARN) for the replication task.
+     * ARN for the replication task.
      */
     readonly replicationTaskArn: string;
     readonly replicationTaskId: string;
@@ -79,7 +79,7 @@ export interface GetReplicationTaskResult {
      */
     readonly replicationTaskSettings: string;
     /**
-     * The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+     * ARN string that uniquely identifies the source endpoint.
      */
     readonly sourceEndpointArn: string;
     /**
@@ -96,7 +96,7 @@ export interface GetReplicationTaskResult {
     readonly tableMappings: string;
     readonly tags: {[key: string]: string};
     /**
-     * The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+     * ARN string that uniquely identifies the target endpoint.
      */
     readonly targetEndpointArn: string;
 }

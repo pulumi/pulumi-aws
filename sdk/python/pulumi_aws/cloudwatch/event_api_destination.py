@@ -148,7 +148,7 @@ class _EventApiDestinationState:
         """
         Input properties used for looking up and filtering EventApiDestination resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the event API Destination.
+        :param pulumi.Input[_builtins.str] arn: ARN of the event API Destination.
         :param pulumi.Input[_builtins.str] connection_arn: ARN of the EventBridge Connection to use for the API Destination.
         :param pulumi.Input[_builtins.str] description: The description of the new API Destination. Maximum of 512 characters.
         :param pulumi.Input[_builtins.str] http_method: Select the HTTP method used for the invocation endpoint, such as GET, POST, PUT, etc.
@@ -178,7 +178,7 @@ class _EventApiDestinationState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the event API Destination.
+        ARN of the event API Destination.
         """
         return pulumi.get(self, "arn")
 
@@ -451,7 +451,7 @@ class EventApiDestination(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the event API Destination.
+        :param pulumi.Input[_builtins.str] arn: ARN of the event API Destination.
         :param pulumi.Input[_builtins.str] connection_arn: ARN of the EventBridge Connection to use for the API Destination.
         :param pulumi.Input[_builtins.str] description: The description of the new API Destination. Maximum of 512 characters.
         :param pulumi.Input[_builtins.str] http_method: Select the HTTP method used for the invocation endpoint, such as GET, POST, PUT, etc.
@@ -478,7 +478,7 @@ class EventApiDestination(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the event API Destination.
+        ARN of the event API Destination.
         """
         return pulumi.get(self, "arn")
 

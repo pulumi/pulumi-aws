@@ -1184,14 +1184,14 @@ public class Function extends com.pulumi.resources.CustomResource {
         return this.invokeArn;
     }
     /**
-     * ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
+     * ARN of the KMS key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
      * 
      */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyArn;
 
     /**
-     * @return ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
+     * @return ARN of the KMS key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
      * 
      */
     public Output<Optional<String>> kmsKeyArn() {
@@ -1566,14 +1566,14 @@ public class Function extends com.pulumi.resources.CustomResource {
         return this.sourceCodeSize;
     }
     /**
-     * ARN of the AWS Key Management Service key used to encrypt the function&#39;s `.zip` deployment package. Conflicts with `imageUri`.
+     * ARN of the KMS key used to encrypt the function&#39;s `.zip` deployment package. Conflicts with `imageUri`.
      * 
      */
     @Export(name="sourceKmsKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceKmsKeyArn;
 
     /**
-     * @return ARN of the AWS Key Management Service key used to encrypt the function&#39;s `.zip` deployment package. Conflicts with `imageUri`.
+     * @return ARN of the KMS key used to encrypt the function&#39;s `.zip` deployment package. Conflicts with `imageUri`.
      * 
      */
     public Output<Optional<String>> sourceKmsKeyArn() {

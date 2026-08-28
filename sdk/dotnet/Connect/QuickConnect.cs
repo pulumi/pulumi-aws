@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Connect
     public partial class QuickConnect : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Quick Connect.
+        /// ARN of the Quick Connect.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -210,7 +210,7 @@ namespace Pulumi.Aws.Connect
     public sealed class QuickConnectState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Quick Connect.
+        /// ARN of the Quick Connect.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

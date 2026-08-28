@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Pinpoint
     public partial class EmailTemplate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the message template.
+        /// ARN of the message template.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.Pinpoint
     public sealed class EmailTemplateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the message template.
+        /// ARN of the message template.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

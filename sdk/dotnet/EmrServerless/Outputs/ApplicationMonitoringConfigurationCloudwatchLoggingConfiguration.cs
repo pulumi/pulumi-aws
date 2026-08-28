@@ -18,7 +18,7 @@ namespace Pulumi.Aws.EmrServerless.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
+        /// KMS key ARN to encrypt the logs that you store in CloudWatch Logs.
         /// </summary>
         public readonly string? EncryptionKeyArn;
         /// <summary>

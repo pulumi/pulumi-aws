@@ -121,14 +121,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rolesanywhere/trustAnchor:TrustAnchor")
 public class TrustAnchor extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the Trust Anchor
+     * ARN of the Trust Anchor
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Trust Anchor
+     * @return ARN of the Trust Anchor
      * 
      */
     public Output<String> arn() {

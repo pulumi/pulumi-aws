@@ -64,7 +64,7 @@ type GetSecurityGroupRuleArgs struct {
 
 // A collection of values returned by getSecurityGroupRule.
 type GetSecurityGroupRuleResult struct {
-	// The Amazon Resource Name (ARN) of the security group rule.
+	// ARN of the security group rule.
 	Arn string `pulumi:"arn"`
 	// The destination IPv4 CIDR range.
 	CidrIpv4 string `pulumi:"cidrIpv4"`
@@ -132,7 +132,7 @@ func (o GetSecurityGroupRuleResultOutput) ToGetSecurityGroupRuleResultOutputWith
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the security group rule.
+// ARN of the security group rule.
 func (o GetSecurityGroupRuleResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecurityGroupRuleResult) string { return v.Arn }).(pulumi.StringOutput)
 }

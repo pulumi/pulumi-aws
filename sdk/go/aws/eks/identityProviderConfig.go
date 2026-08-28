@@ -67,7 +67,7 @@ import (
 type IdentityProviderConfig struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
+	// ARN of the EKS Identity Provider Configuration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name of the EKS Cluster.
 	ClusterName                pulumi.StringOutput `pulumi:"clusterName"`
@@ -120,7 +120,7 @@ func GetIdentityProviderConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IdentityProviderConfig resources.
 type identityProviderConfigState struct {
-	// Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
+	// ARN of the EKS Identity Provider Configuration.
 	Arn *string `pulumi:"arn"`
 	// Name of the EKS Cluster.
 	ClusterName                *string `pulumi:"clusterName"`
@@ -138,7 +138,7 @@ type identityProviderConfigState struct {
 }
 
 type IdentityProviderConfigState struct {
-	// Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
+	// ARN of the EKS Identity Provider Configuration.
 	Arn pulumi.StringPtrInput
 	// Name of the EKS Cluster.
 	ClusterName                pulumi.StringPtrInput
@@ -269,7 +269,7 @@ func (o IdentityProviderConfigOutput) ToIdentityProviderConfigOutputWithContext(
 	return o
 }
 
-// Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
+// ARN of the EKS Identity Provider Configuration.
 func (o IdentityProviderConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityProviderConfig) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

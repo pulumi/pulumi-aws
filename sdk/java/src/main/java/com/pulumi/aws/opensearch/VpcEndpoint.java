@@ -73,14 +73,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:opensearch/vpcEndpoint:VpcEndpoint")
 public class VpcEndpoint extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
+     * ARN of the domain to create the endpoint for
      * 
      */
     @Export(name="domainArn", refs={String.class}, tree="[0]")
     private Output<String> domainArn;
 
     /**
-     * @return Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
+     * @return ARN of the domain to create the endpoint for
      * 
      */
     public Output<String> domainArn() {

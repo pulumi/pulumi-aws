@@ -344,14 +344,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rds/globalCluster:GlobalCluster")
 public class GlobalCluster extends com.pulumi.resources.CustomResource {
     /**
-     * RDS Global Cluster Amazon Resource Name (ARN).
+     * RDS Global Cluster ARN.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return RDS Global Cluster Amazon Resource Name (ARN).
+     * @return RDS Global Cluster ARN.
      * 
      */
     public Output<String> arn() {
@@ -522,14 +522,14 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
+     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
      * 
      */
     @Export(name="sourceDbClusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> sourceDbClusterIdentifier;
 
     /**
-     * @return Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
+     * @return ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
      * 
      */
     public Output<String> sourceDbClusterIdentifier() {

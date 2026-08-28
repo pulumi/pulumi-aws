@@ -73,14 +73,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration")
 public class NotebookInstanceLifecycleConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
+     * ARN assigned by AWS to this lifecycle configuration.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
+     * @return ARN assigned by AWS to this lifecycle configuration.
      * 
      */
     public Output<String> arn() {

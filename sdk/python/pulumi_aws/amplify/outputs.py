@@ -394,7 +394,7 @@ class DomainAssociationCertificateSettings(dict):
         :param _builtins.str type: The certificate type.
                Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
         :param _builtins.str certificate_verification_dns_record: DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
-        :param _builtins.str custom_certificate_arn: The Amazon resource name (ARN) for the custom certificate.
+        :param _builtins.str custom_certificate_arn: ARN for the custom certificate.
                Required when `type` is `CUSTOM`.
         """
         pulumi.set(__self__, "type", type)
@@ -424,7 +424,7 @@ class DomainAssociationCertificateSettings(dict):
     @pulumi.getter(name="customCertificateArn")
     def custom_certificate_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon resource name (ARN) for the custom certificate.
+        ARN for the custom certificate.
         Required when `type` is `CUSTOM`.
         """
         return pulumi.get(self, "custom_certificate_arn")

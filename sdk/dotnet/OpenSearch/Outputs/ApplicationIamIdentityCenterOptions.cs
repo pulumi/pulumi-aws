@@ -19,7 +19,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         public readonly bool? Enabled;
         public readonly string? IamIdentityCenterApplicationArn;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM Identity Center instance. Must be between 20 and 2048 characters.
+        /// ARN of the IAM Identity Center instance. Must be between 20 and 2048 characters.
         /// </summary>
         public readonly string? IamIdentityCenterInstanceArn;
         /// <summary>

@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PlanRuleCopyAction {
     /**
-     * @return An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
+     * @return ARN that uniquely identifies the destination backup vault for the copied backup.
      * 
      */
     private String destinationVaultArn;
@@ -26,7 +26,7 @@ public final class PlanRuleCopyAction {
 
     private PlanRuleCopyAction() {}
     /**
-     * @return An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
+     * @return ARN that uniquely identifies the destination backup vault for the copied backup.
      * 
      */
     public String destinationVaultArn() {

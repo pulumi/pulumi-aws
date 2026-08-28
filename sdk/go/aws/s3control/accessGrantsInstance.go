@@ -76,7 +76,7 @@ import (
 type AccessGrantsInstance struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the S3 Access Grants instance.
+	// ARN of the S3 Access Grants instance.
 	AccessGrantsInstanceArn pulumi.StringOutput `pulumi:"accessGrantsInstanceArn"`
 	// Unique ID of the S3 Access Grants instance.
 	AccessGrantsInstanceId pulumi.StringOutput `pulumi:"accessGrantsInstanceId"`
@@ -124,7 +124,7 @@ func GetAccessGrantsInstance(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccessGrantsInstance resources.
 type accessGrantsInstanceState struct {
-	// Amazon Resource Name (ARN) of the S3 Access Grants instance.
+	// ARN of the S3 Access Grants instance.
 	AccessGrantsInstanceArn *string `pulumi:"accessGrantsInstanceArn"`
 	// Unique ID of the S3 Access Grants instance.
 	AccessGrantsInstanceId *string `pulumi:"accessGrantsInstanceId"`
@@ -143,7 +143,7 @@ type accessGrantsInstanceState struct {
 }
 
 type AccessGrantsInstanceState struct {
-	// Amazon Resource Name (ARN) of the S3 Access Grants instance.
+	// ARN of the S3 Access Grants instance.
 	AccessGrantsInstanceArn pulumi.StringPtrInput
 	// Unique ID of the S3 Access Grants instance.
 	AccessGrantsInstanceId pulumi.StringPtrInput
@@ -275,7 +275,7 @@ func (o AccessGrantsInstanceOutput) ToAccessGrantsInstanceOutputWithContext(ctx 
 	return o
 }
 
-// Amazon Resource Name (ARN) of the S3 Access Grants instance.
+// ARN of the S3 Access Grants instance.
 func (o AccessGrantsInstanceOutput) AccessGrantsInstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrantsInstance) pulumi.StringOutput { return v.AccessGrantsInstanceArn }).(pulumi.StringOutput)
 }

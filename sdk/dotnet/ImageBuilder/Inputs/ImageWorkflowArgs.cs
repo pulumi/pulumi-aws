@@ -37,7 +37,7 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Image Builder Workflow.
+        /// ARN of the Image Builder Workflow.
         /// 
         /// The following arguments are optional:
         /// </summary>

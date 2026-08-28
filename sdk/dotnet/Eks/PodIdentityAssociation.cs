@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Eks
     public partial class PodIdentityAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the association.
+        /// ARN of the association.
         /// </summary>
         [Output("associationArn")]
         public Output<string> AssociationArn { get; private set; } = null!;
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.Eks
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+        /// ARN of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
@@ -219,7 +219,7 @@ namespace Pulumi.Aws.Eks
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `RoleArn`.
+        /// ARN of the IAM role to be chained to the the IAM role specified as `RoleArn`.
         /// </summary>
         [Output("targetRoleArn")]
         public Output<string?> TargetRoleArn { get; private set; } = null!;
@@ -301,7 +301,7 @@ namespace Pulumi.Aws.Eks
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+        /// ARN of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -327,7 +327,7 @@ namespace Pulumi.Aws.Eks
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `RoleArn`.
+        /// ARN of the IAM role to be chained to the the IAM role specified as `RoleArn`.
         /// </summary>
         [Input("targetRoleArn")]
         public Input<string>? TargetRoleArn { get; set; }
@@ -341,7 +341,7 @@ namespace Pulumi.Aws.Eks
     public sealed class PodIdentityAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the association.
+        /// ARN of the association.
         /// </summary>
         [Input("associationArn")]
         public Input<string>? AssociationArn { get; set; }
@@ -389,7 +389,7 @@ namespace Pulumi.Aws.Eks
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+        /// ARN of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
@@ -427,7 +427,7 @@ namespace Pulumi.Aws.Eks
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `RoleArn`.
+        /// ARN of the IAM role to be chained to the the IAM role specified as `RoleArn`.
         /// </summary>
         [Input("targetRoleArn")]
         public Input<string>? TargetRoleArn { get; set; }

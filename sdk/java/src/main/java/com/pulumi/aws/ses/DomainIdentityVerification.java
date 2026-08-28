@@ -78,28 +78,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ses/domainIdentityVerification:DomainIdentityVerification")
 public class DomainIdentityVerification extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the domain identity.
+     * ARN of the domain identity.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the domain identity.
+     * @return ARN of the domain identity.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The domain name of the SES domain identity to verify.
+     * Domain name of the SES domain identity to verify.
      * 
      */
     @Export(name="domain", refs={String.class}, tree="[0]")
     private Output<String> domain;
 
     /**
-     * @return The domain name of the SES domain identity to verify.
+     * @return Domain name of the SES domain identity to verify.
      * 
      */
     public Output<String> domain() {

@@ -22,14 +22,14 @@ public final class FeatureGroupState extends com.pulumi.resources.ResourceArgs {
     public static final FeatureGroupState Empty = new FeatureGroupState();
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
+     * ARN assigned by AWS to this feature_group.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
+     * @return ARN assigned by AWS to this feature_group.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -157,14 +157,14 @@ public final class FeatureGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
+     * The ARN of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
+     * @return The ARN of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -245,7 +245,7 @@ public final class FeatureGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
+         * @param arn ARN assigned by AWS to this feature_group.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class FeatureGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
+         * @param arn ARN assigned by AWS to this feature_group.
          * 
          * @return builder
          * 
@@ -444,7 +444,7 @@ public final class FeatureGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
+         * @param roleArn The ARN of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
          * 
          * @return builder
          * 
@@ -455,7 +455,7 @@ public final class FeatureGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
+         * @param roleArn The ARN of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
          * 
          * @return builder
          * 

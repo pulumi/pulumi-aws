@@ -194,35 +194,35 @@ public class EmailIdentity extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+     * Configuration set to use by default when sending from this identity. Any configuration set defined in the email sending request takes precedence.
      * 
      */
     @Export(name="configurationSetName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> configurationSetName;
 
     /**
-     * @return The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+     * @return Configuration set to use by default when sending from this identity. Any configuration set defined in the email sending request takes precedence.
      * 
      */
     public Output<Optional<String>> configurationSetName() {
         return Codegen.optional(this.configurationSetName);
     }
     /**
-     * The configuration of the DKIM authentication settings for an email domain identity.
+     * Configuration block for the DKIM authentication settings for an email domain identity. See `dkimSigningAttributes` Block below.
      * 
      */
     @Export(name="dkimSigningAttributes", refs={EmailIdentityDkimSigningAttributes.class}, tree="[0]")
     private Output<EmailIdentityDkimSigningAttributes> dkimSigningAttributes;
 
     /**
-     * @return The configuration of the DKIM authentication settings for an email domain identity.
+     * @return Configuration block for the DKIM authentication settings for an email domain identity. See `dkimSigningAttributes` Block below.
      * 
      */
     public Output<EmailIdentityDkimSigningAttributes> dkimSigningAttributes() {
         return this.dkimSigningAttributes;
     }
     /**
-     * The email address or domain to verify.
+     * Email address or domain to verify.
      * 
      * The following arguments are optional:
      * 
@@ -231,7 +231,7 @@ public class EmailIdentity extends com.pulumi.resources.CustomResource {
     private Output<String> emailIdentity;
 
     /**
-     * @return The email address or domain to verify.
+     * @return Email address or domain to verify.
      * 
      * The following arguments are optional:
      * 
@@ -240,14 +240,14 @@ public class EmailIdentity extends com.pulumi.resources.CustomResource {
         return this.emailIdentity;
     }
     /**
-     * The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
+     * Email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
      * 
      */
     @Export(name="identityType", refs={String.class}, tree="[0]")
     private Output<String> identityType;
 
     /**
-     * @return The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
+     * @return Email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
      * 
      */
     public Output<String> identityType() {
@@ -296,28 +296,28 @@ public class EmailIdentity extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+     * Verification status of the identity. One of `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
      * 
      */
     @Export(name="verificationStatus", refs={String.class}, tree="[0]")
     private Output<String> verificationStatus;
 
     /**
-     * @return The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+     * @return Verification status of the identity. One of `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
      * 
      */
     public Output<String> verificationStatus() {
         return this.verificationStatus;
     }
     /**
-     * Specifies whether or not the identity is verified.
+     * Whether the identity is verified.
      * 
      */
     @Export(name="verifiedForSendingStatus", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> verifiedForSendingStatus;
 
     /**
-     * @return Specifies whether or not the identity is verified.
+     * @return Whether the identity is verified.
      * 
      */
     public Output<Boolean> verifiedForSendingStatus() {

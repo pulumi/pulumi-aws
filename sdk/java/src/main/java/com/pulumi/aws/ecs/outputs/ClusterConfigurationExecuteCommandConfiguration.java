@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterConfigurationExecuteCommandConfiguration {
     /**
-     * @return AWS Key Management Service key ID to encrypt the data between the local client and the container.
+     * @return KMS key ID to encrypt the data between the local client and the container.
      * 
      */
     private @Nullable String kmsKeyId;
@@ -30,7 +30,7 @@ public final class ClusterConfigurationExecuteCommandConfiguration {
 
     private ClusterConfigurationExecuteCommandConfiguration() {}
     /**
-     * @return AWS Key Management Service key ID to encrypt the data between the local client and the container.
+     * @return KMS key ID to encrypt the data between the local client and the container.
      * 
      */
     public Optional<String> kmsKeyId() {

@@ -15,14 +15,14 @@ public final class TlsInspectionConfigurationEncryptionConfigurationArgs extends
     public static final TlsInspectionConfigurationEncryptionConfigurationArgs Empty = new TlsInspectionConfigurationEncryptionConfigurationArgs();
 
     /**
-     * ARN of the Amazon Web Services Key Management Service (KMS) customer managed key.
+     * ARN of the Amazon Web Services KMS customer managed key.
      * 
      */
     @Import(name="keyId", required=true)
     private Output<String> keyId;
 
     /**
-     * @return ARN of the Amazon Web Services Key Management Service (KMS) customer managed key.
+     * @return ARN of the Amazon Web Services KMS customer managed key.
      * 
      */
     public Output<String> keyId() {
@@ -70,7 +70,7 @@ public final class TlsInspectionConfigurationEncryptionConfigurationArgs extends
         }
 
         /**
-         * @param keyId ARN of the Amazon Web Services Key Management Service (KMS) customer managed key.
+         * @param keyId ARN of the Amazon Web Services KMS customer managed key.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class TlsInspectionConfigurationEncryptionConfigurationArgs extends
         }
 
         /**
-         * @param keyId ARN of the Amazon Web Services Key Management Service (KMS) customer managed key.
+         * @param keyId ARN of the Amazon Web Services KMS customer managed key.
          * 
          * @return builder
          * 

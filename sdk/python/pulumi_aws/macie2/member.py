@@ -174,7 +174,7 @@ class _MemberState:
 
         :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the account.
         :param pulumi.Input[_builtins.str] administrator_account_id: The AWS account ID for the administrator account.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the account.
+        :param pulumi.Input[_builtins.str] arn: ARN of the account.
         :param pulumi.Input[_builtins.str] email: The email address for the account.
         :param pulumi.Input[_builtins.bool] invitation_disable_email_notification: Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
         :param pulumi.Input[_builtins.str] invitation_message: A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
@@ -246,7 +246,7 @@ class _MemberState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the account.
+        ARN of the account.
         """
         return pulumi.get(self, "arn")
 
@@ -569,7 +569,7 @@ class Member(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the account.
         :param pulumi.Input[_builtins.str] administrator_account_id: The AWS account ID for the administrator account.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the account.
+        :param pulumi.Input[_builtins.str] arn: ARN of the account.
         :param pulumi.Input[_builtins.str] email: The email address for the account.
         :param pulumi.Input[_builtins.bool] invitation_disable_email_notification: Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
         :param pulumi.Input[_builtins.str] invitation_message: A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
@@ -623,7 +623,7 @@ class Member(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the account.
+        ARN of the account.
         """
         return pulumi.get(self, "arn")
 

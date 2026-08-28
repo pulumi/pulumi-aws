@@ -12,7 +12,7 @@ import (
 )
 
 // The AMI resource allows the creation and management of a completely-custom
-// *Amazon Machine Image* (AMI).
+// AMI.
 //
 // If you just want to duplicate an existing AMI, possibly copying it to another
 // region, it's better to use `ec2.AmiCopy` instead.
@@ -73,7 +73,7 @@ type Ami struct {
 	Architecture pulumi.StringPtrOutput `pulumi:"architecture"`
 	// ARN of the AMI.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+	// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the EC2 User Guide.
 	BootMode pulumi.StringPtrOutput `pulumi:"bootMode"`
 	// Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 	DeprecationTime pulumi.StringPtrOutput `pulumi:"deprecationTime"`
@@ -122,7 +122,7 @@ type Ami struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the EC2 User Guide.
 	TpmSupport pulumi.StringPtrOutput `pulumi:"tpmSupport"`
 	// Base64 representation of the non-volatile UEFI variable store.
 	UefiData pulumi.StringPtrOutput `pulumi:"uefiData"`
@@ -168,7 +168,7 @@ type amiState struct {
 	Architecture *string `pulumi:"architecture"`
 	// ARN of the AMI.
 	Arn *string `pulumi:"arn"`
-	// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+	// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the EC2 User Guide.
 	BootMode *string `pulumi:"bootMode"`
 	// Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 	DeprecationTime *string `pulumi:"deprecationTime"`
@@ -217,7 +217,7 @@ type amiState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the EC2 User Guide.
 	TpmSupport *string `pulumi:"tpmSupport"`
 	// Base64 representation of the non-volatile UEFI variable store.
 	UefiData *string `pulumi:"uefiData"`
@@ -234,7 +234,7 @@ type AmiState struct {
 	Architecture pulumi.StringPtrInput
 	// ARN of the AMI.
 	Arn pulumi.StringPtrInput
-	// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+	// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the EC2 User Guide.
 	BootMode pulumi.StringPtrInput
 	// Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 	DeprecationTime pulumi.StringPtrInput
@@ -283,7 +283,7 @@ type AmiState struct {
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the EC2 User Guide.
 	TpmSupport pulumi.StringPtrInput
 	// Base64 representation of the non-volatile UEFI variable store.
 	UefiData pulumi.StringPtrInput
@@ -302,7 +302,7 @@ func (AmiState) ElementType() reflect.Type {
 type amiArgs struct {
 	// Machine architecture for created instances. Defaults to `x8664`.
 	Architecture *string `pulumi:"architecture"`
-	// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+	// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the EC2 User Guide.
 	BootMode *string `pulumi:"bootMode"`
 	// Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 	DeprecationTime *string `pulumi:"deprecationTime"`
@@ -330,7 +330,7 @@ type amiArgs struct {
 	SriovNetSupport *string `pulumi:"sriovNetSupport"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the EC2 User Guide.
 	TpmSupport *string `pulumi:"tpmSupport"`
 	// Base64 representation of the non-volatile UEFI variable store.
 	UefiData *string `pulumi:"uefiData"`
@@ -344,7 +344,7 @@ type amiArgs struct {
 type AmiArgs struct {
 	// Machine architecture for created instances. Defaults to `x8664`.
 	Architecture pulumi.StringPtrInput
-	// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+	// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the EC2 User Guide.
 	BootMode pulumi.StringPtrInput
 	// Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 	DeprecationTime pulumi.StringPtrInput
@@ -372,7 +372,7 @@ type AmiArgs struct {
 	SriovNetSupport pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the EC2 User Guide.
 	TpmSupport pulumi.StringPtrInput
 	// Base64 representation of the non-volatile UEFI variable store.
 	UefiData pulumi.StringPtrInput
@@ -479,7 +479,7 @@ func (o AmiOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the EC2 User Guide.
 func (o AmiOutput) BootMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringPtrOutput { return v.BootMode }).(pulumi.StringPtrOutput)
 }
@@ -606,7 +606,7 @@ func (o AmiOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the EC2 User Guide.
 func (o AmiOutput) TpmSupport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringPtrOutput { return v.TpmSupport }).(pulumi.StringPtrOutput)
 }

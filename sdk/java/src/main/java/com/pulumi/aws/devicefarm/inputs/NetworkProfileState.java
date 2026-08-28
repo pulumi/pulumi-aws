@@ -18,14 +18,14 @@ public final class NetworkProfileState extends com.pulumi.resources.ResourceArgs
     public static final NetworkProfileState Empty = new NetworkProfileState();
 
     /**
-     * The Amazon Resource Name of this network profile.
+     * ARN of this network profile.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name of this network profile.
+     * @return ARN of this network profile.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -297,7 +297,7 @@ public final class NetworkProfileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn The Amazon Resource Name of this network profile.
+         * @param arn ARN of this network profile.
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class NetworkProfileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn The Amazon Resource Name of this network profile.
+         * @param arn ARN of this network profile.
          * 
          * @return builder
          * 

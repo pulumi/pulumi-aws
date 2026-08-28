@@ -130,7 +130,7 @@ type ResourcePolicy struct {
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the rule group or firewall policy.
+	// ARN of the rule group or firewall policy.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 }
 
@@ -174,7 +174,7 @@ type resourcePolicyState struct {
 	Policy *string `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the rule group or firewall policy.
+	// ARN of the rule group or firewall policy.
 	ResourceArn *string `pulumi:"resourceArn"`
 }
 
@@ -183,7 +183,7 @@ type ResourcePolicyState struct {
 	Policy pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the rule group or firewall policy.
+	// ARN of the rule group or firewall policy.
 	ResourceArn pulumi.StringPtrInput
 }
 
@@ -196,7 +196,7 @@ type resourcePolicyArgs struct {
 	Policy string `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the rule group or firewall policy.
+	// ARN of the rule group or firewall policy.
 	ResourceArn string `pulumi:"resourceArn"`
 }
 
@@ -206,7 +206,7 @@ type ResourcePolicyArgs struct {
 	Policy pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the rule group or firewall policy.
+	// ARN of the rule group or firewall policy.
 	ResourceArn pulumi.StringInput
 }
 
@@ -307,7 +307,7 @@ func (o ResourcePolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the rule group or firewall policy.
+// ARN of the rule group or firewall policy.
 func (o ResourcePolicyOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }

@@ -23,14 +23,14 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     public static final DataSourceState Empty = new DataSourceState();
 
     /**
-     * Amazon Resource Name (ARN) of the data source
+     * ARN of the data source
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the data source
+     * @return ARN of the data source
      * 
      */
     public Optional<Output<String>> arn() {
@@ -258,7 +258,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the data source
+         * @param arn ARN of the data source
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the data source
+         * @param arn ARN of the data source
          * 
          * @return builder
          * 

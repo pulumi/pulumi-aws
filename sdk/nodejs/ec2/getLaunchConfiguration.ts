@@ -48,7 +48,7 @@ export interface GetLaunchConfigurationArgs {
  */
 export interface GetLaunchConfigurationResult {
     /**
-     * Amazon Resource Name of the launch configuration.
+     * ARN of the launch configuration.
      */
     readonly arn: string;
     /**

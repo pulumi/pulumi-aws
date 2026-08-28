@@ -291,7 +291,7 @@ export class LifecyclePolicy extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
+     * ARN of the DLM Lifecycle Policy.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -380,7 +380,7 @@ export class LifecyclePolicy extends pulumi.CustomResource {
  */
 export interface LifecyclePolicyState {
     /**
-     * Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
+     * ARN of the DLM Lifecycle Policy.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

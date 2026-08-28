@@ -71,7 +71,7 @@ namespace Pulumi.Aws.CloudFront
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Value Store.
+        /// ARN of the Key Value Store.
         /// </summary>
         [Output("keyValueStoreArn")]
         public Output<string> KeyValueStoreArn { get; private set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.CloudFront
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Value Store.
+        /// ARN of the Key Value Store.
         /// </summary>
         [Input("keyValueStoreArn", required: true)]
         public Input<string> KeyValueStoreArn { get; set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.CloudFront
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Value Store.
+        /// ARN of the Key Value Store.
         /// </summary>
         [Input("keyValueStoreArn")]
         public Input<string>? KeyValueStoreArn { get; set; }

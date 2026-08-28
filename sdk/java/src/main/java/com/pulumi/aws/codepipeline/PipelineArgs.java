@@ -98,14 +98,14 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+     * Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+     * @return Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      * 
      */
     public Output<String> roleArn() {
@@ -325,7 +325,7 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+         * @param roleArn Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
          * 
          * @return builder
          * 
@@ -336,7 +336,7 @@ public final class PipelineArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+         * @param roleArn Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
          * 
          * @return builder
          * 

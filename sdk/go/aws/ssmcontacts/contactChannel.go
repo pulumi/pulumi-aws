@@ -93,7 +93,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the contact channel.
+// - `arn` (String) ARN of the contact channel.
 //
 // Using `pulumi import`, import SSM Contact Channel using the `arn`. For example:
 //
@@ -105,9 +105,9 @@ type ContactChannel struct {
 
 	// Whether the contact channel is activated. The contact channel must be activated to use it to engage the contact. One of `ACTIVATED` or `NOT_ACTIVATED`.
 	ActivationStatus pulumi.StringOutput `pulumi:"activationStatus"`
-	// Amazon Resource Name (ARN) of the contact channel.
+	// ARN of the contact channel.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
+	// ARN of the AWS SSM Contact that the contact channel belongs to.
 	ContactId pulumi.StringOutput `pulumi:"contactId"`
 	// Block that contains contact engagement details. See details below.
 	DeliveryAddress ContactChannelDeliveryAddressOutput `pulumi:"deliveryAddress"`
@@ -160,9 +160,9 @@ func GetContactChannel(ctx *pulumi.Context,
 type contactChannelState struct {
 	// Whether the contact channel is activated. The contact channel must be activated to use it to engage the contact. One of `ACTIVATED` or `NOT_ACTIVATED`.
 	ActivationStatus *string `pulumi:"activationStatus"`
-	// Amazon Resource Name (ARN) of the contact channel.
+	// ARN of the contact channel.
 	Arn *string `pulumi:"arn"`
-	// Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
+	// ARN of the AWS SSM Contact that the contact channel belongs to.
 	ContactId *string `pulumi:"contactId"`
 	// Block that contains contact engagement details. See details below.
 	DeliveryAddress *ContactChannelDeliveryAddress `pulumi:"deliveryAddress"`
@@ -177,9 +177,9 @@ type contactChannelState struct {
 type ContactChannelState struct {
 	// Whether the contact channel is activated. The contact channel must be activated to use it to engage the contact. One of `ACTIVATED` or `NOT_ACTIVATED`.
 	ActivationStatus pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the contact channel.
+	// ARN of the contact channel.
 	Arn pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
+	// ARN of the AWS SSM Contact that the contact channel belongs to.
 	ContactId pulumi.StringPtrInput
 	// Block that contains contact engagement details. See details below.
 	DeliveryAddress ContactChannelDeliveryAddressPtrInput
@@ -196,7 +196,7 @@ func (ContactChannelState) ElementType() reflect.Type {
 }
 
 type contactChannelArgs struct {
-	// Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
+	// ARN of the AWS SSM Contact that the contact channel belongs to.
 	ContactId string `pulumi:"contactId"`
 	// Block that contains contact engagement details. See details below.
 	DeliveryAddress ContactChannelDeliveryAddress `pulumi:"deliveryAddress"`
@@ -210,7 +210,7 @@ type contactChannelArgs struct {
 
 // The set of arguments for constructing a ContactChannel resource.
 type ContactChannelArgs struct {
-	// Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
+	// ARN of the AWS SSM Contact that the contact channel belongs to.
 	ContactId pulumi.StringInput
 	// Block that contains contact engagement details. See details below.
 	DeliveryAddress ContactChannelDeliveryAddressInput
@@ -314,12 +314,12 @@ func (o ContactChannelOutput) ActivationStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactChannel) pulumi.StringOutput { return v.ActivationStatus }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the contact channel.
+// ARN of the contact channel.
 func (o ContactChannelOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactChannel) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
+// ARN of the AWS SSM Contact that the contact channel belongs to.
 func (o ContactChannelOutput) ContactId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactChannel) pulumi.StringOutput { return v.ContactId }).(pulumi.StringOutput)
 }

@@ -63,14 +63,14 @@ public final class EndpointRedisSettingsArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Transmission Control Protocol (TCP) port for the endpoint.
+     * TCP port for the endpoint.
      * 
      */
     @Import(name="port", required=true)
     private Output<Integer> port;
 
     /**
-     * @return Transmission Control Protocol (TCP) port for the endpoint.
+     * @return TCP port for the endpoint.
      * 
      */
     public Output<Integer> port() {
@@ -93,14 +93,14 @@ public final class EndpointRedisSettingsArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+     * ARN for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
      * 
      */
     @Import(name="sslCaCertificateArn")
     private @Nullable Output<String> sslCaCertificateArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+     * @return ARN for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
      * 
      */
     public Optional<Output<String>> sslCaCertificateArn() {
@@ -108,14 +108,14 @@ public final class EndpointRedisSettingsArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The plaintext option doesn&#39;t provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
+     * The plaintext option doesn&#39;t provide TLS encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
      * 
      */
     @Import(name="sslSecurityProtocol")
     private @Nullable Output<String> sslSecurityProtocol;
 
     /**
-     * @return The plaintext option doesn&#39;t provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
+     * @return The plaintext option doesn&#39;t provide TLS encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
      * 
      */
     public Optional<Output<String>> sslSecurityProtocol() {
@@ -216,7 +216,7 @@ public final class EndpointRedisSettingsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param port Transmission Control Protocol (TCP) port for the endpoint.
+         * @param port TCP port for the endpoint.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class EndpointRedisSettingsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param port Transmission Control Protocol (TCP) port for the endpoint.
+         * @param port TCP port for the endpoint.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class EndpointRedisSettingsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param sslCaCertificateArn The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+         * @param sslCaCertificateArn ARN for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class EndpointRedisSettingsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param sslCaCertificateArn The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+         * @param sslCaCertificateArn ARN for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class EndpointRedisSettingsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param sslSecurityProtocol The plaintext option doesn&#39;t provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
+         * @param sslSecurityProtocol The plaintext option doesn&#39;t provide TLS encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class EndpointRedisSettingsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param sslSecurityProtocol The plaintext option doesn&#39;t provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
+         * @param sslSecurityProtocol The plaintext option doesn&#39;t provide TLS encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
          * 
          * @return builder
          * 

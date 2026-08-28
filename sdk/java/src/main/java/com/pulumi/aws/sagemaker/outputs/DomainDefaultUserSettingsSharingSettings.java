@@ -17,7 +17,7 @@ public final class DomainDefaultUserSettingsSharingSettings {
      */
     private @Nullable String notebookOutputOption;
     /**
-     * @return When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+     * @return When `notebookOutputOption` is Allowed, the KMS encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
      * 
      */
     private @Nullable String s3KmsKeyId;
@@ -36,7 +36,7 @@ public final class DomainDefaultUserSettingsSharingSettings {
         return Optional.ofNullable(this.notebookOutputOption);
     }
     /**
-     * @return When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+     * @return When `notebookOutputOption` is Allowed, the KMS encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
      * 
      */
     public Optional<String> s3KmsKeyId() {

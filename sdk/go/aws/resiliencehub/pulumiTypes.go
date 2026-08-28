@@ -1024,8 +1024,6 @@ type V2InputSourceResourceConfiguration struct {
 	// Resource tags used for discovery. See `resourceTag` Block below.
 	ResourceTags []V2InputSourceResourceConfigurationResourceTag `pulumi:"resourceTags"`
 	// S3 URL.
-	//
-	// Exactly one attribute must be configured.
 	TfStateFileUrl *string `pulumi:"tfStateFileUrl"`
 }
 
@@ -1050,8 +1048,6 @@ type V2InputSourceResourceConfigurationArgs struct {
 	// Resource tags used for discovery. See `resourceTag` Block below.
 	ResourceTags V2InputSourceResourceConfigurationResourceTagArrayInput `pulumi:"resourceTags"`
 	// S3 URL.
-	//
-	// Exactly one attribute must be configured.
 	TfStateFileUrl pulumi.StringPtrInput `pulumi:"tfStateFileUrl"`
 }
 
@@ -1155,8 +1151,6 @@ func (o V2InputSourceResourceConfigurationOutput) ResourceTags() V2InputSourceRe
 }
 
 // S3 URL.
-//
-// Exactly one attribute must be configured.
 func (o V2InputSourceResourceConfigurationOutput) TfStateFileUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v V2InputSourceResourceConfiguration) *string { return v.TfStateFileUrl }).(pulumi.StringPtrOutput)
 }
@@ -1226,8 +1220,6 @@ func (o V2InputSourceResourceConfigurationPtrOutput) ResourceTags() V2InputSourc
 }
 
 // S3 URL.
-//
-// Exactly one attribute must be configured.
 func (o V2InputSourceResourceConfigurationPtrOutput) TfStateFileUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *V2InputSourceResourceConfiguration) *string {
 		if v == nil {
@@ -2126,6 +2118,8 @@ func (o V2PolicyMultiRegionPtrOutput) RtoInMinutes() pulumi.IntPtrOutput {
 type V2ServiceAssociatedSystem struct {
 	// ARN of the system to associate with the service.
 	SystemArn string `pulumi:"systemArn"`
+	// List of user journey identifiers that associate the system with the service.
+	UserJourneyIds []string `pulumi:"userJourneyIds"`
 }
 
 // V2ServiceAssociatedSystemInput is an input type that accepts V2ServiceAssociatedSystemArgs and V2ServiceAssociatedSystemOutput values.
@@ -2142,6 +2136,8 @@ type V2ServiceAssociatedSystemInput interface {
 type V2ServiceAssociatedSystemArgs struct {
 	// ARN of the system to associate with the service.
 	SystemArn pulumi.StringInput `pulumi:"systemArn"`
+	// List of user journey identifiers that associate the system with the service.
+	UserJourneyIds pulumi.StringArrayInput `pulumi:"userJourneyIds"`
 }
 
 func (V2ServiceAssociatedSystemArgs) ElementType() reflect.Type {
@@ -2198,6 +2194,11 @@ func (o V2ServiceAssociatedSystemOutput) ToV2ServiceAssociatedSystemOutputWithCo
 // ARN of the system to associate with the service.
 func (o V2ServiceAssociatedSystemOutput) SystemArn() pulumi.StringOutput {
 	return o.ApplyT(func(v V2ServiceAssociatedSystem) string { return v.SystemArn }).(pulumi.StringOutput)
+}
+
+// List of user journey identifiers that associate the system with the service.
+func (o V2ServiceAssociatedSystemOutput) UserJourneyIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v V2ServiceAssociatedSystem) []string { return v.UserJourneyIds }).(pulumi.StringArrayOutput)
 }
 
 type V2ServiceAssociatedSystemArrayOutput struct{ *pulumi.OutputState }
@@ -2911,6 +2912,8 @@ func (o GetV2PolicyMultiRegionArrayOutput) Index(i pulumi.IntInput) GetV2PolicyM
 type GetV2ServiceAssociatedSystem struct {
 	// ARN of the associated system.
 	SystemArn string `pulumi:"systemArn"`
+	// List of user journey identifiers that associate the system with the service.
+	UserJourneyIds []string `pulumi:"userJourneyIds"`
 }
 
 // GetV2ServiceAssociatedSystemInput is an input type that accepts GetV2ServiceAssociatedSystemArgs and GetV2ServiceAssociatedSystemOutput values.
@@ -2927,6 +2930,8 @@ type GetV2ServiceAssociatedSystemInput interface {
 type GetV2ServiceAssociatedSystemArgs struct {
 	// ARN of the associated system.
 	SystemArn pulumi.StringInput `pulumi:"systemArn"`
+	// List of user journey identifiers that associate the system with the service.
+	UserJourneyIds pulumi.StringArrayInput `pulumi:"userJourneyIds"`
 }
 
 func (GetV2ServiceAssociatedSystemArgs) ElementType() reflect.Type {
@@ -2983,6 +2988,11 @@ func (o GetV2ServiceAssociatedSystemOutput) ToGetV2ServiceAssociatedSystemOutput
 // ARN of the associated system.
 func (o GetV2ServiceAssociatedSystemOutput) SystemArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetV2ServiceAssociatedSystem) string { return v.SystemArn }).(pulumi.StringOutput)
+}
+
+// List of user journey identifiers that associate the system with the service.
+func (o GetV2ServiceAssociatedSystemOutput) UserJourneyIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetV2ServiceAssociatedSystem) []string { return v.UserJourneyIds }).(pulumi.StringArrayOutput)
 }
 
 type GetV2ServiceAssociatedSystemArrayOutput struct{ *pulumi.OutputState }

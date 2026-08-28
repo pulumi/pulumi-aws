@@ -38,14 +38,14 @@ public final class GatewayState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the gateway.
+     * ARN of the gateway.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the gateway.
+     * @return ARN of the gateway.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -83,14 +83,14 @@ public final class GatewayState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+     * ARN of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
      * 
      */
     @Import(name="cloudwatchLogGroupArn")
     private @Nullable Output<String> cloudwatchLogGroupArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+     * @return ARN of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
      * 
      */
     public Optional<Output<String>> cloudwatchLogGroupArn() {
@@ -218,14 +218,14 @@ public final class GatewayState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+     * VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running terraform. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
      * 
      */
     @Import(name="gatewayVpcEndpoint")
     private @Nullable Output<String> gatewayVpcEndpoint;
 
     /**
-     * @return VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+     * @return VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running terraform. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
      * 
      */
     public Optional<Output<String>> gatewayVpcEndpoint() {
@@ -471,7 +471,7 @@ public final class GatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the gateway.
+         * @param arn ARN of the gateway.
          * 
          * @return builder
          * 
@@ -482,7 +482,7 @@ public final class GatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the gateway.
+         * @param arn ARN of the gateway.
          * 
          * @return builder
          * 
@@ -534,7 +534,7 @@ public final class GatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cloudwatchLogGroupArn The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+         * @param cloudwatchLogGroupArn ARN of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
          * 
          * @return builder
          * 
@@ -545,7 +545,7 @@ public final class GatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cloudwatchLogGroupArn The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+         * @param cloudwatchLogGroupArn ARN of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
          * 
          * @return builder
          * 
@@ -733,7 +733,7 @@ public final class GatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param gatewayVpcEndpoint VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+         * @param gatewayVpcEndpoint VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running terraform. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
          * 
          * @return builder
          * 
@@ -744,7 +744,7 @@ public final class GatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param gatewayVpcEndpoint VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+         * @param gatewayVpcEndpoint VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running terraform. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
          * 
          * @return builder
          * 

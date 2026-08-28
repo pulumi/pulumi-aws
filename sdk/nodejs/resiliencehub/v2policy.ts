@@ -79,7 +79,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the Resilience Hub V2 Policy.
+ * - `arn` (String) ARN of the Resilience Hub V2 Policy.
  *
  * Using `pulumi import`, import Resilience Hub V2 Policy using the `arn`. For example:
  *

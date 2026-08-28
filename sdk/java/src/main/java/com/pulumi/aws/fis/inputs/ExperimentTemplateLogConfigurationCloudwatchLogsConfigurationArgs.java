@@ -15,14 +15,14 @@ public final class ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration
     public static final ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs Empty = new ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
+     * ARN of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
      * 
      */
     @Import(name="logGroupArn", required=true)
     private Output<String> logGroupArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
+     * @return ARN of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
      * 
      */
     public Output<String> logGroupArn() {
@@ -54,7 +54,7 @@ public final class ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration
         }
 
         /**
-         * @param logGroupArn Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
+         * @param logGroupArn ARN of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration
         }
 
         /**
-         * @param logGroupArn Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
+         * @param logGroupArn ARN of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
          * 
          * @return builder
          * 

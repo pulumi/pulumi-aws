@@ -76,14 +76,14 @@ public final class ProxyAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+     * ARN representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
      * 
      */
     @Import(name="secretArn")
     private @Nullable Output<String> secretArn;
 
     /**
-     * @return Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+     * @return ARN representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
      * 
      */
     public Optional<Output<String>> secretArn() {
@@ -219,7 +219,7 @@ public final class ProxyAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secretArn Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+         * @param secretArn ARN representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class ProxyAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secretArn Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+         * @param secretArn ARN representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
          * 
          * @return builder
          * 

@@ -95,7 +95,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     declare public readonly applyImmediately: pulumi.Output<boolean>;
     /**
-     * Amazon Resource Name (ARN) of cluster instance
+     * ARN of cluster instance
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -350,7 +350,7 @@ export interface ClusterInstanceState {
      */
     applyImmediately?: pulumi.Input<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) of cluster instance
+     * ARN of cluster instance
      */
     arn?: pulumi.Input<string | undefined>;
     /**

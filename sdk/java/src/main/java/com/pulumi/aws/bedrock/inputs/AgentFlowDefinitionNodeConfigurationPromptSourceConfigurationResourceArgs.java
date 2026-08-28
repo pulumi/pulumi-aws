@@ -15,14 +15,14 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
     public static final AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs Empty = new AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the prompt from Prompt management.
+     * ARN of the prompt from Prompt management.
      * 
      */
     @Import(name="promptArn", required=true)
     private Output<String> promptArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the prompt from Prompt management.
+     * @return ARN of the prompt from Prompt management.
      * 
      */
     public Output<String> promptArn() {
@@ -54,7 +54,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param promptArn The Amazon Resource Name (ARN) of the prompt from Prompt management.
+         * @param promptArn ARN of the prompt from Prompt management.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class AgentFlowDefinitionNodeConfigurationPromptSourceConfiguration
         }
 
         /**
-         * @param promptArn The Amazon Resource Name (ARN) of the prompt from Prompt management.
+         * @param promptArn ARN of the prompt from Prompt management.
          * 
          * @return builder
          * 

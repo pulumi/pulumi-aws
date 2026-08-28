@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the IVS Chat room.
+ * - `arn` (String) ARN of the IVS Chat room.
  * 
  * Using `pulumi import`, import IVS (Interactive Video) Chat Room using the ARN. For example:
  * 

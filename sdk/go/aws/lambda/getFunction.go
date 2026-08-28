@@ -205,23 +205,23 @@ type LookupFunctionResult struct {
 	Architectures []string `pulumi:"architectures"`
 	// ARN of the Amazon EFS Access Point that provides access to the file system.
 	Arn string `pulumi:"arn"`
-	// Configuration for Lambda function's capacity provider. See below.
+	// Configuration for Lambda function's capacity provider. See `capacityProviderConfig` below.
 	CapacityProviderConfigs []GetFunctionCapacityProviderConfig `pulumi:"capacityProviderConfigs"`
 	// Base64-encoded representation of raw SHA-256 sum of the zip file.
 	CodeSha256 string `pulumi:"codeSha256"`
 	// ARN for a Code Signing Configuration.
 	CodeSigningConfigArn string `pulumi:"codeSigningConfigArn"`
-	// Configuration for the function's dead letter queue. See below.
+	// Configuration for the function's dead letter queue. See `deadLetterConfig` below.
 	DeadLetterConfig GetFunctionDeadLetterConfig `pulumi:"deadLetterConfig"`
 	// Description of what your Lambda Function does.
 	Description string `pulumi:"description"`
-	// Configuration for the function's durable settings. See below.
+	// Configuration for the function's durable settings. See `durableConfig` below.
 	DurableConfigs []GetFunctionDurableConfig `pulumi:"durableConfigs"`
-	// Lambda environment's configuration settings. See below.
+	// Lambda environment's configuration settings. See `environment` below.
 	Environment GetFunctionEnvironment `pulumi:"environment"`
-	// Amount of ephemeral storage (`/tmp`) allocated for the Lambda Function. See below.
+	// Amount of ephemeral storage (`/tmp`) allocated for the Lambda Function. See `ephemeralStorage` below.
 	EphemeralStorages []GetFunctionEphemeralStorage `pulumi:"ephemeralStorages"`
-	// Connection settings for an Amazon EFS file system. See below.
+	// Connection settings for an Amazon EFS file system. See `fileSystemConfig` below.
 	FileSystemConfigs []GetFunctionFileSystemConfig `pulumi:"fileSystemConfigs"`
 	FunctionName      string                        `pulumi:"functionName"`
 	// Function entrypoint in your code.
@@ -238,7 +238,7 @@ type LookupFunctionResult struct {
 	LastModified string `pulumi:"lastModified"`
 	// List of Lambda Layer ARNs attached to your Lambda Function.
 	Layers []string `pulumi:"layers"`
-	// Advanced logging settings. See below.
+	// Advanced logging settings. See `loggingConfig` below.
 	LoggingConfigs []GetFunctionLoggingConfig `pulumi:"loggingConfigs"`
 	// Amount of memory in MB your Lambda Function can use at runtime.
 	MemorySize int `pulumi:"memorySize"`
@@ -266,19 +266,19 @@ type LookupFunctionResult struct {
 	SourceCodeHash string `pulumi:"sourceCodeHash"`
 	// Size in bytes of the function .zip file.
 	SourceCodeSize int `pulumi:"sourceCodeSize"`
-	// ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package.
+	// ARN of the KMS key used to encrypt the function's `.zip` deployment package.
 	SourceKmsKeyArn string `pulumi:"sourceKmsKeyArn"`
 	// Map of tags assigned to the Lambda Function.
 	Tags map[string]string `pulumi:"tags"`
-	// Tenancy settings of the function. See below.
+	// Tenancy settings of the function. See `tenancyConfig` below.
 	TenancyConfigs []GetFunctionTenancyConfig `pulumi:"tenancyConfigs"`
 	// Function execution time at which Lambda should terminate the function.
 	Timeout int `pulumi:"timeout"`
-	// Tracing settings of the function. See below.
+	// Tracing settings of the function. See `tracingConfig` below.
 	TracingConfig GetFunctionTracingConfig `pulumi:"tracingConfig"`
 	// Version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.
 	Version string `pulumi:"version"`
-	// VPC configuration associated with your Lambda function. See below.
+	// VPC configuration associated with your Lambda function. See `vpcConfig` below.
 	VpcConfig GetFunctionVpcConfig `pulumi:"vpcConfig"`
 }
 
@@ -330,7 +330,7 @@ func (o LookupFunctionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Configuration for Lambda function's capacity provider. See below.
+// Configuration for Lambda function's capacity provider. See `capacityProviderConfig` below.
 func (o LookupFunctionResultOutput) CapacityProviderConfigs() GetFunctionCapacityProviderConfigArrayOutput {
 	return o.ApplyT(func(v LookupFunctionResult) []GetFunctionCapacityProviderConfig { return v.CapacityProviderConfigs }).(GetFunctionCapacityProviderConfigArrayOutput)
 }
@@ -345,7 +345,7 @@ func (o LookupFunctionResultOutput) CodeSigningConfigArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionResult) string { return v.CodeSigningConfigArn }).(pulumi.StringOutput)
 }
 
-// Configuration for the function's dead letter queue. See below.
+// Configuration for the function's dead letter queue. See `deadLetterConfig` below.
 func (o LookupFunctionResultOutput) DeadLetterConfig() GetFunctionDeadLetterConfigOutput {
 	return o.ApplyT(func(v LookupFunctionResult) GetFunctionDeadLetterConfig { return v.DeadLetterConfig }).(GetFunctionDeadLetterConfigOutput)
 }
@@ -355,22 +355,22 @@ func (o LookupFunctionResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Configuration for the function's durable settings. See below.
+// Configuration for the function's durable settings. See `durableConfig` below.
 func (o LookupFunctionResultOutput) DurableConfigs() GetFunctionDurableConfigArrayOutput {
 	return o.ApplyT(func(v LookupFunctionResult) []GetFunctionDurableConfig { return v.DurableConfigs }).(GetFunctionDurableConfigArrayOutput)
 }
 
-// Lambda environment's configuration settings. See below.
+// Lambda environment's configuration settings. See `environment` below.
 func (o LookupFunctionResultOutput) Environment() GetFunctionEnvironmentOutput {
 	return o.ApplyT(func(v LookupFunctionResult) GetFunctionEnvironment { return v.Environment }).(GetFunctionEnvironmentOutput)
 }
 
-// Amount of ephemeral storage (`/tmp`) allocated for the Lambda Function. See below.
+// Amount of ephemeral storage (`/tmp`) allocated for the Lambda Function. See `ephemeralStorage` below.
 func (o LookupFunctionResultOutput) EphemeralStorages() GetFunctionEphemeralStorageArrayOutput {
 	return o.ApplyT(func(v LookupFunctionResult) []GetFunctionEphemeralStorage { return v.EphemeralStorages }).(GetFunctionEphemeralStorageArrayOutput)
 }
 
-// Connection settings for an Amazon EFS file system. See below.
+// Connection settings for an Amazon EFS file system. See `fileSystemConfig` below.
 func (o LookupFunctionResultOutput) FileSystemConfigs() GetFunctionFileSystemConfigArrayOutput {
 	return o.ApplyT(func(v LookupFunctionResult) []GetFunctionFileSystemConfig { return v.FileSystemConfigs }).(GetFunctionFileSystemConfigArrayOutput)
 }
@@ -414,7 +414,7 @@ func (o LookupFunctionResultOutput) Layers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupFunctionResult) []string { return v.Layers }).(pulumi.StringArrayOutput)
 }
 
-// Advanced logging settings. See below.
+// Advanced logging settings. See `loggingConfig` below.
 func (o LookupFunctionResultOutput) LoggingConfigs() GetFunctionLoggingConfigArrayOutput {
 	return o.ApplyT(func(v LookupFunctionResult) []GetFunctionLoggingConfig { return v.LoggingConfigs }).(GetFunctionLoggingConfigArrayOutput)
 }
@@ -484,7 +484,7 @@ func (o LookupFunctionResultOutput) SourceCodeSize() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupFunctionResult) int { return v.SourceCodeSize }).(pulumi.IntOutput)
 }
 
-// ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package.
+// ARN of the KMS key used to encrypt the function's `.zip` deployment package.
 func (o LookupFunctionResultOutput) SourceKmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionResult) string { return v.SourceKmsKeyArn }).(pulumi.StringOutput)
 }
@@ -494,7 +494,7 @@ func (o LookupFunctionResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupFunctionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Tenancy settings of the function. See below.
+// Tenancy settings of the function. See `tenancyConfig` below.
 func (o LookupFunctionResultOutput) TenancyConfigs() GetFunctionTenancyConfigArrayOutput {
 	return o.ApplyT(func(v LookupFunctionResult) []GetFunctionTenancyConfig { return v.TenancyConfigs }).(GetFunctionTenancyConfigArrayOutput)
 }
@@ -504,7 +504,7 @@ func (o LookupFunctionResultOutput) Timeout() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupFunctionResult) int { return v.Timeout }).(pulumi.IntOutput)
 }
 
-// Tracing settings of the function. See below.
+// Tracing settings of the function. See `tracingConfig` below.
 func (o LookupFunctionResultOutput) TracingConfig() GetFunctionTracingConfigOutput {
 	return o.ApplyT(func(v LookupFunctionResult) GetFunctionTracingConfig { return v.TracingConfig }).(GetFunctionTracingConfigOutput)
 }
@@ -514,7 +514,7 @@ func (o LookupFunctionResultOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionResult) string { return v.Version }).(pulumi.StringOutput)
 }
 
-// VPC configuration associated with your Lambda function. See below.
+// VPC configuration associated with your Lambda function. See `vpcConfig` below.
 func (o LookupFunctionResultOutput) VpcConfig() GetFunctionVpcConfigOutput {
 	return o.ApplyT(func(v LookupFunctionResult) GetFunctionVpcConfig { return v.VpcConfig }).(GetFunctionVpcConfigOutput)
 }

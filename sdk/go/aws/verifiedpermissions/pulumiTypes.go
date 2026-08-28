@@ -178,7 +178,7 @@ type IdentitySourceConfigurationCognitoUserPoolConfiguration struct {
 	ClientIds []string `pulumi:"clientIds"`
 	// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
 	GroupConfiguration *IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration `pulumi:"groupConfiguration"`
-	// The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
+	// ARN of the Amazon Cognito user pool that contains the identities to be authorized.
 	UserPoolArn string `pulumi:"userPoolArn"`
 }
 
@@ -198,7 +198,7 @@ type IdentitySourceConfigurationCognitoUserPoolConfigurationArgs struct {
 	ClientIds pulumi.StringArrayInput `pulumi:"clientIds"`
 	// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
 	GroupConfiguration IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrInput `pulumi:"groupConfiguration"`
-	// The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
+	// ARN of the Amazon Cognito user pool that contains the identities to be authorized.
 	UserPoolArn pulumi.StringInput `pulumi:"userPoolArn"`
 }
 
@@ -291,7 +291,7 @@ func (o IdentitySourceConfigurationCognitoUserPoolConfigurationOutput) GroupConf
 	}).(IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
+// ARN of the Amazon Cognito user pool that contains the identities to be authorized.
 func (o IdentitySourceConfigurationCognitoUserPoolConfigurationOutput) UserPoolArn() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentitySourceConfigurationCognitoUserPoolConfiguration) string { return v.UserPoolArn }).(pulumi.StringOutput)
 }
@@ -340,7 +340,7 @@ func (o IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput) GroupC
 	}).(IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
+// ARN of the Amazon Cognito user pool that contains the identities to be authorized.
 func (o IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput) UserPoolArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentitySourceConfigurationCognitoUserPoolConfiguration) *string {
 		if v == nil {

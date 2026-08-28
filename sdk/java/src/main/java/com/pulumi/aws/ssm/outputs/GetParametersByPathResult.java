@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetParametersByPathResult {
     /**
-     * @return A list that contains the Amazon Resource Names (ARNs) of the retrieved parameters.
+     * @return List that contains the ARNs of the retrieved parameters.
      * 
      */
     private List<String> arns;
@@ -46,7 +46,7 @@ public final class GetParametersByPathResult {
 
     private GetParametersByPathResult() {}
     /**
-     * @return A list that contains the Amazon Resource Names (ARNs) of the retrieved parameters.
+     * @return List that contains the ARNs of the retrieved parameters.
      * 
      */
     public List<String> arns() {

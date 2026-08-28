@@ -19,7 +19,7 @@ namespace Pulumi.Aws.CloudFormation.Inputs
         public Input<string> LogGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
+        /// ARN of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
         /// </summary>
         [Input("logRoleArn", required: true)]
         public Input<string> LogRoleArn { get; set; } = null!;

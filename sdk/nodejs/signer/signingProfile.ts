@@ -68,7 +68,7 @@ export class SigningProfile extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the signing profile.
+     * ARN for the signing profile.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -187,7 +187,7 @@ export class SigningProfile extends pulumi.CustomResource {
  */
 export interface SigningProfileState {
     /**
-     * The Amazon Resource Name (ARN) for the signing profile.
+     * ARN for the signing profile.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

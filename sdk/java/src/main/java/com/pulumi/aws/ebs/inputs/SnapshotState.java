@@ -19,14 +19,14 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
     public static final SnapshotState Empty = new SnapshotState();
 
     /**
-     * Amazon Resource Name (ARN) of the EBS Snapshot.
+     * ARN of the EBS Snapshot.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the EBS Snapshot.
+     * @return ARN of the EBS Snapshot.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -94,14 +94,14 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+     * ARN of the Outpost on which to create a local snapshot.
      * 
      */
     @Import(name="outpostArn")
     private @Nullable Output<String> outpostArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+     * @return ARN of the Outpost on which to create a local snapshot.
      * 
      */
     public Optional<Output<String>> outpostArn() {
@@ -298,7 +298,7 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the EBS Snapshot.
+         * @param arn ARN of the EBS Snapshot.
          * 
          * @return builder
          * 
@@ -309,7 +309,7 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the EBS Snapshot.
+         * @param arn ARN of the EBS Snapshot.
          * 
          * @return builder
          * 
@@ -403,7 +403,7 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param outpostArn The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+         * @param outpostArn ARN of the Outpost on which to create a local snapshot.
          * 
          * @return builder
          * 
@@ -414,7 +414,7 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param outpostArn The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+         * @param outpostArn ARN of the Outpost on which to create a local snapshot.
          * 
          * @return builder
          * 

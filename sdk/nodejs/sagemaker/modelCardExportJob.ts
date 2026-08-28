@@ -68,7 +68,7 @@ export class ModelCardExportJob extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly exportArtifacts: pulumi.Output<outputs.sagemaker.ModelCardExportJobExportArtifact[]>;
     /**
-     * The Amazon Resource Name (ARN) of the model card export job.
+     * ARN of the model card export job.
      */
     declare public /*out*/ readonly modelCardExportJobArn: pulumi.Output<string>;
     /**
@@ -145,7 +145,7 @@ export interface ModelCardExportJobState {
      */
     exportArtifacts?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelCardExportJobExportArtifact>[] | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the model card export job.
+     * ARN of the model card export job.
      */
     modelCardExportJobArn?: pulumi.Input<string | undefined>;
     /**

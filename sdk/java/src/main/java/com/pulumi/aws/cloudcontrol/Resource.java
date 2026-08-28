@@ -106,14 +106,14 @@ public class Resource extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+     * ARN of the IAM Role to assume for operations.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+     * @return ARN of the IAM Role to assume for operations.
      * 
      */
     public Output<Optional<String>> roleArn() {

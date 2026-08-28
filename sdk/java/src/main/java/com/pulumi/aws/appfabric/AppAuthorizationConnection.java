@@ -75,21 +75,21 @@ public class AppAuthorizationConnection extends com.pulumi.resources.CustomResou
         return this.app;
     }
     /**
-     * Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+     * ARN or Universal Unique Identifier (UUID) of the app authorization to use for the request.
      * 
      */
     @Export(name="appAuthorizationArn", refs={String.class}, tree="[0]")
     private Output<String> appAuthorizationArn;
 
     /**
-     * @return Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+     * @return ARN or Universal Unique Identifier (UUID) of the app authorization to use for the request.
      * 
      */
     public Output<String> appAuthorizationArn() {
         return this.appAuthorizationArn;
     }
     /**
-     * Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * ARN of the app bundle to use for the request.
      * 
      * The following arguments are optional:
      * 
@@ -98,7 +98,7 @@ public class AppAuthorizationConnection extends com.pulumi.resources.CustomResou
     private Output<String> appBundleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * @return ARN of the app bundle to use for the request.
      * 
      * The following arguments are optional:
      * 

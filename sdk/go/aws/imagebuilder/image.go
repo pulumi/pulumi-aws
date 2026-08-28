@@ -48,9 +48,9 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the Image Builder image.
+// - `arn` (String) ARN of the Image Builder image.
 //
-// Using `pulumi import`, import `imagebuilder.Image` resources using the Amazon Resource Name (ARN). For example:
+// Using `pulumi import`, import `imagebuilder.Image` resources using the ARN. For example:
 //
 // ```sh
 // $ pulumi import aws:imagebuilder/image:Image example arn:aws:imagebuilder:us-east-1:123456789012:image/example/1.0.0/1
@@ -58,25 +58,25 @@ import (
 type Image struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the image.
+	// ARN of the image.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Amazon Resource Name (ARN) of the container recipe.
+	// ARN of the container recipe.
 	ContainerRecipeArn pulumi.StringPtrOutput `pulumi:"containerRecipeArn"`
 	// Date the image was created.
 	DateCreated pulumi.StringOutput `pulumi:"dateCreated"`
-	// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+	// ARN of the Image Builder Distribution Configuration.
 	DistributionConfigurationArn pulumi.StringPtrOutput `pulumi:"distributionConfigurationArn"`
 	// Whether additional information about the image being created is collected. Defaults to `true`.
 	EnhancedImageMetadataEnabled pulumi.BoolPtrOutput `pulumi:"enhancedImageMetadataEnabled"`
-	// Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+	// ARN of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
 	ExecutionRole pulumi.StringOutput `pulumi:"executionRole"`
-	// Amazon Resource Name (ARN) of the image recipe.
+	// ARN of the image recipe.
 	ImageRecipeArn pulumi.StringPtrOutput `pulumi:"imageRecipeArn"`
 	// Configuration block with image scanning configuration. Detailed below.
 	ImageScanningConfiguration ImageImageScanningConfigurationOutput `pulumi:"imageScanningConfiguration"`
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration ImageImageTestsConfigurationOutput `pulumi:"imageTestsConfiguration"`
-	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+	// ARN of the Image Builder Infrastructure Configuration.
 	//
 	// The following arguments are optional:
 	InfrastructureConfigurationArn pulumi.StringOutput `pulumi:"infrastructureConfigurationArn"`
@@ -135,25 +135,25 @@ func GetImage(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Image resources.
 type imageState struct {
-	// Amazon Resource Name (ARN) of the image.
+	// ARN of the image.
 	Arn *string `pulumi:"arn"`
-	// Amazon Resource Name (ARN) of the container recipe.
+	// ARN of the container recipe.
 	ContainerRecipeArn *string `pulumi:"containerRecipeArn"`
 	// Date the image was created.
 	DateCreated *string `pulumi:"dateCreated"`
-	// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+	// ARN of the Image Builder Distribution Configuration.
 	DistributionConfigurationArn *string `pulumi:"distributionConfigurationArn"`
 	// Whether additional information about the image being created is collected. Defaults to `true`.
 	EnhancedImageMetadataEnabled *bool `pulumi:"enhancedImageMetadataEnabled"`
-	// Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+	// ARN of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
 	ExecutionRole *string `pulumi:"executionRole"`
-	// Amazon Resource Name (ARN) of the image recipe.
+	// ARN of the image recipe.
 	ImageRecipeArn *string `pulumi:"imageRecipeArn"`
 	// Configuration block with image scanning configuration. Detailed below.
 	ImageScanningConfiguration *ImageImageScanningConfiguration `pulumi:"imageScanningConfiguration"`
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration *ImageImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
-	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+	// ARN of the Image Builder Infrastructure Configuration.
 	//
 	// The following arguments are optional:
 	InfrastructureConfigurationArn *string `pulumi:"infrastructureConfigurationArn"`
@@ -180,25 +180,25 @@ type imageState struct {
 }
 
 type ImageState struct {
-	// Amazon Resource Name (ARN) of the image.
+	// ARN of the image.
 	Arn pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the container recipe.
+	// ARN of the container recipe.
 	ContainerRecipeArn pulumi.StringPtrInput
 	// Date the image was created.
 	DateCreated pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+	// ARN of the Image Builder Distribution Configuration.
 	DistributionConfigurationArn pulumi.StringPtrInput
 	// Whether additional information about the image being created is collected. Defaults to `true`.
 	EnhancedImageMetadataEnabled pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+	// ARN of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
 	ExecutionRole pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the image recipe.
+	// ARN of the image recipe.
 	ImageRecipeArn pulumi.StringPtrInput
 	// Configuration block with image scanning configuration. Detailed below.
 	ImageScanningConfiguration ImageImageScanningConfigurationPtrInput
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration ImageImageTestsConfigurationPtrInput
-	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+	// ARN of the Image Builder Infrastructure Configuration.
 	//
 	// The following arguments are optional:
 	InfrastructureConfigurationArn pulumi.StringPtrInput
@@ -229,21 +229,21 @@ func (ImageState) ElementType() reflect.Type {
 }
 
 type imageArgs struct {
-	// Amazon Resource Name (ARN) of the container recipe.
+	// ARN of the container recipe.
 	ContainerRecipeArn *string `pulumi:"containerRecipeArn"`
-	// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+	// ARN of the Image Builder Distribution Configuration.
 	DistributionConfigurationArn *string `pulumi:"distributionConfigurationArn"`
 	// Whether additional information about the image being created is collected. Defaults to `true`.
 	EnhancedImageMetadataEnabled *bool `pulumi:"enhancedImageMetadataEnabled"`
-	// Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+	// ARN of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
 	ExecutionRole *string `pulumi:"executionRole"`
-	// Amazon Resource Name (ARN) of the image recipe.
+	// ARN of the image recipe.
 	ImageRecipeArn *string `pulumi:"imageRecipeArn"`
 	// Configuration block with image scanning configuration. Detailed below.
 	ImageScanningConfiguration *ImageImageScanningConfiguration `pulumi:"imageScanningConfiguration"`
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration *ImageImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
-	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+	// ARN of the Image Builder Infrastructure Configuration.
 	//
 	// The following arguments are optional:
 	InfrastructureConfigurationArn string `pulumi:"infrastructureConfigurationArn"`
@@ -259,21 +259,21 @@ type imageArgs struct {
 
 // The set of arguments for constructing a Image resource.
 type ImageArgs struct {
-	// Amazon Resource Name (ARN) of the container recipe.
+	// ARN of the container recipe.
 	ContainerRecipeArn pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+	// ARN of the Image Builder Distribution Configuration.
 	DistributionConfigurationArn pulumi.StringPtrInput
 	// Whether additional information about the image being created is collected. Defaults to `true`.
 	EnhancedImageMetadataEnabled pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+	// ARN of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
 	ExecutionRole pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the image recipe.
+	// ARN of the image recipe.
 	ImageRecipeArn pulumi.StringPtrInput
 	// Configuration block with image scanning configuration. Detailed below.
 	ImageScanningConfiguration ImageImageScanningConfigurationPtrInput
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration ImageImageTestsConfigurationPtrInput
-	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+	// ARN of the Image Builder Infrastructure Configuration.
 	//
 	// The following arguments are optional:
 	InfrastructureConfigurationArn pulumi.StringInput
@@ -374,12 +374,12 @@ func (o ImageOutput) ToImageOutputWithContext(ctx context.Context) ImageOutput {
 	return o
 }
 
-// Amazon Resource Name (ARN) of the image.
+// ARN of the image.
 func (o ImageOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the container recipe.
+// ARN of the container recipe.
 func (o ImageOutput) ContainerRecipeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.ContainerRecipeArn }).(pulumi.StringPtrOutput)
 }
@@ -389,7 +389,7 @@ func (o ImageOutput) DateCreated() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.DateCreated }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+// ARN of the Image Builder Distribution Configuration.
 func (o ImageOutput) DistributionConfigurationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.DistributionConfigurationArn }).(pulumi.StringPtrOutput)
 }
@@ -399,12 +399,12 @@ func (o ImageOutput) EnhancedImageMetadataEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Image) pulumi.BoolPtrOutput { return v.EnhancedImageMetadataEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+// ARN of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
 func (o ImageOutput) ExecutionRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.ExecutionRole }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the image recipe.
+// ARN of the image recipe.
 func (o ImageOutput) ImageRecipeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.ImageRecipeArn }).(pulumi.StringPtrOutput)
 }
@@ -419,7 +419,7 @@ func (o ImageOutput) ImageTestsConfiguration() ImageImageTestsConfigurationOutpu
 	return o.ApplyT(func(v *Image) ImageImageTestsConfigurationOutput { return v.ImageTestsConfiguration }).(ImageImageTestsConfigurationOutput)
 }
 
-// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+// ARN of the Image Builder Infrastructure Configuration.
 //
 // The following arguments are optional:
 func (o ImageOutput) InfrastructureConfigurationArn() pulumi.StringOutput {

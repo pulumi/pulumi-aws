@@ -175,14 +175,14 @@ public class LoggingConfiguration extends com.pulumi.resources.CustomResource {
         return this.enableMonitoringDashboard;
     }
     /**
-     * The Amazon Resource Name (ARN) of the Network Firewall firewall.
+     * ARN of the Network Firewall firewall.
      * 
      */
     @Export(name="firewallArn", refs={String.class}, tree="[0]")
     private Output<String> firewallArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Network Firewall firewall.
+     * @return ARN of the Network Firewall firewall.
      * 
      */
     public Output<String> firewallArn() {

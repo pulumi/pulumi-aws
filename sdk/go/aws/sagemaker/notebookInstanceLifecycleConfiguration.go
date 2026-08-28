@@ -66,7 +66,7 @@ import (
 type NotebookInstanceLifecycleConfiguration struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
+	// ARN assigned by AWS to this lifecycle configuration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -112,7 +112,7 @@ func GetNotebookInstanceLifecycleConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NotebookInstanceLifecycleConfiguration resources.
 type notebookInstanceLifecycleConfigurationState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
+	// ARN assigned by AWS to this lifecycle configuration.
 	Arn *string `pulumi:"arn"`
 	// The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
@@ -129,7 +129,7 @@ type notebookInstanceLifecycleConfigurationState struct {
 }
 
 type NotebookInstanceLifecycleConfigurationState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
+	// ARN assigned by AWS to this lifecycle configuration.
 	Arn pulumi.StringPtrInput
 	// The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
@@ -263,7 +263,7 @@ func (o NotebookInstanceLifecycleConfigurationOutput) ToNotebookInstanceLifecycl
 	return o
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
+// ARN assigned by AWS to this lifecycle configuration.
 func (o NotebookInstanceLifecycleConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotebookInstanceLifecycleConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

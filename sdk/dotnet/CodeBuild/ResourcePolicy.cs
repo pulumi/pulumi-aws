@@ -81,7 +81,7 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// #### Required
     /// 
-    /// - `ResourceArn` (String) Amazon Resource Name (ARN) of the CodeBuild resource.
+    /// - `ResourceArn` (String) ARN of the CodeBuild resource.
     /// 
     /// Using `pulumi import`, import CodeBuild Resource Policy using the CodeBuild Resource Policy arn. For example:
     /// 

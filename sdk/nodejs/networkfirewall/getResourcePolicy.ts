@@ -35,7 +35,7 @@ export interface GetResourcePolicyArgs {
      */
     region?: string;
     /**
-     * The Amazon Resource Name (ARN) that identifies the resource policy.
+     * ARN that identifies the resource policy.
      */
     resourceArn: string;
 }
@@ -86,7 +86,7 @@ export interface GetResourcePolicyOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) that identifies the resource policy.
+     * ARN that identifies the resource policy.
      */
     resourceArn: pulumi.Input<string>;
 }

@@ -124,7 +124,7 @@ export interface GetGroupResult {
      */
     readonly newInstancesProtectedFromScaleIn: boolean;
     /**
-     * Name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
+     * Name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the EC2 User Guide.
      */
     readonly placementGroup: string;
     /**

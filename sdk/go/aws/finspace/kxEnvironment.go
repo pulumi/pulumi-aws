@@ -183,7 +183,7 @@ import (
 type KxEnvironment struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) identifier of the KX environment.
+	// ARN identifier of the KX environment.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// AWS Availability Zone IDs that this environment is available in. Important when selecting VPC subnets to use in cluster creation.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
@@ -248,7 +248,7 @@ func GetKxEnvironment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KxEnvironment resources.
 type kxEnvironmentState struct {
-	// Amazon Resource Name (ARN) identifier of the KX environment.
+	// ARN identifier of the KX environment.
 	Arn *string `pulumi:"arn"`
 	// AWS Availability Zone IDs that this environment is available in. Important when selecting VPC subnets to use in cluster creation.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
@@ -281,7 +281,7 @@ type kxEnvironmentState struct {
 }
 
 type KxEnvironmentState struct {
-	// Amazon Resource Name (ARN) identifier of the KX environment.
+	// ARN identifier of the KX environment.
 	Arn pulumi.StringPtrInput
 	// AWS Availability Zone IDs that this environment is available in. Important when selecting VPC subnets to use in cluster creation.
 	AvailabilityZones pulumi.StringArrayInput
@@ -443,7 +443,7 @@ func (o KxEnvironmentOutput) ToKxEnvironmentOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Amazon Resource Name (ARN) identifier of the KX environment.
+// ARN identifier of the KX environment.
 func (o KxEnvironmentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxEnvironment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

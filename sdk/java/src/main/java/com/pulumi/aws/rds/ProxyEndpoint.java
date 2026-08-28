@@ -68,14 +68,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rds/proxyEndpoint:ProxyEndpoint")
 public class ProxyEndpoint extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) for the proxy endpoint.
+     * ARN for the proxy endpoint.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the proxy endpoint.
+     * @return ARN for the proxy endpoint.
      * 
      */
     public Output<String> arn() {

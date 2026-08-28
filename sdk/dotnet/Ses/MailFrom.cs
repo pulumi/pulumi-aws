@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Ses
     public partial class MailFrom : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
+        /// Action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
         /// </summary>
         [Output("behaviorOnMxFailure")]
         public Output<string?> BehaviorOnMxFailure { get; private set; } = null!;
@@ -176,7 +176,7 @@ namespace Pulumi.Aws.Ses
     public sealed class MailFromArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
+        /// Action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
         /// </summary>
         [Input("behaviorOnMxFailure")]
         public Input<string>? BehaviorOnMxFailure { get; set; }
@@ -210,7 +210,7 @@ namespace Pulumi.Aws.Ses
     public sealed class MailFromState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
+        /// Action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
         /// </summary>
         [Input("behaviorOnMxFailure")]
         public Input<string>? BehaviorOnMxFailure { get; set; }

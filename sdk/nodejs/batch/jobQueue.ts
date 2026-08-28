@@ -76,7 +76,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the job queue.
+ * - `arn` (String) ARN of the job queue.
  *
  * Using `pulumi import`, import Batch Job Queue using the `arn`. For example:
  *
@@ -113,7 +113,7 @@ export class JobQueue extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name of the job queue.
+     * ARN of the job queue.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -209,7 +209,7 @@ export class JobQueue extends pulumi.CustomResource {
  */
 export interface JobQueueState {
     /**
-     * The Amazon Resource Name of the job queue.
+     * ARN of the job queue.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

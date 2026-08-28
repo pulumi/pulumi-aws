@@ -196,7 +196,7 @@ namespace Pulumi.Aws.Ram
     /// 
     /// #### Required
     /// 
-    /// - `ResourceShareArn` (String) Amazon Resource Name (ARN) of the RAM resource share.
+    /// - `ResourceShareArn` (String) ARN of the RAM resource share.
     /// 
     /// Using `pulumi import`, import RAM Resource Share Association Exclusive using the `ResourceShareArn`. For example:
     /// 
@@ -220,13 +220,13 @@ namespace Pulumi.Aws.Ram
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+        /// Set of ARNs of resources to associate with the resource share. Resources not configured in this argument will be removed.
         /// </summary>
         [Output("resourceArns")]
         public Output<ImmutableArray<string>> ResourceArns { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+        /// ARN of the resource share. Changing this value forces creation of a new resource.
         /// </summary>
         [Output("resourceShareArn")]
         public Output<string> ResourceShareArn { get; private set; } = null!;
@@ -305,7 +305,7 @@ namespace Pulumi.Aws.Ram
         private InputList<string>? _resourceArns;
 
         /// <summary>
-        /// Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+        /// Set of ARNs of resources to associate with the resource share. Resources not configured in this argument will be removed.
         /// </summary>
         public InputList<string> ResourceArns
         {
@@ -314,7 +314,7 @@ namespace Pulumi.Aws.Ram
         }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+        /// ARN of the resource share. Changing this value forces creation of a new resource.
         /// </summary>
         [Input("resourceShareArn", required: true)]
         public Input<string> ResourceShareArn { get; set; } = null!;
@@ -361,7 +361,7 @@ namespace Pulumi.Aws.Ram
         private InputList<string>? _resourceArns;
 
         /// <summary>
-        /// Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+        /// Set of ARNs of resources to associate with the resource share. Resources not configured in this argument will be removed.
         /// </summary>
         public InputList<string> ResourceArns
         {
@@ -370,7 +370,7 @@ namespace Pulumi.Aws.Ram
         }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+        /// ARN of the resource share. Changing this value forces creation of a new resource.
         /// </summary>
         [Input("resourceShareArn")]
         public Input<string>? ResourceShareArn { get; set; }

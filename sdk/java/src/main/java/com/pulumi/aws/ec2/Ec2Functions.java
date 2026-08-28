@@ -19138,7 +19138,7 @@ public final class Ec2Functions {
     /**
      * &gt; There is only a single spot data feed subscription per account.
      * 
-     * Data source for accessing an AWS EC2 (Elastic Compute Cloud) spot data feed subscription.
+     * Data source for accessing an AWS EC2 spot data feed subscription.
      * 
      * ## Example Usage
      * 
@@ -19179,7 +19179,7 @@ public final class Ec2Functions {
     /**
      * &gt; There is only a single spot data feed subscription per account.
      * 
-     * Data source for accessing an AWS EC2 (Elastic Compute Cloud) spot data feed subscription.
+     * Data source for accessing an AWS EC2 spot data feed subscription.
      * 
      * ## Example Usage
      * 
@@ -19220,7 +19220,7 @@ public final class Ec2Functions {
     /**
      * &gt; There is only a single spot data feed subscription per account.
      * 
-     * Data source for accessing an AWS EC2 (Elastic Compute Cloud) spot data feed subscription.
+     * Data source for accessing an AWS EC2 spot data feed subscription.
      * 
      * ## Example Usage
      * 
@@ -19261,7 +19261,7 @@ public final class Ec2Functions {
     /**
      * &gt; There is only a single spot data feed subscription per account.
      * 
-     * Data source for accessing an AWS EC2 (Elastic Compute Cloud) spot data feed subscription.
+     * Data source for accessing an AWS EC2 spot data feed subscription.
      * 
      * ## Example Usage
      * 
@@ -19302,7 +19302,7 @@ public final class Ec2Functions {
     /**
      * &gt; There is only a single spot data feed subscription per account.
      * 
-     * Data source for accessing an AWS EC2 (Elastic Compute Cloud) spot data feed subscription.
+     * Data source for accessing an AWS EC2 spot data feed subscription.
      * 
      * ## Example Usage
      * 
@@ -19343,7 +19343,7 @@ public final class Ec2Functions {
     /**
      * &gt; There is only a single spot data feed subscription per account.
      * 
-     * Data source for accessing an AWS EC2 (Elastic Compute Cloud) spot data feed subscription.
+     * Data source for accessing an AWS EC2 spot data feed subscription.
      * 
      * ## Example Usage
      * 
@@ -19384,7 +19384,7 @@ public final class Ec2Functions {
     /**
      * &gt; There is only a single spot data feed subscription per account.
      * 
-     * Data source for accessing an AWS EC2 (Elastic Compute Cloud) spot data feed subscription.
+     * Data source for accessing an AWS EC2 spot data feed subscription.
      * 
      * ## Example Usage
      * 
@@ -26100,7 +26100,7 @@ public final class Ec2Functions {
         return Deployment.getInstance().invokeAsync("aws:ec2/getVpcs:getVpcs", TypeShape.of(GetVpcsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an IP security (IPsec) VPN connection between a VPC and an on-premises network.
      * 
      * ## Example Usage
      * 
@@ -26181,7 +26181,7 @@ public final class Ec2Functions {
         return getVpnConnection(GetVpnConnectionArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an IP security (IPsec) VPN connection between a VPC and an on-premises network.
      * 
      * ## Example Usage
      * 
@@ -26262,7 +26262,7 @@ public final class Ec2Functions {
         return getVpnConnectionPlain(GetVpnConnectionPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an IP security (IPsec) VPN connection between a VPC and an on-premises network.
      * 
      * ## Example Usage
      * 
@@ -26343,7 +26343,7 @@ public final class Ec2Functions {
         return getVpnConnection(args, InvokeOptions.Empty);
     }
     /**
-     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an IP security (IPsec) VPN connection between a VPC and an on-premises network.
      * 
      * ## Example Usage
      * 
@@ -26424,7 +26424,7 @@ public final class Ec2Functions {
         return getVpnConnectionPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an IP security (IPsec) VPN connection between a VPC and an on-premises network.
      * 
      * ## Example Usage
      * 
@@ -26505,7 +26505,7 @@ public final class Ec2Functions {
         return Deployment.getInstance().invoke("aws:ec2/getVpnConnection:getVpnConnection", TypeShape.of(GetVpnConnectionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an IP security (IPsec) VPN connection between a VPC and an on-premises network.
      * 
      * ## Example Usage
      * 
@@ -26586,7 +26586,7 @@ public final class Ec2Functions {
         return Deployment.getInstance().invoke("aws:ec2/getVpnConnection:getVpnConnection", TypeShape.of(GetVpnConnectionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an IP security (IPsec) VPN connection between a VPC and an on-premises network.
      * 
      * ## Example Usage
      * 

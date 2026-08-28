@@ -152,7 +152,7 @@ export class MulticastDomain extends pulumi.CustomResource {
     }
 
     /**
-     * EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
+     * EC2 Transit Gateway Multicast Domain ARN.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -235,7 +235,7 @@ export class MulticastDomain extends pulumi.CustomResource {
  */
 export interface MulticastDomainState {
     /**
-     * EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
+     * EC2 Transit Gateway Multicast Domain ARN.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

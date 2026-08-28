@@ -28,7 +28,7 @@ class RoleAssociationArgs:
 
         :param pulumi.Input[_builtins.str] db_instance_identifier: DB Instance Identifier to associate with the IAM Role.
         :param pulumi.Input[_builtins.str] feature_name: Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
-        :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM Role to associate with the DB Instance.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "db_instance_identifier", db_instance_identifier)
@@ -65,7 +65,7 @@ class RoleAssociationArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+        ARN of the IAM Role to associate with the DB Instance.
         """
         return pulumi.get(self, "role_arn")
 
@@ -99,7 +99,7 @@ class _RoleAssociationState:
         :param pulumi.Input[_builtins.str] db_instance_identifier: DB Instance Identifier to associate with the IAM Role.
         :param pulumi.Input[_builtins.str] feature_name: Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM Role to associate with the DB Instance.
         """
         if db_instance_identifier is not None:
             pulumi.set(__self__, "db_instance_identifier", db_instance_identifier)
@@ -150,7 +150,7 @@ class _RoleAssociationState:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+        ARN of the IAM Role to associate with the DB Instance.
         """
         return pulumi.get(self, "role_arn")
 
@@ -192,7 +192,7 @@ class RoleAssociation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] db_instance_identifier: DB Instance Identifier to associate with the IAM Role.
         :param pulumi.Input[_builtins.str] feature_name: Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM Role to associate with the DB Instance.
         """
         ...
     @overload
@@ -279,7 +279,7 @@ class RoleAssociation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] db_instance_identifier: DB Instance Identifier to associate with the IAM Role.
         :param pulumi.Input[_builtins.str] feature_name: Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM Role to associate with the DB Instance.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -319,7 +319,7 @@ class RoleAssociation(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+        ARN of the IAM Role to associate with the DB Instance.
         """
         return pulumi.get(self, "role_arn")
 

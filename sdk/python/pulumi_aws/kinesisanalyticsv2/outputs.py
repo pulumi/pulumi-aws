@@ -1057,7 +1057,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInput(dict):
                An input processor transforms records as they are received from the stream, before the application's SQL code executes.
         :param Sequence['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs'] input_starting_position_configurations: The point at which the application starts processing records from the streaming source.
         :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs' kinesis_firehose_input: If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
-        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs' kinesis_streams_input: If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
+        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs' kinesis_streams_input: If the streaming source is a Kinesis data stream, identifies the stream's ARN.
         """
         pulumi.set(__self__, "input_schema", input_schema)
         pulumi.set(__self__, "name_prefix", name_prefix)
@@ -1139,7 +1139,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInput(dict):
     @pulumi.getter(name="kinesisStreamsInput")
     def kinesis_streams_input(self) -> Optional['outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput']:
         """
-        If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
+        If the streaming source is a Kinesis data stream, identifies the stream's ARN.
         """
         return pulumi.get(self, "kinesis_streams_input")
 

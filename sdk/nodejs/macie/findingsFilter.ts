@@ -74,7 +74,7 @@ export class FindingsFilter extends pulumi.CustomResource {
      */
     declare public readonly action: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the Findings Filter.
+     * ARN of the Findings Filter.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -166,7 +166,7 @@ export interface FindingsFilterState {
      */
     action?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the Findings Filter.
+     * ARN of the Findings Filter.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

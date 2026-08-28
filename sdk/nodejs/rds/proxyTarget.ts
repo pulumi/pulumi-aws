@@ -86,7 +86,7 @@ export class ProxyTarget extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
+     * ARN for the DB instance or DB cluster. Currently not returned by the RDS API.
      */
     declare public /*out*/ readonly targetArn: pulumi.Output<string>;
     /**
@@ -186,7 +186,7 @@ export interface ProxyTargetState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
+     * ARN for the DB instance or DB cluster. Currently not returned by the RDS API.
      */
     targetArn?: pulumi.Input<string | undefined>;
     /**

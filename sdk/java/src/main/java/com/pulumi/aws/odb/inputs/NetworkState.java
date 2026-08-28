@@ -23,14 +23,14 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
     public static final NetworkState Empty = new NetworkState();
 
     /**
-     * Amazon Resource Name (ARN) of the odb network resource.
+     * ARN of the odb network resource.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the odb network resource.
+     * @return ARN of the odb network resource.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -578,7 +578,7 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the odb network resource.
+         * @param arn ARN of the odb network resource.
          * 
          * @return builder
          * 
@@ -589,7 +589,7 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the odb network resource.
+         * @param arn ARN of the odb network resource.
          * 
          * @return builder
          * 

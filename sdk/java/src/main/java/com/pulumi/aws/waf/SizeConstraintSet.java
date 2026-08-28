@@ -74,14 +74,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:waf/sizeConstraintSet:SizeConstraintSet")
 public class SizeConstraintSet extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN).
+     * ARN.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN).
+     * @return ARN.
      * 
      */
     public Output<String> arn() {

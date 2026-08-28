@@ -16,14 +16,14 @@ public final class ReceiptRuleAddHeaderActionArgs extends com.pulumi.resources.R
     public static final ReceiptRuleAddHeaderActionArgs Empty = new ReceiptRuleAddHeaderActionArgs();
 
     /**
-     * The name of the header to add
+     * Name of the header to add.
      * 
      */
     @Import(name="headerName", required=true)
     private Output<String> headerName;
 
     /**
-     * @return The name of the header to add
+     * @return Name of the header to add.
      * 
      */
     public Output<String> headerName() {
@@ -31,14 +31,14 @@ public final class ReceiptRuleAddHeaderActionArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The value of the header to add
+     * Value of the header to add.
      * 
      */
     @Import(name="headerValue", required=true)
     private Output<String> headerValue;
 
     /**
-     * @return The value of the header to add
+     * @return Value of the header to add.
      * 
      */
     public Output<String> headerValue() {
@@ -46,14 +46,14 @@ public final class ReceiptRuleAddHeaderActionArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The position of the action in the receipt rule
+     * Position of the action in the receipt rule.
      * 
      */
     @Import(name="position", required=true)
     private Output<Integer> position;
 
     /**
-     * @return The position of the action in the receipt rule
+     * @return Position of the action in the receipt rule.
      * 
      */
     public Output<Integer> position() {
@@ -87,7 +87,7 @@ public final class ReceiptRuleAddHeaderActionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param headerName The name of the header to add
+         * @param headerName Name of the header to add.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class ReceiptRuleAddHeaderActionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param headerName The name of the header to add
+         * @param headerName Name of the header to add.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class ReceiptRuleAddHeaderActionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param headerValue The value of the header to add
+         * @param headerValue Value of the header to add.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class ReceiptRuleAddHeaderActionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param headerValue The value of the header to add
+         * @param headerValue Value of the header to add.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class ReceiptRuleAddHeaderActionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param position The position of the action in the receipt rule
+         * @param position Position of the action in the receipt rule.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ReceiptRuleAddHeaderActionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param position The position of the action in the receipt rule
+         * @param position Position of the action in the receipt rule.
          * 
          * @return builder
          * 

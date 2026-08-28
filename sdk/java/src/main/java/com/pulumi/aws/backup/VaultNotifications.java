@@ -153,14 +153,14 @@ public class VaultNotifications extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
+     * ARN that specifies the topic for a backup vault’s events
      * 
      */
     @Export(name="snsTopicArn", refs={String.class}, tree="[0]")
     private Output<String> snsTopicArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
+     * @return ARN that specifies the topic for a backup vault’s events
      * 
      */
     public Output<String> snsTopicArn() {

@@ -25,14 +25,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     public static final ClusterState Empty = new ClusterState();
 
     /**
-     * Amazon Resource Name (ARN) of the MSK cluster.
+     * ARN of the MSK cluster.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the MSK cluster.
+     * @return ARN of the MSK cluster.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -608,7 +608,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the MSK cluster.
+         * @param arn ARN of the MSK cluster.
          * 
          * @return builder
          * 
@@ -619,7 +619,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the MSK cluster.
+         * @param arn ARN of the MSK cluster.
          * 
          * @return builder
          * 

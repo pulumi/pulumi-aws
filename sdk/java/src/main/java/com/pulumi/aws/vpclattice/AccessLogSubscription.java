@@ -66,28 +66,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:vpclattice/accessLogSubscription:AccessLogSubscription")
 public class AccessLogSubscription extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the access log subscription.
+     * ARN of the access log subscription.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the access log subscription.
+     * @return ARN of the access log subscription.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * Amazon Resource Name (ARN) of the log destination.
+     * ARN of the log destination.
      * 
      */
     @Export(name="destinationArn", refs={String.class}, tree="[0]")
     private Output<String> destinationArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the log destination.
+     * @return ARN of the log destination.
      * 
      */
     public Output<String> destinationArn() {
@@ -108,14 +108,14 @@ public class AccessLogSubscription extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Amazon Resource Name (ARN) of the service network or service.
+     * ARN of the service network or service.
      * 
      */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the service network or service.
+     * @return ARN of the service network or service.
      * 
      */
     public Output<String> resourceArn() {

@@ -68,7 +68,7 @@ export class Canary extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Canary.
+     * ARN of the Canary.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -261,7 +261,7 @@ export class Canary extends pulumi.CustomResource {
  */
 export interface CanaryState {
     /**
-     * Amazon Resource Name (ARN) of the Canary.
+     * ARN of the Canary.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

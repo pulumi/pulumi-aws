@@ -92,7 +92,7 @@ class _DomainVerificationState:
         """
         Input properties used for looking up and filtering DomainVerification resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the domain verification.
+        :param pulumi.Input[_builtins.str] arn: ARN of the domain verification.
         :param pulumi.Input[_builtins.str] created_at: Date and time that the domain verification was created, in ISO-8601 format.
         :param pulumi.Input[_builtins.str] domain_name: Domain name to verify ownership for.
                
@@ -130,7 +130,7 @@ class _DomainVerificationState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the domain verification.
+        ARN of the domain verification.
         """
         return pulumi.get(self, "arn")
 
@@ -431,7 +431,7 @@ class DomainVerification(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the domain verification.
+        :param pulumi.Input[_builtins.str] arn: ARN of the domain verification.
         :param pulumi.Input[_builtins.str] created_at: Date and time that the domain verification was created, in ISO-8601 format.
         :param pulumi.Input[_builtins.str] domain_name: Domain name to verify ownership for.
                
@@ -464,7 +464,7 @@ class DomainVerification(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the domain verification.
+        ARN of the domain verification.
         """
         return pulumi.get(self, "arn")
 

@@ -41,7 +41,7 @@ class ClusterArgs:
 
         :param pulumi.Input[_builtins.str] cluster_name: Group identifier. DAX converts this name to
                lowercase
-        :param pulumi.Input[_builtins.str] iam_role_arn: A valid Amazon Resource Name (ARN) that identifies
+        :param pulumi.Input[_builtins.str] iam_role_arn: Valid ARN that identifies
                an IAM role. At runtime, DAX will assume this role and use the role's
                permissions to access DynamoDB on your behalf
         :param pulumi.Input[_builtins.str] node_type: The compute and memory capacity of the nodes. See
@@ -59,7 +59,7 @@ class ClusterArgs:
                maintenance on the cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi`
                (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:
                `sun:05:00-sun:09:00`
-        :param pulumi.Input[_builtins.str] notification_topic_arn: An Amazon Resource Name (ARN) of an
+        :param pulumi.Input[_builtins.str] notification_topic_arn: ARN of an
                SNS topic to send DAX notifications to. Example:
                `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         :param pulumi.Input[_builtins.str] parameter_group_name: Name of the parameter group to associate
@@ -116,7 +116,7 @@ class ClusterArgs:
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        A valid Amazon Resource Name (ARN) that identifies
+        Valid ARN that identifies
         an IAM role. At runtime, DAX will assume this role and use the role's
         permissions to access DynamoDB on your behalf
         """
@@ -211,7 +211,7 @@ class ClusterArgs:
     @pulumi.getter(name="notificationTopicArn")
     def notification_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        An Amazon Resource Name (ARN) of an
+        ARN of an
         SNS topic to send DAX notifications to. Example:
         `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         """
@@ -336,7 +336,7 @@ class _ClusterState:
         :param pulumi.Input[_builtins.str] configuration_endpoint: The configuration endpoint for this DAX cluster,
                consisting of a DNS name and a port number
         :param pulumi.Input[_builtins.str] description: Description for the cluster
-        :param pulumi.Input[_builtins.str] iam_role_arn: A valid Amazon Resource Name (ARN) that identifies
+        :param pulumi.Input[_builtins.str] iam_role_arn: Valid ARN that identifies
                an IAM role. At runtime, DAX will assume this role and use the role's
                permissions to access DynamoDB on your behalf
         :param pulumi.Input[_builtins.str] maintenance_window: Specifies the weekly time range for when
@@ -348,7 +348,7 @@ class _ClusterState:
         :param pulumi.Input[Sequence[pulumi.Input['ClusterNodeArgs']]] nodes: List of node objects including `id`, `address`, `port` and
                `availability_zone`. Referenceable e.g., as
                `${aws_dax_cluster.test.nodes.0.address}`
-        :param pulumi.Input[_builtins.str] notification_topic_arn: An Amazon Resource Name (ARN) of an
+        :param pulumi.Input[_builtins.str] notification_topic_arn: ARN of an
                SNS topic to send DAX notifications to. Example:
                `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         :param pulumi.Input[_builtins.str] parameter_group_name: Name of the parameter group to associate
@@ -502,7 +502,7 @@ class _ClusterState:
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A valid Amazon Resource Name (ARN) that identifies
+        Valid ARN that identifies
         an IAM role. At runtime, DAX will assume this role and use the role's
         permissions to access DynamoDB on your behalf
         """
@@ -558,7 +558,7 @@ class _ClusterState:
     @pulumi.getter(name="notificationTopicArn")
     def notification_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        An Amazon Resource Name (ARN) of an
+        ARN of an
         SNS topic to send DAX notifications to. Example:
         `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         """
@@ -739,7 +739,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cluster_name: Group identifier. DAX converts this name to
                lowercase
         :param pulumi.Input[_builtins.str] description: Description for the cluster
-        :param pulumi.Input[_builtins.str] iam_role_arn: A valid Amazon Resource Name (ARN) that identifies
+        :param pulumi.Input[_builtins.str] iam_role_arn: Valid ARN that identifies
                an IAM role. At runtime, DAX will assume this role and use the role's
                permissions to access DynamoDB on your behalf
         :param pulumi.Input[_builtins.str] maintenance_window: Specifies the weekly time range for when
@@ -748,7 +748,7 @@ class Cluster(pulumi.CustomResource):
                `sun:05:00-sun:09:00`
         :param pulumi.Input[_builtins.str] node_type: The compute and memory capacity of the nodes. See
                [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
-        :param pulumi.Input[_builtins.str] notification_topic_arn: An Amazon Resource Name (ARN) of an
+        :param pulumi.Input[_builtins.str] notification_topic_arn: ARN of an
                SNS topic to send DAX notifications to. Example:
                `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         :param pulumi.Input[_builtins.str] parameter_group_name: Name of the parameter group to associate
@@ -913,7 +913,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] configuration_endpoint: The configuration endpoint for this DAX cluster,
                consisting of a DNS name and a port number
         :param pulumi.Input[_builtins.str] description: Description for the cluster
-        :param pulumi.Input[_builtins.str] iam_role_arn: A valid Amazon Resource Name (ARN) that identifies
+        :param pulumi.Input[_builtins.str] iam_role_arn: Valid ARN that identifies
                an IAM role. At runtime, DAX will assume this role and use the role's
                permissions to access DynamoDB on your behalf
         :param pulumi.Input[_builtins.str] maintenance_window: Specifies the weekly time range for when
@@ -925,7 +925,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterNodeArgs', 'ClusterNodeArgsDict']]]] nodes: List of node objects including `id`, `address`, `port` and
                `availability_zone`. Referenceable e.g., as
                `${aws_dax_cluster.test.nodes.0.address}`
-        :param pulumi.Input[_builtins.str] notification_topic_arn: An Amazon Resource Name (ARN) of an
+        :param pulumi.Input[_builtins.str] notification_topic_arn: ARN of an
                SNS topic to send DAX notifications to. Example:
                `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         :param pulumi.Input[_builtins.str] parameter_group_name: Name of the parameter group to associate
@@ -1035,7 +1035,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        A valid Amazon Resource Name (ARN) that identifies
+        Valid ARN that identifies
         an IAM role. At runtime, DAX will assume this role and use the role's
         permissions to access DynamoDB on your behalf
         """
@@ -1075,7 +1075,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="notificationTopicArn")
     def notification_topic_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        An Amazon Resource Name (ARN) of an
+        ARN of an
         SNS topic to send DAX notifications to. Example:
         `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         """

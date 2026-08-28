@@ -227,14 +227,14 @@ public class ResponsePlan extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.displayName);
     }
     /**
-     * The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+     * ARN for the contacts and escalation plans that the response plan engages during an incident.
      * 
      */
     @Export(name="engagements", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> engagements;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+     * @return ARN for the contacts and escalation plans that the response plan engages during an incident.
      * 
      */
     public Output<Optional<List<String>>> engagements() {

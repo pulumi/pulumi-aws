@@ -231,7 +231,7 @@ class _ReportDefinitionState:
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_artifacts: A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be `OVERWRITE_REPORT`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_schema_elements: A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the cur report.
+        :param pulumi.Input[_builtins.str] arn: ARN specifying the cur report.
         :param pulumi.Input[_builtins.str] compression: Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
         :param pulumi.Input[_builtins.str] format: Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
         :param pulumi.Input[_builtins.bool] refresh_closed_reports: Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
@@ -301,7 +301,7 @@ class _ReportDefinitionState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) specifying the cur report.
+        ARN specifying the cur report.
         """
         return pulumi.get(self, "arn")
 
@@ -657,7 +657,7 @@ class ReportDefinition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_artifacts: A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be `OVERWRITE_REPORT`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_schema_elements: A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the cur report.
+        :param pulumi.Input[_builtins.str] arn: ARN specifying the cur report.
         :param pulumi.Input[_builtins.str] compression: Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
         :param pulumi.Input[_builtins.str] format: Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
         :param pulumi.Input[_builtins.bool] refresh_closed_reports: Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
@@ -710,7 +710,7 @@ class ReportDefinition(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) specifying the cur report.
+        ARN specifying the cur report.
         """
         return pulumi.get(self, "arn")
 

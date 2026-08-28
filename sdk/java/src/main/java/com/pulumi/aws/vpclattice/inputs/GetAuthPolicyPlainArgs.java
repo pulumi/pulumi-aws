@@ -46,14 +46,14 @@ public final class GetAuthPolicyPlainArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     * ID or ARN of the service network or service for which the policy is created.
      * 
      */
     @Import(name="resourceIdentifier", required=true)
     private String resourceIdentifier;
 
     /**
-     * @return ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     * @return ID or ARN of the service network or service for which the policy is created.
      * 
      */
     public String resourceIdentifier() {
@@ -125,7 +125,7 @@ public final class GetAuthPolicyPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param resourceIdentifier ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+         * @param resourceIdentifier ID or ARN of the service network or service for which the policy is created.
          * 
          * @return builder
          * 

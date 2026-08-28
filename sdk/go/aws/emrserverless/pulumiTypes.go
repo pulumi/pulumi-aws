@@ -1553,7 +1553,7 @@ func (o ApplicationMonitoringConfigurationPtrOutput) S3MonitoringConfiguration()
 type ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration struct {
 	// Enables CloudWatch logging.
 	Enabled bool `pulumi:"enabled"`
-	// The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
+	// KMS key ARN to encrypt the logs that you store in CloudWatch Logs.
 	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
 	// The name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
 	LogGroupName *string `pulumi:"logGroupName"`
@@ -1577,7 +1577,7 @@ type ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationInput inter
 type ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs struct {
 	// Enables CloudWatch logging.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
+	// KMS key ARN to encrypt the logs that you store in CloudWatch Logs.
 	EncryptionKeyArn pulumi.StringPtrInput `pulumi:"encryptionKeyArn"`
 	// The name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
 	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
@@ -1669,7 +1669,7 @@ func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput) 
 	return o.ApplyT(func(v ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
+// KMS key ARN to encrypt the logs that you store in CloudWatch Logs.
 func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration) *string {
 		return v.EncryptionKeyArn
@@ -1731,7 +1731,7 @@ func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
+// KMS key ARN to encrypt the logs that you store in CloudWatch Logs.
 func (o ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationPtrOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration) *string {
 		if v == nil {

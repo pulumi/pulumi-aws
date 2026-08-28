@@ -73,14 +73,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation")
 public class ResolverFirewallRuleGroupAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN (Amazon Resource Name) of the firewall rule group association.
+     * ARN of the firewall rule group association.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN (Amazon Resource Name) of the firewall rule group association.
+     * @return ARN of the firewall rule group association.
      * 
      */
     public Output<String> arn() {

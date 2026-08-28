@@ -20,7 +20,7 @@ public final class GetMultiRegionAccessPointResult {
      */
     private String alias;
     /**
-     * @return Amazon Resource Name (ARN) of the Multi-Region Access Point.
+     * @return ARN of the Multi-Region Access Point.
      * 
      */
     private String arn;
@@ -73,7 +73,7 @@ public final class GetMultiRegionAccessPointResult {
         return this.alias;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the Multi-Region Access Point.
+     * @return ARN of the Multi-Region Access Point.
      * 
      */
     public String arn() {

@@ -63,14 +63,14 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
+     * ARN of the KMS Key used to encrypt the workflow.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
+     * @return ARN of the KMS Key used to encrypt the workflow.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -268,7 +268,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
+         * @param kmsKeyId ARN of the KMS Key used to encrypt the workflow.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
+         * @param kmsKeyId ARN of the KMS Key used to encrypt the workflow.
          * 
          * @return builder
          * 

@@ -439,14 +439,14 @@ public class StateMachine extends com.pulumi.resources.CustomResource {
         return this.revisionId;
     }
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+     * ARN of the IAM role to use for this state machine.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+     * @return ARN of the IAM role to use for this state machine.
      * 
      */
     public Output<String> roleArn() {

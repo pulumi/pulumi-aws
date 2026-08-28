@@ -60,7 +60,7 @@ export class SnapshotImport extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the EBS Snapshot.
+     * ARN of the EBS Snapshot.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -197,7 +197,7 @@ export class SnapshotImport extends pulumi.CustomResource {
  */
 export interface SnapshotImportState {
     /**
-     * Amazon Resource Name (ARN) of the EBS Snapshot.
+     * ARN of the EBS Snapshot.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

@@ -95,7 +95,7 @@ namespace Pulumi.Aws.FinSpace
     public partial class KxCluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) identifier of the KX cluster.
+        /// ARN identifier of the KX cluster.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -471,7 +471,7 @@ namespace Pulumi.Aws.FinSpace
     public sealed class KxClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) identifier of the KX cluster.
+        /// ARN identifier of the KX cluster.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

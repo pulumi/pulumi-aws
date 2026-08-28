@@ -302,14 +302,14 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.allocationResourceTags);
     }
     /**
-     * Amazon Resource Name (ARN) of IPAM
+     * ARN of IPAM
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of IPAM
+     * @return ARN of IPAM
      * 
      */
     public Output<String> arn() {

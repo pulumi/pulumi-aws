@@ -311,14 +311,14 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sourceEntity);
     }
     /**
-     * Amazon Resource Name (ARN) of a template that was used to create this dashboard.
+     * ARN of a template that was used to create this dashboard.
      * 
      */
     @Export(name="sourceEntityArn", refs={String.class}, tree="[0]")
     private Output<String> sourceEntityArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of a template that was used to create this dashboard.
+     * @return ARN of a template that was used to create this dashboard.
      * 
      */
     public Output<String> sourceEntityArn() {
@@ -367,14 +367,14 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+     * ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
      * 
      */
     @Export(name="themeArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> themeArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+     * @return ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
      * 
      */
     public Output<Optional<String>> themeArn() {

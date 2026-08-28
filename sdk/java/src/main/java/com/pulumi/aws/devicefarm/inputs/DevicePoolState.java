@@ -20,14 +20,14 @@ public final class DevicePoolState extends com.pulumi.resources.ResourceArgs {
     public static final DevicePoolState Empty = new DevicePoolState();
 
     /**
-     * The Amazon Resource Name of this Device Pool
+     * ARN of this Device Pool
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name of this Device Pool
+     * @return ARN of this Device Pool
      * 
      */
     public Optional<Output<String>> arn() {
@@ -195,7 +195,7 @@ public final class DevicePoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name of this Device Pool
+         * @param arn ARN of this Device Pool
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class DevicePoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name of this Device Pool
+         * @param arn ARN of this Device Pool
          * 
          * @return builder
          * 

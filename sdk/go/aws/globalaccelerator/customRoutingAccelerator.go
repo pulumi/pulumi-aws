@@ -55,7 +55,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator custom routing accelerator.
+// - `arn` (String) ARN of the Global Accelerator custom routing accelerator.
 //
 // Using `pulumi import`, import Global Accelerator custom routing accelerators using the `arn`. For example:
 //
@@ -65,7 +65,7 @@ import (
 type CustomRoutingAccelerator struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the custom accelerator.
+	// ARN of the custom accelerator.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The attributes of the accelerator. Fields documented below.
 	Attributes CustomRoutingAcceleratorAttributesPtrOutput `pulumi:"attributes"`
@@ -121,7 +121,7 @@ func GetCustomRoutingAccelerator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomRoutingAccelerator resources.
 type customRoutingAcceleratorState struct {
-	// The Amazon Resource Name (ARN) of the custom accelerator.
+	// ARN of the custom accelerator.
 	Arn *string `pulumi:"arn"`
 	// The attributes of the accelerator. Fields documented below.
 	Attributes *CustomRoutingAcceleratorAttributes `pulumi:"attributes"`
@@ -148,7 +148,7 @@ type customRoutingAcceleratorState struct {
 }
 
 type CustomRoutingAcceleratorState struct {
-	// The Amazon Resource Name (ARN) of the custom accelerator.
+	// ARN of the custom accelerator.
 	Arn pulumi.StringPtrInput
 	// The attributes of the accelerator. Fields documented below.
 	Attributes CustomRoutingAcceleratorAttributesPtrInput
@@ -296,7 +296,7 @@ func (o CustomRoutingAcceleratorOutput) ToCustomRoutingAcceleratorOutputWithCont
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the custom accelerator.
+// ARN of the custom accelerator.
 func (o CustomRoutingAcceleratorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomRoutingAccelerator) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

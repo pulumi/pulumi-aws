@@ -86,7 +86,7 @@ export interface GetProxyResult {
     readonly name: string;
     readonly region: string;
     /**
-     * Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
+     * Whether TLS encryption is required for connections to the proxy.
      */
     readonly requireTls: boolean;
     /**

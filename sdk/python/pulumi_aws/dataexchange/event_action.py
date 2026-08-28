@@ -91,7 +91,7 @@ class _EventActionState:
 
         :param pulumi.Input['EventActionActionArgs'] action: Describes the action to take.
                Described in `action` Configuration Block below.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the event action.
+        :param pulumi.Input[_builtins.str] arn: ARN of the event action.
         :param pulumi.Input[_builtins.str] created_at: Date and time when the resource was created.
         :param pulumi.Input['EventActionEventArgs'] event: Describes the event that triggers the `action`.
                Described in `event` Configuration Block below.
@@ -128,7 +128,7 @@ class _EventActionState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the event action.
+        ARN of the event action.
         """
         return pulumi.get(self, "arn")
 
@@ -348,7 +348,7 @@ class EventAction(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['EventActionActionArgs', 'EventActionActionArgsDict']] action: Describes the action to take.
                Described in `action` Configuration Block below.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the event action.
+        :param pulumi.Input[_builtins.str] arn: ARN of the event action.
         :param pulumi.Input[_builtins.str] created_at: Date and time when the resource was created.
         :param pulumi.Input[Union['EventActionEventArgs', 'EventActionEventArgsDict']] event: Describes the event that triggers the `action`.
                Described in `event` Configuration Block below.
@@ -380,7 +380,7 @@ class EventAction(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the event action.
+        ARN of the event action.
         """
         return pulumi.get(self, "arn")
 

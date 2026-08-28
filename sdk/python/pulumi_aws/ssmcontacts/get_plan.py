@@ -98,7 +98,7 @@ def get_plan(contact_id: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str contact_id: The Amazon Resource Name (ARN) of the contact or escalation plan.
+    :param _builtins.str contact_id: ARN of the contact or escalation plan.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -130,7 +130,7 @@ def get_plan_output(contact_id: pulumi.Input[Optional[_builtins.str]] = None,
     ```
 
 
-    :param _builtins.str contact_id: The Amazon Resource Name (ARN) of the contact or escalation plan.
+    :param _builtins.str contact_id: ARN of the contact or escalation plan.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

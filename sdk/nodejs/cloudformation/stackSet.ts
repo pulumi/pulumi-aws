@@ -129,7 +129,7 @@ export class StackSet extends pulumi.CustomResource {
      */
     declare public readonly administrationRoleArn: pulumi.Output<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the StackSet.
+     * ARN of the StackSet.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -263,7 +263,7 @@ export interface StackSetState {
      */
     administrationRoleArn?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the StackSet.
+     * ARN of the StackSet.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     public sealed class GetImageOutputResourceResult
     {
         /// <summary>
-        /// Set of objects with each Amazon Machine Image (AMI) created.
+        /// Set of objects with each AMI created.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetImageOutputResourceAmiResult> Amis;
         /// <summary>

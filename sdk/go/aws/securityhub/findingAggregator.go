@@ -176,7 +176,7 @@ import (
 type FindingAggregator struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the Security Hub finding aggregator.
+	// ARN of the Security Hub finding aggregator.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED`, `SPECIFIED_REGIONS` or `NO_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
 	LinkingMode pulumi.StringOutput `pulumi:"linkingMode"`
@@ -219,7 +219,7 @@ func GetFindingAggregator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FindingAggregator resources.
 type findingAggregatorState struct {
-	// Amazon Resource Name (ARN) of the Security Hub finding aggregator.
+	// ARN of the Security Hub finding aggregator.
 	Arn *string `pulumi:"arn"`
 	// Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED`, `SPECIFIED_REGIONS` or `NO_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
 	LinkingMode *string `pulumi:"linkingMode"`
@@ -230,7 +230,7 @@ type findingAggregatorState struct {
 }
 
 type FindingAggregatorState struct {
-	// Amazon Resource Name (ARN) of the Security Hub finding aggregator.
+	// ARN of the Security Hub finding aggregator.
 	Arn pulumi.StringPtrInput
 	// Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED`, `SPECIFIED_REGIONS` or `NO_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
 	LinkingMode pulumi.StringPtrInput
@@ -350,7 +350,7 @@ func (o FindingAggregatorOutput) ToFindingAggregatorOutputWithContext(ctx contex
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Security Hub finding aggregator.
+// ARN of the Security Hub finding aggregator.
 func (o FindingAggregatorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FindingAggregator) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

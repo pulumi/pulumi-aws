@@ -142,7 +142,7 @@ namespace Pulumi.Aws.Route53
     public sealed class GetResolverFirewallRuleGroupResult
     {
         /// <summary>
-        /// The ARN (Amazon Resource Name) of the rule group.
+        /// ARN of the rule group.
         /// </summary>
         public readonly string Arn;
         /// <summary>

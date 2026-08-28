@@ -115,14 +115,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     }
 
     /**
-     * If the streaming source is a Kinesis data stream, identifies the stream&#39;s Amazon Resource Name (ARN).
+     * If the streaming source is a Kinesis data stream, identifies the stream&#39;s ARN.
      * 
      */
     @Import(name="kinesisStreamsInput")
     private @Nullable Output<ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs> kinesisStreamsInput;
 
     /**
-     * @return If the streaming source is a Kinesis data stream, identifies the stream&#39;s Amazon Resource Name (ARN).
+     * @return If the streaming source is a Kinesis data stream, identifies the stream&#39;s ARN.
      * 
      */
     public Optional<Output<ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs>> kinesisStreamsInput() {
@@ -316,7 +316,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param kinesisStreamsInput If the streaming source is a Kinesis data stream, identifies the stream&#39;s Amazon Resource Name (ARN).
+         * @param kinesisStreamsInput If the streaming source is a Kinesis data stream, identifies the stream&#39;s ARN.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param kinesisStreamsInput If the streaming source is a Kinesis data stream, identifies the stream&#39;s Amazon Resource Name (ARN).
+         * @param kinesisStreamsInput If the streaming source is a Kinesis data stream, identifies the stream&#39;s ARN.
          * 
          * @return builder
          * 

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class ModelContainerImageConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+        /// Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. Allowed values are: `Platform` and `Vpc`.
         /// </summary>
         [Input("repositoryAccessMode", required: true)]
         public Input<string> RepositoryAccessMode { get; set; } = null!;

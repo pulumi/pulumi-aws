@@ -21,14 +21,14 @@ public final class AcceleratorState extends com.pulumi.resources.ResourceArgs {
     public static final AcceleratorState Empty = new AcceleratorState();
 
     /**
-     * The Amazon Resource Name (ARN) of the accelerator.
+     * ARN of the accelerator.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the accelerator.
+     * @return ARN of the accelerator.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -66,14 +66,14 @@ public final class AcceleratorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator&#39;s four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+     * DNS name that Global Accelerator creates that points to a dual-stack accelerator&#39;s four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
      * 
      */
     @Import(name="dualStackDnsName")
     private @Nullable Output<String> dualStackDnsName;
 
     /**
-     * @return The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator&#39;s four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+     * @return DNS name that Global Accelerator creates that points to a dual-stack accelerator&#39;s four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
      * 
      */
     public Optional<Output<String>> dualStackDnsName() {
@@ -240,7 +240,7 @@ public final class AcceleratorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the accelerator.
+         * @param arn ARN of the accelerator.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class AcceleratorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the accelerator.
+         * @param arn ARN of the accelerator.
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class AcceleratorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dualStackDnsName The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator&#39;s four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+         * @param dualStackDnsName DNS name that Global Accelerator creates that points to a dual-stack accelerator&#39;s four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class AcceleratorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dualStackDnsName The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator&#39;s four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+         * @param dualStackDnsName DNS name that Global Accelerator creates that points to a dual-stack accelerator&#39;s four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
          * 
          * @return builder
          * 

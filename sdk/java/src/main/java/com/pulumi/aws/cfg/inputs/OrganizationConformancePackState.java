@@ -18,14 +18,14 @@ public final class OrganizationConformancePackState extends com.pulumi.resources
     public static final OrganizationConformancePackState Empty = new OrganizationConformancePackState();
 
     /**
-     * Amazon Resource Name (ARN) of the organization conformance pack.
+     * ARN of the organization conformance pack.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the organization conformance pack.
+     * @return ARN of the organization conformance pack.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -185,7 +185,7 @@ public final class OrganizationConformancePackState extends com.pulumi.resources
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the organization conformance pack.
+         * @param arn ARN of the organization conformance pack.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class OrganizationConformancePackState extends com.pulumi.resources
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the organization conformance pack.
+         * @param arn ARN of the organization conformance pack.
          * 
          * @return builder
          * 

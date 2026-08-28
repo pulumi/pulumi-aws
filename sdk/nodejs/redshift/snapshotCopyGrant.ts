@@ -59,11 +59,11 @@ export class SnapshotCopyGrant extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of snapshot copy grant
+     * ARN of snapshot copy grant
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
+     * Unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the ARN of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
      */
     declare public readonly kmsKeyId: pulumi.Output<string>;
     /**
@@ -124,11 +124,11 @@ export class SnapshotCopyGrant extends pulumi.CustomResource {
  */
 export interface SnapshotCopyGrantState {
     /**
-     * Amazon Resource Name (ARN) of snapshot copy grant
+     * ARN of snapshot copy grant
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
+     * Unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the ARN of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**
@@ -154,7 +154,7 @@ export interface SnapshotCopyGrantState {
  */
 export interface SnapshotCopyGrantArgs {
     /**
-     * The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
+     * Unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the ARN of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**

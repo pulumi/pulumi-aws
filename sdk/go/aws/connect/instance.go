@@ -129,7 +129,7 @@ import (
 type Instance struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the instance.
+	// ARN of the instance.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies whether auto resolve best voices is enabled. Defaults to `true`.
 	AutoResolveBestVoicesEnabled pulumi.BoolPtrOutput `pulumi:"autoResolveBestVoicesEnabled"`
@@ -205,7 +205,7 @@ func GetInstance(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Instance resources.
 type instanceState struct {
-	// Amazon Resource Name (ARN) of the instance.
+	// ARN of the instance.
 	Arn *string `pulumi:"arn"`
 	// Specifies whether auto resolve best voices is enabled. Defaults to `true`.
 	AutoResolveBestVoicesEnabled *bool `pulumi:"autoResolveBestVoicesEnabled"`
@@ -243,7 +243,7 @@ type instanceState struct {
 }
 
 type InstanceState struct {
-	// Amazon Resource Name (ARN) of the instance.
+	// ARN of the instance.
 	Arn pulumi.StringPtrInput
 	// Specifies whether auto resolve best voices is enabled. Defaults to `true`.
 	AutoResolveBestVoicesEnabled pulumi.BoolPtrInput
@@ -428,7 +428,7 @@ func (o InstanceOutput) ToInstanceOutputWithContext(ctx context.Context) Instanc
 	return o
 }
 
-// Amazon Resource Name (ARN) of the instance.
+// ARN of the instance.
 func (o InstanceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

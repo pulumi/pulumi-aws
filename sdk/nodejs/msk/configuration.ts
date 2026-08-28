@@ -59,7 +59,7 @@ export class Configuration extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the configuration.
+     * ARN of the configuration.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -130,7 +130,7 @@ export class Configuration extends pulumi.CustomResource {
  */
 export interface ConfigurationState {
     /**
-     * Amazon Resource Name (ARN) of the configuration.
+     * ARN of the configuration.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

@@ -89,9 +89,9 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the DataSync task.
+ * - `arn` (String) ARN of the DataSync task.
  *
- * Using `pulumi import`, import `aws.datasync.Task` using the DataSync Task Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.datasync.Task` using the DataSync Task ARN. For example:
  *
  * ```sh
  * $ pulumi import aws:datasync/task:Task example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
@@ -126,15 +126,15 @@ export class Task extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the DataSync Task.
+     * ARN of the DataSync Task.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
+     * ARN of the CloudWatch Log Group that is used to monitor and log events in the sync task.
      */
     declare public readonly cloudwatchLogGroupArn: pulumi.Output<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of destination DataSync Location.
+     * ARN of destination DataSync Location.
      */
     declare public readonly destinationLocationArn: pulumi.Output<string>;
     /**
@@ -162,7 +162,7 @@ export class Task extends pulumi.CustomResource {
      */
     declare public readonly schedule: pulumi.Output<outputs.datasync.TaskSchedule | undefined>;
     /**
-     * Amazon Resource Name (ARN) of source DataSync Location.
+     * ARN of source DataSync Location.
      */
     declare public readonly sourceLocationArn: pulumi.Output<string>;
     /**
@@ -244,15 +244,15 @@ export class Task extends pulumi.CustomResource {
  */
 export interface TaskState {
     /**
-     * Amazon Resource Name (ARN) of the DataSync Task.
+     * ARN of the DataSync Task.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
+     * ARN of the CloudWatch Log Group that is used to monitor and log events in the sync task.
      */
     cloudwatchLogGroupArn?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of destination DataSync Location.
+     * ARN of destination DataSync Location.
      */
     destinationLocationArn?: pulumi.Input<string | undefined>;
     /**
@@ -280,7 +280,7 @@ export interface TaskState {
      */
     schedule?: pulumi.Input<inputs.datasync.TaskSchedule | undefined>;
     /**
-     * Amazon Resource Name (ARN) of source DataSync Location.
+     * ARN of source DataSync Location.
      */
     sourceLocationArn?: pulumi.Input<string | undefined>;
     /**
@@ -308,11 +308,11 @@ export interface TaskState {
  */
 export interface TaskArgs {
     /**
-     * Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
+     * ARN of the CloudWatch Log Group that is used to monitor and log events in the sync task.
      */
     cloudwatchLogGroupArn?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of destination DataSync Location.
+     * ARN of destination DataSync Location.
      */
     destinationLocationArn: pulumi.Input<string>;
     /**
@@ -340,7 +340,7 @@ export interface TaskArgs {
      */
     schedule?: pulumi.Input<inputs.datasync.TaskSchedule | undefined>;
     /**
-     * Amazon Resource Name (ARN) of source DataSync Location.
+     * ARN of source DataSync Location.
      */
     sourceLocationArn: pulumi.Input<string>;
     /**

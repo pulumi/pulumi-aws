@@ -95,14 +95,14 @@ public final class ReplicationConfigArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
+     * Unique value or name that you set for a given resource that can be used to construct an ARN for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
      * 
      */
     @Import(name="resourceIdentifier")
     private @Nullable Output<String> resourceIdentifier;
 
     /**
-     * @return Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
+     * @return Unique value or name that you set for a given resource that can be used to construct an ARN for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
      * 
      */
     public Optional<Output<String>> resourceIdentifier() {
@@ -110,14 +110,14 @@ public final class ReplicationConfigArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+     * ARN string that uniquely identifies the source endpoint.
      * 
      */
     @Import(name="sourceEndpointArn", required=true)
     private Output<String> sourceEndpointArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+     * @return ARN string that uniquely identifies the source endpoint.
      * 
      */
     public Output<String> sourceEndpointArn() {
@@ -185,14 +185,14 @@ public final class ReplicationConfigArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+     * ARN string that uniquely identifies the target endpoint.
      * 
      */
     @Import(name="targetEndpointArn", required=true)
     private Output<String> targetEndpointArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+     * @return ARN string that uniquely identifies the target endpoint.
      * 
      */
     public Output<String> targetEndpointArn() {
@@ -340,7 +340,7 @@ public final class ReplicationConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param resourceIdentifier Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
+         * @param resourceIdentifier Unique value or name that you set for a given resource that can be used to construct an ARN for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
          * 
          * @return builder
          * 
@@ -351,7 +351,7 @@ public final class ReplicationConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param resourceIdentifier Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
+         * @param resourceIdentifier Unique value or name that you set for a given resource that can be used to construct an ARN for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
          * 
          * @return builder
          * 
@@ -361,7 +361,7 @@ public final class ReplicationConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sourceEndpointArn The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+         * @param sourceEndpointArn ARN string that uniquely identifies the source endpoint.
          * 
          * @return builder
          * 
@@ -372,7 +372,7 @@ public final class ReplicationConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sourceEndpointArn The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+         * @param sourceEndpointArn ARN string that uniquely identifies the source endpoint.
          * 
          * @return builder
          * 
@@ -466,7 +466,7 @@ public final class ReplicationConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param targetEndpointArn The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+         * @param targetEndpointArn ARN string that uniquely identifies the target endpoint.
          * 
          * @return builder
          * 
@@ -477,7 +477,7 @@ public final class ReplicationConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param targetEndpointArn The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+         * @param targetEndpointArn ARN string that uniquely identifies the target endpoint.
          * 
          * @return builder
          * 

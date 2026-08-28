@@ -25,7 +25,7 @@ class ProtectionArgs:
         """
         The set of arguments for constructing a Protection resource.
 
-        :param pulumi.Input[_builtins.str] resource_arn: The ARN (Amazon Resource Name) of the resource to be protected.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN of the resource to be protected.
         :param pulumi.Input[_builtins.str] name: A friendly name for the Protection you are creating.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -39,7 +39,7 @@ class ProtectionArgs:
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN (Amazon Resource Name) of the resource to be protected.
+        ARN of the resource to be protected.
         """
         return pulumi.get(self, "resource_arn")
 
@@ -85,7 +85,7 @@ class _ProtectionState:
 
         :param pulumi.Input[_builtins.str] arn: The ARN of the Protection.
         :param pulumi.Input[_builtins.str] name: A friendly name for the Protection you are creating.
-        :param pulumi.Input[_builtins.str] resource_arn: The ARN (Amazon Resource Name) of the resource to be protected.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN of the resource to be protected.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -128,7 +128,7 @@ class _ProtectionState:
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN (Amazon Resource Name) of the resource to be protected.
+        ARN of the resource to be protected.
         """
         return pulumi.get(self, "resource_arn")
 
@@ -207,7 +207,7 @@ class Protection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: A friendly name for the Protection you are creating.
-        :param pulumi.Input[_builtins.str] resource_arn: The ARN (Amazon Resource Name) of the resource to be protected.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN of the resource to be protected.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -307,7 +307,7 @@ class Protection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: The ARN of the Protection.
         :param pulumi.Input[_builtins.str] name: A friendly name for the Protection you are creating.
-        :param pulumi.Input[_builtins.str] resource_arn: The ARN (Amazon Resource Name) of the resource to be protected.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN of the resource to be protected.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -342,7 +342,7 @@ class Protection(pulumi.CustomResource):
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN (Amazon Resource Name) of the resource to be protected.
+        ARN of the resource to be protected.
         """
         return pulumi.get(self, "resource_arn")
 

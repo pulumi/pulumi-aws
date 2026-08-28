@@ -1043,7 +1043,7 @@ func (o AnalysisSourceEntityPtrOutput) SourceTemplate() AnalysisSourceEntitySour
 }
 
 type AnalysisSourceEntitySourceTemplate struct {
-	// The Amazon Resource Name (ARN) of the resource.
+	// ARN of the resource.
 	Arn string `pulumi:"arn"`
 	// List of dataset references. See data_set_references.
 	DataSetReferences []AnalysisSourceEntitySourceTemplateDataSetReference `pulumi:"dataSetReferences"`
@@ -1061,7 +1061,7 @@ type AnalysisSourceEntitySourceTemplateInput interface {
 }
 
 type AnalysisSourceEntitySourceTemplateArgs struct {
-	// The Amazon Resource Name (ARN) of the resource.
+	// ARN of the resource.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// List of dataset references. See data_set_references.
 	DataSetReferences AnalysisSourceEntitySourceTemplateDataSetReferenceArrayInput `pulumi:"dataSetReferences"`
@@ -1144,7 +1144,7 @@ func (o AnalysisSourceEntitySourceTemplateOutput) ToAnalysisSourceEntitySourceTe
 	}).(AnalysisSourceEntitySourceTemplatePtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the resource.
+// ARN of the resource.
 func (o AnalysisSourceEntitySourceTemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisSourceEntitySourceTemplate) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -1180,7 +1180,7 @@ func (o AnalysisSourceEntitySourceTemplatePtrOutput) Elem() AnalysisSourceEntity
 	}).(AnalysisSourceEntitySourceTemplateOutput)
 }
 
-// The Amazon Resource Name (ARN) of the resource.
+// ARN of the resource.
 func (o AnalysisSourceEntitySourceTemplatePtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisSourceEntitySourceTemplate) *string {
 		if v == nil {
@@ -1201,7 +1201,7 @@ func (o AnalysisSourceEntitySourceTemplatePtrOutput) DataSetReferences() Analysi
 }
 
 type AnalysisSourceEntitySourceTemplateDataSetReference struct {
-	// Dataset Amazon Resource Name (ARN).
+	// Dataset ARN.
 	DataSetArn string `pulumi:"dataSetArn"`
 	// Dataset placeholder.
 	DataSetPlaceholder string `pulumi:"dataSetPlaceholder"`
@@ -1219,7 +1219,7 @@ type AnalysisSourceEntitySourceTemplateDataSetReferenceInput interface {
 }
 
 type AnalysisSourceEntitySourceTemplateDataSetReferenceArgs struct {
-	// Dataset Amazon Resource Name (ARN).
+	// Dataset ARN.
 	DataSetArn pulumi.StringInput `pulumi:"dataSetArn"`
 	// Dataset placeholder.
 	DataSetPlaceholder pulumi.StringInput `pulumi:"dataSetPlaceholder"`
@@ -1276,7 +1276,7 @@ func (o AnalysisSourceEntitySourceTemplateDataSetReferenceOutput) ToAnalysisSour
 	return o
 }
 
-// Dataset Amazon Resource Name (ARN).
+// Dataset ARN.
 func (o AnalysisSourceEntitySourceTemplateDataSetReferenceOutput) DataSetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisSourceEntitySourceTemplateDataSetReference) string { return v.DataSetArn }).(pulumi.StringOutput)
 }
@@ -4415,7 +4415,7 @@ func (o DashboardSourceEntityPtrOutput) SourceTemplate() DashboardSourceEntitySo
 }
 
 type DashboardSourceEntitySourceTemplate struct {
-	// The Amazon Resource Name (ARN) of the resource.
+	// ARN of the resource.
 	Arn string `pulumi:"arn"`
 	// List of dataset references. See data_set_references.
 	DataSetReferences []DashboardSourceEntitySourceTemplateDataSetReference `pulumi:"dataSetReferences"`
@@ -4433,7 +4433,7 @@ type DashboardSourceEntitySourceTemplateInput interface {
 }
 
 type DashboardSourceEntitySourceTemplateArgs struct {
-	// The Amazon Resource Name (ARN) of the resource.
+	// ARN of the resource.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// List of dataset references. See data_set_references.
 	DataSetReferences DashboardSourceEntitySourceTemplateDataSetReferenceArrayInput `pulumi:"dataSetReferences"`
@@ -4516,7 +4516,7 @@ func (o DashboardSourceEntitySourceTemplateOutput) ToDashboardSourceEntitySource
 	}).(DashboardSourceEntitySourceTemplatePtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the resource.
+// ARN of the resource.
 func (o DashboardSourceEntitySourceTemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardSourceEntitySourceTemplate) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -4552,7 +4552,7 @@ func (o DashboardSourceEntitySourceTemplatePtrOutput) Elem() DashboardSourceEnti
 	}).(DashboardSourceEntitySourceTemplateOutput)
 }
 
-// The Amazon Resource Name (ARN) of the resource.
+// ARN of the resource.
 func (o DashboardSourceEntitySourceTemplatePtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardSourceEntitySourceTemplate) *string {
 		if v == nil {
@@ -4573,7 +4573,7 @@ func (o DashboardSourceEntitySourceTemplatePtrOutput) DataSetReferences() Dashbo
 }
 
 type DashboardSourceEntitySourceTemplateDataSetReference struct {
-	// Dataset Amazon Resource Name (ARN).
+	// Dataset ARN.
 	DataSetArn string `pulumi:"dataSetArn"`
 	// Dataset placeholder.
 	DataSetPlaceholder string `pulumi:"dataSetPlaceholder"`
@@ -4591,7 +4591,7 @@ type DashboardSourceEntitySourceTemplateDataSetReferenceInput interface {
 }
 
 type DashboardSourceEntitySourceTemplateDataSetReferenceArgs struct {
-	// Dataset Amazon Resource Name (ARN).
+	// Dataset ARN.
 	DataSetArn pulumi.StringInput `pulumi:"dataSetArn"`
 	// Dataset placeholder.
 	DataSetPlaceholder pulumi.StringInput `pulumi:"dataSetPlaceholder"`
@@ -4648,7 +4648,7 @@ func (o DashboardSourceEntitySourceTemplateDataSetReferenceOutput) ToDashboardSo
 	return o
 }
 
-// Dataset Amazon Resource Name (ARN).
+// Dataset ARN.
 func (o DashboardSourceEntitySourceTemplateDataSetReferenceOutput) DataSetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardSourceEntitySourceTemplateDataSetReference) string { return v.DataSetArn }).(pulumi.StringOutput)
 }
@@ -10184,12 +10184,12 @@ func (o DataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput) Index(i pul
 }
 
 type DataSourceCredentials struct {
-	// The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+	// The ARN of a data source that has the credential pair that you want to use.
 	// When the value is not null, the `credentialPair` from the data source in the ARN is used.
 	CopySourceArn *string `pulumi:"copySourceArn"`
 	// Credential pair. See Credential Pair below for more details.
 	CredentialPair *DataSourceCredentialsCredentialPair `pulumi:"credentialPair"`
-	// The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
+	// The ARN of the secret associated with the data source in Amazon Secrets Manager.
 	SecretArn *string `pulumi:"secretArn"`
 }
 
@@ -10205,12 +10205,12 @@ type DataSourceCredentialsInput interface {
 }
 
 type DataSourceCredentialsArgs struct {
-	// The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+	// The ARN of a data source that has the credential pair that you want to use.
 	// When the value is not null, the `credentialPair` from the data source in the ARN is used.
 	CopySourceArn pulumi.StringPtrInput `pulumi:"copySourceArn"`
 	// Credential pair. See Credential Pair below for more details.
 	CredentialPair DataSourceCredentialsCredentialPairPtrInput `pulumi:"credentialPair"`
-	// The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
+	// The ARN of the secret associated with the data source in Amazon Secrets Manager.
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
 }
 
@@ -10291,7 +10291,7 @@ func (o DataSourceCredentialsOutput) ToDataSourceCredentialsPtrOutputWithContext
 	}).(DataSourceCredentialsPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+// The ARN of a data source that has the credential pair that you want to use.
 // When the value is not null, the `credentialPair` from the data source in the ARN is used.
 func (o DataSourceCredentialsOutput) CopySourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceCredentials) *string { return v.CopySourceArn }).(pulumi.StringPtrOutput)
@@ -10302,7 +10302,7 @@ func (o DataSourceCredentialsOutput) CredentialPair() DataSourceCredentialsCrede
 	return o.ApplyT(func(v DataSourceCredentials) *DataSourceCredentialsCredentialPair { return v.CredentialPair }).(DataSourceCredentialsCredentialPairPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
+// The ARN of the secret associated with the data source in Amazon Secrets Manager.
 func (o DataSourceCredentialsOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceCredentials) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
@@ -10331,7 +10331,7 @@ func (o DataSourceCredentialsPtrOutput) Elem() DataSourceCredentialsOutput {
 	}).(DataSourceCredentialsOutput)
 }
 
-// The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+// The ARN of a data source that has the credential pair that you want to use.
 // When the value is not null, the `credentialPair` from the data source in the ARN is used.
 func (o DataSourceCredentialsPtrOutput) CopySourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCredentials) *string {
@@ -10352,7 +10352,7 @@ func (o DataSourceCredentialsPtrOutput) CredentialPair() DataSourceCredentialsCr
 	}).(DataSourceCredentialsCredentialPairPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
+// The ARN of the secret associated with the data source in Amazon Secrets Manager.
 func (o DataSourceCredentialsPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCredentials) *string {
 		if v == nil {
@@ -14643,7 +14643,7 @@ func (o DataSourceParametersTwitterPtrOutput) Query() pulumi.StringPtrOutput {
 type DataSourcePermission struct {
 	// Set of IAM actions to grant or revoke permissions on. Max of 16 items.
 	Actions []string `pulumi:"actions"`
-	// The Amazon Resource Name (ARN) of the principal.
+	// ARN of the principal.
 	Principal string `pulumi:"principal"`
 }
 
@@ -14661,7 +14661,7 @@ type DataSourcePermissionInput interface {
 type DataSourcePermissionArgs struct {
 	// Set of IAM actions to grant or revoke permissions on. Max of 16 items.
 	Actions pulumi.StringArrayInput `pulumi:"actions"`
-	// The Amazon Resource Name (ARN) of the principal.
+	// ARN of the principal.
 	Principal pulumi.StringInput `pulumi:"principal"`
 }
 
@@ -14721,7 +14721,7 @@ func (o DataSourcePermissionOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourcePermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the principal.
+// ARN of the principal.
 func (o DataSourcePermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourcePermission) string { return v.Principal }).(pulumi.StringOutput)
 }
@@ -14884,7 +14884,7 @@ func (o DataSourceSslPropertiesPtrOutput) DisableSsl() pulumi.BoolPtrOutput {
 }
 
 type DataSourceVpcConnectionProperties struct {
-	// The Amazon Resource Name (ARN) for the VPC connection.
+	// ARN for the VPC connection.
 	VpcConnectionArn string `pulumi:"vpcConnectionArn"`
 }
 
@@ -14900,7 +14900,7 @@ type DataSourceVpcConnectionPropertiesInput interface {
 }
 
 type DataSourceVpcConnectionPropertiesArgs struct {
-	// The Amazon Resource Name (ARN) for the VPC connection.
+	// ARN for the VPC connection.
 	VpcConnectionArn pulumi.StringInput `pulumi:"vpcConnectionArn"`
 }
 
@@ -14981,7 +14981,7 @@ func (o DataSourceVpcConnectionPropertiesOutput) ToDataSourceVpcConnectionProper
 	}).(DataSourceVpcConnectionPropertiesPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for the VPC connection.
+// ARN for the VPC connection.
 func (o DataSourceVpcConnectionPropertiesOutput) VpcConnectionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceVpcConnectionProperties) string { return v.VpcConnectionArn }).(pulumi.StringOutput)
 }
@@ -15010,7 +15010,7 @@ func (o DataSourceVpcConnectionPropertiesPtrOutput) Elem() DataSourceVpcConnecti
 	}).(DataSourceVpcConnectionPropertiesOutput)
 }
 
-// The Amazon Resource Name (ARN) for the VPC connection.
+// ARN for the VPC connection.
 func (o DataSourceVpcConnectionPropertiesPtrOutput) VpcConnectionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceVpcConnectionProperties) *string {
 		if v == nil {
@@ -16334,7 +16334,7 @@ func (o TemplateSourceEntityPtrOutput) SourceTemplate() TemplateSourceEntitySour
 }
 
 type TemplateSourceEntitySourceAnalysis struct {
-	// The Amazon Resource Name (ARN) of the resource.
+	// ARN of the resource.
 	Arn string `pulumi:"arn"`
 	// A list of dataset references used as placeholders in the template. See data_set_references.
 	DataSetReferences []TemplateSourceEntitySourceAnalysisDataSetReference `pulumi:"dataSetReferences"`
@@ -16352,7 +16352,7 @@ type TemplateSourceEntitySourceAnalysisInput interface {
 }
 
 type TemplateSourceEntitySourceAnalysisArgs struct {
-	// The Amazon Resource Name (ARN) of the resource.
+	// ARN of the resource.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// A list of dataset references used as placeholders in the template. See data_set_references.
 	DataSetReferences TemplateSourceEntitySourceAnalysisDataSetReferenceArrayInput `pulumi:"dataSetReferences"`
@@ -16435,7 +16435,7 @@ func (o TemplateSourceEntitySourceAnalysisOutput) ToTemplateSourceEntitySourceAn
 	}).(TemplateSourceEntitySourceAnalysisPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the resource.
+// ARN of the resource.
 func (o TemplateSourceEntitySourceAnalysisOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateSourceEntitySourceAnalysis) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -16471,7 +16471,7 @@ func (o TemplateSourceEntitySourceAnalysisPtrOutput) Elem() TemplateSourceEntity
 	}).(TemplateSourceEntitySourceAnalysisOutput)
 }
 
-// The Amazon Resource Name (ARN) of the resource.
+// ARN of the resource.
 func (o TemplateSourceEntitySourceAnalysisPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateSourceEntitySourceAnalysis) *string {
 		if v == nil {
@@ -16492,7 +16492,7 @@ func (o TemplateSourceEntitySourceAnalysisPtrOutput) DataSetReferences() Templat
 }
 
 type TemplateSourceEntitySourceAnalysisDataSetReference struct {
-	// Dataset Amazon Resource Name (ARN).
+	// Dataset ARN.
 	DataSetArn string `pulumi:"dataSetArn"`
 	// Dataset placeholder.
 	DataSetPlaceholder string `pulumi:"dataSetPlaceholder"`
@@ -16510,7 +16510,7 @@ type TemplateSourceEntitySourceAnalysisDataSetReferenceInput interface {
 }
 
 type TemplateSourceEntitySourceAnalysisDataSetReferenceArgs struct {
-	// Dataset Amazon Resource Name (ARN).
+	// Dataset ARN.
 	DataSetArn pulumi.StringInput `pulumi:"dataSetArn"`
 	// Dataset placeholder.
 	DataSetPlaceholder pulumi.StringInput `pulumi:"dataSetPlaceholder"`
@@ -16567,7 +16567,7 @@ func (o TemplateSourceEntitySourceAnalysisDataSetReferenceOutput) ToTemplateSour
 	return o
 }
 
-// Dataset Amazon Resource Name (ARN).
+// Dataset ARN.
 func (o TemplateSourceEntitySourceAnalysisDataSetReferenceOutput) DataSetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateSourceEntitySourceAnalysisDataSetReference) string { return v.DataSetArn }).(pulumi.StringOutput)
 }
@@ -16598,7 +16598,7 @@ func (o TemplateSourceEntitySourceAnalysisDataSetReferenceArrayOutput) Index(i p
 }
 
 type TemplateSourceEntitySourceTemplate struct {
-	// The Amazon Resource Name (ARN) of the resource.
+	// ARN of the resource.
 	Arn string `pulumi:"arn"`
 }
 
@@ -16614,7 +16614,7 @@ type TemplateSourceEntitySourceTemplateInput interface {
 }
 
 type TemplateSourceEntitySourceTemplateArgs struct {
-	// The Amazon Resource Name (ARN) of the resource.
+	// ARN of the resource.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -16695,7 +16695,7 @@ func (o TemplateSourceEntitySourceTemplateOutput) ToTemplateSourceEntitySourceTe
 	}).(TemplateSourceEntitySourceTemplatePtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the resource.
+// ARN of the resource.
 func (o TemplateSourceEntitySourceTemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateSourceEntitySourceTemplate) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -16724,7 +16724,7 @@ func (o TemplateSourceEntitySourceTemplatePtrOutput) Elem() TemplateSourceEntity
 	}).(TemplateSourceEntitySourceTemplateOutput)
 }
 
-// The Amazon Resource Name (ARN) of the resource.
+// ARN of the resource.
 func (o TemplateSourceEntitySourceTemplatePtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateSourceEntitySourceTemplate) *string {
 		if v == nil {

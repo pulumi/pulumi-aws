@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Fsx
     public partial class OntapFileSystem : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name of the file system.
+        /// ARN of the file system.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -235,7 +235,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
-        /// ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+        /// ID for a subnet. A subnet is a range of IP addresses in your VPC.
         /// </summary>
         [Output("preferredSubnetId")]
         public Output<string> PreferredSubnetId { get; private set; } = null!;
@@ -301,7 +301,7 @@ namespace Pulumi.Aws.Fsx
         public Output<int> ThroughputCapacityPerHaPair { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier of the Virtual Private Cloud for the file system.
+        /// Identifier of the VPC for the file system.
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -427,7 +427,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? NetworkType { get; set; }
 
         /// <summary>
-        /// ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+        /// ID for a subnet. A subnet is a range of IP addresses in your VPC.
         /// </summary>
         [Input("preferredSubnetId", required: true)]
         public Input<string> PreferredSubnetId { get; set; } = null!;
@@ -525,7 +525,7 @@ namespace Pulumi.Aws.Fsx
     public sealed class OntapFileSystemState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name of the file system.
+        /// ARN of the file system.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -631,7 +631,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? OwnerId { get; set; }
 
         /// <summary>
-        /// ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+        /// ID for a subnet. A subnet is a range of IP addresses in your VPC.
         /// </summary>
         [Input("preferredSubnetId")]
         public Input<string>? PreferredSubnetId { get; set; }
@@ -727,7 +727,7 @@ namespace Pulumi.Aws.Fsx
         public Input<int>? ThroughputCapacityPerHaPair { get; set; }
 
         /// <summary>
-        /// Identifier of the Virtual Private Cloud for the file system.
+        /// Identifier of the VPC for the file system.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

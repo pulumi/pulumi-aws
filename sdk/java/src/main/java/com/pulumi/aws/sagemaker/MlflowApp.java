@@ -89,14 +89,14 @@ public class MlflowApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.accountDefaultStatus);
     }
     /**
-     * Amazon Resource Name (ARN) of the MLflow App.
+     * ARN of the MLflow App.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the MLflow App.
+     * @return ARN of the MLflow App.
      * 
      */
     public Output<String> arn() {
@@ -173,14 +173,14 @@ public class MlflowApp extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Amazon Resource Name (ARN) for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
+     * ARN for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
+     * @return ARN for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
      * 
      */
     public Output<String> roleArn() {

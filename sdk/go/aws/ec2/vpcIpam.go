@@ -67,7 +67,7 @@ import (
 type VpcIpam struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of IPAM
+	// ARN of IPAM
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
 	Cascade pulumi.BoolPtrOutput `pulumi:"cascade"`
@@ -133,7 +133,7 @@ func GetVpcIpam(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcIpam resources.
 type vpcIpamState struct {
-	// Amazon Resource Name (ARN) of IPAM
+	// ARN of IPAM
 	Arn *string `pulumi:"arn"`
 	// Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
 	Cascade *bool `pulumi:"cascade"`
@@ -167,7 +167,7 @@ type vpcIpamState struct {
 }
 
 type VpcIpamState struct {
-	// Amazon Resource Name (ARN) of IPAM
+	// ARN of IPAM
 	Arn pulumi.StringPtrInput
 	// Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
 	Cascade pulumi.BoolPtrInput
@@ -330,7 +330,7 @@ func (o VpcIpamOutput) ToVpcIpamOutputWithContext(ctx context.Context) VpcIpamOu
 	return o
 }
 
-// Amazon Resource Name (ARN) of IPAM
+// ARN of IPAM
 func (o VpcIpamOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpam) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

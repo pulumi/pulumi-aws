@@ -126,14 +126,14 @@ public final class ProxyTargetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
+     * ARN for the DB instance or DB cluster. Currently not returned by the RDS API.
      * 
      */
     @Import(name="targetArn")
     private @Nullable Output<String> targetArn;
 
     /**
-     * @return Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
+     * @return ARN for the DB instance or DB cluster. Currently not returned by the RDS API.
      * 
      */
     public Optional<Output<String>> targetArn() {
@@ -371,7 +371,7 @@ public final class ProxyTargetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetArn Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
+         * @param targetArn ARN for the DB instance or DB cluster. Currently not returned by the RDS API.
          * 
          * @return builder
          * 
@@ -382,7 +382,7 @@ public final class ProxyTargetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetArn Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
+         * @param targetArn ARN for the DB instance or DB cluster. Currently not returned by the RDS API.
          * 
          * @return builder
          * 

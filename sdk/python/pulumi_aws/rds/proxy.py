@@ -39,7 +39,7 @@ class ProxyArgs:
         The set of arguments for constructing a Proxy resource.
 
         :param pulumi.Input[_builtins.str] engine_family: Kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
-        :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_subnet_ids: One or more VPC subnet IDs to associate with the new proxy.
         :param pulumi.Input[Sequence[pulumi.Input['ProxyAuthArgs']]] auths: Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `default_auth_scheme` is `NONE` or unspecified. See the `auth` block below.
         :param pulumi.Input[_builtins.bool] debug_logging: Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
@@ -48,7 +48,7 @@ class ProxyArgs:
         :param pulumi.Input[_builtins.int] idle_client_timeout: Number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
         :param pulumi.Input[_builtins.str] name: Identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] require_tls: Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
+        :param pulumi.Input[_builtins.bool] require_tls: Whether TLS encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] target_connection_network_type: Network type that the proxy uses to connect to the target database. Valid values are `IPV4` and `IPV6`. Defaults to `IPV4`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: One or more VPC security group IDs to associate with the new proxy.
@@ -95,7 +95,7 @@ class ProxyArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+        ARN of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
         """
         return pulumi.get(self, "role_arn")
 
@@ -203,7 +203,7 @@ class ProxyArgs:
     @pulumi.getter(name="requireTls")
     def require_tls(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
+        Whether TLS encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
         """
         return pulumi.get(self, "require_tls")
 
@@ -271,7 +271,7 @@ class _ProxyState:
         """
         Input properties used for looking up and filtering Proxy resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) for the proxy.
+        :param pulumi.Input[_builtins.str] arn: ARN for the proxy.
         :param pulumi.Input[Sequence[pulumi.Input['ProxyAuthArgs']]] auths: Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `default_auth_scheme` is `NONE` or unspecified. See the `auth` block below.
         :param pulumi.Input[_builtins.bool] debug_logging: Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
         :param pulumi.Input[_builtins.str] default_auth_scheme: Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database. Valid values are `NONE` and `IAM_AUTH`. Defaults to `NONE`.
@@ -281,8 +281,8 @@ class _ProxyState:
         :param pulumi.Input[_builtins.int] idle_client_timeout: Number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
         :param pulumi.Input[_builtins.str] name: Identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] require_tls: Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
-        :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+        :param pulumi.Input[_builtins.bool] require_tls: Whether TLS encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] target_connection_network_type: Network type that the proxy uses to connect to the target database. Valid values are `IPV4` and `IPV6`. Defaults to `IPV4`.
@@ -328,7 +328,7 @@ class _ProxyState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) for the proxy.
+        ARN for the proxy.
         """
         return pulumi.get(self, "arn")
 
@@ -448,7 +448,7 @@ class _ProxyState:
     @pulumi.getter(name="requireTls")
     def require_tls(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
+        Whether TLS encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
         """
         return pulumi.get(self, "require_tls")
 
@@ -460,7 +460,7 @@ class _ProxyState:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+        ARN of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
         """
         return pulumi.get(self, "role_arn")
 
@@ -647,8 +647,8 @@ class Proxy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] idle_client_timeout: Number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
         :param pulumi.Input[_builtins.str] name: Identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] require_tls: Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
-        :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+        :param pulumi.Input[_builtins.bool] require_tls: Whether TLS encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] target_connection_network_type: Network type that the proxy uses to connect to the target database. Valid values are `IPV4` and `IPV6`. Defaults to `IPV4`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: One or more VPC security group IDs to associate with the new proxy.
@@ -842,7 +842,7 @@ class Proxy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) for the proxy.
+        :param pulumi.Input[_builtins.str] arn: ARN for the proxy.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProxyAuthArgs', 'ProxyAuthArgsDict']]]] auths: Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `default_auth_scheme` is `NONE` or unspecified. See the `auth` block below.
         :param pulumi.Input[_builtins.bool] debug_logging: Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
         :param pulumi.Input[_builtins.str] default_auth_scheme: Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database. Valid values are `NONE` and `IAM_AUTH`. Defaults to `NONE`.
@@ -852,8 +852,8 @@ class Proxy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] idle_client_timeout: Number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
         :param pulumi.Input[_builtins.str] name: Identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] require_tls: Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
-        :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+        :param pulumi.Input[_builtins.bool] require_tls: Whether TLS encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] target_connection_network_type: Network type that the proxy uses to connect to the target database. Valid values are `IPV4` and `IPV6`. Defaults to `IPV4`.
@@ -887,7 +887,7 @@ class Proxy(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) for the proxy.
+        ARN for the proxy.
         """
         return pulumi.get(self, "arn")
 
@@ -967,7 +967,7 @@ class Proxy(pulumi.CustomResource):
     @pulumi.getter(name="requireTls")
     def require_tls(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
+        Whether TLS encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
         """
         return pulumi.get(self, "require_tls")
 
@@ -975,7 +975,7 @@ class Proxy(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+        ARN of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
         """
         return pulumi.get(self, "role_arn")
 

@@ -71,7 +71,7 @@ namespace Pulumi.Aws.RedShift
     public partial class EventSubscription : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Redshift event notification subscription
+        /// ARN of the Redshift event notification subscription
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -272,7 +272,7 @@ namespace Pulumi.Aws.RedShift
     public sealed class EventSubscriptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Redshift event notification subscription
+        /// ARN of the Redshift event notification subscription
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

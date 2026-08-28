@@ -63,7 +63,7 @@ import (
 type Snapshot struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the EBS Snapshot.
+	// ARN of the EBS Snapshot.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The data encryption key identifier for the snapshot.
 	DataEncryptionKeyId pulumi.StringOutput `pulumi:"dataEncryptionKeyId"`
@@ -73,7 +73,7 @@ type Snapshot struct {
 	Encrypted pulumi.BoolOutput `pulumi:"encrypted"`
 	// The ARN for the KMS encryption key.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
-	// The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+	// ARN of the Outpost on which to create a local snapshot.
 	OutpostArn pulumi.StringPtrOutput `pulumi:"outpostArn"`
 	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
 	OwnerAlias pulumi.StringOutput `pulumi:"ownerAlias"`
@@ -130,7 +130,7 @@ func GetSnapshot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Snapshot resources.
 type snapshotState struct {
-	// Amazon Resource Name (ARN) of the EBS Snapshot.
+	// ARN of the EBS Snapshot.
 	Arn *string `pulumi:"arn"`
 	// The data encryption key identifier for the snapshot.
 	DataEncryptionKeyId *string `pulumi:"dataEncryptionKeyId"`
@@ -140,7 +140,7 @@ type snapshotState struct {
 	Encrypted *bool `pulumi:"encrypted"`
 	// The ARN for the KMS encryption key.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+	// ARN of the Outpost on which to create a local snapshot.
 	OutpostArn *string `pulumi:"outpostArn"`
 	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
 	OwnerAlias *string `pulumi:"ownerAlias"`
@@ -165,7 +165,7 @@ type snapshotState struct {
 }
 
 type SnapshotState struct {
-	// Amazon Resource Name (ARN) of the EBS Snapshot.
+	// ARN of the EBS Snapshot.
 	Arn pulumi.StringPtrInput
 	// The data encryption key identifier for the snapshot.
 	DataEncryptionKeyId pulumi.StringPtrInput
@@ -175,7 +175,7 @@ type SnapshotState struct {
 	Encrypted pulumi.BoolPtrInput
 	// The ARN for the KMS encryption key.
 	KmsKeyId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+	// ARN of the Outpost on which to create a local snapshot.
 	OutpostArn pulumi.StringPtrInput
 	// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
 	OwnerAlias pulumi.StringPtrInput
@@ -206,7 +206,7 @@ func (SnapshotState) ElementType() reflect.Type {
 type snapshotArgs struct {
 	// A description of what the snapshot is.
 	Description *string `pulumi:"description"`
-	// The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+	// ARN of the Outpost on which to create a local snapshot.
 	OutpostArn *string `pulumi:"outpostArn"`
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore *bool `pulumi:"permanentRestore"`
@@ -226,7 +226,7 @@ type snapshotArgs struct {
 type SnapshotArgs struct {
 	// A description of what the snapshot is.
 	Description pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+	// ARN of the Outpost on which to create a local snapshot.
 	OutpostArn pulumi.StringPtrInput
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore pulumi.BoolPtrInput
@@ -329,7 +329,7 @@ func (o SnapshotOutput) ToSnapshotOutputWithContext(ctx context.Context) Snapsho
 	return o
 }
 
-// Amazon Resource Name (ARN) of the EBS Snapshot.
+// ARN of the EBS Snapshot.
 func (o SnapshotOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -354,7 +354,7 @@ func (o SnapshotOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+// ARN of the Outpost on which to create a local snapshot.
 func (o SnapshotOutput) OutpostArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.OutpostArn }).(pulumi.StringPtrOutput)
 }

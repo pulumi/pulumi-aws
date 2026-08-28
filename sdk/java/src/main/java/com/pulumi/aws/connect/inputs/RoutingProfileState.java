@@ -20,14 +20,14 @@ public final class RoutingProfileState extends com.pulumi.resources.ResourceArgs
     public static final RoutingProfileState Empty = new RoutingProfileState();
 
     /**
-     * Amazon Resource Name (ARN) of the Routing Profile.
+     * ARN of the Routing Profile.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Routing Profile.
+     * @return ARN of the Routing Profile.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -221,7 +221,7 @@ public final class RoutingProfileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Routing Profile.
+         * @param arn ARN of the Routing Profile.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class RoutingProfileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Routing Profile.
+         * @param arn ARN of the Routing Profile.
          * 
          * @return builder
          * 

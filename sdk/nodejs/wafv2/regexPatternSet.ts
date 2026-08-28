@@ -72,7 +72,7 @@ export class RegexPatternSet extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) that identifies the cluster.
+     * ARN that identifies the cluster.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -158,7 +158,7 @@ export class RegexPatternSet extends pulumi.CustomResource {
  */
 export interface RegexPatternSetState {
     /**
-     * The Amazon Resource Name (ARN) that identifies the cluster.
+     * ARN that identifies the cluster.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

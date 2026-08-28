@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Dms
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the DMS replication configuration.
+    /// - `Arn` (String) ARN of the DMS replication configuration.
     /// 
     /// Using `pulumi import`, import a replication config using the `Arn`. For example:
     /// 
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Dms
     public partial class ReplicationConfig : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the serverless replication config.
+        /// ARN for the serverless replication config.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -102,13 +102,13 @@ namespace Pulumi.Aws.Dms
         public Output<string> ReplicationType { get; private set; } = null!;
 
         /// <summary>
-        /// Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
+        /// Unique value or name that you set for a given resource that can be used to construct an ARN for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
         /// </summary>
         [Output("resourceIdentifier")]
         public Output<string> ResourceIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+        /// ARN string that uniquely identifies the source endpoint.
         /// </summary>
         [Output("sourceEndpointArn")]
         public Output<string> SourceEndpointArn { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.Dms
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+        /// ARN string that uniquely identifies the target endpoint.
         /// </summary>
         [Output("targetEndpointArn")]
         public Output<string> TargetEndpointArn { get; private set; } = null!;
@@ -226,13 +226,13 @@ namespace Pulumi.Aws.Dms
         public Input<string> ReplicationType { get; set; } = null!;
 
         /// <summary>
-        /// Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
+        /// Unique value or name that you set for a given resource that can be used to construct an ARN for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
         /// </summary>
         [Input("resourceIdentifier")]
         public Input<string>? ResourceIdentifier { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+        /// ARN string that uniquely identifies the source endpoint.
         /// </summary>
         [Input("sourceEndpointArn", required: true)]
         public Input<string> SourceEndpointArn { get; set; } = null!;
@@ -268,7 +268,7 @@ namespace Pulumi.Aws.Dms
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+        /// ARN string that uniquely identifies the target endpoint.
         /// </summary>
         [Input("targetEndpointArn", required: true)]
         public Input<string> TargetEndpointArn { get; set; } = null!;
@@ -282,7 +282,7 @@ namespace Pulumi.Aws.Dms
     public sealed class ReplicationConfigState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the serverless replication config.
+        /// ARN for the serverless replication config.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -318,13 +318,13 @@ namespace Pulumi.Aws.Dms
         public Input<string>? ReplicationType { get; set; }
 
         /// <summary>
-        /// Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
+        /// Unique value or name that you set for a given resource that can be used to construct an ARN for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
         /// </summary>
         [Input("resourceIdentifier")]
         public Input<string>? ResourceIdentifier { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+        /// ARN string that uniquely identifies the source endpoint.
         /// </summary>
         [Input("sourceEndpointArn")]
         public Input<string>? SourceEndpointArn { get; set; }
@@ -372,7 +372,7 @@ namespace Pulumi.Aws.Dms
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+        /// ARN string that uniquely identifies the target endpoint.
         /// </summary>
         [Input("targetEndpointArn")]
         public Input<string>? TargetEndpointArn { get; set; }

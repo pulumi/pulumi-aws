@@ -434,14 +434,14 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.actionsEnabled);
     }
     /**
-     * The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
      * 
      */
     @Export(name="alarmActions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> alarmActions;
 
     /**
-     * @return The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * @return List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
      * 
      */
     public Output<Optional<List<String>>> alarmActions() {
@@ -594,14 +594,14 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.extendedStatistic);
     }
     /**
-     * The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
      * 
      */
     @Export(name="insufficientDataActions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> insufficientDataActions;
 
     /**
-     * @return The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * @return List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
      * 
      */
     public Output<Optional<List<String>>> insufficientDataActions() {
@@ -668,14 +668,14 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.namespace);
     }
     /**
-     * The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
      * 
      */
     @Export(name="okActions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> okActions;
 
     /**
-     * @return The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * @return List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
      * 
      */
     public Output<Optional<List<String>>> okActions() {

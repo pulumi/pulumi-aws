@@ -55,14 +55,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/launchTemplate:LaunchTemplate")
 public class LaunchTemplate extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the launch template.
+     * ARN of the launch template.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the launch template.
+     * @return ARN of the launch template.
      * 
      */
     public Output<String> arn() {

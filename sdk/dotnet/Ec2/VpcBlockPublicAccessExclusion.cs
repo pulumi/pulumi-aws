@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2
 {
     /// <summary>
-    /// Resource for managing an AWS EC2 (Elastic Compute Cloud) VPC Block Public Access Exclusion.
+    /// Resource for managing an AWS EC2 VPC Block Public Access Exclusion.
     /// 
     /// ## Example Usage
     /// 
@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import EC2 (Elastic Compute Cloud) VPC Block Public Access Exclusion using the `Id`. For example:
+    /// Using `pulumi import`, import EC2 VPC Block Public Access Exclusion using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/vpcBlockPublicAccessExclusion:VpcBlockPublicAccessExclusion example vpcbpa-exclude-1234abcd
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) the excluded resource.
+        /// ARN the excluded resource.
         /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
@@ -236,7 +236,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) the excluded resource.
+        /// ARN the excluded resource.
         /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }

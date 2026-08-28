@@ -109,7 +109,7 @@ namespace Pulumi.Aws.SesV2
     public sealed class GetEmailIdentityMailFromAttributesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the email identity.
+        /// Name of the email identity.
         /// </summary>
         [Input("emailIdentity", required: true)]
         public string EmailIdentity { get; set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.SesV2
     public sealed class GetEmailIdentityMailFromAttributesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the email identity.
+        /// Name of the email identity.
         /// </summary>
         [Input("emailIdentity", required: true)]
         public Input<string> EmailIdentity { get; set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.SesV2
     public sealed class GetEmailIdentityMailFromAttributesResult
     {
         /// <summary>
-        /// The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
+        /// Action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
         /// </summary>
         public readonly string BehaviorOnMxFailure;
         public readonly string EmailIdentity;
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.SesV2
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The custom MAIL FROM domain that you want the verified identity to use.
+        /// Custom MAIL FROM domain that you want the verified identity to use.
         /// </summary>
         public readonly string MailFromDomain;
         public readonly string Region;

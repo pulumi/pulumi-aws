@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Inspector
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Inspector assessment template.
+    /// - `Arn` (String) ARN of the Inspector assessment template.
     /// 
     /// Using `pulumi import`, import `aws.inspector.AssessmentTemplate` using the template assessment ARN. For example:
     /// 
