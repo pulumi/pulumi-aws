@@ -1,3 +1,0 @@
-name: create-user-and-role
-runtime: nodejs
-description: Demonstrate use of AWS profiles for role switching
