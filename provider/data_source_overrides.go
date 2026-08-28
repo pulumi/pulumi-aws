@@ -8,16 +8,10 @@ import (
 func dataSourceOverrides() map[string]*tfbridge.DataSourceInfo {
 	return map[string]*tfbridge.DataSourceInfo{
 		// AWS
-		"aws_arn":                     {Tok: awsDataSource(awsMod, "getArn")},
 		"aws_availability_zone":       {Tok: awsDataSource(awsMod, "getAvailabilityZone")},
 		"aws_availability_zones":      {Tok: awsDataSource(awsMod, "getAvailabilityZones")},
 		"aws_billing_service_account": {Tok: awsDataSource(awsMod, "getBillingServiceAccount")},
-		"aws_caller_identity":         {Tok: awsDataSource(awsMod, "getCallerIdentity")},
 
-		"aws_ip_ranges":         {Tok: awsDataSource(awsMod, "getIpRanges")},
-		"aws_partition":         {Tok: awsDataSource(awsMod, "getPartition")},
-		"aws_region":            {Tok: awsDataSource(awsMod, "getRegion")},
-		"aws_regions":           {Tok: awsDataSource(awsMod, "getRegions")},
 		"aws_service_principal": {Tok: awsDataSource(awsMod, "getServicePrincipal")},
 		"aws_default_tags":      {Tok: awsDataSource(awsMod, "getDefaultTags")},
 		"aws_service":           {Tok: awsDataSource(awsMod, "getService")},
