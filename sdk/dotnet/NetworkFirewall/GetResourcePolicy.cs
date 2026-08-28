@@ -94,7 +94,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public string? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) that identifies the resource policy.
+        /// ARN that identifies the resource policy.
         /// </summary>
         [Input("resourceArn", required: true)]
         public string ResourceArn { get; set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) that identifies the resource policy.
+        /// ARN that identifies the resource policy.
         /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;

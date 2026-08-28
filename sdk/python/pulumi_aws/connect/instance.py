@@ -239,7 +239,7 @@ class _InstanceState:
         """
         Input properties used for looking up and filtering Instance resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the instance.
+        :param pulumi.Input[_builtins.str] arn: ARN of the instance.
         :param pulumi.Input[_builtins.bool] auto_resolve_best_voices_enabled: Specifies whether auto resolve best voices is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] contact_flow_logs_enabled: Specifies whether contact flow logs are enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] contact_lens_enabled: Specifies whether contact lens is enabled. Defaults to `true`.
@@ -297,7 +297,7 @@ class _InstanceState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the instance.
+        ARN of the instance.
         """
         return pulumi.get(self, "arn")
 
@@ -771,7 +771,7 @@ class Instance(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the instance.
+        :param pulumi.Input[_builtins.str] arn: ARN of the instance.
         :param pulumi.Input[_builtins.bool] auto_resolve_best_voices_enabled: Specifies whether auto resolve best voices is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] contact_flow_logs_enabled: Specifies whether contact flow logs are enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] contact_lens_enabled: Specifies whether contact lens is enabled. Defaults to `true`.
@@ -817,7 +817,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the instance.
+        ARN of the instance.
         """
         return pulumi.get(self, "arn")
 

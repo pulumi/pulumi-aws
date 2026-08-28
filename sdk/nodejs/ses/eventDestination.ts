@@ -112,7 +112,7 @@ export class EventDestination extends pulumi.CustomResource {
     }
 
     /**
-     * The SES event destination ARN.
+     * SES event destination ARN.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -120,7 +120,7 @@ export class EventDestination extends pulumi.CustomResource {
      */
     declare public readonly cloudwatchDestinations: pulumi.Output<outputs.ses.EventDestinationCloudwatchDestination[] | undefined>;
     /**
-     * The name of the configuration set
+     * Name of the configuration set
      */
     declare public readonly configurationSetName: pulumi.Output<string>;
     /**
@@ -132,11 +132,11 @@ export class EventDestination extends pulumi.CustomResource {
      */
     declare public readonly kinesisDestination: pulumi.Output<outputs.ses.EventDestinationKinesisDestination | undefined>;
     /**
-     * A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
+     * List of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
      */
     declare public readonly matchingTypes: pulumi.Output<string[]>;
     /**
-     * The name of the event destination
+     * Name of the event destination
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -200,7 +200,7 @@ export class EventDestination extends pulumi.CustomResource {
  */
 export interface EventDestinationState {
     /**
-     * The SES event destination ARN.
+     * SES event destination ARN.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -208,7 +208,7 @@ export interface EventDestinationState {
      */
     cloudwatchDestinations?: pulumi.Input<pulumi.Input<inputs.ses.EventDestinationCloudwatchDestination>[] | undefined>;
     /**
-     * The name of the configuration set
+     * Name of the configuration set
      */
     configurationSetName?: pulumi.Input<string | undefined>;
     /**
@@ -220,11 +220,11 @@ export interface EventDestinationState {
      */
     kinesisDestination?: pulumi.Input<inputs.ses.EventDestinationKinesisDestination | undefined>;
     /**
-     * A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
+     * List of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
      */
     matchingTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The name of the event destination
+     * Name of the event destination
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -248,7 +248,7 @@ export interface EventDestinationArgs {
      */
     cloudwatchDestinations?: pulumi.Input<pulumi.Input<inputs.ses.EventDestinationCloudwatchDestination>[] | undefined>;
     /**
-     * The name of the configuration set
+     * Name of the configuration set
      */
     configurationSetName: pulumi.Input<string>;
     /**
@@ -260,11 +260,11 @@ export interface EventDestinationArgs {
      */
     kinesisDestination?: pulumi.Input<inputs.ses.EventDestinationKinesisDestination | undefined>;
     /**
-     * A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
+     * List of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
      */
     matchingTypes: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the event destination
+     * Name of the event destination
      */
     name?: pulumi.Input<string | undefined>;
     /**

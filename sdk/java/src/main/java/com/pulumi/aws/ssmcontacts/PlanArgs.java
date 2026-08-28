@@ -19,14 +19,14 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
     public static final PlanArgs Empty = new PlanArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the contact or escalation plan.
+     * The ARN of the contact or escalation plan.
      * 
      */
     @Import(name="contactId", required=true)
     private Output<String> contactId;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the contact or escalation plan.
+     * @return The ARN of the contact or escalation plan.
      * 
      */
     public Output<String> contactId() {
@@ -90,7 +90,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contactId The Amazon Resource Name (ARN) of the contact or escalation plan.
+         * @param contactId The ARN of the contact or escalation plan.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contactId The Amazon Resource Name (ARN) of the contact or escalation plan.
+         * @param contactId The ARN of the contact or escalation plan.
          * 
          * @return builder
          * 

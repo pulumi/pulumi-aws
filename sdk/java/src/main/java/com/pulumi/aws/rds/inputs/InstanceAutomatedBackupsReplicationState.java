@@ -17,14 +17,14 @@ public final class InstanceAutomatedBackupsReplicationState extends com.pulumi.r
     public static final InstanceAutomatedBackupsReplicationState Empty = new InstanceAutomatedBackupsReplicationState();
 
     /**
-     * The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
+     * AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the ARN for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
+     * @return AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the ARN for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -77,14 +77,14 @@ public final class InstanceAutomatedBackupsReplicationState extends com.pulumi.r
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
+     * ARN of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
      * 
      */
     @Import(name="sourceDbInstanceArn")
     private @Nullable Output<String> sourceDbInstanceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
+     * @return ARN of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
      * 
      */
     public Optional<Output<String>> sourceDbInstanceArn() {
@@ -120,7 +120,7 @@ public final class InstanceAutomatedBackupsReplicationState extends com.pulumi.r
         }
 
         /**
-         * @param kmsKeyId The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
+         * @param kmsKeyId AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the ARN for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class InstanceAutomatedBackupsReplicationState extends com.pulumi.r
         }
 
         /**
-         * @param kmsKeyId The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
+         * @param kmsKeyId AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the ARN for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class InstanceAutomatedBackupsReplicationState extends com.pulumi.r
         }
 
         /**
-         * @param sourceDbInstanceArn The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
+         * @param sourceDbInstanceArn ARN of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class InstanceAutomatedBackupsReplicationState extends com.pulumi.r
         }
 
         /**
-         * @param sourceDbInstanceArn The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
+         * @param sourceDbInstanceArn ARN of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
          * 
          * @return builder
          * 

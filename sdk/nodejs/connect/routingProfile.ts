@@ -87,7 +87,7 @@ export class RoutingProfile extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Routing Profile.
+     * ARN of the Routing Profile.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -192,7 +192,7 @@ export class RoutingProfile extends pulumi.CustomResource {
  */
 export interface RoutingProfileState {
     /**
-     * Amazon Resource Name (ARN) of the Routing Profile.
+     * ARN of the Routing Profile.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

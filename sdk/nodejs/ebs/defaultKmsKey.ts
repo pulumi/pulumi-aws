@@ -60,7 +60,7 @@ export class DefaultKmsKey extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
+     * ARN of the KMS customer master key (CMK) to use to encrypt the EBS volume.
      */
     declare public readonly keyArn: pulumi.Output<string>;
     /**
@@ -101,7 +101,7 @@ export class DefaultKmsKey extends pulumi.CustomResource {
  */
 export interface DefaultKmsKeyState {
     /**
-     * The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
+     * ARN of the KMS customer master key (CMK) to use to encrypt the EBS volume.
      */
     keyArn?: pulumi.Input<string | undefined>;
     /**
@@ -115,7 +115,7 @@ export interface DefaultKmsKeyState {
  */
 export interface DefaultKmsKeyArgs {
     /**
-     * The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
+     * ARN of the KMS customer master key (CMK) to use to encrypt the EBS volume.
      */
     keyArn: pulumi.Input<string>;
     /**

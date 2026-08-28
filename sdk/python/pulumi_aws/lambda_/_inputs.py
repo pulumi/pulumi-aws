@@ -154,11 +154,11 @@ class AliasRoutingConfigArgs:
 class CapacityProviderCapacityProviderScalingConfigArgsDict(TypedDict):
     max_vcpu_count: pulumi.Input[_builtins.int]
     """
-    The maximum number of VCPUs for the Capacity Provider.
+    Maximum number of VCPUs for the Capacity Provider.
     """
     scaling_mode: pulumi.Input[_builtins.str]
     """
-    The scaling mode for the Capacity Provider. Valid values are `"Auto"` and `"Manual"`. Defaults to `"Auto"`.
+    Scaling mode for the Capacity Provider. Valid values are `"Auto"` and `"Manual"`. Defaults to `"Auto"`.
     """
     scaling_policies: pulumi.Input[Sequence[pulumi.Input['CapacityProviderCapacityProviderScalingConfigScalingPolicyArgsDict']]]
     """
@@ -172,8 +172,8 @@ class CapacityProviderCapacityProviderScalingConfigArgs:
                  scaling_mode: pulumi.Input[_builtins.str],
                  scaling_policies: pulumi.Input[Sequence[pulumi.Input['CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs']]]):
         """
-        :param pulumi.Input[_builtins.int] max_vcpu_count: The maximum number of VCPUs for the Capacity Provider.
-        :param pulumi.Input[_builtins.str] scaling_mode: The scaling mode for the Capacity Provider. Valid values are `"Auto"` and `"Manual"`. Defaults to `"Auto"`.
+        :param pulumi.Input[_builtins.int] max_vcpu_count: Maximum number of VCPUs for the Capacity Provider.
+        :param pulumi.Input[_builtins.str] scaling_mode: Scaling mode for the Capacity Provider. Valid values are `"Auto"` and `"Manual"`. Defaults to `"Auto"`.
         :param pulumi.Input[Sequence[pulumi.Input['CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs']]] scaling_policies: List of scaling policies. Only required if `scaling_mode` is set to `"Manual"`. See Scaling Policies below.
         """
         pulumi.set(__self__, "max_vcpu_count", max_vcpu_count)
@@ -184,7 +184,7 @@ class CapacityProviderCapacityProviderScalingConfigArgs:
     @pulumi.getter(name="maxVcpuCount")
     def max_vcpu_count(self) -> pulumi.Input[_builtins.int]:
         """
-        The maximum number of VCPUs for the Capacity Provider.
+        Maximum number of VCPUs for the Capacity Provider.
         """
         return pulumi.get(self, "max_vcpu_count")
 
@@ -196,7 +196,7 @@ class CapacityProviderCapacityProviderScalingConfigArgs:
     @pulumi.getter(name="scalingMode")
     def scaling_mode(self) -> pulumi.Input[_builtins.str]:
         """
-        The scaling mode for the Capacity Provider. Valid values are `"Auto"` and `"Manual"`. Defaults to `"Auto"`.
+        Scaling mode for the Capacity Provider. Valid values are `"Auto"` and `"Manual"`. Defaults to `"Auto"`.
         """
         return pulumi.get(self, "scaling_mode")
 
@@ -220,11 +220,11 @@ class CapacityProviderCapacityProviderScalingConfigArgs:
 class CapacityProviderCapacityProviderScalingConfigScalingPolicyArgsDict(TypedDict):
     predefined_metric_type: pulumi.Input[_builtins.str]
     """
-    The predefined metric type for the scaling policy. Valid values are `"LambdaCapacityProviderAverageCPUUtilization"`.
+    Predefined metric type for the scaling policy. Valid values are `"LambdaCapacityProviderAverageCPUUtilization"`.
     """
     target_value: pulumi.Input[_builtins.float]
     """
-    The target value for the scaling policy.
+    Target value for the scaling policy.
     """
 
 @pulumi.input_type
@@ -233,8 +233,8 @@ class CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs:
                  predefined_metric_type: pulumi.Input[_builtins.str],
                  target_value: pulumi.Input[_builtins.float]):
         """
-        :param pulumi.Input[_builtins.str] predefined_metric_type: The predefined metric type for the scaling policy. Valid values are `"LambdaCapacityProviderAverageCPUUtilization"`.
-        :param pulumi.Input[_builtins.float] target_value: The target value for the scaling policy.
+        :param pulumi.Input[_builtins.str] predefined_metric_type: Predefined metric type for the scaling policy. Valid values are `"LambdaCapacityProviderAverageCPUUtilization"`.
+        :param pulumi.Input[_builtins.float] target_value: Target value for the scaling policy.
         """
         pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
         pulumi.set(__self__, "target_value", target_value)
@@ -243,7 +243,7 @@ class CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs:
     @pulumi.getter(name="predefinedMetricType")
     def predefined_metric_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The predefined metric type for the scaling policy. Valid values are `"LambdaCapacityProviderAverageCPUUtilization"`.
+        Predefined metric type for the scaling policy. Valid values are `"LambdaCapacityProviderAverageCPUUtilization"`.
         """
         return pulumi.get(self, "predefined_metric_type")
 
@@ -255,7 +255,7 @@ class CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs:
     @pulumi.getter(name="targetValue")
     def target_value(self) -> pulumi.Input[_builtins.float]:
         """
-        The target value for the scaling policy.
+        Target value for the scaling policy.
         """
         return pulumi.get(self, "target_value")
 
@@ -333,7 +333,7 @@ class CapacityProviderInstanceRequirementArgs:
 class CapacityProviderPermissionsConfigArgsDict(TypedDict):
     capacity_provider_operator_role_arn: pulumi.Input[_builtins.str]
     """
-    The ARN of the IAM role that allows Lambda to manage the Capacity Provider.
+    ARN of the IAM role that allows Lambda to manage the Capacity Provider.
     """
 
 @pulumi.input_type
@@ -341,7 +341,7 @@ class CapacityProviderPermissionsConfigArgs:
     def __init__(__self__, *,
                  capacity_provider_operator_role_arn: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] capacity_provider_operator_role_arn: The ARN of the IAM role that allows Lambda to manage the Capacity Provider.
+        :param pulumi.Input[_builtins.str] capacity_provider_operator_role_arn: ARN of the IAM role that allows Lambda to manage the Capacity Provider.
         """
         pulumi.set(__self__, "capacity_provider_operator_role_arn", capacity_provider_operator_role_arn)
 
@@ -349,7 +349,7 @@ class CapacityProviderPermissionsConfigArgs:
     @pulumi.getter(name="capacityProviderOperatorRoleArn")
     def capacity_provider_operator_role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of the IAM role that allows Lambda to manage the Capacity Provider.
+        ARN of the IAM role that allows Lambda to manage the Capacity Provider.
         """
         return pulumi.get(self, "capacity_provider_operator_role_arn")
 
@@ -766,7 +766,7 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs:
 class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgsDict(TypedDict):
     access_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgsDict']]]]]
     """
-    Configuration block for authentication Lambda uses to access the schema registry.
+    Configuration block for authentication Lambda uses to access the schema registry. See below.
     """
     event_record_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -778,7 +778,7 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigA
     """
     schema_validation_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgsDict']]]]]
     """
-    Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+    Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry. See below.
     """
 
 @pulumi.input_type
@@ -789,10 +789,10 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigA
                  schema_registry_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  schema_validation_configs: pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs']]] access_configs: Configuration block for authentication Lambda uses to access the schema registry.
+        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs']]] access_configs: Configuration block for authentication Lambda uses to access the schema registry. See below.
         :param pulumi.Input[_builtins.str] event_record_format: Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
         :param pulumi.Input[_builtins.str] schema_registry_uri: URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
-        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs']]] schema_validation_configs: Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs']]] schema_validation_configs: Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry. See below.
         """
         if access_configs is not None:
             pulumi.set(__self__, "access_configs", access_configs)
@@ -807,7 +807,7 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigA
     @pulumi.getter(name="accessConfigs")
     def access_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs']]]]:
         """
-        Configuration block for authentication Lambda uses to access the schema registry.
+        Configuration block for authentication Lambda uses to access the schema registry. See below.
         """
         return pulumi.get(self, "access_configs")
 
@@ -843,7 +843,7 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigA
     @pulumi.getter(name="schemaValidationConfigs")
     def schema_validation_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs']]]]:
         """
-        Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+        Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry. See below.
         """
         return pulumi.get(self, "schema_validation_configs")
 
@@ -854,23 +854,13 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigA
 
 class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgsDict(TypedDict):
     type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    Authentication type Lambda uses to access the schema registry.
-    """
     uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
-    """
 
 @pulumi.input_type
 class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  uri: pulumi.Input[Optional[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] type: Authentication type Lambda uses to access the schema registry.
-        :param pulumi.Input[_builtins.str] uri: URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
-        """
         if type is not None:
             pulumi.set(__self__, "type", type)
         if uri is not None:
@@ -879,9 +869,6 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigA
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Authentication type Lambda uses to access the schema registry.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -891,9 +878,6 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigA
     @_builtins.property
     @pulumi.getter
     def uri(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
-        """
         return pulumi.get(self, "uri")
 
     @uri.setter
@@ -998,7 +982,7 @@ class EventSourceMappingDocumentDbEventSourceConfigArgsDict(TypedDict):
     """
     full_document: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
+    DocumentDB behavior during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
     """
 
 @pulumi.input_type
@@ -1010,7 +994,7 @@ class EventSourceMappingDocumentDbEventSourceConfigArgs:
         """
         :param pulumi.Input[_builtins.str] database_name: Name of the database to consume within the DocumentDB cluster.
         :param pulumi.Input[_builtins.str] collection_name: Name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
-        :param pulumi.Input[_builtins.str] full_document: Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
+        :param pulumi.Input[_builtins.str] full_document: DocumentDB behavior during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
         """
         pulumi.set(__self__, "database_name", database_name)
         if collection_name is not None:
@@ -1046,7 +1030,7 @@ class EventSourceMappingDocumentDbEventSourceConfigArgs:
     @pulumi.getter(name="fullDocument")
     def full_document(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
+        DocumentDB behavior during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
         """
         return pulumi.get(self, "full_document")
 
@@ -1152,7 +1136,7 @@ class EventSourceMappingProvisionedPollerConfigArgsDict(TypedDict):
     """
     poller_group_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The name of the provisioned poller group used to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
+    Name of the provisioned poller group used to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
     """
 
 @pulumi.input_type
@@ -1164,7 +1148,7 @@ class EventSourceMappingProvisionedPollerConfigArgs:
         """
         :param pulumi.Input[_builtins.int] maximum_pollers: Maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
         :param pulumi.Input[_builtins.int] minimum_pollers: Minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
-        :param pulumi.Input[_builtins.str] poller_group_name: The name of the provisioned poller group used to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
+        :param pulumi.Input[_builtins.str] poller_group_name: Name of the provisioned poller group used to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
         """
         if maximum_pollers is not None:
             pulumi.set(__self__, "maximum_pollers", maximum_pollers)
@@ -1201,7 +1185,7 @@ class EventSourceMappingProvisionedPollerConfigArgs:
     @pulumi.getter(name="pollerGroupName")
     def poller_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the provisioned poller group used to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
+        Name of the provisioned poller group used to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
         """
         return pulumi.get(self, "poller_group_name")
 
@@ -1319,7 +1303,7 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigArgs:
 class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgsDict(TypedDict):
     access_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgsDict']]]]]
     """
-    Configuration block for authentication Lambda uses to access the schema registry.
+    Configuration block for authentication Lambda uses to access the schema registry. See below.
     """
     event_record_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1331,7 +1315,7 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArg
     """
     schema_validation_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgsDict']]]]]
     """
-    Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+    Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry. See below.
     """
 
 @pulumi.input_type
@@ -1342,10 +1326,10 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArg
                  schema_registry_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  schema_validation_configs: pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs']]] access_configs: Configuration block for authentication Lambda uses to access the schema registry.
+        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs']]] access_configs: Configuration block for authentication Lambda uses to access the schema registry. See below.
         :param pulumi.Input[_builtins.str] event_record_format: Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
         :param pulumi.Input[_builtins.str] schema_registry_uri: URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
-        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs']]] schema_validation_configs: Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs']]] schema_validation_configs: Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry. See below.
         """
         if access_configs is not None:
             pulumi.set(__self__, "access_configs", access_configs)
@@ -1360,7 +1344,7 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArg
     @pulumi.getter(name="accessConfigs")
     def access_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs']]]]:
         """
-        Configuration block for authentication Lambda uses to access the schema registry.
+        Configuration block for authentication Lambda uses to access the schema registry. See below.
         """
         return pulumi.get(self, "access_configs")
 
@@ -1396,7 +1380,7 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArg
     @pulumi.getter(name="schemaValidationConfigs")
     def schema_validation_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs']]]]:
         """
-        Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+        Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry. See below.
         """
         return pulumi.get(self, "schema_validation_configs")
 
@@ -1407,23 +1391,13 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArg
 
 class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgsDict(TypedDict):
     type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    Authentication type Lambda uses to access the schema registry.
-    """
     uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
-    """
 
 @pulumi.input_type
 class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  uri: pulumi.Input[Optional[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] type: Authentication type Lambda uses to access the schema registry.
-        :param pulumi.Input[_builtins.str] uri: URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
-        """
         if type is not None:
             pulumi.set(__self__, "type", type)
         if uri is not None:
@@ -1432,9 +1406,6 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAcc
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Authentication type Lambda uses to access the schema registry.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1444,9 +1415,6 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAcc
     @_builtins.property
     @pulumi.getter
     def uri(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
-        """
         return pulumi.get(self, "uri")
 
     @uri.setter

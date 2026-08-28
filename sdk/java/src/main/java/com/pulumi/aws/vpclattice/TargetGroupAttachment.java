@@ -89,14 +89,14 @@ public class TargetGroupAttachment extends com.pulumi.resources.CustomResource {
         return this.target;
     }
     /**
-     * ID or Amazon Resource Name (ARN) of the target group.
+     * ID or ARN of the target group.
      * 
      */
     @Export(name="targetGroupIdentifier", refs={String.class}, tree="[0]")
     private Output<String> targetGroupIdentifier;
 
     /**
-     * @return ID or Amazon Resource Name (ARN) of the target group.
+     * @return ID or ARN of the target group.
      * 
      */
     public Output<String> targetGroupIdentifier() {

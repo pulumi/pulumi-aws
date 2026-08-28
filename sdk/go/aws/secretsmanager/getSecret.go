@@ -98,7 +98,7 @@ type LookupSecretResult struct {
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
+	// KMS Customer Master Key (CMK) associated with the secret.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// Last updated date of the secret in UTC.
 	LastChangedDate string `pulumi:"lastChangedDate"`
@@ -172,7 +172,7 @@ func (o LookupSecretResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
+// KMS Customer Master Key (CMK) associated with the secret.
 func (o LookupSecretResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }

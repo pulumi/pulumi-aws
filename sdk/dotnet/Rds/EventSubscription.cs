@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Rds
     public partial class EventSubscription : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name of the RDS event notification subscription
+        /// ARN of the RDS event notification subscription
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.Rds
     public sealed class EventSubscriptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name of the RDS event notification subscription
+        /// ARN of the RDS event notification subscription
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -52,7 +52,7 @@ import (
 type ModelPackageGroup struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
+	// ARN assigned by AWS to this Model Package Group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A description for the model group.
 	ModelPackageGroupDescription pulumi.StringPtrOutput `pulumi:"modelPackageGroupDescription"`
@@ -99,7 +99,7 @@ func GetModelPackageGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ModelPackageGroup resources.
 type modelPackageGroupState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
+	// ARN assigned by AWS to this Model Package Group.
 	Arn *string `pulumi:"arn"`
 	// A description for the model group.
 	ModelPackageGroupDescription *string `pulumi:"modelPackageGroupDescription"`
@@ -114,7 +114,7 @@ type modelPackageGroupState struct {
 }
 
 type ModelPackageGroupState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
+	// ARN assigned by AWS to this Model Package Group.
 	Arn pulumi.StringPtrInput
 	// A description for the model group.
 	ModelPackageGroupDescription pulumi.StringPtrInput
@@ -242,7 +242,7 @@ func (o ModelPackageGroupOutput) ToModelPackageGroupOutputWithContext(ctx contex
 	return o
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
+// ARN assigned by AWS to this Model Package Group.
 func (o ModelPackageGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ModelPackageGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

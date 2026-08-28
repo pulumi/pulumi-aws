@@ -122,14 +122,14 @@ public final class DedicatedHostState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+     * ARN of the AWS Outpost on which to allocate the Dedicated Host.
      * 
      */
     @Import(name="outpostArn")
     private @Nullable Output<String> outpostArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+     * @return ARN of the AWS Outpost on which to allocate the Dedicated Host.
      * 
      */
     public Optional<Output<String>> outpostArn() {
@@ -379,7 +379,7 @@ public final class DedicatedHostState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param outpostArn The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+         * @param outpostArn ARN of the AWS Outpost on which to allocate the Dedicated Host.
          * 
          * @return builder
          * 
@@ -390,7 +390,7 @@ public final class DedicatedHostState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param outpostArn The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+         * @param outpostArn ARN of the AWS Outpost on which to allocate the Dedicated Host.
          * 
          * @return builder
          * 

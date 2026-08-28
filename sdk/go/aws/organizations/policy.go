@@ -78,7 +78,7 @@ import (
 type Policy struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the policy.
+	// ARN of the policy.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The policy content to add to the new policy.
 	// For example, if you create a [service control policy (SCP)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html), this string must be JSON text that specifies the permissions that admins in attached accounts can delegate to their users, groups, and roles.
@@ -141,7 +141,7 @@ func GetPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Policy resources.
 type policyState struct {
-	// Amazon Resource Name (ARN) of the policy.
+	// ARN of the policy.
 	Arn *string `pulumi:"arn"`
 	// The policy content to add to the new policy.
 	// For example, if you create a [service control policy (SCP)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html), this string must be JSON text that specifies the permissions that admins in attached accounts can delegate to their users, groups, and roles.
@@ -172,7 +172,7 @@ type policyState struct {
 }
 
 type PolicyState struct {
-	// Amazon Resource Name (ARN) of the policy.
+	// ARN of the policy.
 	Arn pulumi.StringPtrInput
 	// The policy content to add to the new policy.
 	// For example, if you create a [service control policy (SCP)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html), this string must be JSON text that specifies the permissions that admins in attached accounts can delegate to their users, groups, and roles.
@@ -348,7 +348,7 @@ func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutpu
 	return o
 }
 
-// Amazon Resource Name (ARN) of the policy.
+// ARN of the policy.
 func (o PolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

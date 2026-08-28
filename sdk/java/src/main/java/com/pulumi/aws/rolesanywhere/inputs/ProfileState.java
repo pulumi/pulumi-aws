@@ -35,14 +35,14 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Profile
+     * ARN of the Profile
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Profile
+     * @return ARN of the Profile
      * 
      */
     public Optional<Output<String>> arn() {
@@ -240,7 +240,7 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Profile
+         * @param arn ARN of the Profile
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Profile
+         * @param arn ARN of the Profile
          * 
          * @return builder
          * 

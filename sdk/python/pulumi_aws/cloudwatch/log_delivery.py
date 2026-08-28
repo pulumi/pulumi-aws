@@ -152,7 +152,7 @@ class _LogDeliveryState:
         """
         Input properties used for looking up and filtering LogDelivery resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the delivery.
+        :param pulumi.Input[_builtins.str] arn: ARN of the delivery.
         :param pulumi.Input[_builtins.str] delivery_destination_arn: The ARN of the delivery destination to use for this delivery.
         :param pulumi.Input[_builtins.str] delivery_source_name: The name of the delivery source to use for this delivery.
         :param pulumi.Input[_builtins.str] field_delimiter: The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
@@ -185,7 +185,7 @@ class _LogDeliveryState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the delivery.
+        ARN of the delivery.
         """
         return pulumi.get(self, "arn")
 
@@ -534,7 +534,7 @@ class LogDelivery(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the delivery.
+        :param pulumi.Input[_builtins.str] arn: ARN of the delivery.
         :param pulumi.Input[_builtins.str] delivery_destination_arn: The ARN of the delivery destination to use for this delivery.
         :param pulumi.Input[_builtins.str] delivery_source_name: The name of the delivery source to use for this delivery.
         :param pulumi.Input[_builtins.str] field_delimiter: The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
@@ -563,7 +563,7 @@ class LogDelivery(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the delivery.
+        ARN of the delivery.
         """
         return pulumi.get(self, "arn")
 

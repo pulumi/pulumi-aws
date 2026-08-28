@@ -21,7 +21,7 @@ public final class GetReceivedLicenseIssuer {
      */
     private String name;
     /**
-     * @return Asymmetric KMS key from AWS Key Management Service. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
+     * @return Asymmetric KMS key from KMS. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
      * 
      */
     private String signKey;
@@ -42,7 +42,7 @@ public final class GetReceivedLicenseIssuer {
         return this.name;
     }
     /**
-     * @return Asymmetric KMS key from AWS Key Management Service. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
+     * @return Asymmetric KMS key from KMS. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
      * 
      */
     public String signKey() {

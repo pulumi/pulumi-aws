@@ -20,14 +20,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     public static final FunctionArgs Empty = new FunctionArgs();
 
     /**
-     * Source code of the function
+     * Source code of the function. Must be between 1 and 40960 bytes.
      * 
      */
     @Import(name="code", required=true)
     private Output<String> code;
 
     /**
-     * @return Source code of the function
+     * @return Source code of the function. Must be between 1 and 40960 bytes.
      * 
      */
     public Output<String> code() {
@@ -35,14 +35,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Comment.
+     * Comment. Must not exceed 128 characters.
      * 
      */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
     /**
-     * @return Comment.
+     * @return Comment. Must not exceed 128 characters.
      * 
      */
     public Optional<Output<String>> comment() {
@@ -65,14 +65,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Unique name for your CloudFront Function.
+     * Unique name for your CloudFront Function. Valid names contain only alphanumeric characters, hyphens, and underscores, and must be between 1 and 64 characters.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Unique name for your CloudFront Function.
+     * @return Unique name for your CloudFront Function. Valid names contain only alphanumeric characters, hyphens, and underscores, and must be between 1 and 64 characters.
      * 
      */
     public Optional<Output<String>> name() {
@@ -159,7 +159,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param code Source code of the function
+         * @param code Source code of the function. Must be between 1 and 40960 bytes.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param code Source code of the function
+         * @param code Source code of the function. Must be between 1 and 40960 bytes.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param comment Comment.
+         * @param comment Comment. Must not exceed 128 characters.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param comment Comment.
+         * @param comment Comment. Must not exceed 128 characters.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Unique name for your CloudFront Function.
+         * @param name Unique name for your CloudFront Function. Valid names contain only alphanumeric characters, hyphens, and underscores, and must be between 1 and 64 characters.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Unique name for your CloudFront Function.
+         * @param name Unique name for your CloudFront Function. Valid names contain only alphanumeric characters, hyphens, and underscores, and must be between 1 and 64 characters.
          * 
          * @return builder
          * 

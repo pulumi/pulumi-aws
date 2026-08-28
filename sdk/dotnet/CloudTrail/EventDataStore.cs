@@ -114,7 +114,7 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the CloudTrail event data store.
+    /// - `Arn` (String) ARN of the CloudTrail event data store.
     /// 
     /// Using `pulumi import`, import event data stores using their `Arn`. For example:
     /// 

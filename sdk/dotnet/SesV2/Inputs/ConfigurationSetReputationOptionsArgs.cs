@@ -13,7 +13,7 @@ namespace Pulumi.Aws.SesV2.Inputs
     public sealed class ConfigurationSetReputationOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
+        /// Date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
         /// </summary>
         [Input("lastFreshStart")]
         public Input<string>? LastFreshStart { get; set; }

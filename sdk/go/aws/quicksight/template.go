@@ -166,7 +166,7 @@ type Template struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity TemplateSourceEntityPtrOutput `pulumi:"sourceEntity"`
-	// Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
+	// ARN of an analysis or template that was used to create this template.
 	SourceEntityArn pulumi.StringOutput `pulumi:"sourceEntityArn"`
 	// The template creation status.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -236,7 +236,7 @@ type templateState struct {
 	Region *string `pulumi:"region"`
 	// The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity *TemplateSourceEntity `pulumi:"sourceEntity"`
-	// Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
+	// ARN of an analysis or template that was used to create this template.
 	SourceEntityArn *string `pulumi:"sourceEntityArn"`
 	// The template creation status.
 	Status *string `pulumi:"status"`
@@ -271,7 +271,7 @@ type TemplateState struct {
 	Region pulumi.StringPtrInput
 	// The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity TemplateSourceEntityPtrInput
-	// Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
+	// ARN of an analysis or template that was used to create this template.
 	SourceEntityArn pulumi.StringPtrInput
 	// The template creation status.
 	Status pulumi.StringPtrInput
@@ -463,7 +463,7 @@ func (o TemplateOutput) SourceEntity() TemplateSourceEntityPtrOutput {
 	return o.ApplyT(func(v *Template) TemplateSourceEntityPtrOutput { return v.SourceEntity }).(TemplateSourceEntityPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
+// ARN of an analysis or template that was used to create this template.
 func (o TemplateOutput) SourceEntityArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.SourceEntityArn }).(pulumi.StringOutput)
 }

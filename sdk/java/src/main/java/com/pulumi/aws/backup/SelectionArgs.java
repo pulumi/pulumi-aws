@@ -65,14 +65,14 @@ public final class SelectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
+     * Array of strings that either contain ARNs or match patterns of resources to exclude from a backup plan.
      * 
      */
     @Import(name="notResources")
     private @Nullable Output<List<String>> notResources;
 
     /**
-     * @return An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
+     * @return Array of strings that either contain ARNs or match patterns of resources to exclude from a backup plan.
      * 
      */
     public Optional<Output<List<String>>> notResources() {
@@ -110,14 +110,14 @@ public final class SelectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
+     * Array of strings that either contain ARNs or match patterns of resources to assign to a backup plan.
      * 
      */
     @Import(name="resources")
     private @Nullable Output<List<String>> resources;
 
     /**
-     * @return An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
+     * @return Array of strings that either contain ARNs or match patterns of resources to assign to a backup plan.
      * 
      */
     public Optional<Output<List<String>>> resources() {
@@ -244,7 +244,7 @@ public final class SelectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notResources An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
+         * @param notResources Array of strings that either contain ARNs or match patterns of resources to exclude from a backup plan.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class SelectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notResources An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
+         * @param notResources Array of strings that either contain ARNs or match patterns of resources to exclude from a backup plan.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class SelectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notResources An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
+         * @param notResources Array of strings that either contain ARNs or match patterns of resources to exclude from a backup plan.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class SelectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resources An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
+         * @param resources Array of strings that either contain ARNs or match patterns of resources to assign to a backup plan.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class SelectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resources An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
+         * @param resources Array of strings that either contain ARNs or match patterns of resources to assign to a backup plan.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class SelectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resources An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
+         * @param resources Array of strings that either contain ARNs or match patterns of resources to assign to a backup plan.
          * 
          * @return builder
          * 

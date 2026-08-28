@@ -62,7 +62,7 @@ public final class FileCacheDataRepositoryAssociation {
      */
     private @Nullable List<FileCacheDataRepositoryAssociationNf> nfs;
     /**
-     * @return Amazon Resource Name (ARN) of the data repository association.
+     * @return ARN of the data repository association.
      * 
      */
     private @Nullable String resourceArn;
@@ -137,7 +137,7 @@ public final class FileCacheDataRepositoryAssociation {
         return this.nfs == null ? List.of() : this.nfs;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the data repository association.
+     * @return ARN of the data repository association.
      * 
      */
     public Optional<String> resourceArn() {

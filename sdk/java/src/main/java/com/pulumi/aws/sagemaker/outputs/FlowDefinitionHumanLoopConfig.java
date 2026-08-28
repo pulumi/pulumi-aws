@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlowDefinitionHumanLoopConfig {
     /**
-     * @return The Amazon Resource Name (ARN) of the human task user interface.
+     * @return ARN of the human task user interface.
      * 
      */
     private String humanTaskUiArn;
@@ -56,14 +56,14 @@ public final class FlowDefinitionHumanLoopConfig {
      */
     private String taskTitle;
     /**
-     * @return The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
+     * @return ARN of the human task user interface. ARN of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
      * 
      */
     private String workteamArn;
 
     private FlowDefinitionHumanLoopConfig() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the human task user interface.
+     * @return ARN of the human task user interface.
      * 
      */
     public String humanTaskUiArn() {
@@ -119,7 +119,7 @@ public final class FlowDefinitionHumanLoopConfig {
         return this.taskTitle;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
+     * @return ARN of the human task user interface. ARN of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
      * 
      */
     public String workteamArn() {

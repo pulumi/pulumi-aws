@@ -259,7 +259,7 @@ namespace Pulumi.Aws.Backup
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
+        /// Array of strings that either contain ARNs or match patterns of resources to exclude from a backup plan.
         /// </summary>
         [Output("notResources")]
         public Output<ImmutableArray<string>> NotResources { get; private set; } = null!;
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.Backup
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
+        /// Array of strings that either contain ARNs or match patterns of resources to assign to a backup plan.
         /// </summary>
         [Output("resources")]
         public Output<ImmutableArray<string>> Resources { get; private set; } = null!;
@@ -362,7 +362,7 @@ namespace Pulumi.Aws.Backup
         private InputList<string>? _notResources;
 
         /// <summary>
-        /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
+        /// Array of strings that either contain ARNs or match patterns of resources to exclude from a backup plan.
         /// </summary>
         public InputList<string> NotResources
         {
@@ -386,7 +386,7 @@ namespace Pulumi.Aws.Backup
         private InputList<string>? _resources;
 
         /// <summary>
-        /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
+        /// Array of strings that either contain ARNs or match patterns of resources to assign to a backup plan.
         /// </summary>
         public InputList<string> Resources
         {
@@ -442,7 +442,7 @@ namespace Pulumi.Aws.Backup
         private InputList<string>? _notResources;
 
         /// <summary>
-        /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
+        /// Array of strings that either contain ARNs or match patterns of resources to exclude from a backup plan.
         /// </summary>
         public InputList<string> NotResources
         {
@@ -466,7 +466,7 @@ namespace Pulumi.Aws.Backup
         private InputList<string>? _resources;
 
         /// <summary>
-        /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
+        /// Array of strings that either contain ARNs or match patterns of resources to assign to a backup plan.
         /// </summary>
         public InputList<string> Resources
         {

@@ -990,7 +990,7 @@ class WebAclDefaultActionArgs:
 class WebAclLoggingConfigurationArgsDict(TypedDict):
     log_destination: pulumi.Input[_builtins.str]
     """
-    Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
+    ARN of Kinesis Firehose Delivery Stream
     """
     redacted_fields: NotRequired[pulumi.Input[Optional['WebAclLoggingConfigurationRedactedFieldsArgsDict']]]
     """
@@ -1003,7 +1003,7 @@ class WebAclLoggingConfigurationArgs:
                  log_destination: pulumi.Input[_builtins.str],
                  redacted_fields: pulumi.Input[Optional['WebAclLoggingConfigurationRedactedFieldsArgs']] = None):
         """
-        :param pulumi.Input[_builtins.str] log_destination: Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
+        :param pulumi.Input[_builtins.str] log_destination: ARN of Kinesis Firehose Delivery Stream
         :param pulumi.Input['WebAclLoggingConfigurationRedactedFieldsArgs'] redacted_fields: Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
         """
         pulumi.set(__self__, "log_destination", log_destination)
@@ -1014,7 +1014,7 @@ class WebAclLoggingConfigurationArgs:
     @pulumi.getter(name="logDestination")
     def log_destination(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
+        ARN of Kinesis Firehose Delivery Stream
         """
         return pulumi.get(self, "log_destination")
 

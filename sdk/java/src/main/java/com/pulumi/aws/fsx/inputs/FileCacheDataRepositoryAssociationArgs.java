@@ -156,14 +156,14 @@ public final class FileCacheDataRepositoryAssociationArgs extends com.pulumi.res
     }
 
     /**
-     * Amazon Resource Name (ARN) of the data repository association.
+     * ARN of the data repository association.
      * 
      */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the data repository association.
+     * @return ARN of the data repository association.
      * 
      */
     public Optional<Output<String>> resourceArn() {
@@ -429,7 +429,7 @@ public final class FileCacheDataRepositoryAssociationArgs extends com.pulumi.res
         }
 
         /**
-         * @param resourceArn Amazon Resource Name (ARN) of the data repository association.
+         * @param resourceArn ARN of the data repository association.
          * 
          * @return builder
          * 
@@ -440,7 +440,7 @@ public final class FileCacheDataRepositoryAssociationArgs extends com.pulumi.res
         }
 
         /**
-         * @param resourceArn Amazon Resource Name (ARN) of the data repository association.
+         * @param resourceArn ARN of the data repository association.
          * 
          * @return builder
          * 

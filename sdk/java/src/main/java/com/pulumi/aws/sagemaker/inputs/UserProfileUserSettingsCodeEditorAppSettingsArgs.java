@@ -65,14 +65,14 @@ public final class UserProfileUserSettingsCodeEditorAppSettingsArgs extends com.
     }
 
     /**
-     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+     * Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
      * 
      */
     @Import(name="defaultResourceSpec")
     private @Nullable Output<UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs> defaultResourceSpec;
 
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+     * @return Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
      * 
      */
     public Optional<Output<UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs>> defaultResourceSpec() {
@@ -80,14 +80,14 @@ public final class UserProfileUserSettingsCodeEditorAppSettingsArgs extends com.
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+     * ARN of the Lifecycle Configurations.
      * 
      */
     @Import(name="lifecycleConfigArns")
     private @Nullable Output<List<String>> lifecycleConfigArns;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+     * @return ARN of the Lifecycle Configurations.
      * 
      */
     public Optional<Output<List<String>>> lifecycleConfigArns() {
@@ -196,7 +196,7 @@ public final class UserProfileUserSettingsCodeEditorAppSettingsArgs extends com.
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+         * @param defaultResourceSpec Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class UserProfileUserSettingsCodeEditorAppSettingsArgs extends com.
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+         * @param defaultResourceSpec Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class UserProfileUserSettingsCodeEditorAppSettingsArgs extends com.
         }
 
         /**
-         * @param lifecycleConfigArns The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         * @param lifecycleConfigArns ARN of the Lifecycle Configurations.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class UserProfileUserSettingsCodeEditorAppSettingsArgs extends com.
         }
 
         /**
-         * @param lifecycleConfigArns The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         * @param lifecycleConfigArns ARN of the Lifecycle Configurations.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class UserProfileUserSettingsCodeEditorAppSettingsArgs extends com.
         }
 
         /**
-         * @param lifecycleConfigArns The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         * @param lifecycleConfigArns ARN of the Lifecycle Configurations.
          * 
          * @return builder
          * 

@@ -119,7 +119,7 @@ type LookupFleetResult struct {
 	FleetServiceRole string `pulumi:"fleetServiceRole"`
 	// ARN of the Fleet.
 	Id string `pulumi:"id"`
-	// The Amazon Machine Image (AMI) of the compute fleet.
+	// AMI of the compute fleet.
 	ImageId string `pulumi:"imageId"`
 	// Last modification time of the fleet.
 	LastModified string `pulumi:"lastModified"`
@@ -215,7 +215,7 @@ func (o LookupFleetResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFleetResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The Amazon Machine Image (AMI) of the compute fleet.
+// AMI of the compute fleet.
 func (o LookupFleetResultOutput) ImageId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFleetResult) string { return v.ImageId }).(pulumi.StringOutput)
 }

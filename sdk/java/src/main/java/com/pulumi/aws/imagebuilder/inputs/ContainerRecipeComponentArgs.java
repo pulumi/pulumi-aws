@@ -19,14 +19,14 @@ public final class ContainerRecipeComponentArgs extends com.pulumi.resources.Res
     public static final ContainerRecipeComponentArgs Empty = new ContainerRecipeComponentArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the Image Builder Component to associate.
+     * ARN of the Image Builder Component to associate.
      * 
      */
     @Import(name="componentArn", required=true)
     private Output<String> componentArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Image Builder Component to associate.
+     * @return ARN of the Image Builder Component to associate.
      * 
      */
     public Output<String> componentArn() {
@@ -74,7 +74,7 @@ public final class ContainerRecipeComponentArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param componentArn Amazon Resource Name (ARN) of the Image Builder Component to associate.
+         * @param componentArn ARN of the Image Builder Component to associate.
          * 
          * @return builder
          * 
@@ -85,7 +85,7 @@ public final class ContainerRecipeComponentArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param componentArn Amazon Resource Name (ARN) of the Image Builder Component to associate.
+         * @param componentArn ARN of the Image Builder Component to associate.
          * 
          * @return builder
          * 

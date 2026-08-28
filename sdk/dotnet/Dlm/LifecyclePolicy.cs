@@ -428,7 +428,7 @@ namespace Pulumi.Aws.Dlm
     public partial class LifecyclePolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
+        /// ARN of the DLM Lifecycle Policy.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -584,7 +584,7 @@ namespace Pulumi.Aws.Dlm
     public sealed class LifecyclePolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
+        /// ARN of the DLM Lifecycle Policy.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

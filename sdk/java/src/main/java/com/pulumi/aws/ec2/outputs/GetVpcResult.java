@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetVpcResult {
     /**
-     * @return ARN of VPC
+     * @return ARN of VPC.
      * 
      */
     private String arn;
@@ -27,29 +27,32 @@ public final class GetVpcResult {
      * 
      */
     private String cidrBlock;
+    /**
+     * @return Information about the IPv4 CIDR blocks associated with the VPC. See `cidrBlockAssociations` Block below.
+     * 
+     */
     private List<GetVpcCidrBlockAssociation> cidrBlockAssociations;
     private Boolean default_;
     private String dhcpOptionsId;
     /**
-     * @return Whether or not the VPC has DNS hostname support
+     * @return Whether the VPC has DNS hostname support.
      * 
      */
     private Boolean enableDnsHostnames;
     /**
-     * @return Whether or not the VPC has DNS support
+     * @return Whether the VPC has DNS support.
      * 
      */
     private Boolean enableDnsSupport;
     /**
-     * @return Whether Network Address Usage metrics are enabled for your VPC
+     * @return Whether Network Address Usage metrics are enabled for your VPC.
      * 
      */
     private Boolean enableNetworkAddressUsageMetrics;
     private @Nullable List<GetVpcFilter> filters;
     private String id;
     /**
-     * @return Allowed tenancy of instances launched into the
-     * selected VPC. May be any of `&#34;default&#34;`, `&#34;dedicated&#34;`, or `&#34;host&#34;`.
+     * @return Allowed tenancy of instances launched into the selected VPC. May be any of `&#34;default&#34;`, `&#34;dedicated&#34;`, or `&#34;host&#34;`.
      * 
      */
     private String instanceTenancy;
@@ -71,6 +74,10 @@ public final class GetVpcResult {
      */
     @Deprecated /* ipv6_cidr_block is deprecated. Use ipv6CidrBlockAssociations instead. */
     private String ipv6CidrBlock;
+    /**
+     * @return Information about the IPv6 CIDR blocks associated with the VPC. See `ipv6CidrBlockAssociations` Block below.
+     * 
+     */
     private List<GetVpcIpv6CidrBlockAssociation> ipv6CidrBlockAssociations;
     /**
      * @return ID of the main route table associated with this VPC.
@@ -92,7 +99,7 @@ public final class GetVpcResult {
 
     private GetVpcResult() {}
     /**
-     * @return ARN of VPC
+     * @return ARN of VPC.
      * 
      */
     public String arn() {
@@ -105,6 +112,10 @@ public final class GetVpcResult {
     public String cidrBlock() {
         return this.cidrBlock;
     }
+    /**
+     * @return Information about the IPv4 CIDR blocks associated with the VPC. See `cidrBlockAssociations` Block below.
+     * 
+     */
     public List<GetVpcCidrBlockAssociation> cidrBlockAssociations() {
         return this.cidrBlockAssociations;
     }
@@ -115,21 +126,21 @@ public final class GetVpcResult {
         return this.dhcpOptionsId;
     }
     /**
-     * @return Whether or not the VPC has DNS hostname support
+     * @return Whether the VPC has DNS hostname support.
      * 
      */
     public Boolean enableDnsHostnames() {
         return this.enableDnsHostnames;
     }
     /**
-     * @return Whether or not the VPC has DNS support
+     * @return Whether the VPC has DNS support.
      * 
      */
     public Boolean enableDnsSupport() {
         return this.enableDnsSupport;
     }
     /**
-     * @return Whether Network Address Usage metrics are enabled for your VPC
+     * @return Whether Network Address Usage metrics are enabled for your VPC.
      * 
      */
     public Boolean enableNetworkAddressUsageMetrics() {
@@ -142,8 +153,7 @@ public final class GetVpcResult {
         return this.id;
     }
     /**
-     * @return Allowed tenancy of instances launched into the
-     * selected VPC. May be any of `&#34;default&#34;`, `&#34;dedicated&#34;`, or `&#34;host&#34;`.
+     * @return Allowed tenancy of instances launched into the selected VPC. May be any of `&#34;default&#34;`, `&#34;dedicated&#34;`, or `&#34;host&#34;`.
      * 
      */
     public String instanceTenancy() {
@@ -171,6 +181,10 @@ public final class GetVpcResult {
     public String ipv6CidrBlock() {
         return this.ipv6CidrBlock;
     }
+    /**
+     * @return Information about the IPv6 CIDR blocks associated with the VPC. See `ipv6CidrBlockAssociations` Block below.
+     * 
+     */
     public List<GetVpcIpv6CidrBlockAssociation> ipv6CidrBlockAssociations() {
         return this.ipv6CidrBlockAssociations;
     }

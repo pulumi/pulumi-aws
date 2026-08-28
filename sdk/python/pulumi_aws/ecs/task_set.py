@@ -311,7 +311,7 @@ class _TaskSetState:
         """
         Input properties used for looking up and filtering TaskSet resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) that identifies the task set.
+        :param pulumi.Input[_builtins.str] arn: ARN that identifies the task set.
         :param pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyArgs']]] capacity_provider_strategies: Capacity provider strategy to use for the service. Can be one or more. Defined below.
         :param pulumi.Input[_builtins.str] cluster: Short name or ARN of the cluster that hosts the service to create the task set in.
         :param pulumi.Input[_builtins.str] external_id: External ID associated with the task set.
@@ -382,7 +382,7 @@ class _TaskSetState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) that identifies the task set.
+        ARN that identifies the task set.
         """
         return pulumi.get(self, "arn")
 
@@ -878,7 +878,7 @@ class TaskSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) that identifies the task set.
+        :param pulumi.Input[_builtins.str] arn: ARN that identifies the task set.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TaskSetCapacityProviderStrategyArgs', 'TaskSetCapacityProviderStrategyArgsDict']]]] capacity_provider_strategies: Capacity provider strategy to use for the service. Can be one or more. Defined below.
         :param pulumi.Input[_builtins.str] cluster: Short name or ARN of the cluster that hosts the service to create the task set in.
         :param pulumi.Input[_builtins.str] external_id: External ID associated with the task set.
@@ -933,7 +933,7 @@ class TaskSet(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) that identifies the task set.
+        ARN that identifies the task set.
         """
         return pulumi.get(self, "arn")
 

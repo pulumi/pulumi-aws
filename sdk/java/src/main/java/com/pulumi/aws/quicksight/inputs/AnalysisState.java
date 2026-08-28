@@ -243,14 +243,14 @@ public final class AnalysisState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
+     * ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
      * 
      */
     @Import(name="themeArn")
     private @Nullable Output<String> themeArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
+     * @return ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
      * 
      */
     public Optional<Output<String>> themeArn() {
@@ -614,7 +614,7 @@ public final class AnalysisState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param themeArn The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
+         * @param themeArn ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
          * 
          * @return builder
          * 
@@ -625,7 +625,7 @@ public final class AnalysisState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param themeArn The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
+         * @param themeArn ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
          * 
          * @return builder
          * 

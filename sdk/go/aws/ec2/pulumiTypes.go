@@ -1992,7 +1992,7 @@ func (o DefaultNetworkAclIngressArrayOutput) Index(i pulumi.IntInput) DefaultNet
 type DefaultRouteTableRoute struct {
 	// The CIDR block of the route.
 	CidrBlock *string `pulumi:"cidrBlock"`
-	// The Amazon Resource Name (ARN) of a core network.
+	// ARN of a core network.
 	CoreNetworkArn *string `pulumi:"coreNetworkArn"`
 	// The ID of a managed prefix list destination of the route.
 	//
@@ -2034,7 +2034,7 @@ type DefaultRouteTableRouteInput interface {
 type DefaultRouteTableRouteArgs struct {
 	// The CIDR block of the route.
 	CidrBlock pulumi.StringPtrInput `pulumi:"cidrBlock"`
-	// The Amazon Resource Name (ARN) of a core network.
+	// ARN of a core network.
 	CoreNetworkArn pulumi.StringPtrInput `pulumi:"coreNetworkArn"`
 	// The ID of a managed prefix list destination of the route.
 	//
@@ -2118,7 +2118,7 @@ func (o DefaultRouteTableRouteOutput) CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DefaultRouteTableRoute) *string { return v.CidrBlock }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of a core network.
+// ARN of a core network.
 func (o DefaultRouteTableRouteOutput) CoreNetworkArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DefaultRouteTableRoute) *string { return v.CoreNetworkArn }).(pulumi.StringPtrOutput)
 }
@@ -4999,7 +4999,7 @@ type FleetLaunchTemplateConfigOverrideInstanceRequirements struct {
 	// Indicates whether burstable performance T instance types are `included`, `excluded`, or `required`. Default is `excluded`.
 	BurstablePerformance *string `pulumi:"burstablePerformance"`
 	// The CPU manufacturers to include. Default is any manufacturer.
-	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the AMI that you specify in your launch template.
 	CpuManufacturers []string `pulumi:"cpuManufacturers"`
 	// The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
 	//
@@ -5070,7 +5070,7 @@ type FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs struct {
 	// Indicates whether burstable performance T instance types are `included`, `excluded`, or `required`. Default is `excluded`.
 	BurstablePerformance pulumi.StringPtrInput `pulumi:"burstablePerformance"`
 	// The CPU manufacturers to include. Default is any manufacturer.
-	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the AMI that you specify in your launch template.
 	CpuManufacturers pulumi.StringArrayInput `pulumi:"cpuManufacturers"`
 	// The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
 	//
@@ -5241,7 +5241,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) BurstablePe
 }
 
 // The CPU manufacturers to include. Default is any manufacturer.
-// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the AMI that you specify in your launch template.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) CpuManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) []string { return v.CpuManufacturers }).(pulumi.StringArrayOutput)
 }
@@ -5457,7 +5457,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) Burstabl
 }
 
 // The CPU manufacturers to include. Default is any manufacturer.
-// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the AMI that you specify in your launch template.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) CpuManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -9141,7 +9141,7 @@ type InstanceEbsBlockDevice struct {
 	Encrypted *bool `pulumi:"encrypted"`
 	// Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
 	Iops *int `pulumi:"iops"`
-	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+	// ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Snapshot ID to mount.
 	SnapshotId *string `pulumi:"snapshotId"`
@@ -9181,7 +9181,7 @@ type InstanceEbsBlockDeviceArgs struct {
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
 	// Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+	// ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// Snapshot ID to mount.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
@@ -9272,7 +9272,7 @@ func (o InstanceEbsBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceEbsBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+// ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 func (o InstanceEbsBlockDeviceOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceEbsBlockDevice) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -11050,7 +11050,7 @@ type InstanceRootBlockDevice struct {
 	Encrypted *bool `pulumi:"encrypted"`
 	// Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
 	Iops *int `pulumi:"iops"`
-	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+	// ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volumeTags` instead, which applies uniform tags to all volumes during instance creation.
 	Tags map[string]string `pulumi:"tags"`
@@ -11088,7 +11088,7 @@ type InstanceRootBlockDeviceArgs struct {
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
 	// Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+	// ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volumeTags` instead, which applies uniform tags to all volumes during instance creation.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -11203,7 +11203,7 @@ func (o InstanceRootBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+// ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 func (o InstanceRootBlockDeviceOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -11304,7 +11304,7 @@ func (o InstanceRootBlockDevicePtrOutput) Iops() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+// ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 func (o InstanceRootBlockDevicePtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceRootBlockDevice) *string {
 		if v == nil {
@@ -13862,7 +13862,7 @@ func (o LaunchTemplateHibernationOptionsPtrOutput) Configured() pulumi.BoolPtrOu
 }
 
 type LaunchTemplateIamInstanceProfile struct {
-	// The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
+	// ARN of the instance profile. Conflicts with `name`.
 	Arn *string `pulumi:"arn"`
 	// The name of the instance profile.
 	Name *string `pulumi:"name"`
@@ -13880,7 +13880,7 @@ type LaunchTemplateIamInstanceProfileInput interface {
 }
 
 type LaunchTemplateIamInstanceProfileArgs struct {
-	// The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
+	// ARN of the instance profile. Conflicts with `name`.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The name of the instance profile.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -13963,7 +13963,7 @@ func (o LaunchTemplateIamInstanceProfileOutput) ToLaunchTemplateIamInstanceProfi
 	}).(LaunchTemplateIamInstanceProfilePtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
+// ARN of the instance profile. Conflicts with `name`.
 func (o LaunchTemplateIamInstanceProfileOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateIamInstanceProfile) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -13997,7 +13997,7 @@ func (o LaunchTemplateIamInstanceProfilePtrOutput) Elem() LaunchTemplateIamInsta
 	}).(LaunchTemplateIamInstanceProfileOutput)
 }
 
-// The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
+// ARN of the instance profile. Conflicts with `name`.
 func (o LaunchTemplateIamInstanceProfilePtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateIamInstanceProfile) *string {
 		if v == nil {
@@ -14415,7 +14415,7 @@ type LaunchTemplateInstanceRequirements struct {
 	BurstablePerformance *string `pulumi:"burstablePerformance"`
 	// List of CPU manufacturer names. Default is any manufacturer.
 	//
-	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the AMI that you specify in your launch template.
 	CpuManufacturers []string `pulumi:"cpuManufacturers"`
 	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
 	//
@@ -14487,7 +14487,7 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	BurstablePerformance pulumi.StringPtrInput `pulumi:"burstablePerformance"`
 	// List of CPU manufacturer names. Default is any manufacturer.
 	//
-	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the AMI that you specify in your launch template.
 	CpuManufacturers pulumi.StringArrayInput `pulumi:"cpuManufacturers"`
 	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
 	//
@@ -14657,7 +14657,7 @@ func (o LaunchTemplateInstanceRequirementsOutput) BurstablePerformance() pulumi.
 
 // List of CPU manufacturer names. Default is any manufacturer.
 //
-// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the AMI that you specify in your launch template.
 func (o LaunchTemplateInstanceRequirementsOutput) CpuManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.CpuManufacturers }).(pulumi.StringArrayOutput)
 }
@@ -14870,7 +14870,7 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) BurstablePerformance() pulu
 
 // List of CPU manufacturer names. Default is any manufacturer.
 //
-// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the AMI that you specify in your launch template.
 func (o LaunchTemplateInstanceRequirementsPtrOutput) CpuManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -22721,7 +22721,7 @@ func (o NetworkInsightsAccessScopeMatchPathSourceResourceStatementPtrOutput) Res
 }
 
 type NetworkInsightsAnalysisAlternatePathHint struct {
-	// The Amazon Resource Name (ARN) of the component.
+	// ARN of the component.
 	ComponentArn *string `pulumi:"componentArn"`
 	// The ID of the component.
 	ComponentId *string `pulumi:"componentId"`
@@ -22739,7 +22739,7 @@ type NetworkInsightsAnalysisAlternatePathHintInput interface {
 }
 
 type NetworkInsightsAnalysisAlternatePathHintArgs struct {
-	// The Amazon Resource Name (ARN) of the component.
+	// ARN of the component.
 	ComponentArn pulumi.StringPtrInput `pulumi:"componentArn"`
 	// The ID of the component.
 	ComponentId pulumi.StringPtrInput `pulumi:"componentId"`
@@ -22796,7 +22796,7 @@ func (o NetworkInsightsAnalysisAlternatePathHintOutput) ToNetworkInsightsAnalysi
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the component.
+// ARN of the component.
 func (o NetworkInsightsAnalysisAlternatePathHintOutput) ComponentArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInsightsAnalysisAlternatePathHint) *string { return v.ComponentArn }).(pulumi.StringPtrOutput)
 }
@@ -34403,7 +34403,7 @@ type RouteTableRoute struct {
 	CarrierGatewayId *string `pulumi:"carrierGatewayId"`
 	// The CIDR block of the route.
 	CidrBlock *string `pulumi:"cidrBlock"`
-	// The Amazon Resource Name (ARN) of a core network.
+	// ARN of a core network.
 	CoreNetworkArn *string `pulumi:"coreNetworkArn"`
 	// The ID of a managed prefix list destination of the route.
 	//
@@ -34421,7 +34421,7 @@ type RouteTableRoute struct {
 	NatGatewayId *string `pulumi:"natGatewayId"`
 	// Identifier of an EC2 network interface.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
-	// The Amazon Resource Name (ARN) of an ODB network.
+	// ARN of an ODB network.
 	OdbNetworkArn *string `pulumi:"odbNetworkArn"`
 	// Identifier of an EC2 Transit Gateway.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
@@ -34449,7 +34449,7 @@ type RouteTableRouteArgs struct {
 	CarrierGatewayId pulumi.StringPtrInput `pulumi:"carrierGatewayId"`
 	// The CIDR block of the route.
 	CidrBlock pulumi.StringPtrInput `pulumi:"cidrBlock"`
-	// The Amazon Resource Name (ARN) of a core network.
+	// ARN of a core network.
 	CoreNetworkArn pulumi.StringPtrInput `pulumi:"coreNetworkArn"`
 	// The ID of a managed prefix list destination of the route.
 	//
@@ -34467,7 +34467,7 @@ type RouteTableRouteArgs struct {
 	NatGatewayId pulumi.StringPtrInput `pulumi:"natGatewayId"`
 	// Identifier of an EC2 network interface.
 	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
-	// The Amazon Resource Name (ARN) of an ODB network.
+	// ARN of an ODB network.
 	OdbNetworkArn pulumi.StringPtrInput `pulumi:"odbNetworkArn"`
 	// Identifier of an EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringPtrInput `pulumi:"transitGatewayId"`
@@ -34540,7 +34540,7 @@ func (o RouteTableRouteOutput) CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteTableRoute) *string { return v.CidrBlock }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of a core network.
+// ARN of a core network.
 func (o RouteTableRouteOutput) CoreNetworkArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteTableRoute) *string { return v.CoreNetworkArn }).(pulumi.StringPtrOutput)
 }
@@ -34582,7 +34582,7 @@ func (o RouteTableRouteOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteTableRoute) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of an ODB network.
+// ARN of an ODB network.
 func (o RouteTableRouteOutput) OdbNetworkArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteTableRoute) *string { return v.OdbNetworkArn }).(pulumi.StringPtrOutput)
 }
@@ -36741,7 +36741,7 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements struct {
 	BurstablePerformance *string `pulumi:"burstablePerformance"`
 	// List of CPU manufacturer names. Default is any manufacturer.
 	//
-	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the AMI that you specify in your launch template.
 	CpuManufacturers []string `pulumi:"cpuManufacturers"`
 	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
 	//
@@ -36811,7 +36811,7 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs struct
 	BurstablePerformance pulumi.StringPtrInput `pulumi:"burstablePerformance"`
 	// List of CPU manufacturer names. Default is any manufacturer.
 	//
-	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the AMI that you specify in your launch template.
 	CpuManufacturers pulumi.StringArrayInput `pulumi:"cpuManufacturers"`
 	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
 	//
@@ -36989,7 +36989,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) 
 
 // List of CPU manufacturer names. Default is any manufacturer.
 //
-// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the AMI that you specify in your launch template.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) CpuManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		return v.CpuManufacturers
@@ -37211,7 +37211,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutpu
 
 // List of CPU manufacturer names. Default is any manufacturer.
 //
-// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the AMI that you specify in your launch template.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) CpuManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -39743,7 +39743,7 @@ type SpotInstanceRequestEbsBlockDevice struct {
 	Encrypted *bool `pulumi:"encrypted"`
 	// Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
 	Iops *int `pulumi:"iops"`
-	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+	// ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Snapshot ID to mount.
 	SnapshotId *string `pulumi:"snapshotId"`
@@ -39782,7 +39782,7 @@ type SpotInstanceRequestEbsBlockDeviceArgs struct {
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
 	// Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+	// ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// Snapshot ID to mount.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
@@ -39872,7 +39872,7 @@ func (o SpotInstanceRequestEbsBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+// ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 func (o SpotInstanceRequestEbsBlockDeviceOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -41145,7 +41145,7 @@ type SpotInstanceRequestRootBlockDevice struct {
 	Encrypted *bool `pulumi:"encrypted"`
 	// Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
 	Iops *int `pulumi:"iops"`
-	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+	// ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volumeTags` instead, which applies uniform tags to all volumes during instance creation.
 	Tags map[string]string `pulumi:"tags"`
@@ -41181,7 +41181,7 @@ type SpotInstanceRequestRootBlockDeviceArgs struct {
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
 	// Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volumeType of `io1`, `io2` or `gp3`.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+	// ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volumeTags` instead, which applies uniform tags to all volumes during instance creation.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -41294,7 +41294,7 @@ func (o SpotInstanceRequestRootBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+// ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 func (o SpotInstanceRequestRootBlockDeviceOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -41393,7 +41393,7 @@ func (o SpotInstanceRequestRootBlockDevicePtrOutput) Iops() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+// ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 func (o SpotInstanceRequestRootBlockDevicePtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotInstanceRequestRootBlockDevice) *string {
 		if v == nil {
@@ -46320,13 +46320,13 @@ func (o VpnConnectionTunnel1LogOptionsPtrOutput) CloudwatchLogOptions() VpnConne
 type VpnConnectionTunnel1LogOptionsCloudwatchLogOptions struct {
 	// Enable or disable BGP logging feature. The default is `false`.
 	BgpLogEnabled *bool `pulumi:"bgpLogEnabled"`
-	// The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+	// ARN of the CloudWatch log group to send BGP logs to.
 	BgpLogGroupArn *string `pulumi:"bgpLogGroupArn"`
 	// Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
 	BgpLogOutputFormat *string `pulumi:"bgpLogOutputFormat"`
 	// Enable or disable VPN tunnel logging feature. The default is `false`.
 	LogEnabled *bool `pulumi:"logEnabled"`
-	// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+	// ARN of the CloudWatch log group to send logs to.
 	LogGroupArn *string `pulumi:"logGroupArn"`
 	// Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
 	LogOutputFormat *string `pulumi:"logOutputFormat"`
@@ -46346,13 +46346,13 @@ type VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsInput interface {
 type VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs struct {
 	// Enable or disable BGP logging feature. The default is `false`.
 	BgpLogEnabled pulumi.BoolPtrInput `pulumi:"bgpLogEnabled"`
-	// The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+	// ARN of the CloudWatch log group to send BGP logs to.
 	BgpLogGroupArn pulumi.StringPtrInput `pulumi:"bgpLogGroupArn"`
 	// Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
 	BgpLogOutputFormat pulumi.StringPtrInput `pulumi:"bgpLogOutputFormat"`
 	// Enable or disable VPN tunnel logging feature. The default is `false`.
 	LogEnabled pulumi.BoolPtrInput `pulumi:"logEnabled"`
-	// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+	// ARN of the CloudWatch log group to send logs to.
 	LogGroupArn pulumi.StringPtrInput `pulumi:"logGroupArn"`
 	// Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
 	LogOutputFormat pulumi.StringPtrInput `pulumi:"logOutputFormat"`
@@ -46440,7 +46440,7 @@ func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) BgpLogEnabled(
 	return o.ApplyT(func(v VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *bool { return v.BgpLogEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+// ARN of the CloudWatch log group to send BGP logs to.
 func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) BgpLogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *string { return v.BgpLogGroupArn }).(pulumi.StringPtrOutput)
 }
@@ -46455,7 +46455,7 @@ func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) LogEnabled() p
 	return o.ApplyT(func(v VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *bool { return v.LogEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+// ARN of the CloudWatch log group to send logs to.
 func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) LogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *string { return v.LogGroupArn }).(pulumi.StringPtrOutput)
 }
@@ -46499,7 +46499,7 @@ func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput) BgpLogEnabl
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+// ARN of the CloudWatch log group to send BGP logs to.
 func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput) BgpLogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *string {
 		if v == nil {
@@ -46529,7 +46529,7 @@ func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput) LogEnabled(
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+// ARN of the CloudWatch log group to send logs to.
 func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput) LogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *string {
 		if v == nil {
@@ -46691,13 +46691,13 @@ func (o VpnConnectionTunnel2LogOptionsPtrOutput) CloudwatchLogOptions() VpnConne
 type VpnConnectionTunnel2LogOptionsCloudwatchLogOptions struct {
 	// Enable or disable BGP logging feature. The default is `false`.
 	BgpLogEnabled *bool `pulumi:"bgpLogEnabled"`
-	// The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+	// ARN of the CloudWatch log group to send BGP logs to.
 	BgpLogGroupArn *string `pulumi:"bgpLogGroupArn"`
 	// Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
 	BgpLogOutputFormat *string `pulumi:"bgpLogOutputFormat"`
 	// Enable or disable VPN tunnel logging feature. The default is `false`.
 	LogEnabled *bool `pulumi:"logEnabled"`
-	// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+	// ARN of the CloudWatch log group to send logs to.
 	LogGroupArn *string `pulumi:"logGroupArn"`
 	// Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
 	LogOutputFormat *string `pulumi:"logOutputFormat"`
@@ -46717,13 +46717,13 @@ type VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsInput interface {
 type VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs struct {
 	// Enable or disable BGP logging feature. The default is `false`.
 	BgpLogEnabled pulumi.BoolPtrInput `pulumi:"bgpLogEnabled"`
-	// The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+	// ARN of the CloudWatch log group to send BGP logs to.
 	BgpLogGroupArn pulumi.StringPtrInput `pulumi:"bgpLogGroupArn"`
 	// Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
 	BgpLogOutputFormat pulumi.StringPtrInput `pulumi:"bgpLogOutputFormat"`
 	// Enable or disable VPN tunnel logging feature. The default is `false`.
 	LogEnabled pulumi.BoolPtrInput `pulumi:"logEnabled"`
-	// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+	// ARN of the CloudWatch log group to send logs to.
 	LogGroupArn pulumi.StringPtrInput `pulumi:"logGroupArn"`
 	// Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
 	LogOutputFormat pulumi.StringPtrInput `pulumi:"logOutputFormat"`
@@ -46811,7 +46811,7 @@ func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) BgpLogEnabled(
 	return o.ApplyT(func(v VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *bool { return v.BgpLogEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+// ARN of the CloudWatch log group to send BGP logs to.
 func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) BgpLogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *string { return v.BgpLogGroupArn }).(pulumi.StringPtrOutput)
 }
@@ -46826,7 +46826,7 @@ func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) LogEnabled() p
 	return o.ApplyT(func(v VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *bool { return v.LogEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+// ARN of the CloudWatch log group to send logs to.
 func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) LogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *string { return v.LogGroupArn }).(pulumi.StringPtrOutput)
 }
@@ -46870,7 +46870,7 @@ func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) BgpLogEnabl
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+// ARN of the CloudWatch log group to send BGP logs to.
 func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) BgpLogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *string {
 		if v == nil {
@@ -46900,7 +46900,7 @@ func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) LogEnabled(
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+// ARN of the CloudWatch log group to send logs to.
 func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) LogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *string {
 		if v == nil {
@@ -46923,7 +46923,7 @@ func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) LogOutputFo
 type VpnConnectionVgwTelemetry struct {
 	// The number of accepted routes.
 	AcceptedRouteCount *int `pulumi:"acceptedRouteCount"`
-	// The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
+	// ARN of the VPN tunnel endpoint certificate.
 	CertificateArn *string `pulumi:"certificateArn"`
 	// The date and time of the last change in status.
 	LastStatusChange *string `pulumi:"lastStatusChange"`
@@ -46949,7 +46949,7 @@ type VpnConnectionVgwTelemetryInput interface {
 type VpnConnectionVgwTelemetryArgs struct {
 	// The number of accepted routes.
 	AcceptedRouteCount pulumi.IntPtrInput `pulumi:"acceptedRouteCount"`
-	// The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
+	// ARN of the VPN tunnel endpoint certificate.
 	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
 	// The date and time of the last change in status.
 	LastStatusChange pulumi.StringPtrInput `pulumi:"lastStatusChange"`
@@ -47017,7 +47017,7 @@ func (o VpnConnectionVgwTelemetryOutput) AcceptedRouteCount() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v VpnConnectionVgwTelemetry) *int { return v.AcceptedRouteCount }).(pulumi.IntPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
+// ARN of the VPN tunnel endpoint certificate.
 func (o VpnConnectionVgwTelemetryOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnConnectionVgwTelemetry) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }

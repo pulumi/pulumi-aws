@@ -17,14 +17,14 @@ public final class PolicyTableState extends com.pulumi.resources.ResourceArgs {
     public static final PolicyTableState Empty = new PolicyTableState();
 
     /**
-     * EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
+     * EC2 Transit Gateway Policy Table ARN.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
+     * @return EC2 Transit Gateway Policy Table ARN.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -136,7 +136,7 @@ public final class PolicyTableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
+         * @param arn EC2 Transit Gateway Policy Table ARN.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class PolicyTableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
+         * @param arn EC2 Transit Gateway Policy Table ARN.
          * 
          * @return builder
          * 

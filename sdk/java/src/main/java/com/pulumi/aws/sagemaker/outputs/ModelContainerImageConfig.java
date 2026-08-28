@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ModelContainerImageConfig {
     /**
-     * @return Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+     * @return Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. Allowed values are: `Platform` and `Vpc`.
      * 
      */
     private String repositoryAccessMode;
@@ -26,7 +26,7 @@ public final class ModelContainerImageConfig {
 
     private ModelContainerImageConfig() {}
     /**
-     * @return Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+     * @return Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. Allowed values are: `Platform` and `Vpc`.
      * 
      */
     public String repositoryAccessMode() {

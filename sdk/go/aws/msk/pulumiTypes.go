@@ -1791,7 +1791,7 @@ func (o ClusterClientAuthenticationSaslPtrOutput) Scram() pulumi.BoolPtrOutput {
 }
 
 type ClusterClientAuthenticationTls struct {
-	// List of ACM Certificate Authority Amazon Resource Names (ARNs).
+	// List of ACM Certificate Authority ARNs.
 	CertificateAuthorityArns []string `pulumi:"certificateAuthorityArns"`
 }
 
@@ -1807,7 +1807,7 @@ type ClusterClientAuthenticationTlsInput interface {
 }
 
 type ClusterClientAuthenticationTlsArgs struct {
-	// List of ACM Certificate Authority Amazon Resource Names (ARNs).
+	// List of ACM Certificate Authority ARNs.
 	CertificateAuthorityArns pulumi.StringArrayInput `pulumi:"certificateAuthorityArns"`
 }
 
@@ -1888,7 +1888,7 @@ func (o ClusterClientAuthenticationTlsOutput) ToClusterClientAuthenticationTlsPt
 	}).(ClusterClientAuthenticationTlsPtrOutput)
 }
 
-// List of ACM Certificate Authority Amazon Resource Names (ARNs).
+// List of ACM Certificate Authority ARNs.
 func (o ClusterClientAuthenticationTlsOutput) CertificateAuthorityArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterClientAuthenticationTls) []string { return v.CertificateAuthorityArns }).(pulumi.StringArrayOutput)
 }
@@ -1917,7 +1917,7 @@ func (o ClusterClientAuthenticationTlsPtrOutput) Elem() ClusterClientAuthenticat
 	}).(ClusterClientAuthenticationTlsOutput)
 }
 
-// List of ACM Certificate Authority Amazon Resource Names (ARNs).
+// List of ACM Certificate Authority ARNs.
 func (o ClusterClientAuthenticationTlsPtrOutput) CertificateAuthorityArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterClientAuthenticationTls) []string {
 		if v == nil {
@@ -1928,7 +1928,7 @@ func (o ClusterClientAuthenticationTlsPtrOutput) CertificateAuthorityArns() pulu
 }
 
 type ClusterConfigurationInfo struct {
-	// Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
+	// ARN of the MSK Configuration to use in the cluster.
 	Arn string `pulumi:"arn"`
 	// Revision of the MSK Configuration to use in the cluster.
 	Revision int `pulumi:"revision"`
@@ -1946,7 +1946,7 @@ type ClusterConfigurationInfoInput interface {
 }
 
 type ClusterConfigurationInfoArgs struct {
-	// Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
+	// ARN of the MSK Configuration to use in the cluster.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Revision of the MSK Configuration to use in the cluster.
 	Revision pulumi.IntInput `pulumi:"revision"`
@@ -2029,7 +2029,7 @@ func (o ClusterConfigurationInfoOutput) ToClusterConfigurationInfoPtrOutputWithC
 	}).(ClusterConfigurationInfoPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
+// ARN of the MSK Configuration to use in the cluster.
 func (o ClusterConfigurationInfoOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterConfigurationInfo) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -2063,7 +2063,7 @@ func (o ClusterConfigurationInfoPtrOutput) Elem() ClusterConfigurationInfoOutput
 	}).(ClusterConfigurationInfoOutput)
 }
 
-// Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
+// ARN of the MSK Configuration to use in the cluster.
 func (o ClusterConfigurationInfoPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterConfigurationInfo) *string {
 		if v == nil {
@@ -4061,7 +4061,7 @@ func (o ReplicatorKafkaClusterAmazonMskClusterOutput) MskClusterArn() pulumi.Str
 type ReplicatorKafkaClusterVpcConfig struct {
 	// The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
 	SecurityGroupsIds []string `pulumi:"securityGroupsIds"`
-	// The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
+	// List of subnets to connect to in the VPC. AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
 	SubnetIds []string `pulumi:"subnetIds"`
 }
 
@@ -4079,7 +4079,7 @@ type ReplicatorKafkaClusterVpcConfigInput interface {
 type ReplicatorKafkaClusterVpcConfigArgs struct {
 	// The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
 	SecurityGroupsIds pulumi.StringArrayInput `pulumi:"securityGroupsIds"`
-	// The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
+	// List of subnets to connect to in the VPC. AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 }
 
@@ -4114,7 +4114,7 @@ func (o ReplicatorKafkaClusterVpcConfigOutput) SecurityGroupsIds() pulumi.String
 	return o.ApplyT(func(v ReplicatorKafkaClusterVpcConfig) []string { return v.SecurityGroupsIds }).(pulumi.StringArrayOutput)
 }
 
-// The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
+// List of subnets to connect to in the VPC. AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
 func (o ReplicatorKafkaClusterVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReplicatorKafkaClusterVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -6446,7 +6446,7 @@ type GetBrokerNodesNodeInfoList struct {
 	BrokerId float64 `pulumi:"brokerId"`
 	// Client subnet to which this broker node belongs
 	ClientSubnet string `pulumi:"clientSubnet"`
-	// The client virtual private cloud (VPC) IP address
+	// Client VPC IP address
 	ClientVpcIpAddress string `pulumi:"clientVpcIpAddress"`
 	// Set of endpoints for accessing the broker. This does not include ports
 	Endpoints []string `pulumi:"endpoints"`
@@ -6472,7 +6472,7 @@ type GetBrokerNodesNodeInfoListArgs struct {
 	BrokerId pulumi.Float64Input `pulumi:"brokerId"`
 	// Client subnet to which this broker node belongs
 	ClientSubnet pulumi.StringInput `pulumi:"clientSubnet"`
-	// The client virtual private cloud (VPC) IP address
+	// Client VPC IP address
 	ClientVpcIpAddress pulumi.StringInput `pulumi:"clientVpcIpAddress"`
 	// Set of endpoints for accessing the broker. This does not include ports
 	Endpoints pulumi.StringArrayInput `pulumi:"endpoints"`
@@ -6546,7 +6546,7 @@ func (o GetBrokerNodesNodeInfoListOutput) ClientSubnet() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBrokerNodesNodeInfoList) string { return v.ClientSubnet }).(pulumi.StringOutput)
 }
 
-// The client virtual private cloud (VPC) IP address
+// Client VPC IP address
 func (o GetBrokerNodesNodeInfoListOutput) ClientVpcIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBrokerNodesNodeInfoList) string { return v.ClientVpcIpAddress }).(pulumi.StringOutput)
 }

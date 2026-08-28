@@ -87,7 +87,7 @@ export class Workteam extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
+     * ARN assigned by AWS to this Workteam.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -188,7 +188,7 @@ export class Workteam extends pulumi.CustomResource {
  */
 export interface WorkteamState {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
+     * ARN assigned by AWS to this Workteam.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws.storagegateway.SmbFileShare` using the SMB File Share Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.storagegateway.SmbFileShare` using the SMB File Share ARN. For example:
  *
  * ```sh
  * $ pulumi import aws:storagegateway/smbFileShare:SmbFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
@@ -89,11 +89,11 @@ export class SmbFileShare extends pulumi.CustomResource {
      */
     declare public readonly adminUserLists: pulumi.Output<string[] | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the SMB File Share.
+     * ARN of the SMB File Share.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+     * ARN of the CloudWatch Log Group used for the audit logs.
      */
     declare public readonly auditDestinationArn: pulumi.Output<string | undefined>;
     /**
@@ -125,7 +125,7 @@ export class SmbFileShare extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly fileshareId: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the file gateway.
+     * ARN of the file gateway.
      */
     declare public readonly gatewayArn: pulumi.Output<string>;
     /**
@@ -141,7 +141,7 @@ export class SmbFileShare extends pulumi.CustomResource {
      */
     declare public readonly kmsEncrypted: pulumi.Output<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
+     * ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
      */
     declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
     /**
@@ -306,11 +306,11 @@ export interface SmbFileShareState {
      */
     adminUserLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the SMB File Share.
+     * ARN of the SMB File Share.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+     * ARN of the CloudWatch Log Group used for the audit logs.
      */
     auditDestinationArn?: pulumi.Input<string | undefined>;
     /**
@@ -342,7 +342,7 @@ export interface SmbFileShareState {
      */
     fileshareId?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the file gateway.
+     * ARN of the file gateway.
      */
     gatewayArn?: pulumi.Input<string | undefined>;
     /**
@@ -358,7 +358,7 @@ export interface SmbFileShareState {
      */
     kmsEncrypted?: pulumi.Input<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
+     * ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
      */
     kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
@@ -434,7 +434,7 @@ export interface SmbFileShareArgs {
      */
     adminUserLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+     * ARN of the CloudWatch Log Group used for the audit logs.
      */
     auditDestinationArn?: pulumi.Input<string | undefined>;
     /**
@@ -462,7 +462,7 @@ export interface SmbFileShareArgs {
      */
     fileShareName?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the file gateway.
+     * ARN of the file gateway.
      */
     gatewayArn: pulumi.Input<string>;
     /**
@@ -478,7 +478,7 @@ export interface SmbFileShareArgs {
      */
     kmsEncrypted?: pulumi.Input<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
+     * ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
      */
     kmsKeyArn?: pulumi.Input<string | undefined>;
     /**

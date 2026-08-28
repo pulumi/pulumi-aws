@@ -83,7 +83,7 @@ export class Alias extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) identifying your state machine alias.
+     * ARN identifying your state machine alias.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -148,7 +148,7 @@ export class Alias extends pulumi.CustomResource {
  */
 export interface AliasState {
     /**
-     * The Amazon Resource Name (ARN) identifying your state machine alias.
+     * ARN identifying your state machine alias.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

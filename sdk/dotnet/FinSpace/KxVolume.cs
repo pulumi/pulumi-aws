@@ -59,7 +59,7 @@ namespace Pulumi.Aws.FinSpace
     public partial class KxVolume : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) identifier of the KX volume.
+        /// ARN identifier of the KX volume.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -282,7 +282,7 @@ namespace Pulumi.Aws.FinSpace
     public sealed class KxVolumeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) identifier of the KX volume.
+        /// ARN identifier of the KX volume.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

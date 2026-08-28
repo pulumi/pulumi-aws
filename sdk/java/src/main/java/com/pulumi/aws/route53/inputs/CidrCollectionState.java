@@ -17,14 +17,14 @@ public final class CidrCollectionState extends com.pulumi.resources.ResourceArgs
     public static final CidrCollectionState Empty = new CidrCollectionState();
 
     /**
-     * The Amazon Resource Name (ARN) of the CIDR collection.
+     * ARN of the CIDR collection.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the CIDR collection.
+     * @return ARN of the CIDR collection.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -88,7 +88,7 @@ public final class CidrCollectionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the CIDR collection.
+         * @param arn ARN of the CIDR collection.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class CidrCollectionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the CIDR collection.
+         * @param arn ARN of the CIDR collection.
          * 
          * @return builder
          * 

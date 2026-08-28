@@ -68,7 +68,7 @@ type GetQuicksightGroupArgs struct {
 
 // A collection of values returned by getQuicksightGroup.
 type GetQuicksightGroupResult struct {
-	// The Amazon Resource Name (ARN) for the group.
+	// ARN for the group.
 	Arn          string `pulumi:"arn"`
 	AwsAccountId string `pulumi:"awsAccountId"`
 	// The group description.
@@ -124,7 +124,7 @@ func (o GetQuicksightGroupResultOutput) ToGetQuicksightGroupResultOutputWithCont
 	return o
 }
 
-// The Amazon Resource Name (ARN) for the group.
+// ARN for the group.
 func (o GetQuicksightGroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQuicksightGroupResult) string { return v.Arn }).(pulumi.StringOutput)
 }

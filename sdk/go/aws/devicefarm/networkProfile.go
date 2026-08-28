@@ -55,7 +55,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the Device Farm network profile.
+// - `arn` (String) ARN of the Device Farm network profile.
 //
 // Using `pulumi import`, import DeviceFarm Network Profiles using their ARN. For example:
 //
@@ -65,7 +65,7 @@ import (
 type NetworkProfile struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name of this network profile.
+	// ARN of this network profile.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The description of the network profile.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -132,7 +132,7 @@ func GetNetworkProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkProfile resources.
 type networkProfileState struct {
-	// The Amazon Resource Name of this network profile.
+	// ARN of this network profile.
 	Arn *string `pulumi:"arn"`
 	// The description of the network profile.
 	Description *string `pulumi:"description"`
@@ -167,7 +167,7 @@ type networkProfileState struct {
 }
 
 type NetworkProfileState struct {
-	// The Amazon Resource Name of this network profile.
+	// ARN of this network profile.
 	Arn pulumi.StringPtrInput
 	// The description of the network profile.
 	Description pulumi.StringPtrInput
@@ -355,7 +355,7 @@ func (o NetworkProfileOutput) ToNetworkProfileOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The Amazon Resource Name of this network profile.
+// ARN of this network profile.
 func (o NetworkProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

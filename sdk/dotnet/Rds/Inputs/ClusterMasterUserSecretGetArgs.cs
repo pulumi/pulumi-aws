@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Rds.Inputs
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the secret.
+        /// ARN of the secret.
         /// </summary>
         [Input("secretArn")]
         public Input<string>? SecretArn { get; set; }

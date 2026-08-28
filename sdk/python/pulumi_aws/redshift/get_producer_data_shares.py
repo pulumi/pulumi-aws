@@ -64,7 +64,7 @@ class GetProducerDataSharesResult:
     @pulumi.getter(name="producerArn")
     def producer_arn(self) -> _builtins.str:
         """
-        ARN (Amazon Resource Name) of the producer.
+        ARN of the producer.
         """
         return pulumi.get(self, "producer_arn")
 
@@ -111,7 +111,7 @@ def get_producer_data_shares(producer_arn: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str producer_arn: Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
+    :param _builtins.str producer_arn: ARN of the producer namespace that returns in the list of datashares.
            
            The following arguments are optional:
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -149,7 +149,7 @@ def get_producer_data_shares_output(producer_arn: pulumi.Input[Optional[_builtin
     ```
 
 
-    :param _builtins.str producer_arn: Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
+    :param _builtins.str producer_arn: ARN of the producer namespace that returns in the list of datashares.
            
            The following arguments are optional:
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

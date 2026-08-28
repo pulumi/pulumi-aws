@@ -59,7 +59,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Global Accelerator listener.
+    /// - `Arn` (String) ARN of the Global Accelerator listener.
     /// 
     /// Using `pulumi import`, import Global Accelerator listeners using the `Id`. For example:
     /// 
@@ -71,13 +71,13 @@ namespace Pulumi.Aws.GlobalAccelerator
     public partial class Listener : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of your accelerator.
+        /// ARN of your accelerator.
         /// </summary>
         [Output("acceleratorArn")]
         public Output<string> AcceleratorArn { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the listener.
+        /// ARN of the listener.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     public sealed class ListenerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of your accelerator.
+        /// ARN of your accelerator.
         /// </summary>
         [Input("acceleratorArn", required: true)]
         public Input<string> AcceleratorArn { get; set; } = null!;
@@ -185,13 +185,13 @@ namespace Pulumi.Aws.GlobalAccelerator
     public sealed class ListenerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of your accelerator.
+        /// ARN of your accelerator.
         /// </summary>
         [Input("acceleratorArn")]
         public Input<string>? AcceleratorArn { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the listener.
+        /// ARN of the listener.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

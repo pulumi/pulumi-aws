@@ -172,7 +172,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<int?> AuthorizerResultTtlInSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// Authorizer's Uniform Resource Identifier (URI). This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`, e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
+        /// Authorizer's URI. This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`, e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
         /// </summary>
         [Output("authorizerUri")]
         public Output<string?> AuthorizerUri { get; private set; } = null!;
@@ -278,7 +278,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<int>? AuthorizerResultTtlInSeconds { get; set; }
 
         /// <summary>
-        /// Authorizer's Uniform Resource Identifier (URI). This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`, e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
+        /// Authorizer's URI. This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`, e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
         /// </summary>
         [Input("authorizerUri")]
         public Input<string>? AuthorizerUri { get; set; }
@@ -358,7 +358,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<int>? AuthorizerResultTtlInSeconds { get; set; }
 
         /// <summary>
-        /// Authorizer's Uniform Resource Identifier (URI). This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`, e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
+        /// Authorizer's URI. This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`, e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
         /// </summary>
         [Input("authorizerUri")]
         public Input<string>? AuthorizerUri { get; set; }

@@ -25,14 +25,14 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
     public static final CustomModelState Empty = new CustomModelState();
 
     /**
-     * The Amazon Resource Name (ARN) of the base model.
+     * ARN of the base model.
      * 
      */
     @Import(name="baseModelIdentifier")
     private @Nullable Output<String> baseModelIdentifier;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the base model.
+     * @return ARN of the base model.
      * 
      */
     public Optional<Output<String>> baseModelIdentifier() {
@@ -190,14 +190,14 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
+     * ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
+     * @return ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -302,14 +302,14 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
+     * Configuration parameters for the private VPC that contains the resources you are using for this job.
      * 
      */
     @Import(name="vpcConfig")
     private @Nullable Output<CustomModelVpcConfigArgs> vpcConfig;
 
     /**
-     * @return Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
+     * @return Configuration parameters for the private VPC that contains the resources you are using for this job.
      * 
      */
     public Optional<Output<CustomModelVpcConfigArgs>> vpcConfig() {
@@ -360,7 +360,7 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param baseModelIdentifier The Amazon Resource Name (ARN) of the base model.
+         * @param baseModelIdentifier ARN of the base model.
          * 
          * @return builder
          * 
@@ -371,7 +371,7 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param baseModelIdentifier The Amazon Resource Name (ARN) of the base model.
+         * @param baseModelIdentifier ARN of the base model.
          * 
          * @return builder
          * 
@@ -591,7 +591,7 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
+         * @param roleArn ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
          * 
          * @return builder
          * 
@@ -602,7 +602,7 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
+         * @param roleArn ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
          * 
          * @return builder
          * 
@@ -767,7 +767,7 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConfig Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
+         * @param vpcConfig Configuration parameters for the private VPC that contains the resources you are using for this job.
          * 
          * @return builder
          * 
@@ -778,7 +778,7 @@ public final class CustomModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConfig Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
+         * @param vpcConfig Configuration parameters for the private VPC that contains the resources you are using for this job.
          * 
          * @return builder
          * 

@@ -93,7 +93,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     declare public readonly alias: pulumi.Output<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the workspace.
+     * ARN of the workspace.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -167,7 +167,7 @@ export interface WorkspaceState {
      */
     alias?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the workspace.
+     * ARN of the workspace.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

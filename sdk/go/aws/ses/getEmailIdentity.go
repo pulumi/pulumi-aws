@@ -58,7 +58,7 @@ type LookupEmailIdentityArgs struct {
 
 // A collection of values returned by getEmailIdentity.
 type LookupEmailIdentityResult struct {
-	// The ARN of the email identity.
+	// ARN of the email identity.
 	Arn string `pulumi:"arn"`
 	// Email identity.
 	Email string `pulumi:"email"`
@@ -103,7 +103,7 @@ func (o LookupEmailIdentityResultOutput) ToLookupEmailIdentityResultOutputWithCo
 	return o
 }
 
-// The ARN of the email identity.
+// ARN of the email identity.
 func (o LookupEmailIdentityResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEmailIdentityResult) string { return v.Arn }).(pulumi.StringOutput)
 }

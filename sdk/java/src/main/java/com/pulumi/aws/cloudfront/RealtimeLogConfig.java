@@ -191,7 +191,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the CloudFront real-time log configuration.
+ * - `arn` (String) ARN of the CloudFront real-time log configuration.
  * 
  * Using `pulumi import`, import CloudFront real-time log configurations using the ARN. For example:
  * 
@@ -203,14 +203,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cloudfront/realtimeLogConfig:RealtimeLogConfig")
 public class RealtimeLogConfig extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+     * ARN of the CloudFront real-time log configuration.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+     * @return ARN of the CloudFront real-time log configuration.
      * 
      */
     public Output<String> arn() {

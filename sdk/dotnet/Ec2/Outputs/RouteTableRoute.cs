@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? CidrBlock;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of a core network.
+        /// ARN of a core network.
         /// </summary>
         public readonly string? CoreNetworkArn;
         /// <summary>
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? NetworkInterfaceId;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an ODB network.
+        /// ARN of an ODB network.
         /// </summary>
         public readonly string? OdbNetworkArn;
         /// <summary>

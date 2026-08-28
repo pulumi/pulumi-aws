@@ -80,7 +80,7 @@ import (
 type IdentityPolicy struct {
 	pulumi.CustomResourceState
 
-	// Name or Amazon Resource Name (ARN) of the SES Identity.
+	// Name or ARN of the SES Identity.
 	Identity pulumi.StringOutput `pulumi:"identity"`
 	// Name of the policy.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -126,7 +126,7 @@ func GetIdentityPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IdentityPolicy resources.
 type identityPolicyState struct {
-	// Name or Amazon Resource Name (ARN) of the SES Identity.
+	// Name or ARN of the SES Identity.
 	Identity *string `pulumi:"identity"`
 	// Name of the policy.
 	Name *string `pulumi:"name"`
@@ -137,7 +137,7 @@ type identityPolicyState struct {
 }
 
 type IdentityPolicyState struct {
-	// Name or Amazon Resource Name (ARN) of the SES Identity.
+	// Name or ARN of the SES Identity.
 	Identity pulumi.StringPtrInput
 	// Name of the policy.
 	Name pulumi.StringPtrInput
@@ -152,7 +152,7 @@ func (IdentityPolicyState) ElementType() reflect.Type {
 }
 
 type identityPolicyArgs struct {
-	// Name or Amazon Resource Name (ARN) of the SES Identity.
+	// Name or ARN of the SES Identity.
 	Identity string `pulumi:"identity"`
 	// Name of the policy.
 	Name *string `pulumi:"name"`
@@ -164,7 +164,7 @@ type identityPolicyArgs struct {
 
 // The set of arguments for constructing a IdentityPolicy resource.
 type IdentityPolicyArgs struct {
-	// Name or Amazon Resource Name (ARN) of the SES Identity.
+	// Name or ARN of the SES Identity.
 	Identity pulumi.StringInput
 	// Name of the policy.
 	Name pulumi.StringPtrInput
@@ -261,7 +261,7 @@ func (o IdentityPolicyOutput) ToIdentityPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Name or Amazon Resource Name (ARN) of the SES Identity.
+// Name or ARN of the SES Identity.
 func (o IdentityPolicyOutput) Identity() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityPolicy) pulumi.StringOutput { return v.Identity }).(pulumi.StringOutput)
 }

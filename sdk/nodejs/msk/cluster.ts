@@ -167,7 +167,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the MSK cluster.
+ * - `arn` (String) ARN of the MSK cluster.
  *
  * Using `pulumi import`, import MSK cluster using the cluster ARN. For example:
  *
@@ -204,7 +204,7 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the MSK cluster.
+     * ARN of the MSK cluster.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -449,7 +449,7 @@ export class Cluster extends pulumi.CustomResource {
  */
 export interface ClusterState {
     /**
-     * Amazon Resource Name (ARN) of the MSK cluster.
+     * ARN of the MSK cluster.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

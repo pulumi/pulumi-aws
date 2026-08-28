@@ -17,14 +17,14 @@ public final class ReplicationSetRegionArgs extends com.pulumi.resources.Resourc
     public static final ReplicationSetRegionArgs Empty = new ReplicationSetRegionArgs();
 
     /**
-     * The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
+     * ARN of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
      * 
      */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
-     * @return The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
+     * @return ARN of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
@@ -106,7 +106,7 @@ public final class ReplicationSetRegionArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param kmsKeyArn The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
+         * @param kmsKeyArn ARN of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class ReplicationSetRegionArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param kmsKeyArn The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
+         * @param kmsKeyArn ARN of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
          * 
          * @return builder
          * 

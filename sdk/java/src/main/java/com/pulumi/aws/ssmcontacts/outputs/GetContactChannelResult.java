@@ -19,7 +19,7 @@ public final class GetContactChannelResult {
     private String activationStatus;
     private String arn;
     /**
-     * @return Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
+     * @return ARN of the AWS SSM Contact that the contact channel belongs to.
      * 
      */
     private String contactId;
@@ -57,7 +57,7 @@ public final class GetContactChannelResult {
         return this.arn;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
+     * @return ARN of the AWS SSM Contact that the contact channel belongs to.
      * 
      */
     public String contactId() {

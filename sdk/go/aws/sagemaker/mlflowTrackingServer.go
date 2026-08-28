@@ -54,7 +54,7 @@ import (
 type MlflowTrackingServer struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) assigned by AWS to this MLFlow Tracking Server.
+	// ARN assigned by AWS to this MLFlow Tracking Server.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
 	ArtifactStoreUri pulumi.StringOutput `pulumi:"artifactStoreUri"`
@@ -64,7 +64,7 @@ type MlflowTrackingServer struct {
 	MlflowVersion pulumi.StringOutput `pulumi:"mlflowVersion"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
+	// ARN for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -119,7 +119,7 @@ func GetMlflowTrackingServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MlflowTrackingServer resources.
 type mlflowTrackingServerState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this MLFlow Tracking Server.
+	// ARN assigned by AWS to this MLFlow Tracking Server.
 	Arn *string `pulumi:"arn"`
 	// The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
 	ArtifactStoreUri *string `pulumi:"artifactStoreUri"`
@@ -129,7 +129,7 @@ type mlflowTrackingServerState struct {
 	MlflowVersion *string `pulumi:"mlflowVersion"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
+	// ARN for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
 	RoleArn *string `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -146,7 +146,7 @@ type mlflowTrackingServerState struct {
 }
 
 type MlflowTrackingServerState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this MLFlow Tracking Server.
+	// ARN assigned by AWS to this MLFlow Tracking Server.
 	Arn pulumi.StringPtrInput
 	// The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
 	ArtifactStoreUri pulumi.StringPtrInput
@@ -156,7 +156,7 @@ type MlflowTrackingServerState struct {
 	MlflowVersion pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
+	// ARN for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
 	RoleArn pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -185,7 +185,7 @@ type mlflowTrackingServerArgs struct {
 	MlflowVersion *string `pulumi:"mlflowVersion"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
+	// ARN for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
 	RoleArn string `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -207,7 +207,7 @@ type MlflowTrackingServerArgs struct {
 	MlflowVersion pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
+	// ARN for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
 	RoleArn pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -306,7 +306,7 @@ func (o MlflowTrackingServerOutput) ToMlflowTrackingServerOutputWithContext(ctx 
 	return o
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this MLFlow Tracking Server.
+// ARN assigned by AWS to this MLFlow Tracking Server.
 func (o MlflowTrackingServerOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MlflowTrackingServer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -331,7 +331,7 @@ func (o MlflowTrackingServerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MlflowTrackingServer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
+// ARN for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
 func (o MlflowTrackingServerOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MlflowTrackingServer) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }

@@ -171,7 +171,7 @@ class _SpaceState:
         """
         Input properties used for looking up and filtering Space resources.
 
-        :param pulumi.Input[_builtins.str] arn: The space's Amazon Resource Name (ARN).
+        :param pulumi.Input[_builtins.str] arn: Space's ARN.
         :param pulumi.Input[_builtins.str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[_builtins.str] home_efs_file_system_uid: The ID of the space's profile in the Amazon Elastic File System volume.
         :param pulumi.Input['SpaceOwnershipSettingsArgs'] ownership_settings: A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
@@ -213,7 +213,7 @@ class _SpaceState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The space's Amazon Resource Name (ARN).
+        Space's ARN.
         """
         return pulumi.get(self, "arn")
 
@@ -513,7 +513,7 @@ class Space(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The space's Amazon Resource Name (ARN).
+        :param pulumi.Input[_builtins.str] arn: Space's ARN.
         :param pulumi.Input[_builtins.str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[_builtins.str] home_efs_file_system_uid: The ID of the space's profile in the Amazon Elastic File System volume.
         :param pulumi.Input[Union['SpaceOwnershipSettingsArgs', 'SpaceOwnershipSettingsArgsDict']] ownership_settings: A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
@@ -548,7 +548,7 @@ class Space(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The space's Amazon Resource Name (ARN).
+        Space's ARN.
         """
         return pulumi.get(self, "arn")
 

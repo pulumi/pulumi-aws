@@ -147,7 +147,7 @@ class _TrackerState:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the tracker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] tracker_arn: The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
+        :param pulumi.Input[_builtins.str] tracker_arn: ARN for the tracker resource. Used when you need to specify a resource across all AWS.
         :param pulumi.Input[_builtins.str] tracker_name: The name of the tracker resource.
                
                The following arguments are optional:
@@ -262,7 +262,7 @@ class _TrackerState:
     @pulumi.getter(name="trackerArn")
     def tracker_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
+        ARN for the tracker resource. Used when you need to specify a resource across all AWS.
         """
         return pulumi.get(self, "tracker_arn")
 
@@ -445,7 +445,7 @@ class Tracker(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the tracker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] tracker_arn: The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
+        :param pulumi.Input[_builtins.str] tracker_arn: ARN for the tracker resource. Used when you need to specify a resource across all AWS.
         :param pulumi.Input[_builtins.str] tracker_name: The name of the tracker resource.
                
                The following arguments are optional:
@@ -527,7 +527,7 @@ class Tracker(pulumi.CustomResource):
     @pulumi.getter(name="trackerArn")
     def tracker_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
+        ARN for the tracker resource. Used when you need to specify a resource across all AWS.
         """
         return pulumi.get(self, "tracker_arn")
 

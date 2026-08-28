@@ -82,7 +82,7 @@ export class Activity extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the activity.
+     * ARN of the activity.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -150,7 +150,7 @@ export class Activity extends pulumi.CustomResource {
  */
 export interface ActivityState {
     /**
-     * Amazon Resource Name (ARN) of the activity.
+     * ARN of the activity.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

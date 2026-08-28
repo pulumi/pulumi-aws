@@ -22,7 +22,7 @@ __all__ = [
 def trim_iam_role_path(arn: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> str:
     """
-    Trims the path prefix from an IAM role Amazon Resource Name (ARN).
+    Trims the path prefix from an IAM role ARN.
     This function can be used when services require role ARNs to be passed without a path.
 
     See the [AWS IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsidentityandaccessmanagementiam.html#awsidentityandaccessmanagementiam-resources-for-iam-policies) for additional information on IAM role ARNs.
@@ -41,7 +41,7 @@ def trim_iam_role_path(arn: Optional[_builtins.str] = None,
 def trim_iam_role_path_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[str]:
     """
-    Trims the path prefix from an IAM role Amazon Resource Name (ARN).
+    Trims the path prefix from an IAM role ARN.
     This function can be used when services require role ARNs to be passed without a path.
 
     See the [AWS IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsidentityandaccessmanagementiam.html#awsidentityandaccessmanagementiam-resources-for-iam-policies) for additional information on IAM role ARNs.

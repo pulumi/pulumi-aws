@@ -279,7 +279,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the CloudTrail trail.
+ * - `arn` (String) ARN of the CloudTrail trail.
  *
  * Using `pulumi import`, import Cloudtrails using the `arn`. For example:
  *

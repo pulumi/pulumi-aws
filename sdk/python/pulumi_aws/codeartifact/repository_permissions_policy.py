@@ -289,7 +289,7 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
 
         #### Required
 
-        - `resource_arn` (String) Amazon Resource Name (ARN) of the CodeArtifact repository.
+        - `resource_arn` (String) ARN of the CodeArtifact repository.
 
         Using `pulumi import`, import CodeArtifact Repository Permissions Policies using the CodeArtifact Repository ARN. For example:
 
@@ -350,7 +350,7 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
 
         #### Required
 
-        - `resource_arn` (String) Amazon Resource Name (ARN) of the CodeArtifact repository.
+        - `resource_arn` (String) ARN of the CodeArtifact repository.
 
         Using `pulumi import`, import CodeArtifact Repository Permissions Policies using the CodeArtifact Repository ARN. For example:
 

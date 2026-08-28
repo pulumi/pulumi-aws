@@ -1006,7 +1006,7 @@ type AutomationRuleCriteria struct {
 	NoteUpdatedAts []AutomationRuleCriteriaNoteUpdatedAt `pulumi:"noteUpdatedAts"`
 	// The principal that created a note. Documented below.
 	NoteUpdatedBies []AutomationRuleCriteriaNoteUpdatedBy `pulumi:"noteUpdatedBies"`
-	// The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
+	// ARN for a third-party product that generated a finding in Security Hub. Documented below.
 	ProductArns []AutomationRuleCriteriaProductArn `pulumi:"productArns"`
 	// Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub. Documented below.
 	ProductNames []AutomationRuleCriteriaProductName `pulumi:"productNames"`
@@ -1016,13 +1016,13 @@ type AutomationRuleCriteria struct {
 	RelatedFindingsIds []AutomationRuleCriteriaRelatedFindingsId `pulumi:"relatedFindingsIds"`
 	// The ARN for the product that generated a related finding. Documented below.
 	RelatedFindingsProductArns []AutomationRuleCriteriaRelatedFindingsProductArn `pulumi:"relatedFindingsProductArns"`
-	// The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
+	// ARN of the application that is related to a finding. Documented below.
 	ResourceApplicationArns []AutomationRuleCriteriaResourceApplicationArn `pulumi:"resourceApplicationArns"`
 	// The name of the application that is related to a finding. Documented below.
 	ResourceApplicationNames []AutomationRuleCriteriaResourceApplicationName `pulumi:"resourceApplicationNames"`
 	// Custom fields and values about the resource that a finding pertains to. Documented below.
 	ResourceDetailsOthers []AutomationRuleCriteriaResourceDetailsOther `pulumi:"resourceDetailsOthers"`
-	// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
+	// Identifier for the given resource type. For AWS resources that are identified by ARNs, this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
 	ResourceIds []AutomationRuleCriteriaResourceId `pulumi:"resourceIds"`
 	// The partition in which the resource that the finding pertains to is located. A partition is a group of AWS Regions. Each AWS account is scoped to one partition. Documented below.
 	ResourcePartitions []AutomationRuleCriteriaResourcePartition `pulumi:"resourcePartitions"`
@@ -1096,7 +1096,7 @@ type AutomationRuleCriteriaArgs struct {
 	NoteUpdatedAts AutomationRuleCriteriaNoteUpdatedAtArrayInput `pulumi:"noteUpdatedAts"`
 	// The principal that created a note. Documented below.
 	NoteUpdatedBies AutomationRuleCriteriaNoteUpdatedByArrayInput `pulumi:"noteUpdatedBies"`
-	// The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
+	// ARN for a third-party product that generated a finding in Security Hub. Documented below.
 	ProductArns AutomationRuleCriteriaProductArnArrayInput `pulumi:"productArns"`
 	// Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub. Documented below.
 	ProductNames AutomationRuleCriteriaProductNameArrayInput `pulumi:"productNames"`
@@ -1106,13 +1106,13 @@ type AutomationRuleCriteriaArgs struct {
 	RelatedFindingsIds AutomationRuleCriteriaRelatedFindingsIdArrayInput `pulumi:"relatedFindingsIds"`
 	// The ARN for the product that generated a related finding. Documented below.
 	RelatedFindingsProductArns AutomationRuleCriteriaRelatedFindingsProductArnArrayInput `pulumi:"relatedFindingsProductArns"`
-	// The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
+	// ARN of the application that is related to a finding. Documented below.
 	ResourceApplicationArns AutomationRuleCriteriaResourceApplicationArnArrayInput `pulumi:"resourceApplicationArns"`
 	// The name of the application that is related to a finding. Documented below.
 	ResourceApplicationNames AutomationRuleCriteriaResourceApplicationNameArrayInput `pulumi:"resourceApplicationNames"`
 	// Custom fields and values about the resource that a finding pertains to. Documented below.
 	ResourceDetailsOthers AutomationRuleCriteriaResourceDetailsOtherArrayInput `pulumi:"resourceDetailsOthers"`
-	// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
+	// Identifier for the given resource type. For AWS resources that are identified by ARNs, this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
 	ResourceIds AutomationRuleCriteriaResourceIdArrayInput `pulumi:"resourceIds"`
 	// The partition in which the resource that the finding pertains to is located. A partition is a group of AWS Regions. Each AWS account is scoped to one partition. Documented below.
 	ResourcePartitions AutomationRuleCriteriaResourcePartitionArrayInput `pulumi:"resourcePartitions"`
@@ -1306,7 +1306,7 @@ func (o AutomationRuleCriteriaOutput) NoteUpdatedBies() AutomationRuleCriteriaNo
 	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaNoteUpdatedBy { return v.NoteUpdatedBies }).(AutomationRuleCriteriaNoteUpdatedByArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
+// ARN for a third-party product that generated a finding in Security Hub. Documented below.
 func (o AutomationRuleCriteriaOutput) ProductArns() AutomationRuleCriteriaProductArnArrayOutput {
 	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaProductArn { return v.ProductArns }).(AutomationRuleCriteriaProductArnArrayOutput)
 }
@@ -1333,7 +1333,7 @@ func (o AutomationRuleCriteriaOutput) RelatedFindingsProductArns() AutomationRul
 	}).(AutomationRuleCriteriaRelatedFindingsProductArnArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
+// ARN of the application that is related to a finding. Documented below.
 func (o AutomationRuleCriteriaOutput) ResourceApplicationArns() AutomationRuleCriteriaResourceApplicationArnArrayOutput {
 	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaResourceApplicationArn {
 		return v.ResourceApplicationArns
@@ -1354,7 +1354,7 @@ func (o AutomationRuleCriteriaOutput) ResourceDetailsOthers() AutomationRuleCrit
 	}).(AutomationRuleCriteriaResourceDetailsOtherArrayOutput)
 }
 
-// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
+// Identifier for the given resource type. For AWS resources that are identified by ARNs, this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
 func (o AutomationRuleCriteriaOutput) ResourceIds() AutomationRuleCriteriaResourceIdArrayOutput {
 	return o.ApplyT(func(v AutomationRuleCriteria) []AutomationRuleCriteriaResourceId { return v.ResourceIds }).(AutomationRuleCriteriaResourceIdArrayOutput)
 }
@@ -1613,7 +1613,7 @@ func (o AutomationRuleCriteriaPtrOutput) NoteUpdatedBies() AutomationRuleCriteri
 	}).(AutomationRuleCriteriaNoteUpdatedByArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
+// ARN for a third-party product that generated a finding in Security Hub. Documented below.
 func (o AutomationRuleCriteriaPtrOutput) ProductArns() AutomationRuleCriteriaProductArnArrayOutput {
 	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaProductArn {
 		if v == nil {
@@ -1663,7 +1663,7 @@ func (o AutomationRuleCriteriaPtrOutput) RelatedFindingsProductArns() Automation
 	}).(AutomationRuleCriteriaRelatedFindingsProductArnArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
+// ARN of the application that is related to a finding. Documented below.
 func (o AutomationRuleCriteriaPtrOutput) ResourceApplicationArns() AutomationRuleCriteriaResourceApplicationArnArrayOutput {
 	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaResourceApplicationArn {
 		if v == nil {
@@ -1693,7 +1693,7 @@ func (o AutomationRuleCriteriaPtrOutput) ResourceDetailsOthers() AutomationRuleC
 	}).(AutomationRuleCriteriaResourceDetailsOtherArrayOutput)
 }
 
-// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
+// Identifier for the given resource type. For AWS resources that are identified by ARNs, this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
 func (o AutomationRuleCriteriaPtrOutput) ResourceIds() AutomationRuleCriteriaResourceIdArrayOutput {
 	return o.ApplyT(func(v *AutomationRuleCriteria) []AutomationRuleCriteriaResourceId {
 		if v == nil {
@@ -9313,7 +9313,7 @@ type ConnectorV2ConnectorProviderServiceNow struct {
 	AuthStatus *string `pulumi:"authStatus"`
 	// Instance name of ServiceNow ITSM.
 	InstanceName string `pulumi:"instanceName"`
-	// Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials.
+	// ARN of the AWS Secrets Manager secret that contains the ServiceNow credentials.
 	SecretArn string `pulumi:"secretArn"`
 }
 
@@ -9333,7 +9333,7 @@ type ConnectorV2ConnectorProviderServiceNowArgs struct {
 	AuthStatus pulumi.StringPtrInput `pulumi:"authStatus"`
 	// Instance name of ServiceNow ITSM.
 	InstanceName pulumi.StringInput `pulumi:"instanceName"`
-	// Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials.
+	// ARN of the AWS Secrets Manager secret that contains the ServiceNow credentials.
 	SecretArn pulumi.StringInput `pulumi:"secretArn"`
 }
 
@@ -9424,7 +9424,7 @@ func (o ConnectorV2ConnectorProviderServiceNowOutput) InstanceName() pulumi.Stri
 	return o.ApplyT(func(v ConnectorV2ConnectorProviderServiceNow) string { return v.InstanceName }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials.
+// ARN of the AWS Secrets Manager secret that contains the ServiceNow credentials.
 func (o ConnectorV2ConnectorProviderServiceNowOutput) SecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorV2ConnectorProviderServiceNow) string { return v.SecretArn }).(pulumi.StringOutput)
 }
@@ -9473,7 +9473,7 @@ func (o ConnectorV2ConnectorProviderServiceNowPtrOutput) InstanceName() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials.
+// ARN of the AWS Secrets Manager secret that contains the ServiceNow credentials.
 func (o ConnectorV2ConnectorProviderServiceNowPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorV2ConnectorProviderServiceNow) *string {
 		if v == nil {
@@ -9711,7 +9711,7 @@ type InsightFilters struct {
 	RelatedFindingsProductArns []InsightFiltersRelatedFindingsProductArn `pulumi:"relatedFindingsProductArns"`
 	// The IAM profile ARN of the instance. See String Filter below for more details.
 	ResourceAwsEc2InstanceIamInstanceProfileArns []InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn `pulumi:"resourceAwsEc2InstanceIamInstanceProfileArns"`
-	// The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
+	// AMI ID of the instance. See String Filter below for more details.
 	ResourceAwsEc2InstanceImageIds []InsightFiltersResourceAwsEc2InstanceImageId `pulumi:"resourceAwsEc2InstanceImageIds"`
 	// The IPv4 addresses associated with the instance. See Ip Filter below for more details.
 	ResourceAwsEc2InstanceIpv4Addresses []InsightFiltersResourceAwsEc2InstanceIpv4Address `pulumi:"resourceAwsEc2InstanceIpv4Addresses"`
@@ -9911,7 +9911,7 @@ type InsightFiltersArgs struct {
 	RelatedFindingsProductArns InsightFiltersRelatedFindingsProductArnArrayInput `pulumi:"relatedFindingsProductArns"`
 	// The IAM profile ARN of the instance. See String Filter below for more details.
 	ResourceAwsEc2InstanceIamInstanceProfileArns InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArrayInput `pulumi:"resourceAwsEc2InstanceIamInstanceProfileArns"`
-	// The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
+	// AMI ID of the instance. See String Filter below for more details.
 	ResourceAwsEc2InstanceImageIds InsightFiltersResourceAwsEc2InstanceImageIdArrayInput `pulumi:"resourceAwsEc2InstanceImageIds"`
 	// The IPv4 addresses associated with the instance. See Ip Filter below for more details.
 	ResourceAwsEc2InstanceIpv4Addresses InsightFiltersResourceAwsEc2InstanceIpv4AddressArrayInput `pulumi:"resourceAwsEc2InstanceIpv4Addresses"`
@@ -10366,7 +10366,7 @@ func (o InsightFiltersOutput) ResourceAwsEc2InstanceIamInstanceProfileArns() Ins
 	}).(InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArrayOutput)
 }
 
-// The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
+// AMI ID of the instance. See String Filter below for more details.
 func (o InsightFiltersOutput) ResourceAwsEc2InstanceImageIds() InsightFiltersResourceAwsEc2InstanceImageIdArrayOutput {
 	return o.ApplyT(func(v InsightFilters) []InsightFiltersResourceAwsEc2InstanceImageId {
 		return v.ResourceAwsEc2InstanceImageIds
@@ -11173,7 +11173,7 @@ func (o InsightFiltersPtrOutput) ResourceAwsEc2InstanceIamInstanceProfileArns() 
 	}).(InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArrayOutput)
 }
 
-// The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
+// AMI ID of the instance. See String Filter below for more details.
 func (o InsightFiltersPtrOutput) ResourceAwsEc2InstanceImageIds() InsightFiltersResourceAwsEc2InstanceImageIdArrayOutput {
 	return o.ApplyT(func(v *InsightFilters) []InsightFiltersResourceAwsEc2InstanceImageId {
 		if v == nil {

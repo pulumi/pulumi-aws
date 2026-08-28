@@ -111,13 +111,13 @@ namespace Pulumi.Aws.SsoAdmin
     public partial class ManagedPolicyAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        /// ARN of the SSO Instance under which the operation will be executed.
         /// </summary>
         [Output("instanceArn")]
         public Output<string> InstanceArn { get; private set; } = null!;
 
         /// <summary>
-        /// The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
+        /// IAM managed policy ARN to be attached to the Permission Set.
         /// </summary>
         [Output("managedPolicyArn")]
         public Output<string> ManagedPolicyArn { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.SsoAdmin
         public Output<string> ManagedPolicyName { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Permission Set.
+        /// ARN of the Permission Set.
         /// </summary>
         [Output("permissionSetArn")]
         public Output<string> PermissionSetArn { get; private set; } = null!;
@@ -187,19 +187,19 @@ namespace Pulumi.Aws.SsoAdmin
     public sealed class ManagedPolicyAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        /// ARN of the SSO Instance under which the operation will be executed.
         /// </summary>
         [Input("instanceArn", required: true)]
         public Input<string> InstanceArn { get; set; } = null!;
 
         /// <summary>
-        /// The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
+        /// IAM managed policy ARN to be attached to the Permission Set.
         /// </summary>
         [Input("managedPolicyArn", required: true)]
         public Input<string> ManagedPolicyArn { get; set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Permission Set.
+        /// ARN of the Permission Set.
         /// </summary>
         [Input("permissionSetArn", required: true)]
         public Input<string> PermissionSetArn { get; set; } = null!;
@@ -219,13 +219,13 @@ namespace Pulumi.Aws.SsoAdmin
     public sealed class ManagedPolicyAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        /// ARN of the SSO Instance under which the operation will be executed.
         /// </summary>
         [Input("instanceArn")]
         public Input<string>? InstanceArn { get; set; }
 
         /// <summary>
-        /// The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
+        /// IAM managed policy ARN to be attached to the Permission Set.
         /// </summary>
         [Input("managedPolicyArn")]
         public Input<string>? ManagedPolicyArn { get; set; }
@@ -237,7 +237,7 @@ namespace Pulumi.Aws.SsoAdmin
         public Input<string>? ManagedPolicyName { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Permission Set.
+        /// ARN of the Permission Set.
         /// </summary>
         [Input("permissionSetArn")]
         public Input<string>? PermissionSetArn { get; set; }

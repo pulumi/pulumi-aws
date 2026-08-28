@@ -94,7 +94,7 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the CodeBuild report group.
+    /// - `Arn` (String) ARN of the CodeBuild report group.
     /// 
     /// Using `pulumi import`, import CodeBuild Report Group using the CodeBuild Report Group arn. For example:
     /// 

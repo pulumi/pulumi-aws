@@ -93,7 +93,7 @@ namespace Pulumi.Aws.RolesAnywhere
     public partial class TrustAnchor : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Trust Anchor
+        /// ARN of the Trust Anchor
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -224,7 +224,7 @@ namespace Pulumi.Aws.RolesAnywhere
     public sealed class TrustAnchorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Trust Anchor
+        /// ARN of the Trust Anchor
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -169,14 +169,14 @@ public class OntapStorageVirtualMachine extends com.pulumi.resources.CustomResou
         return Codegen.optional(this.activeDirectoryConfiguration);
     }
     /**
-     * Amazon Resource Name of the storage virtual machine.
+     * ARN of the storage virtual machine.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name of the storage virtual machine.
+     * @return ARN of the storage virtual machine.
      * 
      */
     public Output<String> arn() {

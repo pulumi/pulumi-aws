@@ -50,7 +50,7 @@ class MetricAlarmArgs:
         The set of arguments for constructing a MetricAlarm resource.
 
         :param pulumi.Input[_builtins.bool] actions_enabled: Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alarm_actions: The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alarm_actions: List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
         :param pulumi.Input[_builtins.str] alarm_description: The description for the alarm.
         :param pulumi.Input[_builtins.str] comparison_operator: The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
         :param pulumi.Input[_builtins.int] datapoints_to_alarm: The number of data points that must be breaching to trigger the alarm.
@@ -63,14 +63,14 @@ class MetricAlarmArgs:
         :param pulumi.Input[_builtins.int] evaluation_interval: The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluation_criteria`.
         :param pulumi.Input[_builtins.int] evaluation_periods: The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
         :param pulumi.Input[_builtins.str] extended_statistic: The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] insufficient_data_actions: The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] insufficient_data_actions: List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
         :param pulumi.Input[_builtins.str] metric_name: The name for the alarm's associated metric.
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         :param pulumi.Input[Sequence[pulumi.Input['MetricAlarmMetricQueryArgs']]] metric_queries: Enables you to create an alarm based on a metric math expression. You may specify at most 20.
         :param pulumi.Input[_builtins.str] name: The descriptive name for the alarm. This name must be unique within the user's AWS account
         :param pulumi.Input[_builtins.str] namespace: The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ok_actions: The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ok_actions: List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
         :param pulumi.Input[_builtins.int] period: The period in seconds over which the specified `statistic` is applied.
                Valid values are `10`, `20`, `30`, or any multiple of `60`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -154,7 +154,7 @@ class MetricAlarmArgs:
     @pulumi.getter(name="alarmActions")
     def alarm_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
         """
         return pulumi.get(self, "alarm_actions")
 
@@ -277,7 +277,7 @@ class MetricAlarmArgs:
     @pulumi.getter(name="insufficientDataActions")
     def insufficient_data_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
         """
         return pulumi.get(self, "insufficient_data_actions")
 
@@ -339,7 +339,7 @@ class MetricAlarmArgs:
     @pulumi.getter(name="okActions")
     def ok_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
         """
         return pulumi.get(self, "ok_actions")
 
@@ -485,7 +485,7 @@ class _MetricAlarmState:
         Input properties used for looking up and filtering MetricAlarm resources.
 
         :param pulumi.Input[_builtins.bool] actions_enabled: Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alarm_actions: The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alarm_actions: List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
         :param pulumi.Input[_builtins.str] alarm_description: The description for the alarm.
         :param pulumi.Input[_builtins.str] arn: The ARN of the CloudWatch Metric Alarm.
         :param pulumi.Input[_builtins.str] comparison_operator: The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
@@ -499,14 +499,14 @@ class _MetricAlarmState:
         :param pulumi.Input[_builtins.int] evaluation_interval: The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluation_criteria`.
         :param pulumi.Input[_builtins.int] evaluation_periods: The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
         :param pulumi.Input[_builtins.str] extended_statistic: The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] insufficient_data_actions: The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] insufficient_data_actions: List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
         :param pulumi.Input[_builtins.str] metric_name: The name for the alarm's associated metric.
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         :param pulumi.Input[Sequence[pulumi.Input['MetricAlarmMetricQueryArgs']]] metric_queries: Enables you to create an alarm based on a metric math expression. You may specify at most 20.
         :param pulumi.Input[_builtins.str] name: The descriptive name for the alarm. This name must be unique within the user's AWS account
         :param pulumi.Input[_builtins.str] namespace: The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ok_actions: The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ok_actions: List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
         :param pulumi.Input[_builtins.int] period: The period in seconds over which the specified `statistic` is applied.
                Valid values are `10`, `20`, `30`, or any multiple of `60`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -595,7 +595,7 @@ class _MetricAlarmState:
     @pulumi.getter(name="alarmActions")
     def alarm_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
         """
         return pulumi.get(self, "alarm_actions")
 
@@ -730,7 +730,7 @@ class _MetricAlarmState:
     @pulumi.getter(name="insufficientDataActions")
     def insufficient_data_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
         """
         return pulumi.get(self, "insufficient_data_actions")
 
@@ -792,7 +792,7 @@ class _MetricAlarmState:
     @pulumi.getter(name="okActions")
     def ok_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
         """
         return pulumi.get(self, "ok_actions")
 
@@ -1184,7 +1184,7 @@ class MetricAlarm(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] actions_enabled: Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alarm_actions: The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alarm_actions: List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
         :param pulumi.Input[_builtins.str] alarm_description: The description for the alarm.
         :param pulumi.Input[_builtins.str] comparison_operator: The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
         :param pulumi.Input[_builtins.int] datapoints_to_alarm: The number of data points that must be breaching to trigger the alarm.
@@ -1197,14 +1197,14 @@ class MetricAlarm(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] evaluation_interval: The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluation_criteria`.
         :param pulumi.Input[_builtins.int] evaluation_periods: The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
         :param pulumi.Input[_builtins.str] extended_statistic: The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] insufficient_data_actions: The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] insufficient_data_actions: List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
         :param pulumi.Input[_builtins.str] metric_name: The name for the alarm's associated metric.
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         :param pulumi.Input[Sequence[pulumi.Input[Union['MetricAlarmMetricQueryArgs', 'MetricAlarmMetricQueryArgsDict']]]] metric_queries: Enables you to create an alarm based on a metric math expression. You may specify at most 20.
         :param pulumi.Input[_builtins.str] name: The descriptive name for the alarm. This name must be unique within the user's AWS account
         :param pulumi.Input[_builtins.str] namespace: The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ok_actions: The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ok_actions: List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
         :param pulumi.Input[_builtins.int] period: The period in seconds over which the specified `statistic` is applied.
                Valid values are `10`, `20`, `30`, or any multiple of `60`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -1581,7 +1581,7 @@ class MetricAlarm(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] actions_enabled: Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alarm_actions: The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alarm_actions: List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
         :param pulumi.Input[_builtins.str] alarm_description: The description for the alarm.
         :param pulumi.Input[_builtins.str] arn: The ARN of the CloudWatch Metric Alarm.
         :param pulumi.Input[_builtins.str] comparison_operator: The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
@@ -1595,14 +1595,14 @@ class MetricAlarm(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] evaluation_interval: The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluation_criteria`.
         :param pulumi.Input[_builtins.int] evaluation_periods: The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
         :param pulumi.Input[_builtins.str] extended_statistic: The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] insufficient_data_actions: The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] insufficient_data_actions: List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
         :param pulumi.Input[_builtins.str] metric_name: The name for the alarm's associated metric.
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         :param pulumi.Input[Sequence[pulumi.Input[Union['MetricAlarmMetricQueryArgs', 'MetricAlarmMetricQueryArgsDict']]]] metric_queries: Enables you to create an alarm based on a metric math expression. You may specify at most 20.
         :param pulumi.Input[_builtins.str] name: The descriptive name for the alarm. This name must be unique within the user's AWS account
         :param pulumi.Input[_builtins.str] namespace: The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ok_actions: The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ok_actions: List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
         :param pulumi.Input[_builtins.int] period: The period in seconds over which the specified `statistic` is applied.
                Valid values are `10`, `20`, `30`, or any multiple of `60`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -1665,7 +1665,7 @@ class MetricAlarm(pulumi.CustomResource):
     @pulumi.getter(name="alarmActions")
     def alarm_actions(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
         """
         return pulumi.get(self, "alarm_actions")
 
@@ -1756,7 +1756,7 @@ class MetricAlarm(pulumi.CustomResource):
     @pulumi.getter(name="insufficientDataActions")
     def insufficient_data_actions(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
         """
         return pulumi.get(self, "insufficient_data_actions")
 
@@ -1798,7 +1798,7 @@ class MetricAlarm(pulumi.CustomResource):
     @pulumi.getter(name="okActions")
     def ok_actions(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
         """
         return pulumi.get(self, "ok_actions")
 

@@ -127,11 +127,11 @@ export class AccountAssignment extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance.
+     * ARN of the SSO Instance.
      */
     declare public readonly instanceArn: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+     * ARN of the Permission Set that the admin wants to grant the principal access to.
      */
     declare public readonly permissionSetArn: pulumi.Output<string>;
     /**
@@ -213,11 +213,11 @@ export class AccountAssignment extends pulumi.CustomResource {
  */
 export interface AccountAssignmentState {
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance.
+     * ARN of the SSO Instance.
      */
     instanceArn?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+     * ARN of the Permission Set that the admin wants to grant the principal access to.
      */
     permissionSetArn?: pulumi.Input<string | undefined>;
     /**
@@ -247,11 +247,11 @@ export interface AccountAssignmentState {
  */
 export interface AccountAssignmentArgs {
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance.
+     * ARN of the SSO Instance.
      */
     instanceArn: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+     * ARN of the Permission Set that the admin wants to grant the principal access to.
      */
     permissionSetArn: pulumi.Input<string>;
     /**

@@ -254,6 +254,52 @@ namespace Pulumi.Aws.Rds
     /// });
     /// ```
     /// 
+    /// ### Disabling Master Password Rotation
+    /// 
+    /// &gt; **Note:** The `aws.secretsmanager.SecretRotation` resource must depend on a cluster instance, otherwise AWS re-enables rotation once the instance finishes provisioning. Use `DependsOn` as shown below when the cluster and its instance are created together.
+    /// 
+    /// When `ManageMasterUserPassword` is enabled, Secrets Manager rotates the master user password automatically (every 7 days by default). To disable that rotation while keeping the managed secret, manage the secret's rotation with `aws.secretsmanager.SecretRotation` and set `RotationEnabled = false`.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Rds.Cluster("test", new()
+    ///     {
+    ///         ClusterIdentifier = "example",
+    ///         DatabaseName = "test",
+    ///         ManageMasterUserPassword = true,
+    ///         MasterUsername = "test",
+    ///     });
+    /// 
+    ///     var testClusterInstance = new Aws.Rds.ClusterInstance("test", new()
+    ///     {
+    ///         ClusterIdentifier = test.Id,
+    ///         Identifier = "example-1",
+    ///         InstanceClass = Aws.Rds.InstanceType.R6G_Large,
+    ///         Engine = test.Engine.Apply(System.Enum.Parse&lt;Aws.Rds.EngineType&gt;),
+    ///         EngineVersion = test.EngineVersion,
+    ///     });
+    /// 
+    ///     var testSecretRotation = new Aws.SecretsManager.SecretRotation("test", new()
+    ///     {
+    ///         SecretId = test.MasterUserSecrets.Apply(masterUserSecrets =&gt; masterUserSecrets[0].SecretArn),
+    ///         RotationEnabled = false,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             testClusterInstance,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Global Cluster Restored From Snapshot
     /// 
     /// ```csharp
@@ -336,7 +382,7 @@ namespace Pulumi.Aws.Rds
         public Output<bool> ApplyImmediately { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of cluster
+        /// ARN of cluster
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -1326,7 +1372,7 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? ApplyImmediately { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of cluster
+        /// ARN of cluster
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

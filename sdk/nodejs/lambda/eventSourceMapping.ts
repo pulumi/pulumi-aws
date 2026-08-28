@@ -319,7 +319,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     declare public readonly functionResponseTypes: pulumi.Output<string[] | undefined>;
     /**
-     * ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
+     * ARN of the KMS customer managed key that Lambda uses to encrypt your function's filter criteria.
      */
     declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
     /**
@@ -572,7 +572,7 @@ export interface EventSourceMappingState {
      */
     functionResponseTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
+     * ARN of the KMS customer managed key that Lambda uses to encrypt your function's filter criteria.
      */
     kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
@@ -720,7 +720,7 @@ export interface EventSourceMappingArgs {
      */
     functionResponseTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
+     * ARN of the KMS customer managed key that Lambda uses to encrypt your function's filter criteria.
      */
     kmsKeyArn?: pulumi.Input<string | undefined>;
     /**

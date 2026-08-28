@@ -56,14 +56,14 @@ public final class GetTaskExecutionArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
+     * Short name or full ARN of the cluster to run the task on.
      * 
      */
     @Import(name="cluster", required=true)
     private Output<String> cluster;
 
     /**
-     * @return Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
+     * @return Short name or full ARN of the cluster to run the task on.
      * 
      */
     public Output<String> cluster() {
@@ -409,7 +409,7 @@ public final class GetTaskExecutionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param cluster Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
+         * @param cluster Short name or full ARN of the cluster to run the task on.
          * 
          * @return builder
          * 
@@ -420,7 +420,7 @@ public final class GetTaskExecutionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param cluster Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
+         * @param cluster Short name or full ARN of the cluster to run the task on.
          * 
          * @return builder
          * 

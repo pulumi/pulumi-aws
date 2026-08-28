@@ -54,7 +54,7 @@ export interface GetUserPoolsArgs {
  */
 export interface GetUserPoolsResult {
     /**
-     * Set of cognito user pool Amazon Resource Names (ARNs).
+     * Set of cognito user pool ARNs.
      */
     readonly arns: string[];
     /**

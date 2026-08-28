@@ -118,14 +118,14 @@ public class EnvironmentMembership extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) of the environment member you want to add.
+     * ARN of the environment member you want to add.
      * 
      */
     @Export(name="userArn", refs={String.class}, tree="[0]")
     private Output<String> userArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the environment member you want to add.
+     * @return ARN of the environment member you want to add.
      * 
      */
     public Output<String> userArn() {

@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+// Manages a Site-to-Site VPN connection. A Site-to-Site VPN connection is an IP security (IPsec) VPN connection between a VPC and an on-premises network.
 // Any new Site-to-Site VPN connection that you create is an [AWS VPN connection](https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-categories.html).
 //
 // > **Note:** The CIDR blocks in the arguments `tunnel1InsideCidr` and `tunnel2InsideCidr` must have a prefix of /30 and be a part of a specific range.
@@ -197,7 +197,7 @@ import (
 type VpnConnection struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the VPN Connection.
+	// ARN of the VPN Connection.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ARN of the core network.
 	CoreNetworkArn pulumi.StringOutput `pulumi:"coreNetworkArn"`
@@ -401,7 +401,7 @@ func GetVpnConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpnConnection resources.
 type vpnConnectionState struct {
-	// Amazon Resource Name (ARN) of the VPN Connection.
+	// ARN of the VPN Connection.
 	Arn *string `pulumi:"arn"`
 	// The ARN of the core network.
 	CoreNetworkArn *string `pulumi:"coreNetworkArn"`
@@ -558,7 +558,7 @@ type vpnConnectionState struct {
 }
 
 type VpnConnectionState struct {
-	// Amazon Resource Name (ARN) of the VPN Connection.
+	// ARN of the VPN Connection.
 	Arn pulumi.StringPtrInput
 	// The ARN of the core network.
 	CoreNetworkArn pulumi.StringPtrInput
@@ -1044,7 +1044,7 @@ func (o VpnConnectionOutput) ToVpnConnectionOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Amazon Resource Name (ARN) of the VPN Connection.
+// ARN of the VPN Connection.
 func (o VpnConnectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

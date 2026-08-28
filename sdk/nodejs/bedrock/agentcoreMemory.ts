@@ -61,10 +61,21 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Bedrock AgentCore Memory using the memory ID. For example:
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `id` (String) Memory ID.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) Account ID where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
+ * Using `pulumi import`, import memories using `id`. For example:
  *
  * ```sh
- * $ pulumi import aws:bedrock/agentcoreMemory:AgentcoreMemory example MEMORY1234567890
+ * $ pulumi import aws:bedrock/agentcoreMemory:AgentcoreMemory example example_memory-5xKsqQHSWW
  * ```
  */
 export class AgentcoreMemory extends pulumi.CustomResource {
@@ -112,7 +123,7 @@ export class AgentcoreMemory extends pulumi.CustomResource {
      */
     declare public readonly eventExpiryDuration: pulumi.Output<number>;
     /**
-     * Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexedKey` below.
+     * Metadata keys to index for filtering. Up to 10 entries. Additional keys can be added in place; removing or changing an existing key forces a new resource to be created, because previously indexed keys cannot be removed. See `indexedKey` Block below.
      */
     declare public readonly indexedKeys: pulumi.Output<outputs.bedrock.AgentcoreMemoryIndexedKey[] | undefined>;
     /**
@@ -130,7 +141,7 @@ export class AgentcoreMemory extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Configuration for streaming memory record data to external resources. See `streamDeliveryResources` below.
+     * Configuration for streaming memory record data to external resources. See `streamDeliveryResources` Block below.
      */
     declare public readonly streamDeliveryResources: pulumi.Output<outputs.bedrock.AgentcoreMemoryStreamDeliveryResources | undefined>;
     /**
@@ -138,7 +149,7 @@ export class AgentcoreMemory extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.bedrock.AgentcoreMemoryTimeouts | undefined>;
@@ -212,7 +223,7 @@ export interface AgentcoreMemoryState {
      */
     eventExpiryDuration?: pulumi.Input<number | undefined>;
     /**
-     * Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexedKey` below.
+     * Metadata keys to index for filtering. Up to 10 entries. Additional keys can be added in place; removing or changing an existing key forces a new resource to be created, because previously indexed keys cannot be removed. See `indexedKey` Block below.
      */
     indexedKeys?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreMemoryIndexedKey>[] | undefined>;
     /**
@@ -230,7 +241,7 @@ export interface AgentcoreMemoryState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Configuration for streaming memory record data to external resources. See `streamDeliveryResources` below.
+     * Configuration for streaming memory record data to external resources. See `streamDeliveryResources` Block below.
      */
     streamDeliveryResources?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStreamDeliveryResources | undefined>;
     /**
@@ -238,7 +249,7 @@ export interface AgentcoreMemoryState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentcoreMemoryTimeouts | undefined>;
@@ -261,7 +272,7 @@ export interface AgentcoreMemoryArgs {
      */
     eventExpiryDuration: pulumi.Input<number>;
     /**
-     * Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexedKey` below.
+     * Metadata keys to index for filtering. Up to 10 entries. Additional keys can be added in place; removing or changing an existing key forces a new resource to be created, because previously indexed keys cannot be removed. See `indexedKey` Block below.
      */
     indexedKeys?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreMemoryIndexedKey>[] | undefined>;
     /**
@@ -279,7 +290,7 @@ export interface AgentcoreMemoryArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Configuration for streaming memory record data to external resources. See `streamDeliveryResources` below.
+     * Configuration for streaming memory record data to external resources. See `streamDeliveryResources` Block below.
      */
     streamDeliveryResources?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStreamDeliveryResources | undefined>;
     /**

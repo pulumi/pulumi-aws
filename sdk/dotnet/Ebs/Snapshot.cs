@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Ebs
     public partial class Snapshot : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the EBS Snapshot.
+        /// ARN of the EBS Snapshot.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Ebs
         public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+        /// ARN of the Outpost on which to create a local snapshot.
         /// </summary>
         [Output("outpostArn")]
         public Output<string?> OutpostArn { get; private set; } = null!;
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.Ebs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+        /// ARN of the Outpost on which to create a local snapshot.
         /// </summary>
         [Input("outpostArn")]
         public Input<string>? OutpostArn { get; set; }
@@ -260,7 +260,7 @@ namespace Pulumi.Aws.Ebs
     public sealed class SnapshotState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the EBS Snapshot.
+        /// ARN of the EBS Snapshot.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -290,7 +290,7 @@ namespace Pulumi.Aws.Ebs
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+        /// ARN of the Outpost on which to create a local snapshot.
         /// </summary>
         [Input("outpostArn")]
         public Input<string>? OutpostArn { get; set; }

@@ -133,14 +133,14 @@ public class TrafficMirrorTarget extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.networkInterfaceId);
     }
     /**
-     * The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+     * ARN of the Network Load Balancer that is associated with the target.
      * 
      */
     @Export(name="networkLoadBalancerArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> networkLoadBalancerArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+     * @return ARN of the Network Load Balancer that is associated with the target.
      * 
      */
     public Output<Optional<String>> networkLoadBalancerArn() {

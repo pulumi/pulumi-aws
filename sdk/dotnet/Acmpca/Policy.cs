@@ -110,7 +110,7 @@ namespace Pulumi.Aws.Acmpca
     /// 
     /// #### Required
     /// 
-    /// - `ResourceArn` (String) Amazon Resource Name (ARN) of the ACM PCA certificate authority.
+    /// - `ResourceArn` (String) ARN of the ACM PCA certificate authority.
     /// 
     /// Using `pulumi import`, import `aws.acmpca.Policy` using the `ResourceArn` value. For example:
     /// 

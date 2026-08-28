@@ -186,7 +186,7 @@ class _EventSubscriptionState:
         """
         Input properties used for looking up and filtering EventSubscription resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of the Neptune event notification subscription.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Neptune event notification subscription.
         :param pulumi.Input[_builtins.str] customer_aws_id: The AWS customer account associated with the Neptune event notification subscription.
         :param pulumi.Input[_builtins.bool] enabled: A boolean flag to enable/disable the subscription. Defaults to true.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_categories: A list of event categories for a `source_type` that you want to subscribe to. Run `aws neptune describe-event-categories` to find all the event categories.
@@ -228,7 +228,7 @@ class _EventSubscriptionState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name of the Neptune event notification subscription.
+        ARN of the Neptune event notification subscription.
         """
         return pulumi.get(self, "arn")
 
@@ -587,7 +587,7 @@ class EventSubscription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of the Neptune event notification subscription.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Neptune event notification subscription.
         :param pulumi.Input[_builtins.str] customer_aws_id: The AWS customer account associated with the Neptune event notification subscription.
         :param pulumi.Input[_builtins.bool] enabled: A boolean flag to enable/disable the subscription. Defaults to true.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_categories: A list of event categories for a `source_type` that you want to subscribe to. Run `aws neptune describe-event-categories` to find all the event categories.
@@ -622,7 +622,7 @@ class EventSubscription(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name of the Neptune event notification subscription.
+        ARN of the Neptune event notification subscription.
         """
         return pulumi.get(self, "arn")
 

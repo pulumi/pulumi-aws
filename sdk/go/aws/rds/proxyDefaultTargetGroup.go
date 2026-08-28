@@ -28,7 +28,7 @@ import (
 type ProxyDefaultTargetGroup struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) representing the target group.
+	// ARN representing the target group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The settings that determine the size and behavior of the connection pool for the target group.
 	ConnectionPoolConfig ProxyDefaultTargetGroupConnectionPoolConfigOutput `pulumi:"connectionPoolConfig"`
@@ -73,7 +73,7 @@ func GetProxyDefaultTargetGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProxyDefaultTargetGroup resources.
 type proxyDefaultTargetGroupState struct {
-	// The Amazon Resource Name (ARN) representing the target group.
+	// ARN representing the target group.
 	Arn *string `pulumi:"arn"`
 	// The settings that determine the size and behavior of the connection pool for the target group.
 	ConnectionPoolConfig *ProxyDefaultTargetGroupConnectionPoolConfig `pulumi:"connectionPoolConfig"`
@@ -86,7 +86,7 @@ type proxyDefaultTargetGroupState struct {
 }
 
 type ProxyDefaultTargetGroupState struct {
-	// The Amazon Resource Name (ARN) representing the target group.
+	// ARN representing the target group.
 	Arn pulumi.StringPtrInput
 	// The settings that determine the size and behavior of the connection pool for the target group.
 	ConnectionPoolConfig ProxyDefaultTargetGroupConnectionPoolConfigPtrInput
@@ -208,7 +208,7 @@ func (o ProxyDefaultTargetGroupOutput) ToProxyDefaultTargetGroupOutputWithContex
 	return o
 }
 
-// The Amazon Resource Name (ARN) representing the target group.
+// ARN representing the target group.
 func (o ProxyDefaultTargetGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProxyDefaultTargetGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

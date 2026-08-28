@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the App Runner VPC ingress connection.
+ * - `arn` (String) ARN of the App Runner VPC ingress connection.
  *
  * Using `pulumi import`, import App Runner VPC Ingress Connection using the `arn`. For example:
  *
@@ -72,7 +72,7 @@ export class VpcIngressConnection extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the VPC Ingress Connection.
+     * ARN of the VPC Ingress Connection.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -92,7 +92,7 @@ export class VpcIngressConnection extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
+     * ARN for this App Runner service that is used to create the VPC Ingress Connection resource.
      */
     declare public readonly serviceArn: pulumi.Output<string>;
     /**
@@ -158,7 +158,7 @@ export class VpcIngressConnection extends pulumi.CustomResource {
  */
 export interface VpcIngressConnectionState {
     /**
-     * Amazon Resource Name (ARN) of the VPC Ingress Connection.
+     * ARN of the VPC Ingress Connection.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -178,7 +178,7 @@ export interface VpcIngressConnectionState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
+     * ARN for this App Runner service that is used to create the VPC Ingress Connection resource.
      */
     serviceArn?: pulumi.Input<string | undefined>;
     /**
@@ -212,7 +212,7 @@ export interface VpcIngressConnectionArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
+     * ARN for this App Runner service that is used to create the VPC Ingress Connection resource.
      */
     serviceArn: pulumi.Input<string>;
     /**

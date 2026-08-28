@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator accelerator.
+ * - `arn` (String) ARN of the Global Accelerator accelerator.
  *
  * Using `pulumi import`, import Global Accelerator accelerators using the `arn`. For example:
  *
@@ -72,7 +72,7 @@ export class Accelerator extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the accelerator.
+     * ARN of the accelerator.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -84,7 +84,7 @@ export class Accelerator extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly dnsName: pulumi.Output<string>;
     /**
-     * The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+     * DNS name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
      */
     declare public /*out*/ readonly dualStackDnsName: pulumi.Output<string>;
     /**
@@ -172,7 +172,7 @@ export class Accelerator extends pulumi.CustomResource {
  */
 export interface AcceleratorState {
     /**
-     * The Amazon Resource Name (ARN) of the accelerator.
+     * ARN of the accelerator.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -184,7 +184,7 @@ export interface AcceleratorState {
      */
     dnsName?: pulumi.Input<string | undefined>;
     /**
-     * The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+     * DNS name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
      */
     dualStackDnsName?: pulumi.Input<string | undefined>;
     /**

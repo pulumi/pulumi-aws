@@ -176,6 +176,71 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### VPC Endpoint Streaming
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const workspacesStreaming = new aws.ec2.SecurityGroup("workspaces_streaming", {
+ *     name: "workspaces-streaming-endpoint",
+ *     vpcId: exampleAwsVpc.id,
+ * });
+ * const current = aws.getRegion({});
+ * const workspaces = new aws.ec2.VpcEndpoint("workspaces", {
+ *     vpcId: exampleAwsVpc.id,
+ *     serviceName: current.then(current => `com.amazonaws.${current.region}.highlander`),
+ *     vpcEndpointType: "Interface",
+ *     subnetIds: [
+ *         exampleA.id,
+ *         exampleB.id,
+ *     ],
+ *     securityGroupIds: [workspacesStreaming.id],
+ *     privateDnsEnabled: true,
+ * });
+ * const example = new aws.workspaces.Directory("example", {
+ *     workspaceAccessProperties: {
+ *         accessEndpointConfig: {
+ *             accessEndpoints: [{
+ *                 accessEndpointType: "STREAMING_WSP",
+ *                 vpcEndpointId: workspaces.id,
+ *             }],
+ *             internetFallbackProtocols: ["PCOIP"],
+ *         },
+ *         deviceTypeWindows: "ALLOW",
+ *     },
+ *     directoryId: exampleAwsDirectoryServiceDirectory.id,
+ * });
+ * const workspacesStreamingTcp443 = new aws.vpc.SecurityGroupIngressRule("workspaces_streaming_tcp_443", {
+ *     securityGroupId: workspacesStreaming.id,
+ *     cidrIpv4: exampleAwsVpc.cidrBlock,
+ *     fromPort: 443,
+ *     toPort: 443,
+ *     ipProtocol: "tcp",
+ * });
+ * const workspacesStreamingTcp4195 = new aws.vpc.SecurityGroupIngressRule("workspaces_streaming_tcp_4195", {
+ *     securityGroupId: workspacesStreaming.id,
+ *     cidrIpv4: exampleAwsVpc.cidrBlock,
+ *     fromPort: 4195,
+ *     toPort: 4195,
+ *     ipProtocol: "tcp",
+ * });
+ * const workspacesStreamingUdp443 = new aws.vpc.SecurityGroupIngressRule("workspaces_streaming_udp_443", {
+ *     securityGroupId: workspacesStreaming.id,
+ *     cidrIpv4: exampleAwsVpc.cidrBlock,
+ *     fromPort: 443,
+ *     toPort: 443,
+ *     ipProtocol: "udp",
+ * });
+ * const workspacesStreamingUdp4195 = new aws.vpc.SecurityGroupIngressRule("workspaces_streaming_udp_4195", {
+ *     securityGroupId: workspacesStreaming.id,
+ *     cidrIpv4: exampleAwsVpc.cidrBlock,
+ *     fromPort: 4195,
+ *     toPort: 4195,
+ *     ipProtocol: "udp",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Workspaces directory using the directory ID. For example:

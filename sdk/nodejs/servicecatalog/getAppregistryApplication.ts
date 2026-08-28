@@ -51,7 +51,7 @@ export interface GetAppregistryApplicationResult {
      */
     readonly applicationTag: {[key: string]: string};
     /**
-     * ARN (Amazon Resource Name) of the application.
+     * ARN of the application.
      */
     readonly arn: string;
     /**

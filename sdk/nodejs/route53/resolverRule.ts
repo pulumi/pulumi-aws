@@ -112,7 +112,7 @@ export class ResolverRule extends pulumi.CustomResource {
     }
 
     /**
-     * ARN (Amazon Resource Name) for the resolver rule.
+     * ARN for the resolver rule.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -213,7 +213,7 @@ export class ResolverRule extends pulumi.CustomResource {
  */
 export interface ResolverRuleState {
     /**
-     * ARN (Amazon Resource Name) for the resolver rule.
+     * ARN for the resolver rule.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

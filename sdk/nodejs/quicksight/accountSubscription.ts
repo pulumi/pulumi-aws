@@ -116,7 +116,7 @@ export class AccountSubscription extends pulumi.CustomResource {
      */
     declare public readonly firstName: pulumi.Output<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+     * ARN for the IAM Identity Center instance.
      */
     declare public readonly iamIdentityCenterInstanceArn: pulumi.Output<string | undefined>;
     /**
@@ -282,7 +282,7 @@ export interface AccountSubscriptionState {
      */
     firstName?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+     * ARN for the IAM Identity Center instance.
      */
     iamIdentityCenterInstanceArn?: pulumi.Input<string | undefined>;
     /**
@@ -370,7 +370,7 @@ export interface AccountSubscriptionArgs {
      */
     firstName?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+     * ARN for the IAM Identity Center instance.
      */
     iamIdentityCenterInstanceArn?: pulumi.Input<string | undefined>;
     /**

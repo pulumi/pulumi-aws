@@ -140,7 +140,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// </summary>
         public readonly ImmutableDictionary<string, string> ApplicationTag;
         /// <summary>
-        /// ARN (Amazon Resource Name) of the application.
+        /// ARN of the application.
         /// </summary>
         public readonly string Arn;
         /// <summary>

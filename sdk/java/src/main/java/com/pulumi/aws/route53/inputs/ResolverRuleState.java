@@ -19,14 +19,14 @@ public final class ResolverRuleState extends com.pulumi.resources.ResourceArgs {
     public static final ResolverRuleState Empty = new ResolverRuleState();
 
     /**
-     * ARN (Amazon Resource Name) for the resolver rule.
+     * ARN for the resolver rule.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN (Amazon Resource Name) for the resolver rule.
+     * @return ARN for the resolver rule.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -224,7 +224,7 @@ public final class ResolverRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN (Amazon Resource Name) for the resolver rule.
+         * @param arn ARN for the resolver rule.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class ResolverRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN (Amazon Resource Name) for the resolver rule.
+         * @param arn ARN for the resolver rule.
          * 
          * @return builder
          * 

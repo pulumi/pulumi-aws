@@ -40,7 +40,7 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainer {
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorage> ephemeralStorages;
     /**
-     * @return Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
+     * @return ARN of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
      * 
      */
     private String executionRoleArn;
@@ -60,7 +60,7 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainer {
      */
     private String instanceType;
     /**
-     * @return Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions.
+     * @return ARN of the IAM role that the container can assume for AWS permissions.
      * 
      */
     private String jobRoleArn;
@@ -148,7 +148,7 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainer {
         return this.ephemeralStorages;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
+     * @return ARN of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
      * 
      */
     public String executionRoleArn() {
@@ -176,7 +176,7 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainer {
         return this.instanceType;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions.
+     * @return ARN of the IAM role that the container can assume for AWS permissions.
      * 
      */
     public String jobRoleArn() {

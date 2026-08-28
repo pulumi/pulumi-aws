@@ -46,7 +46,7 @@ namespace Pulumi.Aws.DeviceFarm
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Device Farm device pool.
+    /// - `Arn` (String) ARN of the Device Farm device pool.
     /// 
     /// Using `pulumi import`, import DeviceFarm Device Pools using their ARN. For example:
     /// 
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.DeviceFarm
     public partial class DevicePool : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name of this Device Pool
+        /// ARN of this Device Pool
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.DeviceFarm
     public sealed class DevicePoolState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name of this Device Pool
+        /// ARN of this Device Pool
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

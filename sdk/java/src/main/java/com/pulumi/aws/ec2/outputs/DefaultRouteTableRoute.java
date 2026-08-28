@@ -17,7 +17,7 @@ public final class DefaultRouteTableRoute {
      */
     private @Nullable String cidrBlock;
     /**
-     * @return The Amazon Resource Name (ARN) of a core network.
+     * @return ARN of a core network.
      * 
      */
     private @Nullable String coreNetworkArn;
@@ -85,7 +85,7 @@ public final class DefaultRouteTableRoute {
         return Optional.ofNullable(this.cidrBlock);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of a core network.
+     * @return ARN of a core network.
      * 
      */
     public Optional<String> coreNetworkArn() {

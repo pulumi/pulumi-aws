@@ -33,7 +33,7 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfiguration {
      */
     private String keyLocation;
     /**
-     * @return The Amazon Resource Name (ARN) of the secret.
+     * @return ARN of the secret.
      * 
      */
     private @Nullable String secretsManagerArn;
@@ -78,7 +78,7 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfiguration {
         return this.keyLocation;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the secret.
+     * @return ARN of the secret.
      * 
      */
     public Optional<String> secretsManagerArn() {

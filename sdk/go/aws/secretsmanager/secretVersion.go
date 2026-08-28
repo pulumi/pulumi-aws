@@ -147,7 +147,7 @@ type SecretVersion struct {
 	SecretArn pulumi.StringOutput `pulumi:"secretArn"`
 	// Binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
 	SecretBinary pulumi.StringPtrOutput `pulumi:"secretBinary"`
-	// Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+	// Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
 	SecretId pulumi.StringOutput `pulumi:"secretId"`
 	// Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
 	SecretString pulumi.StringPtrOutput `pulumi:"secretString"`
@@ -224,7 +224,7 @@ type secretVersionState struct {
 	SecretArn *string `pulumi:"secretArn"`
 	// Binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
 	SecretBinary *string `pulumi:"secretBinary"`
-	// Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+	// Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
 	SecretId *string `pulumi:"secretId"`
 	// Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
 	SecretString *string `pulumi:"secretString"`
@@ -254,7 +254,7 @@ type SecretVersionState struct {
 	SecretArn pulumi.StringPtrInput
 	// Binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
 	SecretBinary pulumi.StringPtrInput
-	// Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+	// Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
 	SecretId pulumi.StringPtrInput
 	// Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
 	SecretString pulumi.StringPtrInput
@@ -280,7 +280,7 @@ type secretVersionArgs struct {
 	Region *string `pulumi:"region"`
 	// Binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
 	SecretBinary *string `pulumi:"secretBinary"`
-	// Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+	// Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
 	SecretId string `pulumi:"secretId"`
 	// Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
 	SecretString *string `pulumi:"secretString"`
@@ -301,7 +301,7 @@ type SecretVersionArgs struct {
 	Region pulumi.StringPtrInput
 	// Binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
 	SecretBinary pulumi.StringPtrInput
-	// Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+	// Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
 	SecretId pulumi.StringInput
 	// Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
 	SecretString pulumi.StringPtrInput
@@ -430,7 +430,7 @@ func (o SecretVersionOutput) SecretBinary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretVersion) pulumi.StringPtrOutput { return v.SecretBinary }).(pulumi.StringPtrOutput)
 }
 
-// Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+// Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
 func (o SecretVersionOutput) SecretId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretVersion) pulumi.StringOutput { return v.SecretId }).(pulumi.StringOutput)
 }

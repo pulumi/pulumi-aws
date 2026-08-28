@@ -32,14 +32,14 @@ public final class VpnConnectionVgwTelemetryArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
+     * ARN of the VPN tunnel endpoint certificate.
      * 
      */
     @Import(name="certificateArn")
     private @Nullable Output<String> certificateArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
+     * @return ARN of the VPN tunnel endpoint certificate.
      * 
      */
     public Optional<Output<String>> certificateArn() {
@@ -157,7 +157,7 @@ public final class VpnConnectionVgwTelemetryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param certificateArn The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
+         * @param certificateArn ARN of the VPN tunnel endpoint certificate.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class VpnConnectionVgwTelemetryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param certificateArn The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
+         * @param certificateArn ARN of the VPN tunnel endpoint certificate.
          * 
          * @return builder
          * 

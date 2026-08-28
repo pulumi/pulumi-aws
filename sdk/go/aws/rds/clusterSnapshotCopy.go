@@ -73,7 +73,7 @@ type ClusterSnapshotCopy struct {
 	AllocatedStorage pulumi.IntOutput `pulumi:"allocatedStorage"`
 	// Whether to copy existing tags. Defaults to `false`.
 	CopyTags pulumi.BoolPtrOutput `pulumi:"copyTags"`
-	// The Amazon Resource Name (ARN) for the DB cluster snapshot.
+	// ARN for the DB cluster snapshot.
 	DbClusterSnapshotArn pulumi.StringOutput `pulumi:"dbClusterSnapshotArn"`
 	// The Destination region to place snapshot copy.
 	DestinationRegion pulumi.StringPtrOutput `pulumi:"destinationRegion"`
@@ -151,7 +151,7 @@ type clusterSnapshotCopyState struct {
 	AllocatedStorage *int `pulumi:"allocatedStorage"`
 	// Whether to copy existing tags. Defaults to `false`.
 	CopyTags *bool `pulumi:"copyTags"`
-	// The Amazon Resource Name (ARN) for the DB cluster snapshot.
+	// ARN for the DB cluster snapshot.
 	DbClusterSnapshotArn *string `pulumi:"dbClusterSnapshotArn"`
 	// The Destination region to place snapshot copy.
 	DestinationRegion *string `pulumi:"destinationRegion"`
@@ -194,7 +194,7 @@ type ClusterSnapshotCopyState struct {
 	AllocatedStorage pulumi.IntPtrInput
 	// Whether to copy existing tags. Defaults to `false`.
 	CopyTags pulumi.BoolPtrInput
-	// The Amazon Resource Name (ARN) for the DB cluster snapshot.
+	// ARN for the DB cluster snapshot.
 	DbClusterSnapshotArn pulumi.StringPtrInput
 	// The Destination region to place snapshot copy.
 	DestinationRegion pulumi.StringPtrInput
@@ -382,7 +382,7 @@ func (o ClusterSnapshotCopyOutput) CopyTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterSnapshotCopy) pulumi.BoolPtrOutput { return v.CopyTags }).(pulumi.BoolPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for the DB cluster snapshot.
+// ARN for the DB cluster snapshot.
 func (o ClusterSnapshotCopyOutput) DbClusterSnapshotArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshotCopy) pulumi.StringOutput { return v.DbClusterSnapshotArn }).(pulumi.StringOutput)
 }

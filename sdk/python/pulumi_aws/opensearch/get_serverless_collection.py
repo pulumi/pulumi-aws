@@ -77,7 +77,7 @@ class GetServerlessCollectionResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) of the collection.
+        ARN of the collection.
         """
         return pulumi.get(self, "arn")
 

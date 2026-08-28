@@ -264,14 +264,14 @@ public class AccountSubscription extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.firstName);
     }
     /**
-     * The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+     * ARN for the IAM Identity Center instance.
      * 
      */
     @Export(name="iamIdentityCenterInstanceArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> iamIdentityCenterInstanceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+     * @return ARN for the IAM Identity Center instance.
      * 
      */
     public Output<Optional<String>> iamIdentityCenterInstanceArn() {

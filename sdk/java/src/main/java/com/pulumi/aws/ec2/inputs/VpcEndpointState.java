@@ -22,14 +22,14 @@ public final class VpcEndpointState extends com.pulumi.resources.ResourceArgs {
     public static final VpcEndpointState Empty = new VpcEndpointState();
 
     /**
-     * The Amazon Resource Name (ARN) of the VPC endpoint.
+     * ARN of the VPC endpoint.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the VPC endpoint.
+     * @return ARN of the VPC endpoint.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -465,7 +465,7 @@ public final class VpcEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the VPC endpoint.
+         * @param arn ARN of the VPC endpoint.
          * 
          * @return builder
          * 
@@ -476,7 +476,7 @@ public final class VpcEndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the VPC endpoint.
+         * @param arn ARN of the VPC endpoint.
          * 
          * @return builder
          * 

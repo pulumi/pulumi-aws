@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the Device Farm project.
+ * - `arn` (String) ARN of the Device Farm project.
  *
  * Using `pulumi import`, import DeviceFarm Projects using their ARN. For example:
  *
@@ -64,7 +64,7 @@ export class Project extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name of this project
+     * ARN of this project
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -126,7 +126,7 @@ export class Project extends pulumi.CustomResource {
  */
 export interface ProjectState {
     /**
-     * The Amazon Resource Name of this project
+     * ARN of this project
      */
     arn?: pulumi.Input<string | undefined>;
     /**

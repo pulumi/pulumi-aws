@@ -169,7 +169,7 @@ class _IpSetState:
         Input properties used for looking up and filtering IpSet resources.
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] addresses: Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the IP set.
+        :param pulumi.Input[_builtins.str] arn: ARN of the IP set.
         :param pulumi.Input[_builtins.str] description: A friendly description of the IP set.
         :param pulumi.Input[_builtins.str] ip_address_version: Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.
         :param pulumi.Input[_builtins.str] name: A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -218,7 +218,7 @@ class _IpSetState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the IP set.
+        ARN of the IP set.
         """
         return pulumi.get(self, "arn")
 
@@ -506,7 +506,7 @@ class IpSet(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] addresses: Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the IP set.
+        :param pulumi.Input[_builtins.str] arn: ARN of the IP set.
         :param pulumi.Input[_builtins.str] description: A friendly description of the IP set.
         :param pulumi.Input[_builtins.str] ip_address_version: Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.
         :param pulumi.Input[_builtins.str] name: A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -545,7 +545,7 @@ class IpSet(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the IP set.
+        ARN of the IP set.
         """
         return pulumi.get(self, "arn")
 

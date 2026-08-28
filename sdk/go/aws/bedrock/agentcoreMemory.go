@@ -119,10 +119,21 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Bedrock AgentCore Memory using the memory ID. For example:
+// ### Identity Schema
+//
+// #### Required
+//
+// * `id` (String) Memory ID.
+//
+// #### Optional
+//
+// * `accountId` (String) Account ID where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
+// Using `pulumi import`, import memories using `id`. For example:
 //
 // ```sh
-// $ pulumi import aws:bedrock/agentcoreMemory:AgentcoreMemory example MEMORY1234567890
+// $ pulumi import aws:bedrock/agentcoreMemory:AgentcoreMemory example example_memory-5xKsqQHSWW
 // ```
 type AgentcoreMemory struct {
 	pulumi.CustomResourceState
@@ -135,7 +146,7 @@ type AgentcoreMemory struct {
 	EncryptionKeyArn pulumi.StringPtrOutput `pulumi:"encryptionKeyArn"`
 	// Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
 	EventExpiryDuration pulumi.IntOutput `pulumi:"eventExpiryDuration"`
-	// Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexedKey` below.
+	// Metadata keys to index for filtering. Up to 10 entries. Additional keys can be added in place; removing or changing an existing key forces a new resource to be created, because previously indexed keys cannot be removed. See `indexedKey` Block below.
 	IndexedKeys AgentcoreMemoryIndexedKeyArrayOutput `pulumi:"indexedKeys"`
 	// ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
 	MemoryExecutionRoleArn pulumi.StringPtrOutput `pulumi:"memoryExecutionRoleArn"`
@@ -145,11 +156,11 @@ type AgentcoreMemory struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Configuration for streaming memory record data to external resources. See `streamDeliveryResources` below.
+	// Configuration for streaming memory record data to external resources. See `streamDeliveryResources` Block below.
 	StreamDeliveryResources AgentcoreMemoryStreamDeliveryResourcesPtrOutput `pulumi:"streamDeliveryResources"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapOutput           `pulumi:"tagsAll"`
 	Timeouts AgentcoreMemoryTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -195,7 +206,7 @@ type agentcoreMemoryState struct {
 	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
 	// Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
 	EventExpiryDuration *int `pulumi:"eventExpiryDuration"`
-	// Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexedKey` below.
+	// Metadata keys to index for filtering. Up to 10 entries. Additional keys can be added in place; removing or changing an existing key forces a new resource to be created, because previously indexed keys cannot be removed. See `indexedKey` Block below.
 	IndexedKeys []AgentcoreMemoryIndexedKey `pulumi:"indexedKeys"`
 	// ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
 	MemoryExecutionRoleArn *string `pulumi:"memoryExecutionRoleArn"`
@@ -205,11 +216,11 @@ type agentcoreMemoryState struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Configuration for streaming memory record data to external resources. See `streamDeliveryResources` below.
+	// Configuration for streaming memory record data to external resources. See `streamDeliveryResources` Block below.
 	StreamDeliveryResources *AgentcoreMemoryStreamDeliveryResources `pulumi:"streamDeliveryResources"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  map[string]string        `pulumi:"tagsAll"`
 	Timeouts *AgentcoreMemoryTimeouts `pulumi:"timeouts"`
 }
@@ -223,7 +234,7 @@ type AgentcoreMemoryState struct {
 	EncryptionKeyArn pulumi.StringPtrInput
 	// Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
 	EventExpiryDuration pulumi.IntPtrInput
-	// Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexedKey` below.
+	// Metadata keys to index for filtering. Up to 10 entries. Additional keys can be added in place; removing or changing an existing key forces a new resource to be created, because previously indexed keys cannot be removed. See `indexedKey` Block below.
 	IndexedKeys AgentcoreMemoryIndexedKeyArrayInput
 	// ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
 	MemoryExecutionRoleArn pulumi.StringPtrInput
@@ -233,11 +244,11 @@ type AgentcoreMemoryState struct {
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Configuration for streaming memory record data to external resources. See `streamDeliveryResources` below.
+	// Configuration for streaming memory record data to external resources. See `streamDeliveryResources` Block below.
 	StreamDeliveryResources AgentcoreMemoryStreamDeliveryResourcesPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapInput
 	Timeouts AgentcoreMemoryTimeoutsPtrInput
 }
@@ -253,7 +264,7 @@ type agentcoreMemoryArgs struct {
 	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
 	// Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
 	EventExpiryDuration int `pulumi:"eventExpiryDuration"`
-	// Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexedKey` below.
+	// Metadata keys to index for filtering. Up to 10 entries. Additional keys can be added in place; removing or changing an existing key forces a new resource to be created, because previously indexed keys cannot be removed. See `indexedKey` Block below.
 	IndexedKeys []AgentcoreMemoryIndexedKey `pulumi:"indexedKeys"`
 	// ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
 	MemoryExecutionRoleArn *string `pulumi:"memoryExecutionRoleArn"`
@@ -263,7 +274,7 @@ type agentcoreMemoryArgs struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Configuration for streaming memory record data to external resources. See `streamDeliveryResources` below.
+	// Configuration for streaming memory record data to external resources. See `streamDeliveryResources` Block below.
 	StreamDeliveryResources *AgentcoreMemoryStreamDeliveryResources `pulumi:"streamDeliveryResources"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string        `pulumi:"tags"`
@@ -278,7 +289,7 @@ type AgentcoreMemoryArgs struct {
 	EncryptionKeyArn pulumi.StringPtrInput
 	// Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
 	EventExpiryDuration pulumi.IntInput
-	// Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexedKey` below.
+	// Metadata keys to index for filtering. Up to 10 entries. Additional keys can be added in place; removing or changing an existing key forces a new resource to be created, because previously indexed keys cannot be removed. See `indexedKey` Block below.
 	IndexedKeys AgentcoreMemoryIndexedKeyArrayInput
 	// ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
 	MemoryExecutionRoleArn pulumi.StringPtrInput
@@ -288,7 +299,7 @@ type AgentcoreMemoryArgs struct {
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Configuration for streaming memory record data to external resources. See `streamDeliveryResources` below.
+	// Configuration for streaming memory record data to external resources. See `streamDeliveryResources` Block below.
 	StreamDeliveryResources AgentcoreMemoryStreamDeliveryResourcesPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
@@ -402,7 +413,7 @@ func (o AgentcoreMemoryOutput) EventExpiryDuration() pulumi.IntOutput {
 	return o.ApplyT(func(v *AgentcoreMemory) pulumi.IntOutput { return v.EventExpiryDuration }).(pulumi.IntOutput)
 }
 
-// Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexedKey` below.
+// Metadata keys to index for filtering. Up to 10 entries. Additional keys can be added in place; removing or changing an existing key forces a new resource to be created, because previously indexed keys cannot be removed. See `indexedKey` Block below.
 func (o AgentcoreMemoryOutput) IndexedKeys() AgentcoreMemoryIndexedKeyArrayOutput {
 	return o.ApplyT(func(v *AgentcoreMemory) AgentcoreMemoryIndexedKeyArrayOutput { return v.IndexedKeys }).(AgentcoreMemoryIndexedKeyArrayOutput)
 }
@@ -424,7 +435,7 @@ func (o AgentcoreMemoryOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreMemory) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Configuration for streaming memory record data to external resources. See `streamDeliveryResources` below.
+// Configuration for streaming memory record data to external resources. See `streamDeliveryResources` Block below.
 func (o AgentcoreMemoryOutput) StreamDeliveryResources() AgentcoreMemoryStreamDeliveryResourcesPtrOutput {
 	return o.ApplyT(func(v *AgentcoreMemory) AgentcoreMemoryStreamDeliveryResourcesPtrOutput {
 		return v.StreamDeliveryResources
@@ -436,7 +447,7 @@ func (o AgentcoreMemoryOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentcoreMemory) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AgentcoreMemoryOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentcoreMemory) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

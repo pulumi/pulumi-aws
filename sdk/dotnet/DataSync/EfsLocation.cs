@@ -46,9 +46,9 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the DataSync EFS location.
+    /// - `Arn` (String) ARN of the DataSync EFS location.
     /// 
-    /// Using `pulumi import`, import `aws.datasync.EfsLocation` using the DataSync Task Amazon Resource Name (ARN). For example:
+    /// Using `pulumi import`, import `aws.datasync.EfsLocation` using the DataSync Task ARN. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:datasync/efsLocation:EfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
@@ -58,13 +58,13 @@ namespace Pulumi.Aws.DataSync
     public partial class EfsLocation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
+        /// ARN of the access point that DataSync uses to access the Amazon EFS file system.
         /// </summary>
         [Output("accessPointArn")]
         public Output<string?> AccessPointArn { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the DataSync Location.
+        /// ARN of the DataSync Location.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.DataSync
         public Output<Outputs.EfsLocationEc2Config> Ec2Config { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of EFS File System.
+        /// ARN of EFS File System.
         /// </summary>
         [Output("efsFileSystemArn")]
         public Output<string> EfsFileSystemArn { get; private set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.DataSync
     public sealed class EfsLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
+        /// ARN of the access point that DataSync uses to access the Amazon EFS file system.
         /// </summary>
         [Input("accessPointArn")]
         public Input<string>? AccessPointArn { get; set; }
@@ -179,7 +179,7 @@ namespace Pulumi.Aws.DataSync
         public Input<Inputs.EfsLocationEc2ConfigArgs> Ec2Config { get; set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of EFS File System.
+        /// ARN of EFS File System.
         /// </summary>
         [Input("efsFileSystemArn", required: true)]
         public Input<string> EfsFileSystemArn { get; set; } = null!;
@@ -229,13 +229,13 @@ namespace Pulumi.Aws.DataSync
     public sealed class EfsLocationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
+        /// ARN of the access point that DataSync uses to access the Amazon EFS file system.
         /// </summary>
         [Input("accessPointArn")]
         public Input<string>? AccessPointArn { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the DataSync Location.
+        /// ARN of the DataSync Location.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -247,7 +247,7 @@ namespace Pulumi.Aws.DataSync
         public Input<Inputs.EfsLocationEc2ConfigGetArgs>? Ec2Config { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of EFS File System.
+        /// ARN of EFS File System.
         /// </summary>
         [Input("efsFileSystemArn")]
         public Input<string>? EfsFileSystemArn { get; set; }

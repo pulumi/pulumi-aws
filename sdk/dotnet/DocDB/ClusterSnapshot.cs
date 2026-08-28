@@ -55,7 +55,7 @@ namespace Pulumi.Aws.DocDB
         public Output<string> DbClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
+        /// ARN for the DocumentDB Cluster Snapshot.
         /// </summary>
         [Output("dbClusterSnapshotArn")]
         public Output<string> DbClusterSnapshotArn { get; private set; } = null!;
@@ -211,7 +211,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? DbClusterIdentifier { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
+        /// ARN for the DocumentDB Cluster Snapshot.
         /// </summary>
         [Input("dbClusterSnapshotArn")]
         public Input<string>? DbClusterSnapshotArn { get; set; }

@@ -174,7 +174,7 @@ type ContainerService struct {
 	PowerId pulumi.StringOutput `pulumi:"powerId"`
 	// Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
 	PrincipalArn pulumi.StringOutput `pulumi:"principalArn"`
-	// Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
+	// Private domain name of the container service. The private domain name is accessible only by other resources within the default VPC of your Lightsail account.
 	PrivateDomainName pulumi.StringOutput `pulumi:"privateDomainName"`
 	// Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
 	PrivateRegistryAccess ContainerServicePrivateRegistryAccessOutput `pulumi:"privateRegistryAccess"`
@@ -250,7 +250,7 @@ type containerServiceState struct {
 	PowerId *string `pulumi:"powerId"`
 	// Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
 	PrincipalArn *string `pulumi:"principalArn"`
-	// Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
+	// Private domain name of the container service. The private domain name is accessible only by other resources within the default VPC of your Lightsail account.
 	PrivateDomainName *string `pulumi:"privateDomainName"`
 	// Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
 	PrivateRegistryAccess *ContainerServicePrivateRegistryAccess `pulumi:"privateRegistryAccess"`
@@ -291,7 +291,7 @@ type ContainerServiceState struct {
 	PowerId pulumi.StringPtrInput
 	// Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
 	PrincipalArn pulumi.StringPtrInput
-	// Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
+	// Private domain name of the container service. The private domain name is accessible only by other resources within the default VPC of your Lightsail account.
 	PrivateDomainName pulumi.StringPtrInput
 	// Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
 	PrivateRegistryAccess ContainerServicePrivateRegistryAccessPtrInput
@@ -489,7 +489,7 @@ func (o ContainerServiceOutput) PrincipalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerService) pulumi.StringOutput { return v.PrincipalArn }).(pulumi.StringOutput)
 }
 
-// Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
+// Private domain name of the container service. The private domain name is accessible only by other resources within the default VPC of your Lightsail account.
 func (o ContainerServiceOutput) PrivateDomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerService) pulumi.StringOutput { return v.PrivateDomainName }).(pulumi.StringOutput)
 }

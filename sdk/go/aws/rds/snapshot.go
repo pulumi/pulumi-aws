@@ -72,7 +72,7 @@ type Snapshot struct {
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
 	// The DB Instance Identifier from which to take the snapshot.
 	DbInstanceIdentifier pulumi.StringOutput `pulumi:"dbInstanceIdentifier"`
-	// The Amazon Resource Name (ARN) for the DB snapshot.
+	// ARN for the DB snapshot.
 	DbSnapshotArn pulumi.StringOutput `pulumi:"dbSnapshotArn"`
 	// The Identifier for the snapshot.
 	DbSnapshotIdentifier pulumi.StringOutput `pulumi:"dbSnapshotIdentifier"`
@@ -154,7 +154,7 @@ type snapshotState struct {
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// The DB Instance Identifier from which to take the snapshot.
 	DbInstanceIdentifier *string `pulumi:"dbInstanceIdentifier"`
-	// The Amazon Resource Name (ARN) for the DB snapshot.
+	// ARN for the DB snapshot.
 	DbSnapshotArn *string `pulumi:"dbSnapshotArn"`
 	// The Identifier for the snapshot.
 	DbSnapshotIdentifier *string `pulumi:"dbSnapshotIdentifier"`
@@ -201,7 +201,7 @@ type SnapshotState struct {
 	AvailabilityZone pulumi.StringPtrInput
 	// The DB Instance Identifier from which to take the snapshot.
 	DbInstanceIdentifier pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the DB snapshot.
+	// ARN for the DB snapshot.
 	DbSnapshotArn pulumi.StringPtrInput
 	// The Identifier for the snapshot.
 	DbSnapshotIdentifier pulumi.StringPtrInput
@@ -374,7 +374,7 @@ func (o SnapshotOutput) DbInstanceIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.DbInstanceIdentifier }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) for the DB snapshot.
+// ARN for the DB snapshot.
 func (o SnapshotOutput) DbSnapshotArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.DbSnapshotArn }).(pulumi.StringOutput)
 }

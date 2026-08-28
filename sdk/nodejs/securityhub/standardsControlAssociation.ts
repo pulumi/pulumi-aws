@@ -117,7 +117,7 @@ export class StandardsControlAssociation extends pulumi.CustomResource {
      */
     declare public readonly securityControlId: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
+     * ARN of the standard in which you want to update the control's enablement status.
      *
      * The following arguments are optional:
      */
@@ -184,7 +184,7 @@ export interface StandardsControlAssociationState {
      */
     securityControlId?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
+     * ARN of the standard in which you want to update the control's enablement status.
      *
      * The following arguments are optional:
      */
@@ -212,7 +212,7 @@ export interface StandardsControlAssociationArgs {
      */
     securityControlId: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
+     * ARN of the standard in which you want to update the control's enablement status.
      *
      * The following arguments are optional:
      */

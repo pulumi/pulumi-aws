@@ -129,9 +129,9 @@ import (
 type PermissionsBoundaryAttachment struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+	// ARN of the SSO Instance under which the operation will be executed.
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
-	// The Amazon Resource Name (ARN) of the Permission Set.
+	// ARN of the Permission Set.
 	PermissionSetArn pulumi.StringOutput `pulumi:"permissionSetArn"`
 	// The permissions boundary policy. See below.
 	PermissionsBoundary PermissionsBoundaryAttachmentPermissionsBoundaryOutput `pulumi:"permissionsBoundary"`
@@ -178,9 +178,9 @@ func GetPermissionsBoundaryAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PermissionsBoundaryAttachment resources.
 type permissionsBoundaryAttachmentState struct {
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+	// ARN of the SSO Instance under which the operation will be executed.
 	InstanceArn *string `pulumi:"instanceArn"`
-	// The Amazon Resource Name (ARN) of the Permission Set.
+	// ARN of the Permission Set.
 	PermissionSetArn *string `pulumi:"permissionSetArn"`
 	// The permissions boundary policy. See below.
 	PermissionsBoundary *PermissionsBoundaryAttachmentPermissionsBoundary `pulumi:"permissionsBoundary"`
@@ -189,9 +189,9 @@ type permissionsBoundaryAttachmentState struct {
 }
 
 type PermissionsBoundaryAttachmentState struct {
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+	// ARN of the SSO Instance under which the operation will be executed.
 	InstanceArn pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the Permission Set.
+	// ARN of the Permission Set.
 	PermissionSetArn pulumi.StringPtrInput
 	// The permissions boundary policy. See below.
 	PermissionsBoundary PermissionsBoundaryAttachmentPermissionsBoundaryPtrInput
@@ -204,9 +204,9 @@ func (PermissionsBoundaryAttachmentState) ElementType() reflect.Type {
 }
 
 type permissionsBoundaryAttachmentArgs struct {
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+	// ARN of the SSO Instance under which the operation will be executed.
 	InstanceArn string `pulumi:"instanceArn"`
-	// The Amazon Resource Name (ARN) of the Permission Set.
+	// ARN of the Permission Set.
 	PermissionSetArn string `pulumi:"permissionSetArn"`
 	// The permissions boundary policy. See below.
 	PermissionsBoundary PermissionsBoundaryAttachmentPermissionsBoundary `pulumi:"permissionsBoundary"`
@@ -216,9 +216,9 @@ type permissionsBoundaryAttachmentArgs struct {
 
 // The set of arguments for constructing a PermissionsBoundaryAttachment resource.
 type PermissionsBoundaryAttachmentArgs struct {
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+	// ARN of the SSO Instance under which the operation will be executed.
 	InstanceArn pulumi.StringInput
-	// The Amazon Resource Name (ARN) of the Permission Set.
+	// ARN of the Permission Set.
 	PermissionSetArn pulumi.StringInput
 	// The permissions boundary policy. See below.
 	PermissionsBoundary PermissionsBoundaryAttachmentPermissionsBoundaryInput
@@ -313,12 +313,12 @@ func (o PermissionsBoundaryAttachmentOutput) ToPermissionsBoundaryAttachmentOutp
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+// ARN of the SSO Instance under which the operation will be executed.
 func (o PermissionsBoundaryAttachmentOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PermissionsBoundaryAttachment) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Permission Set.
+// ARN of the Permission Set.
 func (o PermissionsBoundaryAttachmentOutput) PermissionSetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PermissionsBoundaryAttachment) pulumi.StringOutput { return v.PermissionSetArn }).(pulumi.StringOutput)
 }

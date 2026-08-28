@@ -84,7 +84,7 @@ export class SnapshotCopy extends pulumi.CustomResource {
      */
     declare public readonly copyTags: pulumi.Output<boolean | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the DB snapshot.
+     * ARN for the DB snapshot.
      */
     declare public /*out*/ readonly dbSnapshotArn: pulumi.Output<string>;
     /**
@@ -260,7 +260,7 @@ export interface SnapshotCopyState {
      */
     copyTags?: pulumi.Input<boolean | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the DB snapshot.
+     * ARN for the DB snapshot.
      */
     dbSnapshotArn?: pulumi.Input<string | undefined>;
     /**

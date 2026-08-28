@@ -20,14 +20,14 @@ public final class KxEnvironmentState extends com.pulumi.resources.ResourceArgs 
     public static final KxEnvironmentState Empty = new KxEnvironmentState();
 
     /**
-     * Amazon Resource Name (ARN) identifier of the KX environment.
+     * ARN identifier of the KX environment.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) identifier of the KX environment.
+     * @return ARN identifier of the KX environment.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -271,7 +271,7 @@ public final class KxEnvironmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) identifier of the KX environment.
+         * @param arn ARN identifier of the KX environment.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class KxEnvironmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) identifier of the KX environment.
+         * @param arn ARN identifier of the KX environment.
          * 
          * @return builder
          * 

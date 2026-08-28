@@ -31,7 +31,7 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
+        /// ARN of the KMS Key to encrypt the distributed AMI.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }

@@ -490,7 +490,7 @@ class _ClusterInstanceState:
         Input properties used for looking up and filtering ClusterInstance resources.
 
         :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of cluster instance
+        :param pulumi.Input[_builtins.str] arn: ARN of cluster instance
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
         :param pulumi.Input[_builtins.str] availability_zone: EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
         :param pulumi.Input[_builtins.str] ca_cert_identifier: Identifier of the CA certificate for the DB instance.
@@ -619,7 +619,7 @@ class _ClusterInstanceState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of cluster instance
+        ARN of cluster instance
         """
         return pulumi.get(self, "arn")
 
@@ -1366,7 +1366,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of cluster instance
+        :param pulumi.Input[_builtins.str] arn: ARN of cluster instance
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
         :param pulumi.Input[_builtins.str] availability_zone: EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
         :param pulumi.Input[_builtins.str] ca_cert_identifier: Identifier of the CA certificate for the DB instance.
@@ -1460,7 +1460,7 @@ class ClusterInstance(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of cluster instance
+        ARN of cluster instance
         """
         return pulumi.get(self, "arn")
 

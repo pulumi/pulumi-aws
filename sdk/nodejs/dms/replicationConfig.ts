@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the DMS replication configuration.
+ * - `arn` (String) ARN of the DMS replication configuration.
  *
  * Using `pulumi import`, import a replication config using the `arn`. For example:
  *
@@ -81,7 +81,7 @@ export class ReplicationConfig extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the serverless replication config.
+     * ARN for the serverless replication config.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -105,11 +105,11 @@ export class ReplicationConfig extends pulumi.CustomResource {
      */
     declare public readonly replicationType: pulumi.Output<string>;
     /**
-     * Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
+     * Unique value or name that you set for a given resource that can be used to construct an ARN for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
      */
     declare public readonly resourceIdentifier: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+     * ARN string that uniquely identifies the source endpoint.
      */
     declare public readonly sourceEndpointArn: pulumi.Output<string>;
     /**
@@ -133,7 +133,7 @@ export class ReplicationConfig extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+     * ARN string that uniquely identifies the target endpoint.
      */
     declare public readonly targetEndpointArn: pulumi.Output<string>;
 
@@ -209,7 +209,7 @@ export class ReplicationConfig extends pulumi.CustomResource {
  */
 export interface ReplicationConfigState {
     /**
-     * The Amazon Resource Name (ARN) for the serverless replication config.
+     * ARN for the serverless replication config.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -233,11 +233,11 @@ export interface ReplicationConfigState {
      */
     replicationType?: pulumi.Input<string | undefined>;
     /**
-     * Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
+     * Unique value or name that you set for a given resource that can be used to construct an ARN for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
      */
     resourceIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+     * ARN string that uniquely identifies the source endpoint.
      */
     sourceEndpointArn?: pulumi.Input<string | undefined>;
     /**
@@ -261,7 +261,7 @@ export interface ReplicationConfigState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+     * ARN string that uniquely identifies the target endpoint.
      */
     targetEndpointArn?: pulumi.Input<string | undefined>;
 }
@@ -291,11 +291,11 @@ export interface ReplicationConfigArgs {
      */
     replicationType: pulumi.Input<string>;
     /**
-     * Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
+     * Unique value or name that you set for a given resource that can be used to construct an ARN for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
      */
     resourceIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+     * ARN string that uniquely identifies the source endpoint.
      */
     sourceEndpointArn: pulumi.Input<string>;
     /**
@@ -315,7 +315,7 @@ export interface ReplicationConfigArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+     * ARN string that uniquely identifies the target endpoint.
      */
     targetEndpointArn: pulumi.Input<string>;
 }

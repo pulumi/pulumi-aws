@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the Device Farm device pool.
+ * - `arn` (String) ARN of the Device Farm device pool.
  *
  * Using `pulumi import`, import DeviceFarm Device Pools using their ARN. For example:
  *
@@ -70,7 +70,7 @@ export class DevicePool extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name of this Device Pool
+     * ARN of this Device Pool
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -159,7 +159,7 @@ export class DevicePool extends pulumi.CustomResource {
  */
 export interface DevicePoolState {
     /**
-     * The Amazon Resource Name of this Device Pool
+     * ARN of this Device Pool
      */
     arn?: pulumi.Input<string | undefined>;
     /**

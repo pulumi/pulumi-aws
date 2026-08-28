@@ -96,7 +96,7 @@ type LookupVocabularyArgs struct {
 
 // A collection of values returned by getVocabulary.
 type LookupVocabularyResult struct {
-	// The Amazon Resource Name (ARN) of the Vocabulary.
+	// ARN of the Vocabulary.
 	Arn string `pulumi:"arn"`
 	// The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table).
 	Content string `pulumi:"content"`
@@ -163,7 +163,7 @@ func (o LookupVocabularyResultOutput) ToLookupVocabularyResultOutputWithContext(
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Vocabulary.
+// ARN of the Vocabulary.
 func (o LookupVocabularyResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVocabularyResult) string { return v.Arn }).(pulumi.StringOutput)
 }

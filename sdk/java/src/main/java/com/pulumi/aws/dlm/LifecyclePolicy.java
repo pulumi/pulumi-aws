@@ -436,14 +436,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:dlm/lifecyclePolicy:LifecyclePolicy")
 public class LifecyclePolicy extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
+     * ARN of the DLM Lifecycle Policy.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
+     * @return ARN of the DLM Lifecycle Policy.
      * 
      */
     public Output<String> arn() {

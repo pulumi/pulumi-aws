@@ -51,7 +51,7 @@ import (
 type SnapshotSchedule struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
+	// ARN of the Redshift Snapshot Schedule.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
 	Definitions pulumi.StringArrayOutput `pulumi:"definitions"`
@@ -105,7 +105,7 @@ func GetSnapshotSchedule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SnapshotSchedule resources.
 type snapshotScheduleState struct {
-	// Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
+	// ARN of the Redshift Snapshot Schedule.
 	Arn *string `pulumi:"arn"`
 	// The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
 	Definitions []string `pulumi:"definitions"`
@@ -127,7 +127,7 @@ type snapshotScheduleState struct {
 }
 
 type SnapshotScheduleState struct {
-	// Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
+	// ARN of the Redshift Snapshot Schedule.
 	Arn pulumi.StringPtrInput
 	// The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
 	Definitions pulumi.StringArrayInput
@@ -276,7 +276,7 @@ func (o SnapshotScheduleOutput) ToSnapshotScheduleOutputWithContext(ctx context.
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
+// ARN of the Redshift Snapshot Schedule.
 func (o SnapshotScheduleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotSchedule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -141,7 +141,7 @@ import (
 type ServerlessCollection struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the collection.
+	// ARN of the collection.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
 	CollectionEndpoint pulumi.StringOutput `pulumi:"collectionEndpoint"`
@@ -204,7 +204,7 @@ func GetServerlessCollection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerlessCollection resources.
 type serverlessCollectionState struct {
-	// Amazon Resource Name (ARN) of the collection.
+	// ARN of the collection.
 	Arn *string `pulumi:"arn"`
 	// Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
 	CollectionEndpoint *string `pulumi:"collectionEndpoint"`
@@ -238,7 +238,7 @@ type serverlessCollectionState struct {
 }
 
 type ServerlessCollectionState struct {
-	// Amazon Resource Name (ARN) of the collection.
+	// ARN of the collection.
 	Arn pulumi.StringPtrInput
 	// Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
 	CollectionEndpoint pulumi.StringPtrInput
@@ -411,7 +411,7 @@ func (o ServerlessCollectionOutput) ToServerlessCollectionOutputWithContext(ctx 
 	return o
 }
 
-// Amazon Resource Name (ARN) of the collection.
+// ARN of the collection.
 func (o ServerlessCollectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

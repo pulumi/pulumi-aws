@@ -91,14 +91,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:mskconnect/customPlugin:CustomPlugin")
 public class CustomPlugin extends com.pulumi.resources.CustomResource {
     /**
-     * the Amazon Resource Name (ARN) of the custom plugin.
+     * the ARN of the custom plugin.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return the Amazon Resource Name (ARN) of the custom plugin.
+     * @return the ARN of the custom plugin.
      * 
      */
     public Output<String> arn() {

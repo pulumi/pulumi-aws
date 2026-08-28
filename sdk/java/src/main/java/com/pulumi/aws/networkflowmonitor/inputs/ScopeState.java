@@ -35,14 +35,14 @@ public final class ScopeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the scope.
+     * ARN of the scope.
      * 
      */
     @Import(name="scopeArn")
     private @Nullable Output<String> scopeArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the scope.
+     * @return ARN of the scope.
      * 
      */
     public Optional<Output<String>> scopeArn() {
@@ -172,7 +172,7 @@ public final class ScopeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scopeArn The Amazon Resource Name (ARN) of the scope.
+         * @param scopeArn ARN of the scope.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class ScopeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scopeArn The Amazon Resource Name (ARN) of the scope.
+         * @param scopeArn ARN of the scope.
          * 
          * @return builder
          * 

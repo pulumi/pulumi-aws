@@ -50,7 +50,7 @@ func LookupDistributionTenant(ctx *pulumi.Context, args *LookupDistributionTenan
 
 // A collection of arguments for invoking getDistributionTenant.
 type LookupDistributionTenantArgs struct {
-	// ARN (Amazon Resource Name) for the distribution tenant.
+	// ARN for the distribution tenant.
 	Arn *string `pulumi:"arn"`
 	// An associated domain of the distribution tenant. Exactly one of `id` or `domain` must be specified.
 	Domain *string `pulumi:"domain"`
@@ -61,7 +61,7 @@ type LookupDistributionTenantArgs struct {
 
 // A collection of values returned by getDistributionTenant.
 type LookupDistributionTenantResult struct {
-	// ARN (Amazon Resource Name) for the distribution tenant.
+	// ARN for the distribution tenant.
 	Arn string `pulumi:"arn"`
 	// The CloudFront connection group the tenant is associated with.
 	ConnectionGroupId string                               `pulumi:"connectionGroupId"`
@@ -98,7 +98,7 @@ func LookupDistributionTenantOutput(ctx *pulumi.Context, args LookupDistribution
 
 // A collection of arguments for invoking getDistributionTenant.
 type LookupDistributionTenantOutputArgs struct {
-	// ARN (Amazon Resource Name) for the distribution tenant.
+	// ARN for the distribution tenant.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// An associated domain of the distribution tenant. Exactly one of `id` or `domain` must be specified.
 	Domain pulumi.StringPtrInput `pulumi:"domain"`
@@ -126,7 +126,7 @@ func (o LookupDistributionTenantResultOutput) ToLookupDistributionTenantResultOu
 	return o
 }
 
-// ARN (Amazon Resource Name) for the distribution tenant.
+// ARN for the distribution tenant.
 func (o LookupDistributionTenantResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDistributionTenantResult) string { return v.Arn }).(pulumi.StringOutput)
 }

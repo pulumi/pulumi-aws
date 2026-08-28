@@ -50,7 +50,7 @@ class AddonArgs:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resolve_conflicts_on_create: How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Documentation.
         :param pulumi.Input[_builtins.str] resolve_conflicts_on_update: How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Documentation.
-        :param pulumi.Input[_builtins.str] service_account_role_arn: The Amazon Resource Name (ARN) of an
+        :param pulumi.Input[_builtins.str] service_account_role_arn: ARN of an
                existing IAM role to bind to the add-on's service account. The role must be
                assigned the IAM permissions required by the add-on. If you don't specify
                an existing IAM role, then the add-on uses the permissions assigned to the node
@@ -214,7 +214,7 @@ class AddonArgs:
     @pulumi.getter(name="serviceAccountRoleArn")
     def service_account_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of an
+        ARN of an
         existing IAM role to bind to the add-on's service account. The role must be
         assigned the IAM permissions required by the add-on. If you don't specify
         an existing IAM role, then the add-on uses the permissions assigned to the node
@@ -271,7 +271,7 @@ class _AddonState:
                the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         :param pulumi.Input[_builtins.str] addon_version: The version of the EKS add-on. The version must
                match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the EKS add-on.
+        :param pulumi.Input[_builtins.str] arn: ARN of the EKS add-on.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
                
                The following arguments are optional:
@@ -284,7 +284,7 @@ class _AddonState:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resolve_conflicts_on_create: How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Documentation.
         :param pulumi.Input[_builtins.str] resolve_conflicts_on_update: How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Documentation.
-        :param pulumi.Input[_builtins.str] service_account_role_arn: The Amazon Resource Name (ARN) of an
+        :param pulumi.Input[_builtins.str] service_account_role_arn: ARN of an
                existing IAM role to bind to the add-on's service account. The role must be
                assigned the IAM permissions required by the add-on. If you don't specify
                an existing IAM role, then the add-on uses the permissions assigned to the node
@@ -361,7 +361,7 @@ class _AddonState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the EKS add-on.
+        ARN of the EKS add-on.
         """
         return pulumi.get(self, "arn")
 
@@ -495,7 +495,7 @@ class _AddonState:
     @pulumi.getter(name="serviceAccountRoleArn")
     def service_account_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of an
+        ARN of an
         existing IAM role to bind to the add-on's service account. The role must be
         assigned the IAM permissions required by the add-on. If you don't specify
         an existing IAM role, then the add-on uses the permissions assigned to the node
@@ -650,7 +650,7 @@ class Addon(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resolve_conflicts_on_create: How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Documentation.
         :param pulumi.Input[_builtins.str] resolve_conflicts_on_update: How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Documentation.
-        :param pulumi.Input[_builtins.str] service_account_role_arn: The Amazon Resource Name (ARN) of an
+        :param pulumi.Input[_builtins.str] service_account_role_arn: ARN of an
                existing IAM role to bind to the add-on's service account. The role must be
                assigned the IAM permissions required by the add-on. If you don't specify
                an existing IAM role, then the add-on uses the permissions assigned to the node
@@ -839,7 +839,7 @@ class Addon(pulumi.CustomResource):
                the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         :param pulumi.Input[_builtins.str] addon_version: The version of the EKS add-on. The version must
                match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the EKS add-on.
+        :param pulumi.Input[_builtins.str] arn: ARN of the EKS add-on.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
                
                The following arguments are optional:
@@ -852,7 +852,7 @@ class Addon(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resolve_conflicts_on_create: How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Documentation.
         :param pulumi.Input[_builtins.str] resolve_conflicts_on_update: How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Documentation.
-        :param pulumi.Input[_builtins.str] service_account_role_arn: The Amazon Resource Name (ARN) of an
+        :param pulumi.Input[_builtins.str] service_account_role_arn: ARN of an
                existing IAM role to bind to the add-on's service account. The role must be
                assigned the IAM permissions required by the add-on. If you don't specify
                an existing IAM role, then the add-on uses the permissions assigned to the node
@@ -910,7 +910,7 @@ class Addon(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the EKS add-on.
+        ARN of the EKS add-on.
         """
         return pulumi.get(self, "arn")
 
@@ -1000,7 +1000,7 @@ class Addon(pulumi.CustomResource):
     @pulumi.getter(name="serviceAccountRoleArn")
     def service_account_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of an
+        ARN of an
         existing IAM role to bind to the add-on's service account. The role must be
         assigned the IAM permissions required by the add-on. If you don't specify
         an existing IAM role, then the add-on uses the permissions assigned to the node

@@ -149,7 +149,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws.storagegateway.FileSystemAssociation` using the FSx file system association Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.storagegateway.FileSystemAssociation` using the FSx file system association ARN. For example:
  * 
  * ```sh
  * $ pulumi import aws:storagegateway/fileSystemAssociation:FileSystemAssociation example arn:aws:storagegateway:us-east-1:123456789012:fs-association/fsa-0DA347732FDB40125
@@ -159,28 +159,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:storagegateway/fileSystemAssociation:FileSystemAssociation")
 public class FileSystemAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the newly created file system association.
+     * ARN of the newly created file system association.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the newly created file system association.
+     * @return ARN of the newly created file system association.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The Amazon Resource Name (ARN) of the storage used for the audit logs.
+     * ARN of the storage used for the audit logs.
      * 
      */
     @Export(name="auditDestinationArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> auditDestinationArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the storage used for the audit logs.
+     * @return ARN of the storage used for the audit logs.
      * 
      */
     public Output<Optional<String>> auditDestinationArn() {
@@ -201,28 +201,28 @@ public class FileSystemAssociation extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.cacheAttributes);
     }
     /**
-     * The Amazon Resource Name (ARN) of the gateway.
+     * ARN of the gateway.
      * 
      */
     @Export(name="gatewayArn", refs={String.class}, tree="[0]")
     private Output<String> gatewayArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the gateway.
+     * @return ARN of the gateway.
      * 
      */
     public Output<String> gatewayArn() {
         return this.gatewayArn;
     }
     /**
-     * The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+     * ARN of the Amazon FSx file system to associate with the FSx File Gateway.
      * 
      */
     @Export(name="locationArn", refs={String.class}, tree="[0]")
     private Output<String> locationArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+     * @return ARN of the Amazon FSx file system to associate with the FSx File Gateway.
      * 
      */
     public Output<String> locationArn() {

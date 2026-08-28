@@ -60,6 +60,47 @@ import * as utilities from "../utilities";
  *
  * For more information about managed external secrets and partner-specific metadata requirements, see the [AWS documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/managed-external-secrets.html) and [partner-specific guides](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html).
  *
+ * ### Disable Rotation for a Managed Secret
+ *
+ * When a secret is managed by AWS, such as an RDS master user password secret created via `manageMasterUserPassword`, rotation is enabled automatically. Set `rotationEnabled` to `false` (and omit `rotationRules`) to turn that rotation off:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.rds.Instance("example", {manageMasterUserPassword: true});
+ * const exampleSecretRotation = new aws.secretsmanager.SecretRotation("example", {
+ *     secretId: example.masterUserSecrets[0].secretArn,
+ *     rotationEnabled: false,
+ * });
+ * ```
+ *
+ * > **NOTE:** For Amazon Aurora and other clustered engines, rotation is finalized once a cluster instance is available, and AWS re-enables rotation if it is cancelled before then. Ensure this resource depends on the cluster instance (for example, with `dependsOn = [aws_rds_cluster_instance.example]`) so the cancellation is applied after the instance is available.
+ *
+ * When `rotationEnabled` is `false`, `rotationRules` must be omitted. If you toggle rotation on and off through a variable (for example, in a module), gate the block with a `dynamic` block so it is only present when rotation is enabled:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * function singleOrNone<T>(elements: pulumi.Input<T>[]): pulumi.Input<T> | undefined {
+ *     if (elements.length > 1) {
+ *         throw new Error("singleOrNone expected input list to have a single element");
+ *     }
+ *     return elements[0];
+ * }
+ *
+ * const config = new pulumi.Config();
+ * const rotationEnabled = config.getBoolean("rotationEnabled") || true;
+ * const example = new aws.secretsmanager.SecretRotation("example", {
+ *     rotationRules: singleOrNone(rotationEnabled ? [{
+ *         automaticallyAfterDays: 30,
+ *     }] : []),
+ *     secretId: exampleAwsDbInstance.masterUserSecret[0].secretArn,
+ *     rotationEnabled: rotationEnabled,
+ * });
+ * ```
+ *
  * ### Rotation Configuration
  *
  * To enable automatic secret rotation, the Secrets Manager service requires usage of a Lambda function. The [Rotate Secrets section in the Secrets Manager User Guide](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html) provides additional information about deploying a prebuilt Lambda functions for supported credential rotation (e.g., RDS) or deploying a custom Lambda function.
@@ -74,9 +115,9 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `secretId` (String) Amazon Resource Name (ARN) of the Secrets Manager secret.
+ * - `secretId` (String) ARN of the Secrets Manager secret.
  *
- * Using `pulumi import`, import `aws.secretsmanager.SecretRotation` using the secret Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.secretsmanager.SecretRotation` using the secret ARN. For example:
  *
  * ```sh
  * $ pulumi import aws:secretsmanager/secretRotation:SecretRotation example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
@@ -127,19 +168,19 @@ export class SecretRotation extends pulumi.CustomResource {
      */
     declare public readonly rotateImmediately: pulumi.Output<boolean | undefined>;
     /**
-     * Whether automatic rotation is enabled for this secret.
+     * Whether automatic rotation is enabled for the secret. Set to `false` to disable rotation on a secret whose rotation is otherwise managed by AWS (for example, an RDS master user password secret). When `false`, `rotationRules` must be omitted. Defaults to enabled when `rotationRules` is configured. Destroying this resource does not re-enable the automatic rotation that AWS configured.
      */
-    declare public /*out*/ readonly rotationEnabled: pulumi.Output<boolean>;
+    declare public readonly rotationEnabled: pulumi.Output<boolean>;
     /**
      * ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
      */
     declare public readonly rotationLambdaArn: pulumi.Output<string | undefined>;
     /**
-     * Structure that defines the rotation configuration for this secret. Defined below.
+     * Structure that defines the rotation configuration for this secret. Required unless `rotationEnabled` is `false`. Defined below.
      */
-    declare public readonly rotationRules: pulumi.Output<outputs.secretsmanager.SecretRotationRotationRules>;
+    declare public readonly rotationRules: pulumi.Output<outputs.secretsmanager.SecretRotationRotationRules | undefined>;
     /**
-     * Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+     * Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
      */
     declare public readonly secretId: pulumi.Output<string>;
 
@@ -166,9 +207,6 @@ export class SecretRotation extends pulumi.CustomResource {
             resourceInputs["secretId"] = state?.secretId;
         } else {
             const args = argsOrState as SecretRotationArgs | undefined;
-            if (args?.rotationRules === undefined && !opts.urn) {
-                throw new Error("Missing required property 'rotationRules'");
-            }
             if (args?.secretId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'secretId'");
             }
@@ -176,10 +214,10 @@ export class SecretRotation extends pulumi.CustomResource {
             resourceInputs["externalSecretRotationRoleArn"] = args?.externalSecretRotationRoleArn;
             resourceInputs["region"] = args?.region;
             resourceInputs["rotateImmediately"] = args?.rotateImmediately;
+            resourceInputs["rotationEnabled"] = args?.rotationEnabled;
             resourceInputs["rotationLambdaArn"] = args?.rotationLambdaArn;
             resourceInputs["rotationRules"] = args?.rotationRules;
             resourceInputs["secretId"] = args?.secretId;
-            resourceInputs["rotationEnabled"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SecretRotation.__pulumiType, name, resourceInputs, opts);
@@ -207,7 +245,7 @@ export interface SecretRotationState {
      */
     rotateImmediately?: pulumi.Input<boolean | undefined>;
     /**
-     * Whether automatic rotation is enabled for this secret.
+     * Whether automatic rotation is enabled for the secret. Set to `false` to disable rotation on a secret whose rotation is otherwise managed by AWS (for example, an RDS master user password secret). When `false`, `rotationRules` must be omitted. Defaults to enabled when `rotationRules` is configured. Destroying this resource does not re-enable the automatic rotation that AWS configured.
      */
     rotationEnabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -215,11 +253,11 @@ export interface SecretRotationState {
      */
     rotationLambdaArn?: pulumi.Input<string | undefined>;
     /**
-     * Structure that defines the rotation configuration for this secret. Defined below.
+     * Structure that defines the rotation configuration for this secret. Required unless `rotationEnabled` is `false`. Defined below.
      */
     rotationRules?: pulumi.Input<inputs.secretsmanager.SecretRotationRotationRules | undefined>;
     /**
-     * Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+     * Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
      */
     secretId?: pulumi.Input<string | undefined>;
 }
@@ -245,15 +283,19 @@ export interface SecretRotationArgs {
      */
     rotateImmediately?: pulumi.Input<boolean | undefined>;
     /**
+     * Whether automatic rotation is enabled for the secret. Set to `false` to disable rotation on a secret whose rotation is otherwise managed by AWS (for example, an RDS master user password secret). When `false`, `rotationRules` must be omitted. Defaults to enabled when `rotationRules` is configured. Destroying this resource does not re-enable the automatic rotation that AWS configured.
+     */
+    rotationEnabled?: pulumi.Input<boolean | undefined>;
+    /**
      * ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
      */
     rotationLambdaArn?: pulumi.Input<string | undefined>;
     /**
-     * Structure that defines the rotation configuration for this secret. Defined below.
+     * Structure that defines the rotation configuration for this secret. Required unless `rotationEnabled` is `false`. Defined below.
      */
-    rotationRules: pulumi.Input<inputs.secretsmanager.SecretRotationRotationRules>;
+    rotationRules?: pulumi.Input<inputs.secretsmanager.SecretRotationRotationRules | undefined>;
     /**
-     * Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+     * Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
      */
     secretId: pulumi.Input<string>;
 }

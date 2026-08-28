@@ -101,7 +101,7 @@ namespace Pulumi.Aws.DirectConnect
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
+        /// ARN of the MAC Security (MACsec) secret key to associate with the dedicated connection.
         /// 
         /// &gt; **Note:** `Ckn` and `Cak` are mutually exclusive with `SecretArn` - these arguments cannot be used together. If you use `Ckn` and `Cak`, you should not use `SecretArn`. If you use the `SecretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `Ckn` or `Cak`.
         /// </summary>
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.DirectConnect
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
+        /// ARN of the MAC Security (MACsec) secret key to associate with the dedicated connection.
         /// 
         /// &gt; **Note:** `Ckn` and `Cak` are mutually exclusive with `SecretArn` - these arguments cannot be used together. If you use `Ckn` and `Cak`, you should not use `SecretArn`. If you use the `SecretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `Ckn` or `Cak`.
         /// </summary>
@@ -231,7 +231,7 @@ namespace Pulumi.Aws.DirectConnect
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
+        /// ARN of the MAC Security (MACsec) secret key to associate with the dedicated connection.
         /// 
         /// &gt; **Note:** `Ckn` and `Cak` are mutually exclusive with `SecretArn` - these arguments cannot be used together. If you use `Ckn` and `Cak`, you should not use `SecretArn`. If you use the `SecretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `Ckn` or `Cak`.
         /// </summary>

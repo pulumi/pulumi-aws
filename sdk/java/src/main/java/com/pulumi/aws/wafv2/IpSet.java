@@ -88,14 +88,14 @@ public class IpSet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.addresses);
     }
     /**
-     * The Amazon Resource Name (ARN) of the IP set.
+     * ARN of the IP set.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IP set.
+     * @return ARN of the IP set.
      * 
      */
     public Output<String> arn() {

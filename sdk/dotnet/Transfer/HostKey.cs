@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Transfer
     public partial class HostKey : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of host key.
+        /// ARN of host key.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -228,7 +228,7 @@ namespace Pulumi.Aws.Transfer
     public sealed class HostKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of host key.
+        /// ARN of host key.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -229,7 +229,7 @@ type ExportTask struct {
 	S3Prefix pulumi.StringOutput `pulumi:"s3Prefix"`
 	// Time that the snapshot was created.
 	SnapshotTime pulumi.StringOutput `pulumi:"snapshotTime"`
-	// Amazon Resource Name (ARN) of the snapshot to export.
+	// ARN of the snapshot to export.
 	//
 	// The following arguments are optional:
 	SourceArn pulumi.StringOutput `pulumi:"sourceArn"`
@@ -311,7 +311,7 @@ type exportTaskState struct {
 	S3Prefix *string `pulumi:"s3Prefix"`
 	// Time that the snapshot was created.
 	SnapshotTime *string `pulumi:"snapshotTime"`
-	// Amazon Resource Name (ARN) of the snapshot to export.
+	// ARN of the snapshot to export.
 	//
 	// The following arguments are optional:
 	SourceArn *string `pulumi:"sourceArn"`
@@ -349,7 +349,7 @@ type ExportTaskState struct {
 	S3Prefix pulumi.StringPtrInput
 	// Time that the snapshot was created.
 	SnapshotTime pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the snapshot to export.
+	// ARN of the snapshot to export.
 	//
 	// The following arguments are optional:
 	SourceArn pulumi.StringPtrInput
@@ -385,7 +385,7 @@ type exportTaskArgs struct {
 	S3BucketName string `pulumi:"s3BucketName"`
 	// Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
 	S3Prefix *string `pulumi:"s3Prefix"`
-	// Amazon Resource Name (ARN) of the snapshot to export.
+	// ARN of the snapshot to export.
 	//
 	// The following arguments are optional:
 	SourceArn string              `pulumi:"sourceArn"`
@@ -408,7 +408,7 @@ type ExportTaskArgs struct {
 	S3BucketName pulumi.StringInput
 	// Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
 	S3Prefix pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the snapshot to export.
+	// ARN of the snapshot to export.
 	//
 	// The following arguments are optional:
 	SourceArn pulumi.StringInput
@@ -552,7 +552,7 @@ func (o ExportTaskOutput) SnapshotTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExportTask) pulumi.StringOutput { return v.SnapshotTime }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the snapshot to export.
+// ARN of the snapshot to export.
 //
 // The following arguments are optional:
 func (o ExportTaskOutput) SourceArn() pulumi.StringOutput {

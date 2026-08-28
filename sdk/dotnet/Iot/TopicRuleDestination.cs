@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Iot
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+        /// Configuration of the VPC connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
         /// </summary>
         [Output("vpcConfiguration")]
         public Output<Outputs.TopicRuleDestinationVpcConfiguration> VpcConfiguration { get; private set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.Aws.Iot
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+        /// Configuration of the VPC connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
         /// </summary>
         [Input("vpcConfiguration", required: true)]
         public Input<Inputs.TopicRuleDestinationVpcConfigurationArgs> VpcConfiguration { get; set; } = null!;
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Iot
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+        /// Configuration of the VPC connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
         /// </summary>
         [Input("vpcConfiguration")]
         public Input<Inputs.TopicRuleDestinationVpcConfigurationGetArgs>? VpcConfiguration { get; set; }

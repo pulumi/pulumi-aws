@@ -19,14 +19,14 @@ public final class BucketLifecycleConfigurationArgs extends com.pulumi.resources
     public static final BucketLifecycleConfigurationArgs Empty = new BucketLifecycleConfigurationArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the bucket.
+     * ARN of the bucket.
      * 
      */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
-     * @return Amazon Resource Name (ARN) of the bucket.
+     * @return ARN of the bucket.
      * 
      */
     public Output<String> bucket() {
@@ -90,7 +90,7 @@ public final class BucketLifecycleConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param bucket Amazon Resource Name (ARN) of the bucket.
+         * @param bucket ARN of the bucket.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class BucketLifecycleConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param bucket Amazon Resource Name (ARN) of the bucket.
+         * @param bucket ARN of the bucket.
          * 
          * @return builder
          * 

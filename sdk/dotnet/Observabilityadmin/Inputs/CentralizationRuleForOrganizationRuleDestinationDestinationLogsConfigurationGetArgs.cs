@@ -30,6 +30,12 @@ namespace Pulumi.Aws.Observabilityadmin.Inputs
         [Input("logsEncryptionConfiguration")]
         public Input<Inputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationGetArgs>? LogsEncryptionConfiguration { get; set; }
 
+        /// <summary>
+        /// Configuration block for propagating source resource tags to centralized destination log groups. See `TagPropagationConfiguration` below.
+        /// </summary>
+        [Input("tagPropagationConfiguration")]
+        public Input<Inputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationTagPropagationConfigurationGetArgs>? TagPropagationConfiguration { get; set; }
+
         public CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationGetArgs()
         {
         }

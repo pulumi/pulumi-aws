@@ -18,7 +18,7 @@ type HostVpcConfiguration struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
+	// Value of the TLS certificate associated with the infrastructure where your provider type is installed.
 	TlsCertificate *string `pulumi:"tlsCertificate"`
 	// The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
 	VpcId string `pulumi:"vpcId"`
@@ -40,7 +40,7 @@ type HostVpcConfigurationArgs struct {
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
-	// The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
+	// Value of the TLS certificate associated with the infrastructure where your provider type is installed.
 	TlsCertificate pulumi.StringPtrInput `pulumi:"tlsCertificate"`
 	// The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
 	VpcId pulumi.StringInput `pulumi:"vpcId"`
@@ -133,7 +133,7 @@ func (o HostVpcConfigurationOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HostVpcConfiguration) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
+// Value of the TLS certificate associated with the infrastructure where your provider type is installed.
 func (o HostVpcConfigurationOutput) TlsCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostVpcConfiguration) *string { return v.TlsCertificate }).(pulumi.StringPtrOutput)
 }
@@ -187,7 +187,7 @@ func (o HostVpcConfigurationPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
+// Value of the TLS certificate associated with the infrastructure where your provider type is installed.
 func (o HostVpcConfigurationPtrOutput) TlsCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostVpcConfiguration) *string {
 		if v == nil {

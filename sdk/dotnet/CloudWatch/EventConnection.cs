@@ -371,7 +371,7 @@ namespace Pulumi.Aws.CloudWatch
     public partial class EventConnection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the connection.
+        /// ARN of the connection.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -401,7 +401,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<Outputs.EventConnectionInvocationConnectivityParameters?> InvocationConnectivityParameters { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
         /// </summary>
         [Output("kmsKeyIdentifier")]
         public Output<string?> KmsKeyIdentifier { get; private set; } = null!;
@@ -419,7 +419,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
+        /// ARN of the secret created from the authorization parameters specified for the connection.
         /// </summary>
         [Output("secretArn")]
         public Output<string> SecretArn { get; private set; } = null!;
@@ -495,7 +495,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventConnectionInvocationConnectivityParametersArgs>? InvocationConnectivityParameters { get; set; }
 
         /// <summary>
-        /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
         /// </summary>
         [Input("kmsKeyIdentifier")]
         public Input<string>? KmsKeyIdentifier { get; set; }
@@ -521,7 +521,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class EventConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the connection.
+        /// ARN of the connection.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -551,7 +551,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventConnectionInvocationConnectivityParametersGetArgs>? InvocationConnectivityParameters { get; set; }
 
         /// <summary>
-        /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
         /// </summary>
         [Input("kmsKeyIdentifier")]
         public Input<string>? KmsKeyIdentifier { get; set; }
@@ -569,7 +569,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
+        /// ARN of the secret created from the authorization parameters specified for the connection.
         /// </summary>
         [Input("secretArn")]
         public Input<string>? SecretArn { get; set; }

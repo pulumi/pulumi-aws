@@ -97,14 +97,14 @@ public class InstanceAccessControlAttributes extends com.pulumi.resources.Custom
         return this.attributes;
     }
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance.
+     * ARN of the SSO Instance.
      * 
      */
     @Export(name="instanceArn", refs={String.class}, tree="[0]")
     private Output<String> instanceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the SSO Instance.
+     * @return ARN of the SSO Instance.
      * 
      */
     public Output<String> instanceArn() {

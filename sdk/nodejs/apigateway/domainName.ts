@@ -238,7 +238,7 @@ export class DomainName extends pulumi.CustomResource {
      */
     declare public readonly routingMode: pulumi.Output<string>;
     /**
-     * Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
+     * TLS version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
      */
     declare public readonly securityPolicy: pulumi.Output<string>;
     /**
@@ -419,7 +419,7 @@ export interface DomainNameState {
      */
     routingMode?: pulumi.Input<string | undefined>;
     /**
-     * Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
+     * TLS version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
      */
     securityPolicy?: pulumi.Input<string | undefined>;
     /**
@@ -497,7 +497,7 @@ export interface DomainNameArgs {
      */
     routingMode?: pulumi.Input<string | undefined>;
     /**
-     * Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
+     * TLS version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
      */
     securityPolicy?: pulumi.Input<string | undefined>;
     /**

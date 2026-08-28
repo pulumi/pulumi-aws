@@ -17,14 +17,14 @@ public final class NotebookInstanceLifecycleConfigurationState extends com.pulum
     public static final NotebookInstanceLifecycleConfigurationState Empty = new NotebookInstanceLifecycleConfigurationState();
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
+     * ARN assigned by AWS to this lifecycle configuration.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
+     * @return ARN assigned by AWS to this lifecycle configuration.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -152,7 +152,7 @@ public final class NotebookInstanceLifecycleConfigurationState extends com.pulum
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
+         * @param arn ARN assigned by AWS to this lifecycle configuration.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class NotebookInstanceLifecycleConfigurationState extends com.pulum
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
+         * @param arn ARN assigned by AWS to this lifecycle configuration.
          * 
          * @return builder
          * 

@@ -103,14 +103,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:auditmanager/assessment:Assessment")
 public class Assessment extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the assessment.
+     * ARN of the assessment.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the assessment.
+     * @return ARN of the assessment.
      * 
      */
     public Output<String> arn() {

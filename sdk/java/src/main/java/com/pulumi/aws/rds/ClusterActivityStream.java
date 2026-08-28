@@ -182,14 +182,14 @@ public class ClusterActivityStream extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) of the DB cluster.
+     * ARN of the DB cluster.
      * 
      */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the DB cluster.
+     * @return ARN of the DB cluster.
      * 
      */
     public Output<String> resourceArn() {

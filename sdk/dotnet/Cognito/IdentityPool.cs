@@ -131,7 +131,7 @@ namespace Pulumi.Aws.Cognito
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+        /// An array of ARNs of the SAML provider for your identity.
         /// </summary>
         [Output("samlProviderArns")]
         public Output<ImmutableArray<string>> SamlProviderArns { get; private set; } = null!;
@@ -259,7 +259,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _samlProviderArns;
 
         /// <summary>
-        /// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+        /// An array of ARNs of the SAML provider for your identity.
         /// </summary>
         public InputList<string> SamlProviderArns
         {
@@ -364,7 +364,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _samlProviderArns;
 
         /// <summary>
-        /// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+        /// An array of ARNs of the SAML provider for your identity.
         /// </summary>
         public InputList<string> SamlProviderArns
         {

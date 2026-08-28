@@ -33,14 +33,14 @@ public final class ThreatIntelSetState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
+     * ARN of the GuardDuty ThreatIntelSet.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
+     * @return ARN of the GuardDuty ThreatIntelSet.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -222,7 +222,7 @@ public final class ThreatIntelSetState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
+         * @param arn ARN of the GuardDuty ThreatIntelSet.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class ThreatIntelSetState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
+         * @param arn ARN of the GuardDuty ThreatIntelSet.
          * 
          * @return builder
          * 

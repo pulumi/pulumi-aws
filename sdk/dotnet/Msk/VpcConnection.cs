@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Msk
     public partial class VpcConnection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the VPC connection.
+        /// ARN of the VPC connection.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Msk
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the cluster.
+        /// ARN of the cluster.
         /// </summary>
         [Output("targetClusterArn")]
         public Output<string> TargetClusterArn { get; private set; } = null!;
@@ -197,7 +197,7 @@ namespace Pulumi.Aws.Msk
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the cluster.
+        /// ARN of the cluster.
         /// </summary>
         [Input("targetClusterArn", required: true)]
         public Input<string> TargetClusterArn { get; set; } = null!;
@@ -217,7 +217,7 @@ namespace Pulumi.Aws.Msk
     public sealed class VpcConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the VPC connection.
+        /// ARN of the VPC connection.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -283,7 +283,7 @@ namespace Pulumi.Aws.Msk
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the cluster.
+        /// ARN of the cluster.
         /// </summary>
         [Input("targetClusterArn")]
         public Input<string>? TargetClusterArn { get; set; }

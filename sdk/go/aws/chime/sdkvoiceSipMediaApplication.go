@@ -56,11 +56,11 @@ import (
 type SdkvoiceSipMediaApplication struct {
 	pulumi.CustomResourceState
 
-	// ARN (Amazon Resource Name) of the AWS Chime SDK Voice Sip Media Application
+	// ARN of the AWS Chime SDK Voice Sip Media Application
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The AWS Region in which the AWS Chime SDK Voice Sip Media Application is created.
 	AwsRegion pulumi.StringOutput `pulumi:"awsRegion"`
-	// List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
+	// List of endpoints (Lambda ARNs) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
 	Endpoints SdkvoiceSipMediaApplicationEndpointsOutput `pulumi:"endpoints"`
 	// The name of the AWS Chime SDK Voice Sip Media Application.
 	//
@@ -110,11 +110,11 @@ func GetSdkvoiceSipMediaApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SdkvoiceSipMediaApplication resources.
 type sdkvoiceSipMediaApplicationState struct {
-	// ARN (Amazon Resource Name) of the AWS Chime SDK Voice Sip Media Application
+	// ARN of the AWS Chime SDK Voice Sip Media Application
 	Arn *string `pulumi:"arn"`
 	// The AWS Region in which the AWS Chime SDK Voice Sip Media Application is created.
 	AwsRegion *string `pulumi:"awsRegion"`
-	// List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
+	// List of endpoints (Lambda ARNs) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
 	Endpoints *SdkvoiceSipMediaApplicationEndpoints `pulumi:"endpoints"`
 	// The name of the AWS Chime SDK Voice Sip Media Application.
 	//
@@ -129,11 +129,11 @@ type sdkvoiceSipMediaApplicationState struct {
 }
 
 type SdkvoiceSipMediaApplicationState struct {
-	// ARN (Amazon Resource Name) of the AWS Chime SDK Voice Sip Media Application
+	// ARN of the AWS Chime SDK Voice Sip Media Application
 	Arn pulumi.StringPtrInput
 	// The AWS Region in which the AWS Chime SDK Voice Sip Media Application is created.
 	AwsRegion pulumi.StringPtrInput
-	// List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
+	// List of endpoints (Lambda ARNs) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
 	Endpoints SdkvoiceSipMediaApplicationEndpointsPtrInput
 	// The name of the AWS Chime SDK Voice Sip Media Application.
 	//
@@ -154,7 +154,7 @@ func (SdkvoiceSipMediaApplicationState) ElementType() reflect.Type {
 type sdkvoiceSipMediaApplicationArgs struct {
 	// The AWS Region in which the AWS Chime SDK Voice Sip Media Application is created.
 	AwsRegion string `pulumi:"awsRegion"`
-	// List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
+	// List of endpoints (Lambda ARNs) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
 	Endpoints SdkvoiceSipMediaApplicationEndpoints `pulumi:"endpoints"`
 	// The name of the AWS Chime SDK Voice Sip Media Application.
 	//
@@ -170,7 +170,7 @@ type sdkvoiceSipMediaApplicationArgs struct {
 type SdkvoiceSipMediaApplicationArgs struct {
 	// The AWS Region in which the AWS Chime SDK Voice Sip Media Application is created.
 	AwsRegion pulumi.StringInput
-	// List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
+	// List of endpoints (Lambda ARNs) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
 	Endpoints SdkvoiceSipMediaApplicationEndpointsInput
 	// The name of the AWS Chime SDK Voice Sip Media Application.
 	//
@@ -269,7 +269,7 @@ func (o SdkvoiceSipMediaApplicationOutput) ToSdkvoiceSipMediaApplicationOutputWi
 	return o
 }
 
-// ARN (Amazon Resource Name) of the AWS Chime SDK Voice Sip Media Application
+// ARN of the AWS Chime SDK Voice Sip Media Application
 func (o SdkvoiceSipMediaApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SdkvoiceSipMediaApplication) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -279,7 +279,7 @@ func (o SdkvoiceSipMediaApplicationOutput) AwsRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v *SdkvoiceSipMediaApplication) pulumi.StringOutput { return v.AwsRegion }).(pulumi.StringOutput)
 }
 
-// List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
+// List of endpoints (Lambda ARNs) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
 func (o SdkvoiceSipMediaApplicationOutput) Endpoints() SdkvoiceSipMediaApplicationEndpointsOutput {
 	return o.ApplyT(func(v *SdkvoiceSipMediaApplication) SdkvoiceSipMediaApplicationEndpointsOutput { return v.Endpoints }).(SdkvoiceSipMediaApplicationEndpointsOutput)
 }

@@ -52,11 +52,11 @@ import (
 type ReceiptFilter struct {
 	pulumi.CustomResourceState
 
-	// The SES receipt filter ARN.
+	// SES receipt filter ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The IP address or address range to filter, in CIDR notation
+	// IP address or address range to filter, in CIDR notation
 	Cidr pulumi.StringOutput `pulumi:"cidr"`
-	// The name of the filter
+	// Name of the filter
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Block or Allow
 	Policy pulumi.StringOutput `pulumi:"policy"`
@@ -100,11 +100,11 @@ func GetReceiptFilter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReceiptFilter resources.
 type receiptFilterState struct {
-	// The SES receipt filter ARN.
+	// SES receipt filter ARN.
 	Arn *string `pulumi:"arn"`
-	// The IP address or address range to filter, in CIDR notation
+	// IP address or address range to filter, in CIDR notation
 	Cidr *string `pulumi:"cidr"`
-	// The name of the filter
+	// Name of the filter
 	Name *string `pulumi:"name"`
 	// Block or Allow
 	Policy *string `pulumi:"policy"`
@@ -113,11 +113,11 @@ type receiptFilterState struct {
 }
 
 type ReceiptFilterState struct {
-	// The SES receipt filter ARN.
+	// SES receipt filter ARN.
 	Arn pulumi.StringPtrInput
-	// The IP address or address range to filter, in CIDR notation
+	// IP address or address range to filter, in CIDR notation
 	Cidr pulumi.StringPtrInput
-	// The name of the filter
+	// Name of the filter
 	Name pulumi.StringPtrInput
 	// Block or Allow
 	Policy pulumi.StringPtrInput
@@ -130,9 +130,9 @@ func (ReceiptFilterState) ElementType() reflect.Type {
 }
 
 type receiptFilterArgs struct {
-	// The IP address or address range to filter, in CIDR notation
+	// IP address or address range to filter, in CIDR notation
 	Cidr string `pulumi:"cidr"`
-	// The name of the filter
+	// Name of the filter
 	Name *string `pulumi:"name"`
 	// Block or Allow
 	Policy string `pulumi:"policy"`
@@ -142,9 +142,9 @@ type receiptFilterArgs struct {
 
 // The set of arguments for constructing a ReceiptFilter resource.
 type ReceiptFilterArgs struct {
-	// The IP address or address range to filter, in CIDR notation
+	// IP address or address range to filter, in CIDR notation
 	Cidr pulumi.StringInput
-	// The name of the filter
+	// Name of the filter
 	Name pulumi.StringPtrInput
 	// Block or Allow
 	Policy pulumi.StringInput
@@ -239,17 +239,17 @@ func (o ReceiptFilterOutput) ToReceiptFilterOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The SES receipt filter ARN.
+// SES receipt filter ARN.
 func (o ReceiptFilterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReceiptFilter) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The IP address or address range to filter, in CIDR notation
+// IP address or address range to filter, in CIDR notation
 func (o ReceiptFilterOutput) Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReceiptFilter) pulumi.StringOutput { return v.Cidr }).(pulumi.StringOutput)
 }
 
-// The name of the filter
+// Name of the filter
 func (o ReceiptFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReceiptFilter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

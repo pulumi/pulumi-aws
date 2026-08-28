@@ -94,7 +94,7 @@ namespace Pulumi.Aws.SsmContacts
     public sealed class GetContactArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the contact or escalation plan.
+        /// ARN of the contact or escalation plan.
         /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.SsmContacts
     public sealed class GetContactInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the contact or escalation plan.
+        /// ARN of the contact or escalation plan.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;

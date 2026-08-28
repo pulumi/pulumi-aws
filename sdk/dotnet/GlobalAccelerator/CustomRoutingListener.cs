@@ -57,7 +57,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Global Accelerator custom routing listener.
+    /// - `Arn` (String) ARN of the Global Accelerator custom routing listener.
     /// 
     /// Using `pulumi import`, import Global Accelerator custom routing listeners using the `Id`. For example:
     /// 
@@ -69,7 +69,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     public partial class CustomRoutingListener : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of a custom routing accelerator.
+        /// ARN of a custom routing accelerator.
         /// </summary>
         [Output("acceleratorArn")]
         public Output<string> AcceleratorArn { get; private set; } = null!;
@@ -130,7 +130,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     public sealed class CustomRoutingListenerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of a custom routing accelerator.
+        /// ARN of a custom routing accelerator.
         /// </summary>
         [Input("acceleratorArn", required: true)]
         public Input<string> AcceleratorArn { get; set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     public sealed class CustomRoutingListenerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of a custom routing accelerator.
+        /// ARN of a custom routing accelerator.
         /// </summary>
         [Input("acceleratorArn")]
         public Input<string>? AcceleratorArn { get; set; }

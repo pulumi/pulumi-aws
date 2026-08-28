@@ -212,7 +212,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `storagegateway.Gateway` using the gateway Amazon Resource Name (ARN). For example:
+// Using `pulumi import`, import `storagegateway.Gateway` using the gateway ARN. For example:
 //
 // ```sh
 // $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
@@ -250,13 +250,13 @@ type Gateway struct {
 
 	// Gateway activation key during resource creation. Conflicts with `gatewayIpAddress`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
 	ActivationKey pulumi.StringOutput `pulumi:"activationKey"`
-	// Amazon Resource Name (ARN) of the gateway.
+	// ARN of the gateway.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
 	AverageDownloadRateLimitInBitsPerSec pulumi.IntPtrOutput `pulumi:"averageDownloadRateLimitInBitsPerSec"`
 	// The average upload bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
 	AverageUploadRateLimitInBitsPerSec pulumi.IntPtrOutput `pulumi:"averageUploadRateLimitInBitsPerSec"`
-	// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+	// ARN of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
 	CloudwatchLogGroupArn pulumi.StringPtrOutput `pulumi:"cloudwatchLogGroupArn"`
 	// The ID of the Amazon EC2 instance that was used to launch the gateway.
 	Ec2InstanceId pulumi.StringOutput `pulumi:"ec2InstanceId"`
@@ -274,7 +274,7 @@ type Gateway struct {
 	GatewayTimezone pulumi.StringOutput `pulumi:"gatewayTimezone"`
 	// Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_FSX_SMB`, `FILE_S3`, `STORED`, `VTL`.
 	GatewayType pulumi.StringPtrOutput `pulumi:"gatewayType"`
-	// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+	// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running terraform. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
 	GatewayVpcEndpoint pulumi.StringPtrOutput `pulumi:"gatewayVpcEndpoint"`
 	// The type of hypervisor environment used by the host.
 	HostEnvironment pulumi.StringOutput `pulumi:"hostEnvironment"`
@@ -347,13 +347,13 @@ func GetGateway(ctx *pulumi.Context,
 type gatewayState struct {
 	// Gateway activation key during resource creation. Conflicts with `gatewayIpAddress`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
 	ActivationKey *string `pulumi:"activationKey"`
-	// Amazon Resource Name (ARN) of the gateway.
+	// ARN of the gateway.
 	Arn *string `pulumi:"arn"`
 	// The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
 	AverageDownloadRateLimitInBitsPerSec *int `pulumi:"averageDownloadRateLimitInBitsPerSec"`
 	// The average upload bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
 	AverageUploadRateLimitInBitsPerSec *int `pulumi:"averageUploadRateLimitInBitsPerSec"`
-	// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+	// ARN of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
 	CloudwatchLogGroupArn *string `pulumi:"cloudwatchLogGroupArn"`
 	// The ID of the Amazon EC2 instance that was used to launch the gateway.
 	Ec2InstanceId *string `pulumi:"ec2InstanceId"`
@@ -371,7 +371,7 @@ type gatewayState struct {
 	GatewayTimezone *string `pulumi:"gatewayTimezone"`
 	// Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_FSX_SMB`, `FILE_S3`, `STORED`, `VTL`.
 	GatewayType *string `pulumi:"gatewayType"`
-	// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+	// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running terraform. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
 	GatewayVpcEndpoint *string `pulumi:"gatewayVpcEndpoint"`
 	// The type of hypervisor environment used by the host.
 	HostEnvironment *string `pulumi:"hostEnvironment"`
@@ -402,13 +402,13 @@ type gatewayState struct {
 type GatewayState struct {
 	// Gateway activation key during resource creation. Conflicts with `gatewayIpAddress`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
 	ActivationKey pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the gateway.
+	// ARN of the gateway.
 	Arn pulumi.StringPtrInput
 	// The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
 	AverageDownloadRateLimitInBitsPerSec pulumi.IntPtrInput
 	// The average upload bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
 	AverageUploadRateLimitInBitsPerSec pulumi.IntPtrInput
-	// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+	// ARN of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
 	CloudwatchLogGroupArn pulumi.StringPtrInput
 	// The ID of the Amazon EC2 instance that was used to launch the gateway.
 	Ec2InstanceId pulumi.StringPtrInput
@@ -426,7 +426,7 @@ type GatewayState struct {
 	GatewayTimezone pulumi.StringPtrInput
 	// Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_FSX_SMB`, `FILE_S3`, `STORED`, `VTL`.
 	GatewayType pulumi.StringPtrInput
-	// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+	// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running terraform. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
 	GatewayVpcEndpoint pulumi.StringPtrInput
 	// The type of hypervisor environment used by the host.
 	HostEnvironment pulumi.StringPtrInput
@@ -465,7 +465,7 @@ type gatewayArgs struct {
 	AverageDownloadRateLimitInBitsPerSec *int `pulumi:"averageDownloadRateLimitInBitsPerSec"`
 	// The average upload bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
 	AverageUploadRateLimitInBitsPerSec *int `pulumi:"averageUploadRateLimitInBitsPerSec"`
-	// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+	// ARN of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
 	CloudwatchLogGroupArn *string `pulumi:"cloudwatchLogGroupArn"`
 	// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
 	GatewayIpAddress *string `pulumi:"gatewayIpAddress"`
@@ -475,7 +475,7 @@ type gatewayArgs struct {
 	GatewayTimezone string `pulumi:"gatewayTimezone"`
 	// Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_FSX_SMB`, `FILE_S3`, `STORED`, `VTL`.
 	GatewayType *string `pulumi:"gatewayType"`
-	// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+	// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running terraform. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
 	GatewayVpcEndpoint *string `pulumi:"gatewayVpcEndpoint"`
 	// The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
 	MaintenanceStartTime *GatewayMaintenanceStartTime `pulumi:"maintenanceStartTime"`
@@ -507,7 +507,7 @@ type GatewayArgs struct {
 	AverageDownloadRateLimitInBitsPerSec pulumi.IntPtrInput
 	// The average upload bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
 	AverageUploadRateLimitInBitsPerSec pulumi.IntPtrInput
-	// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+	// ARN of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
 	CloudwatchLogGroupArn pulumi.StringPtrInput
 	// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
 	GatewayIpAddress pulumi.StringPtrInput
@@ -517,7 +517,7 @@ type GatewayArgs struct {
 	GatewayTimezone pulumi.StringInput
 	// Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_FSX_SMB`, `FILE_S3`, `STORED`, `VTL`.
 	GatewayType pulumi.StringPtrInput
-	// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+	// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running terraform. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
 	GatewayVpcEndpoint pulumi.StringPtrInput
 	// The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
 	MaintenanceStartTime GatewayMaintenanceStartTimePtrInput
@@ -633,7 +633,7 @@ func (o GatewayOutput) ActivationKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.ActivationKey }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the gateway.
+// ARN of the gateway.
 func (o GatewayOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -648,7 +648,7 @@ func (o GatewayOutput) AverageUploadRateLimitInBitsPerSec() pulumi.IntPtrOutput 
 	return o.ApplyT(func(v *Gateway) pulumi.IntPtrOutput { return v.AverageUploadRateLimitInBitsPerSec }).(pulumi.IntPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+// ARN of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
 func (o GatewayOutput) CloudwatchLogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringPtrOutput { return v.CloudwatchLogGroupArn }).(pulumi.StringPtrOutput)
 }
@@ -693,7 +693,7 @@ func (o GatewayOutput) GatewayType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringPtrOutput { return v.GatewayType }).(pulumi.StringPtrOutput)
 }
 
-// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running terraform. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
 func (o GatewayOutput) GatewayVpcEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringPtrOutput { return v.GatewayVpcEndpoint }).(pulumi.StringPtrOutput)
 }

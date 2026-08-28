@@ -290,7 +290,7 @@ import (
 type FirewallPolicy struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) that identifies the firewall policy.
+	// ARN that identifies the firewall policy.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A friendly description of the firewall policy.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -343,7 +343,7 @@ func GetFirewallPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FirewallPolicy resources.
 type firewallPolicyState struct {
-	// The Amazon Resource Name (ARN) that identifies the firewall policy.
+	// ARN that identifies the firewall policy.
 	Arn *string `pulumi:"arn"`
 	// A friendly description of the firewall policy.
 	Description *string `pulumi:"description"`
@@ -364,7 +364,7 @@ type firewallPolicyState struct {
 }
 
 type FirewallPolicyState struct {
-	// The Amazon Resource Name (ARN) that identifies the firewall policy.
+	// ARN that identifies the firewall policy.
 	Arn pulumi.StringPtrInput
 	// A friendly description of the firewall policy.
 	Description pulumi.StringPtrInput
@@ -506,7 +506,7 @@ func (o FirewallPolicyOutput) ToFirewallPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The Amazon Resource Name (ARN) that identifies the firewall policy.
+// ARN that identifies the firewall policy.
 func (o FirewallPolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -74,7 +74,7 @@ import (
 type RateBasedRule struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN)
+	// ARN
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name or description for the Amazon CloudWatch metric of this rule.
 	MetricName pulumi.StringOutput `pulumi:"metricName"`
@@ -131,7 +131,7 @@ func GetRateBasedRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RateBasedRule resources.
 type rateBasedRuleState struct {
-	// Amazon Resource Name (ARN)
+	// ARN
 	Arn *string `pulumi:"arn"`
 	// The name or description for the Amazon CloudWatch metric of this rule.
 	MetricName *string `pulumi:"metricName"`
@@ -150,7 +150,7 @@ type rateBasedRuleState struct {
 }
 
 type RateBasedRuleState struct {
-	// Amazon Resource Name (ARN)
+	// ARN
 	Arn pulumi.StringPtrInput
 	// The name or description for the Amazon CloudWatch metric of this rule.
 	MetricName pulumi.StringPtrInput
@@ -290,7 +290,7 @@ func (o RateBasedRuleOutput) ToRateBasedRuleOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Amazon Resource Name (ARN)
+// ARN
 func (o RateBasedRuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RateBasedRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

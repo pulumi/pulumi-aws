@@ -105,7 +105,7 @@ namespace Pulumi.Aws.NeptuneGraph
         public Output<int> ProvisionedMemory { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
+        /// Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its DNS endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
         /// </summary>
         [Output("publicConnectivity")]
         public Output<bool> PublicConnectivity { get; private set; } = null!;
@@ -222,7 +222,7 @@ namespace Pulumi.Aws.NeptuneGraph
         public Input<int> ProvisionedMemory { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
+        /// Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its DNS endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
         /// </summary>
         [Input("publicConnectivity")]
         public Input<bool>? PublicConnectivity { get; set; }
@@ -313,7 +313,7 @@ namespace Pulumi.Aws.NeptuneGraph
         public Input<int>? ProvisionedMemory { get; set; }
 
         /// <summary>
-        /// Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
+        /// Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its DNS endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
         /// </summary>
         [Input("publicConnectivity")]
         public Input<bool>? PublicConnectivity { get; set; }

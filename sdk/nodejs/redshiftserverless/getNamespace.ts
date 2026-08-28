@@ -49,7 +49,7 @@ export interface GetNamespaceResult {
      */
     readonly adminUsername: string;
     /**
-     * Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+     * ARN of the Redshift Serverless Namespace.
      */
     readonly arn: string;
     /**
@@ -57,7 +57,7 @@ export interface GetNamespaceResult {
      */
     readonly dbName: string;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+     * ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
      */
     readonly defaultIamRoleArn: string;
     /**
@@ -69,7 +69,7 @@ export interface GetNamespaceResult {
      */
     readonly id: string;
     /**
-     * The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+     * ARN of the Amazon Web Services KMS key used to encrypt your data.
      */
     readonly kmsKeyId: string;
     /**

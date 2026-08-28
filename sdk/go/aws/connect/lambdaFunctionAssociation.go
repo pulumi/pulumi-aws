@@ -52,7 +52,7 @@ import (
 type LambdaFunctionAssociation struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+	// ARN of the Lambda Function, omitting any version or alias qualifier.
 	FunctionArn pulumi.StringOutput `pulumi:"functionArn"`
 	// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
@@ -96,7 +96,7 @@ func GetLambdaFunctionAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LambdaFunctionAssociation resources.
 type lambdaFunctionAssociationState struct {
-	// Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+	// ARN of the Lambda Function, omitting any version or alias qualifier.
 	FunctionArn *string `pulumi:"functionArn"`
 	// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
 	InstanceId *string `pulumi:"instanceId"`
@@ -105,7 +105,7 @@ type lambdaFunctionAssociationState struct {
 }
 
 type LambdaFunctionAssociationState struct {
-	// Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+	// ARN of the Lambda Function, omitting any version or alias qualifier.
 	FunctionArn pulumi.StringPtrInput
 	// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
 	InstanceId pulumi.StringPtrInput
@@ -118,7 +118,7 @@ func (LambdaFunctionAssociationState) ElementType() reflect.Type {
 }
 
 type lambdaFunctionAssociationArgs struct {
-	// Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+	// ARN of the Lambda Function, omitting any version or alias qualifier.
 	FunctionArn string `pulumi:"functionArn"`
 	// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
 	InstanceId string `pulumi:"instanceId"`
@@ -128,7 +128,7 @@ type lambdaFunctionAssociationArgs struct {
 
 // The set of arguments for constructing a LambdaFunctionAssociation resource.
 type LambdaFunctionAssociationArgs struct {
-	// Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+	// ARN of the Lambda Function, omitting any version or alias qualifier.
 	FunctionArn pulumi.StringInput
 	// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
 	InstanceId pulumi.StringInput
@@ -223,7 +223,7 @@ func (o LambdaFunctionAssociationOutput) ToLambdaFunctionAssociationOutputWithCo
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+// ARN of the Lambda Function, omitting any version or alias qualifier.
 func (o LambdaFunctionAssociationOutput) FunctionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LambdaFunctionAssociation) pulumi.StringOutput { return v.FunctionArn }).(pulumi.StringOutput)
 }

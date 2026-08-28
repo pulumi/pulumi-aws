@@ -65,7 +65,7 @@ import (
 type VpcIpamResourceDiscovery struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of IPAM Resource Discovery
+	// ARN of IPAM Resource Discovery
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A description for the IPAM Resource Discovery.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -120,7 +120,7 @@ func GetVpcIpamResourceDiscovery(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcIpamResourceDiscovery resources.
 type vpcIpamResourceDiscoveryState struct {
-	// Amazon Resource Name (ARN) of IPAM Resource Discovery
+	// ARN of IPAM Resource Discovery
 	Arn *string `pulumi:"arn"`
 	// A description for the IPAM Resource Discovery.
 	Description *string `pulumi:"description"`
@@ -143,7 +143,7 @@ type vpcIpamResourceDiscoveryState struct {
 }
 
 type VpcIpamResourceDiscoveryState struct {
-	// Amazon Resource Name (ARN) of IPAM Resource Discovery
+	// ARN of IPAM Resource Discovery
 	Arn pulumi.StringPtrInput
 	// A description for the IPAM Resource Discovery.
 	Description pulumi.StringPtrInput
@@ -283,7 +283,7 @@ func (o VpcIpamResourceDiscoveryOutput) ToVpcIpamResourceDiscoveryOutputWithCont
 	return o
 }
 
-// Amazon Resource Name (ARN) of IPAM Resource Discovery
+// ARN of IPAM Resource Discovery
 func (o VpcIpamResourceDiscoveryOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamResourceDiscovery) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

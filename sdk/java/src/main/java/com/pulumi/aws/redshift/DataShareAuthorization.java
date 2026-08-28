@@ -94,7 +94,7 @@ public class DataShareAuthorization extends com.pulumi.resources.CustomResource 
         return this.consumerIdentifier;
     }
     /**
-     * Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
+     * ARN of the datashare that producers are to authorize sharing for.
      * 
      * The following arguments are optional:
      * 
@@ -103,7 +103,7 @@ public class DataShareAuthorization extends com.pulumi.resources.CustomResource 
     private Output<String> dataShareArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
+     * @return ARN of the datashare that producers are to authorize sharing for.
      * 
      * The following arguments are optional:
      * 
@@ -126,14 +126,14 @@ public class DataShareAuthorization extends com.pulumi.resources.CustomResource 
         return this.managedBy;
     }
     /**
-     * Amazon Resource Name (ARN) of the producer.
+     * ARN of the producer.
      * 
      */
     @Export(name="producerArn", refs={String.class}, tree="[0]")
     private Output<String> producerArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the producer.
+     * @return ARN of the producer.
      * 
      */
     public Output<String> producerArn() {

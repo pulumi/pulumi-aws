@@ -13,7 +13,7 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
     public sealed class ImageRecipeComponentGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Image Builder Component to associate.
+        /// ARN of the Image Builder Component to associate.
         /// </summary>
         [Input("componentArn", required: true)]
         public Input<string> ComponentArn { get; set; } = null!;

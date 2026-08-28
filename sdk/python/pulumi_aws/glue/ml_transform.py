@@ -255,7 +255,7 @@ class _MLTransformState:
         """
         Input properties used for looking up and filtering MLTransform resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of Glue ML Transform.
+        :param pulumi.Input[_builtins.str] arn: ARN of Glue ML Transform.
         :param pulumi.Input[_builtins.str] description: Description of the ML Transform.
         :param pulumi.Input[_builtins.str] glue_version: The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         :param pulumi.Input[Sequence[pulumi.Input['MLTransformInputRecordTableArgs']]] input_record_tables: A list of AWS Glue table definitions used by the transform. see Input Record Tables.
@@ -312,7 +312,7 @@ class _MLTransformState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of Glue ML Transform.
+        ARN of Glue ML Transform.
         """
         return pulumi.get(self, "arn")
 
@@ -849,7 +849,7 @@ class MLTransform(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of Glue ML Transform.
+        :param pulumi.Input[_builtins.str] arn: ARN of Glue ML Transform.
         :param pulumi.Input[_builtins.str] description: Description of the ML Transform.
         :param pulumi.Input[_builtins.str] glue_version: The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         :param pulumi.Input[Sequence[pulumi.Input[Union['MLTransformInputRecordTableArgs', 'MLTransformInputRecordTableArgsDict']]]] input_record_tables: A list of AWS Glue table definitions used by the transform. see Input Record Tables.
@@ -894,7 +894,7 @@ class MLTransform(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of Glue ML Transform.
+        ARN of Glue ML Transform.
         """
         return pulumi.get(self, "arn")
 

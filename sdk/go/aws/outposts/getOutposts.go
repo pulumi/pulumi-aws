@@ -64,7 +64,7 @@ type GetOutpostsArgs struct {
 
 // A collection of values returned by getOutposts.
 type GetOutpostsResult struct {
-	// Set of Amazon Resource Names (ARNs).
+	// Set of ARNs.
 	Arns               []string `pulumi:"arns"`
 	AvailabilityZone   string   `pulumi:"availabilityZone"`
 	AvailabilityZoneId string   `pulumi:"availabilityZoneId"`
@@ -119,7 +119,7 @@ func (o GetOutpostsResultOutput) ToGetOutpostsResultOutputWithContext(ctx contex
 	return o
 }
 
-// Set of Amazon Resource Names (ARNs).
+// Set of ARNs.
 func (o GetOutpostsResultOutput) Arns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOutpostsResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
 }

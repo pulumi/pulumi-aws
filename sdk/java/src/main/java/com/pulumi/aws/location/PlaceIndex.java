@@ -121,14 +121,14 @@ public class PlaceIndex extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
+     * ARN for the place index resource. Used to specify a resource across AWS.
      * 
      */
     @Export(name="indexArn", refs={String.class}, tree="[0]")
     private Output<String> indexArn;
 
     /**
-     * @return Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
+     * @return ARN for the place index resource. Used to specify a resource across AWS.
      * 
      */
     public Output<String> indexArn() {

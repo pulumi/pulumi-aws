@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Rds
     public partial class ProxyEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the proxy endpoint.
+        /// ARN for the proxy endpoint.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -228,7 +228,7 @@ namespace Pulumi.Aws.Rds
     public sealed class ProxyEndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the proxy endpoint.
+        /// ARN for the proxy endpoint.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

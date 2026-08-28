@@ -88,7 +88,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `storagegateway.UploadBuffer` using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`). For example:
+// Using `pulumi import`, import `storagegateway.UploadBuffer` using the gateway ARN and local disk identifier separated with a colon (`:`). For example:
 //
 // ```sh
 // $ pulumi import aws:storagegateway/uploadBuffer:UploadBuffer example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
@@ -100,7 +100,7 @@ type UploadBuffer struct {
 	DiskId pulumi.StringOutput `pulumi:"diskId"`
 	// Local disk path. For example, `/dev/nvme1n1`.
 	DiskPath pulumi.StringOutput `pulumi:"diskPath"`
-	// The Amazon Resource Name (ARN) of the gateway.
+	// ARN of the gateway.
 	GatewayArn pulumi.StringOutput `pulumi:"gatewayArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -143,7 +143,7 @@ type uploadBufferState struct {
 	DiskId *string `pulumi:"diskId"`
 	// Local disk path. For example, `/dev/nvme1n1`.
 	DiskPath *string `pulumi:"diskPath"`
-	// The Amazon Resource Name (ARN) of the gateway.
+	// ARN of the gateway.
 	GatewayArn *string `pulumi:"gatewayArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -154,7 +154,7 @@ type UploadBufferState struct {
 	DiskId pulumi.StringPtrInput
 	// Local disk path. For example, `/dev/nvme1n1`.
 	DiskPath pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the gateway.
+	// ARN of the gateway.
 	GatewayArn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -169,7 +169,7 @@ type uploadBufferArgs struct {
 	DiskId *string `pulumi:"diskId"`
 	// Local disk path. For example, `/dev/nvme1n1`.
 	DiskPath *string `pulumi:"diskPath"`
-	// The Amazon Resource Name (ARN) of the gateway.
+	// ARN of the gateway.
 	GatewayArn string `pulumi:"gatewayArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -181,7 +181,7 @@ type UploadBufferArgs struct {
 	DiskId pulumi.StringPtrInput
 	// Local disk path. For example, `/dev/nvme1n1`.
 	DiskPath pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the gateway.
+	// ARN of the gateway.
 	GatewayArn pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -284,7 +284,7 @@ func (o UploadBufferOutput) DiskPath() pulumi.StringOutput {
 	return o.ApplyT(func(v *UploadBuffer) pulumi.StringOutput { return v.DiskPath }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the gateway.
+// ARN of the gateway.
 func (o UploadBufferOutput) GatewayArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *UploadBuffer) pulumi.StringOutput { return v.GatewayArn }).(pulumi.StringOutput)
 }

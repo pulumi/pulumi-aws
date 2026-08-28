@@ -226,7 +226,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<Outputs.DashboardSourceEntity?> SourceEntity { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of a template that was used to create this dashboard.
+        /// ARN of a template that was used to create this dashboard.
         /// </summary>
         [Output("sourceEntityArn")]
         public Output<string> SourceEntityArn { get; private set; } = null!;
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+        /// ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
         /// </summary>
         [Output("themeArn")]
         public Output<string?> ThemeArn { get; private set; } = null!;
@@ -382,7 +382,7 @@ namespace Pulumi.Aws.Quicksight
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+        /// ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
         /// </summary>
         [Input("themeArn")]
         public Input<string>? ThemeArn { get; set; }
@@ -479,7 +479,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<Inputs.DashboardSourceEntityGetArgs>? SourceEntity { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of a template that was used to create this dashboard.
+        /// ARN of a template that was used to create this dashboard.
         /// </summary>
         [Input("sourceEntityArn")]
         public Input<string>? SourceEntityArn { get; set; }
@@ -515,7 +515,7 @@ namespace Pulumi.Aws.Quicksight
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+        /// ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
         /// </summary>
         [Input("themeArn")]
         public Input<string>? ThemeArn { get; set; }

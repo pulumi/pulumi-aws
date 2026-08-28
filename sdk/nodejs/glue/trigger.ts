@@ -151,7 +151,7 @@ export class Trigger extends pulumi.CustomResource {
      */
     declare public readonly actions: pulumi.Output<outputs.glue.TriggerAction[]>;
     /**
-     * Amazon Resource Name (ARN) of Glue Trigger
+     * ARN of Glue Trigger
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -273,7 +273,7 @@ export interface TriggerState {
      */
     actions?: pulumi.Input<pulumi.Input<inputs.glue.TriggerAction>[] | undefined>;
     /**
-     * Amazon Resource Name (ARN) of Glue Trigger
+     * ARN of Glue Trigger
      */
     arn?: pulumi.Input<string | undefined>;
     /**

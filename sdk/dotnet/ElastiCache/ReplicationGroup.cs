@@ -349,10 +349,23 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string?> AuthToken { get; private set; } = null!;
 
         /// <summary>
-        /// Strategy used when modifying `AuthToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `AuthToken` must be omitted.
+        /// Strategy used when modifying `AuthToken` or `AuthTokenWo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `AuthToken` and `AuthTokenWo` must be omitted.
         /// </summary>
         [Output("authTokenUpdateStrategy")]
         public Output<string?> AuthTokenUpdateStrategy { get; private set; } = null!;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `TransitEncryptionEnabled = true`. Conflicts with `AuthToken`. Requires `AuthTokenWoVersion`.
+        /// </summary>
+        [Output("authTokenWo")]
+        public Output<string?> AuthTokenWo { get; private set; } = null!;
+
+        /// <summary>
+        /// Integer that, when changed, triggers a re-send of `AuthTokenWo` to the replication group. Requires `AuthTokenWo`.
+        /// </summary>
+        [Output("authTokenWoVersion")]
+        public Output<int?> AuthTokenWoVersion { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
@@ -579,13 +592,13 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> ReplicationGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        /// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
         /// </summary>
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        /// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
         /// </summary>
         [Output("securityGroupNames")]
         public Output<ImmutableArray<string>> SecurityGroupNames { get; private set; } = null!;
@@ -681,6 +694,7 @@ namespace Pulumi.Aws.ElastiCache
                 AdditionalSecretOutputs =
                 {
                     "authToken",
+                    "authTokenWo",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -736,10 +750,33 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// Strategy used when modifying `AuthToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `AuthToken` must be omitted.
+        /// Strategy used when modifying `AuthToken` or `AuthTokenWo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `AuthToken` and `AuthTokenWo` must be omitted.
         /// </summary>
         [Input("authTokenUpdateStrategy")]
         public Input<string>? AuthTokenUpdateStrategy { get; set; }
+
+        [Input("authTokenWo")]
+        private Input<string>? _authTokenWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `TransitEncryptionEnabled = true`. Conflicts with `AuthToken`. Requires `AuthTokenWoVersion`.
+        /// </summary>
+        public Input<string>? AuthTokenWo
+        {
+            get => _authTokenWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _authTokenWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Integer that, when changed, triggers a re-send of `AuthTokenWo` to the replication group. Requires `AuthTokenWo`.
+        /// </summary>
+        [Input("authTokenWoVersion")]
+        public Input<int>? AuthTokenWoVersion { get; set; }
 
         /// <summary>
         /// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
@@ -951,7 +988,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        /// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -963,7 +1000,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<string>? _securityGroupNames;
 
         /// <summary>
-        /// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        /// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
         /// </summary>
         public InputList<string> SecurityGroupNames
         {
@@ -1093,10 +1130,33 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// Strategy used when modifying `AuthToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `AuthToken` must be omitted.
+        /// Strategy used when modifying `AuthToken` or `AuthTokenWo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `AuthToken` and `AuthTokenWo` must be omitted.
         /// </summary>
         [Input("authTokenUpdateStrategy")]
         public Input<string>? AuthTokenUpdateStrategy { get; set; }
+
+        [Input("authTokenWo")]
+        private Input<string>? _authTokenWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `TransitEncryptionEnabled = true`. Conflicts with `AuthToken`. Requires `AuthTokenWoVersion`.
+        /// </summary>
+        public Input<string>? AuthTokenWo
+        {
+            get => _authTokenWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _authTokenWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Integer that, when changed, triggers a re-send of `AuthTokenWo` to the replication group. Requires `AuthTokenWo`.
+        /// </summary>
+        [Input("authTokenWoVersion")]
+        public Input<int>? AuthTokenWoVersion { get; set; }
 
         /// <summary>
         /// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
@@ -1350,7 +1410,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        /// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -1362,7 +1422,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<string>? _securityGroupNames;
 
         /// <summary>
-        /// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        /// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
         /// </summary>
         public InputList<string> SecurityGroupNames
         {

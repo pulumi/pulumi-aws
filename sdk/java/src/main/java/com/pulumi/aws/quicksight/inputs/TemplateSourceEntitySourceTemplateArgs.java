@@ -15,14 +15,14 @@ public final class TemplateSourceEntitySourceTemplateArgs extends com.pulumi.res
     public static final TemplateSourceEntitySourceTemplateArgs Empty = new TemplateSourceEntitySourceTemplateArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the resource.
+     * ARN of the resource.
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the resource.
+     * @return ARN of the resource.
      * 
      */
     public Output<String> arn() {
@@ -54,7 +54,7 @@ public final class TemplateSourceEntitySourceTemplateArgs extends com.pulumi.res
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the resource.
+         * @param arn ARN of the resource.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class TemplateSourceEntitySourceTemplateArgs extends com.pulumi.res
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the resource.
+         * @param arn ARN of the resource.
          * 
          * @return builder
          * 

@@ -55,9 +55,9 @@ type ResourceAssociation struct {
 
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+	// ARN of the resource to associate with the RAM Resource Share.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
-	// Amazon Resource Name (ARN) of the RAM Resource Share.
+	// ARN of the RAM Resource Share.
 	ResourceShareArn pulumi.StringOutput `pulumi:"resourceShareArn"`
 }
 
@@ -99,18 +99,18 @@ func GetResourceAssociation(ctx *pulumi.Context,
 type resourceAssociationState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+	// ARN of the resource to associate with the RAM Resource Share.
 	ResourceArn *string `pulumi:"resourceArn"`
-	// Amazon Resource Name (ARN) of the RAM Resource Share.
+	// ARN of the RAM Resource Share.
 	ResourceShareArn *string `pulumi:"resourceShareArn"`
 }
 
 type ResourceAssociationState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+	// ARN of the resource to associate with the RAM Resource Share.
 	ResourceArn pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the RAM Resource Share.
+	// ARN of the RAM Resource Share.
 	ResourceShareArn pulumi.StringPtrInput
 }
 
@@ -121,9 +121,9 @@ func (ResourceAssociationState) ElementType() reflect.Type {
 type resourceAssociationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+	// ARN of the resource to associate with the RAM Resource Share.
 	ResourceArn string `pulumi:"resourceArn"`
-	// Amazon Resource Name (ARN) of the RAM Resource Share.
+	// ARN of the RAM Resource Share.
 	ResourceShareArn string `pulumi:"resourceShareArn"`
 }
 
@@ -131,9 +131,9 @@ type resourceAssociationArgs struct {
 type ResourceAssociationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+	// ARN of the resource to associate with the RAM Resource Share.
 	ResourceArn pulumi.StringInput
-	// Amazon Resource Name (ARN) of the RAM Resource Share.
+	// ARN of the RAM Resource Share.
 	ResourceShareArn pulumi.StringInput
 }
 
@@ -229,12 +229,12 @@ func (o ResourceAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+// ARN of the resource to associate with the RAM Resource Share.
 func (o ResourceAssociationOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceAssociation) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the RAM Resource Share.
+// ARN of the RAM Resource Share.
 func (o ResourceAssociationOutput) ResourceShareArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceAssociation) pulumi.StringOutput { return v.ResourceShareArn }).(pulumi.StringOutput)
 }

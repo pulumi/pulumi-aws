@@ -49,14 +49,14 @@ public final class ReportDefinitionState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The Amazon Resource Name (ARN) specifying the cur report.
+     * ARN specifying the cur report.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) specifying the cur report.
+     * @return ARN specifying the cur report.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -328,7 +328,7 @@ public final class ReportDefinitionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) specifying the cur report.
+         * @param arn ARN specifying the cur report.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class ReportDefinitionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) specifying the cur report.
+         * @param arn ARN specifying the cur report.
          * 
          * @return builder
          * 

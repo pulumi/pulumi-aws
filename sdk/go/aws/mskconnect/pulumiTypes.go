@@ -2442,7 +2442,7 @@ func (o ConnectorPluginArrayOutput) Index(i pulumi.IntInput) ConnectorPluginOutp
 }
 
 type ConnectorPluginCustomPlugin struct {
-	// The Amazon Resource Name (ARN) of the custom plugin.
+	// ARN of the custom plugin.
 	Arn string `pulumi:"arn"`
 	// The revision of the custom plugin.
 	Revision int `pulumi:"revision"`
@@ -2460,7 +2460,7 @@ type ConnectorPluginCustomPluginInput interface {
 }
 
 type ConnectorPluginCustomPluginArgs struct {
-	// The Amazon Resource Name (ARN) of the custom plugin.
+	// ARN of the custom plugin.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The revision of the custom plugin.
 	Revision pulumi.IntInput `pulumi:"revision"`
@@ -2492,7 +2492,7 @@ func (o ConnectorPluginCustomPluginOutput) ToConnectorPluginCustomPluginOutputWi
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the custom plugin.
+// ARN of the custom plugin.
 func (o ConnectorPluginCustomPluginOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorPluginCustomPlugin) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -2503,7 +2503,7 @@ func (o ConnectorPluginCustomPluginOutput) Revision() pulumi.IntOutput {
 }
 
 type ConnectorWorkerConfiguration struct {
-	// The Amazon Resource Name (ARN) of the worker configuration.
+	// ARN of the worker configuration.
 	Arn string `pulumi:"arn"`
 	// The revision of the worker configuration.
 	Revision int `pulumi:"revision"`
@@ -2521,7 +2521,7 @@ type ConnectorWorkerConfigurationInput interface {
 }
 
 type ConnectorWorkerConfigurationArgs struct {
-	// The Amazon Resource Name (ARN) of the worker configuration.
+	// ARN of the worker configuration.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The revision of the worker configuration.
 	Revision pulumi.IntInput `pulumi:"revision"`
@@ -2604,7 +2604,7 @@ func (o ConnectorWorkerConfigurationOutput) ToConnectorWorkerConfigurationPtrOut
 	}).(ConnectorWorkerConfigurationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the worker configuration.
+// ARN of the worker configuration.
 func (o ConnectorWorkerConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorWorkerConfiguration) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -2638,7 +2638,7 @@ func (o ConnectorWorkerConfigurationPtrOutput) Elem() ConnectorWorkerConfigurati
 	}).(ConnectorWorkerConfigurationOutput)
 }
 
-// The Amazon Resource Name (ARN) of the worker configuration.
+// ARN of the worker configuration.
 func (o ConnectorWorkerConfigurationPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorWorkerConfiguration) *string {
 		if v == nil {
@@ -2796,7 +2796,7 @@ func (o CustomPluginLocationPtrOutput) S3() CustomPluginLocationS3PtrOutput {
 }
 
 type CustomPluginLocationS3 struct {
-	// The Amazon Resource Name (ARN) of an S3 bucket.
+	// ARN of an S3 bucket.
 	BucketArn string `pulumi:"bucketArn"`
 	// The file key for an object in an S3 bucket.
 	FileKey string `pulumi:"fileKey"`
@@ -2816,7 +2816,7 @@ type CustomPluginLocationS3Input interface {
 }
 
 type CustomPluginLocationS3Args struct {
-	// The Amazon Resource Name (ARN) of an S3 bucket.
+	// ARN of an S3 bucket.
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
 	// The file key for an object in an S3 bucket.
 	FileKey pulumi.StringInput `pulumi:"fileKey"`
@@ -2901,7 +2901,7 @@ func (o CustomPluginLocationS3Output) ToCustomPluginLocationS3PtrOutputWithConte
 	}).(CustomPluginLocationS3PtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of an S3 bucket.
+// ARN of an S3 bucket.
 func (o CustomPluginLocationS3Output) BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomPluginLocationS3) string { return v.BucketArn }).(pulumi.StringOutput)
 }
@@ -2940,7 +2940,7 @@ func (o CustomPluginLocationS3PtrOutput) Elem() CustomPluginLocationS3Output {
 	}).(CustomPluginLocationS3Output)
 }
 
-// The Amazon Resource Name (ARN) of an S3 bucket.
+// ARN of an S3 bucket.
 func (o CustomPluginLocationS3PtrOutput) BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPluginLocationS3) *string {
 		if v == nil {

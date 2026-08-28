@@ -140,7 +140,7 @@ type LoggingConfiguration struct {
 
 	// Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
 	EnableMonitoringDashboard pulumi.BoolOutput `pulumi:"enableMonitoringDashboard"`
-	// The Amazon Resource Name (ARN) of the Network Firewall firewall.
+	// ARN of the Network Firewall firewall.
 	FirewallArn pulumi.StringOutput `pulumi:"firewallArn"`
 	// A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
 	LoggingConfiguration LoggingConfigurationLoggingConfigurationOutput `pulumi:"loggingConfiguration"`
@@ -186,7 +186,7 @@ func GetLoggingConfiguration(ctx *pulumi.Context,
 type loggingConfigurationState struct {
 	// Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
 	EnableMonitoringDashboard *bool `pulumi:"enableMonitoringDashboard"`
-	// The Amazon Resource Name (ARN) of the Network Firewall firewall.
+	// ARN of the Network Firewall firewall.
 	FirewallArn *string `pulumi:"firewallArn"`
 	// A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
 	LoggingConfiguration *LoggingConfigurationLoggingConfiguration `pulumi:"loggingConfiguration"`
@@ -197,7 +197,7 @@ type loggingConfigurationState struct {
 type LoggingConfigurationState struct {
 	// Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
 	EnableMonitoringDashboard pulumi.BoolPtrInput
-	// The Amazon Resource Name (ARN) of the Network Firewall firewall.
+	// ARN of the Network Firewall firewall.
 	FirewallArn pulumi.StringPtrInput
 	// A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
 	LoggingConfiguration LoggingConfigurationLoggingConfigurationPtrInput
@@ -212,7 +212,7 @@ func (LoggingConfigurationState) ElementType() reflect.Type {
 type loggingConfigurationArgs struct {
 	// Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
 	EnableMonitoringDashboard *bool `pulumi:"enableMonitoringDashboard"`
-	// The Amazon Resource Name (ARN) of the Network Firewall firewall.
+	// ARN of the Network Firewall firewall.
 	FirewallArn string `pulumi:"firewallArn"`
 	// A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
 	LoggingConfiguration LoggingConfigurationLoggingConfiguration `pulumi:"loggingConfiguration"`
@@ -224,7 +224,7 @@ type loggingConfigurationArgs struct {
 type LoggingConfigurationArgs struct {
 	// Whether to enable the detailed firewall monitoring dashboard on the firewall. Defaults to `false`.
 	EnableMonitoringDashboard pulumi.BoolPtrInput
-	// The Amazon Resource Name (ARN) of the Network Firewall firewall.
+	// ARN of the Network Firewall firewall.
 	FirewallArn pulumi.StringInput
 	// A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
 	LoggingConfiguration LoggingConfigurationLoggingConfigurationInput
@@ -324,7 +324,7 @@ func (o LoggingConfigurationOutput) EnableMonitoringDashboard() pulumi.BoolOutpu
 	return o.ApplyT(func(v *LoggingConfiguration) pulumi.BoolOutput { return v.EnableMonitoringDashboard }).(pulumi.BoolOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Network Firewall firewall.
+// ARN of the Network Firewall firewall.
 func (o LoggingConfigurationOutput) FirewallArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoggingConfiguration) pulumi.StringOutput { return v.FirewallArn }).(pulumi.StringOutput)
 }

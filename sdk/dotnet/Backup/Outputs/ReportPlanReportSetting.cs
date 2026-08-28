@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Backup.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Accounts;
         /// <summary>
-        /// Amazon Resource Names (ARNs) of the frameworks a report covers.
+        /// ARNs of the frameworks a report covers.
         /// </summary>
         public readonly ImmutableArray<string> FrameworkArns;
         /// <summary>

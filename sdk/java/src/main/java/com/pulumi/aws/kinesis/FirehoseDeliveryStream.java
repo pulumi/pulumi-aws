@@ -1113,14 +1113,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream")
 public class FirehoseDeliveryStream extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) specifying the Stream
+     * ARN specifying the Stream
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) specifying the Stream
+     * @return ARN specifying the Stream
      * 
      */
     public Output<String> arn() {
@@ -1203,14 +1203,14 @@ public class FirehoseDeliveryStream extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.icebergConfiguration);
     }
     /**
-     * The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
+     * Stream and role ARNs for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
      * 
      */
     @Export(name="kinesisSourceConfiguration", refs={FirehoseDeliveryStreamKinesisSourceConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ FirehoseDeliveryStreamKinesisSourceConfiguration> kinesisSourceConfiguration;
 
     /**
-     * @return The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
+     * @return Stream and role ARNs for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
      * 
      */
     public Output<Optional<FirehoseDeliveryStreamKinesisSourceConfiguration>> kinesisSourceConfiguration() {

@@ -68,7 +68,7 @@ import (
 type Alias struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the key alias.
+	// ARN of the key alias.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -77,7 +77,7 @@ type Alias struct {
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the target key identifier.
+	// ARN of the target key identifier.
 	TargetKeyArn pulumi.StringOutput `pulumi:"targetKeyArn"`
 	// Identifier for the key for which the alias is for, can be either an ARN or key_id.
 	TargetKeyId pulumi.StringOutput `pulumi:"targetKeyId"`
@@ -116,7 +116,7 @@ func GetAlias(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Alias resources.
 type aliasState struct {
-	// The Amazon Resource Name (ARN) of the key alias.
+	// ARN of the key alias.
 	Arn *string `pulumi:"arn"`
 	// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
 	Name *string `pulumi:"name"`
@@ -125,14 +125,14 @@ type aliasState struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the target key identifier.
+	// ARN of the target key identifier.
 	TargetKeyArn *string `pulumi:"targetKeyArn"`
 	// Identifier for the key for which the alias is for, can be either an ARN or key_id.
 	TargetKeyId *string `pulumi:"targetKeyId"`
 }
 
 type AliasState struct {
-	// The Amazon Resource Name (ARN) of the key alias.
+	// ARN of the key alias.
 	Arn pulumi.StringPtrInput
 	// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
 	Name pulumi.StringPtrInput
@@ -141,7 +141,7 @@ type AliasState struct {
 	NamePrefix pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the target key identifier.
+	// ARN of the target key identifier.
 	TargetKeyArn pulumi.StringPtrInput
 	// Identifier for the key for which the alias is for, can be either an ARN or key_id.
 	TargetKeyId pulumi.StringPtrInput
@@ -263,7 +263,7 @@ func (o AliasOutput) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the key alias.
+// ARN of the key alias.
 func (o AliasOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -284,7 +284,7 @@ func (o AliasOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the target key identifier.
+// ARN of the target key identifier.
 func (o AliasOutput) TargetKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.TargetKeyArn }).(pulumi.StringOutput)
 }

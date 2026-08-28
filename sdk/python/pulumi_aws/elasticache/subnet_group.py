@@ -126,7 +126,7 @@ class _SubnetGroupState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of VPC Subnet IDs for the cache subnet group
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_id: The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+        :param pulumi.Input[_builtins.str] vpc_id: VPC identifier (VPC ID) of the cache subnet group.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -232,7 +232,7 @@ class _SubnetGroupState:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+        VPC identifier (VPC ID) of the cache subnet group.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -409,7 +409,7 @@ class SubnetGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of VPC Subnet IDs for the cache subnet group
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_id: The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+        :param pulumi.Input[_builtins.str] vpc_id: VPC identifier (VPC ID) of the cache subnet group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -482,7 +482,7 @@ class SubnetGroup(pulumi.CustomResource):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+        VPC identifier (VPC ID) of the cache subnet group.
         """
         return pulumi.get(self, "vpc_id")
 

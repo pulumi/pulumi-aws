@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Kms
         public Output<string> GranteePrincipal { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
+        /// Unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the ARN of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
         /// </summary>
         [Output("keyId")]
         public Output<string> KeyId { get; private set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.Kms
         public Input<string> GranteePrincipal { get; set; } = null!;
 
         /// <summary>
-        /// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
+        /// Unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the ARN of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
         /// </summary>
         [Input("keyId", required: true)]
         public Input<string> KeyId { get; set; } = null!;
@@ -275,7 +275,7 @@ namespace Pulumi.Aws.Kms
         public Input<string>? GranteePrincipal { get; set; }
 
         /// <summary>
-        /// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
+        /// Unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the ARN of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
         /// </summary>
         [Input("keyId")]
         public Input<string>? KeyId { get; set; }

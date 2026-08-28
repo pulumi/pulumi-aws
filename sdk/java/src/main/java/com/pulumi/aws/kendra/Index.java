@@ -790,14 +790,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:kendra/index:Index")
 public class Index extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the Index.
+     * ARN of the Index.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Index.
+     * @return ARN of the Index.
      * 
      */
     public Output<String> arn() {

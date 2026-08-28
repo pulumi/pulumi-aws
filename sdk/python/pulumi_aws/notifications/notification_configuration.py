@@ -119,7 +119,7 @@ class _NotificationConfigurationState:
         :param pulumi.Input[_builtins.str] aggregation_duration: Aggregation preference of the NotificationConfiguration. Valid values: `LONG` (
                aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don't aggregate
                notifications). Default: `NONE`.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the NotificationConfiguration.
+        :param pulumi.Input[_builtins.str] arn: ARN of the NotificationConfiguration.
         :param pulumi.Input[_builtins.str] description: Description of the NotificationConfiguration. Length constraints: Minimum length of 0,
                maximum length of 256.
         :param pulumi.Input[_builtins.str] name: Name of the NotificationConfiguration. Supports RFC 3986's unreserved characters. Length
@@ -163,7 +163,7 @@ class _NotificationConfigurationState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the NotificationConfiguration.
+        ARN of the NotificationConfiguration.
         """
         return pulumi.get(self, "arn")
 
@@ -411,7 +411,7 @@ class NotificationConfiguration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] aggregation_duration: Aggregation preference of the NotificationConfiguration. Valid values: `LONG` (
                aggregate notifications for 12 hours), `SHORT` (aggregate notifications for 5 minutes), `NONE` (don't aggregate
                notifications). Default: `NONE`.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the NotificationConfiguration.
+        :param pulumi.Input[_builtins.str] arn: ARN of the NotificationConfiguration.
         :param pulumi.Input[_builtins.str] description: Description of the NotificationConfiguration. Length constraints: Minimum length of 0,
                maximum length of 256.
         :param pulumi.Input[_builtins.str] name: Name of the NotificationConfiguration. Supports RFC 3986's unreserved characters. Length
@@ -450,7 +450,7 @@ class NotificationConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the NotificationConfiguration.
+        ARN of the NotificationConfiguration.
         """
         return pulumi.get(self, "arn")
 

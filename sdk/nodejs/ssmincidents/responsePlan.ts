@@ -155,7 +155,7 @@ export class ResponsePlan extends pulumi.CustomResource {
      */
     declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+     * ARN for the contacts and escalation plans that the response plan engages during an incident.
      */
     declare public readonly engagements: pulumi.Output<string[] | undefined>;
     /**
@@ -250,7 +250,7 @@ export interface ResponsePlanState {
      */
     displayName?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+     * ARN for the contacts and escalation plans that the response plan engages during an incident.
      */
     engagements?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -296,7 +296,7 @@ export interface ResponsePlanArgs {
      */
     displayName?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+     * ARN for the contacts and escalation plans that the response plan engages during an incident.
      */
     engagements?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

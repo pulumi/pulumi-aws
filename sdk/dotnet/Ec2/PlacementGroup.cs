@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Ec2
     public partial class PlacementGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the placement group.
+        /// ARN of the placement group.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class PlacementGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the placement group.
+        /// ARN of the placement group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

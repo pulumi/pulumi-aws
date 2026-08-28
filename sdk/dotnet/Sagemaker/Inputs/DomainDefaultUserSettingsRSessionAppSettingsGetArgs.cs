@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         }
 
         /// <summary>
-        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `DefaultResourceSpec` Block above.
+        /// Default instance type and the ARN of the SageMaker AI image created on the instance. see `DefaultResourceSpec` Block above.
         /// </summary>
         [Input("defaultResourceSpec")]
         public Input<Inputs.DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecGetArgs>? DefaultResourceSpec { get; set; }

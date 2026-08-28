@@ -128,14 +128,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:elastictranscoder/preset:Preset")
 public class Preset extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
+     * ARN of the Elastic Transcoder Preset.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
+     * @return ARN of the Elastic Transcoder Preset.
      * 
      */
     public Output<String> arn() {

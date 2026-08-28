@@ -60,13 +60,13 @@ import (
 type PermissionSet struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the Permission Set.
+	// ARN of the Permission Set.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The date the Permission Set was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
 	// The description of the Permission Set.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+	// ARN of the SSO Instance under which the operation will be executed.
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
 	// The name of the Permission Set.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -115,13 +115,13 @@ func GetPermissionSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PermissionSet resources.
 type permissionSetState struct {
-	// The Amazon Resource Name (ARN) of the Permission Set.
+	// ARN of the Permission Set.
 	Arn *string `pulumi:"arn"`
 	// The date the Permission Set was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	CreatedDate *string `pulumi:"createdDate"`
 	// The description of the Permission Set.
 	Description *string `pulumi:"description"`
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+	// ARN of the SSO Instance under which the operation will be executed.
 	InstanceArn *string `pulumi:"instanceArn"`
 	// The name of the Permission Set.
 	Name *string `pulumi:"name"`
@@ -138,13 +138,13 @@ type permissionSetState struct {
 }
 
 type PermissionSetState struct {
-	// The Amazon Resource Name (ARN) of the Permission Set.
+	// ARN of the Permission Set.
 	Arn pulumi.StringPtrInput
 	// The date the Permission Set was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	CreatedDate pulumi.StringPtrInput
 	// The description of the Permission Set.
 	Description pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+	// ARN of the SSO Instance under which the operation will be executed.
 	InstanceArn pulumi.StringPtrInput
 	// The name of the Permission Set.
 	Name pulumi.StringPtrInput
@@ -167,7 +167,7 @@ func (PermissionSetState) ElementType() reflect.Type {
 type permissionSetArgs struct {
 	// The description of the Permission Set.
 	Description *string `pulumi:"description"`
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+	// ARN of the SSO Instance under which the operation will be executed.
 	InstanceArn string `pulumi:"instanceArn"`
 	// The name of the Permission Set.
 	Name *string `pulumi:"name"`
@@ -185,7 +185,7 @@ type permissionSetArgs struct {
 type PermissionSetArgs struct {
 	// The description of the Permission Set.
 	Description pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+	// ARN of the SSO Instance under which the operation will be executed.
 	InstanceArn pulumi.StringInput
 	// The name of the Permission Set.
 	Name pulumi.StringPtrInput
@@ -286,7 +286,7 @@ func (o PermissionSetOutput) ToPermissionSetOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Permission Set.
+// ARN of the Permission Set.
 func (o PermissionSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PermissionSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -301,7 +301,7 @@ func (o PermissionSetOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PermissionSet) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+// ARN of the SSO Instance under which the operation will be executed.
 func (o PermissionSetOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PermissionSet) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
 }

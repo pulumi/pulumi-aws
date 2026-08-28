@@ -360,7 +360,7 @@ class AlarmMuteRuleRuleScheduleArgs:
 class CompositeAlarmActionsSuppressorArgsDict(TypedDict):
     alarm: pulumi.Input[_builtins.str]
     """
-    Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+    Can be an AlarmName or an ARN from an existing alarm.
     """
     extension_period: pulumi.Input[_builtins.int]
     """
@@ -378,7 +378,7 @@ class CompositeAlarmActionsSuppressorArgs:
                  extension_period: pulumi.Input[_builtins.int],
                  wait_period: pulumi.Input[_builtins.int]):
         """
-        :param pulumi.Input[_builtins.str] alarm: Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+        :param pulumi.Input[_builtins.str] alarm: Can be an AlarmName or an ARN from an existing alarm.
         :param pulumi.Input[_builtins.int] extension_period: The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
         :param pulumi.Input[_builtins.int] wait_period: The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
         """
@@ -390,7 +390,7 @@ class CompositeAlarmActionsSuppressorArgs:
     @pulumi.getter
     def alarm(self) -> pulumi.Input[_builtins.str]:
         """
-        Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+        Can be an AlarmName or an ARN from an existing alarm.
         """
         return pulumi.get(self, "alarm")
 

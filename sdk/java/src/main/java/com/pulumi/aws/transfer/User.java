@@ -160,14 +160,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:transfer/user:User")
 public class User extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of Transfer User
+     * ARN of Transfer User
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of Transfer User
+     * @return ARN of Transfer User
      * 
      */
     public Output<String> arn() {
@@ -258,14 +258,14 @@ public class User extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
+     * ARN of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
      * 
      */
     @Export(name="role", refs={String.class}, tree="[0]")
     private Output<String> role;
 
     /**
-     * @return Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
+     * @return ARN of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
      * 
      */
     public Output<String> role() {

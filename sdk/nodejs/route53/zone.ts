@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Route53 Hosted Zone. For managing Domain Name System Security Extensions (DNSSEC), see the `aws.route53.KeySigningKey` and `aws.route53.HostedZoneDnsSec` resources.
+ * Manages a Route53 Hosted Zone. For managing DNS Security Extensions (DNSSEC), see the `aws.route53.KeySigningKey` and `aws.route53.HostedZoneDnsSec` resources.
  *
  * ## Example Usage
  *
@@ -127,7 +127,7 @@ export class Zone extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Hosted Zone.
+     * ARN of the Hosted Zone.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -226,7 +226,7 @@ export class Zone extends pulumi.CustomResource {
  */
 export interface ZoneState {
     /**
-     * The Amazon Resource Name (ARN) of the Hosted Zone.
+     * ARN of the Hosted Zone.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

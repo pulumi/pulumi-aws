@@ -47,14 +47,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+     * ARN of the App Runner service to start the deployment for.
      * 
      */
     @Import(name="serviceArn")
     private @Nullable Output<String> serviceArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+     * @return ARN of the App Runner service to start the deployment for.
      * 
      */
     public Optional<Output<String>> serviceArn() {
@@ -154,7 +154,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceArn Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+         * @param serviceArn ARN of the App Runner service to start the deployment for.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceArn Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+         * @param serviceArn ARN of the App Runner service to start the deployment for.
          * 
          * @return builder
          * 

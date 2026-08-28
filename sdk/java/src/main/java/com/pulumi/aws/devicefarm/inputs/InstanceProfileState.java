@@ -19,14 +19,14 @@ public final class InstanceProfileState extends com.pulumi.resources.ResourceArg
     public static final InstanceProfileState Empty = new InstanceProfileState();
 
     /**
-     * The Amazon Resource Name of this instance profile.
+     * ARN of this instance profile.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name of this instance profile.
+     * @return ARN of this instance profile.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -186,7 +186,7 @@ public final class InstanceProfileState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn The Amazon Resource Name of this instance profile.
+         * @param arn ARN of this instance profile.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class InstanceProfileState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn The Amazon Resource Name of this instance profile.
+         * @param arn ARN of this instance profile.
          * 
          * @return builder
          * 

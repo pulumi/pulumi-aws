@@ -67,7 +67,7 @@ export class VpcIpamResourceDiscovery extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of IPAM Resource Discovery
+     * ARN of IPAM Resource Discovery
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -156,7 +156,7 @@ export class VpcIpamResourceDiscovery extends pulumi.CustomResource {
  */
 export interface VpcIpamResourceDiscoveryState {
     /**
-     * Amazon Resource Name (ARN) of IPAM Resource Discovery
+     * ARN of IPAM Resource Discovery
      */
     arn?: pulumi.Input<string | undefined>;
     /**

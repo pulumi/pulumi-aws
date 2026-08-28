@@ -116,7 +116,7 @@ class _LogDestinationState:
         """
         Input properties used for looking up and filtering LogDestination resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the log destination.
+        :param pulumi.Input[_builtins.str] arn: ARN specifying the log destination.
         :param pulumi.Input[_builtins.str] name: A name for the log destination.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
@@ -143,7 +143,7 @@ class _LogDestinationState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) specifying the log destination.
+        ARN specifying the log destination.
         """
         return pulumi.get(self, "arn")
 
@@ -384,7 +384,7 @@ class LogDestination(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the log destination.
+        :param pulumi.Input[_builtins.str] arn: ARN specifying the log destination.
         :param pulumi.Input[_builtins.str] name: A name for the log destination.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
@@ -409,7 +409,7 @@ class LogDestination(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) specifying the log destination.
+        ARN specifying the log destination.
         """
         return pulumi.get(self, "arn")
 

@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the CodeStar connection.
+ * - `arn` (String) ARN of the CodeStar connection.
  *
  * Using `pulumi import`, import CodeStar connections using the ARN. For example:
  *
@@ -103,7 +103,7 @@ export class Connection extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly connectionStatus: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
+     * ARN of the host associated with the connection. Conflicts with `providerType`
      */
     declare public readonly hostArn: pulumi.Output<string | undefined>;
     /**
@@ -177,7 +177,7 @@ export interface ConnectionState {
      */
     connectionStatus?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
+     * ARN of the host associated with the connection. Conflicts with `providerType`
      */
     hostArn?: pulumi.Input<string | undefined>;
     /**
@@ -207,7 +207,7 @@ export interface ConnectionState {
  */
 export interface ConnectionArgs {
     /**
-     * The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
+     * ARN of the host associated with the connection. Conflicts with `providerType`
      */
     hostArn?: pulumi.Input<string | undefined>;
     /**

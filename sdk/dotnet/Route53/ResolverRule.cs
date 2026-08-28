@@ -120,7 +120,7 @@ namespace Pulumi.Aws.Route53
     public partial class ResolverRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// ARN (Amazon Resource Name) for the resolver rule.
+        /// ARN for the resolver rule.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -299,7 +299,7 @@ namespace Pulumi.Aws.Route53
     public sealed class ResolverRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN (Amazon Resource Name) for the resolver rule.
+        /// ARN for the resolver rule.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

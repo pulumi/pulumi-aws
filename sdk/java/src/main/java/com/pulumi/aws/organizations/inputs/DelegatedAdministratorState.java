@@ -31,14 +31,14 @@ public final class DelegatedAdministratorState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the delegated administrator&#39;s account.
+     * ARN of the delegated administrator&#39;s account.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the delegated administrator&#39;s account.
+     * @return ARN of the delegated administrator&#39;s account.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -204,7 +204,7 @@ public final class DelegatedAdministratorState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the delegated administrator&#39;s account.
+         * @param arn ARN of the delegated administrator&#39;s account.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class DelegatedAdministratorState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the delegated administrator&#39;s account.
+         * @param arn ARN of the delegated administrator&#39;s account.
          * 
          * @return builder
          * 

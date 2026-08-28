@@ -16,7 +16,7 @@ public final class GetServerlessSecurityConfigIamIdentityCenterOption {
      */
     private String groupAttribute;
     /**
-     * @return Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+     * @return ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
      * 
      */
     private String instanceArn;
@@ -35,7 +35,7 @@ public final class GetServerlessSecurityConfigIamIdentityCenterOption {
         return this.groupAttribute;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+     * @return ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
      * 
      */
     public String instanceArn() {

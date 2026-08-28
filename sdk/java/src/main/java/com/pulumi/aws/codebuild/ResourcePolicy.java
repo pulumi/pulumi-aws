@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `resourceArn` (String) Amazon Resource Name (ARN) of the CodeBuild resource.
+ * - `resourceArn` (String) ARN of the CodeBuild resource.
  * 
  * Using `pulumi import`, import CodeBuild Resource Policy using the CodeBuild Resource Policy arn. For example:
  * 

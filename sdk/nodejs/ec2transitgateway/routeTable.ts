@@ -53,7 +53,7 @@ export class RouteTable extends pulumi.CustomResource {
     }
 
     /**
-     * EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+     * EC2 Transit Gateway Route Table ARN.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -124,7 +124,7 @@ export class RouteTable extends pulumi.CustomResource {
  */
 export interface RouteTableState {
     /**
-     * EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+     * EC2 Transit Gateway Route Table ARN.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

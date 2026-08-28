@@ -118,7 +118,7 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws.storagegateway.FileSystemAssociation` using the FSx file system association Amazon Resource Name (ARN). For example:
+    /// Using `pulumi import`, import `aws.storagegateway.FileSystemAssociation` using the FSx file system association ARN. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:storagegateway/fileSystemAssociation:FileSystemAssociation example arn:aws:storagegateway:us-east-1:123456789012:fs-association/fsa-0DA347732FDB40125
@@ -128,13 +128,13 @@ namespace Pulumi.Aws.StorageGateway
     public partial class FileSystemAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the newly created file system association.
+        /// ARN of the newly created file system association.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the storage used for the audit logs.
+        /// ARN of the storage used for the audit logs.
         /// </summary>
         [Output("auditDestinationArn")]
         public Output<string?> AuditDestinationArn { get; private set; } = null!;
@@ -146,13 +146,13 @@ namespace Pulumi.Aws.StorageGateway
         public Output<Outputs.FileSystemAssociationCacheAttributes?> CacheAttributes { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the gateway.
+        /// ARN of the gateway.
         /// </summary>
         [Output("gatewayArn")]
         public Output<string> GatewayArn { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+        /// ARN of the Amazon FSx file system to associate with the FSx File Gateway.
         /// </summary>
         [Output("locationArn")]
         public Output<string> LocationArn { get; private set; } = null!;
@@ -238,7 +238,7 @@ namespace Pulumi.Aws.StorageGateway
     public sealed class FileSystemAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the storage used for the audit logs.
+        /// ARN of the storage used for the audit logs.
         /// </summary>
         [Input("auditDestinationArn")]
         public Input<string>? AuditDestinationArn { get; set; }
@@ -250,13 +250,13 @@ namespace Pulumi.Aws.StorageGateway
         public Input<Inputs.FileSystemAssociationCacheAttributesArgs>? CacheAttributes { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the gateway.
+        /// ARN of the gateway.
         /// </summary>
         [Input("gatewayArn", required: true)]
         public Input<string> GatewayArn { get; set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+        /// ARN of the Amazon FSx file system to associate with the FSx File Gateway.
         /// </summary>
         [Input("locationArn", required: true)]
         public Input<string> LocationArn { get; set; } = null!;
@@ -310,13 +310,13 @@ namespace Pulumi.Aws.StorageGateway
     public sealed class FileSystemAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the newly created file system association.
+        /// ARN of the newly created file system association.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the storage used for the audit logs.
+        /// ARN of the storage used for the audit logs.
         /// </summary>
         [Input("auditDestinationArn")]
         public Input<string>? AuditDestinationArn { get; set; }
@@ -328,13 +328,13 @@ namespace Pulumi.Aws.StorageGateway
         public Input<Inputs.FileSystemAssociationCacheAttributesGetArgs>? CacheAttributes { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the gateway.
+        /// ARN of the gateway.
         /// </summary>
         [Input("gatewayArn")]
         public Input<string>? GatewayArn { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+        /// ARN of the Amazon FSx file system to associate with the FSx File Gateway.
         /// </summary>
         [Input("locationArn")]
         public Input<string>? LocationArn { get; set; }

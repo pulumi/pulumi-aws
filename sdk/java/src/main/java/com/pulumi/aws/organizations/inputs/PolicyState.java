@@ -18,14 +18,14 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     public static final PolicyState Empty = new PolicyState();
 
     /**
-     * Amazon Resource Name (ARN) of the policy.
+     * ARN of the policy.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the policy.
+     * @return ARN of the policy.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -193,7 +193,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the policy.
+         * @param arn ARN of the policy.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the policy.
+         * @param arn ARN of the policy.
          * 
          * @return builder
          * 

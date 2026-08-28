@@ -62,14 +62,14 @@ public final class MountTargetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      * 
      */
     @Import(name="fileSystemArn")
     private @Nullable Output<String> fileSystemArn;
 
     /**
-     * @return Amazon Resource Name of the file system.
+     * @return ARN of the file system.
      * 
      */
     public Optional<Output<String>> fileSystemArn() {
@@ -331,7 +331,7 @@ public final class MountTargetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileSystemArn Amazon Resource Name of the file system.
+         * @param fileSystemArn ARN of the file system.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class MountTargetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileSystemArn Amazon Resource Name of the file system.
+         * @param fileSystemArn ARN of the file system.
          * 
          * @return builder
          * 

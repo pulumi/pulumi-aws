@@ -385,7 +385,7 @@ class DataSourceConfigurationWebCrawlerConfiguration(dict):
                  url_exclusion_patterns: Optional[Sequence[_builtins.str]] = None,
                  url_inclusion_patterns: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'DataSourceConfigurationWebCrawlerConfigurationUrlsArgs' urls: A block that specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl. You can include website subdomains. You can list up to `100` seed URLs and up to `3` sitemap URLs. You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling. When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index. Detailed below.
+        :param 'DataSourceConfigurationWebCrawlerConfigurationUrlsArgs' urls: Block that specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl. You can include website subdomains. You can list up to `100` seed URLs and up to `3` sitemap URLs. You can only crawl websites that use the secure communication protocol, HTTPS. If you receive an error when crawling a website, it could be that the website is blocked from crawling. When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index. Detailed below.
         :param 'DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs' authentication_configuration: A block with the configuration information required to connect to websites using authentication. You can connect to websites using basic authentication of user name and password. You use a secret in AWS Secrets Manager to store your authentication credentials. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Detailed below.
         :param _builtins.int crawl_depth: Specifies the number of levels in a website that you want to crawl. The first level begins from the website seed or starting point URL. For example, if a website has 3 levels - index level (i.e. seed in this example), sections level, and subsections level - and you are only interested in crawling information up to the sections level (i.e. levels 0-1), you can set your depth to 1. The default crawl depth is set to `2`. Minimum value of `0`. Maximum value of `10`.
         :param _builtins.float max_content_size_per_page_in_mega_bytes: The maximum size (in MB) of a webpage or attachment to crawl. Files larger than this size (in MB) are skipped/not crawled. The default maximum size of a webpage or attachment is set to `50` MB. Minimum value of `1.0e-06`. Maximum value of `50`.
@@ -417,7 +417,7 @@ class DataSourceConfigurationWebCrawlerConfiguration(dict):
     @pulumi.getter
     def urls(self) -> 'outputs.DataSourceConfigurationWebCrawlerConfigurationUrls':
         """
-        A block that specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl. You can include website subdomains. You can list up to `100` seed URLs and up to `3` sitemap URLs. You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling. When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index. Detailed below.
+        Block that specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl. You can include website subdomains. You can list up to `100` seed URLs and up to `3` sitemap URLs. You can only crawl websites that use the secure communication protocol, HTTPS. If you receive an error when crawling a website, it could be that the website is blocked from crawling. When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index. Detailed below.
         """
         return pulumi.get(self, "urls")
 
@@ -777,7 +777,7 @@ class DataSourceCustomDocumentEnrichmentConfiguration(dict):
         :param Sequence['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs'] inline_configurations: Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra. Minimum number of `0` items. Maximum number of `100` items. Detailed below.
         :param 'DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs' post_extraction_hook_configuration: A block that specifies the configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
         :param 'DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs' pre_extraction_hook_configuration: Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
-        :param _builtins.str role_arn: The Amazon Resource Name (ARN) of a role with permission to run `pre_extraction_hook_configuration` and `post_extraction_hook_configuration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+        :param _builtins.str role_arn: ARN of a role with permission to run `pre_extraction_hook_configuration` and `post_extraction_hook_configuration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         """
         if inline_configurations is not None:
             pulumi.set(__self__, "inline_configurations", inline_configurations)
@@ -816,7 +816,7 @@ class DataSourceCustomDocumentEnrichmentConfiguration(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of a role with permission to run `pre_extraction_hook_configuration` and `post_extraction_hook_configuration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+        ARN of a role with permission to run `pre_extraction_hook_configuration` and `post_extraction_hook_configuration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         """
         return pulumi.get(self, "role_arn")
 
@@ -1181,7 +1181,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigura
                  s3_bucket: _builtins.str,
                  invocation_condition: Optional['outputs.DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition'] = None):
         """
-        :param _builtins.str lambda_arn: The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
+        :param _builtins.str lambda_arn: ARN of a Lambda Function that can manipulate your document metadata fields or attributes and content.
         :param _builtins.str s3_bucket: Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
         :param 'DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs' invocation_condition: A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
         """
@@ -1194,7 +1194,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigura
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
+        ARN of a Lambda Function that can manipulate your document metadata fields or attributes and content.
         """
         return pulumi.get(self, "lambda_arn")
 
@@ -1377,7 +1377,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurat
                  s3_bucket: _builtins.str,
                  invocation_condition: Optional['outputs.DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition'] = None):
         """
-        :param _builtins.str lambda_arn: The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
+        :param _builtins.str lambda_arn: ARN of a Lambda Function that can manipulate your document metadata fields or attributes and content.
         :param _builtins.str s3_bucket: Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
         :param 'DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs' invocation_condition: A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
         """
@@ -1390,7 +1390,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurat
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
+        ARN of a Lambda Function that can manipulate your document metadata fields or attributes and content.
         """
         return pulumi.get(self, "lambda_arn")
 
@@ -2364,7 +2364,7 @@ class IndexUserTokenConfigurationsJwtTokenTypeConfiguration(dict):
         :param _builtins.str claim_regex: The regular expression that identifies the claim. Minimum length of 1. Maximum length of 100.
         :param _builtins.str group_attribute_field: The group attribute field. Minimum length of 1. Maximum length of 100.
         :param _builtins.str issuer: The issuer of the token. Minimum length of 1. Maximum length of 65.
-        :param _builtins.str secrets_manager_arn: The Amazon Resource Name (ARN) of the secret.
+        :param _builtins.str secrets_manager_arn: ARN of the secret.
         :param _builtins.str url: The signing key URL. Valid pattern is `^(https?|ftp|file):\\/\\/([^\\s]*)`
         :param _builtins.str user_name_attribute_field: The user name attribute field. Minimum length of 1. Maximum length of 100.
         """
@@ -2418,7 +2418,7 @@ class IndexUserTokenConfigurationsJwtTokenTypeConfiguration(dict):
     @pulumi.getter(name="secretsManagerArn")
     def secrets_manager_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the secret.
+        ARN of the secret.
         """
         return pulumi.get(self, "secrets_manager_arn")
 

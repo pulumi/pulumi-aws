@@ -72,35 +72,35 @@ export class ReceiptRule extends pulumi.CustomResource {
     }
 
     /**
-     * A list of Add Header Action blocks. Documented below.
+     * Configuration block for adding a header to received emails. Detailed below.
      */
     declare public readonly addHeaderActions: pulumi.Output<outputs.ses.ReceiptRuleAddHeaderAction[] | undefined>;
     /**
-     * The name of the rule to place this rule after
+     * Name of the rule to place this rule after.
      */
     declare public readonly after: pulumi.Output<string | undefined>;
     /**
-     * The SES receipt rule ARN.
+     * SES receipt rule ARN.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * A list of Bounce Action blocks. Documented below.
+     * Configuration block for rejecting received emails. Detailed below.
      */
     declare public readonly bounceActions: pulumi.Output<outputs.ses.ReceiptRuleBounceAction[] | undefined>;
     /**
-     * If true, the rule will be enabled
+     * If true, the rule will be enabled.
      */
     declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
-     * A list of Lambda Action blocks. Documented below.
+     * Configuration block for calling an AWS Lambda function. Detailed below.
      */
     declare public readonly lambdaActions: pulumi.Output<outputs.ses.ReceiptRuleLambdaAction[] | undefined>;
     /**
-     * The name of the rule
+     * Name of the rule.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * A list of email addresses
+     * List of email addresses.
      */
     declare public readonly recipients: pulumi.Output<string[] | undefined>;
     /**
@@ -108,31 +108,33 @@ export class ReceiptRule extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The name of the rule set
+     * Name of the rule set.
+     *
+     * The following arguments are optional:
      */
     declare public readonly ruleSetName: pulumi.Output<string>;
     /**
-     * A list of S3 Action blocks. Documented below.
+     * Configuration block for storing received emails in an S3 bucket. Detailed below.
      */
     declare public readonly s3Actions: pulumi.Output<outputs.ses.ReceiptRuleS3Action[] | undefined>;
     /**
-     * If true, incoming emails will be scanned for spam and viruses
+     * If true, incoming emails will be scanned for spam and viruses.
      */
     declare public readonly scanEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * A list of SNS Action blocks. Documented below.
+     * Configuration block for publishing to an SNS topic. Detailed below.
      */
     declare public readonly snsActions: pulumi.Output<outputs.ses.ReceiptRuleSnsAction[] | undefined>;
     /**
-     * A list of Stop Action blocks. Documented below.
+     * Configuration block for terminating the evaluation of the receipt rule set. Detailed below.
      */
     declare public readonly stopActions: pulumi.Output<outputs.ses.ReceiptRuleStopAction[] | undefined>;
     /**
-     * `Require` or `Optional`
+     * `Require` or `Optional`.
      */
     declare public readonly tlsPolicy: pulumi.Output<string>;
     /**
-     * A list of WorkMail Action blocks. Documented below.
+     * Configuration block for calling Amazon WorkMail. Detailed below.
      */
     declare public readonly workmailActions: pulumi.Output<outputs.ses.ReceiptRuleWorkmailAction[] | undefined>;
 
@@ -197,35 +199,35 @@ export class ReceiptRule extends pulumi.CustomResource {
  */
 export interface ReceiptRuleState {
     /**
-     * A list of Add Header Action blocks. Documented below.
+     * Configuration block for adding a header to received emails. Detailed below.
      */
     addHeaderActions?: pulumi.Input<pulumi.Input<inputs.ses.ReceiptRuleAddHeaderAction>[] | undefined>;
     /**
-     * The name of the rule to place this rule after
+     * Name of the rule to place this rule after.
      */
     after?: pulumi.Input<string | undefined>;
     /**
-     * The SES receipt rule ARN.
+     * SES receipt rule ARN.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * A list of Bounce Action blocks. Documented below.
+     * Configuration block for rejecting received emails. Detailed below.
      */
     bounceActions?: pulumi.Input<pulumi.Input<inputs.ses.ReceiptRuleBounceAction>[] | undefined>;
     /**
-     * If true, the rule will be enabled
+     * If true, the rule will be enabled.
      */
     enabled?: pulumi.Input<boolean | undefined>;
     /**
-     * A list of Lambda Action blocks. Documented below.
+     * Configuration block for calling an AWS Lambda function. Detailed below.
      */
     lambdaActions?: pulumi.Input<pulumi.Input<inputs.ses.ReceiptRuleLambdaAction>[] | undefined>;
     /**
-     * The name of the rule
+     * Name of the rule.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A list of email addresses
+     * List of email addresses.
      */
     recipients?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -233,31 +235,33 @@ export interface ReceiptRuleState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The name of the rule set
+     * Name of the rule set.
+     *
+     * The following arguments are optional:
      */
     ruleSetName?: pulumi.Input<string | undefined>;
     /**
-     * A list of S3 Action blocks. Documented below.
+     * Configuration block for storing received emails in an S3 bucket. Detailed below.
      */
     s3Actions?: pulumi.Input<pulumi.Input<inputs.ses.ReceiptRuleS3Action>[] | undefined>;
     /**
-     * If true, incoming emails will be scanned for spam and viruses
+     * If true, incoming emails will be scanned for spam and viruses.
      */
     scanEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * A list of SNS Action blocks. Documented below.
+     * Configuration block for publishing to an SNS topic. Detailed below.
      */
     snsActions?: pulumi.Input<pulumi.Input<inputs.ses.ReceiptRuleSnsAction>[] | undefined>;
     /**
-     * A list of Stop Action blocks. Documented below.
+     * Configuration block for terminating the evaluation of the receipt rule set. Detailed below.
      */
     stopActions?: pulumi.Input<pulumi.Input<inputs.ses.ReceiptRuleStopAction>[] | undefined>;
     /**
-     * `Require` or `Optional`
+     * `Require` or `Optional`.
      */
     tlsPolicy?: pulumi.Input<string | undefined>;
     /**
-     * A list of WorkMail Action blocks. Documented below.
+     * Configuration block for calling Amazon WorkMail. Detailed below.
      */
     workmailActions?: pulumi.Input<pulumi.Input<inputs.ses.ReceiptRuleWorkmailAction>[] | undefined>;
 }
@@ -267,31 +271,31 @@ export interface ReceiptRuleState {
  */
 export interface ReceiptRuleArgs {
     /**
-     * A list of Add Header Action blocks. Documented below.
+     * Configuration block for adding a header to received emails. Detailed below.
      */
     addHeaderActions?: pulumi.Input<pulumi.Input<inputs.ses.ReceiptRuleAddHeaderAction>[] | undefined>;
     /**
-     * The name of the rule to place this rule after
+     * Name of the rule to place this rule after.
      */
     after?: pulumi.Input<string | undefined>;
     /**
-     * A list of Bounce Action blocks. Documented below.
+     * Configuration block for rejecting received emails. Detailed below.
      */
     bounceActions?: pulumi.Input<pulumi.Input<inputs.ses.ReceiptRuleBounceAction>[] | undefined>;
     /**
-     * If true, the rule will be enabled
+     * If true, the rule will be enabled.
      */
     enabled?: pulumi.Input<boolean | undefined>;
     /**
-     * A list of Lambda Action blocks. Documented below.
+     * Configuration block for calling an AWS Lambda function. Detailed below.
      */
     lambdaActions?: pulumi.Input<pulumi.Input<inputs.ses.ReceiptRuleLambdaAction>[] | undefined>;
     /**
-     * The name of the rule
+     * Name of the rule.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A list of email addresses
+     * List of email addresses.
      */
     recipients?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -299,31 +303,33 @@ export interface ReceiptRuleArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The name of the rule set
+     * Name of the rule set.
+     *
+     * The following arguments are optional:
      */
     ruleSetName: pulumi.Input<string>;
     /**
-     * A list of S3 Action blocks. Documented below.
+     * Configuration block for storing received emails in an S3 bucket. Detailed below.
      */
     s3Actions?: pulumi.Input<pulumi.Input<inputs.ses.ReceiptRuleS3Action>[] | undefined>;
     /**
-     * If true, incoming emails will be scanned for spam and viruses
+     * If true, incoming emails will be scanned for spam and viruses.
      */
     scanEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * A list of SNS Action blocks. Documented below.
+     * Configuration block for publishing to an SNS topic. Detailed below.
      */
     snsActions?: pulumi.Input<pulumi.Input<inputs.ses.ReceiptRuleSnsAction>[] | undefined>;
     /**
-     * A list of Stop Action blocks. Documented below.
+     * Configuration block for terminating the evaluation of the receipt rule set. Detailed below.
      */
     stopActions?: pulumi.Input<pulumi.Input<inputs.ses.ReceiptRuleStopAction>[] | undefined>;
     /**
-     * `Require` or `Optional`
+     * `Require` or `Optional`.
      */
     tlsPolicy?: pulumi.Input<string | undefined>;
     /**
-     * A list of WorkMail Action blocks. Documented below.
+     * Configuration block for calling Amazon WorkMail. Detailed below.
      */
     workmailActions?: pulumi.Input<pulumi.Input<inputs.ses.ReceiptRuleWorkmailAction>[] | undefined>;
 }

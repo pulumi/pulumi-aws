@@ -93,7 +93,7 @@ class _ClusterSnapshotState:
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
         :param pulumi.Input[_builtins.str] db_cluster_identifier: The DocumentDB Cluster Identifier from which to take the snapshot.
-        :param pulumi.Input[_builtins.str] db_cluster_snapshot_arn: The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
+        :param pulumi.Input[_builtins.str] db_cluster_snapshot_arn: ARN for the DocumentDB Cluster Snapshot.
         :param pulumi.Input[_builtins.str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
         :param pulumi.Input[_builtins.str] engine: Specifies the name of the database engine.
         :param pulumi.Input[_builtins.str] engine_version: Version of the database engine for this DocumentDB cluster snapshot.
@@ -161,7 +161,7 @@ class _ClusterSnapshotState:
     @pulumi.getter(name="dbClusterSnapshotArn")
     def db_cluster_snapshot_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
+        ARN for the DocumentDB Cluster Snapshot.
         """
         return pulumi.get(self, "db_cluster_snapshot_arn")
 
@@ -442,7 +442,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
         :param pulumi.Input[_builtins.str] db_cluster_identifier: The DocumentDB Cluster Identifier from which to take the snapshot.
-        :param pulumi.Input[_builtins.str] db_cluster_snapshot_arn: The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
+        :param pulumi.Input[_builtins.str] db_cluster_snapshot_arn: ARN for the DocumentDB Cluster Snapshot.
         :param pulumi.Input[_builtins.str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
         :param pulumi.Input[_builtins.str] engine: Specifies the name of the database engine.
         :param pulumi.Input[_builtins.str] engine_version: Version of the database engine for this DocumentDB cluster snapshot.
@@ -493,7 +493,7 @@ class ClusterSnapshot(pulumi.CustomResource):
     @pulumi.getter(name="dbClusterSnapshotArn")
     def db_cluster_snapshot_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
+        ARN for the DocumentDB Cluster Snapshot.
         """
         return pulumi.get(self, "db_cluster_snapshot_arn")
 

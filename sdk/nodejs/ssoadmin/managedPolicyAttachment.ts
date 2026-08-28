@@ -103,11 +103,11 @@ export class ManagedPolicyAttachment extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+     * ARN of the SSO Instance under which the operation will be executed.
      */
     declare public readonly instanceArn: pulumi.Output<string>;
     /**
-     * The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
+     * IAM managed policy ARN to be attached to the Permission Set.
      */
     declare public readonly managedPolicyArn: pulumi.Output<string>;
     /**
@@ -115,7 +115,7 @@ export class ManagedPolicyAttachment extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly managedPolicyName: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
+     * ARN of the Permission Set.
      */
     declare public readonly permissionSetArn: pulumi.Output<string>;
     /**
@@ -168,11 +168,11 @@ export class ManagedPolicyAttachment extends pulumi.CustomResource {
  */
 export interface ManagedPolicyAttachmentState {
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+     * ARN of the SSO Instance under which the operation will be executed.
      */
     instanceArn?: pulumi.Input<string | undefined>;
     /**
-     * The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
+     * IAM managed policy ARN to be attached to the Permission Set.
      */
     managedPolicyArn?: pulumi.Input<string | undefined>;
     /**
@@ -180,7 +180,7 @@ export interface ManagedPolicyAttachmentState {
      */
     managedPolicyName?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
+     * ARN of the Permission Set.
      */
     permissionSetArn?: pulumi.Input<string | undefined>;
     /**
@@ -194,15 +194,15 @@ export interface ManagedPolicyAttachmentState {
  */
 export interface ManagedPolicyAttachmentArgs {
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+     * ARN of the SSO Instance under which the operation will be executed.
      */
     instanceArn: pulumi.Input<string>;
     /**
-     * The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
+     * IAM managed policy ARN to be attached to the Permission Set.
      */
     managedPolicyArn: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
+     * ARN of the Permission Set.
      */
     permissionSetArn: pulumi.Input<string>;
     /**

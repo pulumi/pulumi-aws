@@ -56,7 +56,7 @@ public final class GetClusterResult {
      */
     private String clusterIdentifier;
     /**
-     * @return The namespace Amazon Resource Name (ARN) of the cluster
+     * @return Namespace ARN of the cluster
      * 
      */
     private String clusterNamespaceArn;
@@ -276,7 +276,7 @@ public final class GetClusterResult {
         return this.clusterIdentifier;
     }
     /**
-     * @return The namespace Amazon Resource Name (ARN) of the cluster
+     * @return Namespace ARN of the cluster
      * 
      */
     public String clusterNamespaceArn() {

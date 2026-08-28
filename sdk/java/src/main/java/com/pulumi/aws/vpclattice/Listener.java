@@ -352,14 +352,14 @@ public class Listener extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
+     * ARN of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
      * 
      */
     @Export(name="serviceArn", refs={String.class}, tree="[0]")
     private Output<String> serviceArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
+     * @return ARN of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
      * 
      */
     public Output<String> serviceArn() {

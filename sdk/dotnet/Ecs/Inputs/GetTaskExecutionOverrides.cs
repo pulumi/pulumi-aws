@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         public string? Cpu { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the task execution role override for the task.
+        /// ARN of the task execution role override for the task.
         /// </summary>
         [Input("executionRoleArn")]
         public string? ExecutionRoleArn { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         public string? Memory { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the role that containers in this task can assume.
+        /// ARN of the role that containers in this task can assume.
         /// </summary>
         [Input("taskRoleArn")]
         public string? TaskRoleArn { get; set; }

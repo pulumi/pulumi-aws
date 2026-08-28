@@ -231,7 +231,7 @@ export class Role extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) specifying the role.
+     * ARN specifying the role.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -354,7 +354,7 @@ export class Role extends pulumi.CustomResource {
  */
 export interface RoleState {
     /**
-     * Amazon Resource Name (ARN) specifying the role.
+     * ARN specifying the role.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

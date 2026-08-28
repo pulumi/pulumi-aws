@@ -32,7 +32,7 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTls {
      */
     private @Nullable List<Integer> ports;
     /**
-     * @return Listener&#39;s Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+     * @return Listener&#39;s TLS validation context. See `spec.listener.tls.validation` Block for details.
      * 
      */
     private VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation validation;
@@ -60,7 +60,7 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTls {
         return this.ports == null ? List.of() : this.ports;
     }
     /**
-     * @return Listener&#39;s Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+     * @return Listener&#39;s TLS validation context. See `spec.listener.tls.validation` Block for details.
      * 
      */
     public VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation validation() {

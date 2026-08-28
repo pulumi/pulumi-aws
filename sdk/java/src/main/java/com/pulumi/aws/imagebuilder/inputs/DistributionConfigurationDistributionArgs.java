@@ -24,14 +24,14 @@ public final class DistributionConfigurationDistributionArgs extends com.pulumi.
     public static final DistributionConfigurationDistributionArgs Empty = new DistributionConfigurationDistributionArgs();
 
     /**
-     * Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
+     * Configuration block with AMI distribution settings. Detailed below.
      * 
      */
     @Import(name="amiDistributionConfiguration")
     private @Nullable Output<DistributionConfigurationDistributionAmiDistributionConfigurationArgs> amiDistributionConfiguration;
 
     /**
-     * @return Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
+     * @return Configuration block with AMI distribution settings. Detailed below.
      * 
      */
     public Optional<Output<DistributionConfigurationDistributionAmiDistributionConfigurationArgs>> amiDistributionConfiguration() {
@@ -84,14 +84,14 @@ public final class DistributionConfigurationDistributionArgs extends com.pulumi.
     }
 
     /**
-     * Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+     * Set of ARNs of License Manager License Configurations.
      * 
      */
     @Import(name="licenseConfigurationArns")
     private @Nullable Output<List<String>> licenseConfigurationArns;
 
     /**
-     * @return Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+     * @return Set of ARNs of License Manager License Configurations.
      * 
      */
     public Optional<Output<List<String>>> licenseConfigurationArns() {
@@ -175,7 +175,7 @@ public final class DistributionConfigurationDistributionArgs extends com.pulumi.
         }
 
         /**
-         * @param amiDistributionConfiguration Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
+         * @param amiDistributionConfiguration Configuration block with AMI distribution settings. Detailed below.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class DistributionConfigurationDistributionArgs extends com.pulumi.
         }
 
         /**
-         * @param amiDistributionConfiguration Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
+         * @param amiDistributionConfiguration Configuration block with AMI distribution settings. Detailed below.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class DistributionConfigurationDistributionArgs extends com.pulumi.
         }
 
         /**
-         * @param licenseConfigurationArns Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+         * @param licenseConfigurationArns Set of ARNs of License Manager License Configurations.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class DistributionConfigurationDistributionArgs extends com.pulumi.
         }
 
         /**
-         * @param licenseConfigurationArns Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+         * @param licenseConfigurationArns Set of ARNs of License Manager License Configurations.
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class DistributionConfigurationDistributionArgs extends com.pulumi.
         }
 
         /**
-         * @param licenseConfigurationArns Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+         * @param licenseConfigurationArns Set of ARNs of License Manager License Configurations.
          * 
          * @return builder
          * 

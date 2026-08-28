@@ -8,16 +8,14 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreMemoryStreamDeliveryResourcesResourceKinesis {
     /**
-     * @return Content configurations for stream delivery. See `contentConfiguration` below.
+     * @return Content configurations for stream delivery. See `contentConfiguration` Block below.
      * 
      */
-    private @Nullable AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfiguration contentConfiguration;
+    private AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfiguration contentConfiguration;
     /**
      * @return ARN of the Kinesis Data Stream.
      * 
@@ -26,11 +24,11 @@ public final class AgentcoreMemoryStreamDeliveryResourcesResourceKinesis {
 
     private AgentcoreMemoryStreamDeliveryResourcesResourceKinesis() {}
     /**
-     * @return Content configurations for stream delivery. See `contentConfiguration` below.
+     * @return Content configurations for stream delivery. See `contentConfiguration` Block below.
      * 
      */
-    public Optional<AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfiguration> contentConfiguration() {
-        return Optional.ofNullable(this.contentConfiguration);
+    public AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfiguration contentConfiguration() {
+        return this.contentConfiguration;
     }
     /**
      * @return ARN of the Kinesis Data Stream.
@@ -49,7 +47,7 @@ public final class AgentcoreMemoryStreamDeliveryResourcesResourceKinesis {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfiguration contentConfiguration;
+        private AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfiguration contentConfiguration;
         private String dataStreamArn;
         public Builder() {}
         public Builder(AgentcoreMemoryStreamDeliveryResourcesResourceKinesis defaults) {
@@ -59,8 +57,10 @@ public final class AgentcoreMemoryStreamDeliveryResourcesResourceKinesis {
         }
 
         @CustomType.Setter
-        public Builder contentConfiguration(@Nullable AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfiguration contentConfiguration) {
-
+        public Builder contentConfiguration(AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfiguration contentConfiguration) {
+            if (contentConfiguration == null) {
+              throw new MissingRequiredPropertyException("AgentcoreMemoryStreamDeliveryResourcesResourceKinesis", "contentConfiguration");
+            }
             this.contentConfiguration = contentConfiguration;
             return this;
         }

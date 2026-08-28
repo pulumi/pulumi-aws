@@ -154,7 +154,7 @@ type StackSet struct {
 
 	// Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
 	AdministrationRoleArn pulumi.StringPtrOutput `pulumi:"administrationRoleArn"`
-	// Amazon Resource Name (ARN) of the StackSet.
+	// ARN of the StackSet.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
 	AutoDeployment StackSetAutoDeploymentPtrOutput `pulumi:"autoDeployment"`
@@ -222,7 +222,7 @@ func GetStackSet(ctx *pulumi.Context,
 type stackSetState struct {
 	// Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
 	AdministrationRoleArn *string `pulumi:"administrationRoleArn"`
-	// Amazon Resource Name (ARN) of the StackSet.
+	// ARN of the StackSet.
 	Arn *string `pulumi:"arn"`
 	// Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
 	AutoDeployment *StackSetAutoDeployment `pulumi:"autoDeployment"`
@@ -261,7 +261,7 @@ type stackSetState struct {
 type StackSetState struct {
 	// Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
 	AdministrationRoleArn pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the StackSet.
+	// ARN of the StackSet.
 	Arn pulumi.StringPtrInput
 	// Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
 	AutoDeployment StackSetAutoDeploymentPtrInput
@@ -460,7 +460,7 @@ func (o StackSetOutput) AdministrationRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StackSet) pulumi.StringPtrOutput { return v.AdministrationRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the StackSet.
+// ARN of the StackSet.
 func (o StackSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StackSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

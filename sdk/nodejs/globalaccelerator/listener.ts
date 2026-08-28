@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator listener.
+ * - `arn` (String) ARN of the Global Accelerator listener.
  *
  * Using `pulumi import`, import Global Accelerator listeners using the `id`. For example:
  *
@@ -80,11 +80,11 @@ export class Listener extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of your accelerator.
+     * ARN of your accelerator.
      */
     declare public readonly acceleratorArn: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the listener.
+     * ARN of the listener.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -145,11 +145,11 @@ export class Listener extends pulumi.CustomResource {
  */
 export interface ListenerState {
     /**
-     * The Amazon Resource Name (ARN) of your accelerator.
+     * ARN of your accelerator.
      */
     acceleratorArn?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the listener.
+     * ARN of the listener.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -171,7 +171,7 @@ export interface ListenerState {
  */
 export interface ListenerArgs {
     /**
-     * The Amazon Resource Name (ARN) of your accelerator.
+     * ARN of your accelerator.
      */
     acceleratorArn: pulumi.Input<string>;
     /**

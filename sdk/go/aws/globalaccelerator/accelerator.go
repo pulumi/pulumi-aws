@@ -55,7 +55,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator accelerator.
+// - `arn` (String) ARN of the Global Accelerator accelerator.
 //
 // Using `pulumi import`, import Global Accelerator accelerators using the `arn`. For example:
 //
@@ -65,13 +65,13 @@ import (
 type Accelerator struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the accelerator.
+	// ARN of the accelerator.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The attributes of the accelerator. Fields documented below.
 	Attributes AcceleratorAttributesPtrOutput `pulumi:"attributes"`
 	// The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
-	// The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+	// DNS name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
 	DualStackDnsName pulumi.StringOutput `pulumi:"dualStackDnsName"`
 	// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
@@ -123,13 +123,13 @@ func GetAccelerator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Accelerator resources.
 type acceleratorState struct {
-	// The Amazon Resource Name (ARN) of the accelerator.
+	// ARN of the accelerator.
 	Arn *string `pulumi:"arn"`
 	// The attributes of the accelerator. Fields documented below.
 	Attributes *AcceleratorAttributes `pulumi:"attributes"`
 	// The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
 	DnsName *string `pulumi:"dnsName"`
-	// The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+	// DNS name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
 	DualStackDnsName *string `pulumi:"dualStackDnsName"`
 	// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
 	Enabled *bool `pulumi:"enabled"`
@@ -152,13 +152,13 @@ type acceleratorState struct {
 }
 
 type AcceleratorState struct {
-	// The Amazon Resource Name (ARN) of the accelerator.
+	// ARN of the accelerator.
 	Arn pulumi.StringPtrInput
 	// The attributes of the accelerator. Fields documented below.
 	Attributes AcceleratorAttributesPtrInput
 	// The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
 	DnsName pulumi.StringPtrInput
-	// The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+	// DNS name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
 	DualStackDnsName pulumi.StringPtrInput
 	// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
 	Enabled pulumi.BoolPtrInput
@@ -302,7 +302,7 @@ func (o AcceleratorOutput) ToAcceleratorOutputWithContext(ctx context.Context) A
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the accelerator.
+// ARN of the accelerator.
 func (o AcceleratorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Accelerator) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -317,7 +317,7 @@ func (o AcceleratorOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Accelerator) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
 }
 
-// The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+// DNS name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
 func (o AcceleratorOutput) DualStackDnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Accelerator) pulumi.StringOutput { return v.DualStackDnsName }).(pulumi.StringOutput)
 }

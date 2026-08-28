@@ -73,7 +73,7 @@ type Control struct {
 	ActionPlanInstructions pulumi.StringPtrOutput `pulumi:"actionPlanInstructions"`
 	// Title of the action plan for remediating the control.
 	ActionPlanTitle pulumi.StringPtrOutput `pulumi:"actionPlanTitle"`
-	// Amazon Resource Name (ARN) of the control.
+	// ARN of the control.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Data mapping sources. See `controlMappingSources` below.
 	ControlMappingSources ControlControlMappingSourceArrayOutput `pulumi:"controlMappingSources"`
@@ -128,7 +128,7 @@ type controlState struct {
 	ActionPlanInstructions *string `pulumi:"actionPlanInstructions"`
 	// Title of the action plan for remediating the control.
 	ActionPlanTitle *string `pulumi:"actionPlanTitle"`
-	// Amazon Resource Name (ARN) of the control.
+	// ARN of the control.
 	Arn *string `pulumi:"arn"`
 	// Data mapping sources. See `controlMappingSources` below.
 	ControlMappingSources []ControlControlMappingSource `pulumi:"controlMappingSources"`
@@ -154,7 +154,7 @@ type ControlState struct {
 	ActionPlanInstructions pulumi.StringPtrInput
 	// Title of the action plan for remediating the control.
 	ActionPlanTitle pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the control.
+	// ARN of the control.
 	Arn pulumi.StringPtrInput
 	// Data mapping sources. See `controlMappingSources` below.
 	ControlMappingSources ControlControlMappingSourceArrayInput
@@ -319,7 +319,7 @@ func (o ControlOutput) ActionPlanTitle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Control) pulumi.StringPtrOutput { return v.ActionPlanTitle }).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the control.
+// ARN of the control.
 func (o ControlOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Control) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

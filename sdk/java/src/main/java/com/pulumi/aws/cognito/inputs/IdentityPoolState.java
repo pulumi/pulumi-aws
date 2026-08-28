@@ -142,14 +142,14 @@ public final class IdentityPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+     * An array of ARNs of the SAML provider for your identity.
      * 
      */
     @Import(name="samlProviderArns")
     private @Nullable Output<List<String>> samlProviderArns;
 
     /**
-     * @return An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+     * @return An array of ARNs of the SAML provider for your identity.
      * 
      */
     public Optional<Output<List<String>>> samlProviderArns() {
@@ -427,7 +427,7 @@ public final class IdentityPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param samlProviderArns An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+         * @param samlProviderArns An array of ARNs of the SAML provider for your identity.
          * 
          * @return builder
          * 
@@ -438,7 +438,7 @@ public final class IdentityPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param samlProviderArns An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+         * @param samlProviderArns An array of ARNs of the SAML provider for your identity.
          * 
          * @return builder
          * 
@@ -448,7 +448,7 @@ public final class IdentityPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param samlProviderArns An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+         * @param samlProviderArns An array of ARNs of the SAML provider for your identity.
          * 
          * @return builder
          * 

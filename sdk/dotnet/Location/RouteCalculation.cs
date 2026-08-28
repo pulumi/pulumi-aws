@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Location
     public partial class RouteCalculation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
+        /// ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.
         /// </summary>
         [Output("calculatorArn")]
         public Output<string> CalculatorArn { get; private set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.Location
     public sealed class RouteCalculationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
+        /// ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.
         /// </summary>
         [Input("calculatorArn")]
         public Input<string>? CalculatorArn { get; set; }

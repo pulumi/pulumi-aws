@@ -88,7 +88,7 @@ export class Assessment extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the assessment.
+     * ARN of the assessment.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -191,7 +191,7 @@ export class Assessment extends pulumi.CustomResource {
  */
 export interface AssessmentState {
     /**
-     * Amazon Resource Name (ARN) of the assessment.
+     * ARN of the assessment.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

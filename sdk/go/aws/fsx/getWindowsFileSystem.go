@@ -66,7 +66,7 @@ type LookupWindowsFileSystemResult struct {
 	ActiveDirectoryId string `pulumi:"activeDirectoryId"`
 	// Set of DNS alias names associated with the Amazon FSx file system.
 	Aliases []string `pulumi:"aliases"`
-	// Amazon Resource Name of the file system.
+	// ARN of the file system.
 	Arn string `pulumi:"arn"`
 	// Configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system.
 	AuditLogConfigurations []GetWindowsFileSystemAuditLogConfiguration `pulumi:"auditLogConfigurations"`
@@ -113,7 +113,7 @@ type LookupWindowsFileSystemResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
 	ThroughputCapacity int `pulumi:"throughputCapacity"`
-	// ID of the primary virtual private cloud (VPC) for the file system.
+	// ID of the primary VPC for the file system.
 	VpcId string `pulumi:"vpcId"`
 	// Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
 	WeeklyMaintenanceStartTime string `pulumi:"weeklyMaintenanceStartTime"`
@@ -167,7 +167,7 @@ func (o LookupWindowsFileSystemResultOutput) Aliases() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v LookupWindowsFileSystemResult) []string { return v.Aliases }).(pulumi.StringArrayOutput)
 }
 
-// Amazon Resource Name of the file system.
+// ARN of the file system.
 func (o LookupWindowsFileSystemResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWindowsFileSystemResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -290,7 +290,7 @@ func (o LookupWindowsFileSystemResultOutput) ThroughputCapacity() pulumi.IntOutp
 	return o.ApplyT(func(v LookupWindowsFileSystemResult) int { return v.ThroughputCapacity }).(pulumi.IntOutput)
 }
 
-// ID of the primary virtual private cloud (VPC) for the file system.
+// ID of the primary VPC for the file system.
 func (o LookupWindowsFileSystemResultOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWindowsFileSystemResult) string { return v.VpcId }).(pulumi.StringOutput)
 }

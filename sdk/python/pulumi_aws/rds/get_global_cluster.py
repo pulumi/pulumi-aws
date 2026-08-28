@@ -72,7 +72,7 @@ class GetGlobalClusterResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        RDS Global Cluster Amazon Resource Name (ARN)
+        RDS Global Cluster ARN
         """
         return pulumi.get(self, "arn")
 

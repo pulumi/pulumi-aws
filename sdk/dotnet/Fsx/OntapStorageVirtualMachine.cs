@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Fsx
         public Output<Outputs.OntapStorageVirtualMachineActiveDirectoryConfiguration?> ActiveDirectoryConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name of the storage virtual machine.
+        /// ARN of the storage virtual machine.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -300,7 +300,7 @@ namespace Pulumi.Aws.Fsx
         public Input<Inputs.OntapStorageVirtualMachineActiveDirectoryConfigurationGetArgs>? ActiveDirectoryConfiguration { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name of the storage virtual machine.
+        /// ARN of the storage virtual machine.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

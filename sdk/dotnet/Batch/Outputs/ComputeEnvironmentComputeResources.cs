@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly int? DesiredVcpus;
         /// <summary>
-        /// Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
+        /// Provides information used to select AMIs for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
         /// </summary>
         public readonly ImmutableArray<Outputs.ComputeEnvironmentComputeResourcesEc2Configuration> Ec2Configurations;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly string? Ec2KeyPair;
         /// <summary>
-        /// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `Ec2Configuration` `ImageIdOverride` instead)
+        /// AMI ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `Ec2Configuration` `ImageIdOverride` instead)
         /// </summary>
         public readonly string? ImageId;
         /// <summary>
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        /// ARN of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
         public readonly string? SpotIamFleetRole;
         /// <summary>

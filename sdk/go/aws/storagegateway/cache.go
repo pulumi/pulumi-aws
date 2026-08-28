@@ -45,7 +45,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `storagegateway.Cache` using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`). For example:
+// Using `pulumi import`, import `storagegateway.Cache` using the gateway ARN and local disk identifier separated with a colon (`:`). For example:
 //
 // ```sh
 // $ pulumi import aws:storagegateway/cache:Cache example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
@@ -55,7 +55,7 @@ type Cache struct {
 
 	// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
 	DiskId pulumi.StringOutput `pulumi:"diskId"`
-	// The Amazon Resource Name (ARN) of the gateway.
+	// ARN of the gateway.
 	GatewayArn pulumi.StringOutput `pulumi:"gatewayArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -99,7 +99,7 @@ func GetCache(ctx *pulumi.Context,
 type cacheState struct {
 	// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
 	DiskId *string `pulumi:"diskId"`
-	// The Amazon Resource Name (ARN) of the gateway.
+	// ARN of the gateway.
 	GatewayArn *string `pulumi:"gatewayArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -108,7 +108,7 @@ type cacheState struct {
 type CacheState struct {
 	// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
 	DiskId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the gateway.
+	// ARN of the gateway.
 	GatewayArn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -121,7 +121,7 @@ func (CacheState) ElementType() reflect.Type {
 type cacheArgs struct {
 	// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
 	DiskId string `pulumi:"diskId"`
-	// The Amazon Resource Name (ARN) of the gateway.
+	// ARN of the gateway.
 	GatewayArn string `pulumi:"gatewayArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -131,7 +131,7 @@ type cacheArgs struct {
 type CacheArgs struct {
 	// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
 	DiskId pulumi.StringInput
-	// The Amazon Resource Name (ARN) of the gateway.
+	// ARN of the gateway.
 	GatewayArn pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -229,7 +229,7 @@ func (o CacheOutput) DiskId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.DiskId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the gateway.
+// ARN of the gateway.
 func (o CacheOutput) GatewayArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.GatewayArn }).(pulumi.StringOutput)
 }

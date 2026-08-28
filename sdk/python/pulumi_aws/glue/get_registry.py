@@ -44,7 +44,7 @@ class GetRegistryResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) of Glue Registry.
+        ARN of Glue Registry.
         """
         return pulumi.get(self, "arn")
 

@@ -47,14 +47,14 @@ public final class GetTaskExecutionOverrides extends com.pulumi.resources.Invoke
     }
 
     /**
-     * Amazon Resource Name (ARN) of the task execution role override for the task.
+     * ARN of the task execution role override for the task.
      * 
      */
     @Import(name="executionRoleArn")
     private @Nullable String executionRoleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the task execution role override for the task.
+     * @return ARN of the task execution role override for the task.
      * 
      */
     public Optional<String> executionRoleArn() {
@@ -77,14 +77,14 @@ public final class GetTaskExecutionOverrides extends com.pulumi.resources.Invoke
     }
 
     /**
-     * Amazon Resource Name (ARN) of the role that containers in this task can assume.
+     * ARN of the role that containers in this task can assume.
      * 
      */
     @Import(name="taskRoleArn")
     private @Nullable String taskRoleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the role that containers in this task can assume.
+     * @return ARN of the role that containers in this task can assume.
      * 
      */
     public Optional<String> taskRoleArn() {
@@ -152,7 +152,7 @@ public final class GetTaskExecutionOverrides extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param executionRoleArn Amazon Resource Name (ARN) of the task execution role override for the task.
+         * @param executionRoleArn ARN of the task execution role override for the task.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class GetTaskExecutionOverrides extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param taskRoleArn Amazon Resource Name (ARN) of the role that containers in this task can assume.
+         * @param taskRoleArn ARN of the role that containers in this task can assume.
          * 
          * @return builder
          * 

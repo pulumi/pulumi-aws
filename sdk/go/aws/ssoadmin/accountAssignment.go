@@ -160,9 +160,9 @@ import (
 type AccountAssignment struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the SSO Instance.
+	// ARN of the SSO Instance.
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
-	// The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+	// ARN of the Permission Set that the admin wants to grant the principal access to.
 	PermissionSetArn pulumi.StringOutput `pulumi:"permissionSetArn"`
 	// An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
 	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
@@ -224,9 +224,9 @@ func GetAccountAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccountAssignment resources.
 type accountAssignmentState struct {
-	// The Amazon Resource Name (ARN) of the SSO Instance.
+	// ARN of the SSO Instance.
 	InstanceArn *string `pulumi:"instanceArn"`
-	// The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+	// ARN of the Permission Set that the admin wants to grant the principal access to.
 	PermissionSetArn *string `pulumi:"permissionSetArn"`
 	// An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
 	PrincipalId *string `pulumi:"principalId"`
@@ -241,9 +241,9 @@ type accountAssignmentState struct {
 }
 
 type AccountAssignmentState struct {
-	// The Amazon Resource Name (ARN) of the SSO Instance.
+	// ARN of the SSO Instance.
 	InstanceArn pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+	// ARN of the Permission Set that the admin wants to grant the principal access to.
 	PermissionSetArn pulumi.StringPtrInput
 	// An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
 	PrincipalId pulumi.StringPtrInput
@@ -262,9 +262,9 @@ func (AccountAssignmentState) ElementType() reflect.Type {
 }
 
 type accountAssignmentArgs struct {
-	// The Amazon Resource Name (ARN) of the SSO Instance.
+	// ARN of the SSO Instance.
 	InstanceArn string `pulumi:"instanceArn"`
-	// The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+	// ARN of the Permission Set that the admin wants to grant the principal access to.
 	PermissionSetArn string `pulumi:"permissionSetArn"`
 	// An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
 	PrincipalId string `pulumi:"principalId"`
@@ -280,9 +280,9 @@ type accountAssignmentArgs struct {
 
 // The set of arguments for constructing a AccountAssignment resource.
 type AccountAssignmentArgs struct {
-	// The Amazon Resource Name (ARN) of the SSO Instance.
+	// ARN of the SSO Instance.
 	InstanceArn pulumi.StringInput
-	// The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+	// ARN of the Permission Set that the admin wants to grant the principal access to.
 	PermissionSetArn pulumi.StringInput
 	// An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
 	PrincipalId pulumi.StringInput
@@ -383,12 +383,12 @@ func (o AccountAssignmentOutput) ToAccountAssignmentOutputWithContext(ctx contex
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the SSO Instance.
+// ARN of the SSO Instance.
 func (o AccountAssignmentOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountAssignment) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+// ARN of the Permission Set that the admin wants to grant the principal access to.
 func (o AccountAssignmentOutput) PermissionSetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountAssignment) pulumi.StringOutput { return v.PermissionSetArn }).(pulumi.StringOutput)
 }

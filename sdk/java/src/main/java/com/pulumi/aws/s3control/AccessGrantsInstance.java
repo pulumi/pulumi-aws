@@ -96,14 +96,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:s3control/accessGrantsInstance:AccessGrantsInstance")
 public class AccessGrantsInstance extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the S3 Access Grants instance.
+     * ARN of the S3 Access Grants instance.
      * 
      */
     @Export(name="accessGrantsInstanceArn", refs={String.class}, tree="[0]")
     private Output<String> accessGrantsInstanceArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the S3 Access Grants instance.
+     * @return ARN of the S3 Access Grants instance.
      * 
      */
     public Output<String> accessGrantsInstanceArn() {

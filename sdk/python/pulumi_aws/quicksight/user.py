@@ -187,7 +187,7 @@ class _UserState:
         """
         Input properties used for looking up and filtering User resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) for the user.
+        :param pulumi.Input[_builtins.str] arn: ARN for the user.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] email: Email address of the user that you want to register.
         :param pulumi.Input[_builtins.str] iam_arn: ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
@@ -228,7 +228,7 @@ class _UserState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) for the user.
+        ARN for the user.
         """
         return pulumi.get(self, "arn")
 
@@ -575,7 +575,7 @@ class User(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) for the user.
+        :param pulumi.Input[_builtins.str] arn: ARN for the user.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] email: Email address of the user that you want to register.
         :param pulumi.Input[_builtins.str] iam_arn: ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
@@ -610,7 +610,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) for the user.
+        ARN for the user.
         """
         return pulumi.get(self, "arn")
 

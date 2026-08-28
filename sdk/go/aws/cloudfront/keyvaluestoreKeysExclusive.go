@@ -99,7 +99,7 @@ import (
 type KeyvaluestoreKeysExclusive struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the Key Value Store.
+	// ARN of the Key Value Store.
 	//
 	// The following arguments are optional:
 	KeyValueStoreArn pulumi.StringOutput `pulumi:"keyValueStoreArn"`
@@ -145,7 +145,7 @@ func GetKeyvaluestoreKeysExclusive(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KeyvaluestoreKeysExclusive resources.
 type keyvaluestoreKeysExclusiveState struct {
-	// Amazon Resource Name (ARN) of the Key Value Store.
+	// ARN of the Key Value Store.
 	//
 	// The following arguments are optional:
 	KeyValueStoreArn *string `pulumi:"keyValueStoreArn"`
@@ -159,7 +159,7 @@ type keyvaluestoreKeysExclusiveState struct {
 }
 
 type KeyvaluestoreKeysExclusiveState struct {
-	// Amazon Resource Name (ARN) of the Key Value Store.
+	// ARN of the Key Value Store.
 	//
 	// The following arguments are optional:
 	KeyValueStoreArn pulumi.StringPtrInput
@@ -177,7 +177,7 @@ func (KeyvaluestoreKeysExclusiveState) ElementType() reflect.Type {
 }
 
 type keyvaluestoreKeysExclusiveArgs struct {
-	// Amazon Resource Name (ARN) of the Key Value Store.
+	// ARN of the Key Value Store.
 	//
 	// The following arguments are optional:
 	KeyValueStoreArn string `pulumi:"keyValueStoreArn"`
@@ -190,7 +190,7 @@ type keyvaluestoreKeysExclusiveArgs struct {
 
 // The set of arguments for constructing a KeyvaluestoreKeysExclusive resource.
 type KeyvaluestoreKeysExclusiveArgs struct {
-	// Amazon Resource Name (ARN) of the Key Value Store.
+	// ARN of the Key Value Store.
 	//
 	// The following arguments are optional:
 	KeyValueStoreArn pulumi.StringInput
@@ -288,7 +288,7 @@ func (o KeyvaluestoreKeysExclusiveOutput) ToKeyvaluestoreKeysExclusiveOutputWith
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Key Value Store.
+// ARN of the Key Value Store.
 //
 // The following arguments are optional:
 func (o KeyvaluestoreKeysExclusiveOutput) KeyValueStoreArn() pulumi.StringOutput {

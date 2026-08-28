@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Connect
     public partial class ContactFlow : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Contact Flow.
+        /// ARN of the Contact Flow.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -322,7 +322,7 @@ namespace Pulumi.Aws.Connect
     public sealed class ContactFlowState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Contact Flow.
+        /// ARN of the Contact Flow.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -118,7 +118,7 @@ import (
 type ClusterEndpoint struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of cluster
+	// ARN of cluster
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
 	ClusterEndpointIdentifier pulumi.StringOutput `pulumi:"clusterEndpointIdentifier"`
@@ -182,7 +182,7 @@ func GetClusterEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ClusterEndpoint resources.
 type clusterEndpointState struct {
-	// Amazon Resource Name (ARN) of cluster
+	// ARN of cluster
 	Arn *string `pulumi:"arn"`
 	// The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
 	ClusterEndpointIdentifier *string `pulumi:"clusterEndpointIdentifier"`
@@ -208,7 +208,7 @@ type clusterEndpointState struct {
 }
 
 type ClusterEndpointState struct {
-	// Amazon Resource Name (ARN) of cluster
+	// ARN of cluster
 	Arn pulumi.StringPtrInput
 	// The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
 	ClusterEndpointIdentifier pulumi.StringPtrInput
@@ -365,7 +365,7 @@ func (o ClusterEndpointOutput) ToClusterEndpointOutputWithContext(ctx context.Co
 	return o
 }
 
-// Amazon Resource Name (ARN) of cluster
+// ARN of cluster
 func (o ClusterEndpointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterEndpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

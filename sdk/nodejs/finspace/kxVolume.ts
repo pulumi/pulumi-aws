@@ -68,7 +68,7 @@ export class KxVolume extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) identifier of the KX volume.
+     * ARN identifier of the KX volume.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -201,7 +201,7 @@ export class KxVolume extends pulumi.CustomResource {
  */
 export interface KxVolumeState {
     /**
-     * Amazon Resource Name (ARN) identifier of the KX volume.
+     * ARN identifier of the KX volume.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

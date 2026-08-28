@@ -83,7 +83,7 @@ class FunctionArgs:
         :param pulumi.Input[_builtins.str] handler: Function entry point in your code. Required if `package_type` is `Zip`.
         :param pulumi.Input['FunctionImageConfigArgs'] image_config: Container image configuration values. See below.
         :param pulumi.Input[_builtins.str] image_uri: ECR image URI containing the function's deployment package. Conflicts with `filename` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
-        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function.
         :param pulumi.Input['FunctionLoggingConfigArgs'] logging_config: Configuration block for advanced logging settings. See below.
         :param pulumi.Input[_builtins.int] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 32,768 MB (32 GB), in 1 MB increments. Defaults to 128.
@@ -102,7 +102,7 @@ class FunctionArgs:
         :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`.
         :param pulumi.Input['FunctionSnapStartArgs'] snap_start: Configuration block for snap start settings. See below.
         :param pulumi.Input[_builtins.str] source_code_hash: User-defined hash of the source code package file. Use this argument to trigger updates when the local function source code changes. This is a synthetic argument tracked only by the AWS provider and does not need to match the hashing algorithm used by Lambda to compute the `CodeSha256` response value. Out-of-band changes to the source code _will not_ be captured by this argument. To include out-of-band source code changes as an update trigger, use the `code_sha256` argument instead.
-        :param pulumi.Input[_builtins.str] source_kms_key_arn: ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
+        :param pulumi.Input[_builtins.str] source_kms_key_arn: ARN of the KMS key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['FunctionTenancyConfigArgs'] tenancy_config: Configuration block for Tenancy. See below.
         :param pulumi.Input[_builtins.int] timeout: Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
@@ -378,7 +378,7 @@ class FunctionArgs:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
+        ARN of the KMS key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -606,7 +606,7 @@ class FunctionArgs:
     @pulumi.getter(name="sourceKmsKeyArn")
     def source_kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
+        ARN of the KMS key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
         """
         return pulumi.get(self, "source_kms_key_arn")
 
@@ -761,7 +761,7 @@ class _FunctionState:
         :param pulumi.Input['FunctionImageConfigArgs'] image_config: Container image configuration values. See below.
         :param pulumi.Input[_builtins.str] image_uri: ECR image URI containing the function's deployment package. Conflicts with `filename` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
         :param pulumi.Input[_builtins.str] invoke_arn: ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
-        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
         :param pulumi.Input[_builtins.str] last_modified: Date this resource was last modified.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function.
         :param pulumi.Input['FunctionLoggingConfigArgs'] logging_config: Configuration block for advanced logging settings. See below.
@@ -790,7 +790,7 @@ class _FunctionState:
         :param pulumi.Input['FunctionSnapStartArgs'] snap_start: Configuration block for snap start settings. See below.
         :param pulumi.Input[_builtins.str] source_code_hash: User-defined hash of the source code package file. Use this argument to trigger updates when the local function source code changes. This is a synthetic argument tracked only by the AWS provider and does not need to match the hashing algorithm used by Lambda to compute the `CodeSha256` response value. Out-of-band changes to the source code _will not_ be captured by this argument. To include out-of-band source code changes as an update trigger, use the `code_sha256` argument instead.
         :param pulumi.Input[_builtins.int] source_code_size: Size in bytes of the function .zip file.
-        :param pulumi.Input[_builtins.str] source_kms_key_arn: ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
+        :param pulumi.Input[_builtins.str] source_kms_key_arn: ARN of the KMS key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['FunctionTenancyConfigArgs'] tenancy_config: Configuration block for Tenancy. See below.
@@ -1101,7 +1101,7 @@ class _FunctionState:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
+        ARN of the KMS key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -1427,7 +1427,7 @@ class _FunctionState:
     @pulumi.getter(name="sourceKmsKeyArn")
     def source_kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
+        ARN of the KMS key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
         """
         return pulumi.get(self, "source_kms_key_arn")
 
@@ -2113,7 +2113,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] handler: Function entry point in your code. Required if `package_type` is `Zip`.
         :param pulumi.Input[Union['FunctionImageConfigArgs', 'FunctionImageConfigArgsDict']] image_config: Container image configuration values. See below.
         :param pulumi.Input[_builtins.str] image_uri: ECR image URI containing the function's deployment package. Conflicts with `filename` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
-        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function.
         :param pulumi.Input[Union['FunctionLoggingConfigArgs', 'FunctionLoggingConfigArgsDict']] logging_config: Configuration block for advanced logging settings. See below.
         :param pulumi.Input[_builtins.int] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 32,768 MB (32 GB), in 1 MB increments. Defaults to 128.
@@ -2135,7 +2135,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`.
         :param pulumi.Input[Union['FunctionSnapStartArgs', 'FunctionSnapStartArgsDict']] snap_start: Configuration block for snap start settings. See below.
         :param pulumi.Input[_builtins.str] source_code_hash: User-defined hash of the source code package file. Use this argument to trigger updates when the local function source code changes. This is a synthetic argument tracked only by the AWS provider and does not need to match the hashing algorithm used by Lambda to compute the `CodeSha256` response value. Out-of-band changes to the source code _will not_ be captured by this argument. To include out-of-band source code changes as an update trigger, use the `code_sha256` argument instead.
-        :param pulumi.Input[_builtins.str] source_kms_key_arn: ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
+        :param pulumi.Input[_builtins.str] source_kms_key_arn: ARN of the KMS key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union['FunctionTenancyConfigArgs', 'FunctionTenancyConfigArgsDict']] tenancy_config: Configuration block for Tenancy. See below.
         :param pulumi.Input[_builtins.int] timeout: Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
@@ -2870,7 +2870,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[Union['FunctionImageConfigArgs', 'FunctionImageConfigArgsDict']] image_config: Container image configuration values. See below.
         :param pulumi.Input[_builtins.str] image_uri: ECR image URI containing the function's deployment package. Conflicts with `filename` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
         :param pulumi.Input[_builtins.str] invoke_arn: ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
-        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
         :param pulumi.Input[_builtins.str] last_modified: Date this resource was last modified.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function.
         :param pulumi.Input[Union['FunctionLoggingConfigArgs', 'FunctionLoggingConfigArgsDict']] logging_config: Configuration block for advanced logging settings. See below.
@@ -2899,7 +2899,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[Union['FunctionSnapStartArgs', 'FunctionSnapStartArgsDict']] snap_start: Configuration block for snap start settings. See below.
         :param pulumi.Input[_builtins.str] source_code_hash: User-defined hash of the source code package file. Use this argument to trigger updates when the local function source code changes. This is a synthetic argument tracked only by the AWS provider and does not need to match the hashing algorithm used by Lambda to compute the `CodeSha256` response value. Out-of-band changes to the source code _will not_ be captured by this argument. To include out-of-band source code changes as an update trigger, use the `code_sha256` argument instead.
         :param pulumi.Input[_builtins.int] source_code_size: Size in bytes of the function .zip file.
-        :param pulumi.Input[_builtins.str] source_kms_key_arn: ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
+        :param pulumi.Input[_builtins.str] source_kms_key_arn: ARN of the KMS key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['FunctionTenancyConfigArgs', 'FunctionTenancyConfigArgsDict']] tenancy_config: Configuration block for Tenancy. See below.
@@ -3099,7 +3099,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
+        ARN of the KMS key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -3317,7 +3317,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="sourceKmsKeyArn")
     def source_kms_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
+        ARN of the KMS key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
         """
         return pulumi.get(self, "source_kms_key_arn")
 

@@ -87,112 +87,112 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ses/receiptRule:ReceiptRule")
 public class ReceiptRule extends com.pulumi.resources.CustomResource {
     /**
-     * A list of Add Header Action blocks. Documented below.
+     * Configuration block for adding a header to received emails. Detailed below.
      * 
      */
     @Export(name="addHeaderActions", refs={List.class,ReceiptRuleAddHeaderAction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ReceiptRuleAddHeaderAction>> addHeaderActions;
 
     /**
-     * @return A list of Add Header Action blocks. Documented below.
+     * @return Configuration block for adding a header to received emails. Detailed below.
      * 
      */
     public Output<Optional<List<ReceiptRuleAddHeaderAction>>> addHeaderActions() {
         return Codegen.optional(this.addHeaderActions);
     }
     /**
-     * The name of the rule to place this rule after
+     * Name of the rule to place this rule after.
      * 
      */
     @Export(name="after", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> after;
 
     /**
-     * @return The name of the rule to place this rule after
+     * @return Name of the rule to place this rule after.
      * 
      */
     public Output<Optional<String>> after() {
         return Codegen.optional(this.after);
     }
     /**
-     * The SES receipt rule ARN.
+     * SES receipt rule ARN.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The SES receipt rule ARN.
+     * @return SES receipt rule ARN.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * A list of Bounce Action blocks. Documented below.
+     * Configuration block for rejecting received emails. Detailed below.
      * 
      */
     @Export(name="bounceActions", refs={List.class,ReceiptRuleBounceAction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ReceiptRuleBounceAction>> bounceActions;
 
     /**
-     * @return A list of Bounce Action blocks. Documented below.
+     * @return Configuration block for rejecting received emails. Detailed below.
      * 
      */
     public Output<Optional<List<ReceiptRuleBounceAction>>> bounceActions() {
         return Codegen.optional(this.bounceActions);
     }
     /**
-     * If true, the rule will be enabled
+     * If true, the rule will be enabled.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return If true, the rule will be enabled
+     * @return If true, the rule will be enabled.
      * 
      */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
     /**
-     * A list of Lambda Action blocks. Documented below.
+     * Configuration block for calling an AWS Lambda function. Detailed below.
      * 
      */
     @Export(name="lambdaActions", refs={List.class,ReceiptRuleLambdaAction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ReceiptRuleLambdaAction>> lambdaActions;
 
     /**
-     * @return A list of Lambda Action blocks. Documented below.
+     * @return Configuration block for calling an AWS Lambda function. Detailed below.
      * 
      */
     public Output<Optional<List<ReceiptRuleLambdaAction>>> lambdaActions() {
         return Codegen.optional(this.lambdaActions);
     }
     /**
-     * The name of the rule
+     * Name of the rule.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the rule
+     * @return Name of the rule.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * A list of email addresses
+     * List of email addresses.
      * 
      */
     @Export(name="recipients", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> recipients;
 
     /**
-     * @return A list of email addresses
+     * @return List of email addresses.
      * 
      */
     public Output<Optional<List<String>>> recipients() {
@@ -213,98 +213,102 @@ public class ReceiptRule extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The name of the rule set
+     * Name of the rule set.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="ruleSetName", refs={String.class}, tree="[0]")
     private Output<String> ruleSetName;
 
     /**
-     * @return The name of the rule set
+     * @return Name of the rule set.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> ruleSetName() {
         return this.ruleSetName;
     }
     /**
-     * A list of S3 Action blocks. Documented below.
+     * Configuration block for storing received emails in an S3 bucket. Detailed below.
      * 
      */
     @Export(name="s3Actions", refs={List.class,ReceiptRuleS3Action.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ReceiptRuleS3Action>> s3Actions;
 
     /**
-     * @return A list of S3 Action blocks. Documented below.
+     * @return Configuration block for storing received emails in an S3 bucket. Detailed below.
      * 
      */
     public Output<Optional<List<ReceiptRuleS3Action>>> s3Actions() {
         return Codegen.optional(this.s3Actions);
     }
     /**
-     * If true, incoming emails will be scanned for spam and viruses
+     * If true, incoming emails will be scanned for spam and viruses.
      * 
      */
     @Export(name="scanEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> scanEnabled;
 
     /**
-     * @return If true, incoming emails will be scanned for spam and viruses
+     * @return If true, incoming emails will be scanned for spam and viruses.
      * 
      */
     public Output<Optional<Boolean>> scanEnabled() {
         return Codegen.optional(this.scanEnabled);
     }
     /**
-     * A list of SNS Action blocks. Documented below.
+     * Configuration block for publishing to an SNS topic. Detailed below.
      * 
      */
     @Export(name="snsActions", refs={List.class,ReceiptRuleSnsAction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ReceiptRuleSnsAction>> snsActions;
 
     /**
-     * @return A list of SNS Action blocks. Documented below.
+     * @return Configuration block for publishing to an SNS topic. Detailed below.
      * 
      */
     public Output<Optional<List<ReceiptRuleSnsAction>>> snsActions() {
         return Codegen.optional(this.snsActions);
     }
     /**
-     * A list of Stop Action blocks. Documented below.
+     * Configuration block for terminating the evaluation of the receipt rule set. Detailed below.
      * 
      */
     @Export(name="stopActions", refs={List.class,ReceiptRuleStopAction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ReceiptRuleStopAction>> stopActions;
 
     /**
-     * @return A list of Stop Action blocks. Documented below.
+     * @return Configuration block for terminating the evaluation of the receipt rule set. Detailed below.
      * 
      */
     public Output<Optional<List<ReceiptRuleStopAction>>> stopActions() {
         return Codegen.optional(this.stopActions);
     }
     /**
-     * `Require` or `Optional`
+     * `Require` or `Optional`.
      * 
      */
     @Export(name="tlsPolicy", refs={String.class}, tree="[0]")
     private Output<String> tlsPolicy;
 
     /**
-     * @return `Require` or `Optional`
+     * @return `Require` or `Optional`.
      * 
      */
     public Output<String> tlsPolicy() {
         return this.tlsPolicy;
     }
     /**
-     * A list of WorkMail Action blocks. Documented below.
+     * Configuration block for calling Amazon WorkMail. Detailed below.
      * 
      */
     @Export(name="workmailActions", refs={List.class,ReceiptRuleWorkmailAction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ReceiptRuleWorkmailAction>> workmailActions;
 
     /**
-     * @return A list of WorkMail Action blocks. Documented below.
+     * @return Configuration block for calling Amazon WorkMail. Detailed below.
      * 
      */
     public Output<Optional<List<ReceiptRuleWorkmailAction>>> workmailActions() {

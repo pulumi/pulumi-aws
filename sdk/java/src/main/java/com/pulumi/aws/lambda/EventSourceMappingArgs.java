@@ -185,14 +185,14 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function&#39;s filter criteria.
+     * ARN of the KMS customer managed key that Lambda uses to encrypt your function&#39;s filter criteria.
      * 
      */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
-     * @return ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function&#39;s filter criteria.
+     * @return ARN of the KMS customer managed key that Lambda uses to encrypt your function&#39;s filter criteria.
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
@@ -746,7 +746,7 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param kmsKeyArn ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function&#39;s filter criteria.
+         * @param kmsKeyArn ARN of the KMS customer managed key that Lambda uses to encrypt your function&#39;s filter criteria.
          * 
          * @return builder
          * 
@@ -757,7 +757,7 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param kmsKeyArn ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function&#39;s filter criteria.
+         * @param kmsKeyArn ARN of the KMS customer managed key that Lambda uses to encrypt your function&#39;s filter criteria.
          * 
          * @return builder
          * 

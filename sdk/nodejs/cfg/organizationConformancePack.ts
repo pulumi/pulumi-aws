@@ -133,7 +133,7 @@ export class OrganizationConformancePack extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the organization conformance pack.
+     * ARN of the organization conformance pack.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -213,7 +213,7 @@ export class OrganizationConformancePack extends pulumi.CustomResource {
  */
 export interface OrganizationConformancePackState {
     /**
-     * Amazon Resource Name (ARN) of the organization conformance pack.
+     * ARN of the organization conformance pack.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

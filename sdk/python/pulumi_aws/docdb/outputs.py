@@ -330,7 +330,7 @@ class GlobalClusterGlobalClusterMember(dict):
                  db_cluster_arn: Optional[_builtins.str] = None,
                  is_writer: Optional[_builtins.bool] = None):
         """
-        :param _builtins.str db_cluster_arn: Amazon Resource Name (ARN) of member DB Cluster.
+        :param _builtins.str db_cluster_arn: ARN of member DB Cluster.
         :param _builtins.bool is_writer: Whether the member is the primary DB Cluster.
         """
         if db_cluster_arn is not None:
@@ -342,7 +342,7 @@ class GlobalClusterGlobalClusterMember(dict):
     @pulumi.getter(name="dbClusterArn")
     def db_cluster_arn(self) -> Optional[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of member DB Cluster.
+        ARN of member DB Cluster.
         """
         return pulumi.get(self, "db_cluster_arn")
 

@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class AnalysisSourceEntitySourceTemplateDataSetReference {
     /**
-     * @return Dataset Amazon Resource Name (ARN).
+     * @return Dataset ARN.
      * 
      */
     private String dataSetArn;
@@ -23,7 +23,7 @@ public final class AnalysisSourceEntitySourceTemplateDataSetReference {
 
     private AnalysisSourceEntitySourceTemplateDataSetReference() {}
     /**
-     * @return Dataset Amazon Resource Name (ARN).
+     * @return Dataset ARN.
      * 
      */
     public String dataSetArn() {

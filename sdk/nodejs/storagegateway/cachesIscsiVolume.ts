@@ -61,7 +61,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws.storagegateway.CachesIscsiVolume` using the volume Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.storagegateway.CachesIscsiVolume` using the volume ARN. For example:
  *
  * ```sh
  * $ pulumi import aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
@@ -96,7 +96,7 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
     }
 
     /**
-     * Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+     * Volume ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -104,7 +104,7 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly chapEnabled: pulumi.Output<boolean>;
     /**
-     * The Amazon Resource Name (ARN) of the gateway.
+     * ARN of the gateway.
      */
     declare public readonly gatewayArn: pulumi.Output<string>;
     /**
@@ -112,7 +112,7 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
      */
     declare public readonly kmsEncrypted: pulumi.Output<boolean | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
+     * ARN of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
      */
     declare public readonly kmsKey: pulumi.Output<string | undefined>;
     /**
@@ -148,7 +148,7 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+     * Target ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
      */
     declare public /*out*/ readonly targetArn: pulumi.Output<string>;
     /**
@@ -156,7 +156,7 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
      */
     declare public readonly targetName: pulumi.Output<string>;
     /**
-     * Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+     * Volume ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
      */
     declare public /*out*/ readonly volumeArn: pulumi.Output<string>;
     /**
@@ -242,7 +242,7 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
  */
 export interface CachesIscsiVolumeState {
     /**
-     * Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+     * Volume ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -250,7 +250,7 @@ export interface CachesIscsiVolumeState {
      */
     chapEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the gateway.
+     * ARN of the gateway.
      */
     gatewayArn?: pulumi.Input<string | undefined>;
     /**
@@ -258,7 +258,7 @@ export interface CachesIscsiVolumeState {
      */
     kmsEncrypted?: pulumi.Input<boolean | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
+     * ARN of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
      */
     kmsKey?: pulumi.Input<string | undefined>;
     /**
@@ -294,7 +294,7 @@ export interface CachesIscsiVolumeState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+     * Target ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
      */
     targetArn?: pulumi.Input<string | undefined>;
     /**
@@ -302,7 +302,7 @@ export interface CachesIscsiVolumeState {
      */
     targetName?: pulumi.Input<string | undefined>;
     /**
-     * Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+     * Volume ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
      */
     volumeArn?: pulumi.Input<string | undefined>;
     /**
@@ -320,7 +320,7 @@ export interface CachesIscsiVolumeState {
  */
 export interface CachesIscsiVolumeArgs {
     /**
-     * The Amazon Resource Name (ARN) of the gateway.
+     * ARN of the gateway.
      */
     gatewayArn: pulumi.Input<string>;
     /**
@@ -328,7 +328,7 @@ export interface CachesIscsiVolumeArgs {
      */
     kmsEncrypted?: pulumi.Input<boolean | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
+     * ARN of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
      */
     kmsKey?: pulumi.Input<string | undefined>;
     /**

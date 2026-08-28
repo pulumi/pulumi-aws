@@ -19,7 +19,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionH
      */
     private @Nullable DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition invocationCondition;
     /**
-     * @return The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
+     * @return ARN of a Lambda Function that can manipulate your document metadata fields or attributes and content.
      * 
      */
     private String lambdaArn;
@@ -38,7 +38,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionH
         return Optional.ofNullable(this.invocationCondition);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
+     * @return ARN of a Lambda Function that can manipulate your document metadata fields or attributes and content.
      * 
      */
     public String lambdaArn() {

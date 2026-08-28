@@ -134,7 +134,7 @@ public final class AutomationRuleCriteria {
      */
     private @Nullable List<AutomationRuleCriteriaNoteUpdatedBy> noteUpdatedBies;
     /**
-     * @return The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
+     * @return ARN for a third-party product that generated a finding in Security Hub. Documented below.
      * 
      */
     private @Nullable List<AutomationRuleCriteriaProductArn> productArns;
@@ -159,7 +159,7 @@ public final class AutomationRuleCriteria {
      */
     private @Nullable List<AutomationRuleCriteriaRelatedFindingsProductArn> relatedFindingsProductArns;
     /**
-     * @return The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
+     * @return ARN of the application that is related to a finding. Documented below.
      * 
      */
     private @Nullable List<AutomationRuleCriteriaResourceApplicationArn> resourceApplicationArns;
@@ -174,7 +174,7 @@ public final class AutomationRuleCriteria {
      */
     private @Nullable List<AutomationRuleCriteriaResourceDetailsOther> resourceDetailsOthers;
     /**
-     * @return The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
+     * @return Identifier for the given resource type. For AWS resources that are identified by ARNs, this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
      * 
      */
     private @Nullable List<AutomationRuleCriteriaResourceId> resourceIds;
@@ -360,7 +360,7 @@ public final class AutomationRuleCriteria {
         return this.noteUpdatedBies == null ? List.of() : this.noteUpdatedBies;
     }
     /**
-     * @return The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
+     * @return ARN for a third-party product that generated a finding in Security Hub. Documented below.
      * 
      */
     public List<AutomationRuleCriteriaProductArn> productArns() {
@@ -395,7 +395,7 @@ public final class AutomationRuleCriteria {
         return this.relatedFindingsProductArns == null ? List.of() : this.relatedFindingsProductArns;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
+     * @return ARN of the application that is related to a finding. Documented below.
      * 
      */
     public List<AutomationRuleCriteriaResourceApplicationArn> resourceApplicationArns() {
@@ -416,7 +416,7 @@ public final class AutomationRuleCriteria {
         return this.resourceDetailsOthers == null ? List.of() : this.resourceDetailsOthers;
     }
     /**
-     * @return The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
+     * @return Identifier for the given resource type. For AWS resources that are identified by ARNs, this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
      * 
      */
     public List<AutomationRuleCriteriaResourceId> resourceIds() {

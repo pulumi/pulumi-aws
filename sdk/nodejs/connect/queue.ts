@@ -107,7 +107,7 @@ export class Queue extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Queue.
+     * ARN of the Queue.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -217,7 +217,7 @@ export class Queue extends pulumi.CustomResource {
  */
 export interface QueueState {
     /**
-     * The Amazon Resource Name (ARN) of the Queue.
+     * ARN of the Queue.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

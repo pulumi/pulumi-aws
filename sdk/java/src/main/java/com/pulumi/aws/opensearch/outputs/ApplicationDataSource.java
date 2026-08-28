@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ApplicationDataSource {
     /**
-     * @return The Amazon Resource Name (ARN) of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
+     * @return ARN of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
      * 
      */
     private @Nullable String dataSourceArn;
@@ -24,7 +24,7 @@ public final class ApplicationDataSource {
 
     private ApplicationDataSource() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
+     * @return ARN of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
      * 
      */
     public Optional<String> dataSourceArn() {

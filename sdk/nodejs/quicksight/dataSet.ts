@@ -234,7 +234,7 @@ export class DataSet extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the data set.
+     * ARN of the data set.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -388,7 +388,7 @@ export class DataSet extends pulumi.CustomResource {
  */
 export interface DataSetState {
     /**
-     * Amazon Resource Name (ARN) of the data set.
+     * ARN of the data set.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

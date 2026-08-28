@@ -68,7 +68,7 @@ class GetAccessPointResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        Amazon Resource Name of the file system.
+        ARN of the file system.
         """
         return pulumi.get(self, "arn")
 
@@ -76,7 +76,7 @@ class GetAccessPointResult:
     @pulumi.getter(name="fileSystemArn")
     def file_system_arn(self) -> _builtins.str:
         """
-        Amazon Resource Name of the file system.
+        ARN of the file system.
         """
         return pulumi.get(self, "file_system_arn")
 

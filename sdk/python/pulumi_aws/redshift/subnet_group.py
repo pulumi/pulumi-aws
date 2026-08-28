@@ -119,7 +119,7 @@ class _SubnetGroupState:
         """
         Input properties used for looking up and filtering SubnetGroup resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Redshift Subnet group name
+        :param pulumi.Input[_builtins.str] arn: ARN of the Redshift Subnet group name
         :param pulumi.Input[_builtins.str] description: The description of the Redshift Subnet group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[_builtins.str] name: The name of the Redshift Subnet group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -148,7 +148,7 @@ class _SubnetGroupState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the Redshift Subnet group name
+        ARN of the Redshift Subnet group name
         """
         return pulumi.get(self, "arn")
 
@@ -242,7 +242,7 @@ class SubnetGroup(pulumi.CustomResource):
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating Amazon Redshift subnet group.
+        Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing VPC when creating Amazon Redshift subnet group.
 
         ## Example Usage
 
@@ -300,7 +300,7 @@ class SubnetGroup(pulumi.CustomResource):
                  args: SubnetGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating Amazon Redshift subnet group.
+        Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing VPC when creating Amazon Redshift subnet group.
 
         ## Example Usage
 
@@ -407,7 +407,7 @@ class SubnetGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Redshift Subnet group name
+        :param pulumi.Input[_builtins.str] arn: ARN of the Redshift Subnet group name
         :param pulumi.Input[_builtins.str] description: The description of the Redshift Subnet group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[_builtins.str] name: The name of the Redshift Subnet group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -432,7 +432,7 @@ class SubnetGroup(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the Redshift Subnet group name
+        ARN of the Redshift Subnet group name
         """
         return pulumi.get(self, "arn")
 

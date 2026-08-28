@@ -56,7 +56,7 @@ type Device struct {
 	pulumi.CustomResourceState
 
 	AgentVersion pulumi.StringOutput `pulumi:"agentVersion"`
-	// The Amazon Resource Name (ARN) assigned by AWS to this Device.
+	// ARN assigned by AWS to this Device.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The device to register with SageMaker AI Edge Manager. See Device details below.
 	Device DeviceDeviceOutput `pulumi:"device"`
@@ -103,7 +103,7 @@ func GetDevice(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Device resources.
 type deviceState struct {
 	AgentVersion *string `pulumi:"agentVersion"`
-	// The Amazon Resource Name (ARN) assigned by AWS to this Device.
+	// ARN assigned by AWS to this Device.
 	Arn *string `pulumi:"arn"`
 	// The device to register with SageMaker AI Edge Manager. See Device details below.
 	Device *DeviceDevice `pulumi:"device"`
@@ -115,7 +115,7 @@ type deviceState struct {
 
 type DeviceState struct {
 	AgentVersion pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) assigned by AWS to this Device.
+	// ARN assigned by AWS to this Device.
 	Arn pulumi.StringPtrInput
 	// The device to register with SageMaker AI Edge Manager. See Device details below.
 	Device DeviceDevicePtrInput
@@ -239,7 +239,7 @@ func (o DeviceOutput) AgentVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.AgentVersion }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this Device.
+// ARN assigned by AWS to this Device.
 func (o DeviceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -32,12 +32,12 @@ class CachesIscsiVolumeArgs:
         """
         The set of arguments for constructing a CachesIscsiVolume resource.
 
-        :param pulumi.Input[_builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
+        :param pulumi.Input[_builtins.str] gateway_arn: ARN of the gateway.
         :param pulumi.Input[_builtins.str] network_interface_id: The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
         :param pulumi.Input[_builtins.str] target_name: The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
         :param pulumi.Input[_builtins.int] volume_size_in_bytes: The size of the volume in bytes.
         :param pulumi.Input[_builtins.bool] kms_encrypted: Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
-        :param pulumi.Input[_builtins.str] kms_key: The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
+        :param pulumi.Input[_builtins.str] kms_key: ARN of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] snapshot_id: The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
         :param pulumi.Input[_builtins.str] source_volume_arn: The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
@@ -64,7 +64,7 @@ class CachesIscsiVolumeArgs:
     @pulumi.getter(name="gatewayArn")
     def gateway_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the gateway.
+        ARN of the gateway.
         """
         return pulumi.get(self, "gateway_arn")
 
@@ -124,7 +124,7 @@ class CachesIscsiVolumeArgs:
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
+        ARN of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
         """
         return pulumi.get(self, "kms_key")
 
@@ -205,11 +205,11 @@ class _CachesIscsiVolumeState:
         """
         Input properties used for looking up and filtering CachesIscsiVolume resources.
 
-        :param pulumi.Input[_builtins.str] arn: Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+        :param pulumi.Input[_builtins.str] arn: Volume ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         :param pulumi.Input[_builtins.bool] chap_enabled: Whether mutual CHAP is enabled for the iSCSI target.
-        :param pulumi.Input[_builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
+        :param pulumi.Input[_builtins.str] gateway_arn: ARN of the gateway.
         :param pulumi.Input[_builtins.bool] kms_encrypted: Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
-        :param pulumi.Input[_builtins.str] kms_key: The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
+        :param pulumi.Input[_builtins.str] kms_key: ARN of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
         :param pulumi.Input[_builtins.int] lun_number: Logical disk number.
         :param pulumi.Input[_builtins.str] network_interface_id: The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
         :param pulumi.Input[_builtins.int] network_interface_port: The port used to communicate with iSCSI targets.
@@ -218,9 +218,9 @@ class _CachesIscsiVolumeState:
         :param pulumi.Input[_builtins.str] source_volume_arn: The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] target_arn: Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+        :param pulumi.Input[_builtins.str] target_arn: Target ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
         :param pulumi.Input[_builtins.str] target_name: The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
-        :param pulumi.Input[_builtins.str] volume_arn: Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+        :param pulumi.Input[_builtins.str] volume_arn: Volume ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         :param pulumi.Input[_builtins.str] volume_id: Volume ID, e.g., `vol-12345678`.
         :param pulumi.Input[_builtins.int] volume_size_in_bytes: The size of the volume in bytes.
         """
@@ -265,7 +265,7 @@ class _CachesIscsiVolumeState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+        Volume ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         """
         return pulumi.get(self, "arn")
 
@@ -289,7 +289,7 @@ class _CachesIscsiVolumeState:
     @pulumi.getter(name="gatewayArn")
     def gateway_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the gateway.
+        ARN of the gateway.
         """
         return pulumi.get(self, "gateway_arn")
 
@@ -313,7 +313,7 @@ class _CachesIscsiVolumeState:
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
+        ARN of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
         """
         return pulumi.get(self, "kms_key")
 
@@ -421,7 +421,7 @@ class _CachesIscsiVolumeState:
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+        Target ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
         """
         return pulumi.get(self, "target_arn")
 
@@ -445,7 +445,7 @@ class _CachesIscsiVolumeState:
     @pulumi.getter(name="volumeArn")
     def volume_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+        Volume ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         """
         return pulumi.get(self, "volume_arn")
 
@@ -549,7 +549,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `storagegateway.CachesIscsiVolume` using the volume Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `storagegateway.CachesIscsiVolume` using the volume ARN. For example:
 
         ```sh
         $ pulumi import aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
@@ -558,9 +558,9 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
+        :param pulumi.Input[_builtins.str] gateway_arn: ARN of the gateway.
         :param pulumi.Input[_builtins.bool] kms_encrypted: Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
-        :param pulumi.Input[_builtins.str] kms_key: The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
+        :param pulumi.Input[_builtins.str] kms_key: ARN of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
         :param pulumi.Input[_builtins.str] network_interface_id: The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] snapshot_id: The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
@@ -629,7 +629,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `storagegateway.CachesIscsiVolume` using the volume Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `storagegateway.CachesIscsiVolume` using the volume ARN. For example:
 
         ```sh
         $ pulumi import aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
@@ -731,11 +731,11 @@ class CachesIscsiVolume(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+        :param pulumi.Input[_builtins.str] arn: Volume ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         :param pulumi.Input[_builtins.bool] chap_enabled: Whether mutual CHAP is enabled for the iSCSI target.
-        :param pulumi.Input[_builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
+        :param pulumi.Input[_builtins.str] gateway_arn: ARN of the gateway.
         :param pulumi.Input[_builtins.bool] kms_encrypted: Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
-        :param pulumi.Input[_builtins.str] kms_key: The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
+        :param pulumi.Input[_builtins.str] kms_key: ARN of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
         :param pulumi.Input[_builtins.int] lun_number: Logical disk number.
         :param pulumi.Input[_builtins.str] network_interface_id: The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
         :param pulumi.Input[_builtins.int] network_interface_port: The port used to communicate with iSCSI targets.
@@ -744,9 +744,9 @@ class CachesIscsiVolume(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] source_volume_arn: The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] target_arn: Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+        :param pulumi.Input[_builtins.str] target_arn: Target ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
         :param pulumi.Input[_builtins.str] target_name: The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
-        :param pulumi.Input[_builtins.str] volume_arn: Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+        :param pulumi.Input[_builtins.str] volume_arn: Volume ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         :param pulumi.Input[_builtins.str] volume_id: Volume ID, e.g., `vol-12345678`.
         :param pulumi.Input[_builtins.int] volume_size_in_bytes: The size of the volume in bytes.
         """
@@ -778,7 +778,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+        Volume ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         """
         return pulumi.get(self, "arn")
 
@@ -794,7 +794,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
     @pulumi.getter(name="gatewayArn")
     def gateway_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the gateway.
+        ARN of the gateway.
         """
         return pulumi.get(self, "gateway_arn")
 
@@ -810,7 +810,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
+        ARN of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
         """
         return pulumi.get(self, "kms_key")
 
@@ -882,7 +882,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+        Target ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
         """
         return pulumi.get(self, "target_arn")
 
@@ -898,7 +898,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
     @pulumi.getter(name="volumeArn")
     def volume_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+        Volume ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         """
         return pulumi.get(self, "volume_arn")
 

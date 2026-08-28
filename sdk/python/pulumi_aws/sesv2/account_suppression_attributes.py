@@ -24,7 +24,7 @@ class AccountSuppressionAttributesArgs:
         """
         The set of arguments for constructing a AccountSuppressionAttributes resource.
 
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] suppressed_reasons: A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] suppressed_reasons: Reasons that email addresses are automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "suppressed_reasons", suppressed_reasons)
@@ -35,7 +35,7 @@ class AccountSuppressionAttributesArgs:
     @pulumi.getter(name="suppressedReasons")
     def suppressed_reasons(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
+        Reasons that email addresses are automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
         """
         return pulumi.get(self, "suppressed_reasons")
 
@@ -65,7 +65,7 @@ class _AccountSuppressionAttributesState:
         Input properties used for looking up and filtering AccountSuppressionAttributes resources.
 
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] suppressed_reasons: A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] suppressed_reasons: Reasons that email addresses are automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -88,7 +88,7 @@ class _AccountSuppressionAttributesState:
     @pulumi.getter(name="suppressedReasons")
     def suppressed_reasons(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
+        Reasons that email addresses are automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
         """
         return pulumi.get(self, "suppressed_reasons")
 
@@ -130,7 +130,7 @@ class AccountSuppressionAttributes(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] suppressed_reasons: A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] suppressed_reasons: Reasons that email addresses are automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
         """
         ...
     @overload
@@ -209,7 +209,7 @@ class AccountSuppressionAttributes(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] suppressed_reasons: A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] suppressed_reasons: Reasons that email addresses are automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -231,7 +231,7 @@ class AccountSuppressionAttributes(pulumi.CustomResource):
     @pulumi.getter(name="suppressedReasons")
     def suppressed_reasons(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
+        Reasons that email addresses are automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
         """
         return pulumi.get(self, "suppressed_reasons")
 

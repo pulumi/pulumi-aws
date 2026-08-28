@@ -35,7 +35,7 @@ class FlowDefinitionArgs:
         :param pulumi.Input[_builtins.str] flow_definition_name: The name of your flow definition.
         :param pulumi.Input['FlowDefinitionHumanLoopConfigArgs'] human_loop_config: An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
         :param pulumi.Input['FlowDefinitionOutputConfigArgs'] output_config: An object containing information about where the human review results will be uploaded. See Output Config details below.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of the role needed to call other services on your behalf.
         :param pulumi.Input['FlowDefinitionHumanLoopActivationConfigArgs'] human_loop_activation_config: An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
         :param pulumi.Input['FlowDefinitionHumanLoopRequestSourceArgs'] human_loop_request_source: Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -94,7 +94,7 @@ class FlowDefinitionArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
+        ARN of the role needed to call other services on your behalf.
         """
         return pulumi.get(self, "role_arn")
 
@@ -167,14 +167,14 @@ class _FlowDefinitionState:
         """
         Input properties used for looking up and filtering FlowDefinition resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this Flow Definition.
         :param pulumi.Input[_builtins.str] flow_definition_name: The name of your flow definition.
         :param pulumi.Input['FlowDefinitionHumanLoopActivationConfigArgs'] human_loop_activation_config: An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
         :param pulumi.Input['FlowDefinitionHumanLoopConfigArgs'] human_loop_config: An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
         :param pulumi.Input['FlowDefinitionHumanLoopRequestSourceArgs'] human_loop_request_source: Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
         :param pulumi.Input['FlowDefinitionOutputConfigArgs'] output_config: An object containing information about where the human review results will be uploaded. See Output Config details below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of the role needed to call other services on your behalf.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -203,7 +203,7 @@ class _FlowDefinitionState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
+        ARN assigned by AWS to this Flow Definition.
         """
         return pulumi.get(self, "arn")
 
@@ -287,7 +287,7 @@ class _FlowDefinitionState:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
+        ARN of the role needed to call other services on your behalf.
         """
         return pulumi.get(self, "role_arn")
 
@@ -447,7 +447,7 @@ class FlowDefinition(pulumi.CustomResource):
         :param pulumi.Input[Union['FlowDefinitionHumanLoopRequestSourceArgs', 'FlowDefinitionHumanLoopRequestSourceArgsDict']] human_loop_request_source: Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
         :param pulumi.Input[Union['FlowDefinitionOutputConfigArgs', 'FlowDefinitionOutputConfigArgsDict']] output_config: An object containing information about where the human review results will be uploaded. See Output Config details below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of the role needed to call other services on your behalf.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -637,14 +637,14 @@ class FlowDefinition(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this Flow Definition.
         :param pulumi.Input[_builtins.str] flow_definition_name: The name of your flow definition.
         :param pulumi.Input[Union['FlowDefinitionHumanLoopActivationConfigArgs', 'FlowDefinitionHumanLoopActivationConfigArgsDict']] human_loop_activation_config: An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
         :param pulumi.Input[Union['FlowDefinitionHumanLoopConfigArgs', 'FlowDefinitionHumanLoopConfigArgsDict']] human_loop_config: An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
         :param pulumi.Input[Union['FlowDefinitionHumanLoopRequestSourceArgs', 'FlowDefinitionHumanLoopRequestSourceArgsDict']] human_loop_request_source: Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
         :param pulumi.Input[Union['FlowDefinitionOutputConfigArgs', 'FlowDefinitionOutputConfigArgsDict']] output_config: An object containing information about where the human review results will be uploaded. See Output Config details below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of the role needed to call other services on your behalf.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -668,7 +668,7 @@ class FlowDefinition(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
+        ARN assigned by AWS to this Flow Definition.
         """
         return pulumi.get(self, "arn")
 
@@ -724,7 +724,7 @@ class FlowDefinition(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
+        ARN of the role needed to call other services on your behalf.
         """
         return pulumi.get(self, "role_arn")
 

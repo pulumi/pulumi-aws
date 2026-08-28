@@ -189,7 +189,7 @@ func (o ActivityEncryptionConfigurationPtrOutput) Type() pulumi.StringPtrOutput 
 }
 
 type AliasRoutingConfiguration struct {
-	// The Amazon Resource Name (ARN) of the state machine version.
+	// ARN of the state machine version.
 	StateMachineVersionArn string `pulumi:"stateMachineVersionArn"`
 	// Percentage of traffic routed to the state machine version.
 	Weight int `pulumi:"weight"`
@@ -207,7 +207,7 @@ type AliasRoutingConfigurationInput interface {
 }
 
 type AliasRoutingConfigurationArgs struct {
-	// The Amazon Resource Name (ARN) of the state machine version.
+	// ARN of the state machine version.
 	StateMachineVersionArn pulumi.StringInput `pulumi:"stateMachineVersionArn"`
 	// Percentage of traffic routed to the state machine version.
 	Weight pulumi.IntInput `pulumi:"weight"`
@@ -264,7 +264,7 @@ func (o AliasRoutingConfigurationOutput) ToAliasRoutingConfigurationOutputWithCo
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the state machine version.
+// ARN of the state machine version.
 func (o AliasRoutingConfigurationOutput) StateMachineVersionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AliasRoutingConfiguration) string { return v.StateMachineVersionArn }).(pulumi.StringOutput)
 }
@@ -474,7 +474,7 @@ type StateMachineLoggingConfiguration struct {
 	IncludeExecutionData *bool `pulumi:"includeExecutionData"`
 	// Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
 	Level *string `pulumi:"level"`
-	// Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
+	// ARN of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
 	LogDestination *string `pulumi:"logDestination"`
 }
 
@@ -494,7 +494,7 @@ type StateMachineLoggingConfigurationArgs struct {
 	IncludeExecutionData pulumi.BoolPtrInput `pulumi:"includeExecutionData"`
 	// Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
 	Level pulumi.StringPtrInput `pulumi:"level"`
-	// Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
+	// ARN of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
 	LogDestination pulumi.StringPtrInput `pulumi:"logDestination"`
 }
 
@@ -585,7 +585,7 @@ func (o StateMachineLoggingConfigurationOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StateMachineLoggingConfiguration) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
+// ARN of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
 func (o StateMachineLoggingConfigurationOutput) LogDestination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StateMachineLoggingConfiguration) *string { return v.LogDestination }).(pulumi.StringPtrOutput)
 }
@@ -634,7 +634,7 @@ func (o StateMachineLoggingConfigurationPtrOutput) Level() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
+// ARN of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
 func (o StateMachineLoggingConfigurationPtrOutput) LogDestination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StateMachineLoggingConfiguration) *string {
 		if v == nil {

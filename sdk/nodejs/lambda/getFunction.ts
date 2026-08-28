@@ -174,7 +174,7 @@ export interface GetFunctionResult {
      */
     readonly arn: string;
     /**
-     * Configuration for Lambda function's capacity provider. See below.
+     * Configuration for Lambda function's capacity provider. See `capacityProviderConfig` below.
      */
     readonly capacityProviderConfigs: outputs.lambda.GetFunctionCapacityProviderConfig[];
     /**
@@ -186,7 +186,7 @@ export interface GetFunctionResult {
      */
     readonly codeSigningConfigArn: string;
     /**
-     * Configuration for the function's dead letter queue. See below.
+     * Configuration for the function's dead letter queue. See `deadLetterConfig` below.
      */
     readonly deadLetterConfig: outputs.lambda.GetFunctionDeadLetterConfig;
     /**
@@ -194,19 +194,19 @@ export interface GetFunctionResult {
      */
     readonly description: string;
     /**
-     * Configuration for the function's durable settings. See below.
+     * Configuration for the function's durable settings. See `durableConfig` below.
      */
     readonly durableConfigs: outputs.lambda.GetFunctionDurableConfig[];
     /**
-     * Lambda environment's configuration settings. See below.
+     * Lambda environment's configuration settings. See `environment` below.
      */
     readonly environment: outputs.lambda.GetFunctionEnvironment;
     /**
-     * Amount of ephemeral storage (`/tmp`) allocated for the Lambda Function. See below.
+     * Amount of ephemeral storage (`/tmp`) allocated for the Lambda Function. See `ephemeralStorage` below.
      */
     readonly ephemeralStorages: outputs.lambda.GetFunctionEphemeralStorage[];
     /**
-     * Connection settings for an Amazon EFS file system. See below.
+     * Connection settings for an Amazon EFS file system. See `fileSystemConfig` below.
      */
     readonly fileSystemConfigs: outputs.lambda.GetFunctionFileSystemConfig[];
     readonly functionName: string;
@@ -239,7 +239,7 @@ export interface GetFunctionResult {
      */
     readonly layers: string[];
     /**
-     * Advanced logging settings. See below.
+     * Advanced logging settings. See `loggingConfig` below.
      */
     readonly loggingConfigs: outputs.lambda.GetFunctionLoggingConfig[];
     /**
@@ -291,7 +291,7 @@ export interface GetFunctionResult {
      */
     readonly sourceCodeSize: number;
     /**
-     * ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package.
+     * ARN of the KMS key used to encrypt the function's `.zip` deployment package.
      */
     readonly sourceKmsKeyArn: string;
     /**
@@ -299,7 +299,7 @@ export interface GetFunctionResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * Tenancy settings of the function. See below.
+     * Tenancy settings of the function. See `tenancyConfig` below.
      */
     readonly tenancyConfigs: outputs.lambda.GetFunctionTenancyConfig[];
     /**
@@ -307,7 +307,7 @@ export interface GetFunctionResult {
      */
     readonly timeout: number;
     /**
-     * Tracing settings of the function. See below.
+     * Tracing settings of the function. See `tracingConfig` below.
      */
     readonly tracingConfig: outputs.lambda.GetFunctionTracingConfig;
     /**
@@ -315,7 +315,7 @@ export interface GetFunctionResult {
      */
     readonly version: string;
     /**
-     * VPC configuration associated with your Lambda function. See below.
+     * VPC configuration associated with your Lambda function. See `vpcConfig` below.
      */
     readonly vpcConfig: outputs.lambda.GetFunctionVpcConfig;
 }

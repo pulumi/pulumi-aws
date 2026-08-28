@@ -208,14 +208,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:securityhub/findingAggregator:FindingAggregator")
 public class FindingAggregator extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the Security Hub finding aggregator.
+     * ARN of the Security Hub finding aggregator.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Security Hub finding aggregator.
+     * @return ARN of the Security Hub finding aggregator.
      * 
      */
     public Output<String> arn() {

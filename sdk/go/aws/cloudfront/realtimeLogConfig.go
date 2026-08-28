@@ -183,7 +183,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the CloudFront real-time log configuration.
+// - `arn` (String) ARN of the CloudFront real-time log configuration.
 //
 // Using `pulumi import`, import CloudFront real-time log configurations using the ARN. For example:
 //
@@ -193,7 +193,7 @@ import (
 type RealtimeLogConfig struct {
 	pulumi.CustomResourceState
 
-	// The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+	// ARN of the CloudFront real-time log configuration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The Amazon Kinesis data streams where real-time log data is sent.
 	Endpoint RealtimeLogConfigEndpointOutput `pulumi:"endpoint"`
@@ -244,7 +244,7 @@ func GetRealtimeLogConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RealtimeLogConfig resources.
 type realtimeLogConfigState struct {
-	// The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+	// ARN of the CloudFront real-time log configuration.
 	Arn *string `pulumi:"arn"`
 	// The Amazon Kinesis data streams where real-time log data is sent.
 	Endpoint *RealtimeLogConfigEndpoint `pulumi:"endpoint"`
@@ -257,7 +257,7 @@ type realtimeLogConfigState struct {
 }
 
 type RealtimeLogConfigState struct {
-	// The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+	// ARN of the CloudFront real-time log configuration.
 	Arn pulumi.StringPtrInput
 	// The Amazon Kinesis data streams where real-time log data is sent.
 	Endpoint RealtimeLogConfigEndpointPtrInput
@@ -383,7 +383,7 @@ func (o RealtimeLogConfigOutput) ToRealtimeLogConfigOutputWithContext(ctx contex
 	return o
 }
 
-// The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+// ARN of the CloudFront real-time log configuration.
 func (o RealtimeLogConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RealtimeLogConfig) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

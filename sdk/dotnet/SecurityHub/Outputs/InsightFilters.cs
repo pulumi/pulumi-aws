@@ -238,7 +238,7 @@ namespace Pulumi.Aws.SecurityHub.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn> ResourceAwsEc2InstanceIamInstanceProfileArns;
         /// <summary>
-        /// The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
+        /// AMI ID of the instance. See String Filter below for more details.
         /// </summary>
         public readonly ImmutableArray<Outputs.InsightFiltersResourceAwsEc2InstanceImageId> ResourceAwsEc2InstanceImageIds;
         /// <summary>

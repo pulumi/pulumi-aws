@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig {
     /**
-     * @return Authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+     * @return Authorization credential option to use. The authorization credential options can be provided using either the ARN of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
      * 
      */
     private String credentialsParameter;
@@ -23,7 +23,7 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAu
 
     private TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig() {}
     /**
-     * @return Authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+     * @return Authorization credential option to use. The authorization credential options can be provided using either the ARN of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
      * 
      */
     public String credentialsParameter() {

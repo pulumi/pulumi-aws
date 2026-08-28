@@ -79,7 +79,7 @@ class ClusterMasterUserSecretArgsDict(TypedDict):
     """
     secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Amazon Resource Name (ARN) of the secret.
+    ARN of the secret.
     """
     secret_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -94,7 +94,7 @@ class ClusterMasterUserSecretArgs:
                  secret_status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
-        :param pulumi.Input[_builtins.str] secret_arn: Amazon Resource Name (ARN) of the secret.
+        :param pulumi.Input[_builtins.str] secret_arn: ARN of the secret.
         :param pulumi.Input[_builtins.str] secret_status: Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
         """
         if kms_key_id is not None:
@@ -120,7 +120,7 @@ class ClusterMasterUserSecretArgs:
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the secret.
+        ARN of the secret.
         """
         return pulumi.get(self, "secret_arn")
 
@@ -714,7 +714,7 @@ class ExportTaskTimeoutsArgs:
 class GlobalClusterGlobalClusterMemberArgsDict(TypedDict):
     db_cluster_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Amazon Resource Name (ARN) of member DB Cluster.
+    ARN of member DB Cluster.
     """
     is_writer: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -727,7 +727,7 @@ class GlobalClusterGlobalClusterMemberArgs:
                  db_cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  is_writer: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.str] db_cluster_arn: Amazon Resource Name (ARN) of member DB Cluster.
+        :param pulumi.Input[_builtins.str] db_cluster_arn: ARN of member DB Cluster.
         :param pulumi.Input[_builtins.bool] is_writer: Whether the member is the primary DB Cluster.
         """
         if db_cluster_arn is not None:
@@ -739,7 +739,7 @@ class GlobalClusterGlobalClusterMemberArgs:
     @pulumi.getter(name="dbClusterArn")
     def db_cluster_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of member DB Cluster.
+        ARN of member DB Cluster.
         """
         return pulumi.get(self, "db_cluster_arn")
 
@@ -939,7 +939,7 @@ class InstanceMasterUserSecretArgsDict(TypedDict):
     """
     secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Amazon Resource Name (ARN) of the secret.
+    ARN of the secret.
     """
     secret_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -955,7 +955,7 @@ class InstanceMasterUserSecretArgs:
         """
         :param pulumi.Input[_builtins.str] kms_key_id: The ARN for the KMS encryption key. If creating an
                encrypted replica, set this to the destination KMS ARN.
-        :param pulumi.Input[_builtins.str] secret_arn: The Amazon Resource Name (ARN) of the secret.
+        :param pulumi.Input[_builtins.str] secret_arn: ARN of the secret.
         :param pulumi.Input[_builtins.str] secret_status: The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
         """
         if kms_key_id is not None:
@@ -982,7 +982,7 @@ class InstanceMasterUserSecretArgs:
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the secret.
+        ARN of the secret.
         """
         return pulumi.get(self, "secret_arn")
 
@@ -1561,7 +1561,7 @@ class ProxyAuthArgsDict(TypedDict):
     """
     secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+    ARN representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
     """
     username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1582,7 +1582,7 @@ class ProxyAuthArgs:
         :param pulumi.Input[_builtins.str] client_password_auth_type: Type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
         :param pulumi.Input[_builtins.str] description: User-specified description about the authentication used by a proxy to log in as a specific database user.
         :param pulumi.Input[_builtins.str] iam_auth: Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of `DISABLED`, `REQUIRED`.
-        :param pulumi.Input[_builtins.str] secret_arn: Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+        :param pulumi.Input[_builtins.str] secret_arn: ARN representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
         :param pulumi.Input[_builtins.str] username: Name of the database user to which the proxy connects.
         """
         if auth_scheme is not None:
@@ -1650,7 +1650,7 @@ class ProxyAuthArgs:
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+        ARN representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
         """
         return pulumi.get(self, "secret_arn")
 

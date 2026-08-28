@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator custom routing endpoint group.
+ * - `arn` (String) ARN of the Global Accelerator custom routing endpoint group.
  *
  * Using `pulumi import`, import Global Accelerator custom routing endpoint groups using the `id`. For example:
  *
@@ -72,7 +72,7 @@ export class CustomRoutingEndpointGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the custom routing endpoint group.
+     * ARN of the custom routing endpoint group.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -88,7 +88,7 @@ export class CustomRoutingEndpointGroup extends pulumi.CustomResource {
      */
     declare public readonly endpointGroupRegion: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the custom routing listener.
+     * ARN of the custom routing listener.
      */
     declare public readonly listenerArn: pulumi.Output<string>;
 
@@ -134,7 +134,7 @@ export class CustomRoutingEndpointGroup extends pulumi.CustomResource {
  */
 export interface CustomRoutingEndpointGroupState {
     /**
-     * The Amazon Resource Name (ARN) of the custom routing endpoint group.
+     * ARN of the custom routing endpoint group.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -150,7 +150,7 @@ export interface CustomRoutingEndpointGroupState {
      */
     endpointGroupRegion?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the custom routing listener.
+     * ARN of the custom routing listener.
      */
     listenerArn?: pulumi.Input<string | undefined>;
 }
@@ -172,7 +172,7 @@ export interface CustomRoutingEndpointGroupArgs {
      */
     endpointGroupRegion?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the custom routing listener.
+     * ARN of the custom routing listener.
      */
     listenerArn: pulumi.Input<string>;
 }

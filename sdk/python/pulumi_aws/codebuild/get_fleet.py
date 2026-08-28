@@ -148,7 +148,7 @@ class GetFleetResult:
     @pulumi.getter(name="imageId")
     def image_id(self) -> _builtins.str:
         """
-        The Amazon Machine Image (AMI) of the compute fleet.
+        AMI of the compute fleet.
         """
         return pulumi.get(self, "image_id")
 

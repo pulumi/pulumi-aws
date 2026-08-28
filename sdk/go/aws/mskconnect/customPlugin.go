@@ -74,7 +74,7 @@ import (
 type CustomPlugin struct {
 	pulumi.CustomResourceState
 
-	// the Amazon Resource Name (ARN) of the custom plugin.
+	// the ARN of the custom plugin.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The type of the plugin file. Allowed values are `ZIP` and `JAR`.
 	ContentType pulumi.StringOutput `pulumi:"contentType"`
@@ -132,7 +132,7 @@ func GetCustomPlugin(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomPlugin resources.
 type customPluginState struct {
-	// the Amazon Resource Name (ARN) of the custom plugin.
+	// the ARN of the custom plugin.
 	Arn *string `pulumi:"arn"`
 	// The type of the plugin file. Allowed values are `ZIP` and `JAR`.
 	ContentType *string `pulumi:"contentType"`
@@ -155,7 +155,7 @@ type customPluginState struct {
 }
 
 type CustomPluginState struct {
-	// the Amazon Resource Name (ARN) of the custom plugin.
+	// the ARN of the custom plugin.
 	Arn pulumi.StringPtrInput
 	// The type of the plugin file. Allowed values are `ZIP` and `JAR`.
 	ContentType pulumi.StringPtrInput
@@ -299,7 +299,7 @@ func (o CustomPluginOutput) ToCustomPluginOutputWithContext(ctx context.Context)
 	return o
 }
 
-// the Amazon Resource Name (ARN) of the custom plugin.
+// the ARN of the custom plugin.
 func (o CustomPluginOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomPlugin) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

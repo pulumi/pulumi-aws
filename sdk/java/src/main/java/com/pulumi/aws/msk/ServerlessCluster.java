@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the MSK serverless cluster.
+ * - `arn` (String) ARN of the MSK serverless cluster.
  * 
  * Using `pulumi import`, import MSK serverless cluster using the cluster ARN. For example:
  * 

@@ -186,7 +186,7 @@ export class Analysis extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
+     * ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
      */
     declare public readonly themeArn: pulumi.Output<string | undefined>;
 
@@ -310,7 +310,7 @@ export interface AnalysisState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
+     * ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
      */
     themeArn?: pulumi.Input<string | undefined>;
 }
@@ -358,7 +358,7 @@ export interface AnalysisArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
+     * ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
      */
     themeArn?: pulumi.Input<string | undefined>;
 }

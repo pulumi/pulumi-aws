@@ -174,7 +174,7 @@ namespace Pulumi.Aws.Quicksight
         /// </summary>
         public readonly bool Active;
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the user.
+        /// ARN for the user.
         /// </summary>
         public readonly string Arn;
         public readonly string AwsAccountId;

@@ -336,7 +336,53 @@ namespace Pulumi.Aws.Rds
     /// });
     /// ```
     /// 
+    /// ### Disabling Master Password Rotation
+    /// 
+    /// When `ManageMasterUserPassword` is enabled, Secrets Manager rotates the master user password automatically (every 7 days by default). To disable that rotation while keeping the managed secret, manage the secret's rotation with `aws.secretsmanager.SecretRotation` and set `RotationEnabled = false`.
+    /// 
+    /// Referencing `aws_db_instance.default.master_user_secret[0].secret_arn` (as in the example below) ensures the rotation change is applied after the instance is available. Avoid hardcoding the secret ARN, which would remove that ordering.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @default = new Aws.Rds.Instance("default", new()
+    ///     {
+    ///         AllocatedStorage = 10,
+    ///         DbName = "mydb",
+    ///         Engine = "mysql",
+    ///         EngineVersion = "8.0",
+    ///         InstanceClass = Aws.Rds.InstanceType.T3_Micro,
+    ///         ManageMasterUserPassword = true,
+    ///         Username = "foo",
+    ///         ParameterGroupName = "default.mysql8.0",
+    ///     });
+    /// 
+    ///     var defaultSecretRotation = new Aws.SecretsManager.SecretRotation("default", new()
+    ///     {
+    ///         SecretId = @default.MasterUserSecrets.Apply(masterUserSecrets =&gt; masterUserSecrets[0].SecretArn),
+    ///         RotationEnabled = false,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
+    /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Identifier` (String) Identifier of the DB Instance.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
     /// Using `pulumi import`, import DB Instances using the `Identifier`. For example:
     /// 

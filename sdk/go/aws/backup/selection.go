@@ -270,13 +270,13 @@ type Selection struct {
 	IamRoleArn pulumi.StringOutput `pulumi:"iamRoleArn"`
 	// The display name of a resource selection document.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
+	// Array of strings that either contain ARNs or match patterns of resources to exclude from a backup plan.
 	NotResources pulumi.StringArrayOutput `pulumi:"notResources"`
 	// The backup plan ID to be associated with the selection of resources.
 	PlanId pulumi.StringOutput `pulumi:"planId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
+	// Array of strings that either contain ARNs or match patterns of resources to assign to a backup plan.
 	Resources pulumi.StringArrayOutput `pulumi:"resources"`
 	// Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
 	SelectionTags SelectionSelectionTagArrayOutput `pulumi:"selectionTags"`
@@ -324,13 +324,13 @@ type selectionState struct {
 	IamRoleArn *string `pulumi:"iamRoleArn"`
 	// The display name of a resource selection document.
 	Name *string `pulumi:"name"`
-	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
+	// Array of strings that either contain ARNs or match patterns of resources to exclude from a backup plan.
 	NotResources []string `pulumi:"notResources"`
 	// The backup plan ID to be associated with the selection of resources.
 	PlanId *string `pulumi:"planId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
+	// Array of strings that either contain ARNs or match patterns of resources to assign to a backup plan.
 	Resources []string `pulumi:"resources"`
 	// Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
 	SelectionTags []SelectionSelectionTag `pulumi:"selectionTags"`
@@ -343,13 +343,13 @@ type SelectionState struct {
 	IamRoleArn pulumi.StringPtrInput
 	// The display name of a resource selection document.
 	Name pulumi.StringPtrInput
-	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
+	// Array of strings that either contain ARNs or match patterns of resources to exclude from a backup plan.
 	NotResources pulumi.StringArrayInput
 	// The backup plan ID to be associated with the selection of resources.
 	PlanId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
+	// Array of strings that either contain ARNs or match patterns of resources to assign to a backup plan.
 	Resources pulumi.StringArrayInput
 	// Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
 	SelectionTags SelectionSelectionTagArrayInput
@@ -366,13 +366,13 @@ type selectionArgs struct {
 	IamRoleArn string `pulumi:"iamRoleArn"`
 	// The display name of a resource selection document.
 	Name *string `pulumi:"name"`
-	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
+	// Array of strings that either contain ARNs or match patterns of resources to exclude from a backup plan.
 	NotResources []string `pulumi:"notResources"`
 	// The backup plan ID to be associated with the selection of resources.
 	PlanId string `pulumi:"planId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
+	// Array of strings that either contain ARNs or match patterns of resources to assign to a backup plan.
 	Resources []string `pulumi:"resources"`
 	// Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
 	SelectionTags []SelectionSelectionTag `pulumi:"selectionTags"`
@@ -386,13 +386,13 @@ type SelectionArgs struct {
 	IamRoleArn pulumi.StringInput
 	// The display name of a resource selection document.
 	Name pulumi.StringPtrInput
-	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
+	// Array of strings that either contain ARNs or match patterns of resources to exclude from a backup plan.
 	NotResources pulumi.StringArrayInput
 	// The backup plan ID to be associated with the selection of resources.
 	PlanId pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
+	// Array of strings that either contain ARNs or match patterns of resources to assign to a backup plan.
 	Resources pulumi.StringArrayInput
 	// Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
 	SelectionTags SelectionSelectionTagArrayInput
@@ -500,7 +500,7 @@ func (o SelectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Selection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
+// Array of strings that either contain ARNs or match patterns of resources to exclude from a backup plan.
 func (o SelectionOutput) NotResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Selection) pulumi.StringArrayOutput { return v.NotResources }).(pulumi.StringArrayOutput)
 }
@@ -515,7 +515,7 @@ func (o SelectionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Selection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
+// Array of strings that either contain ARNs or match patterns of resources to assign to a backup plan.
 func (o SelectionOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Selection) pulumi.StringArrayOutput { return v.Resources }).(pulumi.StringArrayOutput)
 }

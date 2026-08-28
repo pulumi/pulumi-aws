@@ -63,7 +63,7 @@ type LookupNodeGroupArgs struct {
 
 // A collection of values returned by getNodeGroup.
 type LookupNodeGroupResult struct {
-	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group.
+	// Type of AMI associated with the EKS Node Group.
 	AmiType string `pulumi:"amiType"`
 	// ARN of the EKS Node Group.
 	Arn string `pulumi:"arn"`
@@ -147,7 +147,7 @@ func (o LookupNodeGroupResultOutput) ToLookupNodeGroupResultOutputWithContext(ct
 	return o
 }
 
-// Type of Amazon Machine Image (AMI) associated with the EKS Node Group.
+// Type of AMI associated with the EKS Node Group.
 func (o LookupNodeGroupResultOutput) AmiType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNodeGroupResult) string { return v.AmiType }).(pulumi.StringOutput)
 }

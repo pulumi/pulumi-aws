@@ -413,7 +413,7 @@ class CustomRoutingEndpointGroupDestinationConfigurationArgs:
 class CustomRoutingEndpointGroupEndpointConfigurationArgsDict(TypedDict):
     endpoint_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
+    ID for the endpoint. For custom routing accelerators, this is the VPC subnet ID.
     """
 
 @pulumi.input_type
@@ -421,7 +421,7 @@ class CustomRoutingEndpointGroupEndpointConfigurationArgs:
     def __init__(__self__, *,
                  endpoint_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] endpoint_id: An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
+        :param pulumi.Input[_builtins.str] endpoint_id: ID for the endpoint. For custom routing accelerators, this is the VPC subnet ID.
         """
         if endpoint_id is not None:
             pulumi.set(__self__, "endpoint_id", endpoint_id)
@@ -430,7 +430,7 @@ class CustomRoutingEndpointGroupEndpointConfigurationArgs:
     @pulumi.getter(name="endpointId")
     def endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
+        ID for the endpoint. For custom routing accelerators, this is the VPC subnet ID.
         """
         return pulumi.get(self, "endpoint_id")
 
@@ -500,7 +500,7 @@ class EndpointGroupEndpointConfigurationArgsDict(TypedDict):
     """
     endpoint_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
+    ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the ARN of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
     """
     weight: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -518,7 +518,7 @@ class EndpointGroupEndpointConfigurationArgs:
         :param pulumi.Input[_builtins.str] attachment_arn: An ARN of an exposed cross-account attachment. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html) for more details.
         :param pulumi.Input[_builtins.bool] client_ip_preservation_enabled: Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html) for more details. The default value is `false`.
                **Note:** When client IP address preservation is enabled, the Global Accelerator service creates an EC2 Security Group in the VPC named `GlobalAccelerator` that must be deleted (potentially outside of the provider) before the VPC will successfully delete. If this EC2 Security Group is not deleted, the provider will retry the VPC deletion for a few minutes before reporting a `DependencyViolation` error. This cannot be resolved by re-running the provider.
-        :param pulumi.Input[_builtins.str] endpoint_id: An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
+        :param pulumi.Input[_builtins.str] endpoint_id: ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the ARN of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
         :param pulumi.Input[_builtins.int] weight: The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
         """
         if attachment_arn is not None:
@@ -559,7 +559,7 @@ class EndpointGroupEndpointConfigurationArgs:
     @pulumi.getter(name="endpointId")
     def endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
+        ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the ARN of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
         """
         return pulumi.get(self, "endpoint_id")
 

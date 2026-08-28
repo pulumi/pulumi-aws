@@ -59,7 +59,7 @@ type Map struct {
 	CreateTime pulumi.StringOutput `pulumi:"createTime"`
 	// An optional description for the map resource.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
+	// ARN for the map resource. Used to specify a resource across all AWS.
 	MapArn pulumi.StringOutput `pulumi:"mapArn"`
 	// The name for the map resource.
 	//
@@ -117,7 +117,7 @@ type mapState struct {
 	CreateTime *string `pulumi:"createTime"`
 	// An optional description for the map resource.
 	Description *string `pulumi:"description"`
-	// The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
+	// ARN for the map resource. Used to specify a resource across all AWS.
 	MapArn *string `pulumi:"mapArn"`
 	// The name for the map resource.
 	//
@@ -140,7 +140,7 @@ type MapState struct {
 	CreateTime pulumi.StringPtrInput
 	// An optional description for the map resource.
 	Description pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
+	// ARN for the map resource. Used to specify a resource across all AWS.
 	MapArn pulumi.StringPtrInput
 	// The name for the map resource.
 	//
@@ -293,7 +293,7 @@ func (o MapOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Map) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
+// ARN for the map resource. Used to specify a resource across all AWS.
 func (o MapOutput) MapArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Map) pulumi.StringOutput { return v.MapArn }).(pulumi.StringOutput)
 }

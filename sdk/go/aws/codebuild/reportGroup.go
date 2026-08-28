@@ -106,7 +106,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild report group.
+// - `arn` (String) ARN of the CodeBuild report group.
 //
 // Using `pulumi import`, import CodeBuild Report Group using the CodeBuild Report Group arn. For example:
 //

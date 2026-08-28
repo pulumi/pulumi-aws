@@ -17,14 +17,14 @@ public final class ModelPackageGroupState extends com.pulumi.resources.ResourceA
     public static final ModelPackageGroupState Empty = new ModelPackageGroupState();
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
+     * ARN assigned by AWS to this Model Package Group.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
+     * @return ARN assigned by AWS to this Model Package Group.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -136,7 +136,7 @@ public final class ModelPackageGroupState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
+         * @param arn ARN assigned by AWS to this Model Package Group.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class ModelPackageGroupState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
+         * @param arn ARN assigned by AWS to this Model Package Group.
          * 
          * @return builder
          * 

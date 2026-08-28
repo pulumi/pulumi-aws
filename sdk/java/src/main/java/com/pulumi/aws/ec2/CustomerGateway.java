@@ -108,14 +108,14 @@ public class CustomerGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.bgpAsnExtended);
     }
     /**
-     * The Amazon Resource Name (ARN) for the customer gateway certificate.
+     * ARN for the customer gateway certificate.
      * 
      */
     @Export(name="certificateArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificateArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the customer gateway certificate.
+     * @return ARN for the customer gateway certificate.
      * 
      */
     public Output<Optional<String>> certificateArn() {

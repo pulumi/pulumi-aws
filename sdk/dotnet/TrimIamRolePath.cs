@@ -12,7 +12,7 @@ namespace Pulumi.Aws
     public static class TrimIamRolePath
     {
         /// <summary>
-        /// Trims the path prefix from an IAM role Amazon Resource Name (ARN).
+        /// Trims the path prefix from an IAM role ARN.
         /// This function can be used when services require role ARNs to be passed without a path.
         /// 
         /// See the [AWS IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsidentityandaccessmanagementiam.html#awsidentityandaccessmanagementiam-resources-for-iam-policies) for additional information on IAM role ARNs.
@@ -32,7 +32,7 @@ namespace Pulumi.Aws
         }
 
         /// <summary>
-        /// Trims the path prefix from an IAM role Amazon Resource Name (ARN).
+        /// Trims the path prefix from an IAM role ARN.
         /// This function can be used when services require role ARNs to be passed without a path.
         /// 
         /// See the [AWS IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsidentityandaccessmanagementiam.html#awsidentityandaccessmanagementiam-resources-for-iam-policies) for additional information on IAM role ARNs.

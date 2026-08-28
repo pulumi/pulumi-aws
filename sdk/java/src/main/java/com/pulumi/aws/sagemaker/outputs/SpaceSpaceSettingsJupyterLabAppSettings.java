@@ -26,7 +26,7 @@ public final class SpaceSpaceSettingsJupyterLabAppSettings {
      */
     private @Nullable List<SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository> codeRepositories;
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+     * @return Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
      * 
      */
     private SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec defaultResourceSpec;
@@ -47,7 +47,7 @@ public final class SpaceSpaceSettingsJupyterLabAppSettings {
         return this.codeRepositories == null ? List.of() : this.codeRepositories;
     }
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+     * @return Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
      * 
      */
     public SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec defaultResourceSpec() {

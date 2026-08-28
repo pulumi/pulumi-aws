@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Glue schema.
+    /// - `Arn` (String) ARN of the Glue schema.
     /// 
     /// Using `pulumi import`, import Glue Registries using `Arn`. For example:
     /// 
@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Glue
     public partial class Schema : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the schema.
+        /// ARN of the schema.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -244,7 +244,7 @@ namespace Pulumi.Aws.Glue
     public sealed class SchemaState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the schema.
+        /// ARN of the schema.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

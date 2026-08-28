@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS EC2 (Elastic Compute Cloud) Verified Access Endpoint.
+// Resource for managing an AWS EC2 Verified Access Endpoint.
 //
 // ## Example Usage
 //

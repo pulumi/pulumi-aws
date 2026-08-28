@@ -77,7 +77,7 @@ namespace Pulumi.Aws.SsmContacts
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the contact.
+    /// - `Arn` (String) ARN of the contact.
     /// 
     /// Using `pulumi import`, import SSM Contact using the `ARN`. For example:
     /// 
@@ -95,7 +95,7 @@ namespace Pulumi.Aws.SsmContacts
         public Output<string> Alias { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the contact or escalation plan.
+        /// The ARN of the contact or escalation plan.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.SsmContacts
         public Input<string>? Alias { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the contact or escalation plan.
+        /// The ARN of the contact or escalation plan.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

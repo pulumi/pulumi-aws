@@ -119,7 +119,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the CloudFront real-time log configuration.
+ * - `arn` (String) ARN of the CloudFront real-time log configuration.
  *
  * Using `pulumi import`, import CloudFront real-time log configurations using the ARN. For example:
  *
@@ -156,7 +156,7 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+     * ARN of the CloudFront real-time log configuration.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -221,7 +221,7 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
  */
 export interface RealtimeLogConfigState {
     /**
-     * The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+     * ARN of the CloudFront real-time log configuration.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

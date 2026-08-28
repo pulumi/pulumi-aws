@@ -18,14 +18,14 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
     public static final VpcConnectionState Empty = new VpcConnectionState();
 
     /**
-     * Amazon Resource Name (ARN) of the VPC connection.
+     * ARN of the VPC connection.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the VPC connection.
+     * @return ARN of the VPC connection.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -123,14 +123,14 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the cluster.
+     * ARN of the cluster.
      * 
      */
     @Import(name="targetClusterArn")
     private @Nullable Output<String> targetClusterArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the cluster.
+     * @return ARN of the cluster.
      * 
      */
     public Optional<Output<String>> targetClusterArn() {
@@ -185,7 +185,7 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the VPC connection.
+         * @param arn ARN of the VPC connection.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the VPC connection.
+         * @param arn ARN of the VPC connection.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param targetClusterArn The Amazon Resource Name (ARN) of the cluster.
+         * @param targetClusterArn ARN of the cluster.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class VpcConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param targetClusterArn The Amazon Resource Name (ARN) of the cluster.
+         * @param targetClusterArn ARN of the cluster.
          * 
          * @return builder
          * 

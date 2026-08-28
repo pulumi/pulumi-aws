@@ -79,7 +79,7 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Security Hub V2 aggregator.
+    /// - `Arn` (String) ARN of the Security Hub V2 aggregator.
     /// 
     /// Using `pulumi import`, import Security Hub V2 aggregators using `Arn`. For example:
     /// 

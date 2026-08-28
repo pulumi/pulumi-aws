@@ -57,7 +57,7 @@ type ClusterIamRoles struct {
 
 	// The name of the Redshift Cluster IAM Roles.
 	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
-	// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+	// ARN for the IAM role that was set as default for the cluster when the cluster was created.
 	DefaultIamRoleArn pulumi.StringOutput `pulumi:"defaultIamRoleArn"`
 	// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
 	IamRoleArns pulumi.StringArrayOutput `pulumi:"iamRoleArns"`
@@ -100,7 +100,7 @@ func GetClusterIamRoles(ctx *pulumi.Context,
 type clusterIamRolesState struct {
 	// The name of the Redshift Cluster IAM Roles.
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
-	// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+	// ARN for the IAM role that was set as default for the cluster when the cluster was created.
 	DefaultIamRoleArn *string `pulumi:"defaultIamRoleArn"`
 	// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
 	IamRoleArns []string `pulumi:"iamRoleArns"`
@@ -111,7 +111,7 @@ type clusterIamRolesState struct {
 type ClusterIamRolesState struct {
 	// The name of the Redshift Cluster IAM Roles.
 	ClusterIdentifier pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+	// ARN for the IAM role that was set as default for the cluster when the cluster was created.
 	DefaultIamRoleArn pulumi.StringPtrInput
 	// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
 	IamRoleArns pulumi.StringArrayInput
@@ -126,7 +126,7 @@ func (ClusterIamRolesState) ElementType() reflect.Type {
 type clusterIamRolesArgs struct {
 	// The name of the Redshift Cluster IAM Roles.
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
-	// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+	// ARN for the IAM role that was set as default for the cluster when the cluster was created.
 	DefaultIamRoleArn *string `pulumi:"defaultIamRoleArn"`
 	// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
 	IamRoleArns []string `pulumi:"iamRoleArns"`
@@ -138,7 +138,7 @@ type clusterIamRolesArgs struct {
 type ClusterIamRolesArgs struct {
 	// The name of the Redshift Cluster IAM Roles.
 	ClusterIdentifier pulumi.StringInput
-	// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+	// ARN for the IAM role that was set as default for the cluster when the cluster was created.
 	DefaultIamRoleArn pulumi.StringPtrInput
 	// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
 	IamRoleArns pulumi.StringArrayInput
@@ -238,7 +238,7 @@ func (o ClusterIamRolesOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterIamRoles) pulumi.StringOutput { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+// ARN for the IAM role that was set as default for the cluster when the cluster was created.
 func (o ClusterIamRolesOutput) DefaultIamRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterIamRoles) pulumi.StringOutput { return v.DefaultIamRoleArn }).(pulumi.StringOutput)
 }

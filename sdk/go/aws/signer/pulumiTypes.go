@@ -1185,7 +1185,7 @@ func (o SigningProfileSignatureValidityPeriodPtrOutput) Value() pulumi.IntPtrOut
 }
 
 type SigningProfileSigningMaterial struct {
-	// The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
+	// ARN of the certificates that is used to sign your code.
 	CertificateArn string `pulumi:"certificateArn"`
 }
 
@@ -1201,7 +1201,7 @@ type SigningProfileSigningMaterialInput interface {
 }
 
 type SigningProfileSigningMaterialArgs struct {
-	// The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
+	// ARN of the certificates that is used to sign your code.
 	CertificateArn pulumi.StringInput `pulumi:"certificateArn"`
 }
 
@@ -1282,7 +1282,7 @@ func (o SigningProfileSigningMaterialOutput) ToSigningProfileSigningMaterialPtrO
 	}).(SigningProfileSigningMaterialPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
+// ARN of the certificates that is used to sign your code.
 func (o SigningProfileSigningMaterialOutput) CertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v SigningProfileSigningMaterial) string { return v.CertificateArn }).(pulumi.StringOutput)
 }
@@ -1311,7 +1311,7 @@ func (o SigningProfileSigningMaterialPtrOutput) Elem() SigningProfileSigningMate
 	}).(SigningProfileSigningMaterialOutput)
 }
 
-// The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
+// ARN of the certificates that is used to sign your code.
 func (o SigningProfileSigningMaterialPtrOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SigningProfileSigningMaterial) *string {
 		if v == nil {

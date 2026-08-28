@@ -65,7 +65,7 @@ import (
 type CustomDataIdentifier struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the custom data identifier.
+	// ARN of the custom data identifier.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
@@ -121,7 +121,7 @@ func GetCustomDataIdentifier(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomDataIdentifier resources.
 type customDataIdentifierState struct {
-	// The Amazon Resource Name (ARN) of the custom data identifier.
+	// ARN of the custom data identifier.
 	Arn *string `pulumi:"arn"`
 	// The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
 	CreatedAt *string `pulumi:"createdAt"`
@@ -148,7 +148,7 @@ type customDataIdentifierState struct {
 }
 
 type CustomDataIdentifierState struct {
-	// The Amazon Resource Name (ARN) of the custom data identifier.
+	// ARN of the custom data identifier.
 	Arn pulumi.StringPtrInput
 	// The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
 	CreatedAt pulumi.StringPtrInput
@@ -308,7 +308,7 @@ func (o CustomDataIdentifierOutput) ToCustomDataIdentifierOutputWithContext(ctx 
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the custom data identifier.
+// ARN of the custom data identifier.
 func (o CustomDataIdentifierOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomDataIdentifier) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

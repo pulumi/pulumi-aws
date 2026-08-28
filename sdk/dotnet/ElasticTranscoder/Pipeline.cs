@@ -62,7 +62,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
+        /// KMS key that you want to use with this pipeline.
         /// </summary>
         [Output("awsKmsKeyArn")]
         public Output<string?> AwsKmsKeyArn { get; private set; } = null!;
@@ -110,7 +110,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
+        /// IAM ARN for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
         /// </summary>
         [Output("role")]
         public Output<string> Role { get; private set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.ElasticTranscoder
     public sealed class PipelineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
+        /// KMS key that you want to use with this pipeline.
         /// </summary>
         [Input("awsKmsKeyArn")]
         public Input<string>? AwsKmsKeyArn { get; set; }
@@ -237,7 +237,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
+        /// IAM ARN for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
         /// </summary>
         [Input("role", required: true)]
         public Input<string> Role { get; set; } = null!;
@@ -284,7 +284,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
+        /// KMS key that you want to use with this pipeline.
         /// </summary>
         [Input("awsKmsKeyArn")]
         public Input<string>? AwsKmsKeyArn { get; set; }
@@ -338,7 +338,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
+        /// IAM ARN for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }

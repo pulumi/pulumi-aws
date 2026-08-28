@@ -50,18 +50,33 @@ public final class TransitVirtualInterfaceArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
      * 
      */
-    @Import(name="bgpAsn", required=true)
-    private Output<Integer> bgpAsn;
+    @Import(name="bgpAsn")
+    private @Nullable Output<Integer> bgpAsn;
 
     /**
-     * @return The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * @return BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
      * 
      */
-    public Output<Integer> bgpAsn() {
-        return this.bgpAsn;
+    public Optional<Output<Integer>> bgpAsn() {
+        return Optional.ofNullable(this.bgpAsn);
+    }
+
+    /**
+     * BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+     * 
+     */
+    @Import(name="bgpAsnLong")
+    private @Nullable Output<String> bgpAsnLong;
+
+    /**
+     * @return BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+     * 
+     */
+    public Optional<Output<String>> bgpAsnLong() {
+        return Optional.ofNullable(this.bgpAsnLong);
     }
 
     /**
@@ -222,6 +237,7 @@ public final class TransitVirtualInterfaceArgs extends com.pulumi.resources.Reso
         this.addressFamily = $.addressFamily;
         this.amazonAddress = $.amazonAddress;
         this.bgpAsn = $.bgpAsn;
+        this.bgpAsnLong = $.bgpAsnLong;
         this.bgpAuthKey = $.bgpAuthKey;
         this.connectionId = $.connectionId;
         this.customerAddress = $.customerAddress;
@@ -295,24 +311,45 @@ public final class TransitVirtualInterfaceArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param bgpAsn The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+         * @param bgpAsn BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
          * 
          * @return builder
          * 
          */
-        public Builder bgpAsn(Output<Integer> bgpAsn) {
+        public Builder bgpAsn(@Nullable Output<Integer> bgpAsn) {
             $.bgpAsn = bgpAsn;
             return this;
         }
 
         /**
-         * @param bgpAsn The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+         * @param bgpAsn BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
          * 
          * @return builder
          * 
          */
         public Builder bgpAsn(Integer bgpAsn) {
             return bgpAsn(Output.of(bgpAsn));
+        }
+
+        /**
+         * @param bgpAsnLong BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bgpAsnLong(@Nullable Output<String> bgpAsnLong) {
+            $.bgpAsnLong = bgpAsnLong;
+            return this;
+        }
+
+        /**
+         * @param bgpAsnLong BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bgpAsnLong(String bgpAsnLong) {
+            return bgpAsnLong(Output.of(bgpAsnLong));
         }
 
         /**
@@ -530,9 +567,6 @@ public final class TransitVirtualInterfaceArgs extends com.pulumi.resources.Reso
         public TransitVirtualInterfaceArgs build() {
             if ($.addressFamily == null) {
                 throw new MissingRequiredPropertyException("TransitVirtualInterfaceArgs", "addressFamily");
-            }
-            if ($.bgpAsn == null) {
-                throw new MissingRequiredPropertyException("TransitVirtualInterfaceArgs", "bgpAsn");
             }
             if ($.connectionId == null) {
                 throw new MissingRequiredPropertyException("TransitVirtualInterfaceArgs", "connectionId");

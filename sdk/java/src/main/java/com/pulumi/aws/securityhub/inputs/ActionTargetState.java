@@ -16,14 +16,14 @@ public final class ActionTargetState extends com.pulumi.resources.ResourceArgs {
     public static final ActionTargetState Empty = new ActionTargetState();
 
     /**
-     * Amazon Resource Name (ARN) of the Security Hub custom action target.
+     * ARN of the Security Hub custom action target.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Security Hub custom action target.
+     * @return ARN of the Security Hub custom action target.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -119,7 +119,7 @@ public final class ActionTargetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Security Hub custom action target.
+         * @param arn ARN of the Security Hub custom action target.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ActionTargetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Security Hub custom action target.
+         * @param arn ARN of the Security Hub custom action target.
          * 
          * @return builder
          * 

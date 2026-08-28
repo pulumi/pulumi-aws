@@ -92,7 +92,7 @@ import (
 type LogDeliveryDestination struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the delivery destination.
+	// ARN of the delivery destination.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
 	DeliveryDestinationConfiguration LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput `pulumi:"deliveryDestinationConfiguration"`
@@ -140,7 +140,7 @@ func GetLogDeliveryDestination(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogDeliveryDestination resources.
 type logDeliveryDestinationState struct {
-	// The Amazon Resource Name (ARN) of the delivery destination.
+	// ARN of the delivery destination.
 	Arn *string `pulumi:"arn"`
 	// The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
 	DeliveryDestinationConfiguration *LogDeliveryDestinationDeliveryDestinationConfiguration `pulumi:"deliveryDestinationConfiguration"`
@@ -159,7 +159,7 @@ type logDeliveryDestinationState struct {
 }
 
 type LogDeliveryDestinationState struct {
-	// The Amazon Resource Name (ARN) of the delivery destination.
+	// ARN of the delivery destination.
 	Arn pulumi.StringPtrInput
 	// The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
 	DeliveryDestinationConfiguration LogDeliveryDestinationDeliveryDestinationConfigurationPtrInput
@@ -299,7 +299,7 @@ func (o LogDeliveryDestinationOutput) ToLogDeliveryDestinationOutputWithContext(
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the delivery destination.
+// ARN of the delivery destination.
 func (o LogDeliveryDestinationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDeliveryDestination) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Bedrock
     public partial class InferenceProfile : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the inference profile.
+        /// The ARN of the inference profile.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -224,7 +224,7 @@ namespace Pulumi.Aws.Bedrock
     public sealed class InferenceProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the inference profile.
+        /// The ARN of the inference profile.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

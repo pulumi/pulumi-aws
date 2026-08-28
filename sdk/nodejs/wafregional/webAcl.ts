@@ -135,7 +135,7 @@ export class WebAcl extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the WAF Regional WebACL.
+     * ARN of the WAF Regional WebACL.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -221,7 +221,7 @@ export class WebAcl extends pulumi.CustomResource {
  */
 export interface WebAclState {
     /**
-     * Amazon Resource Name (ARN) of the WAF Regional WebACL.
+     * ARN of the WAF Regional WebACL.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

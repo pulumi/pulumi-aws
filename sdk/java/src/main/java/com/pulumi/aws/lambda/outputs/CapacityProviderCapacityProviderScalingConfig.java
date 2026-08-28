@@ -14,12 +14,12 @@ import java.util.Objects;
 @CustomType
 public final class CapacityProviderCapacityProviderScalingConfig {
     /**
-     * @return The maximum number of VCPUs for the Capacity Provider.
+     * @return Maximum number of VCPUs for the Capacity Provider.
      * 
      */
     private Integer maxVcpuCount;
     /**
-     * @return The scaling mode for the Capacity Provider. Valid values are `&#34;Auto&#34;` and `&#34;Manual&#34;`. Defaults to `&#34;Auto&#34;`.
+     * @return Scaling mode for the Capacity Provider. Valid values are `&#34;Auto&#34;` and `&#34;Manual&#34;`. Defaults to `&#34;Auto&#34;`.
      * 
      */
     private String scalingMode;
@@ -31,14 +31,14 @@ public final class CapacityProviderCapacityProviderScalingConfig {
 
     private CapacityProviderCapacityProviderScalingConfig() {}
     /**
-     * @return The maximum number of VCPUs for the Capacity Provider.
+     * @return Maximum number of VCPUs for the Capacity Provider.
      * 
      */
     public Integer maxVcpuCount() {
         return this.maxVcpuCount;
     }
     /**
-     * @return The scaling mode for the Capacity Provider. Valid values are `&#34;Auto&#34;` and `&#34;Manual&#34;`. Defaults to `&#34;Auto&#34;`.
+     * @return Scaling mode for the Capacity Provider. Valid values are `&#34;Auto&#34;` and `&#34;Manual&#34;`. Defaults to `&#34;Auto&#34;`.
      * 
      */
     public String scalingMode() {

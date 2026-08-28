@@ -18,7 +18,7 @@ public final class IntentFulfillmentActivityCodeHook {
      */
     private String messageVersion;
     /**
-     * @return The Amazon Resource Name (ARN) of the Lambda function.
+     * @return ARN of the Lambda function.
      * 
      */
     private String uri;
@@ -34,7 +34,7 @@ public final class IntentFulfillmentActivityCodeHook {
         return this.messageVersion;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the Lambda function.
+     * @return ARN of the Lambda function.
      * 
      */
     public String uri() {

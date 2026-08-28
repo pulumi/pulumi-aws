@@ -16,14 +16,14 @@ public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTraffic
     public static final DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs Empty = new DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs();
 
     /**
-     * List of Amazon Resource Names (ARNs) of the load balancer listeners.
+     * List of ARNs of the load balancer listeners.
      * 
      */
     @Import(name="listenerArns", required=true)
     private Output<List<String>> listenerArns;
 
     /**
-     * @return List of Amazon Resource Names (ARNs) of the load balancer listeners.
+     * @return List of ARNs of the load balancer listeners.
      * 
      */
     public Output<List<String>> listenerArns() {
@@ -55,7 +55,7 @@ public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTraffic
         }
 
         /**
-         * @param listenerArns List of Amazon Resource Names (ARNs) of the load balancer listeners.
+         * @param listenerArns List of ARNs of the load balancer listeners.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTraffic
         }
 
         /**
-         * @param listenerArns List of Amazon Resource Names (ARNs) of the load balancer listeners.
+         * @param listenerArns List of ARNs of the load balancer listeners.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTraffic
         }
 
         /**
-         * @param listenerArns List of Amazon Resource Names (ARNs) of the load balancer listeners.
+         * @param listenerArns List of ARNs of the load balancer listeners.
          * 
          * @return builder
          * 

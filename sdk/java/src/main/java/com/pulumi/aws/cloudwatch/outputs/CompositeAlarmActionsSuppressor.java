@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class CompositeAlarmActionsSuppressor {
     /**
-     * @return Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+     * @return Can be an AlarmName or an ARN from an existing alarm.
      * 
      */
     private String alarm;
@@ -29,7 +29,7 @@ public final class CompositeAlarmActionsSuppressor {
 
     private CompositeAlarmActionsSuppressor() {}
     /**
-     * @return Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+     * @return Can be an AlarmName or an ARN from an existing alarm.
      * 
      */
     public String alarm() {

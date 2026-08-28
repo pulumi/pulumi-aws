@@ -7224,7 +7224,7 @@ func (o RuleGroupRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput) Heade
 }
 
 type RuleGroupRuleStatementIpSetReferenceStatement struct {
-	// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+	// ARN of the IP Set that this statement references.
 	Arn string `pulumi:"arn"`
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
 	IpSetForwardedIpConfig *RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig `pulumi:"ipSetForwardedIpConfig"`
@@ -7242,7 +7242,7 @@ type RuleGroupRuleStatementIpSetReferenceStatementInput interface {
 }
 
 type RuleGroupRuleStatementIpSetReferenceStatementArgs struct {
-	// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+	// ARN of the IP Set that this statement references.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
 	IpSetForwardedIpConfig RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrInput `pulumi:"ipSetForwardedIpConfig"`
@@ -7325,7 +7325,7 @@ func (o RuleGroupRuleStatementIpSetReferenceStatementOutput) ToRuleGroupRuleStat
 	}).(RuleGroupRuleStatementIpSetReferenceStatementPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+// ARN of the IP Set that this statement references.
 func (o RuleGroupRuleStatementIpSetReferenceStatementOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementIpSetReferenceStatement) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -7361,7 +7361,7 @@ func (o RuleGroupRuleStatementIpSetReferenceStatementPtrOutput) Elem() RuleGroup
 	}).(RuleGroupRuleStatementIpSetReferenceStatementOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+// ARN of the IP Set that this statement references.
 func (o RuleGroupRuleStatementIpSetReferenceStatementPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementIpSetReferenceStatement) *string {
 		if v == nil {
@@ -15438,7 +15438,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatem
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement struct {
-	// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+	// ARN of the IP Set that this statement references.
 	Arn string `pulumi:"arn"`
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
 	IpSetForwardedIpConfig *RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig `pulumi:"ipSetForwardedIpConfig"`
@@ -15456,7 +15456,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceSta
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgs struct {
-	// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+	// ARN of the IP Set that this statement references.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
 	IpSetForwardedIpConfig RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrInput `pulumi:"ipSetForwardedIpConfig"`
@@ -15539,7 +15539,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReference
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+// ARN of the IP Set that this statement references.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement) string {
 		return v.Arn
@@ -15577,7 +15577,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReference
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+// ARN of the IP Set that this statement references.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement) *string {
 		if v == nil {
@@ -19665,7 +19665,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement struct {
-	// The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+	// ARN of the Regex Pattern Set that this statement references.
 	Arn string `pulumi:"arn"`
 	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch `pulumi:"fieldToMatch"`
@@ -19689,7 +19689,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRe
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementArgs struct {
-	// The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+	// ARN of the Regex Pattern Set that this statement references.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
@@ -19778,7 +19778,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+// ARN of the Regex Pattern Set that this statement references.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement) string {
 		return v.Arn
@@ -19832,7 +19832,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+// ARN of the Regex Pattern Set that this statement references.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement) *string {
 		if v == nil {
@@ -36879,7 +36879,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementTextTransformationArrayOutput) 
 }
 
 type RuleGroupRuleStatementRegexPatternSetReferenceStatement struct {
-	// The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+	// ARN of the Regex Pattern Set that this statement references.
 	Arn string `pulumi:"arn"`
 	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch *RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch `pulumi:"fieldToMatch"`
@@ -36903,7 +36903,7 @@ type RuleGroupRuleStatementRegexPatternSetReferenceStatementInput interface {
 }
 
 type RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs struct {
-	// The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+	// ARN of the Regex Pattern Set that this statement references.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
@@ -36992,7 +36992,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementOutput) ToRuleGro
 	}).(RuleGroupRuleStatementRegexPatternSetReferenceStatementPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+// ARN of the Regex Pattern Set that this statement references.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexPatternSetReferenceStatement) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -37044,7 +37044,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementPtrOutput) Elem()
 	}).(RuleGroupRuleStatementRegexPatternSetReferenceStatementOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+// ARN of the Regex Pattern Set that this statement references.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRegexPatternSetReferenceStatement) *string {
 		if v == nil {

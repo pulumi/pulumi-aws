@@ -31,7 +31,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<Inputs.VirtualGatewaySpecListenerPortMappingGetArgs> PortMapping { get; set; } = null!;
 
         /// <summary>
-        /// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+        /// TLS properties for the listener. See `spec.listener.tls` Block for details.
         /// </summary>
         [Input("tls")]
         public Input<Inputs.VirtualGatewaySpecListenerTlsGetArgs>? Tls { get; set; }

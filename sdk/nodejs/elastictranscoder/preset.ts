@@ -112,7 +112,7 @@ export class Preset extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
+     * ARN of the Elastic Transcoder Preset.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -212,7 +212,7 @@ export class Preset extends pulumi.CustomResource {
  */
 export interface PresetState {
     /**
-     * Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
+     * ARN of the Elastic Transcoder Preset.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

@@ -288,14 +288,14 @@ public class Studio extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.userRole);
     }
     /**
-     * The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+     * ID of the VPC to associate with the Studio.
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
-     * @return The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+     * @return ID of the VPC to associate with the Studio.
      * 
      */
     public Output<String> vpcId() {

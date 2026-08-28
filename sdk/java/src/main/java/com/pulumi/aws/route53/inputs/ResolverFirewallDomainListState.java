@@ -18,14 +18,14 @@ public final class ResolverFirewallDomainListState extends com.pulumi.resources.
     public static final ResolverFirewallDomainListState Empty = new ResolverFirewallDomainListState();
 
     /**
-     * The ARN (Amazon Resource Name) of the domain list.
+     * ARN of the domain list.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN (Amazon Resource Name) of the domain list.
+     * @return ARN of the domain list.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -137,7 +137,7 @@ public final class ResolverFirewallDomainListState extends com.pulumi.resources.
         }
 
         /**
-         * @param arn The ARN (Amazon Resource Name) of the domain list.
+         * @param arn ARN of the domain list.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class ResolverFirewallDomainListState extends com.pulumi.resources.
         }
 
         /**
-         * @param arn The ARN (Amazon Resource Name) of the domain list.
+         * @param arn ARN of the domain list.
          * 
          * @return builder
          * 

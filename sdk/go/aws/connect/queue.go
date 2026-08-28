@@ -131,7 +131,7 @@ import (
 type Queue struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the Queue.
+	// ARN of the Queue.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies the description of the Queue.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -195,7 +195,7 @@ func GetQueue(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Queue resources.
 type queueState struct {
-	// The Amazon Resource Name (ARN) of the Queue.
+	// ARN of the Queue.
 	Arn *string `pulumi:"arn"`
 	// Specifies the description of the Queue.
 	Description *string `pulumi:"description"`
@@ -224,7 +224,7 @@ type queueState struct {
 }
 
 type QueueState struct {
-	// The Amazon Resource Name (ARN) of the Queue.
+	// ARN of the Queue.
 	Arn pulumi.StringPtrInput
 	// Specifies the description of the Queue.
 	Description pulumi.StringPtrInput
@@ -390,7 +390,7 @@ func (o QueueOutput) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Queue.
+// ARN of the Queue.
 func (o QueueOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

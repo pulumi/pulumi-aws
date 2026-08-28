@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Sfn.Inputs
     public sealed class AliasRoutingConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the state machine version.
+        /// ARN of the state machine version.
         /// </summary>
         [Input("stateMachineVersionArn", required: true)]
         public Input<string> StateMachineVersionArn { get; set; } = null!;

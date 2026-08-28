@@ -17,14 +17,14 @@ public final class ResolverFirewallRuleGroupState extends com.pulumi.resources.R
     public static final ResolverFirewallRuleGroupState Empty = new ResolverFirewallRuleGroupState();
 
     /**
-     * The ARN (Amazon Resource Name) of the rule group.
+     * ARN of the rule group.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN (Amazon Resource Name) of the rule group.
+     * @return ARN of the rule group.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -152,7 +152,7 @@ public final class ResolverFirewallRuleGroupState extends com.pulumi.resources.R
         }
 
         /**
-         * @param arn The ARN (Amazon Resource Name) of the rule group.
+         * @param arn ARN of the rule group.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class ResolverFirewallRuleGroupState extends com.pulumi.resources.R
         }
 
         /**
-         * @param arn The ARN (Amazon Resource Name) of the rule group.
+         * @param arn ARN of the rule group.
          * 
          * @return builder
          * 

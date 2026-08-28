@@ -211,14 +211,14 @@ public class Access extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+     * ARN of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
      * 
      */
     @Export(name="role", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> role;
 
     /**
-     * @return Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+     * @return ARN of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
      * 
      */
     public Output<Optional<String>> role() {

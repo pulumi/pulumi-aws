@@ -279,7 +279,7 @@ type StateMachine struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region     pulumi.StringOutput `pulumi:"region"`
 	RevisionId pulumi.StringOutput `pulumi:"revisionId"`
-	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+	// ARN of the IAM role to use for this state machine.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The ARN of the state machine version.
 	StateMachineVersionArn pulumi.StringOutput `pulumi:"stateMachineVersionArn"`
@@ -352,7 +352,7 @@ type stateMachineState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region     *string `pulumi:"region"`
 	RevisionId *string `pulumi:"revisionId"`
-	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+	// ARN of the IAM role to use for this state machine.
 	RoleArn *string `pulumi:"roleArn"`
 	// The ARN of the state machine version.
 	StateMachineVersionArn *string `pulumi:"stateMachineVersionArn"`
@@ -390,7 +390,7 @@ type StateMachineState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region     pulumi.StringPtrInput
 	RevisionId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+	// ARN of the IAM role to use for this state machine.
 	RoleArn pulumi.StringPtrInput
 	// The ARN of the state machine version.
 	StateMachineVersionArn pulumi.StringPtrInput
@@ -426,7 +426,7 @@ type stateMachineArgs struct {
 	Publish *bool `pulumi:"publish"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+	// ARN of the IAM role to use for this state machine.
 	RoleArn string `pulumi:"roleArn"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -452,7 +452,7 @@ type StateMachineArgs struct {
 	Publish pulumi.BoolPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+	// ARN of the IAM role to use for this state machine.
 	RoleArn pulumi.StringInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -602,7 +602,7 @@ func (o StateMachineOutput) RevisionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StateMachine) pulumi.StringOutput { return v.RevisionId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+// ARN of the IAM role to use for this state machine.
 func (o StateMachineOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StateMachine) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }

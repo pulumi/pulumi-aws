@@ -84,7 +84,7 @@ import (
 type LustreFileSystem struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name of the file system.
+	// ARN of the file system.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details. Only supported on `PERSISTENT_1` deployment types.
 	AutoImportPolicy pulumi.StringOutput `pulumi:"autoImportPolicy"`
@@ -155,7 +155,7 @@ type LustreFileSystem struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Throughput in MBps required for the `INTELLIGENT_TIERING` storage type. Must be 4000 or multiples of 4000.
 	ThroughputCapacity pulumi.IntPtrOutput `pulumi:"throughputCapacity"`
-	// Identifier of the Virtual Private Cloud for the file system.
+	// Identifier of the VPC for the file system.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 	// Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
 	WeeklyMaintenanceStartTime pulumi.StringOutput `pulumi:"weeklyMaintenanceStartTime"`
@@ -194,7 +194,7 @@ func GetLustreFileSystem(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LustreFileSystem resources.
 type lustreFileSystemState struct {
-	// Amazon Resource Name of the file system.
+	// ARN of the file system.
 	Arn *string `pulumi:"arn"`
 	// How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details. Only supported on `PERSISTENT_1` deployment types.
 	AutoImportPolicy *string `pulumi:"autoImportPolicy"`
@@ -265,14 +265,14 @@ type lustreFileSystemState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Throughput in MBps required for the `INTELLIGENT_TIERING` storage type. Must be 4000 or multiples of 4000.
 	ThroughputCapacity *int `pulumi:"throughputCapacity"`
-	// Identifier of the Virtual Private Cloud for the file system.
+	// Identifier of the VPC for the file system.
 	VpcId *string `pulumi:"vpcId"`
 	// Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
 	WeeklyMaintenanceStartTime *string `pulumi:"weeklyMaintenanceStartTime"`
 }
 
 type LustreFileSystemState struct {
-	// Amazon Resource Name of the file system.
+	// ARN of the file system.
 	Arn pulumi.StringPtrInput
 	// How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details. Only supported on `PERSISTENT_1` deployment types.
 	AutoImportPolicy pulumi.StringPtrInput
@@ -343,7 +343,7 @@ type LustreFileSystemState struct {
 	TagsAll pulumi.StringMapInput
 	// Throughput in MBps required for the `INTELLIGENT_TIERING` storage type. Must be 4000 or multiples of 4000.
 	ThroughputCapacity pulumi.IntPtrInput
-	// Identifier of the Virtual Private Cloud for the file system.
+	// Identifier of the VPC for the file system.
 	VpcId pulumi.StringPtrInput
 	// Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
 	WeeklyMaintenanceStartTime pulumi.StringPtrInput
@@ -569,7 +569,7 @@ func (o LustreFileSystemOutput) ToLustreFileSystemOutputWithContext(ctx context.
 	return o
 }
 
-// Amazon Resource Name of the file system.
+// ARN of the file system.
 func (o LustreFileSystemOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LustreFileSystem) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -746,7 +746,7 @@ func (o LustreFileSystemOutput) ThroughputCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LustreFileSystem) pulumi.IntPtrOutput { return v.ThroughputCapacity }).(pulumi.IntPtrOutput)
 }
 
-// Identifier of the Virtual Private Cloud for the file system.
+// Identifier of the VPC for the file system.
 func (o LustreFileSystemOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LustreFileSystem) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

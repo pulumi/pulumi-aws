@@ -42,7 +42,7 @@ namespace Pulumi.Aws.DataExchange
     public partial class Revision : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name of this data set.
+        /// ARN of this data set.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.DataExchange
     public sealed class RevisionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name of this data set.
+        /// ARN of this data set.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

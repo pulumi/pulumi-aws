@@ -278,7 +278,7 @@ export class EventConnection extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the connection.
+     * ARN of the connection.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -298,7 +298,7 @@ export class EventConnection extends pulumi.CustomResource {
      */
     declare public readonly invocationConnectivityParameters: pulumi.Output<outputs.cloudwatch.EventConnectionInvocationConnectivityParameters | undefined>;
     /**
-     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
      */
     declare public readonly kmsKeyIdentifier: pulumi.Output<string | undefined>;
     /**
@@ -310,7 +310,7 @@ export class EventConnection extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
+     * ARN of the secret created from the authorization parameters specified for the connection.
      */
     declare public /*out*/ readonly secretArn: pulumi.Output<string>;
 
@@ -364,7 +364,7 @@ export class EventConnection extends pulumi.CustomResource {
  */
 export interface EventConnectionState {
     /**
-     * The Amazon Resource Name (ARN) of the connection.
+     * ARN of the connection.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -384,7 +384,7 @@ export interface EventConnectionState {
      */
     invocationConnectivityParameters?: pulumi.Input<inputs.cloudwatch.EventConnectionInvocationConnectivityParameters | undefined>;
     /**
-     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
      */
     kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**
@@ -396,7 +396,7 @@ export interface EventConnectionState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
+     * ARN of the secret created from the authorization parameters specified for the connection.
      */
     secretArn?: pulumi.Input<string | undefined>;
 }
@@ -422,7 +422,7 @@ export interface EventConnectionArgs {
      */
     invocationConnectivityParameters?: pulumi.Input<inputs.cloudwatch.EventConnectionInvocationConnectivityParameters | undefined>;
     /**
-     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
      */
     kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**

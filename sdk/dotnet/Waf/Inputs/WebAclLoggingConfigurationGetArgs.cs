@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Waf.Inputs
     public sealed class WebAclLoggingConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
+        /// ARN of Kinesis Firehose Delivery Stream
         /// </summary>
         [Input("logDestination", required: true)]
         public Input<string> LogDestination { get; set; } = null!;

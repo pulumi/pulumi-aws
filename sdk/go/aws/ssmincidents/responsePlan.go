@@ -164,7 +164,7 @@ type ResponsePlan struct {
 	ChatChannels pulumi.StringArrayOutput `pulumi:"chatChannels"`
 	// The long format of the response plan name. This field can contain spaces.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+	// ARN for the contacts and escalation plans that the response plan engages during an incident.
 	Engagements pulumi.StringArrayOutput `pulumi:"engagements"`
 	// The `incidentTemplate` configuration block is required and supports the following arguments:
 	IncidentTemplate ResponsePlanIncidentTemplateOutput `pulumi:"incidentTemplate"`
@@ -221,7 +221,7 @@ type responsePlanState struct {
 	ChatChannels []string `pulumi:"chatChannels"`
 	// The long format of the response plan name. This field can contain spaces.
 	DisplayName *string `pulumi:"displayName"`
-	// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+	// ARN for the contacts and escalation plans that the response plan engages during an incident.
 	Engagements []string `pulumi:"engagements"`
 	// The `incidentTemplate` configuration block is required and supports the following arguments:
 	IncidentTemplate *ResponsePlanIncidentTemplate `pulumi:"incidentTemplate"`
@@ -246,7 +246,7 @@ type ResponsePlanState struct {
 	ChatChannels pulumi.StringArrayInput
 	// The long format of the response plan name. This field can contain spaces.
 	DisplayName pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+	// ARN for the contacts and escalation plans that the response plan engages during an incident.
 	Engagements pulumi.StringArrayInput
 	// The `incidentTemplate` configuration block is required and supports the following arguments:
 	IncidentTemplate ResponsePlanIncidentTemplatePtrInput
@@ -273,7 +273,7 @@ type responsePlanArgs struct {
 	ChatChannels []string `pulumi:"chatChannels"`
 	// The long format of the response plan name. This field can contain spaces.
 	DisplayName *string `pulumi:"displayName"`
-	// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+	// ARN for the contacts and escalation plans that the response plan engages during an incident.
 	Engagements []string `pulumi:"engagements"`
 	// The `incidentTemplate` configuration block is required and supports the following arguments:
 	IncidentTemplate ResponsePlanIncidentTemplate `pulumi:"incidentTemplate"`
@@ -295,7 +295,7 @@ type ResponsePlanArgs struct {
 	ChatChannels pulumi.StringArrayInput
 	// The long format of the response plan name. This field can contain spaces.
 	DisplayName pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+	// ARN for the contacts and escalation plans that the response plan engages during an incident.
 	Engagements pulumi.StringArrayInput
 	// The `incidentTemplate` configuration block is required and supports the following arguments:
 	IncidentTemplate ResponsePlanIncidentTemplateInput
@@ -416,7 +416,7 @@ func (o ResponsePlanOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponsePlan) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+// ARN for the contacts and escalation plans that the response plan engages during an incident.
 func (o ResponsePlanOutput) Engagements() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResponsePlan) pulumi.StringArrayOutput { return v.Engagements }).(pulumi.StringArrayOutput)
 }

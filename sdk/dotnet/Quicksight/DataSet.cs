@@ -340,7 +340,7 @@ namespace Pulumi.Aws.Quicksight
     public partial class DataSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the data set.
+        /// ARN of the data set.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -662,7 +662,7 @@ namespace Pulumi.Aws.Quicksight
     public sealed class DataSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the data set.
+        /// ARN of the data set.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

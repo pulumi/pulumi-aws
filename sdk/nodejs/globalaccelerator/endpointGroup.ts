@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator endpoint group.
+ * - `arn` (String) ARN of the Global Accelerator endpoint group.
  *
  * Using `pulumi import`, import Global Accelerator endpoint groups using the `id`. For example:
  *
@@ -68,7 +68,7 @@ export class EndpointGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the endpoint group.
+     * ARN of the endpoint group.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -97,7 +97,7 @@ export class EndpointGroup extends pulumi.CustomResource {
      */
     declare public readonly healthCheckProtocol: pulumi.Output<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the listener.
+     * ARN of the listener.
      */
     declare public readonly listenerArn: pulumi.Output<string>;
     /**
@@ -164,7 +164,7 @@ export class EndpointGroup extends pulumi.CustomResource {
  */
 export interface EndpointGroupState {
     /**
-     * The Amazon Resource Name (ARN) of the endpoint group.
+     * ARN of the endpoint group.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -193,7 +193,7 @@ export interface EndpointGroupState {
      */
     healthCheckProtocol?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the listener.
+     * ARN of the listener.
      */
     listenerArn?: pulumi.Input<string | undefined>;
     /**
@@ -240,7 +240,7 @@ export interface EndpointGroupArgs {
      */
     healthCheckProtocol?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the listener.
+     * ARN of the listener.
      */
     listenerArn: pulumi.Input<string>;
     /**

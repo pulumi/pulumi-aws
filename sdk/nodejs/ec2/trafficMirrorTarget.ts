@@ -83,7 +83,7 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
      */
     declare public readonly networkInterfaceId: pulumi.Output<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+     * ARN of the Network Load Balancer that is associated with the target.
      */
     declare public readonly networkLoadBalancerArn: pulumi.Output<string | undefined>;
     /**
@@ -165,7 +165,7 @@ export interface TrafficMirrorTargetState {
      */
     networkInterfaceId?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+     * ARN of the Network Load Balancer that is associated with the target.
      */
     networkLoadBalancerArn?: pulumi.Input<string | undefined>;
     /**
@@ -205,7 +205,7 @@ export interface TrafficMirrorTargetArgs {
      */
     networkInterfaceId?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+     * ARN of the Network Load Balancer that is associated with the target.
      */
     networkLoadBalancerArn?: pulumi.Input<string | undefined>;
     /**

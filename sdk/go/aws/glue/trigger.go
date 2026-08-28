@@ -217,7 +217,7 @@ type Trigger struct {
 
 	// List of actions initiated by this trigger when it fires. See Actions Below.
 	Actions TriggerActionArrayOutput `pulumi:"actions"`
-	// Amazon Resource Name (ARN) of Glue Trigger
+	// ARN of Glue Trigger
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A description of the new trigger.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -285,7 +285,7 @@ func GetTrigger(ctx *pulumi.Context,
 type triggerState struct {
 	// List of actions initiated by this trigger when it fires. See Actions Below.
 	Actions []TriggerAction `pulumi:"actions"`
-	// Amazon Resource Name (ARN) of Glue Trigger
+	// ARN of Glue Trigger
 	Arn *string `pulumi:"arn"`
 	// A description of the new trigger.
 	Description *string `pulumi:"description"`
@@ -318,7 +318,7 @@ type triggerState struct {
 type TriggerState struct {
 	// List of actions initiated by this trigger when it fires. See Actions Below.
 	Actions TriggerActionArrayInput
-	// Amazon Resource Name (ARN) of Glue Trigger
+	// ARN of Glue Trigger
 	Arn pulumi.StringPtrInput
 	// A description of the new trigger.
 	Description pulumi.StringPtrInput
@@ -499,7 +499,7 @@ func (o TriggerOutput) Actions() TriggerActionArrayOutput {
 	return o.ApplyT(func(v *Trigger) TriggerActionArrayOutput { return v.Actions }).(TriggerActionArrayOutput)
 }
 
-// Amazon Resource Name (ARN) of Glue Trigger
+// ARN of Glue Trigger
 func (o TriggerOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trigger) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

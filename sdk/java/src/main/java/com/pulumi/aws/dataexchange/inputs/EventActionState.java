@@ -35,14 +35,14 @@ public final class EventActionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the event action.
+     * ARN of the event action.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the event action.
+     * @return ARN of the event action.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -164,7 +164,7 @@ public final class EventActionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the event action.
+         * @param arn ARN of the event action.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class EventActionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the event action.
+         * @param arn ARN of the event action.
          * 
          * @return builder
          * 

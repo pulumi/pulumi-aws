@@ -16,14 +16,14 @@ public final class CompositeAlarmActionsSuppressorArgs extends com.pulumi.resour
     public static final CompositeAlarmActionsSuppressorArgs Empty = new CompositeAlarmActionsSuppressorArgs();
 
     /**
-     * Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+     * Can be an AlarmName or an ARN from an existing alarm.
      * 
      */
     @Import(name="alarm", required=true)
     private Output<String> alarm;
 
     /**
-     * @return Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+     * @return Can be an AlarmName or an ARN from an existing alarm.
      * 
      */
     public Output<String> alarm() {
@@ -87,7 +87,7 @@ public final class CompositeAlarmActionsSuppressorArgs extends com.pulumi.resour
         }
 
         /**
-         * @param alarm Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+         * @param alarm Can be an AlarmName or an ARN from an existing alarm.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class CompositeAlarmActionsSuppressorArgs extends com.pulumi.resour
         }
 
         /**
-         * @param alarm Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+         * @param alarm Can be an AlarmName or an ARN from an existing alarm.
          * 
          * @return builder
          * 

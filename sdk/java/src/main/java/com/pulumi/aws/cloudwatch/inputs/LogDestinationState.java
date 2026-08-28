@@ -17,14 +17,14 @@ public final class LogDestinationState extends com.pulumi.resources.ResourceArgs
     public static final LogDestinationState Empty = new LogDestinationState();
 
     /**
-     * The Amazon Resource Name (ARN) specifying the log destination.
+     * ARN specifying the log destination.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) specifying the log destination.
+     * @return ARN specifying the log destination.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -152,7 +152,7 @@ public final class LogDestinationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) specifying the log destination.
+         * @param arn ARN specifying the log destination.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class LogDestinationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) specifying the log destination.
+         * @param arn ARN specifying the log destination.
          * 
          * @return builder
          * 

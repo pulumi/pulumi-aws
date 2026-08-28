@@ -208,7 +208,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableDictionary<string, string>?> AllocationResourceTags { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of IPAM
+        /// ARN of IPAM
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -510,7 +510,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of IPAM
+        /// ARN of IPAM
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

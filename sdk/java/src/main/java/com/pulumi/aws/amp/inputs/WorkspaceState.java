@@ -33,14 +33,14 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the workspace.
+     * ARN of the workspace.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the workspace.
+     * @return ARN of the workspace.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -190,7 +190,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the workspace.
+         * @param arn ARN of the workspace.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the workspace.
+         * @param arn ARN of the workspace.
          * 
          * @return builder
          * 

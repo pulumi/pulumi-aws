@@ -62,7 +62,7 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
      */
     private @Nullable List<MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter> parameters;
     /**
-     * @return The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
+     * @return ARN of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
      * 
      */
     private @Nullable String serviceRoleArn;
@@ -137,7 +137,7 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
         return this.parameters == null ? List.of() : this.parameters;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
+     * @return ARN of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
      * 
      */
     public Optional<String> serviceRoleArn() {

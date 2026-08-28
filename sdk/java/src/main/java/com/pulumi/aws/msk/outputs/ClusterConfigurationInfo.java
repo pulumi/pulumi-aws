@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class ClusterConfigurationInfo {
     /**
-     * @return Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
+     * @return ARN of the MSK Configuration to use in the cluster.
      * 
      */
     private String arn;
@@ -24,7 +24,7 @@ public final class ClusterConfigurationInfo {
 
     private ClusterConfigurationInfo() {}
     /**
-     * @return Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
+     * @return ARN of the MSK Configuration to use in the cluster.
      * 
      */
     public String arn() {

@@ -218,7 +218,7 @@ export class Pipeline extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+     * Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
@@ -333,7 +333,7 @@ export interface PipelineState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+     * Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
@@ -389,7 +389,7 @@ export interface PipelineArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+     * Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
     roleArn: pulumi.Input<string>;
     /**

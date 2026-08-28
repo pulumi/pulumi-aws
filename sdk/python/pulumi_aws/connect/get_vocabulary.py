@@ -68,7 +68,7 @@ class GetVocabularyResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the Vocabulary.
+        ARN of the Vocabulary.
         """
         return pulumi.get(self, "arn")
 

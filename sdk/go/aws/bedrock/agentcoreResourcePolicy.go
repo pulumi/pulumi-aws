@@ -99,7 +99,7 @@ type AgentcoreResourcePolicy struct {
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the resource for which to create or update the resource policy.
+	// ARN of the resource for which to create or update the resource policy.
 	//
 	// The following arguments are optional:
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
@@ -145,7 +145,7 @@ type agentcoreResourcePolicyState struct {
 	Policy *string `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the resource for which to create or update the resource policy.
+	// ARN of the resource for which to create or update the resource policy.
 	//
 	// The following arguments are optional:
 	ResourceArn *string `pulumi:"resourceArn"`
@@ -156,7 +156,7 @@ type AgentcoreResourcePolicyState struct {
 	Policy pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the resource for which to create or update the resource policy.
+	// ARN of the resource for which to create or update the resource policy.
 	//
 	// The following arguments are optional:
 	ResourceArn pulumi.StringPtrInput
@@ -171,7 +171,7 @@ type agentcoreResourcePolicyArgs struct {
 	Policy string `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the resource for which to create or update the resource policy.
+	// ARN of the resource for which to create or update the resource policy.
 	//
 	// The following arguments are optional:
 	ResourceArn string `pulumi:"resourceArn"`
@@ -183,7 +183,7 @@ type AgentcoreResourcePolicyArgs struct {
 	Policy pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the resource for which to create or update the resource policy.
+	// ARN of the resource for which to create or update the resource policy.
 	//
 	// The following arguments are optional:
 	ResourceArn pulumi.StringInput
@@ -286,7 +286,7 @@ func (o AgentcoreResourcePolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreResourcePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the resource for which to create or update the resource policy.
+// ARN of the resource for which to create or update the resource policy.
 //
 // The following arguments are optional:
 func (o AgentcoreResourcePolicyOutput) ResourceArn() pulumi.StringOutput {

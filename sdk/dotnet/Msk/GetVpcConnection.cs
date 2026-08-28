@@ -176,7 +176,7 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the cluster.
+        /// ARN of the cluster.
         /// </summary>
         public readonly string TargetClusterArn;
         /// <summary>

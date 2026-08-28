@@ -181,14 +181,14 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
         return this.authorizerType;
     }
     /**
-     * Authorizer&#39;s Uniform Resource Identifier (URI). For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `aws.lambda.Function` resource. Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
+     * Authorizer&#39;s URI. For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `aws.lambda.Function` resource. Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
      * 
      */
     @Export(name="authorizerUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authorizerUri;
 
     /**
-     * @return Authorizer&#39;s Uniform Resource Identifier (URI). For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `aws.lambda.Function` resource. Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
+     * @return Authorizer&#39;s URI. For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `aws.lambda.Function` resource. Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
      * 
      */
     public Output<Optional<String>> authorizerUri() {

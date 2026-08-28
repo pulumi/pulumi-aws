@@ -27,7 +27,7 @@ class PlanArgs:
         """
         The set of arguments for constructing a Plan resource.
 
-        :param pulumi.Input[_builtins.str] contact_id: The Amazon Resource Name (ARN) of the contact or escalation plan.
+        :param pulumi.Input[_builtins.str] contact_id: The ARN of the contact or escalation plan.
         :param pulumi.Input[Sequence[pulumi.Input['PlanStageArgs']]] stages: One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -40,7 +40,7 @@ class PlanArgs:
     @pulumi.getter(name="contactId")
     def contact_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the contact or escalation plan.
+        The ARN of the contact or escalation plan.
         """
         return pulumi.get(self, "contact_id")
 
@@ -82,7 +82,7 @@ class _PlanState:
         """
         Input properties used for looking up and filtering Plan resources.
 
-        :param pulumi.Input[_builtins.str] contact_id: The Amazon Resource Name (ARN) of the contact or escalation plan.
+        :param pulumi.Input[_builtins.str] contact_id: The ARN of the contact or escalation plan.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['PlanStageArgs']]] stages: One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
         """
@@ -97,7 +97,7 @@ class _PlanState:
     @pulumi.getter(name="contactId")
     def contact_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the contact or escalation plan.
+        The ARN of the contact or escalation plan.
         """
         return pulumi.get(self, "contact_id")
 
@@ -227,7 +227,7 @@ class Plan(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] contact_id: The Amazon Resource Name (ARN) of the contact or escalation plan.
+        :param pulumi.Input[_builtins.str] contact_id: The ARN of the contact or escalation plan.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PlanStageArgs', 'PlanStageArgsDict']]]] stages: One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
         """
@@ -376,7 +376,7 @@ class Plan(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] contact_id: The Amazon Resource Name (ARN) of the contact or escalation plan.
+        :param pulumi.Input[_builtins.str] contact_id: The ARN of the contact or escalation plan.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PlanStageArgs', 'PlanStageArgsDict']]]] stages: One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
         """
@@ -393,7 +393,7 @@ class Plan(pulumi.CustomResource):
     @pulumi.getter(name="contactId")
     def contact_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the contact or escalation plan.
+        The ARN of the contact or escalation plan.
         """
         return pulumi.get(self, "contact_id")
 

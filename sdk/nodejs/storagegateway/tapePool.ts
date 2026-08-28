@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws.storagegateway.TapePool` using the volume Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.storagegateway.TapePool` using the volume ARN. For example:
  *
  * ```sh
  * $ pulumi import aws:storagegateway/tapePool:TapePool example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678
@@ -56,7 +56,7 @@ export class TapePool extends pulumi.CustomResource {
     }
 
     /**
-     * Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
+     * Volume ARN, e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -136,7 +136,7 @@ export class TapePool extends pulumi.CustomResource {
  */
 export interface TapePoolState {
     /**
-     * Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
+     * Volume ARN, e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

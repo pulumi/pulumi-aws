@@ -13,7 +13,7 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
     public sealed class TlsInspectionConfigurationEncryptionConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of the Amazon Web Services Key Management Service (KMS) customer managed key.
+        /// ARN of the Amazon Web Services KMS customer managed key.
         /// </summary>
         [Input("keyId", required: true)]
         public Input<string> KeyId { get; set; } = null!;

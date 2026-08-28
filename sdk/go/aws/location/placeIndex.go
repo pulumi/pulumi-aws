@@ -59,7 +59,7 @@ type PlaceIndex struct {
 	DataSourceConfiguration PlaceIndexDataSourceConfigurationOutput `pulumi:"dataSourceConfiguration"`
 	// Optional description for the place index resource.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
+	// ARN for the place index resource. Used to specify a resource across AWS.
 	IndexArn pulumi.StringOutput `pulumi:"indexArn"`
 	// Name of the place index resource.
 	//
@@ -119,7 +119,7 @@ type placeIndexState struct {
 	DataSourceConfiguration *PlaceIndexDataSourceConfiguration `pulumi:"dataSourceConfiguration"`
 	// Optional description for the place index resource.
 	Description *string `pulumi:"description"`
-	// Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
+	// ARN for the place index resource. Used to specify a resource across AWS.
 	IndexArn *string `pulumi:"indexArn"`
 	// Name of the place index resource.
 	//
@@ -144,7 +144,7 @@ type PlaceIndexState struct {
 	DataSourceConfiguration PlaceIndexDataSourceConfigurationPtrInput
 	// Optional description for the place index resource.
 	Description pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
+	// ARN for the place index resource. Used to specify a resource across AWS.
 	IndexArn pulumi.StringPtrInput
 	// Name of the place index resource.
 	//
@@ -306,7 +306,7 @@ func (o PlaceIndexOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlaceIndex) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
+// ARN for the place index resource. Used to specify a resource across AWS.
 func (o PlaceIndexOutput) IndexArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PlaceIndex) pulumi.StringOutput { return v.IndexArn }).(pulumi.StringOutput)
 }

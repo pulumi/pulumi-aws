@@ -24,14 +24,14 @@ public final class ImagePipelineState extends com.pulumi.resources.ResourceArgs 
     public static final ImagePipelineState Empty = new ImagePipelineState();
 
     /**
-     * Amazon Resource Name (ARN) of the image pipeline.
+     * ARN of the image pipeline.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the image pipeline.
+     * @return ARN of the image pipeline.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -39,14 +39,14 @@ public final class ImagePipelineState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Amazon Resource Name (ARN) of the container recipe.
+     * ARN of the container recipe.
      * 
      */
     @Import(name="containerRecipeArn")
     private @Nullable Output<String> containerRecipeArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the container recipe.
+     * @return ARN of the container recipe.
      * 
      */
     public Optional<Output<String>> containerRecipeArn() {
@@ -129,14 +129,14 @@ public final class ImagePipelineState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+     * ARN of the Image Builder Distribution Configuration.
      * 
      */
     @Import(name="distributionConfigurationArn")
     private @Nullable Output<String> distributionConfigurationArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+     * @return ARN of the Image Builder Distribution Configuration.
      * 
      */
     public Optional<Output<String>> distributionConfigurationArn() {
@@ -159,14 +159,14 @@ public final class ImagePipelineState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+     * ARN of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
      * 
      */
     @Import(name="executionRole")
     private @Nullable Output<String> executionRole;
 
     /**
-     * @return Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+     * @return ARN of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
      * 
      */
     public Optional<Output<String>> executionRole() {
@@ -174,14 +174,14 @@ public final class ImagePipelineState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Amazon Resource Name (ARN) of the image recipe.
+     * ARN of the image recipe.
      * 
      */
     @Import(name="imageRecipeArn")
     private @Nullable Output<String> imageRecipeArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the image recipe.
+     * @return ARN of the image recipe.
      * 
      */
     public Optional<Output<String>> imageRecipeArn() {
@@ -219,14 +219,14 @@ public final class ImagePipelineState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+     * ARN of the Image Builder Infrastructure Configuration.
      * 
      */
     @Import(name="infrastructureConfigurationArn")
     private @Nullable Output<String> infrastructureConfigurationArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+     * @return ARN of the Image Builder Infrastructure Configuration.
      * 
      */
     public Optional<Output<String>> infrastructureConfigurationArn() {
@@ -419,7 +419,7 @@ public final class ImagePipelineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the image pipeline.
+         * @param arn ARN of the image pipeline.
          * 
          * @return builder
          * 
@@ -430,7 +430,7 @@ public final class ImagePipelineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the image pipeline.
+         * @param arn ARN of the image pipeline.
          * 
          * @return builder
          * 
@@ -440,7 +440,7 @@ public final class ImagePipelineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param containerRecipeArn Amazon Resource Name (ARN) of the container recipe.
+         * @param containerRecipeArn ARN of the container recipe.
          * 
          * @return builder
          * 
@@ -451,7 +451,7 @@ public final class ImagePipelineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param containerRecipeArn Amazon Resource Name (ARN) of the container recipe.
+         * @param containerRecipeArn ARN of the container recipe.
          * 
          * @return builder
          * 
@@ -566,7 +566,7 @@ public final class ImagePipelineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param distributionConfigurationArn Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+         * @param distributionConfigurationArn ARN of the Image Builder Distribution Configuration.
          * 
          * @return builder
          * 
@@ -577,7 +577,7 @@ public final class ImagePipelineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param distributionConfigurationArn Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+         * @param distributionConfigurationArn ARN of the Image Builder Distribution Configuration.
          * 
          * @return builder
          * 
@@ -608,7 +608,7 @@ public final class ImagePipelineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param executionRole Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+         * @param executionRole ARN of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
          * 
          * @return builder
          * 
@@ -619,7 +619,7 @@ public final class ImagePipelineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param executionRole Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+         * @param executionRole ARN of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
          * 
          * @return builder
          * 
@@ -629,7 +629,7 @@ public final class ImagePipelineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param imageRecipeArn Amazon Resource Name (ARN) of the image recipe.
+         * @param imageRecipeArn ARN of the image recipe.
          * 
          * @return builder
          * 
@@ -640,7 +640,7 @@ public final class ImagePipelineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param imageRecipeArn Amazon Resource Name (ARN) of the image recipe.
+         * @param imageRecipeArn ARN of the image recipe.
          * 
          * @return builder
          * 
@@ -692,7 +692,7 @@ public final class ImagePipelineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param infrastructureConfigurationArn Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+         * @param infrastructureConfigurationArn ARN of the Image Builder Infrastructure Configuration.
          * 
          * @return builder
          * 
@@ -703,7 +703,7 @@ public final class ImagePipelineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param infrastructureConfigurationArn Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+         * @param infrastructureConfigurationArn ARN of the Image Builder Infrastructure Configuration.
          * 
          * @return builder
          * 

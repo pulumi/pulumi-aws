@@ -17,14 +17,14 @@ public final class FeatureGroupOfflineStoreConfigS3StorageConfigArgs extends com
     public static final FeatureGroupOfflineStoreConfigS3StorageConfigArgs Empty = new FeatureGroupOfflineStoreConfigS3StorageConfigArgs();
 
     /**
-     * The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
+     * KMS key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
+     * @return KMS key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -88,7 +88,7 @@ public final class FeatureGroupOfflineStoreConfigS3StorageConfigArgs extends com
         }
 
         /**
-         * @param kmsKeyId The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
+         * @param kmsKeyId KMS key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class FeatureGroupOfflineStoreConfigS3StorageConfigArgs extends com
         }
 
         /**
-         * @param kmsKeyId The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
+         * @param kmsKeyId KMS key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
          * 
          * @return builder
          * 

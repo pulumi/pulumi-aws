@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Msk
     public partial class Configuration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the configuration.
+        /// ARN of the configuration.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Msk
     public sealed class ConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the configuration.
+        /// ARN of the configuration.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

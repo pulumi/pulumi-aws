@@ -250,7 +250,7 @@ class CompositeAlarmActionsSuppressor(dict):
                  extension_period: _builtins.int,
                  wait_period: _builtins.int):
         """
-        :param _builtins.str alarm: Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+        :param _builtins.str alarm: Can be an AlarmName or an ARN from an existing alarm.
         :param _builtins.int extension_period: The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
         :param _builtins.int wait_period: The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
         """
@@ -262,7 +262,7 @@ class CompositeAlarmActionsSuppressor(dict):
     @pulumi.getter
     def alarm(self) -> _builtins.str:
         """
-        Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+        Can be an AlarmName or an ARN from an existing alarm.
         """
         return pulumi.get(self, "alarm")
 

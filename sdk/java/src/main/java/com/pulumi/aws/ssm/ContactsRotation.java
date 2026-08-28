@@ -220,7 +220,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the SSM Contacts rotation.
+ * - `arn` (String) ARN of the SSM Contacts rotation.
  * 
  * Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `arn`. For example:
  * 
@@ -232,28 +232,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ssm/contactsRotation:ContactsRotation")
 public class ContactsRotation extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the rotation.
+     * ARN of the rotation.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the rotation.
+     * @return ARN of the rotation.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+     * ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
      * 
      */
     @Export(name="contactIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> contactIds;
 
     /**
-     * @return Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+     * @return ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
      * 
      */
     public Output<List<String>> contactIds() {

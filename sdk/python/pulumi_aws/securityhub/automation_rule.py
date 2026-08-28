@@ -401,7 +401,7 @@ class AutomationRule(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Security Hub automation rule.
+        - `arn` (String) ARN of the Security Hub automation rule.
 
         Using `pulumi import`, import Security Hub automation rules using `arn`. For example:
 
@@ -473,7 +473,7 @@ class AutomationRule(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Security Hub automation rule.
+        - `arn` (String) ARN of the Security Hub automation rule.
 
         Using `pulumi import`, import Security Hub automation rules using `arn`. For example:
 

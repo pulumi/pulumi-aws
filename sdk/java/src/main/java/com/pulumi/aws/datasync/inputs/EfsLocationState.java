@@ -18,14 +18,14 @@ public final class EfsLocationState extends com.pulumi.resources.ResourceArgs {
     public static final EfsLocationState Empty = new EfsLocationState();
 
     /**
-     * Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
+     * ARN of the access point that DataSync uses to access the Amazon EFS file system.
      * 
      */
     @Import(name="accessPointArn")
     private @Nullable Output<String> accessPointArn;
 
     /**
-     * @return Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
+     * @return ARN of the access point that DataSync uses to access the Amazon EFS file system.
      * 
      */
     public Optional<Output<String>> accessPointArn() {
@@ -33,14 +33,14 @@ public final class EfsLocationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
+     * ARN of the DataSync Location.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the DataSync Location.
+     * @return ARN of the DataSync Location.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -63,14 +63,14 @@ public final class EfsLocationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of EFS File System.
+     * ARN of EFS File System.
      * 
      */
     @Import(name="efsFileSystemArn")
     private @Nullable Output<String> efsFileSystemArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of EFS File System.
+     * @return ARN of EFS File System.
      * 
      */
     public Optional<Output<String>> efsFileSystemArn() {
@@ -209,7 +209,7 @@ public final class EfsLocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessPointArn Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
+         * @param accessPointArn ARN of the access point that DataSync uses to access the Amazon EFS file system.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class EfsLocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessPointArn Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
+         * @param accessPointArn ARN of the access point that DataSync uses to access the Amazon EFS file system.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class EfsLocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the DataSync Location.
+         * @param arn ARN of the DataSync Location.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class EfsLocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the DataSync Location.
+         * @param arn ARN of the DataSync Location.
          * 
          * @return builder
          * 
@@ -272,7 +272,7 @@ public final class EfsLocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param efsFileSystemArn Amazon Resource Name (ARN) of EFS File System.
+         * @param efsFileSystemArn ARN of EFS File System.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class EfsLocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param efsFileSystemArn Amazon Resource Name (ARN) of EFS File System.
+         * @param efsFileSystemArn ARN of EFS File System.
          * 
          * @return builder
          * 

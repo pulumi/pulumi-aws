@@ -33,14 +33,14 @@ public final class ProtectionGroupState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+     * ARNs of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
      * 
      */
     @Import(name="members")
     private @Nullable Output<List<String>> members;
 
     /**
-     * @return The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+     * @return ARNs of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
      * 
      */
     public Optional<Output<List<String>>> members() {
@@ -63,14 +63,14 @@ public final class ProtectionGroupState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The ARN (Amazon Resource Name) of the protection group.
+     * ARN of the protection group.
      * 
      */
     @Import(name="protectionGroupArn")
     private @Nullable Output<String> protectionGroupArn;
 
     /**
-     * @return The ARN (Amazon Resource Name) of the protection group.
+     * @return ARN of the protection group.
      * 
      */
     public Optional<Output<String>> protectionGroupArn() {
@@ -190,7 +190,7 @@ public final class ProtectionGroupState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param members The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+         * @param members ARNs of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class ProtectionGroupState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param members The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+         * @param members ARNs of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class ProtectionGroupState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param members The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+         * @param members ARNs of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class ProtectionGroupState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param protectionGroupArn The ARN (Amazon Resource Name) of the protection group.
+         * @param protectionGroupArn ARN of the protection group.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class ProtectionGroupState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param protectionGroupArn The ARN (Amazon Resource Name) of the protection group.
+         * @param protectionGroupArn ARN of the protection group.
          * 
          * @return builder
          * 

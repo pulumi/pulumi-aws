@@ -272,7 +272,7 @@ namespace Pulumi.Aws.Batch
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the compute environment.
+    /// - `Arn` (String) ARN of the compute environment.
     /// 
     /// Using `pulumi import`, import AWS Batch compute using the `Name`. For example:
     /// 
@@ -284,7 +284,7 @@ namespace Pulumi.Aws.Batch
     public partial class ComputeEnvironment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the compute environment.
+        /// ARN of the compute environment.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -296,7 +296,7 @@ namespace Pulumi.Aws.Batch
         public Output<Outputs.ComputeEnvironmentComputeResources> ComputeResources { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
+        /// ARN of the underlying Amazon ECS cluster used by the compute environment.
         /// </summary>
         [Output("ecsClusterArn")]
         public Output<string> EcsClusterArn { get; private set; } = null!;
@@ -326,7 +326,7 @@ namespace Pulumi.Aws.Batch
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+        /// Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         /// </summary>
         [Output("serviceRole")]
         public Output<string> ServiceRole { get; private set; } = null!;
@@ -450,7 +450,7 @@ namespace Pulumi.Aws.Batch
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+        /// Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         /// </summary>
         [Input("serviceRole")]
         public Input<string>? ServiceRole { get; set; }
@@ -494,7 +494,7 @@ namespace Pulumi.Aws.Batch
     public sealed class ComputeEnvironmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the compute environment.
+        /// ARN of the compute environment.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -506,7 +506,7 @@ namespace Pulumi.Aws.Batch
         public Input<Inputs.ComputeEnvironmentComputeResourcesGetArgs>? ComputeResources { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
+        /// ARN of the underlying Amazon ECS cluster used by the compute environment.
         /// </summary>
         [Input("ecsClusterArn")]
         public Input<string>? EcsClusterArn { get; set; }
@@ -536,7 +536,7 @@ namespace Pulumi.Aws.Batch
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+        /// Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         /// </summary>
         [Input("serviceRole")]
         public Input<string>? ServiceRole { get; set; }

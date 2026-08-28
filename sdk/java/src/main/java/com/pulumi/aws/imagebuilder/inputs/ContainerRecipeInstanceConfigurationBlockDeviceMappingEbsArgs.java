@@ -62,14 +62,14 @@ public final class ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+     * ARN of the KMS Key for encryption.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+     * @return ARN of the KMS Key for encryption.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -231,7 +231,7 @@ public final class ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs
         }
 
         /**
-         * @param kmsKeyId Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+         * @param kmsKeyId ARN of the KMS Key for encryption.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs
         }
 
         /**
-         * @param kmsKeyId Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+         * @param kmsKeyId ARN of the KMS Key for encryption.
          * 
          * @return builder
          * 

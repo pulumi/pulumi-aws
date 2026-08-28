@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetNetworkPeeringConnectionsOdbPeeringConnection {
     /**
-     * @return Amazon Resource Name (ARN) for the ODB network peering connection.
+     * @return ARN for the ODB network peering connection.
      * 
      */
     private String arn;
@@ -38,7 +38,7 @@ public final class GetNetworkPeeringConnectionsOdbPeeringConnection {
 
     private GetNetworkPeeringConnectionsOdbPeeringConnection() {}
     /**
-     * @return Amazon Resource Name (ARN) for the ODB network peering connection.
+     * @return ARN for the ODB network peering connection.
      * 
      */
     public String arn() {

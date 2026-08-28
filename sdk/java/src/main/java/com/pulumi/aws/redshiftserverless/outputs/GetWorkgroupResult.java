@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetWorkgroupResult {
     /**
-     * @return Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+     * @return ARN of the Redshift Serverless Workgroup.
      * 
      */
     private String arn;
@@ -24,7 +24,7 @@ public final class GetWorkgroupResult {
      */
     private List<GetWorkgroupEndpoint> endpoints;
     /**
-     * @return The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+     * @return Value that specifies whether to turn on enhanced VPC routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
      * 
      */
     private Boolean enhancedVpcRouting;
@@ -64,7 +64,7 @@ public final class GetWorkgroupResult {
 
     private GetWorkgroupResult() {}
     /**
-     * @return Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+     * @return ARN of the Redshift Serverless Workgroup.
      * 
      */
     public String arn() {
@@ -78,7 +78,7 @@ public final class GetWorkgroupResult {
         return this.endpoints;
     }
     /**
-     * @return The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+     * @return Value that specifies whether to turn on enhanced VPC routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
      * 
      */
     public Boolean enhancedVpcRouting() {

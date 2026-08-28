@@ -60,7 +60,7 @@ export class VirtualMfaDevice extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
+     * ARN, which is also the serial number, of the virtual MFA device.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -149,7 +149,7 @@ export class VirtualMfaDevice extends pulumi.CustomResource {
  */
 export interface VirtualMfaDeviceState {
     /**
-     * Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
+     * ARN, which is also the serial number, of the virtual MFA device.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

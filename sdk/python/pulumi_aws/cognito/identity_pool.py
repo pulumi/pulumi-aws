@@ -42,7 +42,7 @@ class IdentityPoolArgs:
                backend and the Cognito service to communicate about the developer provider.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] openid_connect_provider_arns: Set of OpendID Connect provider ARNs.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] saml_provider_arns: An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] saml_provider_arns: An array of ARNs of the SAML provider for your identity.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] supported_login_providers: Key-Value pairs mapping provider names to provider app IDs.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the Identity Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -155,7 +155,7 @@ class IdentityPoolArgs:
     @pulumi.getter(name="samlProviderArns")
     def saml_provider_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+        An array of ARNs of the SAML provider for your identity.
         """
         return pulumi.get(self, "saml_provider_arns")
 
@@ -215,7 +215,7 @@ class _IdentityPoolState:
         :param pulumi.Input[_builtins.str] identity_pool_name: The Cognito Identity Pool name.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] openid_connect_provider_arns: Set of OpendID Connect provider ARNs.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] saml_provider_arns: An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] saml_provider_arns: An array of ARNs of the SAML provider for your identity.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] supported_login_providers: Key-Value pairs mapping provider names to provider app IDs.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the Identity Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -346,7 +346,7 @@ class _IdentityPoolState:
     @pulumi.getter(name="samlProviderArns")
     def saml_provider_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+        An array of ARNs of the SAML provider for your identity.
         """
         return pulumi.get(self, "saml_provider_arns")
 
@@ -464,7 +464,7 @@ class IdentityPool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] identity_pool_name: The Cognito Identity Pool name.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] openid_connect_provider_arns: Set of OpendID Connect provider ARNs.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] saml_provider_arns: An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] saml_provider_arns: An array of ARNs of the SAML provider for your identity.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] supported_login_providers: Key-Value pairs mapping provider names to provider app IDs.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the Identity Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -606,7 +606,7 @@ class IdentityPool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] identity_pool_name: The Cognito Identity Pool name.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] openid_connect_provider_arns: Set of OpendID Connect provider ARNs.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] saml_provider_arns: An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] saml_provider_arns: An array of ARNs of the SAML provider for your identity.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] supported_login_providers: Key-Value pairs mapping provider names to provider app IDs.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the Identity Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -698,7 +698,7 @@ class IdentityPool(pulumi.CustomResource):
     @pulumi.getter(name="samlProviderArns")
     def saml_provider_arns(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+        An array of ARNs of the SAML provider for your identity.
         """
         return pulumi.get(self, "saml_provider_arns")
 

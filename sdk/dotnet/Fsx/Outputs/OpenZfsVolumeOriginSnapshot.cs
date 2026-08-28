@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Fsx.Outputs
         /// </summary>
         public readonly string CopyStrategy;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the origin snapshot.
+        /// The ARN of the origin snapshot.
         /// </summary>
         public readonly string SnapshotArn;
 

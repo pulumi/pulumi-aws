@@ -46,7 +46,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the Glue registry.
+// - `arn` (String) ARN of the Glue registry.
 //
 // Using `pulumi import`, import Glue Registries using `arn`. For example:
 //
@@ -56,7 +56,7 @@ import (
 type Registry struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of Glue Registry.
+	// ARN of Glue Registry.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A description of the registry.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -103,7 +103,7 @@ func GetRegistry(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Registry resources.
 type registryState struct {
-	// Amazon Resource Name (ARN) of Glue Registry.
+	// ARN of Glue Registry.
 	Arn *string `pulumi:"arn"`
 	// A description of the registry.
 	Description *string `pulumi:"description"`
@@ -118,7 +118,7 @@ type registryState struct {
 }
 
 type RegistryState struct {
-	// Amazon Resource Name (ARN) of Glue Registry.
+	// ARN of Glue Registry.
 	Arn pulumi.StringPtrInput
 	// A description of the registry.
 	Description pulumi.StringPtrInput
@@ -246,7 +246,7 @@ func (o RegistryOutput) ToRegistryOutputWithContext(ctx context.Context) Registr
 	return o
 }
 
-// Amazon Resource Name (ARN) of Glue Registry.
+// ARN of Glue Registry.
 func (o RegistryOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

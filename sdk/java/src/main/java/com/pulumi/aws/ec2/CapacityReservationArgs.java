@@ -159,14 +159,14 @@ public final class CapacityReservationArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+     * ARN of the Outpost on which to create the Capacity Reservation.
      * 
      */
     @Import(name="outpostArn")
     private @Nullable Output<String> outpostArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+     * @return ARN of the Outpost on which to create the Capacity Reservation.
      * 
      */
     public Optional<Output<String>> outpostArn() {
@@ -174,14 +174,14 @@ public final class CapacityReservationArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+     * ARN of the cluster placement group in which to create the Capacity Reservation.
      * 
      */
     @Import(name="placementGroupArn")
     private @Nullable Output<String> placementGroupArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+     * @return ARN of the cluster placement group in which to create the Capacity Reservation.
      * 
      */
     public Optional<Output<String>> placementGroupArn() {
@@ -500,7 +500,7 @@ public final class CapacityReservationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param outpostArn The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+         * @param outpostArn ARN of the Outpost on which to create the Capacity Reservation.
          * 
          * @return builder
          * 
@@ -511,7 +511,7 @@ public final class CapacityReservationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param outpostArn The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+         * @param outpostArn ARN of the Outpost on which to create the Capacity Reservation.
          * 
          * @return builder
          * 
@@ -521,7 +521,7 @@ public final class CapacityReservationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param placementGroupArn The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+         * @param placementGroupArn ARN of the cluster placement group in which to create the Capacity Reservation.
          * 
          * @return builder
          * 
@@ -532,7 +532,7 @@ public final class CapacityReservationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param placementGroupArn The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+         * @param placementGroupArn ARN of the cluster placement group in which to create the Capacity Reservation.
          * 
          * @return builder
          * 

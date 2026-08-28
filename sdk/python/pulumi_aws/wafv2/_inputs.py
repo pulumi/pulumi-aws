@@ -4676,7 +4676,7 @@ class RuleGroupRuleStatementGeoMatchStatementForwardedIpConfigArgs:
 class RuleGroupRuleStatementIpSetReferenceStatementArgsDict(TypedDict):
     arn: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the IP Set that this statement references.
+    ARN of the IP Set that this statement references.
     """
     ip_set_forwarded_ip_config: NotRequired[pulumi.Input[Optional['RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigArgsDict']]]
     """
@@ -4689,7 +4689,7 @@ class RuleGroupRuleStatementIpSetReferenceStatementArgs:
                  arn: pulumi.Input[_builtins.str],
                  ip_set_forwarded_ip_config: pulumi.Input[Optional['RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs']] = None):
         """
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        :param pulumi.Input[_builtins.str] arn: ARN of the IP Set that this statement references.
         :param pulumi.Input['RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs'] ip_set_forwarded_ip_config: The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
         """
         pulumi.set(__self__, "arn", arn)
@@ -4700,7 +4700,7 @@ class RuleGroupRuleStatementIpSetReferenceStatementArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        ARN of the IP Set that this statement references.
         """
         return pulumi.get(self, "arn")
 
@@ -7487,7 +7487,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatemen
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgsDict(TypedDict):
     arn: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the IP Set that this statement references.
+    ARN of the IP Set that this statement references.
     """
     ip_set_forwarded_ip_config: NotRequired[pulumi.Input[Optional['RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfigArgsDict']]]
     """
@@ -7500,7 +7500,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceSt
                  arn: pulumi.Input[_builtins.str],
                  ip_set_forwarded_ip_config: pulumi.Input[Optional['RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs']] = None):
         """
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        :param pulumi.Input[_builtins.str] arn: ARN of the IP Set that this statement references.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs'] ip_set_forwarded_ip_config: The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
         """
         pulumi.set(__self__, "arn", arn)
@@ -7511,7 +7511,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceSt
     @pulumi.getter
     def arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        ARN of the IP Set that this statement references.
         """
         return pulumi.get(self, "arn")
 
@@ -8817,7 +8817,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementArgsDict(TypedDict):
     arn: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+    ARN of the Regex Pattern Set that this statement references.
     """
     text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArgsDict']]]
     """
@@ -8842,7 +8842,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
                  field_to_match: pulumi.Input[Optional['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs']] = None,
                  pre_parse_text_transformations: pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs']]]] = None):
         """
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Regex Pattern Set that this statement references.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
@@ -8860,7 +8860,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @pulumi.getter
     def arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+        ARN of the Regex Pattern Set that this statement references.
         """
         return pulumi.get(self, "arn")
 
@@ -14383,7 +14383,7 @@ class RuleGroupRuleStatementRegexMatchStatementTextTransformationArgs:
 class RuleGroupRuleStatementRegexPatternSetReferenceStatementArgsDict(TypedDict):
     arn: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+    ARN of the Regex Pattern Set that this statement references.
     """
     text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformationArgsDict']]]
     """
@@ -14408,7 +14408,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs:
                  field_to_match: pulumi.Input[Optional['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs']] = None,
                  pre_parse_text_transformations: pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs']]]] = None):
         """
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Regex Pattern Set that this statement references.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
@@ -14426,7 +14426,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+        ARN of the Regex Pattern Set that this statement references.
         """
         return pulumi.get(self, "arn")
 

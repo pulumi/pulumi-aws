@@ -191,28 +191,28 @@ public class CapacityProvider extends com.pulumi.resources.CustomResource {
         return this.instanceRequirements;
     }
     /**
-     * ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+     * ARN of the KMS key used to encrypt the Capacity Provider.
      * 
      */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyArn;
 
     /**
-     * @return ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+     * @return ARN of the KMS key used to encrypt the Capacity Provider.
      * 
      */
     public Output<Optional<String>> kmsKeyArn() {
         return Codegen.optional(this.kmsKeyArn);
     }
     /**
-     * The name of the Capacity Provider.
+     * Name of the Capacity Provider.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the Capacity Provider.
+     * @return Name of the Capacity Provider.
      * 
      */
     public Output<String> name() {
@@ -221,16 +221,12 @@ public class CapacityProvider extends com.pulumi.resources.CustomResource {
     /**
      * Configuration block for permissions settings. See Permissions Config below.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="permissionsConfig", refs={CapacityProviderPermissionsConfig.class}, tree="[0]")
     private Output<CapacityProviderPermissionsConfig> permissionsConfig;
 
     /**
      * @return Configuration block for permissions settings. See Permissions Config below.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<CapacityProviderPermissionsConfig> permissionsConfig() {
@@ -287,12 +283,16 @@ public class CapacityProvider extends com.pulumi.resources.CustomResource {
     /**
      * Configuration block for VPC settings. See VPC Config below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="vpcConfig", refs={CapacityProviderVpcConfig.class}, tree="[0]")
     private Output<CapacityProviderVpcConfig> vpcConfig;
 
     /**
      * @return Configuration block for VPC settings. See VPC Config below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<CapacityProviderVpcConfig> vpcConfig() {

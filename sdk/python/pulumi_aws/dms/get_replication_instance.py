@@ -129,7 +129,7 @@ class GetReplicationInstanceResult:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) for the KMS key used to encrypt the connection parameters.
+        ARN for the KMS key used to encrypt the connection parameters.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -174,7 +174,7 @@ class GetReplicationInstanceResult:
     @pulumi.getter(name="replicationInstanceArn")
     def replication_instance_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the replication instance.
+        ARN of the replication instance.
         """
         return pulumi.get(self, "replication_instance_arn")
 

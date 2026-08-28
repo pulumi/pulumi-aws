@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TaskTaskReportConfigS3Destination {
     /**
-     * @return Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
+     * @return ARN of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
      * 
      */
     private String bucketAccessRoleArn;
@@ -30,7 +30,7 @@ public final class TaskTaskReportConfigS3Destination {
 
     private TaskTaskReportConfigS3Destination() {}
     /**
-     * @return Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
+     * @return ARN of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
      * 
      */
     public String bucketAccessRoleArn() {

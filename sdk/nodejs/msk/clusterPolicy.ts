@@ -76,7 +76,7 @@ export class ClusterPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+     * ARN that uniquely identifies the cluster.
      */
     declare public readonly clusterArn: pulumi.Output<string>;
     declare public /*out*/ readonly currentVersion: pulumi.Output<string>;
@@ -129,7 +129,7 @@ export class ClusterPolicy extends pulumi.CustomResource {
  */
 export interface ClusterPolicyState {
     /**
-     * The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+     * ARN that uniquely identifies the cluster.
      */
     clusterArn?: pulumi.Input<string | undefined>;
     currentVersion?: pulumi.Input<string | undefined>;
@@ -148,7 +148,7 @@ export interface ClusterPolicyState {
  */
 export interface ClusterPolicyArgs {
     /**
-     * The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+     * ARN that uniquely identifies the cluster.
      */
     clusterArn: pulumi.Input<string>;
     /**

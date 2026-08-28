@@ -18,14 +18,14 @@ public final class RuleGroupRuleStatementIpSetReferenceStatementArgs extends com
     public static final RuleGroupRuleStatementIpSetReferenceStatementArgs Empty = new RuleGroupRuleStatementIpSetReferenceStatementArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+     * ARN of the IP Set that this statement references.
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IP Set that this statement references.
+     * @return ARN of the IP Set that this statement references.
      * 
      */
     public Output<String> arn() {
@@ -73,7 +73,7 @@ public final class RuleGroupRuleStatementIpSetReferenceStatementArgs extends com
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         * @param arn ARN of the IP Set that this statement references.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class RuleGroupRuleStatementIpSetReferenceStatementArgs extends com
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         * @param arn ARN of the IP Set that this statement references.
          * 
          * @return builder
          * 

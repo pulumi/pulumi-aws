@@ -68,9 +68,9 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the Image Builder infrastructure configuration.
+// - `arn` (String) ARN of the Image Builder infrastructure configuration.
 //
-// Using `pulumi import`, import `imagebuilder.InfrastructureConfiguration` using the Amazon Resource Name (ARN). For example:
+// Using `pulumi import`, import `imagebuilder.InfrastructureConfiguration` using the ARN. For example:
 //
 // ```sh
 // $ pulumi import aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
@@ -78,7 +78,7 @@ import (
 type InfrastructureConfiguration struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the configuration.
+	// ARN of the configuration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Date when the configuration was created.
 	DateCreated pulumi.StringOutput `pulumi:"dateCreated"`
@@ -108,7 +108,7 @@ type InfrastructureConfiguration struct {
 	ResourceTags pulumi.StringMapOutput `pulumi:"resourceTags"`
 	// Set of EC2 Security Group identifiers.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// Amazon Resource Name (ARN) of SNS Topic.
+	// ARN of SNS Topic.
 	SnsTopicArn pulumi.StringPtrOutput `pulumi:"snsTopicArn"`
 	// EC2 Subnet identifier. Also requires `securityGroupIds` argument.
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
@@ -153,7 +153,7 @@ func GetInfrastructureConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InfrastructureConfiguration resources.
 type infrastructureConfigurationState struct {
-	// Amazon Resource Name (ARN) of the configuration.
+	// ARN of the configuration.
 	Arn *string `pulumi:"arn"`
 	// Date when the configuration was created.
 	DateCreated *string `pulumi:"dateCreated"`
@@ -183,7 +183,7 @@ type infrastructureConfigurationState struct {
 	ResourceTags map[string]string `pulumi:"resourceTags"`
 	// Set of EC2 Security Group identifiers.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// Amazon Resource Name (ARN) of SNS Topic.
+	// ARN of SNS Topic.
 	SnsTopicArn *string `pulumi:"snsTopicArn"`
 	// EC2 Subnet identifier. Also requires `securityGroupIds` argument.
 	SubnetId *string `pulumi:"subnetId"`
@@ -196,7 +196,7 @@ type infrastructureConfigurationState struct {
 }
 
 type InfrastructureConfigurationState struct {
-	// Amazon Resource Name (ARN) of the configuration.
+	// ARN of the configuration.
 	Arn pulumi.StringPtrInput
 	// Date when the configuration was created.
 	DateCreated pulumi.StringPtrInput
@@ -226,7 +226,7 @@ type InfrastructureConfigurationState struct {
 	ResourceTags pulumi.StringMapInput
 	// Set of EC2 Security Group identifiers.
 	SecurityGroupIds pulumi.StringArrayInput
-	// Amazon Resource Name (ARN) of SNS Topic.
+	// ARN of SNS Topic.
 	SnsTopicArn pulumi.StringPtrInput
 	// EC2 Subnet identifier. Also requires `securityGroupIds` argument.
 	SubnetId pulumi.StringPtrInput
@@ -267,7 +267,7 @@ type infrastructureConfigurationArgs struct {
 	ResourceTags map[string]string `pulumi:"resourceTags"`
 	// Set of EC2 Security Group identifiers.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// Amazon Resource Name (ARN) of SNS Topic.
+	// ARN of SNS Topic.
 	SnsTopicArn *string `pulumi:"snsTopicArn"`
 	// EC2 Subnet identifier. Also requires `securityGroupIds` argument.
 	SubnetId *string `pulumi:"subnetId"`
@@ -303,7 +303,7 @@ type InfrastructureConfigurationArgs struct {
 	ResourceTags pulumi.StringMapInput
 	// Set of EC2 Security Group identifiers.
 	SecurityGroupIds pulumi.StringArrayInput
-	// Amazon Resource Name (ARN) of SNS Topic.
+	// ARN of SNS Topic.
 	SnsTopicArn pulumi.StringPtrInput
 	// EC2 Subnet identifier. Also requires `securityGroupIds` argument.
 	SubnetId pulumi.StringPtrInput
@@ -400,7 +400,7 @@ func (o InfrastructureConfigurationOutput) ToInfrastructureConfigurationOutputWi
 	return o
 }
 
-// Amazon Resource Name (ARN) of the configuration.
+// ARN of the configuration.
 func (o InfrastructureConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -474,7 +474,7 @@ func (o InfrastructureConfigurationOutput) SecurityGroupIds() pulumi.StringArray
 	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// Amazon Resource Name (ARN) of SNS Topic.
+// ARN of SNS Topic.
 func (o InfrastructureConfigurationOutput) SnsTopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringPtrOutput { return v.SnsTopicArn }).(pulumi.StringPtrOutput)
 }

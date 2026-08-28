@@ -123,14 +123,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rds/clusterEndpoint:ClusterEndpoint")
 public class ClusterEndpoint extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of cluster
+     * ARN of cluster
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of cluster
+     * @return ARN of cluster
      * 
      */
     public Output<String> arn() {

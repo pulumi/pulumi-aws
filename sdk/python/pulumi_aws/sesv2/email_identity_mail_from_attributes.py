@@ -26,9 +26,9 @@ class EmailIdentityMailFromAttributesArgs:
         """
         The set of arguments for constructing a EmailIdentityMailFromAttributes resource.
 
-        :param pulumi.Input[_builtins.str] email_identity: The verified email identity.
-        :param pulumi.Input[_builtins.str] behavior_on_mx_failure: The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
-        :param pulumi.Input[_builtins.str] mail_from_domain: The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
+        :param pulumi.Input[_builtins.str] email_identity: Verified email identity.
+        :param pulumi.Input[_builtins.str] behavior_on_mx_failure: Action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
+        :param pulumi.Input[_builtins.str] mail_from_domain: Custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "email_identity", email_identity)
@@ -43,7 +43,7 @@ class EmailIdentityMailFromAttributesArgs:
     @pulumi.getter(name="emailIdentity")
     def email_identity(self) -> pulumi.Input[_builtins.str]:
         """
-        The verified email identity.
+        Verified email identity.
         """
         return pulumi.get(self, "email_identity")
 
@@ -55,7 +55,7 @@ class EmailIdentityMailFromAttributesArgs:
     @pulumi.getter(name="behaviorOnMxFailure")
     def behavior_on_mx_failure(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
+        Action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
         """
         return pulumi.get(self, "behavior_on_mx_failure")
 
@@ -67,7 +67,7 @@ class EmailIdentityMailFromAttributesArgs:
     @pulumi.getter(name="mailFromDomain")
     def mail_from_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
+        Custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
         """
         return pulumi.get(self, "mail_from_domain")
 
@@ -98,9 +98,9 @@ class _EmailIdentityMailFromAttributesState:
         """
         Input properties used for looking up and filtering EmailIdentityMailFromAttributes resources.
 
-        :param pulumi.Input[_builtins.str] behavior_on_mx_failure: The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
-        :param pulumi.Input[_builtins.str] email_identity: The verified email identity.
-        :param pulumi.Input[_builtins.str] mail_from_domain: The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
+        :param pulumi.Input[_builtins.str] behavior_on_mx_failure: Action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
+        :param pulumi.Input[_builtins.str] email_identity: Verified email identity.
+        :param pulumi.Input[_builtins.str] mail_from_domain: Custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if behavior_on_mx_failure is not None:
@@ -116,7 +116,7 @@ class _EmailIdentityMailFromAttributesState:
     @pulumi.getter(name="behaviorOnMxFailure")
     def behavior_on_mx_failure(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
+        Action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
         """
         return pulumi.get(self, "behavior_on_mx_failure")
 
@@ -128,7 +128,7 @@ class _EmailIdentityMailFromAttributesState:
     @pulumi.getter(name="emailIdentity")
     def email_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The verified email identity.
+        Verified email identity.
         """
         return pulumi.get(self, "email_identity")
 
@@ -140,7 +140,7 @@ class _EmailIdentityMailFromAttributesState:
     @pulumi.getter(name="mailFromDomain")
     def mail_from_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
+        Custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
         """
         return pulumi.get(self, "mail_from_domain")
 
@@ -201,9 +201,9 @@ class EmailIdentityMailFromAttributes(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] behavior_on_mx_failure: The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
-        :param pulumi.Input[_builtins.str] email_identity: The verified email identity.
-        :param pulumi.Input[_builtins.str] mail_from_domain: The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
+        :param pulumi.Input[_builtins.str] behavior_on_mx_failure: Action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
+        :param pulumi.Input[_builtins.str] email_identity: Verified email identity.
+        :param pulumi.Input[_builtins.str] mail_from_domain: Custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -294,9 +294,9 @@ class EmailIdentityMailFromAttributes(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] behavior_on_mx_failure: The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
-        :param pulumi.Input[_builtins.str] email_identity: The verified email identity.
-        :param pulumi.Input[_builtins.str] mail_from_domain: The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
+        :param pulumi.Input[_builtins.str] behavior_on_mx_failure: Action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
+        :param pulumi.Input[_builtins.str] email_identity: Verified email identity.
+        :param pulumi.Input[_builtins.str] mail_from_domain: Custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -313,7 +313,7 @@ class EmailIdentityMailFromAttributes(pulumi.CustomResource):
     @pulumi.getter(name="behaviorOnMxFailure")
     def behavior_on_mx_failure(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
+        Action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
         """
         return pulumi.get(self, "behavior_on_mx_failure")
 
@@ -321,7 +321,7 @@ class EmailIdentityMailFromAttributes(pulumi.CustomResource):
     @pulumi.getter(name="emailIdentity")
     def email_identity(self) -> pulumi.Output[_builtins.str]:
         """
-        The verified email identity.
+        Verified email identity.
         """
         return pulumi.get(self, "email_identity")
 
@@ -329,7 +329,7 @@ class EmailIdentityMailFromAttributes(pulumi.CustomResource):
     @pulumi.getter(name="mailFromDomain")
     def mail_from_domain(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
+        Custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
         """
         return pulumi.get(self, "mail_from_domain")
 

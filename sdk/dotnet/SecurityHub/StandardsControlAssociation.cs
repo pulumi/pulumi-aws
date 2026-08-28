@@ -128,7 +128,7 @@ namespace Pulumi.Aws.SecurityHub
         public Output<string> SecurityControlId { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
+        /// ARN of the standard in which you want to update the control's enablement status.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -206,7 +206,7 @@ namespace Pulumi.Aws.SecurityHub
         public Input<string> SecurityControlId { get; set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
+        /// ARN of the standard in which you want to update the control's enablement status.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -246,7 +246,7 @@ namespace Pulumi.Aws.SecurityHub
         public Input<string>? SecurityControlId { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
+        /// ARN of the standard in which you want to update the control's enablement status.
         /// 
         /// The following arguments are optional:
         /// </summary>

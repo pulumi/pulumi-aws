@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? CidrBlock { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of a core network.
+        /// ARN of a core network.
         /// </summary>
         [Input("coreNetworkArn")]
         public Input<string>? CoreNetworkArn { get; set; }
@@ -75,7 +75,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? NetworkInterfaceId { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an ODB network.
+        /// ARN of an ODB network.
         /// </summary>
         [Input("odbNetworkArn")]
         public Input<string>? OdbNetworkArn { get; set; }

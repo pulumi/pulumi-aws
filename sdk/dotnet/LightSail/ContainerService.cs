@@ -192,7 +192,7 @@ namespace Pulumi.Aws.LightSail
         public Output<string> PrincipalArn { get; private set; } = null!;
 
         /// <summary>
-        /// Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
+        /// Private domain name of the container service. The private domain name is accessible only by other resources within the default VPC of your Lightsail account.
         /// </summary>
         [Output("privateDomainName")]
         public Output<string> PrivateDomainName { get; private set; } = null!;
@@ -412,7 +412,7 @@ namespace Pulumi.Aws.LightSail
         public Input<string>? PrincipalArn { get; set; }
 
         /// <summary>
-        /// Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
+        /// Private domain name of the container service. The private domain name is accessible only by other resources within the default VPC of your Lightsail account.
         /// </summary>
         [Input("privateDomainName")]
         public Input<string>? PrivateDomainName { get; set; }

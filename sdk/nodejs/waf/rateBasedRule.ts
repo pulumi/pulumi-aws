@@ -75,7 +75,7 @@ export class RateBasedRule extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN)
+     * ARN
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -158,7 +158,7 @@ export class RateBasedRule extends pulumi.CustomResource {
  */
 export interface RateBasedRuleState {
     /**
-     * Amazon Resource Name (ARN)
+     * ARN
      */
     arn?: pulumi.Input<string | undefined>;
     /**

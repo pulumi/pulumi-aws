@@ -110,7 +110,7 @@ export class ClusterActivityStream extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the DB cluster.
+     * ARN of the DB cluster.
      */
     declare public readonly resourceArn: pulumi.Output<string>;
 
@@ -184,7 +184,7 @@ export interface ClusterActivityStreamState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the DB cluster.
+     * ARN of the DB cluster.
      */
     resourceArn?: pulumi.Input<string | undefined>;
 }
@@ -213,7 +213,7 @@ export interface ClusterActivityStreamArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the DB cluster.
+     * ARN of the DB cluster.
      */
     resourceArn: pulumi.Input<string>;
 }

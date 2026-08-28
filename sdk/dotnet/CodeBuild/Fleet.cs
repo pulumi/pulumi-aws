@@ -71,7 +71,7 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the CodeBuild fleet.
+    /// - `Arn` (String) ARN of the CodeBuild fleet.
     /// 
     /// Using `pulumi import`, import CodeBuild Fleet using the `Name`. For example:
     /// 
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.CodeBuild
         public Output<string?> FleetServiceRole { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Machine Image (AMI) of the compute fleet.
+        /// AMI of the compute fleet.
         /// </summary>
         [Output("imageId")]
         public Output<string?> ImageId { get; private set; } = null!;
@@ -262,7 +262,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? FleetServiceRole { get; set; }
 
         /// <summary>
-        /// The Amazon Machine Image (AMI) of the compute fleet.
+        /// AMI of the compute fleet.
         /// </summary>
         [Input("imageId")]
         public Input<string>? ImageId { get; set; }
@@ -368,7 +368,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? FleetServiceRole { get; set; }
 
         /// <summary>
-        /// The Amazon Machine Image (AMI) of the compute fleet.
+        /// AMI of the compute fleet.
         /// </summary>
         [Input("imageId")]
         public Input<string>? ImageId { get; set; }

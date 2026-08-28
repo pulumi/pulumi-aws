@@ -154,7 +154,7 @@ namespace Pulumi.Aws.SecurityHub
     public partial class FindingAggregator : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Security Hub finding aggregator.
+        /// ARN of the Security Hub finding aggregator.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -256,7 +256,7 @@ namespace Pulumi.Aws.SecurityHub
     public sealed class FindingAggregatorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Security Hub finding aggregator.
+        /// ARN of the Security Hub finding aggregator.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

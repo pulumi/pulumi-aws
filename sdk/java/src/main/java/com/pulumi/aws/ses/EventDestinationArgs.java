@@ -37,14 +37,14 @@ public final class EventDestinationArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name of the configuration set
+     * Name of the configuration set
      * 
      */
     @Import(name="configurationSetName", required=true)
     private Output<String> configurationSetName;
 
     /**
-     * @return The name of the configuration set
+     * @return Name of the configuration set
      * 
      */
     public Output<String> configurationSetName() {
@@ -82,14 +82,14 @@ public final class EventDestinationArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A list of matching types. May be any of `&#34;send&#34;`, `&#34;reject&#34;`, `&#34;bounce&#34;`, `&#34;complaint&#34;`, `&#34;delivery&#34;`, `&#34;open&#34;`, `&#34;click&#34;`, or `&#34;renderingFailure&#34;`.
+     * List of matching types. May be any of `&#34;send&#34;`, `&#34;reject&#34;`, `&#34;bounce&#34;`, `&#34;complaint&#34;`, `&#34;delivery&#34;`, `&#34;open&#34;`, `&#34;click&#34;`, or `&#34;renderingFailure&#34;`.
      * 
      */
     @Import(name="matchingTypes", required=true)
     private Output<List<String>> matchingTypes;
 
     /**
-     * @return A list of matching types. May be any of `&#34;send&#34;`, `&#34;reject&#34;`, `&#34;bounce&#34;`, `&#34;complaint&#34;`, `&#34;delivery&#34;`, `&#34;open&#34;`, `&#34;click&#34;`, or `&#34;renderingFailure&#34;`.
+     * @return List of matching types. May be any of `&#34;send&#34;`, `&#34;reject&#34;`, `&#34;bounce&#34;`, `&#34;complaint&#34;`, `&#34;delivery&#34;`, `&#34;open&#34;`, `&#34;click&#34;`, or `&#34;renderingFailure&#34;`.
      * 
      */
     public Output<List<String>> matchingTypes() {
@@ -97,14 +97,14 @@ public final class EventDestinationArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name of the event destination
+     * Name of the event destination
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the event destination
+     * @return Name of the event destination
      * 
      */
     public Optional<Output<String>> name() {
@@ -208,7 +208,7 @@ public final class EventDestinationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param configurationSetName The name of the configuration set
+         * @param configurationSetName Name of the configuration set
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class EventDestinationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param configurationSetName The name of the configuration set
+         * @param configurationSetName Name of the configuration set
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class EventDestinationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param matchingTypes A list of matching types. May be any of `&#34;send&#34;`, `&#34;reject&#34;`, `&#34;bounce&#34;`, `&#34;complaint&#34;`, `&#34;delivery&#34;`, `&#34;open&#34;`, `&#34;click&#34;`, or `&#34;renderingFailure&#34;`.
+         * @param matchingTypes List of matching types. May be any of `&#34;send&#34;`, `&#34;reject&#34;`, `&#34;bounce&#34;`, `&#34;complaint&#34;`, `&#34;delivery&#34;`, `&#34;open&#34;`, `&#34;click&#34;`, or `&#34;renderingFailure&#34;`.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class EventDestinationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param matchingTypes A list of matching types. May be any of `&#34;send&#34;`, `&#34;reject&#34;`, `&#34;bounce&#34;`, `&#34;complaint&#34;`, `&#34;delivery&#34;`, `&#34;open&#34;`, `&#34;click&#34;`, or `&#34;renderingFailure&#34;`.
+         * @param matchingTypes List of matching types. May be any of `&#34;send&#34;`, `&#34;reject&#34;`, `&#34;bounce&#34;`, `&#34;complaint&#34;`, `&#34;delivery&#34;`, `&#34;open&#34;`, `&#34;click&#34;`, or `&#34;renderingFailure&#34;`.
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class EventDestinationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param matchingTypes A list of matching types. May be any of `&#34;send&#34;`, `&#34;reject&#34;`, `&#34;bounce&#34;`, `&#34;complaint&#34;`, `&#34;delivery&#34;`, `&#34;open&#34;`, `&#34;click&#34;`, or `&#34;renderingFailure&#34;`.
+         * @param matchingTypes List of matching types. May be any of `&#34;send&#34;`, `&#34;reject&#34;`, `&#34;bounce&#34;`, `&#34;complaint&#34;`, `&#34;delivery&#34;`, `&#34;open&#34;`, `&#34;click&#34;`, or `&#34;renderingFailure&#34;`.
          * 
          * @return builder
          * 
@@ -302,7 +302,7 @@ public final class EventDestinationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of the event destination
+         * @param name Name of the event destination
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class EventDestinationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of the event destination
+         * @param name Name of the event destination
          * 
          * @return builder
          * 

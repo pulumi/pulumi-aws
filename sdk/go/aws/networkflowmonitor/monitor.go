@@ -80,7 +80,7 @@ type Monitor struct {
 
 	// The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
 	LocalResources MonitorLocalResourceArrayOutput `pulumi:"localResources"`
-	// The Amazon Resource Name (ARN) of the monitor.
+	// ARN of the monitor.
 	MonitorArn pulumi.StringOutput `pulumi:"monitorArn"`
 	// The name of the monitor. Cannot be changed after creation.
 	MonitorName pulumi.StringOutput `pulumi:"monitorName"`
@@ -88,7 +88,7 @@ type Monitor struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The remote resources to monitor. A remote resource is the other endpoint specified for the network flow of a workload, with a local resource.
 	RemoteResources MonitorRemoteResourceArrayOutput `pulumi:"remoteResources"`
-	// The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
+	// ARN of the scope for the monitor. Cannot be changed after creation.
 	//
 	// The following arguments are optional:
 	ScopeArn pulumi.StringOutput `pulumi:"scopeArn"`
@@ -140,7 +140,7 @@ func GetMonitor(ctx *pulumi.Context,
 type monitorState struct {
 	// The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
 	LocalResources []MonitorLocalResource `pulumi:"localResources"`
-	// The Amazon Resource Name (ARN) of the monitor.
+	// ARN of the monitor.
 	MonitorArn *string `pulumi:"monitorArn"`
 	// The name of the monitor. Cannot be changed after creation.
 	MonitorName *string `pulumi:"monitorName"`
@@ -148,7 +148,7 @@ type monitorState struct {
 	Region *string `pulumi:"region"`
 	// The remote resources to monitor. A remote resource is the other endpoint specified for the network flow of a workload, with a local resource.
 	RemoteResources []MonitorRemoteResource `pulumi:"remoteResources"`
-	// The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
+	// ARN of the scope for the monitor. Cannot be changed after creation.
 	//
 	// The following arguments are optional:
 	ScopeArn *string `pulumi:"scopeArn"`
@@ -162,7 +162,7 @@ type monitorState struct {
 type MonitorState struct {
 	// The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
 	LocalResources MonitorLocalResourceArrayInput
-	// The Amazon Resource Name (ARN) of the monitor.
+	// ARN of the monitor.
 	MonitorArn pulumi.StringPtrInput
 	// The name of the monitor. Cannot be changed after creation.
 	MonitorName pulumi.StringPtrInput
@@ -170,7 +170,7 @@ type MonitorState struct {
 	Region pulumi.StringPtrInput
 	// The remote resources to monitor. A remote resource is the other endpoint specified for the network flow of a workload, with a local resource.
 	RemoteResources MonitorRemoteResourceArrayInput
-	// The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
+	// ARN of the scope for the monitor. Cannot be changed after creation.
 	//
 	// The following arguments are optional:
 	ScopeArn pulumi.StringPtrInput
@@ -194,7 +194,7 @@ type monitorArgs struct {
 	Region *string `pulumi:"region"`
 	// The remote resources to monitor. A remote resource is the other endpoint specified for the network flow of a workload, with a local resource.
 	RemoteResources []MonitorRemoteResource `pulumi:"remoteResources"`
-	// The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
+	// ARN of the scope for the monitor. Cannot be changed after creation.
 	//
 	// The following arguments are optional:
 	ScopeArn string `pulumi:"scopeArn"`
@@ -213,7 +213,7 @@ type MonitorArgs struct {
 	Region pulumi.StringPtrInput
 	// The remote resources to monitor. A remote resource is the other endpoint specified for the network flow of a workload, with a local resource.
 	RemoteResources MonitorRemoteResourceArrayInput
-	// The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
+	// ARN of the scope for the monitor. Cannot be changed after creation.
 	//
 	// The following arguments are optional:
 	ScopeArn pulumi.StringInput
@@ -314,7 +314,7 @@ func (o MonitorOutput) LocalResources() MonitorLocalResourceArrayOutput {
 	return o.ApplyT(func(v *Monitor) MonitorLocalResourceArrayOutput { return v.LocalResources }).(MonitorLocalResourceArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the monitor.
+// ARN of the monitor.
 func (o MonitorOutput) MonitorArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.MonitorArn }).(pulumi.StringOutput)
 }
@@ -334,7 +334,7 @@ func (o MonitorOutput) RemoteResources() MonitorRemoteResourceArrayOutput {
 	return o.ApplyT(func(v *Monitor) MonitorRemoteResourceArrayOutput { return v.RemoteResources }).(MonitorRemoteResourceArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
+// ARN of the scope for the monitor. Cannot be changed after creation.
 //
 // The following arguments are optional:
 func (o MonitorOutput) ScopeArn() pulumi.StringOutput {

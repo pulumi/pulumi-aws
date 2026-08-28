@@ -101,10 +101,21 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Bedrock AgentCore Memory using the memory ID. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Id` (String) Memory ID.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) Account ID where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import memories using `Id`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:bedrock/agentcoreMemory:AgentcoreMemory example MEMORY1234567890
+    /// $ pulumi import aws:bedrock/agentcoreMemory:AgentcoreMemory example example_memory-5xKsqQHSWW
     /// ```
     /// </summary>
     [AwsResourceType("aws:bedrock/agentcoreMemory:AgentcoreMemory")]
@@ -135,7 +146,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<int> EventExpiryDuration { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `IndexedKey` below.
+        /// Metadata keys to index for filtering. Up to 10 entries. Additional keys can be added in place; removing or changing an existing key forces a new resource to be created, because previously indexed keys cannot be removed. See `IndexedKey` Block below.
         /// </summary>
         [Output("indexedKeys")]
         public Output<ImmutableArray<Outputs.AgentcoreMemoryIndexedKey>> IndexedKeys { get; private set; } = null!;
@@ -161,7 +172,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration for streaming memory record data to external resources. See `StreamDeliveryResources` below.
+        /// Configuration for streaming memory record data to external resources. See `StreamDeliveryResources` Block below.
         /// </summary>
         [Output("streamDeliveryResources")]
         public Output<Outputs.AgentcoreMemoryStreamDeliveryResources?> StreamDeliveryResources { get; private set; } = null!;
@@ -173,7 +184,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -249,7 +260,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentcoreMemoryIndexedKeyArgs>? _indexedKeys;
 
         /// <summary>
-        /// Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `IndexedKey` below.
+        /// Metadata keys to index for filtering. Up to 10 entries. Additional keys can be added in place; removing or changing an existing key forces a new resource to be created, because previously indexed keys cannot be removed. See `IndexedKey` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreMemoryIndexedKeyArgs> IndexedKeys
         {
@@ -278,7 +289,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Configuration for streaming memory record data to external resources. See `StreamDeliveryResources` below.
+        /// Configuration for streaming memory record data to external resources. See `StreamDeliveryResources` Block below.
         /// </summary>
         [Input("streamDeliveryResources")]
         public Input<Inputs.AgentcoreMemoryStreamDeliveryResourcesArgs>? StreamDeliveryResources { get; set; }
@@ -334,7 +345,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentcoreMemoryIndexedKeyGetArgs>? _indexedKeys;
 
         /// <summary>
-        /// Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `IndexedKey` below.
+        /// Metadata keys to index for filtering. Up to 10 entries. Additional keys can be added in place; removing or changing an existing key forces a new resource to be created, because previously indexed keys cannot be removed. See `IndexedKey` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreMemoryIndexedKeyGetArgs> IndexedKeys
         {
@@ -363,7 +374,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Configuration for streaming memory record data to external resources. See `StreamDeliveryResources` below.
+        /// Configuration for streaming memory record data to external resources. See `StreamDeliveryResources` Block below.
         /// </summary>
         [Input("streamDeliveryResources")]
         public Input<Inputs.AgentcoreMemoryStreamDeliveryResourcesGetArgs>? StreamDeliveryResources { get; set; }
@@ -384,7 +395,7 @@ namespace Pulumi.Aws.Bedrock
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

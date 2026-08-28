@@ -61,7 +61,7 @@ class GetAppregistryApplicationResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        ARN (Amazon Resource Name) of the application.
+        ARN of the application.
         """
         return pulumi.get(self, "arn")
 

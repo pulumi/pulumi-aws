@@ -45,7 +45,7 @@ class EventTargetArgs:
         """
         The set of arguments for constructing a EventTarget resource.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the target.
+        :param pulumi.Input[_builtins.str] arn: ARN of the target.
         :param pulumi.Input[_builtins.str] rule: The name of the rule you want to add targets to.
                
                The following arguments are optional:
@@ -64,7 +64,7 @@ class EventTargetArgs:
         :param pulumi.Input['EventTargetRedshiftTargetArgs'] redshift_target: Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['EventTargetRetryPolicyArgs'] retry_policy: Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         :param pulumi.Input[Sequence[pulumi.Input['EventTargetRunCommandTargetArgs']]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
         :param pulumi.Input['EventTargetSagemakerPipelineTargetArgs'] sagemaker_pipeline_target: Parameters used when you are using the rule to invoke an Amazon SageMaker AI Pipeline. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input['EventTargetSqsTargetArgs'] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
@@ -115,7 +115,7 @@ class EventTargetArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the target.
+        ARN of the target.
         """
         return pulumi.get(self, "arn")
 
@@ -310,7 +310,7 @@ class EventTargetArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
+        ARN of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         """
         return pulumi.get(self, "role_arn")
 
@@ -395,7 +395,7 @@ class _EventTargetState:
         Input properties used for looking up and filtering EventTarget resources.
 
         :param pulumi.Input['EventTargetAppsyncTargetArgs'] appsync_target: Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the target.
+        :param pulumi.Input[_builtins.str] arn: ARN of the target.
         :param pulumi.Input['EventTargetBatchTargetArgs'] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input['EventTargetDeadLetterConfigArgs'] dead_letter_config: Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input['EventTargetEcsTargetArgs'] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
@@ -410,7 +410,7 @@ class _EventTargetState:
         :param pulumi.Input['EventTargetRedshiftTargetArgs'] redshift_target: Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['EventTargetRetryPolicyArgs'] retry_policy: Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         :param pulumi.Input[_builtins.str] rule: The name of the rule you want to add targets to.
                
                The following arguments are optional:
@@ -478,7 +478,7 @@ class _EventTargetState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the target.
+        ARN of the target.
         """
         return pulumi.get(self, "arn")
 
@@ -647,7 +647,7 @@ class _EventTargetState:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
+        ARN of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         """
         return pulumi.get(self, "role_arn")
 
@@ -1211,7 +1211,7 @@ class EventTarget(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['EventTargetAppsyncTargetArgs', 'EventTargetAppsyncTargetArgsDict']] appsync_target: Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the target.
+        :param pulumi.Input[_builtins.str] arn: ARN of the target.
         :param pulumi.Input[Union['EventTargetBatchTargetArgs', 'EventTargetBatchTargetArgsDict']] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[Union['EventTargetDeadLetterConfigArgs', 'EventTargetDeadLetterConfigArgsDict']] dead_letter_config: Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[Union['EventTargetEcsTargetArgs', 'EventTargetEcsTargetArgsDict']] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
@@ -1226,7 +1226,7 @@ class EventTarget(pulumi.CustomResource):
         :param pulumi.Input[Union['EventTargetRedshiftTargetArgs', 'EventTargetRedshiftTargetArgsDict']] redshift_target: Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['EventTargetRetryPolicyArgs', 'EventTargetRetryPolicyArgsDict']] retry_policy: Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         :param pulumi.Input[_builtins.str] rule: The name of the rule you want to add targets to.
                
                The following arguments are optional:
@@ -1812,7 +1812,7 @@ class EventTarget(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['EventTargetAppsyncTargetArgs', 'EventTargetAppsyncTargetArgsDict']] appsync_target: Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the target.
+        :param pulumi.Input[_builtins.str] arn: ARN of the target.
         :param pulumi.Input[Union['EventTargetBatchTargetArgs', 'EventTargetBatchTargetArgsDict']] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[Union['EventTargetDeadLetterConfigArgs', 'EventTargetDeadLetterConfigArgsDict']] dead_letter_config: Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[Union['EventTargetEcsTargetArgs', 'EventTargetEcsTargetArgsDict']] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
@@ -1827,7 +1827,7 @@ class EventTarget(pulumi.CustomResource):
         :param pulumi.Input[Union['EventTargetRedshiftTargetArgs', 'EventTargetRedshiftTargetArgsDict']] redshift_target: Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['EventTargetRetryPolicyArgs', 'EventTargetRetryPolicyArgsDict']] retry_policy: Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         :param pulumi.Input[_builtins.str] rule: The name of the rule you want to add targets to.
                
                The following arguments are optional:
@@ -1875,7 +1875,7 @@ class EventTarget(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the target.
+        ARN of the target.
         """
         return pulumi.get(self, "arn")
 
@@ -1988,7 +1988,7 @@ class EventTarget(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
+        ARN of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         """
         return pulumi.get(self, "role_arn")
 

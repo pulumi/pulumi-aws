@@ -58,7 +58,7 @@ type LookupLaunchConfigurationArgs struct {
 
 // A collection of values returned by getLaunchConfiguration.
 type LookupLaunchConfigurationResult struct {
-	// Amazon Resource Name of the launch configuration.
+	// ARN of the launch configuration.
 	Arn string `pulumi:"arn"`
 	// Whether a Public IP address is associated with the instance.
 	AssociatePublicIpAddress bool `pulumi:"associatePublicIpAddress"`
@@ -133,7 +133,7 @@ func (o LookupLaunchConfigurationResultOutput) ToLookupLaunchConfigurationResult
 	return o
 }
 
-// Amazon Resource Name of the launch configuration.
+// ARN of the launch configuration.
 func (o LookupLaunchConfigurationResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLaunchConfigurationResult) string { return v.Arn }).(pulumi.StringOutput)
 }

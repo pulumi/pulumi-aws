@@ -58,7 +58,7 @@ type ModelCardExportJob struct {
 
 	// Exported model card artifacts.
 	ExportArtifacts ModelCardExportJobExportArtifactArrayOutput `pulumi:"exportArtifacts"`
-	// The Amazon Resource Name (ARN) of the model card export job.
+	// ARN of the model card export job.
 	ModelCardExportJobArn pulumi.StringOutput `pulumi:"modelCardExportJobArn"`
 	// Name of the model card export job.
 	ModelCardExportJobName pulumi.StringOutput `pulumi:"modelCardExportJobName"`
@@ -113,7 +113,7 @@ func GetModelCardExportJob(ctx *pulumi.Context,
 type modelCardExportJobState struct {
 	// Exported model card artifacts.
 	ExportArtifacts []ModelCardExportJobExportArtifact `pulumi:"exportArtifacts"`
-	// The Amazon Resource Name (ARN) of the model card export job.
+	// ARN of the model card export job.
 	ModelCardExportJobArn *string `pulumi:"modelCardExportJobArn"`
 	// Name of the model card export job.
 	ModelCardExportJobName *string `pulumi:"modelCardExportJobName"`
@@ -130,7 +130,7 @@ type modelCardExportJobState struct {
 type ModelCardExportJobState struct {
 	// Exported model card artifacts.
 	ExportArtifacts ModelCardExportJobExportArtifactArrayInput
-	// The Amazon Resource Name (ARN) of the model card export job.
+	// ARN of the model card export job.
 	ModelCardExportJobArn pulumi.StringPtrInput
 	// Name of the model card export job.
 	ModelCardExportJobName pulumi.StringPtrInput
@@ -267,7 +267,7 @@ func (o ModelCardExportJobOutput) ExportArtifacts() ModelCardExportJobExportArti
 	return o.ApplyT(func(v *ModelCardExportJob) ModelCardExportJobExportArtifactArrayOutput { return v.ExportArtifacts }).(ModelCardExportJobExportArtifactArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the model card export job.
+// ARN of the model card export job.
 func (o ModelCardExportJobOutput) ModelCardExportJobArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ModelCardExportJob) pulumi.StringOutput { return v.ModelCardExportJobArn }).(pulumi.StringOutput)
 }

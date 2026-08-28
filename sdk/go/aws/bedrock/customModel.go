@@ -81,7 +81,7 @@ import (
 //
 // #### Required
 //
-// - `jobArn` (String) Amazon Resource Name (ARN) of the Bedrock custom model job.
+// - `jobArn` (String) ARN of the Bedrock custom model job.
 //
 // Using `pulumi import`, import Bedrock custom model using the `jobArn`. For example:
 //
@@ -91,7 +91,7 @@ import (
 type CustomModel struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the base model.
+	// ARN of the base model.
 	BaseModelIdentifier pulumi.StringOutput `pulumi:"baseModelIdentifier"`
 	// The ARN of the output model.
 	CustomModelArn pulumi.StringOutput `pulumi:"customModelArn"`
@@ -113,7 +113,7 @@ type CustomModel struct {
 	OutputDataConfig CustomModelOutputDataConfigOutput `pulumi:"outputDataConfig"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
+	// ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -128,7 +128,7 @@ type CustomModel struct {
 	ValidationDataConfig CustomModelValidationDataConfigPtrOutput `pulumi:"validationDataConfig"`
 	// The loss metric for each validator that you provided.
 	ValidationMetrics CustomModelValidationMetricArrayOutput `pulumi:"validationMetrics"`
-	// Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
+	// Configuration parameters for the private VPC that contains the resources you are using for this job.
 	VpcConfig CustomModelVpcConfigPtrOutput `pulumi:"vpcConfig"`
 }
 
@@ -183,7 +183,7 @@ func GetCustomModel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomModel resources.
 type customModelState struct {
-	// The Amazon Resource Name (ARN) of the base model.
+	// ARN of the base model.
 	BaseModelIdentifier *string `pulumi:"baseModelIdentifier"`
 	// The ARN of the output model.
 	CustomModelArn *string `pulumi:"customModelArn"`
@@ -205,7 +205,7 @@ type customModelState struct {
 	OutputDataConfig *CustomModelOutputDataConfig `pulumi:"outputDataConfig"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
+	// ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
 	RoleArn *string `pulumi:"roleArn"`
 	// A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -220,12 +220,12 @@ type customModelState struct {
 	ValidationDataConfig *CustomModelValidationDataConfig `pulumi:"validationDataConfig"`
 	// The loss metric for each validator that you provided.
 	ValidationMetrics []CustomModelValidationMetric `pulumi:"validationMetrics"`
-	// Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
+	// Configuration parameters for the private VPC that contains the resources you are using for this job.
 	VpcConfig *CustomModelVpcConfig `pulumi:"vpcConfig"`
 }
 
 type CustomModelState struct {
-	// The Amazon Resource Name (ARN) of the base model.
+	// ARN of the base model.
 	BaseModelIdentifier pulumi.StringPtrInput
 	// The ARN of the output model.
 	CustomModelArn pulumi.StringPtrInput
@@ -247,7 +247,7 @@ type CustomModelState struct {
 	OutputDataConfig CustomModelOutputDataConfigPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
+	// ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
 	RoleArn pulumi.StringPtrInput
 	// A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -262,7 +262,7 @@ type CustomModelState struct {
 	ValidationDataConfig CustomModelValidationDataConfigPtrInput
 	// The loss metric for each validator that you provided.
 	ValidationMetrics CustomModelValidationMetricArrayInput
-	// Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
+	// Configuration parameters for the private VPC that contains the resources you are using for this job.
 	VpcConfig CustomModelVpcConfigPtrInput
 }
 
@@ -271,7 +271,7 @@ func (CustomModelState) ElementType() reflect.Type {
 }
 
 type customModelArgs struct {
-	// The Amazon Resource Name (ARN) of the base model.
+	// ARN of the base model.
 	BaseModelIdentifier string `pulumi:"baseModelIdentifier"`
 	// The custom model is encrypted at rest using this key. Specify the key ARN.
 	CustomModelKmsKeyId *string `pulumi:"customModelKmsKeyId"`
@@ -287,7 +287,7 @@ type customModelArgs struct {
 	OutputDataConfig CustomModelOutputDataConfig `pulumi:"outputDataConfig"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
+	// ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
 	RoleArn string `pulumi:"roleArn"`
 	// A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string    `pulumi:"tags"`
@@ -296,13 +296,13 @@ type customModelArgs struct {
 	TrainingDataConfig CustomModelTrainingDataConfig `pulumi:"trainingDataConfig"`
 	// Information about the validation dataset.
 	ValidationDataConfig *CustomModelValidationDataConfig `pulumi:"validationDataConfig"`
-	// Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
+	// Configuration parameters for the private VPC that contains the resources you are using for this job.
 	VpcConfig *CustomModelVpcConfig `pulumi:"vpcConfig"`
 }
 
 // The set of arguments for constructing a CustomModel resource.
 type CustomModelArgs struct {
-	// The Amazon Resource Name (ARN) of the base model.
+	// ARN of the base model.
 	BaseModelIdentifier pulumi.StringInput
 	// The custom model is encrypted at rest using this key. Specify the key ARN.
 	CustomModelKmsKeyId pulumi.StringPtrInput
@@ -318,7 +318,7 @@ type CustomModelArgs struct {
 	OutputDataConfig CustomModelOutputDataConfigInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
+	// ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
 	RoleArn pulumi.StringInput
 	// A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
@@ -327,7 +327,7 @@ type CustomModelArgs struct {
 	TrainingDataConfig CustomModelTrainingDataConfigInput
 	// Information about the validation dataset.
 	ValidationDataConfig CustomModelValidationDataConfigPtrInput
-	// Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
+	// Configuration parameters for the private VPC that contains the resources you are using for this job.
 	VpcConfig CustomModelVpcConfigPtrInput
 }
 
@@ -418,7 +418,7 @@ func (o CustomModelOutput) ToCustomModelOutputWithContext(ctx context.Context) C
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the base model.
+// ARN of the base model.
 func (o CustomModelOutput) BaseModelIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomModel) pulumi.StringOutput { return v.BaseModelIdentifier }).(pulumi.StringOutput)
 }
@@ -473,7 +473,7 @@ func (o CustomModelOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomModel) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
+// ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
 func (o CustomModelOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomModel) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -512,7 +512,7 @@ func (o CustomModelOutput) ValidationMetrics() CustomModelValidationMetricArrayO
 	return o.ApplyT(func(v *CustomModel) CustomModelValidationMetricArrayOutput { return v.ValidationMetrics }).(CustomModelValidationMetricArrayOutput)
 }
 
-// Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
+// Configuration parameters for the private VPC that contains the resources you are using for this job.
 func (o CustomModelOutput) VpcConfig() CustomModelVpcConfigPtrOutput {
 	return o.ApplyT(func(v *CustomModel) CustomModelVpcConfigPtrOutput { return v.VpcConfig }).(CustomModelVpcConfigPtrOutput)
 }

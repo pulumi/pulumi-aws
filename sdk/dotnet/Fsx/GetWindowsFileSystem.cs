@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         public readonly ImmutableArray<string> Aliases;
         /// <summary>
-        /// Amazon Resource Name of the file system.
+        /// ARN of the file system.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -261,7 +261,7 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         public readonly int ThroughputCapacity;
         /// <summary>
-        /// ID of the primary virtual private cloud (VPC) for the file system.
+        /// ID of the primary VPC for the file system.
         /// </summary>
         public readonly string VpcId;
         /// <summary>

@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetDistributionTenantResult {
     /**
-     * @return ARN (Amazon Resource Name) for the distribution tenant.
+     * @return ARN for the distribution tenant.
      * 
      */
     private String arn;
@@ -67,7 +67,7 @@ public final class GetDistributionTenantResult {
 
     private GetDistributionTenantResult() {}
     /**
-     * @return ARN (Amazon Resource Name) for the distribution tenant.
+     * @return ARN for the distribution tenant.
      * 
      */
     public String arn() {

@@ -167,7 +167,7 @@ type Pipeline struct {
 	MaxUnits pulumi.IntOutput `pulumi:"maxUnits"`
 	// The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
 	MinUnits pulumi.IntOutput `pulumi:"minUnits"`
-	// Amazon Resource Name (ARN) of the pipeline.
+	// ARN of the pipeline.
 	PipelineArn pulumi.StringOutput `pulumi:"pipelineArn"`
 	// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with `\n`.
 	PipelineConfigurationBody pulumi.StringOutput `pulumi:"pipelineConfigurationBody"`
@@ -241,7 +241,7 @@ type pipelineState struct {
 	MaxUnits *int `pulumi:"maxUnits"`
 	// The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
 	MinUnits *int `pulumi:"minUnits"`
-	// Amazon Resource Name (ARN) of the pipeline.
+	// ARN of the pipeline.
 	PipelineArn *string `pulumi:"pipelineArn"`
 	// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with `\n`.
 	PipelineConfigurationBody *string `pulumi:"pipelineConfigurationBody"`
@@ -274,7 +274,7 @@ type PipelineState struct {
 	MaxUnits pulumi.IntPtrInput
 	// The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
 	MinUnits pulumi.IntPtrInput
-	// Amazon Resource Name (ARN) of the pipeline.
+	// ARN of the pipeline.
 	PipelineArn pulumi.StringPtrInput
 	// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with `\n`.
 	PipelineConfigurationBody pulumi.StringPtrInput
@@ -472,7 +472,7 @@ func (o PipelineOutput) MinUnits() pulumi.IntOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.IntOutput { return v.MinUnits }).(pulumi.IntOutput)
 }
 
-// Amazon Resource Name (ARN) of the pipeline.
+// ARN of the pipeline.
 func (o PipelineOutput) PipelineArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.PipelineArn }).(pulumi.StringOutput)
 }

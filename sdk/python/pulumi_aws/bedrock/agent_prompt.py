@@ -31,7 +31,7 @@ class AgentPromptArgs:
         """
         The set of arguments for constructing a AgentPrompt resource.
 
-        :param pulumi.Input[_builtins.str] customer_encryption_key_arn: Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
+        :param pulumi.Input[_builtins.str] customer_encryption_key_arn: ARN of the KMS key that you encrypted the prompt with.
         :param pulumi.Input[_builtins.str] default_variant: Name of the default variant for your prompt.
         :param pulumi.Input[_builtins.str] description: Description of the prompt.
         :param pulumi.Input[_builtins.str] name: Name of the prompt.
@@ -60,7 +60,7 @@ class AgentPromptArgs:
     @pulumi.getter(name="customerEncryptionKeyArn")
     def customer_encryption_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
+        ARN of the KMS key that you encrypted the prompt with.
         """
         return pulumi.get(self, "customer_encryption_key_arn")
 
@@ -161,9 +161,9 @@ class _AgentPromptState:
         """
         Input properties used for looking up and filtering AgentPrompt resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the prompt.
+        :param pulumi.Input[_builtins.str] arn: ARN of the prompt.
         :param pulumi.Input[_builtins.str] created_at: Time at which the prompt was created.
-        :param pulumi.Input[_builtins.str] customer_encryption_key_arn: Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
+        :param pulumi.Input[_builtins.str] customer_encryption_key_arn: ARN of the KMS key that you encrypted the prompt with.
         :param pulumi.Input[_builtins.str] default_variant: Name of the default variant for your prompt.
         :param pulumi.Input[_builtins.str] description: Description of the prompt.
         :param pulumi.Input[_builtins.str] name: Name of the prompt.
@@ -205,7 +205,7 @@ class _AgentPromptState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the prompt.
+        ARN of the prompt.
         """
         return pulumi.get(self, "arn")
 
@@ -229,7 +229,7 @@ class _AgentPromptState:
     @pulumi.getter(name="customerEncryptionKeyArn")
     def customer_encryption_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
+        ARN of the KMS key that you encrypted the prompt with.
         """
         return pulumi.get(self, "customer_encryption_key_arn")
 
@@ -424,7 +424,7 @@ class AgentPrompt(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] customer_encryption_key_arn: Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
+        :param pulumi.Input[_builtins.str] customer_encryption_key_arn: ARN of the KMS key that you encrypted the prompt with.
         :param pulumi.Input[_builtins.str] default_variant: Name of the default variant for your prompt.
         :param pulumi.Input[_builtins.str] description: Description of the prompt.
         :param pulumi.Input[_builtins.str] name: Name of the prompt.
@@ -572,9 +572,9 @@ class AgentPrompt(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the prompt.
+        :param pulumi.Input[_builtins.str] arn: ARN of the prompt.
         :param pulumi.Input[_builtins.str] created_at: Time at which the prompt was created.
-        :param pulumi.Input[_builtins.str] customer_encryption_key_arn: Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
+        :param pulumi.Input[_builtins.str] customer_encryption_key_arn: ARN of the KMS key that you encrypted the prompt with.
         :param pulumi.Input[_builtins.str] default_variant: Name of the default variant for your prompt.
         :param pulumi.Input[_builtins.str] description: Description of the prompt.
         :param pulumi.Input[_builtins.str] name: Name of the prompt.
@@ -609,7 +609,7 @@ class AgentPrompt(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the prompt.
+        ARN of the prompt.
         """
         return pulumi.get(self, "arn")
 
@@ -625,7 +625,7 @@ class AgentPrompt(pulumi.CustomResource):
     @pulumi.getter(name="customerEncryptionKeyArn")
     def customer_encryption_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
+        ARN of the KMS key that you encrypted the prompt with.
         """
         return pulumi.get(self, "customer_encryption_key_arn")
 

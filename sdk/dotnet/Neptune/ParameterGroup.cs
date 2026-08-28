@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Neptune
     public partial class ParameterGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Neptune parameter group Amazon Resource Name (ARN).
+        /// Neptune parameter group ARN.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -213,7 +213,7 @@ namespace Pulumi.Aws.Neptune
     public sealed class ParameterGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Neptune parameter group Amazon Resource Name (ARN).
+        /// Neptune parameter group ARN.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Comprehend
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Comprehend entity recognizer.
+    /// - `Arn` (String) ARN of the Comprehend entity recognizer.
     /// 
     /// Using `pulumi import`, import Comprehend Entity Recognizer using the ARN. For example:
     /// 

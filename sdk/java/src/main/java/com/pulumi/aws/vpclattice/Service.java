@@ -98,14 +98,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.authType;
     }
     /**
-     * Amazon Resource Name (ARN) of the certificate.
+     * ARN of the certificate.
      * 
      */
     @Export(name="certificateArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificateArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the certificate.
+     * @return ARN of the certificate.
      * 
      */
     public Output<Optional<String>> certificateArn() {

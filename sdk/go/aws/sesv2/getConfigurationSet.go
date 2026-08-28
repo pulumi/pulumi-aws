@@ -52,34 +52,35 @@ func LookupConfigurationSet(ctx *pulumi.Context, args *LookupConfigurationSetArg
 
 // A collection of arguments for invoking getConfigurationSet.
 type LookupConfigurationSetArgs struct {
-	// The name of the configuration set.
+	// Name of the configuration set.
 	ConfigurationSetName string `pulumi:"configurationSetName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Key-value map of resource tags for the container recipe.
+	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getConfigurationSet.
 type LookupConfigurationSetResult struct {
+	// ARN of the configuration set.
 	Arn                  string `pulumi:"arn"`
 	ConfigurationSetName string `pulumi:"configurationSetName"`
-	// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
+	// Object that defines the dedicated IP pool used to send emails with the configuration set.
 	DeliveryOptions []GetConfigurationSetDeliveryOption `pulumi:"deliveryOptions"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
 	Region string `pulumi:"region"`
-	// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
+	// Object that defines whether Amazon SES collects reputation metrics for emails sent with the configuration set.
 	ReputationOptions []GetConfigurationSetReputationOption `pulumi:"reputationOptions"`
-	// An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+	// Object that defines whether Amazon SES can send email sent with the configuration set.
 	SendingOptions []GetConfigurationSetSendingOption `pulumi:"sendingOptions"`
-	// An object that contains information about the suppression list preferences for your account.
+	// Object that contains information about the suppression list preferences for your account.
 	SuppressionOptions []GetConfigurationSetSuppressionOption `pulumi:"suppressionOptions"`
-	// Key-value map of resource tags for the container recipe.
+	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// An object that defines the open and click tracking options for emails that you send using the configuration set.
+	// Object that defines the open and click tracking options for emails sent with the configuration set.
 	TrackingOptions []GetConfigurationSetTrackingOption `pulumi:"trackingOptions"`
-	// An object that contains information about the VDM preferences for your configuration set.
+	// Object that contains information about the VDM preferences for your configuration set.
 	VdmOptions []GetConfigurationSetVdmOption `pulumi:"vdmOptions"`
 }
 
@@ -94,11 +95,11 @@ func LookupConfigurationSetOutput(ctx *pulumi.Context, args LookupConfigurationS
 
 // A collection of arguments for invoking getConfigurationSet.
 type LookupConfigurationSetOutputArgs struct {
-	// The name of the configuration set.
+	// Name of the configuration set.
 	ConfigurationSetName pulumi.StringInput `pulumi:"configurationSetName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Key-value map of resource tags for the container recipe.
+	// Key-value map of resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -121,6 +122,7 @@ func (o LookupConfigurationSetResultOutput) ToLookupConfigurationSetResultOutput
 	return o
 }
 
+// ARN of the configuration set.
 func (o LookupConfigurationSetResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationSetResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -129,7 +131,7 @@ func (o LookupConfigurationSetResultOutput) ConfigurationSetName() pulumi.String
 	return o.ApplyT(func(v LookupConfigurationSetResult) string { return v.ConfigurationSetName }).(pulumi.StringOutput)
 }
 
-// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
+// Object that defines the dedicated IP pool used to send emails with the configuration set.
 func (o LookupConfigurationSetResultOutput) DeliveryOptions() GetConfigurationSetDeliveryOptionArrayOutput {
 	return o.ApplyT(func(v LookupConfigurationSetResult) []GetConfigurationSetDeliveryOption { return v.DeliveryOptions }).(GetConfigurationSetDeliveryOptionArrayOutput)
 }
@@ -143,34 +145,34 @@ func (o LookupConfigurationSetResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationSetResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
+// Object that defines whether Amazon SES collects reputation metrics for emails sent with the configuration set.
 func (o LookupConfigurationSetResultOutput) ReputationOptions() GetConfigurationSetReputationOptionArrayOutput {
 	return o.ApplyT(func(v LookupConfigurationSetResult) []GetConfigurationSetReputationOption { return v.ReputationOptions }).(GetConfigurationSetReputationOptionArrayOutput)
 }
 
-// An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+// Object that defines whether Amazon SES can send email sent with the configuration set.
 func (o LookupConfigurationSetResultOutput) SendingOptions() GetConfigurationSetSendingOptionArrayOutput {
 	return o.ApplyT(func(v LookupConfigurationSetResult) []GetConfigurationSetSendingOption { return v.SendingOptions }).(GetConfigurationSetSendingOptionArrayOutput)
 }
 
-// An object that contains information about the suppression list preferences for your account.
+// Object that contains information about the suppression list preferences for your account.
 func (o LookupConfigurationSetResultOutput) SuppressionOptions() GetConfigurationSetSuppressionOptionArrayOutput {
 	return o.ApplyT(func(v LookupConfigurationSetResult) []GetConfigurationSetSuppressionOption {
 		return v.SuppressionOptions
 	}).(GetConfigurationSetSuppressionOptionArrayOutput)
 }
 
-// Key-value map of resource tags for the container recipe.
+// Key-value map of resource tags.
 func (o LookupConfigurationSetResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupConfigurationSetResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// An object that defines the open and click tracking options for emails that you send using the configuration set.
+// Object that defines the open and click tracking options for emails sent with the configuration set.
 func (o LookupConfigurationSetResultOutput) TrackingOptions() GetConfigurationSetTrackingOptionArrayOutput {
 	return o.ApplyT(func(v LookupConfigurationSetResult) []GetConfigurationSetTrackingOption { return v.TrackingOptions }).(GetConfigurationSetTrackingOptionArrayOutput)
 }
 
-// An object that contains information about the VDM preferences for your configuration set.
+// Object that contains information about the VDM preferences for your configuration set.
 func (o LookupConfigurationSetResultOutput) VdmOptions() GetConfigurationSetVdmOptionArrayOutput {
 	return o.ApplyT(func(v LookupConfigurationSetResult) []GetConfigurationSetVdmOption { return v.VdmOptions }).(GetConfigurationSetVdmOptionArrayOutput)
 }

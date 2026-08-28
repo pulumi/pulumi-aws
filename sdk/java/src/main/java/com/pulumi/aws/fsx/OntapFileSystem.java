@@ -220,14 +220,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:fsx/ontapFileSystem:OntapFileSystem")
 public class OntapFileSystem extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name of the file system.
+     * @return ARN of the file system.
      * 
      */
     public Output<String> arn() {
@@ -416,14 +416,14 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
         return this.ownerId;
     }
     /**
-     * ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+     * ID for a subnet. A subnet is a range of IP addresses in your VPC.
      * 
      */
     @Export(name="preferredSubnetId", refs={String.class}, tree="[0]")
     private Output<String> preferredSubnetId;
 
     /**
-     * @return ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+     * @return ID for a subnet. A subnet is a range of IP addresses in your VPC.
      * 
      */
     public Output<String> preferredSubnetId() {
@@ -570,14 +570,14 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
         return this.throughputCapacityPerHaPair;
     }
     /**
-     * Identifier of the Virtual Private Cloud for the file system.
+     * Identifier of the VPC for the file system.
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
-     * @return Identifier of the Virtual Private Cloud for the file system.
+     * @return Identifier of the VPC for the file system.
      * 
      */
     public Output<String> vpcId() {

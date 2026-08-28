@@ -70,14 +70,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:redshiftserverless/workgroup:Workgroup")
 public class Workgroup extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+     * ARN of the Redshift Serverless Workgroup.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+     * @return ARN of the Redshift Serverless Workgroup.
      * 
      */
     public Output<String> arn() {
@@ -126,14 +126,14 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
         return this.endpoints;
     }
     /**
-     * The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+     * Value that specifies whether to turn on enhanced VPC routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
      * 
      */
     @Export(name="enhancedVpcRouting", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enhancedVpcRouting;
 
     /**
-     * @return The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+     * @return Value that specifies whether to turn on enhanced VPC routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
      * 
      */
     public Output<Optional<Boolean>> enhancedVpcRouting() {

@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class GetFunctionTenancyConfig {
     /**
-     * @return (Required) Tenant Isolation Mode. Valid values: `PER_TENANT`.
+     * @return Tenant Isolation Mode. Valid values: `PER_TENANT`.
      * 
      */
     private String tenantIsolationMode;
 
     private GetFunctionTenancyConfig() {}
     /**
-     * @return (Required) Tenant Isolation Mode. Valid values: `PER_TENANT`.
+     * @return Tenant Isolation Mode. Valid values: `PER_TENANT`.
      * 
      */
     public String tenantIsolationMode() {

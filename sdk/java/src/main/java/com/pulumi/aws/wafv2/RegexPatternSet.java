@@ -79,14 +79,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:wafv2/regexPatternSet:RegexPatternSet")
 public class RegexPatternSet extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) that identifies the cluster.
+     * ARN that identifies the cluster.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) that identifies the cluster.
+     * @return ARN that identifies the cluster.
      * 
      */
     public Output<String> arn() {

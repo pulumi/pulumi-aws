@@ -49,14 +49,14 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
+     * ARN for the DocumentDB Cluster Snapshot.
      * 
      */
     @Import(name="dbClusterSnapshotArn")
     private @Nullable Output<String> dbClusterSnapshotArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
+     * @return ARN for the DocumentDB Cluster Snapshot.
      * 
      */
     public Optional<Output<String>> dbClusterSnapshotArn() {
@@ -302,7 +302,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param dbClusterSnapshotArn The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
+         * @param dbClusterSnapshotArn ARN for the DocumentDB Cluster Snapshot.
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param dbClusterSnapshotArn The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
+         * @param dbClusterSnapshotArn ARN for the DocumentDB Cluster Snapshot.
          * 
          * @return builder
          * 

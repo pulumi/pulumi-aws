@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class UserPoolLambdaConfigCustomSmsSender {
     /**
-     * @return The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+     * @return Lambda ARN of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
      * 
      */
     private String lambdaArn;
@@ -23,7 +23,7 @@ public final class UserPoolLambdaConfigCustomSmsSender {
 
     private UserPoolLambdaConfigCustomSmsSender() {}
     /**
-     * @return The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+     * @return Lambda ARN of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
      * 
      */
     public String lambdaArn() {

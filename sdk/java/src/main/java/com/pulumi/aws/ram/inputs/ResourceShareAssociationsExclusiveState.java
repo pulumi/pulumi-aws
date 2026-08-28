@@ -47,14 +47,14 @@ public final class ResourceShareAssociationsExclusiveState extends com.pulumi.re
     }
 
     /**
-     * Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+     * Set of ARNs of resources to associate with the resource share. Resources not configured in this argument will be removed.
      * 
      */
     @Import(name="resourceArns")
     private @Nullable Output<List<String>> resourceArns;
 
     /**
-     * @return Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+     * @return Set of ARNs of resources to associate with the resource share. Resources not configured in this argument will be removed.
      * 
      */
     public Optional<Output<List<String>>> resourceArns() {
@@ -62,14 +62,14 @@ public final class ResourceShareAssociationsExclusiveState extends com.pulumi.re
     }
 
     /**
-     * Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+     * ARN of the resource share. Changing this value forces creation of a new resource.
      * 
      */
     @Import(name="resourceShareArn")
     private @Nullable Output<String> resourceShareArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+     * @return ARN of the resource share. Changing this value forces creation of a new resource.
      * 
      */
     public Optional<Output<String>> resourceShareArn() {
@@ -172,7 +172,7 @@ public final class ResourceShareAssociationsExclusiveState extends com.pulumi.re
         }
 
         /**
-         * @param resourceArns Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+         * @param resourceArns Set of ARNs of resources to associate with the resource share. Resources not configured in this argument will be removed.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class ResourceShareAssociationsExclusiveState extends com.pulumi.re
         }
 
         /**
-         * @param resourceArns Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+         * @param resourceArns Set of ARNs of resources to associate with the resource share. Resources not configured in this argument will be removed.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class ResourceShareAssociationsExclusiveState extends com.pulumi.re
         }
 
         /**
-         * @param resourceArns Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+         * @param resourceArns Set of ARNs of resources to associate with the resource share. Resources not configured in this argument will be removed.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class ResourceShareAssociationsExclusiveState extends com.pulumi.re
         }
 
         /**
-         * @param resourceShareArn Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+         * @param resourceShareArn ARN of the resource share. Changing this value forces creation of a new resource.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class ResourceShareAssociationsExclusiveState extends com.pulumi.re
         }
 
         /**
-         * @param resourceShareArn Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+         * @param resourceShareArn ARN of the resource share. Changing this value forces creation of a new resource.
          * 
          * @return builder
          * 

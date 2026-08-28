@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Notifications
         public Output<string> AggregationDuration { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the NotificationConfiguration.
+        /// ARN of the NotificationConfiguration.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -220,7 +220,7 @@ namespace Pulumi.Aws.Notifications
         public Input<string>? AggregationDuration { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the NotificationConfiguration.
+        /// ARN of the NotificationConfiguration.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -95,7 +95,7 @@ export class SubnetGroup extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+     * VPC identifier (VPC ID) of the cache subnet group.
      */
     declare public /*out*/ readonly vpcId: pulumi.Output<string>;
 
@@ -169,7 +169,7 @@ export interface SubnetGroupState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+     * VPC identifier (VPC ID) of the cache subnet group.
      */
     vpcId?: pulumi.Input<string | undefined>;
 }

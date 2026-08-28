@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Device Farm project.
+ * - `arn` (String) ARN of the Device Farm project.
  * 
  * Using `pulumi import`, import DeviceFarm Projects using their ARN. For example:
  * 
@@ -75,14 +75,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:devicefarm/project:Project")
 public class Project extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name of this project
+     * ARN of this project
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name of this project
+     * @return ARN of this project
      * 
      */
     public Output<String> arn() {

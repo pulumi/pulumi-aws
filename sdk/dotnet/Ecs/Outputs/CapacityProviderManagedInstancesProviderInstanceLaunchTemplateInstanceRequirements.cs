@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly Outputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib? AcceleratorTotalMemoryMib;
         /// <summary>
-        /// Accelerator types to include. You can specify `Gpu` for graphics processing units, `Fpga` for field programmable gate arrays, or `Inference` for machine learning inference accelerators. Valid values are `Gpu`, `Fpga`, `Inference`.
+        /// Accelerator types to include. You can specify `Gpu` for GPUs, `Fpga` for field programmable gate arrays, or `Inference` for machine learning inference accelerators. Valid values are `Gpu`, `Fpga`, `Inference`.
         /// </summary>
         public readonly ImmutableArray<string> AcceleratorTypes;
         /// <summary>

@@ -382,6 +382,34 @@ public class CentralizationRuleForOrganization extends com.pulumi.resources.Cust
         return this.ruleName;
     }
     /**
+     * Reason tag propagation is unhealthy, when applicable (for example, `RoleNotAssumable` or `RoleLacksPermissions`).
+     * 
+     */
+    @Export(name="tagPropagationFailureReason", refs={String.class}, tree="[0]")
+    private Output<String> tagPropagationFailureReason;
+
+    /**
+     * @return Reason tag propagation is unhealthy, when applicable (for example, `RoleNotAssumable` or `RoleLacksPermissions`).
+     * 
+     */
+    public Output<String> tagPropagationFailureReason() {
+        return this.tagPropagationFailureReason;
+    }
+    /**
+     * Health status of tag propagation for the rule (for example, `Healthy` or `Unhealthy`). Independent of the overall rule health.
+     * 
+     */
+    @Export(name="tagPropagationStatus", refs={String.class}, tree="[0]")
+    private Output<String> tagPropagationStatus;
+
+    /**
+     * @return Health status of tag propagation for the rule (for example, `Healthy` or `Unhealthy`). Independent of the overall rule health.
+     * 
+     */
+    public Output<String> tagPropagationStatus() {
+        return this.tagPropagationStatus;
+    }
+    /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */

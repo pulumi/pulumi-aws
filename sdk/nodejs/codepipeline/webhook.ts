@@ -95,7 +95,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the CodePipeline webhook.
+ * - `arn` (String) ARN of the CodePipeline webhook.
  *
  * Using `pulumi import`, import CodePipeline Webhooks using their ARN. For example:
  *

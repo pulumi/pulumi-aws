@@ -25,7 +25,7 @@ public final class DistributionConfigurationDistributionAmiDistributionConfigura
      */
     private @Nullable String description;
     /**
-     * @return Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
+     * @return ARN of the KMS Key to encrypt the distributed AMI.
      * 
      */
     private @Nullable String kmsKeyId;
@@ -61,7 +61,7 @@ public final class DistributionConfigurationDistributionAmiDistributionConfigura
         return Optional.ofNullable(this.description);
     }
     /**
-     * @return Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
+     * @return ARN of the KMS Key to encrypt the distributed AMI.
      * 
      */
     public Optional<String> kmsKeyId() {

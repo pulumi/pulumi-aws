@@ -55,7 +55,7 @@ type ClusterSnapshot struct {
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// The DocumentDB Cluster Identifier from which to take the snapshot.
 	DbClusterIdentifier pulumi.StringOutput `pulumi:"dbClusterIdentifier"`
-	// The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
+	// ARN for the DocumentDB Cluster Snapshot.
 	DbClusterSnapshotArn pulumi.StringOutput `pulumi:"dbClusterSnapshotArn"`
 	// The Identifier for the snapshot.
 	DbClusterSnapshotIdentifier pulumi.StringOutput `pulumi:"dbClusterSnapshotIdentifier"`
@@ -119,7 +119,7 @@ type clusterSnapshotState struct {
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// The DocumentDB Cluster Identifier from which to take the snapshot.
 	DbClusterIdentifier *string `pulumi:"dbClusterIdentifier"`
-	// The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
+	// ARN for the DocumentDB Cluster Snapshot.
 	DbClusterSnapshotArn *string `pulumi:"dbClusterSnapshotArn"`
 	// The Identifier for the snapshot.
 	DbClusterSnapshotIdentifier *string `pulumi:"dbClusterSnapshotIdentifier"`
@@ -148,7 +148,7 @@ type ClusterSnapshotState struct {
 	AvailabilityZones pulumi.StringArrayInput
 	// The DocumentDB Cluster Identifier from which to take the snapshot.
 	DbClusterIdentifier pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
+	// ARN for the DocumentDB Cluster Snapshot.
 	DbClusterSnapshotArn pulumi.StringPtrInput
 	// The Identifier for the snapshot.
 	DbClusterSnapshotIdentifier pulumi.StringPtrInput
@@ -292,7 +292,7 @@ func (o ClusterSnapshotOutput) DbClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.DbClusterIdentifier }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
+// ARN for the DocumentDB Cluster Snapshot.
 func (o ClusterSnapshotOutput) DbClusterSnapshotArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.DbClusterSnapshotArn }).(pulumi.StringOutput)
 }

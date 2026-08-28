@@ -221,7 +221,7 @@ class _ImageVersionState:
         Input properties used for looking up and filtering ImageVersion resources.
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aliases: A list of aliases for the image version.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this Image Version.
         :param pulumi.Input[_builtins.str] base_image: The registry path of the container image on which this image version is based.
         :param pulumi.Input[_builtins.str] container_image: The registry path of the container image that contains this image version.
         :param pulumi.Input[_builtins.bool] horovod: Indicates Horovod compatibility.
@@ -282,7 +282,7 @@ class _ImageVersionState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
+        ARN assigned by AWS to this Image Version.
         """
         return pulumi.get(self, "arn")
 
@@ -649,7 +649,7 @@ class ImageVersion(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aliases: A list of aliases for the image version.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this Image Version.
         :param pulumi.Input[_builtins.str] base_image: The registry path of the container image on which this image version is based.
         :param pulumi.Input[_builtins.str] container_image: The registry path of the container image that contains this image version.
         :param pulumi.Input[_builtins.bool] horovod: Indicates Horovod compatibility.
@@ -696,7 +696,7 @@ class ImageVersion(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
+        ARN assigned by AWS to this Image Version.
         """
         return pulumi.get(self, "arn")
 

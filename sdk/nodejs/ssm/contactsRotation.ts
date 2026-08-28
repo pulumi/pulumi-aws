@@ -131,7 +131,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the SSM Contacts rotation.
+ * - `arn` (String) ARN of the SSM Contacts rotation.
  *
  * Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `arn`. For example:
  *
@@ -168,11 +168,11 @@ export class ContactsRotation extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the rotation.
+     * ARN of the rotation.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+     * ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
      */
     declare public readonly contactIds: pulumi.Output<string[]>;
     /**
@@ -259,11 +259,11 @@ export class ContactsRotation extends pulumi.CustomResource {
  */
 export interface ContactsRotationState {
     /**
-     * The Amazon Resource Name (ARN) of the rotation.
+     * ARN of the rotation.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+     * ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
      */
     contactIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -303,7 +303,7 @@ export interface ContactsRotationState {
  */
 export interface ContactsRotationArgs {
     /**
-     * Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+     * ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
      */
     contactIds: pulumi.Input<pulumi.Input<string>[]>;
     /**

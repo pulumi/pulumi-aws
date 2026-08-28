@@ -68,7 +68,7 @@ type LookupAuthorizerResult struct {
 	AuthorizerId          string `pulumi:"authorizerId"`
 	// TTL of cached authorizer results in seconds.
 	AuthorizerResultTtlInSeconds int `pulumi:"authorizerResultTtlInSeconds"`
-	// Authorizer's Uniform Resource Identifier (URI).
+	// Authorizer's URI.
 	AuthorizerUri string `pulumi:"authorizerUri"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -143,7 +143,7 @@ func (o LookupAuthorizerResultOutput) AuthorizerResultTtlInSeconds() pulumi.IntO
 	return o.ApplyT(func(v LookupAuthorizerResult) int { return v.AuthorizerResultTtlInSeconds }).(pulumi.IntOutput)
 }
 
-// Authorizer's Uniform Resource Identifier (URI).
+// Authorizer's URI.
 func (o LookupAuthorizerResultOutput) AuthorizerUri() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAuthorizerResult) string { return v.AuthorizerUri }).(pulumi.StringOutput)
 }

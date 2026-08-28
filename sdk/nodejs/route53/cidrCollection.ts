@@ -53,7 +53,7 @@ export class CidrCollection extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the CIDR collection.
+     * ARN of the CIDR collection.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -97,7 +97,7 @@ export class CidrCollection extends pulumi.CustomResource {
  */
 export interface CidrCollectionState {
     /**
-     * The Amazon Resource Name (ARN) of the CIDR collection.
+     * ARN of the CIDR collection.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

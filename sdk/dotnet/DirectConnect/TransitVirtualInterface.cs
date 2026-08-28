@@ -49,6 +49,8 @@ namespace Pulumi.Aws.DirectConnect
     /// ```sh
     /// $ pulumi import aws:directconnect/transitVirtualInterface:TransitVirtualInterface test dxvif-33cc44dd
     /// ```
+    /// 
+    /// &gt; **Note:** When a virtual interface uses an ASN in the `BgpAsn` range (`1` to `2147483646`), AWS returns the value in both the `Asn` and `asnLong` API fields, so import always populates `BgpAsn` rather than `BgpAsnLong`. If the virtual interface was originally created with `BgpAsnLong` set to a value in that range, update your configuration to use `BgpAsn` after import to avoid a difference. Virtual interfaces using a 4-byte ASN (greater than `2147483646`) import into `BgpAsnLong` as expected.
     /// </summary>
     [AwsResourceType("aws:directconnect/transitVirtualInterface:TransitVirtualInterface")]
     public partial class TransitVirtualInterface : global::Pulumi.CustomResource
@@ -81,10 +83,16 @@ namespace Pulumi.Aws.DirectConnect
         public Output<string> AwsDevice { get; private set; } = null!;
 
         /// <summary>
-        /// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+        /// BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `BgpAsnLong`. Exactly one of `BgpAsn` or `BgpAsnLong` must be specified.
         /// </summary>
         [Output("bgpAsn")]
-        public Output<int> BgpAsn { get; private set; } = null!;
+        public Output<int?> BgpAsn { get; private set; } = null!;
+
+        /// <summary>
+        /// BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `BgpAsn` range. Exactly one of `BgpAsn` or `BgpAsnLong` must be specified.
+        /// </summary>
+        [Output("bgpAsnLong")]
+        public Output<string?> BgpAsnLong { get; private set; } = null!;
 
         /// <summary>
         /// The authentication key for BGP configuration.
@@ -218,10 +226,16 @@ namespace Pulumi.Aws.DirectConnect
         public Input<string>? AmazonAddress { get; set; }
 
         /// <summary>
-        /// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+        /// BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `BgpAsnLong`. Exactly one of `BgpAsn` or `BgpAsnLong` must be specified.
         /// </summary>
-        [Input("bgpAsn", required: true)]
-        public Input<int> BgpAsn { get; set; } = null!;
+        [Input("bgpAsn")]
+        public Input<int>? BgpAsn { get; set; }
+
+        /// <summary>
+        /// BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `BgpAsn` range. Exactly one of `BgpAsn` or `BgpAsnLong` must be specified.
+        /// </summary>
+        [Input("bgpAsnLong")]
+        public Input<string>? BgpAsnLong { get; set; }
 
         /// <summary>
         /// The authentication key for BGP configuration.
@@ -326,10 +340,16 @@ namespace Pulumi.Aws.DirectConnect
         public Input<string>? AwsDevice { get; set; }
 
         /// <summary>
-        /// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+        /// BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `BgpAsnLong`. Exactly one of `BgpAsn` or `BgpAsnLong` must be specified.
         /// </summary>
         [Input("bgpAsn")]
         public Input<int>? BgpAsn { get; set; }
+
+        /// <summary>
+        /// BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `BgpAsn` range. Exactly one of `BgpAsn` or `BgpAsnLong` must be specified.
+        /// </summary>
+        [Input("bgpAsnLong")]
+        public Input<string>? BgpAsnLong { get; set; }
 
         /// <summary>
         /// The authentication key for BGP configuration.

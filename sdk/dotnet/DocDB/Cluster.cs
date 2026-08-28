@@ -71,7 +71,7 @@ namespace Pulumi.Aws.DocDB
         public Output<bool?> ApplyImmediately { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of cluster
+        /// ARN of cluster
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -657,7 +657,7 @@ namespace Pulumi.Aws.DocDB
         public Input<bool>? ApplyImmediately { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of cluster
+        /// ARN of cluster
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

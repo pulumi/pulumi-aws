@@ -180,7 +180,7 @@ export class Listener extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
+     * ARN of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
      */
     declare public readonly serviceArn: pulumi.Output<string>;
     /**
@@ -288,7 +288,7 @@ export interface ListenerState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
+     * ARN of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
      */
     serviceArn?: pulumi.Input<string | undefined>;
     /**
@@ -328,7 +328,7 @@ export interface ListenerArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
+     * ARN of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
      */
     serviceArn?: pulumi.Input<string | undefined>;
     /**

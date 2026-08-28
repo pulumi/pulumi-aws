@@ -114,14 +114,14 @@ public class IPSet extends com.pulumi.resources.CustomResource {
         return this.activate;
     }
     /**
-     * Amazon Resource Name (ARN) of the GuardDuty IPSet.
+     * ARN of the GuardDuty IPSet.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the GuardDuty IPSet.
+     * @return ARN of the GuardDuty IPSet.
      * 
      */
     public Output<String> arn() {

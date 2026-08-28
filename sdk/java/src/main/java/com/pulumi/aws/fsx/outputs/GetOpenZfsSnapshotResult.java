@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetOpenZfsSnapshotResult {
     /**
-     * @return Amazon Resource Name of the snapshot.
+     * @return ARN of the snapshot.
      * 
      */
     private String arn;
@@ -58,7 +58,7 @@ public final class GetOpenZfsSnapshotResult {
 
     private GetOpenZfsSnapshotResult() {}
     /**
-     * @return Amazon Resource Name of the snapshot.
+     * @return ARN of the snapshot.
      * 
      */
     public String arn() {

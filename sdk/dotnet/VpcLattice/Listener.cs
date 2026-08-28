@@ -236,7 +236,7 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `ServiceArn` or `ServiceIdentifier` arguments.
+        /// ARN of the VPC Lattice service. You must include either the `ServiceArn` or `ServiceIdentifier` arguments.
         /// </summary>
         [Output("serviceArn")]
         public Output<string> ServiceArn { get; private set; } = null!;
@@ -334,7 +334,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `ServiceArn` or `ServiceIdentifier` arguments.
+        /// ARN of the VPC Lattice service. You must include either the `ServiceArn` or `ServiceIdentifier` arguments.
         /// </summary>
         [Input("serviceArn")]
         public Input<string>? ServiceArn { get; set; }
@@ -421,7 +421,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `ServiceArn` or `ServiceIdentifier` arguments.
+        /// ARN of the VPC Lattice service. You must include either the `ServiceArn` or `ServiceIdentifier` arguments.
         /// </summary>
         [Input("serviceArn")]
         public Input<string>? ServiceArn { get; set; }

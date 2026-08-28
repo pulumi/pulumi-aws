@@ -169,7 +169,7 @@ class GetCloudExadataInfrastructureResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) for the Exadata infrastructure.
+        ARN for the Exadata infrastructure.
         """
         return pulumi.get(self, "arn")
 

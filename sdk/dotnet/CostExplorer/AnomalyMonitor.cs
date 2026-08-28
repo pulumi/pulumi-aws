@@ -79,7 +79,7 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Cost Explorer anomaly monitor.
+    /// - `Arn` (String) ARN of the Cost Explorer anomaly monitor.
     /// 
     /// Using `pulumi import`, import `aws.costexplorer.AnomalyMonitor` using the `Id`. For example:
     /// 

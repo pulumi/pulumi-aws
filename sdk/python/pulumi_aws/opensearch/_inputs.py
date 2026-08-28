@@ -175,7 +175,7 @@ class ApplicationAppConfigArgs:
 class ApplicationDataSourceArgsDict(TypedDict):
     data_source_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Amazon Resource Name (ARN) of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
+    ARN of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
     """
     data_source_description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -188,7 +188,7 @@ class ApplicationDataSourceArgs:
                  data_source_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  data_source_description: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] data_source_arn: The Amazon Resource Name (ARN) of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
+        :param pulumi.Input[_builtins.str] data_source_arn: ARN of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
         :param pulumi.Input[_builtins.str] data_source_description: A detailed description of the data source. Must be at most 1000 characters and contain only alphanumeric characters, underscores, spaces, and the following special characters: `@#%*+=:?./!-`.
         """
         if data_source_arn is not None:
@@ -200,7 +200,7 @@ class ApplicationDataSourceArgs:
     @pulumi.getter(name="dataSourceArn")
     def data_source_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
+        ARN of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
         """
         return pulumi.get(self, "data_source_arn")
 
@@ -229,7 +229,7 @@ class ApplicationIamIdentityCenterOptionsArgsDict(TypedDict):
     iam_identity_center_application_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     iam_identity_center_instance_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Amazon Resource Name (ARN) of the IAM Identity Center instance. Must be between 20 and 2048 characters.
+    ARN of the IAM Identity Center instance. Must be between 20 and 2048 characters.
     """
     iam_role_for_identity_center_application_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -245,7 +245,7 @@ class ApplicationIamIdentityCenterOptionsArgs:
                  iam_role_for_identity_center_application_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether IAM Identity Center is enabled or disabled.
-        :param pulumi.Input[_builtins.str] iam_identity_center_instance_arn: The Amazon Resource Name (ARN) of the IAM Identity Center instance. Must be between 20 and 2048 characters.
+        :param pulumi.Input[_builtins.str] iam_identity_center_instance_arn: ARN of the IAM Identity Center instance. Must be between 20 and 2048 characters.
         :param pulumi.Input[_builtins.str] iam_role_for_identity_center_application_arn: The ARN of the IAM role associated with the IAM Identity Center application. Must be between 20 and 2048 characters and match the pattern for IAM role ARNs.
         """
         if enabled is not None:
@@ -282,7 +282,7 @@ class ApplicationIamIdentityCenterOptionsArgs:
     @pulumi.getter(name="iamIdentityCenterInstanceArn")
     def iam_identity_center_instance_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the IAM Identity Center instance. Must be between 20 and 2048 characters.
+        ARN of the IAM Identity Center instance. Must be between 20 and 2048 characters.
         """
         return pulumi.get(self, "iam_identity_center_instance_arn")
 
@@ -3042,7 +3042,7 @@ class ServerlessSecurityConfigIamFederationOptionsArgs:
 class ServerlessSecurityConfigIamIdentityCenterOptionsArgsDict(TypedDict):
     instance_arn: pulumi.Input[_builtins.str]
     """
-    Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+    ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
     """
     group_attribute: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -3060,7 +3060,7 @@ class ServerlessSecurityConfigIamIdentityCenterOptionsArgs:
                  group_attribute: pulumi.Input[Optional[_builtins.str]] = None,
                  user_attribute: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] instance_arn: Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+        :param pulumi.Input[_builtins.str] instance_arn: ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
         :param pulumi.Input[_builtins.str] group_attribute: Group attribute for this IAM Identity Center integration. Valid values are `GroupId` and `GroupName`. Defaults to `GroupId`.
         :param pulumi.Input[_builtins.str] user_attribute: User attribute for this IAM Identity Center integration. Valid values are `UserId`, `UserName` and `Email`. Defaults to `UserId`.
         """
@@ -3074,7 +3074,7 @@ class ServerlessSecurityConfigIamIdentityCenterOptionsArgs:
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+        ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
         """
         return pulumi.get(self, "instance_arn")
 
@@ -3392,7 +3392,7 @@ class GetServerlessSecurityConfigIamIdentityCenterOptionArgsDict(TypedDict):
     """
     instance_arn: _builtins.str
     """
-    Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+    ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
     """
     user_attribute: _builtins.str
     """
@@ -3407,7 +3407,7 @@ class GetServerlessSecurityConfigIamIdentityCenterOptionArgs:
                  user_attribute: _builtins.str):
         """
         :param _builtins.str group_attribute: Group attribute for this SAML integration.
-        :param _builtins.str instance_arn: Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+        :param _builtins.str instance_arn: ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
         :param _builtins.str user_attribute: User attribute for this SAML integration.
         """
         pulumi.set(__self__, "group_attribute", group_attribute)
@@ -3430,7 +3430,7 @@ class GetServerlessSecurityConfigIamIdentityCenterOptionArgs:
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+        ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
         """
         return pulumi.get(self, "instance_arn")
 

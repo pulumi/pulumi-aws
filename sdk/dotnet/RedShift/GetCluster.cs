@@ -258,7 +258,7 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         public readonly string ClusterIdentifier;
         /// <summary>
-        /// The namespace Amazon Resource Name (ARN) of the cluster
+        /// Namespace ARN of the cluster
         /// </summary>
         public readonly string ClusterNamespaceArn;
         /// <summary>

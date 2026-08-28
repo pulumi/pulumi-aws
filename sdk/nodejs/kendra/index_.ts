@@ -620,7 +620,7 @@ export class Index extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Index.
+     * ARN of the Index.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -764,7 +764,7 @@ export class Index extends pulumi.CustomResource {
  */
 export interface IndexState {
     /**
-     * The Amazon Resource Name (ARN) of the Index.
+     * ARN of the Index.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

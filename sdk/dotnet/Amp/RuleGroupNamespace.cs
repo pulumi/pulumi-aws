@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Amp
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Prometheus rule group namespace.
+    /// - `Arn` (String) ARN of the Prometheus rule group namespace.
     /// 
     /// Using `pulumi import`, import the prometheus rule group namespace using the arn. For example:
     /// 

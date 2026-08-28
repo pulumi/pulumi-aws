@@ -190,14 +190,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ssm/document:Document")
 public class Document extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the document.
+     * ARN of the document.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the document.
+     * @return ARN of the document.
      * 
      */
     public Output<String> arn() {

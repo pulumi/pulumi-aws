@@ -115,7 +115,7 @@ namespace Pulumi.Aws.Backup
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
+        /// ARN that specifies the topic for a backup vault’s events
         /// </summary>
         [Output("snsTopicArn")]
         public Output<string> SnsTopicArn { get; private set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.Backup
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
+        /// ARN that specifies the topic for a backup vault’s events
         /// </summary>
         [Input("snsTopicArn", required: true)]
         public Input<string> SnsTopicArn { get; set; } = null!;
@@ -235,7 +235,7 @@ namespace Pulumi.Aws.Backup
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
+        /// ARN that specifies the topic for a backup vault’s events
         /// </summary>
         [Input("snsTopicArn")]
         public Input<string>? SnsTopicArn { get; set; }

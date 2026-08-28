@@ -302,7 +302,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild project.
+ * - `arn` (String) ARN of the CodeBuild project.
  * 
  * Using `pulumi import`, import CodeBuild Project using the `name`. For example:
  * 
@@ -464,7 +464,7 @@ public class Project extends com.pulumi.resources.CustomResource {
         return this.description;
     }
     /**
-     * AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+     * KMS customer master key (CMK) to be used for encrypting
      * the build project&#39;s build output artifacts.
      * 
      */
@@ -472,7 +472,7 @@ public class Project extends com.pulumi.resources.CustomResource {
     private Output<String> encryptionKey;
 
     /**
-     * @return AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+     * @return KMS customer master key (CMK) to be used for encrypting
      * the build project&#39;s build output artifacts.
      * 
      */
@@ -658,7 +658,7 @@ public class Project extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.secondarySources);
     }
     /**
-     * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+     * ARN of the AWS Identity and Access Management (IAM) role that
      * enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      * 
      */
@@ -666,7 +666,7 @@ public class Project extends com.pulumi.resources.CustomResource {
     private Output<String> serviceRole;
 
     /**
-     * @return Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+     * @return ARN of the AWS Identity and Access Management (IAM) role that
      * enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      * 
      */

@@ -23,14 +23,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     public static final CloudAutonomousVmClusterState Empty = new CloudAutonomousVmClusterState();
 
     /**
-     * Amazon Resource Name (ARN) for the Exadata infrastructure.
+     * ARN for the Exadata infrastructure.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) for the Exadata infrastructure.
+     * @return ARN for the Exadata infrastructure.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -906,7 +906,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) for the Exadata infrastructure.
+         * @param arn ARN for the Exadata infrastructure.
          * 
          * @return builder
          * 
@@ -917,7 +917,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) for the Exadata infrastructure.
+         * @param arn ARN for the Exadata infrastructure.
          * 
          * @return builder
          * 

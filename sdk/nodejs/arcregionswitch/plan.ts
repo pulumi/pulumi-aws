@@ -172,7 +172,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the ARC Region Switch Plan.
+ * - `arn` (String) ARN of the ARC Region Switch Plan.
  *
  * Using `pulumi import`, import Application Recovery Controller Region Switch Plan using the `arn`. For example:
  *

@@ -20,7 +20,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * The &#34;AMI copy&#34; resource allows duplication of an Amazon Machine Image (AMI),
+ * The &#34;AMI copy&#34; resource allows duplication of an AMI,
  * including cross-region copies.
  * 
  * If the source AMI has associated EBS snapshots, those will also be duplicated
@@ -100,14 +100,14 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+     * Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the EC2 User Guide.
      * 
      */
     @Export(name="bootMode", refs={String.class}, tree="[0]")
     private Output<String> bootMode;
 
     /**
-     * @return Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+     * @return Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the EC2 User Guide.
      * 
      */
     public Output<String> bootMode() {
@@ -472,14 +472,14 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+     * If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the EC2 User Guide.
      * 
      */
     @Export(name="tpmSupport", refs={String.class}, tree="[0]")
     private Output<String> tpmSupport;
 
     /**
-     * @return If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+     * @return If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the EC2 User Guide.
      * 
      */
     public Output<String> tpmSupport() {

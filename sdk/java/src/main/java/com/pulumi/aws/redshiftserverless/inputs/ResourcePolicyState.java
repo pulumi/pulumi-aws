@@ -46,14 +46,14 @@ public final class ResourcePolicyState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
+     * ARN of the account to create or update a resource policy for.
      * 
      */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
+     * @return ARN of the account to create or update a resource policy for.
      * 
      */
     public Optional<Output<String>> resourceArn() {
@@ -129,7 +129,7 @@ public final class ResourcePolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceArn The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
+         * @param resourceArn ARN of the account to create or update a resource policy for.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ResourcePolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceArn The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
+         * @param resourceArn ARN of the account to create or update a resource policy for.
          * 
          * @return builder
          * 

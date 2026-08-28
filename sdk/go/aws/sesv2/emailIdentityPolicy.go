@@ -87,7 +87,7 @@ import (
 type EmailIdentityPolicy struct {
 	pulumi.CustomResourceState
 
-	// The email identity.
+	// Email identity.
 	EmailIdentity pulumi.StringOutput `pulumi:"emailIdentity"`
 	// The text of the policy in JSON format.
 	Policy pulumi.StringOutput `pulumi:"policy"`
@@ -136,7 +136,7 @@ func GetEmailIdentityPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EmailIdentityPolicy resources.
 type emailIdentityPolicyState struct {
-	// The email identity.
+	// Email identity.
 	EmailIdentity *string `pulumi:"emailIdentity"`
 	// The text of the policy in JSON format.
 	Policy *string `pulumi:"policy"`
@@ -147,7 +147,7 @@ type emailIdentityPolicyState struct {
 }
 
 type EmailIdentityPolicyState struct {
-	// The email identity.
+	// Email identity.
 	EmailIdentity pulumi.StringPtrInput
 	// The text of the policy in JSON format.
 	Policy pulumi.StringPtrInput
@@ -162,7 +162,7 @@ func (EmailIdentityPolicyState) ElementType() reflect.Type {
 }
 
 type emailIdentityPolicyArgs struct {
-	// The email identity.
+	// Email identity.
 	EmailIdentity string `pulumi:"emailIdentity"`
 	// The text of the policy in JSON format.
 	Policy string `pulumi:"policy"`
@@ -174,7 +174,7 @@ type emailIdentityPolicyArgs struct {
 
 // The set of arguments for constructing a EmailIdentityPolicy resource.
 type EmailIdentityPolicyArgs struct {
-	// The email identity.
+	// Email identity.
 	EmailIdentity pulumi.StringInput
 	// The text of the policy in JSON format.
 	Policy pulumi.StringInput
@@ -271,7 +271,7 @@ func (o EmailIdentityPolicyOutput) ToEmailIdentityPolicyOutputWithContext(ctx co
 	return o
 }
 
-// The email identity.
+// Email identity.
 func (o EmailIdentityPolicyOutput) EmailIdentity() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentityPolicy) pulumi.StringOutput { return v.EmailIdentity }).(pulumi.StringOutput)
 }

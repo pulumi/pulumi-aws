@@ -73,7 +73,7 @@ export class Map extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
+     * ARN for the map resource. Used to specify a resource across all AWS.
      */
     declare public /*out*/ readonly mapArn: pulumi.Output<string>;
     /**
@@ -161,7 +161,7 @@ export interface MapState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
+     * ARN for the map resource. Used to specify a resource across all AWS.
      */
     mapArn?: pulumi.Input<string | undefined>;
     /**

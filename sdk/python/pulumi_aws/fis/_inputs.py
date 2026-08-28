@@ -582,7 +582,7 @@ class ExperimentTemplateLogConfigurationArgs:
 class ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgsDict(TypedDict):
     log_group_arn: pulumi.Input[_builtins.str]
     """
-    Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
+    ARN of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
     """
 
 @pulumi.input_type
@@ -590,7 +590,7 @@ class ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs:
     def __init__(__self__, *,
                  log_group_arn: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] log_group_arn: Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
+        :param pulumi.Input[_builtins.str] log_group_arn: ARN of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
         """
         pulumi.set(__self__, "log_group_arn", log_group_arn)
 
@@ -598,7 +598,7 @@ class ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs:
     @pulumi.getter(name="logGroupArn")
     def log_group_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
+        ARN of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
         """
         return pulumi.get(self, "log_group_arn")
 

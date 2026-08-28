@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Ec2
     public partial class VpcIpamScope : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the scope.
+        /// ARN of the scope.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcIpamScopeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the scope.
+        /// ARN of the scope.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

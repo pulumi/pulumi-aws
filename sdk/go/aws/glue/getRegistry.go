@@ -60,7 +60,7 @@ type LookupRegistryArgs struct {
 
 // A collection of values returned by getRegistry.
 type LookupRegistryResult struct {
-	// Amazon Resource Name (ARN) of Glue Registry.
+	// ARN of Glue Registry.
 	Arn string `pulumi:"arn"`
 	// A description of the registry.
 	Description string `pulumi:"description"`
@@ -104,7 +104,7 @@ func (o LookupRegistryResultOutput) ToLookupRegistryResultOutputWithContext(ctx 
 	return o
 }
 
-// Amazon Resource Name (ARN) of Glue Registry.
+// ARN of Glue Registry.
 func (o LookupRegistryResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRegistryResult) string { return v.Arn }).(pulumi.StringOutput)
 }

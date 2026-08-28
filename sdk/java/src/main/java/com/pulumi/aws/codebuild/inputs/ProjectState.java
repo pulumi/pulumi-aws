@@ -191,7 +191,7 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+     * KMS customer master key (CMK) to be used for encrypting
      * the build project&#39;s build output artifacts.
      * 
      */
@@ -199,7 +199,7 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> encryptionKey;
 
     /**
-     * @return AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+     * @return KMS customer master key (CMK) to be used for encrypting
      * the build project&#39;s build output artifacts.
      * 
      */
@@ -398,7 +398,7 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+     * ARN of the AWS Identity and Access Management (IAM) role that
      * enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      * 
      */
@@ -406,7 +406,7 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> serviceRole;
 
     /**
-     * @return Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+     * @return ARN of the AWS Identity and Access Management (IAM) role that
      * enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      * 
      */
@@ -774,7 +774,7 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionKey AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+         * @param encryptionKey KMS customer master key (CMK) to be used for encrypting
          * the build project&#39;s build output artifacts.
          * 
          * @return builder
@@ -786,7 +786,7 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionKey AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+         * @param encryptionKey KMS customer master key (CMK) to be used for encrypting
          * the build project&#39;s build output artifacts.
          * 
          * @return builder
@@ -1100,7 +1100,7 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceRole Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+         * @param serviceRole ARN of the AWS Identity and Access Management (IAM) role that
          * enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
          * 
          * @return builder
@@ -1112,7 +1112,7 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceRole Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+         * @param serviceRole ARN of the AWS Identity and Access Management (IAM) role that
          * enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
          * 
          * @return builder

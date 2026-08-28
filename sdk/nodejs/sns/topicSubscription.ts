@@ -200,7 +200,7 @@ import {Topic} from "./index";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the SNS topic subscription.
+ * - `arn` (String) ARN of the SNS topic subscription.
  *
  * Using `pulumi import`, import SNS Topic Subscriptions using the subscription `arn`. For example:
  *

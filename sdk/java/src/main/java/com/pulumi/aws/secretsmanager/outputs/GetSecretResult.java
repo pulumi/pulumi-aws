@@ -32,7 +32,7 @@ public final class GetSecretResult {
      */
     private String id;
     /**
-     * @return Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
+     * @return KMS Customer Master Key (CMK) associated with the secret.
      * 
      */
     private String kmsKeyId;
@@ -89,7 +89,7 @@ public final class GetSecretResult {
         return this.id;
     }
     /**
-     * @return Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
+     * @return KMS Customer Master Key (CMK) associated with the secret.
      * 
      */
     public String kmsKeyId() {

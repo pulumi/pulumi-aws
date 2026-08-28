@@ -70,7 +70,7 @@ type GetQuicksightUserArgs struct {
 type GetQuicksightUserResult struct {
 	// The active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.
 	Active bool `pulumi:"active"`
-	// The Amazon Resource Name (ARN) for the user.
+	// ARN for the user.
 	Arn          string `pulumi:"arn"`
 	AwsAccountId string `pulumi:"awsAccountId"`
 	// The custom permissions profile associated with this user.
@@ -140,7 +140,7 @@ func (o GetQuicksightUserResultOutput) Active() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetQuicksightUserResult) bool { return v.Active }).(pulumi.BoolOutput)
 }
 
-// The Amazon Resource Name (ARN) for the user.
+// ARN for the user.
 func (o GetQuicksightUserResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQuicksightUserResult) string { return v.Arn }).(pulumi.StringOutput)
 }

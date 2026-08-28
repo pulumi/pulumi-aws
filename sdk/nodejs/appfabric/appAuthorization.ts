@@ -67,7 +67,7 @@ export class AppAuthorization extends pulumi.CustomResource {
      */
     declare public readonly app: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * ARN of the app bundle to use for the request.
      */
     declare public readonly appBundleArn: pulumi.Output<string>;
     /**
@@ -191,7 +191,7 @@ export interface AppAuthorizationState {
      */
     app?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * ARN of the app bundle to use for the request.
      */
     appBundleArn?: pulumi.Input<string | undefined>;
     /**
@@ -252,7 +252,7 @@ export interface AppAuthorizationArgs {
      */
     app: pulumi.Input<string>;
     /**
-     * Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * ARN of the app bundle to use for the request.
      */
     appBundleArn: pulumi.Input<string>;
     /**

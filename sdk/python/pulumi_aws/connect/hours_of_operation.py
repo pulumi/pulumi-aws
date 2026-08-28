@@ -152,7 +152,7 @@ class _HoursOfOperationState:
         """
         Input properties used for looking up and filtering HoursOfOperation resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Hours of Operation.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Hours of Operation.
         :param pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArgs']]] configs: One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
         :param pulumi.Input[_builtins.str] description: Specifies the description of the Hours of Operation.
         :param pulumi.Input[_builtins.str] hours_of_operation_id: The identifier for the hours of operation.
@@ -188,7 +188,7 @@ class _HoursOfOperationState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the Hours of Operation.
+        ARN of the Hours of Operation.
         """
         return pulumi.get(self, "arn")
 
@@ -515,7 +515,7 @@ class HoursOfOperation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Hours of Operation.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Hours of Operation.
         :param pulumi.Input[Sequence[pulumi.Input[Union['HoursOfOperationConfigArgs', 'HoursOfOperationConfigArgsDict']]]] configs: One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
         :param pulumi.Input[_builtins.str] description: Specifies the description of the Hours of Operation.
         :param pulumi.Input[_builtins.str] hours_of_operation_id: The identifier for the hours of operation.
@@ -546,7 +546,7 @@ class HoursOfOperation(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the Hours of Operation.
+        ARN of the Hours of Operation.
         """
         return pulumi.get(self, "arn")
 

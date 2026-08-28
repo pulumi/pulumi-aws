@@ -223,7 +223,7 @@ class _SecurityGroupIngressRuleState:
         """
         Input properties used for looking up and filtering SecurityGroupIngressRule resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the security group rule.
+        :param pulumi.Input[_builtins.str] arn: ARN of the security group rule.
         :param pulumi.Input[_builtins.str] cidr_ipv4: The source IPv4 CIDR range.
         :param pulumi.Input[_builtins.str] cidr_ipv6: The source IPv6 CIDR range.
         :param pulumi.Input[_builtins.str] description: The security group rule description.
@@ -273,7 +273,7 @@ class _SecurityGroupIngressRuleState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the security group rule.
+        ARN of the security group rule.
         """
         return pulumi.get(self, "arn")
 
@@ -664,7 +664,7 @@ class SecurityGroupIngressRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the security group rule.
+        :param pulumi.Input[_builtins.str] arn: ARN of the security group rule.
         :param pulumi.Input[_builtins.str] cidr_ipv4: The source IPv4 CIDR range.
         :param pulumi.Input[_builtins.str] cidr_ipv6: The source IPv6 CIDR range.
         :param pulumi.Input[_builtins.str] description: The security group rule description.
@@ -705,7 +705,7 @@ class SecurityGroupIngressRule(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the security group rule.
+        ARN of the security group rule.
         """
         return pulumi.get(self, "arn")
 

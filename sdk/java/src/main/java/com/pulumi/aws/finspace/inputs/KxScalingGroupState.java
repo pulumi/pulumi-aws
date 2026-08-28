@@ -18,14 +18,14 @@ public final class KxScalingGroupState extends com.pulumi.resources.ResourceArgs
     public static final KxScalingGroupState Empty = new KxScalingGroupState();
 
     /**
-     * Amazon Resource Name (ARN) identifier of the KX Scaling Group.
+     * ARN identifier of the KX Scaling Group.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) identifier of the KX Scaling Group.
+     * @return ARN identifier of the KX Scaling Group.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -253,7 +253,7 @@ public final class KxScalingGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) identifier of the KX Scaling Group.
+         * @param arn ARN identifier of the KX Scaling Group.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class KxScalingGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) identifier of the KX Scaling Group.
+         * @param arn ARN identifier of the KX Scaling Group.
          * 
          * @return builder
          * 

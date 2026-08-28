@@ -52,7 +52,7 @@ class _OrganizationDelegatedAdminAccountState:
         Input properties used for looking up and filtering OrganizationDelegatedAdminAccount resources.
 
         :param pulumi.Input[_builtins.str] account_id: An organization member account ID that you want to designate as a delegated administrator.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the delegated administrator's account.
+        :param pulumi.Input[_builtins.str] arn: ARN of the delegated administrator's account.
         :param pulumi.Input[_builtins.str] email: The email address that is associated with the delegated administrator's AWS account.
         :param pulumi.Input[_builtins.str] name: The friendly name of the delegated administrator's account.
         :param pulumi.Input[_builtins.str] service_principal: The AWS CloudTrail service principal name.
@@ -84,7 +84,7 @@ class _OrganizationDelegatedAdminAccountState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the delegated administrator's account.
+        ARN of the delegated administrator's account.
         """
         return pulumi.get(self, "arn")
 
@@ -250,7 +250,7 @@ class OrganizationDelegatedAdminAccount(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: An organization member account ID that you want to designate as a delegated administrator.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the delegated administrator's account.
+        :param pulumi.Input[_builtins.str] arn: ARN of the delegated administrator's account.
         :param pulumi.Input[_builtins.str] email: The email address that is associated with the delegated administrator's AWS account.
         :param pulumi.Input[_builtins.str] name: The friendly name of the delegated administrator's account.
         :param pulumi.Input[_builtins.str] service_principal: The AWS CloudTrail service principal name.
@@ -278,7 +278,7 @@ class OrganizationDelegatedAdminAccount(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the delegated administrator's account.
+        ARN of the delegated administrator's account.
         """
         return pulumi.get(self, "arn")
 

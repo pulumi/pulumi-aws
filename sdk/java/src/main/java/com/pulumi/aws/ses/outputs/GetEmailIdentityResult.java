@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetEmailIdentityResult {
     /**
-     * @return The ARN of the email identity.
+     * @return ARN of the email identity.
      * 
      */
     private String arn;
@@ -29,7 +29,7 @@ public final class GetEmailIdentityResult {
 
     private GetEmailIdentityResult() {}
     /**
-     * @return The ARN of the email identity.
+     * @return ARN of the email identity.
      * 
      */
     public String arn() {

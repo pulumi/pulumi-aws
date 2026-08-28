@@ -31,7 +31,7 @@ public final class PipeTargetParametersEcsTaskParametersOverrides {
      */
     private @Nullable PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage ephemeralStorage;
     /**
-     * @return The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
+     * @return ARN of the task execution IAM role override for the task.
      * 
      */
     private @Nullable String executionRoleArn;
@@ -46,7 +46,7 @@ public final class PipeTargetParametersEcsTaskParametersOverrides {
      */
     private @Nullable String memory;
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
+     * @return ARN of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
      * 
      */
     private @Nullable String taskRoleArn;
@@ -74,7 +74,7 @@ public final class PipeTargetParametersEcsTaskParametersOverrides {
         return Optional.ofNullable(this.ephemeralStorage);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
+     * @return ARN of the task execution IAM role override for the task.
      * 
      */
     public Optional<String> executionRoleArn() {
@@ -95,7 +95,7 @@ public final class PipeTargetParametersEcsTaskParametersOverrides {
         return Optional.ofNullable(this.memory);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
+     * @return ARN of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
      * 
      */
     public Optional<String> taskRoleArn() {

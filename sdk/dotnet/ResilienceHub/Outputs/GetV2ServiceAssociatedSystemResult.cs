@@ -17,11 +17,19 @@ namespace Pulumi.Aws.ResilienceHub.Outputs
         /// ARN of the associated system.
         /// </summary>
         public readonly string SystemArn;
+        /// <summary>
+        /// List of user journey identifiers that associate the system with the service.
+        /// </summary>
+        public readonly ImmutableArray<string> UserJourneyIds;
 
         [OutputConstructor]
-        private GetV2ServiceAssociatedSystemResult(string systemArn)
+        private GetV2ServiceAssociatedSystemResult(
+            string systemArn,
+
+            ImmutableArray<string> userJourneyIds)
         {
             SystemArn = systemArn;
+            UserJourneyIds = userJourneyIds;
         }
     }
 }

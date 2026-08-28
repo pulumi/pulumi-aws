@@ -131,7 +131,7 @@ namespace Pulumi.Aws.Eks
         public Output<string> AddonVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the EKS add-on.
+        /// ARN of the EKS add-on.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.Aws.Eks
         public Output<string?> ResolveConflictsOnUpdate { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an
+        /// ARN of an
         /// existing IAM role to bind to the add-on's service account. The role must be
         /// assigned the IAM permissions required by the add-on. If you don't specify
         /// an existing IAM role, then the add-on uses the permissions assigned to the node
@@ -343,7 +343,7 @@ namespace Pulumi.Aws.Eks
         public Input<string>? ResolveConflictsOnUpdate { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an
+        /// ARN of an
         /// existing IAM role to bind to the add-on's service account. The role must be
         /// assigned the IAM permissions required by the add-on. If you don't specify
         /// an existing IAM role, then the add-on uses the permissions assigned to the node
@@ -393,7 +393,7 @@ namespace Pulumi.Aws.Eks
         public Input<string>? AddonVersion { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the EKS add-on.
+        /// ARN of the EKS add-on.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -467,7 +467,7 @@ namespace Pulumi.Aws.Eks
         public Input<string>? ResolveConflictsOnUpdate { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an
+        /// ARN of an
         /// existing IAM role to bind to the add-on's service account. The role must be
         /// assigned the IAM permissions required by the add-on. If you don't specify
         /// an existing IAM role, then the add-on uses the permissions assigned to the node

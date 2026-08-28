@@ -49,14 +49,14 @@ public final class TopicRuleDestinationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+     * Configuration of the VPC connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
      * 
      */
     @Import(name="vpcConfiguration", required=true)
     private Output<TopicRuleDestinationVpcConfigurationArgs> vpcConfiguration;
 
     /**
-     * @return Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+     * @return Configuration of the VPC connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
      * 
      */
     public Output<TopicRuleDestinationVpcConfigurationArgs> vpcConfiguration() {
@@ -132,7 +132,7 @@ public final class TopicRuleDestinationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param vpcConfiguration Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+         * @param vpcConfiguration Configuration of the VPC connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class TopicRuleDestinationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param vpcConfiguration Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+         * @param vpcConfiguration Configuration of the VPC connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
          * 
          * @return builder
          * 

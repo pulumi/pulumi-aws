@@ -25,7 +25,7 @@ class BucketPolicyArgs:
         """
         The set of arguments for constructing a BucketPolicy resource.
 
-        :param pulumi.Input[_builtins.str] bucket: Amazon Resource Name (ARN) of the bucket.
+        :param pulumi.Input[_builtins.str] bucket: ARN of the bucket.
         :param pulumi.Input[_builtins.str] policy: JSON string of the resource policy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -38,7 +38,7 @@ class BucketPolicyArgs:
     @pulumi.getter
     def bucket(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the bucket.
+        ARN of the bucket.
         """
         return pulumi.get(self, "bucket")
 
@@ -80,7 +80,7 @@ class _BucketPolicyState:
         """
         Input properties used for looking up and filtering BucketPolicy resources.
 
-        :param pulumi.Input[_builtins.str] bucket: Amazon Resource Name (ARN) of the bucket.
+        :param pulumi.Input[_builtins.str] bucket: ARN of the bucket.
         :param pulumi.Input[_builtins.str] policy: JSON string of the resource policy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -95,7 +95,7 @@ class _BucketPolicyState:
     @pulumi.getter
     def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the bucket.
+        ARN of the bucket.
         """
         return pulumi.get(self, "bucket")
 
@@ -169,7 +169,7 @@ class BucketPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import S3 Control Bucket Policies using the Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import S3 Control Bucket Policies using the ARN. For example:
 
         ```sh
         $ pulumi import aws:s3control/bucketPolicy:BucketPolicy example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
@@ -178,7 +178,7 @@ class BucketPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bucket: Amazon Resource Name (ARN) of the bucket.
+        :param pulumi.Input[_builtins.str] bucket: ARN of the bucket.
         :param pulumi.Input[_builtins.str] policy: JSON string of the resource policy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -219,7 +219,7 @@ class BucketPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import S3 Control Bucket Policies using the Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import S3 Control Bucket Policies using the ARN. For example:
 
         ```sh
         $ pulumi import aws:s3control/bucketPolicy:BucketPolicy example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
@@ -280,7 +280,7 @@ class BucketPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bucket: Amazon Resource Name (ARN) of the bucket.
+        :param pulumi.Input[_builtins.str] bucket: ARN of the bucket.
         :param pulumi.Input[_builtins.str] policy: JSON string of the resource policy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -297,7 +297,7 @@ class BucketPolicy(pulumi.CustomResource):
     @pulumi.getter
     def bucket(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the bucket.
+        ARN of the bucket.
         """
         return pulumi.get(self, "bucket")
 

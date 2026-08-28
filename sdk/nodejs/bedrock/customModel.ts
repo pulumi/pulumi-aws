@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `jobArn` (String) Amazon Resource Name (ARN) of the Bedrock custom model job.
+ * - `jobArn` (String) ARN of the Bedrock custom model job.
  *
  * Using `pulumi import`, import Bedrock custom model using the `jobArn`. For example:
  *
@@ -95,7 +95,7 @@ export class CustomModel extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the base model.
+     * ARN of the base model.
      */
     declare public readonly baseModelIdentifier: pulumi.Output<string>;
     /**
@@ -139,7 +139,7 @@ export class CustomModel extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
+     * ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
@@ -168,7 +168,7 @@ export class CustomModel extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly validationMetrics: pulumi.Output<outputs.bedrock.CustomModelValidationMetric[]>;
     /**
-     * Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
+     * Configuration parameters for the private VPC that contains the resources you are using for this job.
      */
     declare public readonly vpcConfig: pulumi.Output<outputs.bedrock.CustomModelVpcConfig | undefined>;
 
@@ -259,7 +259,7 @@ export class CustomModel extends pulumi.CustomResource {
  */
 export interface CustomModelState {
     /**
-     * The Amazon Resource Name (ARN) of the base model.
+     * ARN of the base model.
      */
     baseModelIdentifier?: pulumi.Input<string | undefined>;
     /**
@@ -303,7 +303,7 @@ export interface CustomModelState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
+     * ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
@@ -332,7 +332,7 @@ export interface CustomModelState {
      */
     validationMetrics?: pulumi.Input<pulumi.Input<inputs.bedrock.CustomModelValidationMetric>[] | undefined>;
     /**
-     * Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
+     * Configuration parameters for the private VPC that contains the resources you are using for this job.
      */
     vpcConfig?: pulumi.Input<inputs.bedrock.CustomModelVpcConfig | undefined>;
 }
@@ -342,7 +342,7 @@ export interface CustomModelState {
  */
 export interface CustomModelArgs {
     /**
-     * The Amazon Resource Name (ARN) of the base model.
+     * ARN of the base model.
      */
     baseModelIdentifier: pulumi.Input<string>;
     /**
@@ -374,7 +374,7 @@ export interface CustomModelArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
+     * ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
      */
     roleArn: pulumi.Input<string>;
     /**
@@ -391,7 +391,7 @@ export interface CustomModelArgs {
      */
     validationDataConfig?: pulumi.Input<inputs.bedrock.CustomModelValidationDataConfig | undefined>;
     /**
-     * Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
+     * Configuration parameters for the private VPC that contains the resources you are using for this job.
      */
     vpcConfig?: pulumi.Input<inputs.bedrock.CustomModelVpcConfig | undefined>;
 }

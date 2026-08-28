@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationLex {
     /**
-     * @return The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.
+     * @return ARN of the Amazon Lex bot alias to invoke.
      * 
      */
     private String botAliasArn;
@@ -23,7 +23,7 @@ public final class AgentFlowDefinitionNodeConfigurationLex {
 
     private AgentFlowDefinitionNodeConfigurationLex() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.
+     * @return ARN of the Amazon Lex bot alias to invoke.
      * 
      */
     public String botAliasArn() {

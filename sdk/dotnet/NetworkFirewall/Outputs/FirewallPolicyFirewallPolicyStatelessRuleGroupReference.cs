@@ -18,7 +18,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
         /// </summary>
         public readonly int Priority;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the stateless rule group.
+        /// ARN of the stateless rule group.
         /// </summary>
         public readonly string ResourceArn;
 

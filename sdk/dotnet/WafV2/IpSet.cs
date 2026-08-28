@@ -61,7 +61,7 @@ namespace Pulumi.Aws.WafV2
         public Output<ImmutableArray<string>> Addresses { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IP set.
+        /// ARN of the IP set.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -244,7 +244,7 @@ namespace Pulumi.Aws.WafV2
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IP set.
+        /// ARN of the IP set.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

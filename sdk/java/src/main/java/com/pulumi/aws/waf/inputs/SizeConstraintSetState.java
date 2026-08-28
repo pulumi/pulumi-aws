@@ -18,14 +18,14 @@ public final class SizeConstraintSetState extends com.pulumi.resources.ResourceA
     public static final SizeConstraintSetState Empty = new SizeConstraintSetState();
 
     /**
-     * Amazon Resource Name (ARN).
+     * ARN.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN).
+     * @return ARN.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -89,7 +89,7 @@ public final class SizeConstraintSetState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN).
+         * @param arn ARN.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class SizeConstraintSetState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN).
+         * @param arn ARN.
          * 
          * @return builder
          * 

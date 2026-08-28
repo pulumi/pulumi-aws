@@ -65,7 +65,7 @@ export class SecurityProfile extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Security Profile.
+     * ARN of the Security Profile.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -155,7 +155,7 @@ export class SecurityProfile extends pulumi.CustomResource {
  */
 export interface SecurityProfileState {
     /**
-     * The Amazon Resource Name (ARN) of the Security Profile.
+     * ARN of the Security Profile.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

@@ -246,14 +246,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
+     * ARN of the KMS key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
      * 
      */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
-     * @return ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
+     * @return ARN of the KMS key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
@@ -550,14 +550,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of the AWS Key Management Service key used to encrypt the function&#39;s `.zip` deployment package. Conflicts with `imageUri`.
+     * ARN of the KMS key used to encrypt the function&#39;s `.zip` deployment package. Conflicts with `imageUri`.
      * 
      */
     @Import(name="sourceKmsKeyArn")
     private @Nullable Output<String> sourceKmsKeyArn;
 
     /**
-     * @return ARN of the AWS Key Management Service key used to encrypt the function&#39;s `.zip` deployment package. Conflicts with `imageUri`.
+     * @return ARN of the KMS key used to encrypt the function&#39;s `.zip` deployment package. Conflicts with `imageUri`.
      * 
      */
     public Optional<Output<String>> sourceKmsKeyArn() {
@@ -1023,7 +1023,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyArn ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
+         * @param kmsKeyArn ARN of the KMS key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
          * 
          * @return builder
          * 
@@ -1034,7 +1034,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyArn ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
+         * @param kmsKeyArn ARN of the KMS key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
          * 
          * @return builder
          * 
@@ -1487,7 +1487,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceKmsKeyArn ARN of the AWS Key Management Service key used to encrypt the function&#39;s `.zip` deployment package. Conflicts with `imageUri`.
+         * @param sourceKmsKeyArn ARN of the KMS key used to encrypt the function&#39;s `.zip` deployment package. Conflicts with `imageUri`.
          * 
          * @return builder
          * 
@@ -1498,7 +1498,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceKmsKeyArn ARN of the AWS Key Management Service key used to encrypt the function&#39;s `.zip` deployment package. Conflicts with `imageUri`.
+         * @param sourceKmsKeyArn ARN of the KMS key used to encrypt the function&#39;s `.zip` deployment package. Conflicts with `imageUri`.
          * 
          * @return builder
          * 

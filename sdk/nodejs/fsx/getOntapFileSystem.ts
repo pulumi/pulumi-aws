@@ -55,7 +55,7 @@ export interface GetOntapFileSystemArgs {
  */
 export interface GetOntapFileSystemResult {
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      */
     readonly arn: string;
     /**
@@ -144,7 +144,7 @@ export interface GetOntapFileSystemResult {
      */
     readonly throughputCapacityPerHaPair: number;
     /**
-     * ID of the primary virtual private cloud (VPC) for the file system.
+     * ID of the primary VPC for the file system.
      */
     readonly vpcId: string;
     /**

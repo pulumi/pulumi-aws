@@ -47,14 +47,14 @@ public final class ConnectorV2ConnectorProviderServiceNowArgs extends com.pulumi
     }
 
     /**
-     * Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials.
+     * ARN of the AWS Secrets Manager secret that contains the ServiceNow credentials.
      * 
      */
     @Import(name="secretArn", required=true)
     private Output<String> secretArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials.
+     * @return ARN of the AWS Secrets Manager secret that contains the ServiceNow credentials.
      * 
      */
     public Output<String> secretArn() {
@@ -130,7 +130,7 @@ public final class ConnectorV2ConnectorProviderServiceNowArgs extends com.pulumi
         }
 
         /**
-         * @param secretArn Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials.
+         * @param secretArn ARN of the AWS Secrets Manager secret that contains the ServiceNow credentials.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ConnectorV2ConnectorProviderServiceNowArgs extends com.pulumi
         }
 
         /**
-         * @param secretArn Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials.
+         * @param secretArn ARN of the AWS Secrets Manager secret that contains the ServiceNow credentials.
          * 
          * @return builder
          * 

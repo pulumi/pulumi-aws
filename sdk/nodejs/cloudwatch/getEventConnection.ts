@@ -47,7 +47,7 @@ export interface GetEventConnectionArgs {
  */
 export interface GetEventConnectionResult {
     /**
-     * ARN (Amazon Resource Name) of the connection.
+     * ARN of the connection.
      */
     readonly arn: string;
     /**

@@ -656,7 +656,7 @@ namespace Pulumi.Aws.Kendra
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `RoleArn` parameter when the `Type` parameter is set to `CUSTOM`. The `RoleArn` parameter is required for all other data sources.
+        /// ARN of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `RoleArn` parameter when the `Type` parameter is set to `CUSTOM`. The `RoleArn` parameter is required for all other data sources.
         /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
@@ -788,7 +788,7 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `RoleArn` parameter when the `Type` parameter is set to `CUSTOM`. The `RoleArn` parameter is required for all other data sources.
+        /// ARN of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `RoleArn` parameter when the `Type` parameter is set to `CUSTOM`. The `RoleArn` parameter is required for all other data sources.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
@@ -894,7 +894,7 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `RoleArn` parameter when the `Type` parameter is set to `CUSTOM`. The `RoleArn` parameter is required for all other data sources.
+        /// ARN of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `RoleArn` parameter when the `Type` parameter is set to `CUSTOM`. The `RoleArn` parameter is required for all other data sources.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

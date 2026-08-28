@@ -18,14 +18,14 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
     public static final ClusterEndpointState Empty = new ClusterEndpointState();
 
     /**
-     * Amazon Resource Name (ARN) of cluster
+     * ARN of cluster
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of cluster
+     * @return ARN of cluster
      * 
      */
     public Optional<Output<String>> arn() {
@@ -207,7 +207,7 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of cluster
+         * @param arn ARN of cluster
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of cluster
+         * @param arn ARN of cluster
          * 
          * @return builder
          * 

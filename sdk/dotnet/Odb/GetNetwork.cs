@@ -140,7 +140,7 @@ namespace Pulumi.Aws.Odb
     public sealed class GetNetworkResult
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the odb network resource.
+        /// ARN of the odb network resource.
         /// </summary>
         public readonly string Arn;
         /// <summary>

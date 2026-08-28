@@ -206,14 +206,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:wafregional/webAcl:WebAcl")
 public class WebAcl extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the WAF Regional WebACL.
+     * ARN of the WAF Regional WebACL.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the WAF Regional WebACL.
+     * @return ARN of the WAF Regional WebACL.
      * 
      */
     public Output<String> arn() {

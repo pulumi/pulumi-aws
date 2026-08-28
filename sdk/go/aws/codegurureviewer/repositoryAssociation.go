@@ -64,11 +64,11 @@ import (
 type RepositoryAssociation struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) identifying the repository association.
+	// ARN identifying the repository association.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ID of the repository association.
 	AssociationId pulumi.StringOutput `pulumi:"associationId"`
-	// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+	// ARN of an AWS CodeStar Connections connection.
 	ConnectionArn pulumi.StringOutput `pulumi:"connectionArn"`
 	// An object describing the KMS key to asssociate. Block is documented below.
 	KmsKeyDetails RepositoryAssociationKmsKeyDetailsPtrOutput `pulumi:"kmsKeyDetails"`
@@ -126,11 +126,11 @@ func GetRepositoryAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RepositoryAssociation resources.
 type repositoryAssociationState struct {
-	// The Amazon Resource Name (ARN) identifying the repository association.
+	// ARN identifying the repository association.
 	Arn *string `pulumi:"arn"`
 	// The ID of the repository association.
 	AssociationId *string `pulumi:"associationId"`
-	// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+	// ARN of an AWS CodeStar Connections connection.
 	ConnectionArn *string `pulumi:"connectionArn"`
 	// An object describing the KMS key to asssociate. Block is documented below.
 	KmsKeyDetails *RepositoryAssociationKmsKeyDetails `pulumi:"kmsKeyDetails"`
@@ -156,11 +156,11 @@ type repositoryAssociationState struct {
 }
 
 type RepositoryAssociationState struct {
-	// The Amazon Resource Name (ARN) identifying the repository association.
+	// ARN identifying the repository association.
 	Arn pulumi.StringPtrInput
 	// The ID of the repository association.
 	AssociationId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+	// ARN of an AWS CodeStar Connections connection.
 	ConnectionArn pulumi.StringPtrInput
 	// An object describing the KMS key to asssociate. Block is documented below.
 	KmsKeyDetails RepositoryAssociationKmsKeyDetailsPtrInput
@@ -301,7 +301,7 @@ func (o RepositoryAssociationOutput) ToRepositoryAssociationOutputWithContext(ct
 	return o
 }
 
-// The Amazon Resource Name (ARN) identifying the repository association.
+// ARN identifying the repository association.
 func (o RepositoryAssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -311,7 +311,7 @@ func (o RepositoryAssociationOutput) AssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringOutput { return v.AssociationId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+// ARN of an AWS CodeStar Connections connection.
 func (o RepositoryAssociationOutput) ConnectionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringOutput { return v.ConnectionArn }).(pulumi.StringOutput)
 }

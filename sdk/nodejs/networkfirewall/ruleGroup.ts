@@ -373,7 +373,7 @@ export class RuleGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) that identifies the rule group.
+     * ARN that identifies the rule group.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -477,7 +477,7 @@ export class RuleGroup extends pulumi.CustomResource {
  */
 export interface RuleGroupState {
     /**
-     * The Amazon Resource Name (ARN) that identifies the rule group.
+     * ARN that identifies the rule group.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

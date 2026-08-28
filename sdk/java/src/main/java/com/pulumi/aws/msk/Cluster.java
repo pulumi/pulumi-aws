@@ -287,7 +287,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the MSK cluster.
+ * - `arn` (String) ARN of the MSK cluster.
  * 
  * Using `pulumi import`, import MSK cluster using the cluster ARN. For example:
  * 
@@ -299,14 +299,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:msk/cluster:Cluster")
 public class Cluster extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the MSK cluster.
+     * ARN of the MSK cluster.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the MSK cluster.
+     * @return ARN of the MSK cluster.
      * 
      */
     public Output<String> arn() {

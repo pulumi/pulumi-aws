@@ -64,7 +64,7 @@ export class HumanTaskUI extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
+     * ARN assigned by AWS to this Human Task UI.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -132,7 +132,7 @@ export class HumanTaskUI extends pulumi.CustomResource {
  */
 export interface HumanTaskUIState {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
+     * ARN assigned by AWS to this Human Task UI.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

@@ -31,7 +31,7 @@ class TrafficMirrorTargetArgs:
         :param pulumi.Input[_builtins.str] description: A description of the traffic mirror session.
         :param pulumi.Input[_builtins.str] gateway_load_balancer_endpoint_id: The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
         :param pulumi.Input[_builtins.str] network_interface_id: The network interface ID that is associated with the target.
-        :param pulumi.Input[_builtins.str] network_load_balancer_arn: The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+        :param pulumi.Input[_builtins.str] network_load_balancer_arn: ARN of the Network Load Balancer that is associated with the target.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
@@ -90,7 +90,7 @@ class TrafficMirrorTargetArgs:
     @pulumi.getter(name="networkLoadBalancerArn")
     def network_load_balancer_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+        ARN of the Network Load Balancer that is associated with the target.
         """
         return pulumi.get(self, "network_load_balancer_arn")
 
@@ -144,7 +144,7 @@ class _TrafficMirrorTargetState:
         :param pulumi.Input[_builtins.str] description: A description of the traffic mirror session.
         :param pulumi.Input[_builtins.str] gateway_load_balancer_endpoint_id: The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
         :param pulumi.Input[_builtins.str] network_interface_id: The network interface ID that is associated with the target.
-        :param pulumi.Input[_builtins.str] network_load_balancer_arn: The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+        :param pulumi.Input[_builtins.str] network_load_balancer_arn: ARN of the Network Load Balancer that is associated with the target.
         :param pulumi.Input[_builtins.str] owner_id: The ID of the AWS account that owns the traffic mirror target.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -223,7 +223,7 @@ class _TrafficMirrorTargetState:
     @pulumi.getter(name="networkLoadBalancerArn")
     def network_load_balancer_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+        ARN of the Network Load Balancer that is associated with the target.
         """
         return pulumi.get(self, "network_load_balancer_arn")
 
@@ -332,7 +332,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description of the traffic mirror session.
         :param pulumi.Input[_builtins.str] gateway_load_balancer_endpoint_id: The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
         :param pulumi.Input[_builtins.str] network_interface_id: The network interface ID that is associated with the target.
-        :param pulumi.Input[_builtins.str] network_load_balancer_arn: The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+        :param pulumi.Input[_builtins.str] network_load_balancer_arn: ARN of the Network Load Balancer that is associated with the target.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
@@ -445,7 +445,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description of the traffic mirror session.
         :param pulumi.Input[_builtins.str] gateway_load_balancer_endpoint_id: The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
         :param pulumi.Input[_builtins.str] network_interface_id: The network interface ID that is associated with the target.
-        :param pulumi.Input[_builtins.str] network_load_balancer_arn: The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+        :param pulumi.Input[_builtins.str] network_load_balancer_arn: ARN of the Network Load Balancer that is associated with the target.
         :param pulumi.Input[_builtins.str] owner_id: The ID of the AWS account that owns the traffic mirror target.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -504,7 +504,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
     @pulumi.getter(name="networkLoadBalancerArn")
     def network_load_balancer_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+        ARN of the Network Load Balancer that is associated with the target.
         """
         return pulumi.get(self, "network_load_balancer_arn")
 

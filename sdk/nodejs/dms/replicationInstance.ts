@@ -153,7 +153,7 @@ export class ReplicationInstance extends pulumi.CustomResource {
      */
     declare public readonly kerberosAuthenticationSettings: pulumi.Output<outputs.dms.ReplicationInstanceKerberosAuthenticationSettings | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      */
     declare public readonly kmsKeyArn: pulumi.Output<string>;
     /**
@@ -177,7 +177,7 @@ export class ReplicationInstance extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the replication instance.
+     * ARN of the replication instance.
      */
     declare public /*out*/ readonly replicationInstanceArn: pulumi.Output<string>;
     /**
@@ -323,7 +323,7 @@ export interface ReplicationInstanceState {
      */
     kerberosAuthenticationSettings?: pulumi.Input<inputs.dms.ReplicationInstanceKerberosAuthenticationSettings | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      */
     kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
@@ -347,7 +347,7 @@ export interface ReplicationInstanceState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the replication instance.
+     * ARN of the replication instance.
      */
     replicationInstanceArn?: pulumi.Input<string | undefined>;
     /**
@@ -421,7 +421,7 @@ export interface ReplicationInstanceArgs {
      */
     kerberosAuthenticationSettings?: pulumi.Input<inputs.dms.ReplicationInstanceKerberosAuthenticationSettings | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      */
     kmsKeyArn?: pulumi.Input<string | undefined>;
     /**

@@ -334,7 +334,7 @@ class _VpcEndpointState:
         """
         Input properties used for looking up and filtering VpcEndpoint resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the VPC endpoint.
+        :param pulumi.Input[_builtins.str] arn: ARN of the VPC endpoint.
         :param pulumi.Input[_builtins.bool] auto_accept: Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_blocks: The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
         :param pulumi.Input[Sequence[pulumi.Input['VpcEndpointDnsEntryArgs']]] dns_entries: The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
@@ -420,7 +420,7 @@ class _VpcEndpointState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the VPC endpoint.
+        ARN of the VPC endpoint.
         """
         return pulumi.get(self, "arn")
 
@@ -1263,7 +1263,7 @@ class VpcEndpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the VPC endpoint.
+        :param pulumi.Input[_builtins.str] arn: ARN of the VPC endpoint.
         :param pulumi.Input[_builtins.bool] auto_accept: Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_blocks: The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VpcEndpointDnsEntryArgs', 'VpcEndpointDnsEntryArgsDict']]]] dns_entries: The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
@@ -1328,7 +1328,7 @@ class VpcEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the VPC endpoint.
+        ARN of the VPC endpoint.
         """
         return pulumi.get(self, "arn")
 

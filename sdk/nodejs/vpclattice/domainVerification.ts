@@ -80,7 +80,7 @@ export class DomainVerification extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the domain verification.
+     * ARN of the domain verification.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -171,7 +171,7 @@ export class DomainVerification extends pulumi.CustomResource {
  */
 export interface DomainVerificationState {
     /**
-     * Amazon Resource Name (ARN) of the domain verification.
+     * ARN of the domain verification.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

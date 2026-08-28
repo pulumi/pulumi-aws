@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<int>? AcceptedRouteCount { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
+        /// ARN of the VPN tunnel endpoint certificate.
         /// </summary>
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }

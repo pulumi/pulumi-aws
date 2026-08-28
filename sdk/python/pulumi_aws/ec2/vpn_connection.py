@@ -1036,7 +1036,7 @@ class _VpnConnectionState:
         """
         Input properties used for looking up and filtering VpnConnection resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the VPN Connection.
+        :param pulumi.Input[_builtins.str] arn: ARN of the VPN Connection.
         :param pulumi.Input[_builtins.str] core_network_arn: The ARN of the core network.
         :param pulumi.Input[_builtins.str] core_network_attachment_arn: The ARN of the core network attachment.
         :param pulumi.Input[_builtins.str] customer_gateway_configuration: The configuration information for the VPN connection's customer gateway (in the native XML format).
@@ -1273,7 +1273,7 @@ class _VpnConnectionState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the VPN Connection.
+        ARN of the VPN Connection.
         """
         return pulumi.get(self, "arn")
 
@@ -2260,7 +2260,7 @@ class VpnConnection(pulumi.CustomResource):
                  vpn_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+        Manages a Site-to-Site VPN connection. A Site-to-Site VPN connection is an IP security (IPsec) VPN connection between a VPC and an on-premises network.
         Any new Site-to-Site VPN connection that you create is an [AWS VPN connection](https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-categories.html).
 
         > **Note:** The CIDR blocks in the arguments `tunnel1_inside_cidr` and `tunnel2_inside_cidr` must have a prefix of /30 and be a part of a specific range.
@@ -2418,7 +2418,7 @@ class VpnConnection(pulumi.CustomResource):
                  args: VpnConnectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+        Manages a Site-to-Site VPN connection. A Site-to-Site VPN connection is an IP security (IPsec) VPN connection between a VPC and an on-premises network.
         Any new Site-to-Site VPN connection that you create is an [AWS VPN connection](https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-categories.html).
 
         > **Note:** The CIDR blocks in the arguments `tunnel1_inside_cidr` and `tunnel2_inside_cidr` must have a prefix of /30 and be a part of a specific range.
@@ -2767,7 +2767,7 @@ class VpnConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the VPN Connection.
+        :param pulumi.Input[_builtins.str] arn: ARN of the VPN Connection.
         :param pulumi.Input[_builtins.str] core_network_arn: The ARN of the core network.
         :param pulumi.Input[_builtins.str] core_network_attachment_arn: The ARN of the core network attachment.
         :param pulumi.Input[_builtins.str] customer_gateway_configuration: The configuration information for the VPN connection's customer gateway (in the native XML format).
@@ -2932,7 +2932,7 @@ class VpnConnection(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the VPN Connection.
+        ARN of the VPN Connection.
         """
         return pulumi.get(self, "arn")
 

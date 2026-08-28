@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class GetBucketReplicationConfigurationRuleDeleteMarkerReplication {
     /**
-     * @return Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+     * @return Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
      * 
      */
     private String status;
 
     private GetBucketReplicationConfigurationRuleDeleteMarkerReplication() {}
     /**
-     * @return Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+     * @return Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
      * 
      */
     public String status() {

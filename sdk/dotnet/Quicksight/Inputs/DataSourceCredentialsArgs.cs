@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
     public sealed class DataSourceCredentialsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+        /// The ARN of a data source that has the credential pair that you want to use.
         /// When the value is not null, the `CredentialPair` from the data source in the ARN is used.
         /// </summary>
         [Input("copySourceArn")]
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public Input<Inputs.DataSourceCredentialsCredentialPairArgs>? CredentialPair { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
+        /// The ARN of the secret associated with the data source in Amazon Secrets Manager.
         /// </summary>
         [Input("secretArn")]
         public Input<string>? SecretArn { get; set; }

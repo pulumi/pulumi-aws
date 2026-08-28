@@ -436,7 +436,7 @@ class _WindowsFileSystemState:
 
         :param pulumi.Input[_builtins.str] active_directory_id: ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aliases: Array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name of the file system.
+        :param pulumi.Input[_builtins.str] arn: ARN of the file system.
         :param pulumi.Input['WindowsFileSystemAuditLogConfigurationArgs'] audit_log_configuration: Configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
         :param pulumi.Input[_builtins.int] automatic_backup_retention_days: Number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
         :param pulumi.Input[_builtins.str] backup_id: ID of the source backup to create the filesystem from.
@@ -465,7 +465,7 @@ class _WindowsFileSystemState:
         :param pulumi.Input[_builtins.int] throughput_capacity: Throughput (megabytes per second) of the file system. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/performance.html).
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] vpc_id: Identifier of the Virtual Private Cloud for the file system.
+        :param pulumi.Input[_builtins.str] vpc_id: Identifier of the VPC for the file system.
         :param pulumi.Input[_builtins.str] weekly_maintenance_start_time: Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         if active_directory_id is not None:
@@ -559,7 +559,7 @@ class _WindowsFileSystemState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name of the file system.
+        ARN of the file system.
         """
         return pulumi.get(self, "arn")
 
@@ -885,7 +885,7 @@ class _WindowsFileSystemState:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Identifier of the Virtual Private Cloud for the file system.
+        Identifier of the VPC for the file system.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -1276,7 +1276,7 @@ class WindowsFileSystem(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] active_directory_id: ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aliases: Array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name of the file system.
+        :param pulumi.Input[_builtins.str] arn: ARN of the file system.
         :param pulumi.Input[Union['WindowsFileSystemAuditLogConfigurationArgs', 'WindowsFileSystemAuditLogConfigurationArgsDict']] audit_log_configuration: Configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
         :param pulumi.Input[_builtins.int] automatic_backup_retention_days: Number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
         :param pulumi.Input[_builtins.str] backup_id: ID of the source backup to create the filesystem from.
@@ -1305,7 +1305,7 @@ class WindowsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] throughput_capacity: Throughput (megabytes per second) of the file system. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/performance.html).
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] vpc_id: Identifier of the Virtual Private Cloud for the file system.
+        :param pulumi.Input[_builtins.str] vpc_id: Identifier of the VPC for the file system.
         :param pulumi.Input[_builtins.str] weekly_maintenance_start_time: Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1365,7 +1365,7 @@ class WindowsFileSystem(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name of the file system.
+        ARN of the file system.
         """
         return pulumi.get(self, "arn")
 
@@ -1583,7 +1583,7 @@ class WindowsFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Identifier of the Virtual Private Cloud for the file system.
+        Identifier of the VPC for the file system.
         """
         return pulumi.get(self, "vpc_id")
 

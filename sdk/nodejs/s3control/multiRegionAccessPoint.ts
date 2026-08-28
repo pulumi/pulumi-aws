@@ -93,7 +93,7 @@ export class MultiRegionAccessPoint extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly alias: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the Multi-Region Access Point.
+     * ARN of the Multi-Region Access Point.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -170,7 +170,7 @@ export interface MultiRegionAccessPointState {
      */
     alias?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the Multi-Region Access Point.
+     * ARN of the Multi-Region Access Point.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

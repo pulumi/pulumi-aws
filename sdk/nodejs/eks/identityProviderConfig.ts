@@ -75,7 +75,7 @@ export class IdentityProviderConfig extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
+     * ARN of the EKS Identity Provider Configuration.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -152,7 +152,7 @@ export class IdentityProviderConfig extends pulumi.CustomResource {
  */
 export interface IdentityProviderConfigState {
     /**
-     * Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
+     * ARN of the EKS Identity Provider Configuration.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

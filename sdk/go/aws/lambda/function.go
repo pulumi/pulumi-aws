@@ -933,7 +933,7 @@ type Function struct {
 	ImageUri pulumi.StringPtrOutput `pulumi:"imageUri"`
 	// ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
 	InvokeArn pulumi.StringOutput `pulumi:"invokeArn"`
-	// ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
+	// ARN of the KMS key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// Date this resource was last modified.
 	LastModified pulumi.StringOutput `pulumi:"lastModified"`
@@ -989,7 +989,7 @@ type Function struct {
 	SourceCodeHash pulumi.StringOutput `pulumi:"sourceCodeHash"`
 	// Size in bytes of the function .zip file.
 	SourceCodeSize pulumi.IntOutput `pulumi:"sourceCodeSize"`
-	// ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `imageUri`.
+	// ARN of the KMS key used to encrypt the function's `.zip` deployment package. Conflicts with `imageUri`.
 	SourceKmsKeyArn pulumi.StringPtrOutput `pulumi:"sourceKmsKeyArn"`
 	// Key-value map of tags for the Lambda function. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -1074,7 +1074,7 @@ type functionState struct {
 	ImageUri *string `pulumi:"imageUri"`
 	// ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
 	InvokeArn *string `pulumi:"invokeArn"`
-	// ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
+	// ARN of the KMS key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Date this resource was last modified.
 	LastModified *string `pulumi:"lastModified"`
@@ -1130,7 +1130,7 @@ type functionState struct {
 	SourceCodeHash *string `pulumi:"sourceCodeHash"`
 	// Size in bytes of the function .zip file.
 	SourceCodeSize *int `pulumi:"sourceCodeSize"`
-	// ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `imageUri`.
+	// ARN of the KMS key used to encrypt the function's `.zip` deployment package. Conflicts with `imageUri`.
 	SourceKmsKeyArn *string `pulumi:"sourceKmsKeyArn"`
 	// Key-value map of tags for the Lambda function. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -1183,7 +1183,7 @@ type FunctionState struct {
 	ImageUri pulumi.StringPtrInput
 	// ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
 	InvokeArn pulumi.StringPtrInput
-	// ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
+	// ARN of the KMS key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
 	KmsKeyArn pulumi.StringPtrInput
 	// Date this resource was last modified.
 	LastModified pulumi.StringPtrInput
@@ -1239,7 +1239,7 @@ type FunctionState struct {
 	SourceCodeHash pulumi.StringPtrInput
 	// Size in bytes of the function .zip file.
 	SourceCodeSize pulumi.IntPtrInput
-	// ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `imageUri`.
+	// ARN of the KMS key used to encrypt the function's `.zip` deployment package. Conflicts with `imageUri`.
 	SourceKmsKeyArn pulumi.StringPtrInput
 	// Key-value map of tags for the Lambda function. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -1292,7 +1292,7 @@ type functionArgs struct {
 	ImageConfig *FunctionImageConfig `pulumi:"imageConfig"`
 	// ECR image URI containing the function's deployment package. Conflicts with `filename` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
 	ImageUri *string `pulumi:"imageUri"`
-	// ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
+	// ARN of the KMS key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function.
 	Layers []string `pulumi:"layers"`
@@ -1334,7 +1334,7 @@ type functionArgs struct {
 	SnapStart *FunctionSnapStart `pulumi:"snapStart"`
 	// User-defined hash of the source code package file. Use this argument to trigger updates when the local function source code changes. This is a synthetic argument tracked only by the AWS provider and does not need to match the hashing algorithm used by Lambda to compute the `CodeSha256` response value. Out-of-band changes to the source code _will not_ be captured by this argument. To include out-of-band source code changes as an update trigger, use the `codeSha256` argument instead.
 	SourceCodeHash *string `pulumi:"sourceCodeHash"`
-	// ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `imageUri`.
+	// ARN of the KMS key used to encrypt the function's `.zip` deployment package. Conflicts with `imageUri`.
 	SourceKmsKeyArn *string `pulumi:"sourceKmsKeyArn"`
 	// Key-value map of tags for the Lambda function. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -1380,7 +1380,7 @@ type FunctionArgs struct {
 	ImageConfig FunctionImageConfigPtrInput
 	// ECR image URI containing the function's deployment package. Conflicts with `filename` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
 	ImageUri pulumi.StringPtrInput
-	// ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
+	// ARN of the KMS key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
 	KmsKeyArn pulumi.StringPtrInput
 	// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function.
 	Layers pulumi.StringArrayInput
@@ -1422,7 +1422,7 @@ type FunctionArgs struct {
 	SnapStart FunctionSnapStartPtrInput
 	// User-defined hash of the source code package file. Use this argument to trigger updates when the local function source code changes. This is a synthetic argument tracked only by the AWS provider and does not need to match the hashing algorithm used by Lambda to compute the `CodeSha256` response value. Out-of-band changes to the source code _will not_ be captured by this argument. To include out-of-band source code changes as an update trigger, use the `codeSha256` argument instead.
 	SourceCodeHash pulumi.StringPtrInput
-	// ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `imageUri`.
+	// ARN of the KMS key used to encrypt the function's `.zip` deployment package. Conflicts with `imageUri`.
 	SourceKmsKeyArn pulumi.StringPtrInput
 	// Key-value map of tags for the Lambda function. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -1605,7 +1605,7 @@ func (o FunctionOutput) InvokeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.InvokeArn }).(pulumi.StringOutput)
 }
 
-// ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
+// ARN of the KMS key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
 func (o FunctionOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -1742,7 +1742,7 @@ func (o FunctionOutput) SourceCodeSize() pulumi.IntOutput {
 	return o.ApplyT(func(v *Function) pulumi.IntOutput { return v.SourceCodeSize }).(pulumi.IntOutput)
 }
 
-// ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `imageUri`.
+// ARN of the KMS key used to encrypt the function's `.zip` deployment package. Conflicts with `imageUri`.
 func (o FunctionOutput) SourceKmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.SourceKmsKeyArn }).(pulumi.StringPtrOutput)
 }

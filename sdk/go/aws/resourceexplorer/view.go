@@ -61,7 +61,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the Resource Explorer view.
+// - `arn` (String) ARN of the Resource Explorer view.
 //
 // Using `pulumi import`, import Resource Explorer views using the `arn`. For example:
 //
@@ -71,7 +71,7 @@ import (
 type View struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the Resource Explorer view.
+	// ARN of the Resource Explorer view.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
 	DefaultView pulumi.BoolOutput `pulumi:"defaultView"`
@@ -121,7 +121,7 @@ func GetView(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering View resources.
 type viewState struct {
-	// Amazon Resource Name (ARN) of the Resource Explorer view.
+	// ARN of the Resource Explorer view.
 	Arn *string `pulumi:"arn"`
 	// Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
 	DefaultView *bool `pulumi:"defaultView"`
@@ -142,7 +142,7 @@ type viewState struct {
 }
 
 type ViewState struct {
-	// Amazon Resource Name (ARN) of the Resource Explorer view.
+	// ARN of the Resource Explorer view.
 	Arn pulumi.StringPtrInput
 	// Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
 	DefaultView pulumi.BoolPtrInput
@@ -288,7 +288,7 @@ func (o ViewOutput) ToViewOutputWithContext(ctx context.Context) ViewOutput {
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Resource Explorer view.
+// ARN of the Resource Explorer view.
 func (o ViewOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

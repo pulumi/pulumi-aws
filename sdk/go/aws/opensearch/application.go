@@ -288,7 +288,7 @@ type Application struct {
 
 	// Configuration block(s) for OpenSearch application settings. See App Config below.
 	AppConfigs ApplicationAppConfigArrayOutput `pulumi:"appConfigs"`
-	// The Amazon Resource Name (ARN) of the OpenSearch application.
+	// ARN of the OpenSearch application.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration block(s) for data sources to link to the OpenSearch application. See Data Source below.
 	DataSources ApplicationDataSourceArrayOutput `pulumi:"dataSources"`
@@ -341,7 +341,7 @@ func GetApplication(ctx *pulumi.Context,
 type applicationState struct {
 	// Configuration block(s) for OpenSearch application settings. See App Config below.
 	AppConfigs []ApplicationAppConfig `pulumi:"appConfigs"`
-	// The Amazon Resource Name (ARN) of the OpenSearch application.
+	// ARN of the OpenSearch application.
 	Arn *string `pulumi:"arn"`
 	// Configuration block(s) for data sources to link to the OpenSearch application. See Data Source below.
 	DataSources []ApplicationDataSource `pulumi:"dataSources"`
@@ -365,7 +365,7 @@ type applicationState struct {
 type ApplicationState struct {
 	// Configuration block(s) for OpenSearch application settings. See App Config below.
 	AppConfigs ApplicationAppConfigArrayInput
-	// The Amazon Resource Name (ARN) of the OpenSearch application.
+	// ARN of the OpenSearch application.
 	Arn pulumi.StringPtrInput
 	// Configuration block(s) for data sources to link to the OpenSearch application. See Data Source below.
 	DataSources ApplicationDataSourceArrayInput
@@ -519,7 +519,7 @@ func (o ApplicationOutput) AppConfigs() ApplicationAppConfigArrayOutput {
 	return o.ApplyT(func(v *Application) ApplicationAppConfigArrayOutput { return v.AppConfigs }).(ApplicationAppConfigArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the OpenSearch application.
+// ARN of the OpenSearch application.
 func (o ApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

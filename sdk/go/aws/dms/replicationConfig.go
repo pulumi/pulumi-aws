@@ -60,7 +60,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the DMS replication configuration.
+// - `arn` (String) ARN of the DMS replication configuration.
 //
 // Using `pulumi import`, import a replication config using the `arn`. For example:
 //
@@ -70,7 +70,7 @@ import (
 type ReplicationConfig struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) for the serverless replication config.
+	// ARN for the serverless replication config.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration block for provisioning an DMS Serverless replication.
 	ComputeConfig ReplicationConfigComputeConfigOutput `pulumi:"computeConfig"`
@@ -82,9 +82,9 @@ type ReplicationConfig struct {
 	ReplicationSettings pulumi.StringOutput `pulumi:"replicationSettings"`
 	// The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
 	ReplicationType pulumi.StringOutput `pulumi:"replicationType"`
-	// Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
+	// Unique value or name that you set for a given resource that can be used to construct an ARN for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
 	ResourceIdentifier pulumi.StringOutput `pulumi:"resourceIdentifier"`
-	// The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+	// ARN string that uniquely identifies the source endpoint.
 	SourceEndpointArn pulumi.StringOutput `pulumi:"sourceEndpointArn"`
 	// Whether to run or stop the serverless replication, default is false.
 	StartReplication pulumi.BoolPtrOutput `pulumi:"startReplication"`
@@ -96,7 +96,7 @@ type ReplicationConfig struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+	// ARN string that uniquely identifies the target endpoint.
 	TargetEndpointArn pulumi.StringOutput `pulumi:"targetEndpointArn"`
 }
 
@@ -148,7 +148,7 @@ func GetReplicationConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReplicationConfig resources.
 type replicationConfigState struct {
-	// The Amazon Resource Name (ARN) for the serverless replication config.
+	// ARN for the serverless replication config.
 	Arn *string `pulumi:"arn"`
 	// Configuration block for provisioning an DMS Serverless replication.
 	ComputeConfig *ReplicationConfigComputeConfig `pulumi:"computeConfig"`
@@ -160,9 +160,9 @@ type replicationConfigState struct {
 	ReplicationSettings *string `pulumi:"replicationSettings"`
 	// The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
 	ReplicationType *string `pulumi:"replicationType"`
-	// Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
+	// Unique value or name that you set for a given resource that can be used to construct an ARN for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
 	ResourceIdentifier *string `pulumi:"resourceIdentifier"`
-	// The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+	// ARN string that uniquely identifies the source endpoint.
 	SourceEndpointArn *string `pulumi:"sourceEndpointArn"`
 	// Whether to run or stop the serverless replication, default is false.
 	StartReplication *bool `pulumi:"startReplication"`
@@ -174,12 +174,12 @@ type replicationConfigState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+	// ARN string that uniquely identifies the target endpoint.
 	TargetEndpointArn *string `pulumi:"targetEndpointArn"`
 }
 
 type ReplicationConfigState struct {
-	// The Amazon Resource Name (ARN) for the serverless replication config.
+	// ARN for the serverless replication config.
 	Arn pulumi.StringPtrInput
 	// Configuration block for provisioning an DMS Serverless replication.
 	ComputeConfig ReplicationConfigComputeConfigPtrInput
@@ -191,9 +191,9 @@ type ReplicationConfigState struct {
 	ReplicationSettings pulumi.StringPtrInput
 	// The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
 	ReplicationType pulumi.StringPtrInput
-	// Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
+	// Unique value or name that you set for a given resource that can be used to construct an ARN for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
 	ResourceIdentifier pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+	// ARN string that uniquely identifies the source endpoint.
 	SourceEndpointArn pulumi.StringPtrInput
 	// Whether to run or stop the serverless replication, default is false.
 	StartReplication pulumi.BoolPtrInput
@@ -205,7 +205,7 @@ type ReplicationConfigState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+	// ARN string that uniquely identifies the target endpoint.
 	TargetEndpointArn pulumi.StringPtrInput
 }
 
@@ -224,9 +224,9 @@ type replicationConfigArgs struct {
 	ReplicationSettings *string `pulumi:"replicationSettings"`
 	// The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
 	ReplicationType string `pulumi:"replicationType"`
-	// Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
+	// Unique value or name that you set for a given resource that can be used to construct an ARN for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
 	ResourceIdentifier *string `pulumi:"resourceIdentifier"`
-	// The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+	// ARN string that uniquely identifies the source endpoint.
 	SourceEndpointArn string `pulumi:"sourceEndpointArn"`
 	// Whether to run or stop the serverless replication, default is false.
 	StartReplication *bool `pulumi:"startReplication"`
@@ -236,7 +236,7 @@ type replicationConfigArgs struct {
 	TableMappings string `pulumi:"tableMappings"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+	// ARN string that uniquely identifies the target endpoint.
 	TargetEndpointArn string `pulumi:"targetEndpointArn"`
 }
 
@@ -252,9 +252,9 @@ type ReplicationConfigArgs struct {
 	ReplicationSettings pulumi.StringPtrInput
 	// The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
 	ReplicationType pulumi.StringInput
-	// Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
+	// Unique value or name that you set for a given resource that can be used to construct an ARN for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
 	ResourceIdentifier pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+	// ARN string that uniquely identifies the source endpoint.
 	SourceEndpointArn pulumi.StringInput
 	// Whether to run or stop the serverless replication, default is false.
 	StartReplication pulumi.BoolPtrInput
@@ -264,7 +264,7 @@ type ReplicationConfigArgs struct {
 	TableMappings pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+	// ARN string that uniquely identifies the target endpoint.
 	TargetEndpointArn pulumi.StringInput
 }
 
@@ -355,7 +355,7 @@ func (o ReplicationConfigOutput) ToReplicationConfigOutputWithContext(ctx contex
 	return o
 }
 
-// The Amazon Resource Name (ARN) for the serverless replication config.
+// ARN for the serverless replication config.
 func (o ReplicationConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationConfig) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -385,12 +385,12 @@ func (o ReplicationConfigOutput) ReplicationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationConfig) pulumi.StringOutput { return v.ReplicationType }).(pulumi.StringOutput)
 }
 
-// Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
+// Unique value or name that you set for a given resource that can be used to construct an ARN for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
 func (o ReplicationConfigOutput) ResourceIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationConfig) pulumi.StringOutput { return v.ResourceIdentifier }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+// ARN string that uniquely identifies the source endpoint.
 func (o ReplicationConfigOutput) SourceEndpointArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationConfig) pulumi.StringOutput { return v.SourceEndpointArn }).(pulumi.StringOutput)
 }
@@ -420,7 +420,7 @@ func (o ReplicationConfigOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReplicationConfig) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+// ARN string that uniquely identifies the target endpoint.
 func (o ReplicationConfigOutput) TargetEndpointArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationConfig) pulumi.StringOutput { return v.TargetEndpointArn }).(pulumi.StringOutput)
 }

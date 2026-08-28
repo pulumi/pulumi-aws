@@ -18,14 +18,14 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
     public static final ClusterEndpointState Empty = new ClusterEndpointState();
 
     /**
-     * The Neptune Cluster Endpoint Amazon Resource Name (ARN).
+     * Neptune Cluster Endpoint ARN.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Neptune Cluster Endpoint Amazon Resource Name (ARN).
+     * @return Neptune Cluster Endpoint ARN.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -201,7 +201,7 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn The Neptune Cluster Endpoint Amazon Resource Name (ARN).
+         * @param arn Neptune Cluster Endpoint ARN.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn The Neptune Cluster Endpoint Amazon Resource Name (ARN).
+         * @param arn Neptune Cluster Endpoint ARN.
          * 
          * @return builder
          * 

@@ -134,10 +134,21 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Bedrock AgentCore Memory using the memory ID. For example:
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `id` (String) Memory ID.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) Account ID where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
+ * Using `pulumi import`, import memories using `id`. For example:
  * 
  * ```sh
- * $ pulumi import aws:bedrock/agentcoreMemory:AgentcoreMemory example MEMORY1234567890
+ * $ pulumi import aws:bedrock/agentcoreMemory:AgentcoreMemory example example_memory-5xKsqQHSWW
  * ```
  * 
  */
@@ -200,14 +211,14 @@ public class AgentcoreMemory extends com.pulumi.resources.CustomResource {
         return this.eventExpiryDuration;
     }
     /**
-     * Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexedKey` below.
+     * Metadata keys to index for filtering. Up to 10 entries. Additional keys can be added in place; removing or changing an existing key forces a new resource to be created, because previously indexed keys cannot be removed. See `indexedKey` Block below.
      * 
      */
     @Export(name="indexedKeys", refs={List.class,AgentcoreMemoryIndexedKey.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AgentcoreMemoryIndexedKey>> indexedKeys;
 
     /**
-     * @return Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexedKey` below.
+     * @return Metadata keys to index for filtering. Up to 10 entries. Additional keys can be added in place; removing or changing an existing key forces a new resource to be created, because previously indexed keys cannot be removed. See `indexedKey` Block below.
      * 
      */
     public Output<Optional<List<AgentcoreMemoryIndexedKey>>> indexedKeys() {
@@ -260,14 +271,14 @@ public class AgentcoreMemory extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Configuration for streaming memory record data to external resources. See `streamDeliveryResources` below.
+     * Configuration for streaming memory record data to external resources. See `streamDeliveryResources` Block below.
      * 
      */
     @Export(name="streamDeliveryResources", refs={AgentcoreMemoryStreamDeliveryResources.class}, tree="[0]")
     private Output</* @Nullable */ AgentcoreMemoryStreamDeliveryResources> streamDeliveryResources;
 
     /**
-     * @return Configuration for streaming memory record data to external resources. See `streamDeliveryResources` below.
+     * @return Configuration for streaming memory record data to external resources. See `streamDeliveryResources` Block below.
      * 
      */
     public Output<Optional<AgentcoreMemoryStreamDeliveryResources>> streamDeliveryResources() {
@@ -288,14 +299,14 @@ public class AgentcoreMemory extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

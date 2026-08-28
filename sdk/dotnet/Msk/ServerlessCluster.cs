@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Msk
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the MSK serverless cluster.
+    /// - `Arn` (String) ARN of the MSK serverless cluster.
     /// 
     /// Using `pulumi import`, import MSK serverless cluster using the cluster ARN. For example:
     /// 

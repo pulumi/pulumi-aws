@@ -70,7 +70,7 @@ export class QuickConnect extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Quick Connect.
+     * ARN of the Quick Connect.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -156,7 +156,7 @@ export class QuickConnect extends pulumi.CustomResource {
  */
 export interface QuickConnectState {
     /**
-     * The Amazon Resource Name (ARN) of the Quick Connect.
+     * ARN of the Quick Connect.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

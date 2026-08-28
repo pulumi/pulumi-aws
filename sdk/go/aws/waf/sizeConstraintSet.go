@@ -59,7 +59,7 @@ import (
 type SizeConstraintSet struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN).
+	// ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name or description of the Size Constraint Set.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -97,7 +97,7 @@ func GetSizeConstraintSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SizeConstraintSet resources.
 type sizeConstraintSetState struct {
-	// Amazon Resource Name (ARN).
+	// ARN.
 	Arn *string `pulumi:"arn"`
 	// Name or description of the Size Constraint Set.
 	Name *string `pulumi:"name"`
@@ -106,7 +106,7 @@ type sizeConstraintSetState struct {
 }
 
 type SizeConstraintSetState struct {
-	// Amazon Resource Name (ARN).
+	// ARN.
 	Arn pulumi.StringPtrInput
 	// Name or description of the Size Constraint Set.
 	Name pulumi.StringPtrInput
@@ -220,7 +220,7 @@ func (o SizeConstraintSetOutput) ToSizeConstraintSetOutputWithContext(ctx contex
 	return o
 }
 
-// Amazon Resource Name (ARN).
+// ARN.
 func (o SizeConstraintSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SizeConstraintSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

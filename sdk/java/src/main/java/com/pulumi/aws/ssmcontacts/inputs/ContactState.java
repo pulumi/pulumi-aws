@@ -32,14 +32,14 @@ public final class ContactState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the contact or escalation plan.
+     * The ARN of the contact or escalation plan.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the contact or escalation plan.
+     * @return The ARN of the contact or escalation plan.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -179,7 +179,7 @@ public final class ContactState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the contact or escalation plan.
+         * @param arn The ARN of the contact or escalation plan.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class ContactState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the contact or escalation plan.
+         * @param arn The ARN of the contact or escalation plan.
          * 
          * @return builder
          * 

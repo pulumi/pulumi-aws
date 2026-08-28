@@ -99,7 +99,7 @@ import (
 type TrustAnchor struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the Trust Anchor
+	// ARN of the Trust Anchor
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Whether or not the Trust Anchor should be enabled.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
@@ -147,7 +147,7 @@ func GetTrustAnchor(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TrustAnchor resources.
 type trustAnchorState struct {
-	// Amazon Resource Name (ARN) of the Trust Anchor
+	// ARN of the Trust Anchor
 	Arn *string `pulumi:"arn"`
 	// Whether or not the Trust Anchor should be enabled.
 	Enabled *bool `pulumi:"enabled"`
@@ -163,7 +163,7 @@ type trustAnchorState struct {
 }
 
 type TrustAnchorState struct {
-	// Amazon Resource Name (ARN) of the Trust Anchor
+	// ARN of the Trust Anchor
 	Arn pulumi.StringPtrInput
 	// Whether or not the Trust Anchor should be enabled.
 	Enabled pulumi.BoolPtrInput
@@ -294,7 +294,7 @@ func (o TrustAnchorOutput) ToTrustAnchorOutputWithContext(ctx context.Context) T
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Trust Anchor
+// ARN of the Trust Anchor
 func (o TrustAnchorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustAnchor) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

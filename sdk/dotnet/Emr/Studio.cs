@@ -146,7 +146,7 @@ namespace Pulumi.Aws.Emr
         public Output<string?> UserRole { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+        /// ID of the VPC to associate with the Studio.
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -296,7 +296,7 @@ namespace Pulumi.Aws.Emr
         public Input<string>? UserRole { get; set; }
 
         /// <summary>
-        /// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+        /// ID of the VPC to associate with the Studio.
         /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
@@ -428,7 +428,7 @@ namespace Pulumi.Aws.Emr
         public Input<string>? UserRole { get; set; }
 
         /// <summary>
-        /// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+        /// ID of the VPC to associate with the Studio.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

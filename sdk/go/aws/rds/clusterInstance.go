@@ -93,7 +93,7 @@ type ClusterInstance struct {
 
 	// Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
 	ApplyImmediately pulumi.BoolOutput `pulumi:"applyImmediately"`
-	// Amazon Resource Name (ARN) of cluster instance
+	// ARN of cluster instance
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
 	AutoMinorVersionUpgrade pulumi.BoolPtrOutput `pulumi:"autoMinorVersionUpgrade"`
@@ -210,7 +210,7 @@ func GetClusterInstance(ctx *pulumi.Context,
 type clusterInstanceState struct {
 	// Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
 	ApplyImmediately *bool `pulumi:"applyImmediately"`
-	// Amazon Resource Name (ARN) of cluster instance
+	// ARN of cluster instance
 	Arn *string `pulumi:"arn"`
 	// Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
@@ -289,7 +289,7 @@ type clusterInstanceState struct {
 type ClusterInstanceState struct {
 	// Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
 	ApplyImmediately pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) of cluster instance
+	// ARN of cluster instance
 	Arn pulumi.StringPtrInput
 	// Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
@@ -580,7 +580,7 @@ func (o ClusterInstanceOutput) ApplyImmediately() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolOutput { return v.ApplyImmediately }).(pulumi.BoolOutput)
 }
 
-// Amazon Resource Name (ARN) of cluster instance
+// ARN of cluster instance
 func (o ClusterInstanceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

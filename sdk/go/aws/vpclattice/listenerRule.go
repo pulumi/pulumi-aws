@@ -134,7 +134,7 @@ type ListenerRule struct {
 	Action ListenerRuleActionOutput `pulumi:"action"`
 	// ARN for the listener rule.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// ID or Amazon Resource Name (ARN) of the listener.
+	// ID or ARN of the listener.
 	ListenerIdentifier pulumi.StringOutput `pulumi:"listenerIdentifier"`
 	// Rule match. See `match` Block for details.
 	Match ListenerRuleMatchOutput `pulumi:"match"`
@@ -146,7 +146,7 @@ type ListenerRule struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Unique identifier for the listener rule.
 	RuleId pulumi.StringOutput `pulumi:"ruleId"`
-	// ID or Amazon Resource Name (ARN) of the service.
+	// ID or ARN of the service.
 	//
 	// The following arguments are optional:
 	ServiceIdentifier pulumi.StringOutput `pulumi:"serviceIdentifier"`
@@ -205,7 +205,7 @@ type listenerRuleState struct {
 	Action *ListenerRuleAction `pulumi:"action"`
 	// ARN for the listener rule.
 	Arn *string `pulumi:"arn"`
-	// ID or Amazon Resource Name (ARN) of the listener.
+	// ID or ARN of the listener.
 	ListenerIdentifier *string `pulumi:"listenerIdentifier"`
 	// Rule match. See `match` Block for details.
 	Match *ListenerRuleMatch `pulumi:"match"`
@@ -217,7 +217,7 @@ type listenerRuleState struct {
 	Region *string `pulumi:"region"`
 	// Unique identifier for the listener rule.
 	RuleId *string `pulumi:"ruleId"`
-	// ID or Amazon Resource Name (ARN) of the service.
+	// ID or ARN of the service.
 	//
 	// The following arguments are optional:
 	ServiceIdentifier *string `pulumi:"serviceIdentifier"`
@@ -232,7 +232,7 @@ type ListenerRuleState struct {
 	Action ListenerRuleActionPtrInput
 	// ARN for the listener rule.
 	Arn pulumi.StringPtrInput
-	// ID or Amazon Resource Name (ARN) of the listener.
+	// ID or ARN of the listener.
 	ListenerIdentifier pulumi.StringPtrInput
 	// Rule match. See `match` Block for details.
 	Match ListenerRuleMatchPtrInput
@@ -244,7 +244,7 @@ type ListenerRuleState struct {
 	Region pulumi.StringPtrInput
 	// Unique identifier for the listener rule.
 	RuleId pulumi.StringPtrInput
-	// ID or Amazon Resource Name (ARN) of the service.
+	// ID or ARN of the service.
 	//
 	// The following arguments are optional:
 	ServiceIdentifier pulumi.StringPtrInput
@@ -261,7 +261,7 @@ func (ListenerRuleState) ElementType() reflect.Type {
 type listenerRuleArgs struct {
 	// Action for the listener rule. See `action` Block for details.
 	Action ListenerRuleAction `pulumi:"action"`
-	// ID or Amazon Resource Name (ARN) of the listener.
+	// ID or ARN of the listener.
 	ListenerIdentifier string `pulumi:"listenerIdentifier"`
 	// Rule match. See `match` Block for details.
 	Match ListenerRuleMatch `pulumi:"match"`
@@ -271,7 +271,7 @@ type listenerRuleArgs struct {
 	Priority int `pulumi:"priority"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// ID or Amazon Resource Name (ARN) of the service.
+	// ID or ARN of the service.
 	//
 	// The following arguments are optional:
 	ServiceIdentifier string `pulumi:"serviceIdentifier"`
@@ -283,7 +283,7 @@ type listenerRuleArgs struct {
 type ListenerRuleArgs struct {
 	// Action for the listener rule. See `action` Block for details.
 	Action ListenerRuleActionInput
-	// ID or Amazon Resource Name (ARN) of the listener.
+	// ID or ARN of the listener.
 	ListenerIdentifier pulumi.StringInput
 	// Rule match. See `match` Block for details.
 	Match ListenerRuleMatchInput
@@ -293,7 +293,7 @@ type ListenerRuleArgs struct {
 	Priority pulumi.IntInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// ID or Amazon Resource Name (ARN) of the service.
+	// ID or ARN of the service.
 	//
 	// The following arguments are optional:
 	ServiceIdentifier pulumi.StringInput
@@ -398,7 +398,7 @@ func (o ListenerRuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// ID or Amazon Resource Name (ARN) of the listener.
+// ID or ARN of the listener.
 func (o ListenerRuleOutput) ListenerIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.StringOutput { return v.ListenerIdentifier }).(pulumi.StringOutput)
 }
@@ -428,7 +428,7 @@ func (o ListenerRuleOutput) RuleId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.StringOutput { return v.RuleId }).(pulumi.StringOutput)
 }
 
-// ID or Amazon Resource Name (ARN) of the service.
+// ID or ARN of the service.
 //
 // The following arguments are optional:
 func (o ListenerRuleOutput) ServiceIdentifier() pulumi.StringOutput {

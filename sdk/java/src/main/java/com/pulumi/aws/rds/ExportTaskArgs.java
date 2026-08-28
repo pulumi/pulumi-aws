@@ -124,7 +124,7 @@ public final class ExportTaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the snapshot to export.
+     * ARN of the snapshot to export.
      * 
      * The following arguments are optional:
      * 
@@ -133,7 +133,7 @@ public final class ExportTaskArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> sourceArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the snapshot to export.
+     * @return ARN of the snapshot to export.
      * 
      * The following arguments are optional:
      * 
@@ -339,7 +339,7 @@ public final class ExportTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceArn Amazon Resource Name (ARN) of the snapshot to export.
+         * @param sourceArn ARN of the snapshot to export.
          * 
          * The following arguments are optional:
          * 
@@ -352,7 +352,7 @@ public final class ExportTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceArn Amazon Resource Name (ARN) of the snapshot to export.
+         * @param sourceArn ARN of the snapshot to export.
          * 
          * The following arguments are optional:
          * 

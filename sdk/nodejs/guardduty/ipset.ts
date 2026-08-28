@@ -76,7 +76,7 @@ export class IPSet extends pulumi.CustomResource {
      */
     declare public readonly activate: pulumi.Output<boolean>;
     /**
-     * Amazon Resource Name (ARN) of the GuardDuty IPSet.
+     * ARN of the GuardDuty IPSet.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -174,7 +174,7 @@ export interface IPSetState {
      */
     activate?: pulumi.Input<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the GuardDuty IPSet.
+     * ARN of the GuardDuty IPSet.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

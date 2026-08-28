@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AccountVdmAttributesDashboardAttributes struct {
-	// Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+	// Status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
 	EngagementMetrics *string `pulumi:"engagementMetrics"`
 }
 
@@ -30,7 +30,7 @@ type AccountVdmAttributesDashboardAttributesInput interface {
 }
 
 type AccountVdmAttributesDashboardAttributesArgs struct {
-	// Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+	// Status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
 	EngagementMetrics pulumi.StringPtrInput `pulumi:"engagementMetrics"`
 }
 
@@ -111,7 +111,7 @@ func (o AccountVdmAttributesDashboardAttributesOutput) ToAccountVdmAttributesDas
 	}).(AccountVdmAttributesDashboardAttributesPtrOutput)
 }
 
-// Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+// Status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
 func (o AccountVdmAttributesDashboardAttributesOutput) EngagementMetrics() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountVdmAttributesDashboardAttributes) *string { return v.EngagementMetrics }).(pulumi.StringPtrOutput)
 }
@@ -140,7 +140,7 @@ func (o AccountVdmAttributesDashboardAttributesPtrOutput) Elem() AccountVdmAttri
 	}).(AccountVdmAttributesDashboardAttributesOutput)
 }
 
-// Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+// Status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
 func (o AccountVdmAttributesDashboardAttributesPtrOutput) EngagementMetrics() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountVdmAttributesDashboardAttributes) *string {
 		if v == nil {
@@ -151,7 +151,7 @@ func (o AccountVdmAttributesDashboardAttributesPtrOutput) EngagementMetrics() pu
 }
 
 type AccountVdmAttributesGuardianAttributes struct {
-	// Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+	// Status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
 	OptimizedSharedDelivery *string `pulumi:"optimizedSharedDelivery"`
 }
 
@@ -167,7 +167,7 @@ type AccountVdmAttributesGuardianAttributesInput interface {
 }
 
 type AccountVdmAttributesGuardianAttributesArgs struct {
-	// Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+	// Status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
 	OptimizedSharedDelivery pulumi.StringPtrInput `pulumi:"optimizedSharedDelivery"`
 }
 
@@ -248,7 +248,7 @@ func (o AccountVdmAttributesGuardianAttributesOutput) ToAccountVdmAttributesGuar
 	}).(AccountVdmAttributesGuardianAttributesPtrOutput)
 }
 
-// Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+// Status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
 func (o AccountVdmAttributesGuardianAttributesOutput) OptimizedSharedDelivery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountVdmAttributesGuardianAttributes) *string { return v.OptimizedSharedDelivery }).(pulumi.StringPtrOutput)
 }
@@ -277,7 +277,7 @@ func (o AccountVdmAttributesGuardianAttributesPtrOutput) Elem() AccountVdmAttrib
 	}).(AccountVdmAttributesGuardianAttributesOutput)
 }
 
-// Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+// Status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
 func (o AccountVdmAttributesGuardianAttributesPtrOutput) OptimizedSharedDelivery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountVdmAttributesGuardianAttributes) *string {
 		if v == nil {
@@ -288,11 +288,11 @@ func (o AccountVdmAttributesGuardianAttributesPtrOutput) OptimizedSharedDelivery
 }
 
 type ConfigurationSetDeliveryOptions struct {
-	// The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+	// Maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must be greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
 	MaxDeliverySeconds *int `pulumi:"maxDeliverySeconds"`
-	// The name of the dedicated IP pool to associate with the configuration set.
+	// Name of the dedicated IP pool to associate with the configuration set.
 	SendingPoolName *string `pulumi:"sendingPoolName"`
-	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). Valid values: `REQUIRE`, `OPTIONAL`.
+	// Whether messages that use the configuration set are required to use TLS. Valid values: `REQUIRE`, `OPTIONAL`.
 	TlsPolicy *string `pulumi:"tlsPolicy"`
 }
 
@@ -308,11 +308,11 @@ type ConfigurationSetDeliveryOptionsInput interface {
 }
 
 type ConfigurationSetDeliveryOptionsArgs struct {
-	// The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+	// Maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must be greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
 	MaxDeliverySeconds pulumi.IntPtrInput `pulumi:"maxDeliverySeconds"`
-	// The name of the dedicated IP pool to associate with the configuration set.
+	// Name of the dedicated IP pool to associate with the configuration set.
 	SendingPoolName pulumi.StringPtrInput `pulumi:"sendingPoolName"`
-	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). Valid values: `REQUIRE`, `OPTIONAL`.
+	// Whether messages that use the configuration set are required to use TLS. Valid values: `REQUIRE`, `OPTIONAL`.
 	TlsPolicy pulumi.StringPtrInput `pulumi:"tlsPolicy"`
 }
 
@@ -393,17 +393,17 @@ func (o ConfigurationSetDeliveryOptionsOutput) ToConfigurationSetDeliveryOptions
 	}).(ConfigurationSetDeliveryOptionsPtrOutput)
 }
 
-// The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+// Maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must be greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
 func (o ConfigurationSetDeliveryOptionsOutput) MaxDeliverySeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetDeliveryOptions) *int { return v.MaxDeliverySeconds }).(pulumi.IntPtrOutput)
 }
 
-// The name of the dedicated IP pool to associate with the configuration set.
+// Name of the dedicated IP pool to associate with the configuration set.
 func (o ConfigurationSetDeliveryOptionsOutput) SendingPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetDeliveryOptions) *string { return v.SendingPoolName }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). Valid values: `REQUIRE`, `OPTIONAL`.
+// Whether messages that use the configuration set are required to use TLS. Valid values: `REQUIRE`, `OPTIONAL`.
 func (o ConfigurationSetDeliveryOptionsOutput) TlsPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetDeliveryOptions) *string { return v.TlsPolicy }).(pulumi.StringPtrOutput)
 }
@@ -432,7 +432,7 @@ func (o ConfigurationSetDeliveryOptionsPtrOutput) Elem() ConfigurationSetDeliver
 	}).(ConfigurationSetDeliveryOptionsOutput)
 }
 
-// The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+// Maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must be greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
 func (o ConfigurationSetDeliveryOptionsPtrOutput) MaxDeliverySeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetDeliveryOptions) *int {
 		if v == nil {
@@ -442,7 +442,7 @@ func (o ConfigurationSetDeliveryOptionsPtrOutput) MaxDeliverySeconds() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-// The name of the dedicated IP pool to associate with the configuration set.
+// Name of the dedicated IP pool to associate with the configuration set.
 func (o ConfigurationSetDeliveryOptionsPtrOutput) SendingPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetDeliveryOptions) *string {
 		if v == nil {
@@ -452,7 +452,7 @@ func (o ConfigurationSetDeliveryOptionsPtrOutput) SendingPoolName() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). Valid values: `REQUIRE`, `OPTIONAL`.
+// Whether messages that use the configuration set are required to use TLS. Valid values: `REQUIRE`, `OPTIONAL`.
 func (o ConfigurationSetDeliveryOptionsPtrOutput) TlsPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetDeliveryOptions) *string {
 		if v == nil {
@@ -463,19 +463,19 @@ func (o ConfigurationSetDeliveryOptionsPtrOutput) TlsPolicy() pulumi.StringPtrOu
 }
 
 type ConfigurationSetEventDestinationEventDestination struct {
-	// An object that defines an Amazon CloudWatch destination for email events. See `cloudWatchDestination` Block for details.
+	// Object that defines an Amazon CloudWatch destination for email events. See `cloudWatchDestination` Block for details.
 	CloudWatchDestination *ConfigurationSetEventDestinationEventDestinationCloudWatchDestination `pulumi:"cloudWatchDestination"`
 	// When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
 	Enabled *bool `pulumi:"enabled"`
-	// An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `eventBridgeDestination` Block for details.
+	// Object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `eventBridgeDestination` Block for details.
 	EventBridgeDestination *ConfigurationSetEventDestinationEventDestinationEventBridgeDestination `pulumi:"eventBridgeDestination"`
-	// An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesisFirehoseDestination` Block for details.
+	// Object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesisFirehoseDestination` Block for details.
 	KinesisFirehoseDestination *ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination `pulumi:"kinesisFirehoseDestination"`
 	// An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
 	MatchingEventTypes []string `pulumi:"matchingEventTypes"`
-	// An object that defines an AWS End User Messaging project destination for email events. See `pinpointDestination` Block for details.
+	// Object that defines an AWS End User Messaging project destination for email events. See `pinpointDestination` Block for details.
 	PinpointDestination *ConfigurationSetEventDestinationEventDestinationPinpointDestination `pulumi:"pinpointDestination"`
-	// An object that defines an Amazon SNS destination for email events. See `snsDestination` Block for details.
+	// Object that defines an Amazon SNS destination for email events. See `snsDestination` Block for details.
 	SnsDestination *ConfigurationSetEventDestinationEventDestinationSnsDestination `pulumi:"snsDestination"`
 }
 
@@ -491,19 +491,19 @@ type ConfigurationSetEventDestinationEventDestinationInput interface {
 }
 
 type ConfigurationSetEventDestinationEventDestinationArgs struct {
-	// An object that defines an Amazon CloudWatch destination for email events. See `cloudWatchDestination` Block for details.
+	// Object that defines an Amazon CloudWatch destination for email events. See `cloudWatchDestination` Block for details.
 	CloudWatchDestination ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrInput `pulumi:"cloudWatchDestination"`
 	// When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `eventBridgeDestination` Block for details.
+	// Object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `eventBridgeDestination` Block for details.
 	EventBridgeDestination ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrInput `pulumi:"eventBridgeDestination"`
-	// An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesisFirehoseDestination` Block for details.
+	// Object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesisFirehoseDestination` Block for details.
 	KinesisFirehoseDestination ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrInput `pulumi:"kinesisFirehoseDestination"`
 	// An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
 	MatchingEventTypes pulumi.StringArrayInput `pulumi:"matchingEventTypes"`
-	// An object that defines an AWS End User Messaging project destination for email events. See `pinpointDestination` Block for details.
+	// Object that defines an AWS End User Messaging project destination for email events. See `pinpointDestination` Block for details.
 	PinpointDestination ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrInput `pulumi:"pinpointDestination"`
-	// An object that defines an Amazon SNS destination for email events. See `snsDestination` Block for details.
+	// Object that defines an Amazon SNS destination for email events. See `snsDestination` Block for details.
 	SnsDestination ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrInput `pulumi:"snsDestination"`
 }
 
@@ -584,7 +584,7 @@ func (o ConfigurationSetEventDestinationEventDestinationOutput) ToConfigurationS
 	}).(ConfigurationSetEventDestinationEventDestinationPtrOutput)
 }
 
-// An object that defines an Amazon CloudWatch destination for email events. See `cloudWatchDestination` Block for details.
+// Object that defines an Amazon CloudWatch destination for email events. See `cloudWatchDestination` Block for details.
 func (o ConfigurationSetEventDestinationEventDestinationOutput) CloudWatchDestination() ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationCloudWatchDestination {
 		return v.CloudWatchDestination
@@ -596,14 +596,14 @@ func (o ConfigurationSetEventDestinationEventDestinationOutput) Enabled() pulumi
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `eventBridgeDestination` Block for details.
+// Object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `eventBridgeDestination` Block for details.
 func (o ConfigurationSetEventDestinationEventDestinationOutput) EventBridgeDestination() ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationEventBridgeDestination {
 		return v.EventBridgeDestination
 	}).(ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput)
 }
 
-// An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesisFirehoseDestination` Block for details.
+// Object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesisFirehoseDestination` Block for details.
 func (o ConfigurationSetEventDestinationEventDestinationOutput) KinesisFirehoseDestination() ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination {
 		return v.KinesisFirehoseDestination
@@ -615,14 +615,14 @@ func (o ConfigurationSetEventDestinationEventDestinationOutput) MatchingEventTyp
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) []string { return v.MatchingEventTypes }).(pulumi.StringArrayOutput)
 }
 
-// An object that defines an AWS End User Messaging project destination for email events. See `pinpointDestination` Block for details.
+// Object that defines an AWS End User Messaging project destination for email events. See `pinpointDestination` Block for details.
 func (o ConfigurationSetEventDestinationEventDestinationOutput) PinpointDestination() ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationPinpointDestination {
 		return v.PinpointDestination
 	}).(ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput)
 }
 
-// An object that defines an Amazon SNS destination for email events. See `snsDestination` Block for details.
+// Object that defines an Amazon SNS destination for email events. See `snsDestination` Block for details.
 func (o ConfigurationSetEventDestinationEventDestinationOutput) SnsDestination() ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationSnsDestination {
 		return v.SnsDestination
@@ -653,7 +653,7 @@ func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) Elem() Config
 	}).(ConfigurationSetEventDestinationEventDestinationOutput)
 }
 
-// An object that defines an Amazon CloudWatch destination for email events. See `cloudWatchDestination` Block for details.
+// Object that defines an Amazon CloudWatch destination for email events. See `cloudWatchDestination` Block for details.
 func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) CloudWatchDestination() ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationCloudWatchDestination {
 		if v == nil {
@@ -673,7 +673,7 @@ func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) Enabled() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
-// An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `eventBridgeDestination` Block for details.
+// Object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `eventBridgeDestination` Block for details.
 func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) EventBridgeDestination() ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationEventBridgeDestination {
 		if v == nil {
@@ -683,7 +683,7 @@ func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) EventBridgeDe
 	}).(ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput)
 }
 
-// An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesisFirehoseDestination` Block for details.
+// Object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesisFirehoseDestination` Block for details.
 func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) KinesisFirehoseDestination() ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination {
 		if v == nil {
@@ -703,7 +703,7 @@ func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) MatchingEvent
 	}).(pulumi.StringArrayOutput)
 }
 
-// An object that defines an AWS End User Messaging project destination for email events. See `pinpointDestination` Block for details.
+// Object that defines an AWS End User Messaging project destination for email events. See `pinpointDestination` Block for details.
 func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) PinpointDestination() ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationPinpointDestination {
 		if v == nil {
@@ -713,7 +713,7 @@ func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) PinpointDesti
 	}).(ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput)
 }
 
-// An object that defines an Amazon SNS destination for email events. See `snsDestination` Block for details.
+// Object that defines an Amazon SNS destination for email events. See `snsDestination` Block for details.
 func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) SnsDestination() ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationSnsDestination {
 		if v == nil {
@@ -724,7 +724,7 @@ func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) SnsDestinatio
 }
 
 type ConfigurationSetEventDestinationEventDestinationCloudWatchDestination struct {
-	// An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimensionConfiguration` Block for details.
+	// Array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimensionConfiguration` Block for details.
 	DimensionConfigurations []ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration `pulumi:"dimensionConfigurations"`
 }
 
@@ -740,7 +740,7 @@ type ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationInput 
 }
 
 type ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs struct {
-	// An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimensionConfiguration` Block for details.
+	// Array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimensionConfiguration` Block for details.
 	DimensionConfigurations ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayInput `pulumi:"dimensionConfigurations"`
 }
 
@@ -821,7 +821,7 @@ func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOut
 	}).(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput)
 }
 
-// An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimensionConfiguration` Block for details.
+// Array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimensionConfiguration` Block for details.
 func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput) DimensionConfigurations() ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestinationCloudWatchDestination) []ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration {
 		return v.DimensionConfigurations
@@ -852,7 +852,7 @@ func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtr
 	}).(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput)
 }
 
-// An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimensionConfiguration` Block for details.
+// Array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimensionConfiguration` Block for details.
 func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput) DimensionConfigurations() ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestinationCloudWatchDestination) []ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration {
 		if v == nil {
@@ -863,11 +863,11 @@ func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtr
 }
 
 type ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration struct {
-	// The default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
+	// Default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
 	DefaultDimensionValue string `pulumi:"defaultDimensionValue"`
-	// The name of an Amazon CloudWatch dimension associated with an email sending metric.
+	// Name of an Amazon CloudWatch dimension associated with an email sending metric.
 	DimensionName string `pulumi:"dimensionName"`
-	// The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
+	// Location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
 	DimensionValueSource string `pulumi:"dimensionValueSource"`
 }
 
@@ -883,11 +883,11 @@ type ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimens
 }
 
 type ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs struct {
-	// The default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
+	// Default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
 	DefaultDimensionValue pulumi.StringInput `pulumi:"defaultDimensionValue"`
-	// The name of an Amazon CloudWatch dimension associated with an email sending metric.
+	// Name of an Amazon CloudWatch dimension associated with an email sending metric.
 	DimensionName pulumi.StringInput `pulumi:"dimensionName"`
-	// The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
+	// Location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
 	DimensionValueSource pulumi.StringInput `pulumi:"dimensionValueSource"`
 }
 
@@ -942,21 +942,21 @@ func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDim
 	return o
 }
 
-// The default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
+// Default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
 func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput) DefaultDimensionValue() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration) string {
 		return v.DefaultDimensionValue
 	}).(pulumi.StringOutput)
 }
 
-// The name of an Amazon CloudWatch dimension associated with an email sending metric.
+// Name of an Amazon CloudWatch dimension associated with an email sending metric.
 func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput) DimensionName() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration) string {
 		return v.DimensionName
 	}).(pulumi.StringOutput)
 }
 
-// The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
+// Location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
 func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput) DimensionValueSource() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration) string {
 		return v.DimensionValueSource
@@ -984,7 +984,7 @@ func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDim
 }
 
 type ConfigurationSetEventDestinationEventDestinationEventBridgeDestination struct {
-	// The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
+	// ARN of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
 	EventBusArn string `pulumi:"eventBusArn"`
 }
 
@@ -1000,7 +1000,7 @@ type ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationInput
 }
 
 type ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs struct {
-	// The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
+	// ARN of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
 	EventBusArn pulumi.StringInput `pulumi:"eventBusArn"`
 }
 
@@ -1081,7 +1081,7 @@ func (o ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationOu
 	}).(ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
+// ARN of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
 func (o ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationOutput) EventBusArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestinationEventBridgeDestination) string {
 		return v.EventBusArn
@@ -1112,7 +1112,7 @@ func (o ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPt
 	}).(ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
+// ARN of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
 func (o ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput) EventBusArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestinationEventBridgeDestination) *string {
 		if v == nil {
@@ -1123,9 +1123,9 @@ func (o ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPt
 }
 
 type ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination struct {
-	// The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
+	// ARN of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
 	DeliveryStreamArn string `pulumi:"deliveryStreamArn"`
-	// The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
+	// ARN of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
 	IamRoleArn string `pulumi:"iamRoleArn"`
 }
 
@@ -1141,9 +1141,9 @@ type ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationI
 }
 
 type ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs struct {
-	// The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
+	// ARN of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
 	DeliveryStreamArn pulumi.StringInput `pulumi:"deliveryStreamArn"`
-	// The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
+	// ARN of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
 	IamRoleArn pulumi.StringInput `pulumi:"iamRoleArn"`
 }
 
@@ -1224,14 +1224,14 @@ func (o ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinati
 	}).(ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
+// ARN of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
 func (o ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput) DeliveryStreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination) string {
 		return v.DeliveryStreamArn
 	}).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
+// ARN of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
 func (o ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput) IamRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination) string {
 		return v.IamRoleArn
@@ -1262,7 +1262,7 @@ func (o ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinati
 	}).(ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
+// ARN of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
 func (o ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput) DeliveryStreamArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination) *string {
 		if v == nil {
@@ -1272,7 +1272,7 @@ func (o ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinati
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
+// ARN of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
 func (o ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput) IamRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination) *string {
 		if v == nil {
@@ -1283,6 +1283,7 @@ func (o ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinati
 }
 
 type ConfigurationSetEventDestinationEventDestinationPinpointDestination struct {
+	// ARN of the AWS End User Messaging project to send email events to.
 	ApplicationArn string `pulumi:"applicationArn"`
 }
 
@@ -1298,6 +1299,7 @@ type ConfigurationSetEventDestinationEventDestinationPinpointDestinationInput in
 }
 
 type ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs struct {
+	// ARN of the AWS End User Messaging project to send email events to.
 	ApplicationArn pulumi.StringInput `pulumi:"applicationArn"`
 }
 
@@ -1378,6 +1380,7 @@ func (o ConfigurationSetEventDestinationEventDestinationPinpointDestinationOutpu
 	}).(ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput)
 }
 
+// ARN of the AWS End User Messaging project to send email events to.
 func (o ConfigurationSetEventDestinationEventDestinationPinpointDestinationOutput) ApplicationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestinationPinpointDestination) string {
 		return v.ApplicationArn
@@ -1408,6 +1411,7 @@ func (o ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOu
 	}).(ConfigurationSetEventDestinationEventDestinationPinpointDestinationOutput)
 }
 
+// ARN of the AWS End User Messaging project to send email events to.
 func (o ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput) ApplicationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestinationPinpointDestination) *string {
 		if v == nil {
@@ -1418,7 +1422,7 @@ func (o ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOu
 }
 
 type ConfigurationSetEventDestinationEventDestinationSnsDestination struct {
-	// The Amazon Resource Name (ARN) of the Amazon SNS topic to publish email events to.
+	// ARN of the Amazon SNS topic to publish email events to.
 	TopicArn string `pulumi:"topicArn"`
 }
 
@@ -1434,7 +1438,7 @@ type ConfigurationSetEventDestinationEventDestinationSnsDestinationInput interfa
 }
 
 type ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs struct {
-	// The Amazon Resource Name (ARN) of the Amazon SNS topic to publish email events to.
+	// ARN of the Amazon SNS topic to publish email events to.
 	TopicArn pulumi.StringInput `pulumi:"topicArn"`
 }
 
@@ -1515,7 +1519,7 @@ func (o ConfigurationSetEventDestinationEventDestinationSnsDestinationOutput) To
 	}).(ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon SNS topic to publish email events to.
+// ARN of the Amazon SNS topic to publish email events to.
 func (o ConfigurationSetEventDestinationEventDestinationSnsDestinationOutput) TopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestinationSnsDestination) string { return v.TopicArn }).(pulumi.StringOutput)
 }
@@ -1544,7 +1548,7 @@ func (o ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput)
 	}).(ConfigurationSetEventDestinationEventDestinationSnsDestinationOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon SNS topic to publish email events to.
+// ARN of the Amazon SNS topic to publish email events to.
 func (o ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput) TopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestinationSnsDestination) *string {
 		if v == nil {
@@ -1555,7 +1559,7 @@ func (o ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput)
 }
 
 type ConfigurationSetReputationOptions struct {
-	// The date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
+	// Date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
 	LastFreshStart *string `pulumi:"lastFreshStart"`
 	// If `true`, tracking of reputation metrics is enabled for the configuration set. If `false`, tracking of reputation metrics is disabled for the configuration set.
 	ReputationMetricsEnabled *bool `pulumi:"reputationMetricsEnabled"`
@@ -1573,7 +1577,7 @@ type ConfigurationSetReputationOptionsInput interface {
 }
 
 type ConfigurationSetReputationOptionsArgs struct {
-	// The date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
+	// Date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
 	LastFreshStart pulumi.StringPtrInput `pulumi:"lastFreshStart"`
 	// If `true`, tracking of reputation metrics is enabled for the configuration set. If `false`, tracking of reputation metrics is disabled for the configuration set.
 	ReputationMetricsEnabled pulumi.BoolPtrInput `pulumi:"reputationMetricsEnabled"`
@@ -1656,7 +1660,7 @@ func (o ConfigurationSetReputationOptionsOutput) ToConfigurationSetReputationOpt
 	}).(ConfigurationSetReputationOptionsPtrOutput)
 }
 
-// The date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
+// Date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
 func (o ConfigurationSetReputationOptionsOutput) LastFreshStart() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetReputationOptions) *string { return v.LastFreshStart }).(pulumi.StringPtrOutput)
 }
@@ -1690,7 +1694,7 @@ func (o ConfigurationSetReputationOptionsPtrOutput) Elem() ConfigurationSetReput
 	}).(ConfigurationSetReputationOptionsOutput)
 }
 
-// The date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
+// Date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
 func (o ConfigurationSetReputationOptionsPtrOutput) LastFreshStart() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetReputationOptions) *string {
 		if v == nil {
@@ -1848,7 +1852,7 @@ func (o ConfigurationSetSendingOptionsPtrOutput) SendingEnabled() pulumi.BoolPtr
 }
 
 type ConfigurationSetSuppressionOptions struct {
-	// A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
+	// List that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
 	SuppressedReasons []string `pulumi:"suppressedReasons"`
 }
 
@@ -1864,7 +1868,7 @@ type ConfigurationSetSuppressionOptionsInput interface {
 }
 
 type ConfigurationSetSuppressionOptionsArgs struct {
-	// A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
+	// List that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
 	SuppressedReasons pulumi.StringArrayInput `pulumi:"suppressedReasons"`
 }
 
@@ -1945,7 +1949,7 @@ func (o ConfigurationSetSuppressionOptionsOutput) ToConfigurationSetSuppressionO
 	}).(ConfigurationSetSuppressionOptionsPtrOutput)
 }
 
-// A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
+// List that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
 func (o ConfigurationSetSuppressionOptionsOutput) SuppressedReasons() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConfigurationSetSuppressionOptions) []string { return v.SuppressedReasons }).(pulumi.StringArrayOutput)
 }
@@ -1974,7 +1978,7 @@ func (o ConfigurationSetSuppressionOptionsPtrOutput) Elem() ConfigurationSetSupp
 	}).(ConfigurationSetSuppressionOptionsOutput)
 }
 
-// A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
+// List that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
 func (o ConfigurationSetSuppressionOptionsPtrOutput) SuppressedReasons() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConfigurationSetSuppressionOptions) []string {
 		if v == nil {
@@ -1985,9 +1989,9 @@ func (o ConfigurationSetSuppressionOptionsPtrOutput) SuppressedReasons() pulumi.
 }
 
 type ConfigurationSetTrackingOptions struct {
-	// The domain to use for tracking open and click events.
+	// Domain to use for tracking open and click events.
 	CustomRedirectDomain string `pulumi:"customRedirectDomain"`
-	// The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+	// HTTPS policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
 	HttpsPolicy *string `pulumi:"httpsPolicy"`
 }
 
@@ -2003,9 +2007,9 @@ type ConfigurationSetTrackingOptionsInput interface {
 }
 
 type ConfigurationSetTrackingOptionsArgs struct {
-	// The domain to use for tracking open and click events.
+	// Domain to use for tracking open and click events.
 	CustomRedirectDomain pulumi.StringInput `pulumi:"customRedirectDomain"`
-	// The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+	// HTTPS policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
 	HttpsPolicy pulumi.StringPtrInput `pulumi:"httpsPolicy"`
 }
 
@@ -2086,12 +2090,12 @@ func (o ConfigurationSetTrackingOptionsOutput) ToConfigurationSetTrackingOptions
 	}).(ConfigurationSetTrackingOptionsPtrOutput)
 }
 
-// The domain to use for tracking open and click events.
+// Domain to use for tracking open and click events.
 func (o ConfigurationSetTrackingOptionsOutput) CustomRedirectDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationSetTrackingOptions) string { return v.CustomRedirectDomain }).(pulumi.StringOutput)
 }
 
-// The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+// HTTPS policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
 func (o ConfigurationSetTrackingOptionsOutput) HttpsPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetTrackingOptions) *string { return v.HttpsPolicy }).(pulumi.StringPtrOutput)
 }
@@ -2120,7 +2124,7 @@ func (o ConfigurationSetTrackingOptionsPtrOutput) Elem() ConfigurationSetTrackin
 	}).(ConfigurationSetTrackingOptionsOutput)
 }
 
-// The domain to use for tracking open and click events.
+// Domain to use for tracking open and click events.
 func (o ConfigurationSetTrackingOptionsPtrOutput) CustomRedirectDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetTrackingOptions) *string {
 		if v == nil {
@@ -2130,7 +2134,7 @@ func (o ConfigurationSetTrackingOptionsPtrOutput) CustomRedirectDomain() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+// HTTPS policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
 func (o ConfigurationSetTrackingOptionsPtrOutput) HttpsPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetTrackingOptions) *string {
 		if v == nil {
@@ -2141,9 +2145,9 @@ func (o ConfigurationSetTrackingOptionsPtrOutput) HttpsPolicy() pulumi.StringPtr
 }
 
 type ConfigurationSetVdmOptions struct {
-	// Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboardOptions` Block for details.
+	// Additional settings for your VDM configuration as applicable to the Dashboard. See `dashboardOptions` Block for details.
 	DashboardOptions *ConfigurationSetVdmOptionsDashboardOptions `pulumi:"dashboardOptions"`
-	// Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardianOptions` Block for details.
+	// Additional settings for your VDM configuration as applicable to the Guardian. See `guardianOptions` Block for details.
 	GuardianOptions *ConfigurationSetVdmOptionsGuardianOptions `pulumi:"guardianOptions"`
 }
 
@@ -2159,9 +2163,9 @@ type ConfigurationSetVdmOptionsInput interface {
 }
 
 type ConfigurationSetVdmOptionsArgs struct {
-	// Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboardOptions` Block for details.
+	// Additional settings for your VDM configuration as applicable to the Dashboard. See `dashboardOptions` Block for details.
 	DashboardOptions ConfigurationSetVdmOptionsDashboardOptionsPtrInput `pulumi:"dashboardOptions"`
-	// Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardianOptions` Block for details.
+	// Additional settings for your VDM configuration as applicable to the Guardian. See `guardianOptions` Block for details.
 	GuardianOptions ConfigurationSetVdmOptionsGuardianOptionsPtrInput `pulumi:"guardianOptions"`
 }
 
@@ -2242,14 +2246,14 @@ func (o ConfigurationSetVdmOptionsOutput) ToConfigurationSetVdmOptionsPtrOutputW
 	}).(ConfigurationSetVdmOptionsPtrOutput)
 }
 
-// Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboardOptions` Block for details.
+// Additional settings for your VDM configuration as applicable to the Dashboard. See `dashboardOptions` Block for details.
 func (o ConfigurationSetVdmOptionsOutput) DashboardOptions() ConfigurationSetVdmOptionsDashboardOptionsPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetVdmOptions) *ConfigurationSetVdmOptionsDashboardOptions {
 		return v.DashboardOptions
 	}).(ConfigurationSetVdmOptionsDashboardOptionsPtrOutput)
 }
 
-// Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardianOptions` Block for details.
+// Additional settings for your VDM configuration as applicable to the Guardian. See `guardianOptions` Block for details.
 func (o ConfigurationSetVdmOptionsOutput) GuardianOptions() ConfigurationSetVdmOptionsGuardianOptionsPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetVdmOptions) *ConfigurationSetVdmOptionsGuardianOptions {
 		return v.GuardianOptions
@@ -2280,7 +2284,7 @@ func (o ConfigurationSetVdmOptionsPtrOutput) Elem() ConfigurationSetVdmOptionsOu
 	}).(ConfigurationSetVdmOptionsOutput)
 }
 
-// Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboardOptions` Block for details.
+// Additional settings for your VDM configuration as applicable to the Dashboard. See `dashboardOptions` Block for details.
 func (o ConfigurationSetVdmOptionsPtrOutput) DashboardOptions() ConfigurationSetVdmOptionsDashboardOptionsPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetVdmOptions) *ConfigurationSetVdmOptionsDashboardOptions {
 		if v == nil {
@@ -2290,7 +2294,7 @@ func (o ConfigurationSetVdmOptionsPtrOutput) DashboardOptions() ConfigurationSet
 	}).(ConfigurationSetVdmOptionsDashboardOptionsPtrOutput)
 }
 
-// Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardianOptions` Block for details.
+// Additional settings for your VDM configuration as applicable to the Guardian. See `guardianOptions` Block for details.
 func (o ConfigurationSetVdmOptionsPtrOutput) GuardianOptions() ConfigurationSetVdmOptionsGuardianOptionsPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetVdmOptions) *ConfigurationSetVdmOptionsGuardianOptions {
 		if v == nil {
@@ -2301,7 +2305,7 @@ func (o ConfigurationSetVdmOptionsPtrOutput) GuardianOptions() ConfigurationSetV
 }
 
 type ConfigurationSetVdmOptionsDashboardOptions struct {
-	// Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+	// Status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
 	EngagementMetrics *string `pulumi:"engagementMetrics"`
 }
 
@@ -2317,7 +2321,7 @@ type ConfigurationSetVdmOptionsDashboardOptionsInput interface {
 }
 
 type ConfigurationSetVdmOptionsDashboardOptionsArgs struct {
-	// Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+	// Status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
 	EngagementMetrics pulumi.StringPtrInput `pulumi:"engagementMetrics"`
 }
 
@@ -2398,7 +2402,7 @@ func (o ConfigurationSetVdmOptionsDashboardOptionsOutput) ToConfigurationSetVdmO
 	}).(ConfigurationSetVdmOptionsDashboardOptionsPtrOutput)
 }
 
-// Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+// Status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
 func (o ConfigurationSetVdmOptionsDashboardOptionsOutput) EngagementMetrics() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetVdmOptionsDashboardOptions) *string { return v.EngagementMetrics }).(pulumi.StringPtrOutput)
 }
@@ -2427,7 +2431,7 @@ func (o ConfigurationSetVdmOptionsDashboardOptionsPtrOutput) Elem() Configuratio
 	}).(ConfigurationSetVdmOptionsDashboardOptionsOutput)
 }
 
-// Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+// Status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
 func (o ConfigurationSetVdmOptionsDashboardOptionsPtrOutput) EngagementMetrics() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetVdmOptionsDashboardOptions) *string {
 		if v == nil {
@@ -2438,7 +2442,7 @@ func (o ConfigurationSetVdmOptionsDashboardOptionsPtrOutput) EngagementMetrics()
 }
 
 type ConfigurationSetVdmOptionsGuardianOptions struct {
-	// Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+	// Status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
 	OptimizedSharedDelivery *string `pulumi:"optimizedSharedDelivery"`
 }
 
@@ -2454,7 +2458,7 @@ type ConfigurationSetVdmOptionsGuardianOptionsInput interface {
 }
 
 type ConfigurationSetVdmOptionsGuardianOptionsArgs struct {
-	// Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+	// Status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
 	OptimizedSharedDelivery pulumi.StringPtrInput `pulumi:"optimizedSharedDelivery"`
 }
 
@@ -2535,7 +2539,7 @@ func (o ConfigurationSetVdmOptionsGuardianOptionsOutput) ToConfigurationSetVdmOp
 	}).(ConfigurationSetVdmOptionsGuardianOptionsPtrOutput)
 }
 
-// Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+// Status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
 func (o ConfigurationSetVdmOptionsGuardianOptionsOutput) OptimizedSharedDelivery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetVdmOptionsGuardianOptions) *string { return v.OptimizedSharedDelivery }).(pulumi.StringPtrOutput)
 }
@@ -2564,7 +2568,7 @@ func (o ConfigurationSetVdmOptionsGuardianOptionsPtrOutput) Elem() Configuration
 	}).(ConfigurationSetVdmOptionsGuardianOptionsOutput)
 }
 
-// Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+// Status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
 func (o ConfigurationSetVdmOptionsGuardianOptionsPtrOutput) OptimizedSharedDelivery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetVdmOptionsGuardianOptions) *string {
 		if v == nil {
@@ -2705,21 +2709,21 @@ func (o ContactListTopicArrayOutput) Index(i pulumi.IntInput) ContactListTopicOu
 }
 
 type EmailIdentityDkimSigningAttributes struct {
-	// [Easy DKIM] The key length of the DKIM key pair in use.
+	// [Easy DKIM] Key length of the DKIM key pair in use.
 	CurrentSigningKeyLength *string `pulumi:"currentSigningKeyLength"`
-	// [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+	// [Bring Your Own DKIM] Private key used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
 	//
 	// > **NOTE:** You have to delete the first and last lines ('-----BEGIN PRIVATE KEY-----' and '-----END PRIVATE KEY-----', respectively) of the generated private key. Additionally, you have to remove the line breaks in the generated private key. The resulting value is a string of characters with no spaces or line breaks.
 	DomainSigningPrivateKey *string `pulumi:"domainSigningPrivateKey"`
-	// [Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain.
+	// [Bring Your Own DKIM] String used to identify a public key in the DNS configuration for a domain.
 	DomainSigningSelector *string `pulumi:"domainSigningSelector"`
-	// [Easy DKIM] The last time a key pair was generated for this identity.
+	// [Easy DKIM] Last time a key pair was generated for this identity.
 	LastKeyGenerationTimestamp *string `pulumi:"lastKeyGenerationTimestamp"`
-	// [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
+	// [Easy DKIM] Key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
 	NextSigningKeyLength *string `pulumi:"nextSigningKeyLength"`
-	// A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+	// How DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
 	SigningAttributesOrigin *string `pulumi:"signingAttributesOrigin"`
-	// Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+	// Whether Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
 	Status *string `pulumi:"status"`
 	// If you used Easy DKIM to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete. If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.
 	Tokens []string `pulumi:"tokens"`
@@ -2737,21 +2741,21 @@ type EmailIdentityDkimSigningAttributesInput interface {
 }
 
 type EmailIdentityDkimSigningAttributesArgs struct {
-	// [Easy DKIM] The key length of the DKIM key pair in use.
+	// [Easy DKIM] Key length of the DKIM key pair in use.
 	CurrentSigningKeyLength pulumi.StringPtrInput `pulumi:"currentSigningKeyLength"`
-	// [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+	// [Bring Your Own DKIM] Private key used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
 	//
 	// > **NOTE:** You have to delete the first and last lines ('-----BEGIN PRIVATE KEY-----' and '-----END PRIVATE KEY-----', respectively) of the generated private key. Additionally, you have to remove the line breaks in the generated private key. The resulting value is a string of characters with no spaces or line breaks.
 	DomainSigningPrivateKey pulumi.StringPtrInput `pulumi:"domainSigningPrivateKey"`
-	// [Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain.
+	// [Bring Your Own DKIM] String used to identify a public key in the DNS configuration for a domain.
 	DomainSigningSelector pulumi.StringPtrInput `pulumi:"domainSigningSelector"`
-	// [Easy DKIM] The last time a key pair was generated for this identity.
+	// [Easy DKIM] Last time a key pair was generated for this identity.
 	LastKeyGenerationTimestamp pulumi.StringPtrInput `pulumi:"lastKeyGenerationTimestamp"`
-	// [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
+	// [Easy DKIM] Key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
 	NextSigningKeyLength pulumi.StringPtrInput `pulumi:"nextSigningKeyLength"`
-	// A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+	// How DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
 	SigningAttributesOrigin pulumi.StringPtrInput `pulumi:"signingAttributesOrigin"`
-	// Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+	// Whether Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
 	Status pulumi.StringPtrInput `pulumi:"status"`
 	// If you used Easy DKIM to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete. If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.
 	Tokens pulumi.StringArrayInput `pulumi:"tokens"`
@@ -2834,39 +2838,39 @@ func (o EmailIdentityDkimSigningAttributesOutput) ToEmailIdentityDkimSigningAttr
 	}).(EmailIdentityDkimSigningAttributesPtrOutput)
 }
 
-// [Easy DKIM] The key length of the DKIM key pair in use.
+// [Easy DKIM] Key length of the DKIM key pair in use.
 func (o EmailIdentityDkimSigningAttributesOutput) CurrentSigningKeyLength() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailIdentityDkimSigningAttributes) *string { return v.CurrentSigningKeyLength }).(pulumi.StringPtrOutput)
 }
 
-// [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+// [Bring Your Own DKIM] Private key used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
 //
 // > **NOTE:** You have to delete the first and last lines ('-----BEGIN PRIVATE KEY-----' and '-----END PRIVATE KEY-----', respectively) of the generated private key. Additionally, you have to remove the line breaks in the generated private key. The resulting value is a string of characters with no spaces or line breaks.
 func (o EmailIdentityDkimSigningAttributesOutput) DomainSigningPrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailIdentityDkimSigningAttributes) *string { return v.DomainSigningPrivateKey }).(pulumi.StringPtrOutput)
 }
 
-// [Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain.
+// [Bring Your Own DKIM] String used to identify a public key in the DNS configuration for a domain.
 func (o EmailIdentityDkimSigningAttributesOutput) DomainSigningSelector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailIdentityDkimSigningAttributes) *string { return v.DomainSigningSelector }).(pulumi.StringPtrOutput)
 }
 
-// [Easy DKIM] The last time a key pair was generated for this identity.
+// [Easy DKIM] Last time a key pair was generated for this identity.
 func (o EmailIdentityDkimSigningAttributesOutput) LastKeyGenerationTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailIdentityDkimSigningAttributes) *string { return v.LastKeyGenerationTimestamp }).(pulumi.StringPtrOutput)
 }
 
-// [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
+// [Easy DKIM] Key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
 func (o EmailIdentityDkimSigningAttributesOutput) NextSigningKeyLength() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailIdentityDkimSigningAttributes) *string { return v.NextSigningKeyLength }).(pulumi.StringPtrOutput)
 }
 
-// A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+// How DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
 func (o EmailIdentityDkimSigningAttributesOutput) SigningAttributesOrigin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailIdentityDkimSigningAttributes) *string { return v.SigningAttributesOrigin }).(pulumi.StringPtrOutput)
 }
 
-// Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+// Whether Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
 func (o EmailIdentityDkimSigningAttributesOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailIdentityDkimSigningAttributes) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -2900,7 +2904,7 @@ func (o EmailIdentityDkimSigningAttributesPtrOutput) Elem() EmailIdentityDkimSig
 	}).(EmailIdentityDkimSigningAttributesOutput)
 }
 
-// [Easy DKIM] The key length of the DKIM key pair in use.
+// [Easy DKIM] Key length of the DKIM key pair in use.
 func (o EmailIdentityDkimSigningAttributesPtrOutput) CurrentSigningKeyLength() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EmailIdentityDkimSigningAttributes) *string {
 		if v == nil {
@@ -2910,7 +2914,7 @@ func (o EmailIdentityDkimSigningAttributesPtrOutput) CurrentSigningKeyLength() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+// [Bring Your Own DKIM] Private key used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
 //
 // > **NOTE:** You have to delete the first and last lines ('-----BEGIN PRIVATE KEY-----' and '-----END PRIVATE KEY-----', respectively) of the generated private key. Additionally, you have to remove the line breaks in the generated private key. The resulting value is a string of characters with no spaces or line breaks.
 func (o EmailIdentityDkimSigningAttributesPtrOutput) DomainSigningPrivateKey() pulumi.StringPtrOutput {
@@ -2922,7 +2926,7 @@ func (o EmailIdentityDkimSigningAttributesPtrOutput) DomainSigningPrivateKey() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// [Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain.
+// [Bring Your Own DKIM] String used to identify a public key in the DNS configuration for a domain.
 func (o EmailIdentityDkimSigningAttributesPtrOutput) DomainSigningSelector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EmailIdentityDkimSigningAttributes) *string {
 		if v == nil {
@@ -2932,7 +2936,7 @@ func (o EmailIdentityDkimSigningAttributesPtrOutput) DomainSigningSelector() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// [Easy DKIM] The last time a key pair was generated for this identity.
+// [Easy DKIM] Last time a key pair was generated for this identity.
 func (o EmailIdentityDkimSigningAttributesPtrOutput) LastKeyGenerationTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EmailIdentityDkimSigningAttributes) *string {
 		if v == nil {
@@ -2942,7 +2946,7 @@ func (o EmailIdentityDkimSigningAttributesPtrOutput) LastKeyGenerationTimestamp(
 	}).(pulumi.StringPtrOutput)
 }
 
-// [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
+// [Easy DKIM] Key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
 func (o EmailIdentityDkimSigningAttributesPtrOutput) NextSigningKeyLength() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EmailIdentityDkimSigningAttributes) *string {
 		if v == nil {
@@ -2952,7 +2956,7 @@ func (o EmailIdentityDkimSigningAttributesPtrOutput) NextSigningKeyLength() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+// How DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
 func (o EmailIdentityDkimSigningAttributesPtrOutput) SigningAttributesOrigin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EmailIdentityDkimSigningAttributes) *string {
 		if v == nil {
@@ -2962,7 +2966,7 @@ func (o EmailIdentityDkimSigningAttributesPtrOutput) SigningAttributesOrigin() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+// Whether Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
 func (o EmailIdentityDkimSigningAttributesPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EmailIdentityDkimSigningAttributes) *string {
 		if v == nil {
@@ -2982,12 +2986,539 @@ func (o EmailIdentityDkimSigningAttributesPtrOutput) Tokens() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
+type MultiRegionEndpointDetails struct {
+	// Secondary region route configuration. See `routesDetails` Block below.
+	RoutesDetails *MultiRegionEndpointDetailsRoutesDetails `pulumi:"routesDetails"`
+}
+
+// MultiRegionEndpointDetailsInput is an input type that accepts MultiRegionEndpointDetailsArgs and MultiRegionEndpointDetailsOutput values.
+// You can construct a concrete instance of `MultiRegionEndpointDetailsInput` via:
+//
+//	MultiRegionEndpointDetailsArgs{...}
+type MultiRegionEndpointDetailsInput interface {
+	pulumi.Input
+
+	ToMultiRegionEndpointDetailsOutput() MultiRegionEndpointDetailsOutput
+	ToMultiRegionEndpointDetailsOutputWithContext(context.Context) MultiRegionEndpointDetailsOutput
+}
+
+type MultiRegionEndpointDetailsArgs struct {
+	// Secondary region route configuration. See `routesDetails` Block below.
+	RoutesDetails MultiRegionEndpointDetailsRoutesDetailsPtrInput `pulumi:"routesDetails"`
+}
+
+func (MultiRegionEndpointDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiRegionEndpointDetails)(nil)).Elem()
+}
+
+func (i MultiRegionEndpointDetailsArgs) ToMultiRegionEndpointDetailsOutput() MultiRegionEndpointDetailsOutput {
+	return i.ToMultiRegionEndpointDetailsOutputWithContext(context.Background())
+}
+
+func (i MultiRegionEndpointDetailsArgs) ToMultiRegionEndpointDetailsOutputWithContext(ctx context.Context) MultiRegionEndpointDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionEndpointDetailsOutput)
+}
+
+func (i MultiRegionEndpointDetailsArgs) ToMultiRegionEndpointDetailsPtrOutput() MultiRegionEndpointDetailsPtrOutput {
+	return i.ToMultiRegionEndpointDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i MultiRegionEndpointDetailsArgs) ToMultiRegionEndpointDetailsPtrOutputWithContext(ctx context.Context) MultiRegionEndpointDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionEndpointDetailsOutput).ToMultiRegionEndpointDetailsPtrOutputWithContext(ctx)
+}
+
+// MultiRegionEndpointDetailsPtrInput is an input type that accepts MultiRegionEndpointDetailsArgs, MultiRegionEndpointDetailsPtr and MultiRegionEndpointDetailsPtrOutput values.
+// You can construct a concrete instance of `MultiRegionEndpointDetailsPtrInput` via:
+//
+//	        MultiRegionEndpointDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type MultiRegionEndpointDetailsPtrInput interface {
+	pulumi.Input
+
+	ToMultiRegionEndpointDetailsPtrOutput() MultiRegionEndpointDetailsPtrOutput
+	ToMultiRegionEndpointDetailsPtrOutputWithContext(context.Context) MultiRegionEndpointDetailsPtrOutput
+}
+
+type multiRegionEndpointDetailsPtrType MultiRegionEndpointDetailsArgs
+
+func MultiRegionEndpointDetailsPtr(v *MultiRegionEndpointDetailsArgs) MultiRegionEndpointDetailsPtrInput {
+	return (*multiRegionEndpointDetailsPtrType)(v)
+}
+
+func (*multiRegionEndpointDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiRegionEndpointDetails)(nil)).Elem()
+}
+
+func (i *multiRegionEndpointDetailsPtrType) ToMultiRegionEndpointDetailsPtrOutput() MultiRegionEndpointDetailsPtrOutput {
+	return i.ToMultiRegionEndpointDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *multiRegionEndpointDetailsPtrType) ToMultiRegionEndpointDetailsPtrOutputWithContext(ctx context.Context) MultiRegionEndpointDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionEndpointDetailsPtrOutput)
+}
+
+type MultiRegionEndpointDetailsOutput struct{ *pulumi.OutputState }
+
+func (MultiRegionEndpointDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiRegionEndpointDetails)(nil)).Elem()
+}
+
+func (o MultiRegionEndpointDetailsOutput) ToMultiRegionEndpointDetailsOutput() MultiRegionEndpointDetailsOutput {
+	return o
+}
+
+func (o MultiRegionEndpointDetailsOutput) ToMultiRegionEndpointDetailsOutputWithContext(ctx context.Context) MultiRegionEndpointDetailsOutput {
+	return o
+}
+
+func (o MultiRegionEndpointDetailsOutput) ToMultiRegionEndpointDetailsPtrOutput() MultiRegionEndpointDetailsPtrOutput {
+	return o.ToMultiRegionEndpointDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o MultiRegionEndpointDetailsOutput) ToMultiRegionEndpointDetailsPtrOutputWithContext(ctx context.Context) MultiRegionEndpointDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultiRegionEndpointDetails) *MultiRegionEndpointDetails {
+		return &v
+	}).(MultiRegionEndpointDetailsPtrOutput)
+}
+
+// Secondary region route configuration. See `routesDetails` Block below.
+func (o MultiRegionEndpointDetailsOutput) RoutesDetails() MultiRegionEndpointDetailsRoutesDetailsPtrOutput {
+	return o.ApplyT(func(v MultiRegionEndpointDetails) *MultiRegionEndpointDetailsRoutesDetails { return v.RoutesDetails }).(MultiRegionEndpointDetailsRoutesDetailsPtrOutput)
+}
+
+type MultiRegionEndpointDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (MultiRegionEndpointDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiRegionEndpointDetails)(nil)).Elem()
+}
+
+func (o MultiRegionEndpointDetailsPtrOutput) ToMultiRegionEndpointDetailsPtrOutput() MultiRegionEndpointDetailsPtrOutput {
+	return o
+}
+
+func (o MultiRegionEndpointDetailsPtrOutput) ToMultiRegionEndpointDetailsPtrOutputWithContext(ctx context.Context) MultiRegionEndpointDetailsPtrOutput {
+	return o
+}
+
+func (o MultiRegionEndpointDetailsPtrOutput) Elem() MultiRegionEndpointDetailsOutput {
+	return o.ApplyT(func(v *MultiRegionEndpointDetails) MultiRegionEndpointDetails {
+		if v != nil {
+			return *v
+		}
+		var ret MultiRegionEndpointDetails
+		return ret
+	}).(MultiRegionEndpointDetailsOutput)
+}
+
+// Secondary region route configuration. See `routesDetails` Block below.
+func (o MultiRegionEndpointDetailsPtrOutput) RoutesDetails() MultiRegionEndpointDetailsRoutesDetailsPtrOutput {
+	return o.ApplyT(func(v *MultiRegionEndpointDetails) *MultiRegionEndpointDetailsRoutesDetails {
+		if v == nil {
+			return nil
+		}
+		return v.RoutesDetails
+	}).(MultiRegionEndpointDetailsRoutesDetailsPtrOutput)
+}
+
+type MultiRegionEndpointDetailsRoutesDetails struct {
+	// Name of the secondary AWS region.
+	Region string `pulumi:"region"`
+}
+
+// MultiRegionEndpointDetailsRoutesDetailsInput is an input type that accepts MultiRegionEndpointDetailsRoutesDetailsArgs and MultiRegionEndpointDetailsRoutesDetailsOutput values.
+// You can construct a concrete instance of `MultiRegionEndpointDetailsRoutesDetailsInput` via:
+//
+//	MultiRegionEndpointDetailsRoutesDetailsArgs{...}
+type MultiRegionEndpointDetailsRoutesDetailsInput interface {
+	pulumi.Input
+
+	ToMultiRegionEndpointDetailsRoutesDetailsOutput() MultiRegionEndpointDetailsRoutesDetailsOutput
+	ToMultiRegionEndpointDetailsRoutesDetailsOutputWithContext(context.Context) MultiRegionEndpointDetailsRoutesDetailsOutput
+}
+
+type MultiRegionEndpointDetailsRoutesDetailsArgs struct {
+	// Name of the secondary AWS region.
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (MultiRegionEndpointDetailsRoutesDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiRegionEndpointDetailsRoutesDetails)(nil)).Elem()
+}
+
+func (i MultiRegionEndpointDetailsRoutesDetailsArgs) ToMultiRegionEndpointDetailsRoutesDetailsOutput() MultiRegionEndpointDetailsRoutesDetailsOutput {
+	return i.ToMultiRegionEndpointDetailsRoutesDetailsOutputWithContext(context.Background())
+}
+
+func (i MultiRegionEndpointDetailsRoutesDetailsArgs) ToMultiRegionEndpointDetailsRoutesDetailsOutputWithContext(ctx context.Context) MultiRegionEndpointDetailsRoutesDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionEndpointDetailsRoutesDetailsOutput)
+}
+
+func (i MultiRegionEndpointDetailsRoutesDetailsArgs) ToMultiRegionEndpointDetailsRoutesDetailsPtrOutput() MultiRegionEndpointDetailsRoutesDetailsPtrOutput {
+	return i.ToMultiRegionEndpointDetailsRoutesDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i MultiRegionEndpointDetailsRoutesDetailsArgs) ToMultiRegionEndpointDetailsRoutesDetailsPtrOutputWithContext(ctx context.Context) MultiRegionEndpointDetailsRoutesDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionEndpointDetailsRoutesDetailsOutput).ToMultiRegionEndpointDetailsRoutesDetailsPtrOutputWithContext(ctx)
+}
+
+// MultiRegionEndpointDetailsRoutesDetailsPtrInput is an input type that accepts MultiRegionEndpointDetailsRoutesDetailsArgs, MultiRegionEndpointDetailsRoutesDetailsPtr and MultiRegionEndpointDetailsRoutesDetailsPtrOutput values.
+// You can construct a concrete instance of `MultiRegionEndpointDetailsRoutesDetailsPtrInput` via:
+//
+//	        MultiRegionEndpointDetailsRoutesDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type MultiRegionEndpointDetailsRoutesDetailsPtrInput interface {
+	pulumi.Input
+
+	ToMultiRegionEndpointDetailsRoutesDetailsPtrOutput() MultiRegionEndpointDetailsRoutesDetailsPtrOutput
+	ToMultiRegionEndpointDetailsRoutesDetailsPtrOutputWithContext(context.Context) MultiRegionEndpointDetailsRoutesDetailsPtrOutput
+}
+
+type multiRegionEndpointDetailsRoutesDetailsPtrType MultiRegionEndpointDetailsRoutesDetailsArgs
+
+func MultiRegionEndpointDetailsRoutesDetailsPtr(v *MultiRegionEndpointDetailsRoutesDetailsArgs) MultiRegionEndpointDetailsRoutesDetailsPtrInput {
+	return (*multiRegionEndpointDetailsRoutesDetailsPtrType)(v)
+}
+
+func (*multiRegionEndpointDetailsRoutesDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiRegionEndpointDetailsRoutesDetails)(nil)).Elem()
+}
+
+func (i *multiRegionEndpointDetailsRoutesDetailsPtrType) ToMultiRegionEndpointDetailsRoutesDetailsPtrOutput() MultiRegionEndpointDetailsRoutesDetailsPtrOutput {
+	return i.ToMultiRegionEndpointDetailsRoutesDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *multiRegionEndpointDetailsRoutesDetailsPtrType) ToMultiRegionEndpointDetailsRoutesDetailsPtrOutputWithContext(ctx context.Context) MultiRegionEndpointDetailsRoutesDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionEndpointDetailsRoutesDetailsPtrOutput)
+}
+
+type MultiRegionEndpointDetailsRoutesDetailsOutput struct{ *pulumi.OutputState }
+
+func (MultiRegionEndpointDetailsRoutesDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiRegionEndpointDetailsRoutesDetails)(nil)).Elem()
+}
+
+func (o MultiRegionEndpointDetailsRoutesDetailsOutput) ToMultiRegionEndpointDetailsRoutesDetailsOutput() MultiRegionEndpointDetailsRoutesDetailsOutput {
+	return o
+}
+
+func (o MultiRegionEndpointDetailsRoutesDetailsOutput) ToMultiRegionEndpointDetailsRoutesDetailsOutputWithContext(ctx context.Context) MultiRegionEndpointDetailsRoutesDetailsOutput {
+	return o
+}
+
+func (o MultiRegionEndpointDetailsRoutesDetailsOutput) ToMultiRegionEndpointDetailsRoutesDetailsPtrOutput() MultiRegionEndpointDetailsRoutesDetailsPtrOutput {
+	return o.ToMultiRegionEndpointDetailsRoutesDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o MultiRegionEndpointDetailsRoutesDetailsOutput) ToMultiRegionEndpointDetailsRoutesDetailsPtrOutputWithContext(ctx context.Context) MultiRegionEndpointDetailsRoutesDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultiRegionEndpointDetailsRoutesDetails) *MultiRegionEndpointDetailsRoutesDetails {
+		return &v
+	}).(MultiRegionEndpointDetailsRoutesDetailsPtrOutput)
+}
+
+// Name of the secondary AWS region.
+func (o MultiRegionEndpointDetailsRoutesDetailsOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v MultiRegionEndpointDetailsRoutesDetails) string { return v.Region }).(pulumi.StringOutput)
+}
+
+type MultiRegionEndpointDetailsRoutesDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (MultiRegionEndpointDetailsRoutesDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiRegionEndpointDetailsRoutesDetails)(nil)).Elem()
+}
+
+func (o MultiRegionEndpointDetailsRoutesDetailsPtrOutput) ToMultiRegionEndpointDetailsRoutesDetailsPtrOutput() MultiRegionEndpointDetailsRoutesDetailsPtrOutput {
+	return o
+}
+
+func (o MultiRegionEndpointDetailsRoutesDetailsPtrOutput) ToMultiRegionEndpointDetailsRoutesDetailsPtrOutputWithContext(ctx context.Context) MultiRegionEndpointDetailsRoutesDetailsPtrOutput {
+	return o
+}
+
+func (o MultiRegionEndpointDetailsRoutesDetailsPtrOutput) Elem() MultiRegionEndpointDetailsRoutesDetailsOutput {
+	return o.ApplyT(func(v *MultiRegionEndpointDetailsRoutesDetails) MultiRegionEndpointDetailsRoutesDetails {
+		if v != nil {
+			return *v
+		}
+		var ret MultiRegionEndpointDetailsRoutesDetails
+		return ret
+	}).(MultiRegionEndpointDetailsRoutesDetailsOutput)
+}
+
+// Name of the secondary AWS region.
+func (o MultiRegionEndpointDetailsRoutesDetailsPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultiRegionEndpointDetailsRoutesDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+type MultiRegionEndpointRoute struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region string `pulumi:"region"`
+}
+
+// MultiRegionEndpointRouteInput is an input type that accepts MultiRegionEndpointRouteArgs and MultiRegionEndpointRouteOutput values.
+// You can construct a concrete instance of `MultiRegionEndpointRouteInput` via:
+//
+//	MultiRegionEndpointRouteArgs{...}
+type MultiRegionEndpointRouteInput interface {
+	pulumi.Input
+
+	ToMultiRegionEndpointRouteOutput() MultiRegionEndpointRouteOutput
+	ToMultiRegionEndpointRouteOutputWithContext(context.Context) MultiRegionEndpointRouteOutput
+}
+
+type MultiRegionEndpointRouteArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (MultiRegionEndpointRouteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiRegionEndpointRoute)(nil)).Elem()
+}
+
+func (i MultiRegionEndpointRouteArgs) ToMultiRegionEndpointRouteOutput() MultiRegionEndpointRouteOutput {
+	return i.ToMultiRegionEndpointRouteOutputWithContext(context.Background())
+}
+
+func (i MultiRegionEndpointRouteArgs) ToMultiRegionEndpointRouteOutputWithContext(ctx context.Context) MultiRegionEndpointRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionEndpointRouteOutput)
+}
+
+// MultiRegionEndpointRouteArrayInput is an input type that accepts MultiRegionEndpointRouteArray and MultiRegionEndpointRouteArrayOutput values.
+// You can construct a concrete instance of `MultiRegionEndpointRouteArrayInput` via:
+//
+//	MultiRegionEndpointRouteArray{ MultiRegionEndpointRouteArgs{...} }
+type MultiRegionEndpointRouteArrayInput interface {
+	pulumi.Input
+
+	ToMultiRegionEndpointRouteArrayOutput() MultiRegionEndpointRouteArrayOutput
+	ToMultiRegionEndpointRouteArrayOutputWithContext(context.Context) MultiRegionEndpointRouteArrayOutput
+}
+
+type MultiRegionEndpointRouteArray []MultiRegionEndpointRouteInput
+
+func (MultiRegionEndpointRouteArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultiRegionEndpointRoute)(nil)).Elem()
+}
+
+func (i MultiRegionEndpointRouteArray) ToMultiRegionEndpointRouteArrayOutput() MultiRegionEndpointRouteArrayOutput {
+	return i.ToMultiRegionEndpointRouteArrayOutputWithContext(context.Background())
+}
+
+func (i MultiRegionEndpointRouteArray) ToMultiRegionEndpointRouteArrayOutputWithContext(ctx context.Context) MultiRegionEndpointRouteArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionEndpointRouteArrayOutput)
+}
+
+type MultiRegionEndpointRouteOutput struct{ *pulumi.OutputState }
+
+func (MultiRegionEndpointRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiRegionEndpointRoute)(nil)).Elem()
+}
+
+func (o MultiRegionEndpointRouteOutput) ToMultiRegionEndpointRouteOutput() MultiRegionEndpointRouteOutput {
+	return o
+}
+
+func (o MultiRegionEndpointRouteOutput) ToMultiRegionEndpointRouteOutputWithContext(ctx context.Context) MultiRegionEndpointRouteOutput {
+	return o
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o MultiRegionEndpointRouteOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v MultiRegionEndpointRoute) string { return v.Region }).(pulumi.StringOutput)
+}
+
+type MultiRegionEndpointRouteArrayOutput struct{ *pulumi.OutputState }
+
+func (MultiRegionEndpointRouteArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultiRegionEndpointRoute)(nil)).Elem()
+}
+
+func (o MultiRegionEndpointRouteArrayOutput) ToMultiRegionEndpointRouteArrayOutput() MultiRegionEndpointRouteArrayOutput {
+	return o
+}
+
+func (o MultiRegionEndpointRouteArrayOutput) ToMultiRegionEndpointRouteArrayOutputWithContext(ctx context.Context) MultiRegionEndpointRouteArrayOutput {
+	return o
+}
+
+func (o MultiRegionEndpointRouteArrayOutput) Index(i pulumi.IntInput) MultiRegionEndpointRouteOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MultiRegionEndpointRoute {
+		return vs[0].([]MultiRegionEndpointRoute)[vs[1].(int)]
+	}).(MultiRegionEndpointRouteOutput)
+}
+
+type MultiRegionEndpointTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// MultiRegionEndpointTimeoutsInput is an input type that accepts MultiRegionEndpointTimeoutsArgs and MultiRegionEndpointTimeoutsOutput values.
+// You can construct a concrete instance of `MultiRegionEndpointTimeoutsInput` via:
+//
+//	MultiRegionEndpointTimeoutsArgs{...}
+type MultiRegionEndpointTimeoutsInput interface {
+	pulumi.Input
+
+	ToMultiRegionEndpointTimeoutsOutput() MultiRegionEndpointTimeoutsOutput
+	ToMultiRegionEndpointTimeoutsOutputWithContext(context.Context) MultiRegionEndpointTimeoutsOutput
+}
+
+type MultiRegionEndpointTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (MultiRegionEndpointTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiRegionEndpointTimeouts)(nil)).Elem()
+}
+
+func (i MultiRegionEndpointTimeoutsArgs) ToMultiRegionEndpointTimeoutsOutput() MultiRegionEndpointTimeoutsOutput {
+	return i.ToMultiRegionEndpointTimeoutsOutputWithContext(context.Background())
+}
+
+func (i MultiRegionEndpointTimeoutsArgs) ToMultiRegionEndpointTimeoutsOutputWithContext(ctx context.Context) MultiRegionEndpointTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionEndpointTimeoutsOutput)
+}
+
+func (i MultiRegionEndpointTimeoutsArgs) ToMultiRegionEndpointTimeoutsPtrOutput() MultiRegionEndpointTimeoutsPtrOutput {
+	return i.ToMultiRegionEndpointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i MultiRegionEndpointTimeoutsArgs) ToMultiRegionEndpointTimeoutsPtrOutputWithContext(ctx context.Context) MultiRegionEndpointTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionEndpointTimeoutsOutput).ToMultiRegionEndpointTimeoutsPtrOutputWithContext(ctx)
+}
+
+// MultiRegionEndpointTimeoutsPtrInput is an input type that accepts MultiRegionEndpointTimeoutsArgs, MultiRegionEndpointTimeoutsPtr and MultiRegionEndpointTimeoutsPtrOutput values.
+// You can construct a concrete instance of `MultiRegionEndpointTimeoutsPtrInput` via:
+//
+//	        MultiRegionEndpointTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type MultiRegionEndpointTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToMultiRegionEndpointTimeoutsPtrOutput() MultiRegionEndpointTimeoutsPtrOutput
+	ToMultiRegionEndpointTimeoutsPtrOutputWithContext(context.Context) MultiRegionEndpointTimeoutsPtrOutput
+}
+
+type multiRegionEndpointTimeoutsPtrType MultiRegionEndpointTimeoutsArgs
+
+func MultiRegionEndpointTimeoutsPtr(v *MultiRegionEndpointTimeoutsArgs) MultiRegionEndpointTimeoutsPtrInput {
+	return (*multiRegionEndpointTimeoutsPtrType)(v)
+}
+
+func (*multiRegionEndpointTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiRegionEndpointTimeouts)(nil)).Elem()
+}
+
+func (i *multiRegionEndpointTimeoutsPtrType) ToMultiRegionEndpointTimeoutsPtrOutput() MultiRegionEndpointTimeoutsPtrOutput {
+	return i.ToMultiRegionEndpointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *multiRegionEndpointTimeoutsPtrType) ToMultiRegionEndpointTimeoutsPtrOutputWithContext(ctx context.Context) MultiRegionEndpointTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionEndpointTimeoutsPtrOutput)
+}
+
+type MultiRegionEndpointTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (MultiRegionEndpointTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiRegionEndpointTimeouts)(nil)).Elem()
+}
+
+func (o MultiRegionEndpointTimeoutsOutput) ToMultiRegionEndpointTimeoutsOutput() MultiRegionEndpointTimeoutsOutput {
+	return o
+}
+
+func (o MultiRegionEndpointTimeoutsOutput) ToMultiRegionEndpointTimeoutsOutputWithContext(ctx context.Context) MultiRegionEndpointTimeoutsOutput {
+	return o
+}
+
+func (o MultiRegionEndpointTimeoutsOutput) ToMultiRegionEndpointTimeoutsPtrOutput() MultiRegionEndpointTimeoutsPtrOutput {
+	return o.ToMultiRegionEndpointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o MultiRegionEndpointTimeoutsOutput) ToMultiRegionEndpointTimeoutsPtrOutputWithContext(ctx context.Context) MultiRegionEndpointTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultiRegionEndpointTimeouts) *MultiRegionEndpointTimeouts {
+		return &v
+	}).(MultiRegionEndpointTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o MultiRegionEndpointTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultiRegionEndpointTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o MultiRegionEndpointTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultiRegionEndpointTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type MultiRegionEndpointTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (MultiRegionEndpointTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiRegionEndpointTimeouts)(nil)).Elem()
+}
+
+func (o MultiRegionEndpointTimeoutsPtrOutput) ToMultiRegionEndpointTimeoutsPtrOutput() MultiRegionEndpointTimeoutsPtrOutput {
+	return o
+}
+
+func (o MultiRegionEndpointTimeoutsPtrOutput) ToMultiRegionEndpointTimeoutsPtrOutputWithContext(ctx context.Context) MultiRegionEndpointTimeoutsPtrOutput {
+	return o
+}
+
+func (o MultiRegionEndpointTimeoutsPtrOutput) Elem() MultiRegionEndpointTimeoutsOutput {
+	return o.ApplyT(func(v *MultiRegionEndpointTimeouts) MultiRegionEndpointTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret MultiRegionEndpointTimeouts
+		return ret
+	}).(MultiRegionEndpointTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o MultiRegionEndpointTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultiRegionEndpointTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o MultiRegionEndpointTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultiRegionEndpointTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetConfigurationSetDeliveryOption struct {
-	// The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+	// Maximum amount of time, in seconds, that Amazon SES API v2 attempts delivery of email. If specified, the value must be greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
 	MaxDeliverySeconds int `pulumi:"maxDeliverySeconds"`
-	// The name of the dedicated IP pool to associate with the configuration set.
+	// Name of the dedicated IP pool to associate with the configuration set.
 	SendingPoolName string `pulumi:"sendingPoolName"`
-	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+	// Whether messages that use the configuration set are required to use TLS.
 	TlsPolicy string `pulumi:"tlsPolicy"`
 }
 
@@ -3003,11 +3534,11 @@ type GetConfigurationSetDeliveryOptionInput interface {
 }
 
 type GetConfigurationSetDeliveryOptionArgs struct {
-	// The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+	// Maximum amount of time, in seconds, that Amazon SES API v2 attempts delivery of email. If specified, the value must be greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
 	MaxDeliverySeconds pulumi.IntInput `pulumi:"maxDeliverySeconds"`
-	// The name of the dedicated IP pool to associate with the configuration set.
+	// Name of the dedicated IP pool to associate with the configuration set.
 	SendingPoolName pulumi.StringInput `pulumi:"sendingPoolName"`
-	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+	// Whether messages that use the configuration set are required to use TLS.
 	TlsPolicy pulumi.StringInput `pulumi:"tlsPolicy"`
 }
 
@@ -3062,17 +3593,17 @@ func (o GetConfigurationSetDeliveryOptionOutput) ToGetConfigurationSetDeliveryOp
 	return o
 }
 
-// The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+// Maximum amount of time, in seconds, that Amazon SES API v2 attempts delivery of email. If specified, the value must be greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
 func (o GetConfigurationSetDeliveryOptionOutput) MaxDeliverySeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v GetConfigurationSetDeliveryOption) int { return v.MaxDeliverySeconds }).(pulumi.IntOutput)
 }
 
-// The name of the dedicated IP pool to associate with the configuration set.
+// Name of the dedicated IP pool to associate with the configuration set.
 func (o GetConfigurationSetDeliveryOptionOutput) SendingPoolName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConfigurationSetDeliveryOption) string { return v.SendingPoolName }).(pulumi.StringOutput)
 }
 
-// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+// Whether messages that use the configuration set are required to use TLS.
 func (o GetConfigurationSetDeliveryOptionOutput) TlsPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConfigurationSetDeliveryOption) string { return v.TlsPolicy }).(pulumi.StringOutput)
 }
@@ -3098,9 +3629,9 @@ func (o GetConfigurationSetDeliveryOptionArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetConfigurationSetReputationOption struct {
-	// The date and time (in Unix time) when the reputation metrics were last given a fresh start.
+	// Date and time (in Unix time) when the reputation metrics were last given a fresh start.
 	LastFreshStart string `pulumi:"lastFreshStart"`
-	// Specifies whether tracking of reputation metrics is enabled.
+	// Whether tracking of reputation metrics is enabled.
 	ReputationMetricsEnabled bool `pulumi:"reputationMetricsEnabled"`
 }
 
@@ -3116,9 +3647,9 @@ type GetConfigurationSetReputationOptionInput interface {
 }
 
 type GetConfigurationSetReputationOptionArgs struct {
-	// The date and time (in Unix time) when the reputation metrics were last given a fresh start.
+	// Date and time (in Unix time) when the reputation metrics were last given a fresh start.
 	LastFreshStart pulumi.StringInput `pulumi:"lastFreshStart"`
-	// Specifies whether tracking of reputation metrics is enabled.
+	// Whether tracking of reputation metrics is enabled.
 	ReputationMetricsEnabled pulumi.BoolInput `pulumi:"reputationMetricsEnabled"`
 }
 
@@ -3173,12 +3704,12 @@ func (o GetConfigurationSetReputationOptionOutput) ToGetConfigurationSetReputati
 	return o
 }
 
-// The date and time (in Unix time) when the reputation metrics were last given a fresh start.
+// Date and time (in Unix time) when the reputation metrics were last given a fresh start.
 func (o GetConfigurationSetReputationOptionOutput) LastFreshStart() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConfigurationSetReputationOption) string { return v.LastFreshStart }).(pulumi.StringOutput)
 }
 
-// Specifies whether tracking of reputation metrics is enabled.
+// Whether tracking of reputation metrics is enabled.
 func (o GetConfigurationSetReputationOptionOutput) ReputationMetricsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetConfigurationSetReputationOption) bool { return v.ReputationMetricsEnabled }).(pulumi.BoolOutput)
 }
@@ -3204,7 +3735,7 @@ func (o GetConfigurationSetReputationOptionArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetConfigurationSetSendingOption struct {
-	// Specifies whether email sending is enabled.
+	// Whether email sending is enabled.
 	SendingEnabled bool `pulumi:"sendingEnabled"`
 }
 
@@ -3220,7 +3751,7 @@ type GetConfigurationSetSendingOptionInput interface {
 }
 
 type GetConfigurationSetSendingOptionArgs struct {
-	// Specifies whether email sending is enabled.
+	// Whether email sending is enabled.
 	SendingEnabled pulumi.BoolInput `pulumi:"sendingEnabled"`
 }
 
@@ -3275,7 +3806,7 @@ func (o GetConfigurationSetSendingOptionOutput) ToGetConfigurationSetSendingOpti
 	return o
 }
 
-// Specifies whether email sending is enabled.
+// Whether email sending is enabled.
 func (o GetConfigurationSetSendingOptionOutput) SendingEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetConfigurationSetSendingOption) bool { return v.SendingEnabled }).(pulumi.BoolOutput)
 }
@@ -3301,7 +3832,7 @@ func (o GetConfigurationSetSendingOptionArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetConfigurationSetSuppressionOption struct {
-	// A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
+	// List that contains the reasons that email addresses are automatically added to the suppression list for your account.
 	SuppressedReasons []string `pulumi:"suppressedReasons"`
 }
 
@@ -3317,7 +3848,7 @@ type GetConfigurationSetSuppressionOptionInput interface {
 }
 
 type GetConfigurationSetSuppressionOptionArgs struct {
-	// A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
+	// List that contains the reasons that email addresses are automatically added to the suppression list for your account.
 	SuppressedReasons pulumi.StringArrayInput `pulumi:"suppressedReasons"`
 }
 
@@ -3372,7 +3903,7 @@ func (o GetConfigurationSetSuppressionOptionOutput) ToGetConfigurationSetSuppres
 	return o
 }
 
-// A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
+// List that contains the reasons that email addresses are automatically added to the suppression list for your account.
 func (o GetConfigurationSetSuppressionOptionOutput) SuppressedReasons() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetConfigurationSetSuppressionOption) []string { return v.SuppressedReasons }).(pulumi.StringArrayOutput)
 }
@@ -3398,9 +3929,9 @@ func (o GetConfigurationSetSuppressionOptionArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetConfigurationSetTrackingOption struct {
-	// The domain to use for tracking open and click events.
+	// Domain used for tracking open and click events.
 	CustomRedirectDomain string `pulumi:"customRedirectDomain"`
-	// The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+	// HTTPS policy used for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY`, or `OPTIONAL`.
 	HttpsPolicy string `pulumi:"httpsPolicy"`
 }
 
@@ -3416,9 +3947,9 @@ type GetConfigurationSetTrackingOptionInput interface {
 }
 
 type GetConfigurationSetTrackingOptionArgs struct {
-	// The domain to use for tracking open and click events.
+	// Domain used for tracking open and click events.
 	CustomRedirectDomain pulumi.StringInput `pulumi:"customRedirectDomain"`
-	// The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+	// HTTPS policy used for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY`, or `OPTIONAL`.
 	HttpsPolicy pulumi.StringInput `pulumi:"httpsPolicy"`
 }
 
@@ -3473,12 +4004,12 @@ func (o GetConfigurationSetTrackingOptionOutput) ToGetConfigurationSetTrackingOp
 	return o
 }
 
-// The domain to use for tracking open and click events.
+// Domain used for tracking open and click events.
 func (o GetConfigurationSetTrackingOptionOutput) CustomRedirectDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConfigurationSetTrackingOption) string { return v.CustomRedirectDomain }).(pulumi.StringOutput)
 }
 
-// The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+// HTTPS policy used for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY`, or `OPTIONAL`.
 func (o GetConfigurationSetTrackingOptionOutput) HttpsPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConfigurationSetTrackingOption) string { return v.HttpsPolicy }).(pulumi.StringOutput)
 }
@@ -3504,9 +4035,9 @@ func (o GetConfigurationSetTrackingOptionArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetConfigurationSetVdmOption struct {
-	// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+	// Additional settings for your VDM configuration as applicable to the Dashboard.
 	DashboardOptions []GetConfigurationSetVdmOptionDashboardOption `pulumi:"dashboardOptions"`
-	// Specifies additional settings for your VDM configuration as applicable to the Guardian.
+	// Additional settings for your VDM configuration as applicable to the Guardian.
 	GuardianOptions []GetConfigurationSetVdmOptionGuardianOption `pulumi:"guardianOptions"`
 }
 
@@ -3522,9 +4053,9 @@ type GetConfigurationSetVdmOptionInput interface {
 }
 
 type GetConfigurationSetVdmOptionArgs struct {
-	// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+	// Additional settings for your VDM configuration as applicable to the Dashboard.
 	DashboardOptions GetConfigurationSetVdmOptionDashboardOptionArrayInput `pulumi:"dashboardOptions"`
-	// Specifies additional settings for your VDM configuration as applicable to the Guardian.
+	// Additional settings for your VDM configuration as applicable to the Guardian.
 	GuardianOptions GetConfigurationSetVdmOptionGuardianOptionArrayInput `pulumi:"guardianOptions"`
 }
 
@@ -3579,14 +4110,14 @@ func (o GetConfigurationSetVdmOptionOutput) ToGetConfigurationSetVdmOptionOutput
 	return o
 }
 
-// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+// Additional settings for your VDM configuration as applicable to the Dashboard.
 func (o GetConfigurationSetVdmOptionOutput) DashboardOptions() GetConfigurationSetVdmOptionDashboardOptionArrayOutput {
 	return o.ApplyT(func(v GetConfigurationSetVdmOption) []GetConfigurationSetVdmOptionDashboardOption {
 		return v.DashboardOptions
 	}).(GetConfigurationSetVdmOptionDashboardOptionArrayOutput)
 }
 
-// Specifies additional settings for your VDM configuration as applicable to the Guardian.
+// Additional settings for your VDM configuration as applicable to the Guardian.
 func (o GetConfigurationSetVdmOptionOutput) GuardianOptions() GetConfigurationSetVdmOptionGuardianOptionArrayOutput {
 	return o.ApplyT(func(v GetConfigurationSetVdmOption) []GetConfigurationSetVdmOptionGuardianOption {
 		return v.GuardianOptions
@@ -3614,7 +4145,7 @@ func (o GetConfigurationSetVdmOptionArrayOutput) Index(i pulumi.IntInput) GetCon
 }
 
 type GetConfigurationSetVdmOptionDashboardOption struct {
-	// Specifies the status of your VDM engagement metrics collection.
+	// Status of your VDM engagement metrics collection.
 	EngagementMetrics string `pulumi:"engagementMetrics"`
 }
 
@@ -3630,7 +4161,7 @@ type GetConfigurationSetVdmOptionDashboardOptionInput interface {
 }
 
 type GetConfigurationSetVdmOptionDashboardOptionArgs struct {
-	// Specifies the status of your VDM engagement metrics collection.
+	// Status of your VDM engagement metrics collection.
 	EngagementMetrics pulumi.StringInput `pulumi:"engagementMetrics"`
 }
 
@@ -3685,7 +4216,7 @@ func (o GetConfigurationSetVdmOptionDashboardOptionOutput) ToGetConfigurationSet
 	return o
 }
 
-// Specifies the status of your VDM engagement metrics collection.
+// Status of your VDM engagement metrics collection.
 func (o GetConfigurationSetVdmOptionDashboardOptionOutput) EngagementMetrics() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConfigurationSetVdmOptionDashboardOption) string { return v.EngagementMetrics }).(pulumi.StringOutput)
 }
@@ -3711,7 +4242,7 @@ func (o GetConfigurationSetVdmOptionDashboardOptionArrayOutput) Index(i pulumi.I
 }
 
 type GetConfigurationSetVdmOptionGuardianOption struct {
-	// Specifies the status of your VDM optimized shared delivery.
+	// Status of your VDM optimized shared delivery.
 	OptimizedSharedDelivery string `pulumi:"optimizedSharedDelivery"`
 }
 
@@ -3727,7 +4258,7 @@ type GetConfigurationSetVdmOptionGuardianOptionInput interface {
 }
 
 type GetConfigurationSetVdmOptionGuardianOptionArgs struct {
-	// Specifies the status of your VDM optimized shared delivery.
+	// Status of your VDM optimized shared delivery.
 	OptimizedSharedDelivery pulumi.StringInput `pulumi:"optimizedSharedDelivery"`
 }
 
@@ -3782,7 +4313,7 @@ func (o GetConfigurationSetVdmOptionGuardianOptionOutput) ToGetConfigurationSetV
 	return o
 }
 
-// Specifies the status of your VDM optimized shared delivery.
+// Status of your VDM optimized shared delivery.
 func (o GetConfigurationSetVdmOptionGuardianOptionOutput) OptimizedSharedDelivery() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConfigurationSetVdmOptionGuardianOption) string { return v.OptimizedSharedDelivery }).(pulumi.StringOutput)
 }
@@ -3810,9 +4341,9 @@ func (o GetConfigurationSetVdmOptionGuardianOptionArrayOutput) Index(i pulumi.In
 type GetDedicatedIpPoolDedicatedIp struct {
 	// IPv4 address.
 	Ip string `pulumi:"ip"`
-	// Indicates how complete the dedicated IP warm-up process is. When this value equals `1`, the address has completed the warm-up process and is ready for use.
+	// How complete the dedicated IP warm-up process is. When this value equals `1`, the address has completed the warm-up process and is ready for use.
 	WarmupPercentage int `pulumi:"warmupPercentage"`
-	// The warm-up status of a dedicated IP address. Valid values: `IN_PROGRESS`, `DONE`.
+	// Warm-up status of a dedicated IP address. Valid values: `IN_PROGRESS`, `DONE`.
 	WarmupStatus string `pulumi:"warmupStatus"`
 }
 
@@ -3830,9 +4361,9 @@ type GetDedicatedIpPoolDedicatedIpInput interface {
 type GetDedicatedIpPoolDedicatedIpArgs struct {
 	// IPv4 address.
 	Ip pulumi.StringInput `pulumi:"ip"`
-	// Indicates how complete the dedicated IP warm-up process is. When this value equals `1`, the address has completed the warm-up process and is ready for use.
+	// How complete the dedicated IP warm-up process is. When this value equals `1`, the address has completed the warm-up process and is ready for use.
 	WarmupPercentage pulumi.IntInput `pulumi:"warmupPercentage"`
-	// The warm-up status of a dedicated IP address. Valid values: `IN_PROGRESS`, `DONE`.
+	// Warm-up status of a dedicated IP address. Valid values: `IN_PROGRESS`, `DONE`.
 	WarmupStatus pulumi.StringInput `pulumi:"warmupStatus"`
 }
 
@@ -3892,12 +4423,12 @@ func (o GetDedicatedIpPoolDedicatedIpOutput) Ip() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDedicatedIpPoolDedicatedIp) string { return v.Ip }).(pulumi.StringOutput)
 }
 
-// Indicates how complete the dedicated IP warm-up process is. When this value equals `1`, the address has completed the warm-up process and is ready for use.
+// How complete the dedicated IP warm-up process is. When this value equals `1`, the address has completed the warm-up process and is ready for use.
 func (o GetDedicatedIpPoolDedicatedIpOutput) WarmupPercentage() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDedicatedIpPoolDedicatedIp) int { return v.WarmupPercentage }).(pulumi.IntOutput)
 }
 
-// The warm-up status of a dedicated IP address. Valid values: `IN_PROGRESS`, `DONE`.
+// Warm-up status of a dedicated IP address. Valid values: `IN_PROGRESS`, `DONE`.
 func (o GetDedicatedIpPoolDedicatedIpOutput) WarmupStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDedicatedIpPoolDedicatedIp) string { return v.WarmupStatus }).(pulumi.StringOutput)
 }
@@ -3925,15 +4456,17 @@ func (o GetDedicatedIpPoolDedicatedIpArrayOutput) Index(i pulumi.IntInput) GetDe
 type GetEmailIdentityDkimSigningAttribute struct {
 	// [Easy DKIM] The key length of the DKIM key pair in use.
 	CurrentSigningKeyLength string `pulumi:"currentSigningKeyLength"`
+	// [Bring Your Own DKIM] Private key used to generate DKIM signatures.
 	DomainSigningPrivateKey string `pulumi:"domainSigningPrivateKey"`
-	DomainSigningSelector   string `pulumi:"domainSigningSelector"`
+	// [Bring Your Own DKIM] Selector added to the DNS configuration for the domain.
+	DomainSigningSelector string `pulumi:"domainSigningSelector"`
 	// [Easy DKIM] The last time a key pair was generated for this identity.
 	LastKeyGenerationTimestamp string `pulumi:"lastKeyGenerationTimestamp"`
 	// [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.
 	NextSigningKeyLength string `pulumi:"nextSigningKeyLength"`
-	// A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+	// String that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
 	SigningAttributesOrigin string `pulumi:"signingAttributesOrigin"`
-	// Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+	// Whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
 	Status string `pulumi:"status"`
 	// If you used Easy DKIM to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete. If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.
 	Tokens []string `pulumi:"tokens"`
@@ -3953,15 +4486,17 @@ type GetEmailIdentityDkimSigningAttributeInput interface {
 type GetEmailIdentityDkimSigningAttributeArgs struct {
 	// [Easy DKIM] The key length of the DKIM key pair in use.
 	CurrentSigningKeyLength pulumi.StringInput `pulumi:"currentSigningKeyLength"`
+	// [Bring Your Own DKIM] Private key used to generate DKIM signatures.
 	DomainSigningPrivateKey pulumi.StringInput `pulumi:"domainSigningPrivateKey"`
-	DomainSigningSelector   pulumi.StringInput `pulumi:"domainSigningSelector"`
+	// [Bring Your Own DKIM] Selector added to the DNS configuration for the domain.
+	DomainSigningSelector pulumi.StringInput `pulumi:"domainSigningSelector"`
 	// [Easy DKIM] The last time a key pair was generated for this identity.
 	LastKeyGenerationTimestamp pulumi.StringInput `pulumi:"lastKeyGenerationTimestamp"`
 	// [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.
 	NextSigningKeyLength pulumi.StringInput `pulumi:"nextSigningKeyLength"`
-	// A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+	// String that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
 	SigningAttributesOrigin pulumi.StringInput `pulumi:"signingAttributesOrigin"`
-	// Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+	// Whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
 	Status pulumi.StringInput `pulumi:"status"`
 	// If you used Easy DKIM to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete. If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.
 	Tokens pulumi.StringArrayInput `pulumi:"tokens"`
@@ -4023,10 +4558,12 @@ func (o GetEmailIdentityDkimSigningAttributeOutput) CurrentSigningKeyLength() pu
 	return o.ApplyT(func(v GetEmailIdentityDkimSigningAttribute) string { return v.CurrentSigningKeyLength }).(pulumi.StringOutput)
 }
 
+// [Bring Your Own DKIM] Private key used to generate DKIM signatures.
 func (o GetEmailIdentityDkimSigningAttributeOutput) DomainSigningPrivateKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEmailIdentityDkimSigningAttribute) string { return v.DomainSigningPrivateKey }).(pulumi.StringOutput)
 }
 
+// [Bring Your Own DKIM] Selector added to the DNS configuration for the domain.
 func (o GetEmailIdentityDkimSigningAttributeOutput) DomainSigningSelector() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEmailIdentityDkimSigningAttribute) string { return v.DomainSigningSelector }).(pulumi.StringOutput)
 }
@@ -4041,12 +4578,12 @@ func (o GetEmailIdentityDkimSigningAttributeOutput) NextSigningKeyLength() pulum
 	return o.ApplyT(func(v GetEmailIdentityDkimSigningAttribute) string { return v.NextSigningKeyLength }).(pulumi.StringOutput)
 }
 
-// A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+// String that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
 func (o GetEmailIdentityDkimSigningAttributeOutput) SigningAttributesOrigin() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEmailIdentityDkimSigningAttribute) string { return v.SigningAttributesOrigin }).(pulumi.StringOutput)
 }
 
-// Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+// Whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
 func (o GetEmailIdentityDkimSigningAttributeOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEmailIdentityDkimSigningAttribute) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -4115,6 +4652,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactListTopicArrayInput)(nil)).Elem(), ContactListTopicArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailIdentityDkimSigningAttributesInput)(nil)).Elem(), EmailIdentityDkimSigningAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailIdentityDkimSigningAttributesPtrInput)(nil)).Elem(), EmailIdentityDkimSigningAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionEndpointDetailsInput)(nil)).Elem(), MultiRegionEndpointDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionEndpointDetailsPtrInput)(nil)).Elem(), MultiRegionEndpointDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionEndpointDetailsRoutesDetailsInput)(nil)).Elem(), MultiRegionEndpointDetailsRoutesDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionEndpointDetailsRoutesDetailsPtrInput)(nil)).Elem(), MultiRegionEndpointDetailsRoutesDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionEndpointRouteInput)(nil)).Elem(), MultiRegionEndpointRouteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionEndpointRouteArrayInput)(nil)).Elem(), MultiRegionEndpointRouteArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionEndpointTimeoutsInput)(nil)).Elem(), MultiRegionEndpointTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionEndpointTimeoutsPtrInput)(nil)).Elem(), MultiRegionEndpointTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationSetDeliveryOptionInput)(nil)).Elem(), GetConfigurationSetDeliveryOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationSetDeliveryOptionArrayInput)(nil)).Elem(), GetConfigurationSetDeliveryOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationSetReputationOptionInput)(nil)).Elem(), GetConfigurationSetReputationOptionArgs{})
@@ -4173,6 +4718,14 @@ func init() {
 	pulumi.RegisterOutputType(ContactListTopicArrayOutput{})
 	pulumi.RegisterOutputType(EmailIdentityDkimSigningAttributesOutput{})
 	pulumi.RegisterOutputType(EmailIdentityDkimSigningAttributesPtrOutput{})
+	pulumi.RegisterOutputType(MultiRegionEndpointDetailsOutput{})
+	pulumi.RegisterOutputType(MultiRegionEndpointDetailsPtrOutput{})
+	pulumi.RegisterOutputType(MultiRegionEndpointDetailsRoutesDetailsOutput{})
+	pulumi.RegisterOutputType(MultiRegionEndpointDetailsRoutesDetailsPtrOutput{})
+	pulumi.RegisterOutputType(MultiRegionEndpointRouteOutput{})
+	pulumi.RegisterOutputType(MultiRegionEndpointRouteArrayOutput{})
+	pulumi.RegisterOutputType(MultiRegionEndpointTimeoutsOutput{})
+	pulumi.RegisterOutputType(MultiRegionEndpointTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(GetConfigurationSetDeliveryOptionOutput{})
 	pulumi.RegisterOutputType(GetConfigurationSetDeliveryOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetConfigurationSetReputationOptionOutput{})

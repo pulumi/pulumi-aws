@@ -283,7 +283,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the Chime SDK media insights pipeline configuration.
+ * - `arn` (String) ARN of the Chime SDK media insights pipeline configuration.
  *
  * Using `pulumi import`, import Chime SDK Media Pipelines Media Insights Pipeline Configuration using the `id`. For example:
  *

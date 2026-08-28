@@ -426,7 +426,7 @@ type EventSourceMapping struct {
 	FunctionName pulumi.StringOutput `pulumi:"functionName"`
 	// List of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
 	FunctionResponseTypes pulumi.StringArrayOutput `pulumi:"functionResponseTypes"`
-	// ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
+	// ARN of the KMS customer managed key that Lambda uses to encrypt your function's filter criteria.
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// Date this resource was last modified.
 	LastModified pulumi.StringOutput `pulumi:"lastModified"`
@@ -537,7 +537,7 @@ type eventSourceMappingState struct {
 	FunctionName *string `pulumi:"functionName"`
 	// List of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
 	FunctionResponseTypes []string `pulumi:"functionResponseTypes"`
-	// ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
+	// ARN of the KMS customer managed key that Lambda uses to encrypt your function's filter criteria.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Date this resource was last modified.
 	LastModified *string `pulumi:"lastModified"`
@@ -616,7 +616,7 @@ type EventSourceMappingState struct {
 	FunctionName pulumi.StringPtrInput
 	// List of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
 	FunctionResponseTypes pulumi.StringArrayInput
-	// ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
+	// ARN of the KMS customer managed key that Lambda uses to encrypt your function's filter criteria.
 	KmsKeyArn pulumi.StringPtrInput
 	// Date this resource was last modified.
 	LastModified pulumi.StringPtrInput
@@ -695,7 +695,7 @@ type eventSourceMappingArgs struct {
 	FunctionName string `pulumi:"functionName"`
 	// List of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
 	FunctionResponseTypes []string `pulumi:"functionResponseTypes"`
-	// ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
+	// ARN of the KMS customer managed key that Lambda uses to encrypt your function's filter criteria.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
 	MaximumBatchingWindowInSeconds *int `pulumi:"maximumBatchingWindowInSeconds"`
@@ -759,7 +759,7 @@ type EventSourceMappingArgs struct {
 	FunctionName pulumi.StringInput
 	// List of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
 	FunctionResponseTypes pulumi.StringArrayInput
-	// ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
+	// ARN of the KMS customer managed key that Lambda uses to encrypt your function's filter criteria.
 	KmsKeyArn pulumi.StringPtrInput
 	// Maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
 	MaximumBatchingWindowInSeconds pulumi.IntPtrInput
@@ -952,7 +952,7 @@ func (o EventSourceMappingOutput) FunctionResponseTypes() pulumi.StringArrayOutp
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringArrayOutput { return v.FunctionResponseTypes }).(pulumi.StringArrayOutput)
 }
 
-// ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
+// ARN of the KMS customer managed key that Lambda uses to encrypt your function's filter criteria.
 func (o EventSourceMappingOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }

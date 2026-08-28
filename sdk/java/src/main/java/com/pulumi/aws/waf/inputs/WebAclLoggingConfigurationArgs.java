@@ -18,14 +18,14 @@ public final class WebAclLoggingConfigurationArgs extends com.pulumi.resources.R
     public static final WebAclLoggingConfigurationArgs Empty = new WebAclLoggingConfigurationArgs();
 
     /**
-     * Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
+     * ARN of Kinesis Firehose Delivery Stream
      * 
      */
     @Import(name="logDestination", required=true)
     private Output<String> logDestination;
 
     /**
-     * @return Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
+     * @return ARN of Kinesis Firehose Delivery Stream
      * 
      */
     public Output<String> logDestination() {
@@ -73,7 +73,7 @@ public final class WebAclLoggingConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param logDestination Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
+         * @param logDestination ARN of Kinesis Firehose Delivery Stream
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class WebAclLoggingConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param logDestination Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
+         * @param logDestination ARN of Kinesis Firehose Delivery Stream
          * 
          * @return builder
          * 

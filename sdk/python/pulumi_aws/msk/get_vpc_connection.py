@@ -109,7 +109,7 @@ class GetVpcConnectionResult:
     @pulumi.getter(name="targetClusterArn")
     def target_cluster_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the cluster.
+        ARN of the cluster.
         """
         return pulumi.get(self, "target_cluster_arn")
 

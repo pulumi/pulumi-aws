@@ -186,7 +186,7 @@ import (
 type CustomDbEngineVersion struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) for the custom engine version.
+	// ARN for the custom engine version.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The date and time that the CEV was created.
 	CreateTime pulumi.StringOutput `pulumi:"createTime"`
@@ -264,7 +264,7 @@ func GetCustomDbEngineVersion(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomDbEngineVersion resources.
 type customDbEngineVersionState struct {
-	// The Amazon Resource Name (ARN) for the custom engine version.
+	// ARN for the custom engine version.
 	Arn *string `pulumi:"arn"`
 	// The date and time that the CEV was created.
 	CreateTime *string `pulumi:"createTime"`
@@ -307,7 +307,7 @@ type customDbEngineVersionState struct {
 }
 
 type CustomDbEngineVersionState struct {
-	// The Amazon Resource Name (ARN) for the custom engine version.
+	// ARN for the custom engine version.
 	Arn pulumi.StringPtrInput
 	// The date and time that the CEV was created.
 	CreateTime pulumi.StringPtrInput
@@ -499,7 +499,7 @@ func (o CustomDbEngineVersionOutput) ToCustomDbEngineVersionOutputWithContext(ct
 	return o
 }
 
-// The Amazon Resource Name (ARN) for the custom engine version.
+// ARN for the custom engine version.
 func (o CustomDbEngineVersionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

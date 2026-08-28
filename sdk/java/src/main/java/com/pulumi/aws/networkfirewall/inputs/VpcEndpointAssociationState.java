@@ -36,14 +36,14 @@ public final class VpcEndpointAssociationState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The Amazon Resource Name (ARN) that identifies the firewall.
+     * The ARN that identifies the firewall.
      * 
      */
     @Import(name="firewallArn")
     private @Nullable Output<String> firewallArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) that identifies the firewall.
+     * @return The ARN that identifies the firewall.
      * 
      */
     public Optional<Output<String>> firewallArn() {
@@ -233,7 +233,7 @@ public final class VpcEndpointAssociationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param firewallArn The Amazon Resource Name (ARN) that identifies the firewall.
+         * @param firewallArn The ARN that identifies the firewall.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class VpcEndpointAssociationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param firewallArn The Amazon Resource Name (ARN) that identifies the firewall.
+         * @param firewallArn The ARN that identifies the firewall.
          * 
          * @return builder
          * 

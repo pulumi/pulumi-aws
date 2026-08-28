@@ -95,14 +95,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:connect/routingProfile:RoutingProfile")
 public class RoutingProfile extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the Routing Profile.
+     * ARN of the Routing Profile.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Routing Profile.
+     * @return ARN of the Routing Profile.
      * 
      */
     public Output<String> arn() {

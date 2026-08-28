@@ -48,7 +48,7 @@ public final class DataShareAuthorizationArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
+     * ARN of the datashare that producers are to authorize sharing for.
      * 
      * The following arguments are optional:
      * 
@@ -57,7 +57,7 @@ public final class DataShareAuthorizationArgs extends com.pulumi.resources.Resou
     private Output<String> dataShareArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
+     * @return ARN of the datashare that producers are to authorize sharing for.
      * 
      * The following arguments are optional:
      * 
@@ -151,7 +151,7 @@ public final class DataShareAuthorizationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param dataShareArn Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
+         * @param dataShareArn ARN of the datashare that producers are to authorize sharing for.
          * 
          * The following arguments are optional:
          * 
@@ -164,7 +164,7 @@ public final class DataShareAuthorizationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param dataShareArn Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
+         * @param dataShareArn ARN of the datashare that producers are to authorize sharing for.
          * 
          * The following arguments are optional:
          * 

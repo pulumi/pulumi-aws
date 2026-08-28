@@ -369,14 +369,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:iam/role:Role")
 public class Role extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) specifying the role.
+     * ARN specifying the role.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) specifying the role.
+     * @return ARN specifying the role.
      * 
      */
     public Output<String> arn() {

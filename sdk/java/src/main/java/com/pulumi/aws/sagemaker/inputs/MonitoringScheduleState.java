@@ -18,14 +18,14 @@ public final class MonitoringScheduleState extends com.pulumi.resources.Resource
     public static final MonitoringScheduleState Empty = new MonitoringScheduleState();
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this monitoring schedule.
+     * ARN assigned by AWS to this monitoring schedule.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this monitoring schedule.
+     * @return ARN assigned by AWS to this monitoring schedule.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -137,7 +137,7 @@ public final class MonitoringScheduleState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this monitoring schedule.
+         * @param arn ARN assigned by AWS to this monitoring schedule.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class MonitoringScheduleState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this monitoring schedule.
+         * @param arn ARN assigned by AWS to this monitoring schedule.
          * 
          * @return builder
          * 

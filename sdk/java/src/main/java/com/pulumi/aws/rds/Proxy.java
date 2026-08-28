@@ -200,14 +200,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rds/proxy:Proxy")
 public class Proxy extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) for the proxy.
+     * ARN for the proxy.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) for the proxy.
+     * @return ARN for the proxy.
      * 
      */
     public Output<String> arn() {
@@ -340,28 +340,28 @@ public class Proxy extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
+     * Whether TLS encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
      * 
      */
     @Export(name="requireTls", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> requireTls;
 
     /**
-     * @return Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
+     * @return Whether TLS encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
      * 
      */
     public Output<Optional<Boolean>> requireTls() {
         return Codegen.optional(this.requireTls);
     }
     /**
-     * Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+     * ARN of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+     * @return ARN of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
      * 
      */
     public Output<String> roleArn() {

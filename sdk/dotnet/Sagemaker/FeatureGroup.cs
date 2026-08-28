@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Sagemaker
     public partial class FeatureGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
+        /// ARN assigned by AWS to this feature_group.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `OfflineStoreConfig` is provided.
+        /// The ARN of the IAM execution role used to persist data into the Offline Store if an `OfflineStoreConfig` is provided.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `OfflineStoreConfig` is provided.
+        /// The ARN of the IAM execution role used to persist data into the Offline Store if an `OfflineStoreConfig` is provided.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.Sagemaker
     public sealed class FeatureGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
+        /// ARN assigned by AWS to this feature_group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -323,7 +323,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `OfflineStoreConfig` is provided.
+        /// The ARN of the IAM execution role used to persist data into the Offline Store if an `OfflineStoreConfig` is provided.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

@@ -51,6 +51,8 @@ import (
 // ```sh
 // $ pulumi import aws:directconnect/privateVirtualInterface:PrivateVirtualInterface test dxvif-33cc44dd
 // ```
+//
+// > **Note:** When a virtual interface uses an ASN in the `bgpAsn` range (`1` to `2147483646`), AWS returns the value in both the `asn` and `asnLong` API fields, so import always populates `bgpAsn` rather than `bgpAsnLong`. If the virtual interface was originally created with `bgpAsnLong` set to a value in that range, update your configuration to use `bgpAsn` after import to avoid a difference. Virtual interfaces using a 4-byte ASN (greater than `2147483646`) import into `bgpAsnLong` as expected.
 type PrivateVirtualInterface struct {
 	pulumi.CustomResourceState
 
@@ -63,8 +65,10 @@ type PrivateVirtualInterface struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The Direct Connect endpoint on which the virtual interface terminates.
 	AwsDevice pulumi.StringOutput `pulumi:"awsDevice"`
-	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-	BgpAsn pulumi.IntOutput `pulumi:"bgpAsn"`
+	// BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+	BgpAsn pulumi.IntPtrOutput `pulumi:"bgpAsn"`
+	// BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+	BgpAsnLong pulumi.StringPtrOutput `pulumi:"bgpAsnLong"`
 	// The authentication key for BGP configuration.
 	BgpAuthKey pulumi.StringOutput `pulumi:"bgpAuthKey"`
 	// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
@@ -104,9 +108,6 @@ func NewPrivateVirtualInterface(ctx *pulumi.Context,
 	if args.AddressFamily == nil {
 		return nil, errors.New("invalid value for required argument 'AddressFamily'")
 	}
-	if args.BgpAsn == nil {
-		return nil, errors.New("invalid value for required argument 'BgpAsn'")
-	}
 	if args.ConnectionId == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectionId'")
 	}
@@ -145,8 +146,10 @@ type privateVirtualInterfaceState struct {
 	Arn *string `pulumi:"arn"`
 	// The Direct Connect endpoint on which the virtual interface terminates.
 	AwsDevice *string `pulumi:"awsDevice"`
-	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+	// BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
 	BgpAsn *int `pulumi:"bgpAsn"`
+	// BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+	BgpAsnLong *string `pulumi:"bgpAsnLong"`
 	// The authentication key for BGP configuration.
 	BgpAuthKey *string `pulumi:"bgpAuthKey"`
 	// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
@@ -186,8 +189,10 @@ type PrivateVirtualInterfaceState struct {
 	Arn pulumi.StringPtrInput
 	// The Direct Connect endpoint on which the virtual interface terminates.
 	AwsDevice pulumi.StringPtrInput
-	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+	// BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
 	BgpAsn pulumi.IntPtrInput
+	// BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+	BgpAsnLong pulumi.StringPtrInput
 	// The authentication key for BGP configuration.
 	BgpAuthKey pulumi.StringPtrInput
 	// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
@@ -226,8 +231,10 @@ type privateVirtualInterfaceArgs struct {
 	AddressFamily string `pulumi:"addressFamily"`
 	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
 	AmazonAddress *string `pulumi:"amazonAddress"`
-	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-	BgpAsn int `pulumi:"bgpAsn"`
+	// BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+	BgpAsn *int `pulumi:"bgpAsn"`
+	// BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+	BgpAsnLong *string `pulumi:"bgpAsnLong"`
 	// The authentication key for BGP configuration.
 	BgpAuthKey *string `pulumi:"bgpAuthKey"`
 	// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
@@ -259,8 +266,10 @@ type PrivateVirtualInterfaceArgs struct {
 	AddressFamily pulumi.StringInput
 	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
 	AmazonAddress pulumi.StringPtrInput
-	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-	BgpAsn pulumi.IntInput
+	// BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+	BgpAsn pulumi.IntPtrInput
+	// BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+	BgpAsnLong pulumi.StringPtrInput
 	// The authentication key for BGP configuration.
 	BgpAuthKey pulumi.StringPtrInput
 	// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
@@ -397,9 +406,14 @@ func (o PrivateVirtualInterfaceOutput) AwsDevice() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringOutput { return v.AwsDevice }).(pulumi.StringOutput)
 }
 
-// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-func (o PrivateVirtualInterfaceOutput) BgpAsn() pulumi.IntOutput {
-	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.IntOutput { return v.BgpAsn }).(pulumi.IntOutput)
+// BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+func (o PrivateVirtualInterfaceOutput) BgpAsn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.IntPtrOutput { return v.BgpAsn }).(pulumi.IntPtrOutput)
+}
+
+// BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+func (o PrivateVirtualInterfaceOutput) BgpAsnLong() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringPtrOutput { return v.BgpAsnLong }).(pulumi.StringPtrOutput)
 }
 
 // The authentication key for BGP configuration.

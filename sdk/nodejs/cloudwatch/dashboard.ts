@@ -99,7 +99,7 @@ export class Dashboard extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the dashboard.
+     * ARN of the dashboard.
      */
     declare public /*out*/ readonly dashboardArn: pulumi.Output<string>;
     /**
@@ -155,7 +155,7 @@ export class Dashboard extends pulumi.CustomResource {
  */
 export interface DashboardState {
     /**
-     * The Amazon Resource Name (ARN) of the dashboard.
+     * ARN of the dashboard.
      */
     dashboardArn?: pulumi.Input<string | undefined>;
     /**

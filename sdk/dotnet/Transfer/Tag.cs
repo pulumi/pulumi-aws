@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Transfer
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Transfer Family resource to tag.
+        /// ARN of the Transfer Family resource to tag.
         /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Transfer Family resource to tag.
+        /// ARN of the Transfer Family resource to tag.
         /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
@@ -174,7 +174,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Transfer Family resource to tag.
+        /// ARN of the Transfer Family resource to tag.
         /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }

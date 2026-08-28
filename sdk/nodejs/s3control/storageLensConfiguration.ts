@@ -97,7 +97,7 @@ export class StorageLensConfiguration extends pulumi.CustomResource {
      */
     declare public readonly accountId: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
+     * ARN of the S3 Storage Lens configuration.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -171,7 +171,7 @@ export interface StorageLensConfigurationState {
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
+     * ARN of the S3 Storage Lens configuration.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

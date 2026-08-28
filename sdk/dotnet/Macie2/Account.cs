@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Macie2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
+        /// ARN of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
         /// </summary>
         [Output("serviceRole")]
         public Output<string> ServiceRole { get; private set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.Macie2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
+        /// ARN of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
         /// </summary>
         [Input("serviceRole")]
         public Input<string>? ServiceRole { get; set; }

@@ -214,7 +214,7 @@ class DomainNameDomainNameConfiguration(dict):
         """
         :param _builtins.str certificate_arn: ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the `acm.Certificate` resource to configure an ACM certificate.
         :param _builtins.str endpoint_type: Endpoint type. Valid values: `REGIONAL`.
-        :param _builtins.str security_policy: Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
+        :param _builtins.str security_policy: TLS version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
         :param _builtins.str hosted_zone_id: Amazon Route 53 Hosted Zone ID of the endpoint.
         :param _builtins.str ip_address_type: IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
         :param _builtins.str ownership_verification_certificate_arn: ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
@@ -252,7 +252,7 @@ class DomainNameDomainNameConfiguration(dict):
     @pulumi.getter(name="securityPolicy")
     def security_policy(self) -> _builtins.str:
         """
-        Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
+        TLS version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
         """
         return pulumi.get(self, "security_policy")
 

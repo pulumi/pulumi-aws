@@ -56,7 +56,7 @@ type LookupDedicatedIpPoolArgs struct {
 	PoolName string `pulumi:"poolName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A map of tags attached to the pool.
+	// Map of tags attached to the pool.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -64,15 +64,15 @@ type LookupDedicatedIpPoolArgs struct {
 type LookupDedicatedIpPoolResult struct {
 	// ARN of the Dedicated IP Pool.
 	Arn string `pulumi:"arn"`
-	// A list of objects describing the pool's dedicated IP's. See `dedicatedIps`.
+	// List of objects describing the pool's dedicated IP's. See `dedicatedIps`.
 	DedicatedIps []GetDedicatedIpPoolDedicatedIp `pulumi:"dedicatedIps"`
 	// The provider-assigned unique ID for this managed resource.
 	Id       string `pulumi:"id"`
 	PoolName string `pulumi:"poolName"`
 	Region   string `pulumi:"region"`
-	// (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
+	// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
 	ScalingMode string `pulumi:"scalingMode"`
-	// A map of tags attached to the pool.
+	// Map of tags attached to the pool.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -91,7 +91,7 @@ type LookupDedicatedIpPoolOutputArgs struct {
 	PoolName pulumi.StringInput `pulumi:"poolName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// A map of tags attached to the pool.
+	// Map of tags attached to the pool.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -119,7 +119,7 @@ func (o LookupDedicatedIpPoolResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDedicatedIpPoolResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A list of objects describing the pool's dedicated IP's. See `dedicatedIps`.
+// List of objects describing the pool's dedicated IP's. See `dedicatedIps`.
 func (o LookupDedicatedIpPoolResultOutput) DedicatedIps() GetDedicatedIpPoolDedicatedIpArrayOutput {
 	return o.ApplyT(func(v LookupDedicatedIpPoolResult) []GetDedicatedIpPoolDedicatedIp { return v.DedicatedIps }).(GetDedicatedIpPoolDedicatedIpArrayOutput)
 }
@@ -137,12 +137,12 @@ func (o LookupDedicatedIpPoolResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDedicatedIpPoolResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
+// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
 func (o LookupDedicatedIpPoolResultOutput) ScalingMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDedicatedIpPoolResult) string { return v.ScalingMode }).(pulumi.StringOutput)
 }
 
-// A map of tags attached to the pool.
+// Map of tags attached to the pool.
 func (o LookupDedicatedIpPoolResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupDedicatedIpPoolResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

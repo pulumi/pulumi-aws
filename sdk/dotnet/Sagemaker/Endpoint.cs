@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Sagemaker
     public partial class Endpoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
+        /// ARN assigned by AWS to this endpoint.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Sagemaker
     public sealed class EndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
+        /// ARN assigned by AWS to this endpoint.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

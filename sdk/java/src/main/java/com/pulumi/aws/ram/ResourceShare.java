@@ -82,14 +82,14 @@ public class ResourceShare extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.allowExternalPrincipals);
     }
     /**
-     * Amazon Resource Name (ARN) of the resource share.
+     * ARN of the resource share.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the resource share.
+     * @return ARN of the resource share.
      * 
      */
     public Output<String> arn() {
@@ -110,14 +110,14 @@ public class ResourceShare extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+     * ARNs of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
      * 
      */
     @Export(name="permissionArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> permissionArns;
 
     /**
-     * @return Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+     * @return ARNs of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
      * 
      */
     public Output<List<String>> permissionArns() {

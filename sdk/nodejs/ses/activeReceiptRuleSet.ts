@@ -53,7 +53,7 @@ export class ActiveReceiptRuleSet extends pulumi.CustomResource {
     }
 
     /**
-     * The SES receipt rule set ARN.
+     * SES receipt rule set ARN.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -61,7 +61,7 @@ export class ActiveReceiptRuleSet extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The name of the rule set
+     * Name of the rule set
      */
     declare public readonly ruleSetName: pulumi.Output<string>;
 
@@ -100,7 +100,7 @@ export class ActiveReceiptRuleSet extends pulumi.CustomResource {
  */
 export interface ActiveReceiptRuleSetState {
     /**
-     * The SES receipt rule set ARN.
+     * SES receipt rule set ARN.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -108,7 +108,7 @@ export interface ActiveReceiptRuleSetState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The name of the rule set
+     * Name of the rule set
      */
     ruleSetName?: pulumi.Input<string | undefined>;
 }
@@ -122,7 +122,7 @@ export interface ActiveReceiptRuleSetArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The name of the rule set
+     * Name of the rule set
      */
     ruleSetName: pulumi.Input<string>;
 }

@@ -58,7 +58,7 @@ export interface GetMultiRegionAccessPointResult {
      */
     readonly alias: string;
     /**
-     * Amazon Resource Name (ARN) of the Multi-Region Access Point.
+     * ARN of the Multi-Region Access Point.
      */
     readonly arn: string;
     /**

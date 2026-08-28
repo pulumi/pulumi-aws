@@ -244,7 +244,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
+        /// ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
         /// </summary>
         [Output("themeArn")]
         public Output<string?> ThemeArn { get; private set; } = null!;
@@ -364,7 +364,7 @@ namespace Pulumi.Aws.Quicksight
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
+        /// ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
         /// </summary>
         [Input("themeArn")]
         public Input<string>? ThemeArn { get; set; }
@@ -485,7 +485,7 @@ namespace Pulumi.Aws.Quicksight
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
+        /// ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
         /// </summary>
         [Input("themeArn")]
         public Input<string>? ThemeArn { get; set; }

@@ -68,7 +68,7 @@ type LookupCloudExadataInfrastructureResult struct {
 	ActivatedStorageCount int `pulumi:"activatedStorageCount"`
 	// Number of storage servers requested for the Exadata infrastructure.
 	AdditionalStorageCount int `pulumi:"additionalStorageCount"`
-	// Amazon Resource Name (ARN) for the Exadata infrastructure.
+	// ARN for the Exadata infrastructure.
 	Arn string `pulumi:"arn"`
 	// Name of the Availability Zone (AZ) where the Exadata infrastructure is located.
 	AvailabilityZone string `pulumi:"availabilityZone"`
@@ -193,7 +193,7 @@ func (o LookupCloudExadataInfrastructureResultOutput) AdditionalStorageCount() p
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) int { return v.AdditionalStorageCount }).(pulumi.IntOutput)
 }
 
-// Amazon Resource Name (ARN) for the Exadata infrastructure.
+// ARN for the Exadata infrastructure.
 func (o LookupCloudExadataInfrastructureResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) string { return v.Arn }).(pulumi.StringOutput)
 }

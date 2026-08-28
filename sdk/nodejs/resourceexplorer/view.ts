@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the Resource Explorer view.
+ * - `arn` (String) ARN of the Resource Explorer view.
  *
  * Using `pulumi import`, import Resource Explorer views using the `arn`. For example:
  *
@@ -73,7 +73,7 @@ export class View extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Resource Explorer view.
+     * ARN of the Resource Explorer view.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -153,7 +153,7 @@ export class View extends pulumi.CustomResource {
  */
 export interface ViewState {
     /**
-     * Amazon Resource Name (ARN) of the Resource Explorer view.
+     * ARN of the Resource Explorer view.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

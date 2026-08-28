@@ -178,7 +178,7 @@ export class AccessPoint extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
+     * Configuration block to restrict access to this access point to requests from the specified VPC. Required for S3 on Outposts. Detailed below.
      */
     declare public readonly vpcConfiguration: pulumi.Output<outputs.s3.AccessPointVpcConfiguration | undefined>;
 
@@ -305,7 +305,7 @@ export interface AccessPointState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
+     * Configuration block to restrict access to this access point to requests from the specified VPC. Required for S3 on Outposts. Detailed below.
      */
     vpcConfiguration?: pulumi.Input<inputs.s3.AccessPointVpcConfiguration | undefined>;
 }
@@ -349,7 +349,7 @@ export interface AccessPointArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
+     * Configuration block to restrict access to this access point to requests from the specified VPC. Required for S3 on Outposts. Detailed below.
      */
     vpcConfiguration?: pulumi.Input<inputs.s3.AccessPointVpcConfiguration | undefined>;
 }

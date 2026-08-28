@@ -96,7 +96,7 @@ type LookupUserArgs struct {
 
 // A collection of values returned by getUser.
 type LookupUserResult struct {
-	// The Amazon Resource Name (ARN) of the User.
+	// ARN of the User.
 	Arn string `pulumi:"arn"`
 	// The identifier of the user account in the directory used for identity management.
 	DirectoryUserId string `pulumi:"directoryUserId"`
@@ -165,7 +165,7 @@ func (o LookupUserResultOutput) ToLookupUserResultOutputWithContext(ctx context.
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the User.
+// ARN of the User.
 func (o LookupUserResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Arn }).(pulumi.StringOutput)
 }

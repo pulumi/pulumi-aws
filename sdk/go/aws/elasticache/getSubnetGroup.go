@@ -72,7 +72,7 @@ type LookupSubnetGroupResult struct {
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Map of tags assigned to the subnet group.
 	Tags map[string]string `pulumi:"tags"`
-	// The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+	// VPC identifier (VPC ID) of the cache subnet group.
 	VpcId string `pulumi:"vpcId"`
 }
 
@@ -147,7 +147,7 @@ func (o LookupSubnetGroupResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupSubnetGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+// VPC identifier (VPC ID) of the cache subnet group.
 func (o LookupSubnetGroupResultOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubnetGroupResult) string { return v.VpcId }).(pulumi.StringOutput)
 }

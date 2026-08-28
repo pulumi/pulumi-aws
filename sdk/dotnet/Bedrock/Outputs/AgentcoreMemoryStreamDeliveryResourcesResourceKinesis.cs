@@ -14,9 +14,9 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreMemoryStreamDeliveryResourcesResourceKinesis
     {
         /// <summary>
-        /// Content configurations for stream delivery. See `ContentConfiguration` below.
+        /// Content configurations for stream delivery. See `ContentConfiguration` Block below.
         /// </summary>
-        public readonly Outputs.AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfiguration? ContentConfiguration;
+        public readonly Outputs.AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfiguration ContentConfiguration;
         /// <summary>
         /// ARN of the Kinesis Data Stream.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
         [OutputConstructor]
         private AgentcoreMemoryStreamDeliveryResourcesResourceKinesis(
-            Outputs.AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfiguration? contentConfiguration,
+            Outputs.AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfiguration contentConfiguration,
 
             string dataStreamArn)
         {

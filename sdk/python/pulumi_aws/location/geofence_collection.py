@@ -123,7 +123,7 @@ class _GeofenceCollectionState:
         """
         Input properties used for looking up and filtering GeofenceCollection resources.
 
-        :param pulumi.Input[_builtins.str] collection_arn: The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
+        :param pulumi.Input[_builtins.str] collection_arn: ARN for the geofence collection resource. Used when you need to specify a resource across all AWS.
         :param pulumi.Input[_builtins.str] collection_name: The name of the geofence collection.
                
                The following arguments are optional:
@@ -157,7 +157,7 @@ class _GeofenceCollectionState:
     @pulumi.getter(name="collectionArn")
     def collection_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
+        ARN for the geofence collection resource. Used when you need to specify a resource across all AWS.
         """
         return pulumi.get(self, "collection_arn")
 
@@ -397,7 +397,7 @@ class GeofenceCollection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] collection_arn: The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
+        :param pulumi.Input[_builtins.str] collection_arn: ARN for the geofence collection resource. Used when you need to specify a resource across all AWS.
         :param pulumi.Input[_builtins.str] collection_name: The name of the geofence collection.
                
                The following arguments are optional:
@@ -427,7 +427,7 @@ class GeofenceCollection(pulumi.CustomResource):
     @pulumi.getter(name="collectionArn")
     def collection_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
+        ARN for the geofence collection resource. Used when you need to specify a resource across all AWS.
         """
         return pulumi.get(self, "collection_arn")
 

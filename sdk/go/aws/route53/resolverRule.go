@@ -138,7 +138,7 @@ import (
 type ResolverRule struct {
 	pulumi.CustomResourceState
 
-	// ARN (Amazon Resource Name) for the resolver rule.
+	// ARN for the resolver rule.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
@@ -201,7 +201,7 @@ func GetResolverRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResolverRule resources.
 type resolverRuleState struct {
-	// ARN (Amazon Resource Name) for the resolver rule.
+	// ARN for the resolver rule.
 	Arn *string `pulumi:"arn"`
 	// DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
 	DomainName *string `pulumi:"domainName"`
@@ -229,7 +229,7 @@ type resolverRuleState struct {
 }
 
 type ResolverRuleState struct {
-	// ARN (Amazon Resource Name) for the resolver rule.
+	// ARN for the resolver rule.
 	Arn pulumi.StringPtrInput
 	// DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
 	DomainName pulumi.StringPtrInput
@@ -386,7 +386,7 @@ func (o ResolverRuleOutput) ToResolverRuleOutputWithContext(ctx context.Context)
 	return o
 }
 
-// ARN (Amazon Resource Name) for the resolver rule.
+// ARN for the resolver rule.
 func (o ResolverRuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

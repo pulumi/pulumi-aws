@@ -134,7 +134,7 @@ export class Document extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the document.
+     * ARN of the document.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -310,7 +310,7 @@ export class Document extends pulumi.CustomResource {
  */
 export interface DocumentState {
     /**
-     * The Amazon Resource Name (ARN) of the document.
+     * ARN of the document.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

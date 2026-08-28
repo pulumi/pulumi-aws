@@ -258,6 +258,104 @@ namespace Pulumi.Aws.Workspaces
     /// });
     /// ```
     /// 
+    /// ### VPC Endpoint Streaming
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspacesStreaming = new Aws.Ec2.SecurityGroup("workspaces_streaming", new()
+    ///     {
+    ///         Name = "workspaces-streaming-endpoint",
+    ///         VpcId = exampleAwsVpc.Id,
+    ///     });
+    /// 
+    ///     var current = Aws.GetRegion.Invoke();
+    /// 
+    ///     var workspaces = new Aws.Ec2.VpcEndpoint("workspaces", new()
+    ///     {
+    ///         VpcId = exampleAwsVpc.Id,
+    ///         ServiceName = $"com.amazonaws.{current.Apply(getRegionResult =&gt; getRegionResult.Region)}.highlander",
+    ///         VpcEndpointType = "Interface",
+    ///         SubnetIds = new[]
+    ///         {
+    ///             exampleA.Id,
+    ///             exampleB.Id,
+    ///         },
+    ///         SecurityGroupIds = new[]
+    ///         {
+    ///             workspacesStreaming.Id,
+    ///         },
+    ///         PrivateDnsEnabled = true,
+    ///     });
+    /// 
+    ///     var example = new Aws.Workspaces.Directory("example", new()
+    ///     {
+    ///         WorkspaceAccessProperties = new Aws.Workspaces.Inputs.DirectoryWorkspaceAccessPropertiesArgs
+    ///         {
+    ///             AccessEndpointConfig = new Aws.Workspaces.Inputs.DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs
+    ///             {
+    ///                 AccessEndpoints = new[]
+    ///                 {
+    ///                     new Aws.Workspaces.Inputs.DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArgs
+    ///                     {
+    ///                         AccessEndpointType = "STREAMING_WSP",
+    ///                         VpcEndpointId = workspaces.Id,
+    ///                     },
+    ///                 },
+    ///                 InternetFallbackProtocols = new[]
+    ///                 {
+    ///                     "PCOIP",
+    ///                 },
+    ///             },
+    ///             DeviceTypeWindows = "ALLOW",
+    ///         },
+    ///         DirectoryId = exampleAwsDirectoryServiceDirectory.Id,
+    ///     });
+    /// 
+    ///     var workspacesStreamingTcp443 = new Aws.Vpc.SecurityGroupIngressRule("workspaces_streaming_tcp_443", new()
+    ///     {
+    ///         SecurityGroupId = workspacesStreaming.Id,
+    ///         CidrIpv4 = exampleAwsVpc.CidrBlock,
+    ///         FromPort = 443,
+    ///         ToPort = 443,
+    ///         IpProtocol = "tcp",
+    ///     });
+    /// 
+    ///     var workspacesStreamingTcp4195 = new Aws.Vpc.SecurityGroupIngressRule("workspaces_streaming_tcp_4195", new()
+    ///     {
+    ///         SecurityGroupId = workspacesStreaming.Id,
+    ///         CidrIpv4 = exampleAwsVpc.CidrBlock,
+    ///         FromPort = 4195,
+    ///         ToPort = 4195,
+    ///         IpProtocol = "tcp",
+    ///     });
+    /// 
+    ///     var workspacesStreamingUdp443 = new Aws.Vpc.SecurityGroupIngressRule("workspaces_streaming_udp_443", new()
+    ///     {
+    ///         SecurityGroupId = workspacesStreaming.Id,
+    ///         CidrIpv4 = exampleAwsVpc.CidrBlock,
+    ///         FromPort = 443,
+    ///         ToPort = 443,
+    ///         IpProtocol = "udp",
+    ///     });
+    /// 
+    ///     var workspacesStreamingUdp4195 = new Aws.Vpc.SecurityGroupIngressRule("workspaces_streaming_udp_4195", new()
+    ///     {
+    ///         SecurityGroupId = workspacesStreaming.Id,
+    ///         CidrIpv4 = exampleAwsVpc.CidrBlock,
+    ///         FromPort = 4195,
+    ///         ToPort = 4195,
+    ///         IpProtocol = "udp",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Workspaces directory using the directory ID. For example:

@@ -60,7 +60,7 @@ import (
 type HumanTaskUI struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
+	// ARN assigned by AWS to this Human Task UI.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the Human Task UI.
 	HumanTaskUiName pulumi.StringOutput `pulumi:"humanTaskUiName"`
@@ -110,7 +110,7 @@ func GetHumanTaskUI(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HumanTaskUI resources.
 type humanTaskUIState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
+	// ARN assigned by AWS to this Human Task UI.
 	Arn *string `pulumi:"arn"`
 	// The name of the Human Task UI.
 	HumanTaskUiName *string `pulumi:"humanTaskUiName"`
@@ -125,7 +125,7 @@ type humanTaskUIState struct {
 }
 
 type HumanTaskUIState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
+	// ARN assigned by AWS to this Human Task UI.
 	Arn pulumi.StringPtrInput
 	// The name of the Human Task UI.
 	HumanTaskUiName pulumi.StringPtrInput
@@ -253,7 +253,7 @@ func (o HumanTaskUIOutput) ToHumanTaskUIOutputWithContext(ctx context.Context) H
 	return o
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
+// ARN assigned by AWS to this Human Task UI.
 func (o HumanTaskUIOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *HumanTaskUI) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -96,7 +96,7 @@ type LookupGroupResult struct {
 	Name string `pulumi:"name"`
 	// Whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in.
 	NewInstancesProtectedFromScaleIn bool `pulumi:"newInstancesProtectedFromScaleIn"`
-	// Name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
+	// Name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the EC2 User Guide.
 	PlacementGroup string `pulumi:"placementGroup"`
 	// Predicted capacity of the group.
 	PredictedCapacity int    `pulumi:"predictedCapacity"`
@@ -254,7 +254,7 @@ func (o LookupGroupResultOutput) NewInstancesProtectedFromScaleIn() pulumi.BoolO
 	return o.ApplyT(func(v LookupGroupResult) bool { return v.NewInstancesProtectedFromScaleIn }).(pulumi.BoolOutput)
 }
 
-// Name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
+// Name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the EC2 User Guide.
 func (o LookupGroupResultOutput) PlacementGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.PlacementGroup }).(pulumi.StringOutput)
 }

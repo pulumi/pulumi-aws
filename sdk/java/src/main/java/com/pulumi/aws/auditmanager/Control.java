@@ -112,14 +112,14 @@ public class Control extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.actionPlanTitle);
     }
     /**
-     * Amazon Resource Name (ARN) of the control.
+     * ARN of the control.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the control.
+     * @return ARN of the control.
      * 
      */
     public Output<String> arn() {

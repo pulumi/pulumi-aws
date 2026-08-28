@@ -124,9 +124,9 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the DataSync task.
+    /// - `Arn` (String) ARN of the DataSync task.
     /// 
-    /// Using `pulumi import`, import `aws.datasync.Task` using the DataSync Task Amazon Resource Name (ARN). For example:
+    /// Using `pulumi import`, import `aws.datasync.Task` using the DataSync Task ARN. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:datasync/task:Task example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
@@ -136,19 +136,19 @@ namespace Pulumi.Aws.DataSync
     public partial class Task : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the DataSync Task.
+        /// ARN of the DataSync Task.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
+        /// ARN of the CloudWatch Log Group that is used to monitor and log events in the sync task.
         /// </summary>
         [Output("cloudwatchLogGroupArn")]
         public Output<string?> CloudwatchLogGroupArn { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of destination DataSync Location.
+        /// ARN of destination DataSync Location.
         /// </summary>
         [Output("destinationLocationArn")]
         public Output<string> DestinationLocationArn { get; private set; } = null!;
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.DataSync
         public Output<Outputs.TaskSchedule?> Schedule { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of source DataSync Location.
+        /// ARN of source DataSync Location.
         /// </summary>
         [Output("sourceLocationArn")]
         public Output<string> SourceLocationArn { get; private set; } = null!;
@@ -268,13 +268,13 @@ namespace Pulumi.Aws.DataSync
     public sealed class TaskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
+        /// ARN of the CloudWatch Log Group that is used to monitor and log events in the sync task.
         /// </summary>
         [Input("cloudwatchLogGroupArn")]
         public Input<string>? CloudwatchLogGroupArn { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of destination DataSync Location.
+        /// ARN of destination DataSync Location.
         /// </summary>
         [Input("destinationLocationArn", required: true)]
         public Input<string> DestinationLocationArn { get; set; } = null!;
@@ -316,7 +316,7 @@ namespace Pulumi.Aws.DataSync
         public Input<Inputs.TaskScheduleArgs>? Schedule { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of source DataSync Location.
+        /// ARN of source DataSync Location.
         /// </summary>
         [Input("sourceLocationArn", required: true)]
         public Input<string> SourceLocationArn { get; set; } = null!;
@@ -356,19 +356,19 @@ namespace Pulumi.Aws.DataSync
     public sealed class TaskState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the DataSync Task.
+        /// ARN of the DataSync Task.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
+        /// ARN of the CloudWatch Log Group that is used to monitor and log events in the sync task.
         /// </summary>
         [Input("cloudwatchLogGroupArn")]
         public Input<string>? CloudwatchLogGroupArn { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of destination DataSync Location.
+        /// ARN of destination DataSync Location.
         /// </summary>
         [Input("destinationLocationArn")]
         public Input<string>? DestinationLocationArn { get; set; }
@@ -410,7 +410,7 @@ namespace Pulumi.Aws.DataSync
         public Input<Inputs.TaskScheduleGetArgs>? Schedule { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of source DataSync Location.
+        /// ARN of source DataSync Location.
         /// </summary>
         [Input("sourceLocationArn")]
         public Input<string>? SourceLocationArn { get; set; }

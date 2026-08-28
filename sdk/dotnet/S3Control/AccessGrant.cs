@@ -68,7 +68,7 @@ namespace Pulumi.Aws.S3Control
     public partial class AccessGrant : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the S3 Access Grant.
+        /// ARN of the S3 Access Grant.
         /// </summary>
         [Output("accessGrantArn")]
         public Output<string> AccessGrantArn { get; private set; } = null!;
@@ -248,7 +248,7 @@ namespace Pulumi.Aws.S3Control
     public sealed class AccessGrantState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the S3 Access Grant.
+        /// ARN of the S3 Access Grant.
         /// </summary>
         [Input("accessGrantArn")]
         public Input<string>? AccessGrantArn { get; set; }

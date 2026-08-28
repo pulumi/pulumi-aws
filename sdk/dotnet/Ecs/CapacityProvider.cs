@@ -135,7 +135,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the ECS capacity provider.
+    /// - `Arn` (String) ARN of the ECS capacity provider.
     /// 
     /// Using `pulumi import`, import ECS Capacity Providers using the `Arn`. For example:
     /// 

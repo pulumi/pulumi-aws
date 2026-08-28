@@ -169,14 +169,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:quicksight/refreshSchedule:RefreshSchedule")
 public class RefreshSchedule extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the refresh schedule.
+     * ARN of the refresh schedule.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the refresh schedule.
+     * @return ARN of the refresh schedule.
      * 
      */
     public Output<String> arn() {

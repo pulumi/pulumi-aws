@@ -211,14 +211,14 @@ public class IdentityPool extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+     * An array of ARNs of the SAML provider for your identity.
      * 
      */
     @Export(name="samlProviderArns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> samlProviderArns;
 
     /**
-     * @return An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+     * @return An array of ARNs of the SAML provider for your identity.
      * 
      */
     public Output<Optional<List<String>>> samlProviderArns() {

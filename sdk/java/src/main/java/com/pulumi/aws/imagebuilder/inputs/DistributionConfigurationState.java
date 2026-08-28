@@ -19,14 +19,14 @@ public final class DistributionConfigurationState extends com.pulumi.resources.R
     public static final DistributionConfigurationState Empty = new DistributionConfigurationState();
 
     /**
-     * (Required) Amazon Resource Name (ARN) of the distribution configuration.
+     * (Required) ARN of the distribution configuration.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return (Required) Amazon Resource Name (ARN) of the distribution configuration.
+     * @return (Required) ARN of the distribution configuration.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -190,7 +190,7 @@ public final class DistributionConfigurationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param arn (Required) Amazon Resource Name (ARN) of the distribution configuration.
+         * @param arn (Required) ARN of the distribution configuration.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class DistributionConfigurationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param arn (Required) Amazon Resource Name (ARN) of the distribution configuration.
+         * @param arn (Required) ARN of the distribution configuration.
          * 
          * @return builder
          * 

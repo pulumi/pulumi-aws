@@ -77,7 +77,7 @@ export class ModelCard extends pulumi.CustomResource {
      */
     declare public readonly content: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the model card.
+     * ARN of the model card.
      */
     declare public /*out*/ readonly modelCardArn: pulumi.Output<string>;
     /**
@@ -163,7 +163,7 @@ export interface ModelCardState {
      */
     content?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the model card.
+     * ARN of the model card.
      */
     modelCardArn?: pulumi.Input<string | undefined>;
     /**

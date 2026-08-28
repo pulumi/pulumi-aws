@@ -53,7 +53,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// #### Required
     /// 
-    /// - `LogGroupArn` (String) Amazon Resource Name (ARN) of the CloudWatch Logs log group.
+    /// - `LogGroupArn` (String) ARN of the CloudWatch Logs log group.
     /// 
     /// Using `pulumi import`, import CloudWatch Logs Transformer using the `LogGroupArn`. For example:
     /// 

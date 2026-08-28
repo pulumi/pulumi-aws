@@ -88,7 +88,7 @@ export class VpcEndpointService extends pulumi.CustomResource {
      */
     declare public readonly allowedPrincipals: pulumi.Output<string[]>;
     /**
-     * The Amazon Resource Name (ARN) of the VPC endpoint service.
+     * ARN of the VPC endpoint service.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -100,7 +100,7 @@ export class VpcEndpointService extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly baseEndpointDnsNames: pulumi.Output<string[]>;
     /**
-     * Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
+     * ARNs of one or more Gateway Load Balancers for the endpoint service.
      */
     declare public readonly gatewayLoadBalancerArns: pulumi.Output<string[] | undefined>;
     /**
@@ -108,7 +108,7 @@ export class VpcEndpointService extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly managesVpcEndpoints: pulumi.Output<boolean>;
     /**
-     * Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
+     * ARNs of one or more Network Load Balancers for the endpoint service.
      */
     declare public readonly networkLoadBalancerArns: pulumi.Output<string[] | undefined>;
     /**
@@ -225,7 +225,7 @@ export interface VpcEndpointServiceState {
      */
     allowedPrincipals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the VPC endpoint service.
+     * ARN of the VPC endpoint service.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -237,7 +237,7 @@ export interface VpcEndpointServiceState {
      */
     baseEndpointDnsNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
+     * ARNs of one or more Gateway Load Balancers for the endpoint service.
      */
     gatewayLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -245,7 +245,7 @@ export interface VpcEndpointServiceState {
      */
     managesVpcEndpoints?: pulumi.Input<boolean | undefined>;
     /**
-     * Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
+     * ARNs of one or more Network Load Balancers for the endpoint service.
      */
     networkLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -303,11 +303,11 @@ export interface VpcEndpointServiceArgs {
      */
     allowedPrincipals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
+     * ARNs of one or more Gateway Load Balancers for the endpoint service.
      */
     gatewayLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
+     * ARNs of one or more Network Load Balancers for the endpoint service.
      */
     networkLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

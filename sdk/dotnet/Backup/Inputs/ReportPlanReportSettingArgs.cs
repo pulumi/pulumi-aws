@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Backup.Inputs
         private InputList<string>? _frameworkArns;
 
         /// <summary>
-        /// Amazon Resource Names (ARNs) of the frameworks a report covers.
+        /// ARNs of the frameworks a report covers.
         /// </summary>
         public InputList<string> FrameworkArns
         {

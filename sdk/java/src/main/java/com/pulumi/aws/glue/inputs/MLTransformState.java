@@ -23,14 +23,14 @@ public final class MLTransformState extends com.pulumi.resources.ResourceArgs {
     public static final MLTransformState Empty = new MLTransformState();
 
     /**
-     * Amazon Resource Name (ARN) of Glue ML Transform.
+     * ARN of Glue ML Transform.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of Glue ML Transform.
+     * @return ARN of Glue ML Transform.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -318,7 +318,7 @@ public final class MLTransformState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of Glue ML Transform.
+         * @param arn ARN of Glue ML Transform.
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class MLTransformState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of Glue ML Transform.
+         * @param arn ARN of Glue ML Transform.
          * 
          * @return builder
          * 

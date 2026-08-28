@@ -46,14 +46,14 @@ public final class UploadBufferState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the gateway.
+     * ARN of the gateway.
      * 
      */
     @Import(name="gatewayArn")
     private @Nullable Output<String> gatewayArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the gateway.
+     * @return ARN of the gateway.
      * 
      */
     public Optional<Output<String>> gatewayArn() {
@@ -145,7 +145,7 @@ public final class UploadBufferState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param gatewayArn The Amazon Resource Name (ARN) of the gateway.
+         * @param gatewayArn ARN of the gateway.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class UploadBufferState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param gatewayArn The Amazon Resource Name (ARN) of the gateway.
+         * @param gatewayArn ARN of the gateway.
          * 
          * @return builder
          * 

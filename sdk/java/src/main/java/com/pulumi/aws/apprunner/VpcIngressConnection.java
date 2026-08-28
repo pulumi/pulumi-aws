@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the App Runner VPC ingress connection.
+ * - `arn` (String) ARN of the App Runner VPC ingress connection.
  * 
  * Using `pulumi import`, import App Runner VPC Ingress Connection using the `arn`. For example:
  * 
@@ -77,14 +77,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apprunner/vpcIngressConnection:VpcIngressConnection")
 public class VpcIngressConnection extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the VPC Ingress Connection.
+     * ARN of the VPC Ingress Connection.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the VPC Ingress Connection.
+     * @return ARN of the VPC Ingress Connection.
      * 
      */
     public Output<String> arn() {
@@ -147,14 +147,14 @@ public class VpcIngressConnection extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
+     * ARN for this App Runner service that is used to create the VPC Ingress Connection resource.
      * 
      */
     @Export(name="serviceArn", refs={String.class}, tree="[0]")
     private Output<String> serviceArn;
 
     /**
-     * @return Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
+     * @return ARN for this App Runner service that is used to create the VPC Ingress Connection resource.
      * 
      */
     public Output<String> serviceArn() {

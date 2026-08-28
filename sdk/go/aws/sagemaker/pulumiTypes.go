@@ -8810,7 +8810,7 @@ func (o AppImageConfigKernelGatewayImageConfigKernelSpecArrayOutput) Index(i pul
 type AppResourceSpec struct {
 	// The instance type that the image version runs on. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType *string `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
@@ -8834,7 +8834,7 @@ type AppResourceSpecInput interface {
 type AppResourceSpecArgs struct {
 	// The instance type that the image version runs on. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
@@ -8926,7 +8926,7 @@ func (o AppResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o AppResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppResourceSpec) *string { return v.LifecycleConfigArn }).(pulumi.StringPtrOutput)
 }
@@ -8980,7 +8980,7 @@ func (o AppResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o AppResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppResourceSpec) *string {
 		if v == nil {
@@ -9025,7 +9025,7 @@ type CodeRepositoryGitConfig struct {
 	Branch *string `pulumi:"branch"`
 	// The URL where the Git repository is located.
 	RepositoryUrl string `pulumi:"repositoryUrl"`
-	// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{"username": UserName, "password": Password}`
+	// ARN of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{"username": UserName, "password": Password}`
 	SecretArn *string `pulumi:"secretArn"`
 }
 
@@ -9045,7 +9045,7 @@ type CodeRepositoryGitConfigArgs struct {
 	Branch pulumi.StringPtrInput `pulumi:"branch"`
 	// The URL where the Git repository is located.
 	RepositoryUrl pulumi.StringInput `pulumi:"repositoryUrl"`
-	// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{"username": UserName, "password": Password}`
+	// ARN of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{"username": UserName, "password": Password}`
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
 }
 
@@ -9136,7 +9136,7 @@ func (o CodeRepositoryGitConfigOutput) RepositoryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v CodeRepositoryGitConfig) string { return v.RepositoryUrl }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{"username": UserName, "password": Password}`
+// ARN of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{"username": UserName, "password": Password}`
 func (o CodeRepositoryGitConfigOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodeRepositoryGitConfig) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
@@ -9185,7 +9185,7 @@ func (o CodeRepositoryGitConfigPtrOutput) RepositoryUrl() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{"username": UserName, "password": Password}`
+// ARN of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{"username": UserName, "password": Password}`
 func (o CodeRepositoryGitConfigPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CodeRepositoryGitConfig) *string {
 		if v == nil {
@@ -10841,7 +10841,7 @@ func (o DataQualityJobDefinitionDataQualityJobInputEndpointInputPtrOutput) S3Inp
 }
 
 type DataQualityJobDefinitionDataQualityJobOutputConfig struct {
-	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+	// KMS key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded. Fields are documented below.
 	MonitoringOutputs DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs `pulumi:"monitoringOutputs"`
@@ -10859,7 +10859,7 @@ type DataQualityJobDefinitionDataQualityJobOutputConfigInput interface {
 }
 
 type DataQualityJobDefinitionDataQualityJobOutputConfigArgs struct {
-	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+	// KMS key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded. Fields are documented below.
 	MonitoringOutputs DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsInput `pulumi:"monitoringOutputs"`
@@ -10942,7 +10942,7 @@ func (o DataQualityJobDefinitionDataQualityJobOutputConfigOutput) ToDataQualityJ
 	}).(DataQualityJobDefinitionDataQualityJobOutputConfigPtrOutput)
 }
 
-// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+// KMS key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 func (o DataQualityJobDefinitionDataQualityJobOutputConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionDataQualityJobOutputConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -10978,7 +10978,7 @@ func (o DataQualityJobDefinitionDataQualityJobOutputConfigPtrOutput) Elem() Data
 	}).(DataQualityJobDefinitionDataQualityJobOutputConfigOutput)
 }
 
-// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+// KMS key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 func (o DataQualityJobDefinitionDataQualityJobOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionDataQualityJobOutputConfig) *string {
 		if v == nil {
@@ -11462,7 +11462,7 @@ type DataQualityJobDefinitionJobResourcesClusterConfig struct {
 	InstanceCount int `pulumi:"instanceCount"`
 	// The ML compute instance type for the processing job.
 	InstanceType string `pulumi:"instanceType"`
-	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
+	// KMS key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 	VolumeKmsKeyId *string `pulumi:"volumeKmsKeyId"`
 	// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
 	VolumeSizeInGb int `pulumi:"volumeSizeInGb"`
@@ -11484,7 +11484,7 @@ type DataQualityJobDefinitionJobResourcesClusterConfigArgs struct {
 	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
 	// The ML compute instance type for the processing job.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
+	// KMS key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 	VolumeKmsKeyId pulumi.StringPtrInput `pulumi:"volumeKmsKeyId"`
 	// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
 	VolumeSizeInGb pulumi.IntInput `pulumi:"volumeSizeInGb"`
@@ -11577,7 +11577,7 @@ func (o DataQualityJobDefinitionJobResourcesClusterConfigOutput) InstanceType() 
 	return o.ApplyT(func(v DataQualityJobDefinitionJobResourcesClusterConfig) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
+// KMS key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 func (o DataQualityJobDefinitionJobResourcesClusterConfigOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionJobResourcesClusterConfig) *string { return v.VolumeKmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -11631,7 +11631,7 @@ func (o DataQualityJobDefinitionJobResourcesClusterConfigPtrOutput) InstanceType
 	}).(pulumi.StringPtrOutput)
 }
 
-// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
+// KMS key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 func (o DataQualityJobDefinitionJobResourcesClusterConfigPtrOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionJobResourcesClusterConfig) *string {
 		if v == nil {
@@ -12297,7 +12297,7 @@ func (o DeviceDevicePtrOutput) IotThingName() pulumi.StringPtrOutput {
 }
 
 type DeviceFleetOutputConfig struct {
-	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker AI uses the default KMS key for Amazon S3 for your role's account.
+	// KMS key that Amazon SageMaker AI uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker AI uses the default KMS key for Amazon S3 for your role's account.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The Amazon Simple Storage (S3) bucker URI.
 	S3OutputLocation string `pulumi:"s3OutputLocation"`
@@ -12315,7 +12315,7 @@ type DeviceFleetOutputConfigInput interface {
 }
 
 type DeviceFleetOutputConfigArgs struct {
-	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker AI uses the default KMS key for Amazon S3 for your role's account.
+	// KMS key that Amazon SageMaker AI uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker AI uses the default KMS key for Amazon S3 for your role's account.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// The Amazon Simple Storage (S3) bucker URI.
 	S3OutputLocation pulumi.StringInput `pulumi:"s3OutputLocation"`
@@ -12398,7 +12398,7 @@ func (o DeviceFleetOutputConfigOutput) ToDeviceFleetOutputConfigPtrOutputWithCon
 	}).(DeviceFleetOutputConfigPtrOutput)
 }
 
-// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker AI uses the default KMS key for Amazon S3 for your role's account.
+// KMS key that Amazon SageMaker AI uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker AI uses the default KMS key for Amazon S3 for your role's account.
 func (o DeviceFleetOutputConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeviceFleetOutputConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -12432,7 +12432,7 @@ func (o DeviceFleetOutputConfigPtrOutput) Elem() DeviceFleetOutputConfigOutput {
 	}).(DeviceFleetOutputConfigOutput)
 }
 
-// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker AI uses the default KMS key for Amazon S3 for your role's account.
+// KMS key that Amazon SageMaker AI uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker AI uses the default KMS key for Amazon S3 for your role's account.
 func (o DeviceFleetOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeviceFleetOutputConfig) *string {
 		if v == nil {
@@ -12465,7 +12465,7 @@ type DomainDefaultSpaceSettings struct {
 	JupyterServerAppSettings *DomainDefaultSpaceSettingsJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
 	KernelGatewayAppSettings *DomainDefaultSpaceSettingsKernelGatewayAppSettings `pulumi:"kernelGatewayAppSettings"`
-	// The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
+	// Security groups for the VPC that the space uses for communication.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// The storage settings for a private space. See `spaceStorageSettings` Block below.
 	SpaceStorageSettings *DomainDefaultSpaceSettingsSpaceStorageSettings `pulumi:"spaceStorageSettings"`
@@ -12495,7 +12495,7 @@ type DomainDefaultSpaceSettingsArgs struct {
 	JupyterServerAppSettings DomainDefaultSpaceSettingsJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
 	KernelGatewayAppSettings DomainDefaultSpaceSettingsKernelGatewayAppSettingsPtrInput `pulumi:"kernelGatewayAppSettings"`
-	// The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
+	// Security groups for the VPC that the space uses for communication.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 	// The storage settings for a private space. See `spaceStorageSettings` Block below.
 	SpaceStorageSettings DomainDefaultSpaceSettingsSpaceStorageSettingsPtrInput `pulumi:"spaceStorageSettings"`
@@ -12618,7 +12618,7 @@ func (o DomainDefaultSpaceSettingsOutput) KernelGatewayAppSettings() DomainDefau
 	}).(DomainDefaultSpaceSettingsKernelGatewayAppSettingsPtrOutput)
 }
 
-// The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
+// Security groups for the VPC that the space uses for communication.
 func (o DomainDefaultSpaceSettingsOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettings) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
@@ -12714,7 +12714,7 @@ func (o DomainDefaultSpaceSettingsPtrOutput) KernelGatewayAppSettings() DomainDe
 	}).(DomainDefaultSpaceSettingsKernelGatewayAppSettingsPtrOutput)
 }
 
-// The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
+// Security groups for the VPC that the space uses for communication.
 func (o DomainDefaultSpaceSettingsPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettings) []string {
 		if v == nil {
@@ -13158,11 +13158,11 @@ type DomainDefaultSpaceSettingsJupyterLabAppSettings struct {
 	CodeRepositories []DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepository `pulumi:"codeRepositories"`
 	// A list of custom SageMaker AI images that are configured to run as a JupyterLab app. see `customImage` Block below.
 	CustomImages []DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImage `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec *DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 	// The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
 	EmrSettings *DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings `pulumi:"emrSettings"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	// ARN of the Lifecycle Configurations.
 	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
 
@@ -13186,11 +13186,11 @@ type DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs struct {
 	CodeRepositories DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayInput `pulumi:"codeRepositories"`
 	// A list of custom SageMaker AI images that are configured to run as a JupyterLab app. see `customImage` Block below.
 	CustomImages DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImageArrayInput `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 	// The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
 	EmrSettings DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrInput `pulumi:"emrSettings"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	// ARN of the Lifecycle Configurations.
 	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
 
@@ -13297,7 +13297,7 @@ func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsOutput) CustomImages() Do
 	}).(DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsOutput) DefaultResourceSpec() DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterLabAppSettings) *DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
@@ -13311,7 +13311,7 @@ func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsOutput) EmrSettings() Dom
 	}).(DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+// ARN of the Lifecycle Configurations.
 func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterLabAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
 }
@@ -13380,7 +13380,7 @@ func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsPtrOutput) CustomImages()
 	}).(DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsPtrOutput) DefaultResourceSpec() DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterLabAppSettings) *DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -13400,7 +13400,7 @@ func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsPtrOutput) EmrSettings() 
 	}).(DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+// ARN of the Lifecycle Configurations.
 func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterLabAppSettings) []string {
 		if v == nil {
@@ -13966,7 +13966,7 @@ func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImageArrayOutput) I
 type DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType *string `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
@@ -13990,7 +13990,7 @@ type DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecInput int
 type DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
@@ -14084,7 +14084,7 @@ func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
@@ -14146,7 +14146,7 @@ func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -14187,9 +14187,9 @@ func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOut
 }
 
 type DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings struct {
-	// An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
+	// Array of ARNs of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
 	AssumableRoleArns []string `pulumi:"assumableRoleArns"`
-	// An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+	// Array of ARNs of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
 	ExecutionRoleArns []string `pulumi:"executionRoleArns"`
 }
 
@@ -14205,9 +14205,9 @@ type DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsInput interface {
 }
 
 type DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsArgs struct {
-	// An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
+	// Array of ARNs of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
 	AssumableRoleArns pulumi.StringArrayInput `pulumi:"assumableRoleArns"`
-	// An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+	// Array of ARNs of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
 	ExecutionRoleArns pulumi.StringArrayInput `pulumi:"executionRoleArns"`
 }
 
@@ -14288,14 +14288,14 @@ func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsOutput) ToDoma
 	}).(DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput)
 }
 
-// An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
+// Array of ARNs of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
 func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsOutput) AssumableRoleArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings) []string {
 		return v.AssumableRoleArns
 	}).(pulumi.StringArrayOutput)
 }
 
-// An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+// Array of ARNs of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
 func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsOutput) ExecutionRoleArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings) []string {
 		return v.ExecutionRoleArns
@@ -14326,7 +14326,7 @@ func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) Ele
 	}).(DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsOutput)
 }
 
-// An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
+// Array of ARNs of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
 func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) AssumableRoleArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings) []string {
 		if v == nil {
@@ -14336,7 +14336,7 @@ func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) Ass
 	}).(pulumi.StringArrayOutput)
 }
 
-// An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+// Array of ARNs of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
 func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) ExecutionRoleArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings) []string {
 		if v == nil {
@@ -14349,9 +14349,9 @@ func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) Exe
 type DomainDefaultSpaceSettingsJupyterServerAppSettings struct {
 	// A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
 	CodeRepositories []DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository `pulumi:"codeRepositories"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec *DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	// ARN of the Lifecycle Configurations.
 	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
 
@@ -14369,9 +14369,9 @@ type DomainDefaultSpaceSettingsJupyterServerAppSettingsInput interface {
 type DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs struct {
 	// A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
 	CodeRepositories DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayInput `pulumi:"codeRepositories"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	// ARN of the Lifecycle Configurations.
 	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
 
@@ -14459,14 +14459,14 @@ func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsOutput) CodeRepositori
 	}).(DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsOutput) DefaultResourceSpec() DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterServerAppSettings) *DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
 	}).(DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+// ARN of the Lifecycle Configurations.
 func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterServerAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
 }
@@ -14505,7 +14505,7 @@ func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsPtrOutput) CodeReposit
 	}).(DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsPtrOutput) DefaultResourceSpec() DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterServerAppSettings) *DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -14515,7 +14515,7 @@ func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsPtrOutput) DefaultReso
 	}).(DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+// ARN of the Lifecycle Configurations.
 func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterServerAppSettings) []string {
 		if v == nil {
@@ -14627,7 +14627,7 @@ func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayOut
 type DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType *string `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
@@ -14651,7 +14651,7 @@ type DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecInput 
 type DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
@@ -14745,7 +14745,7 @@ func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
@@ -14807,7 +14807,7 @@ func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -14850,9 +14850,9 @@ func (o DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtr
 type DomainDefaultSpaceSettingsKernelGatewayAppSettings struct {
 	// A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see `customImage` Block below.
 	CustomImages []DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec *DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	// ARN of the Lifecycle Configurations.
 	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
 
@@ -14870,9 +14870,9 @@ type DomainDefaultSpaceSettingsKernelGatewayAppSettingsInput interface {
 type DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs struct {
 	// A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see `customImage` Block below.
 	CustomImages DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArrayInput `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	// ARN of the Lifecycle Configurations.
 	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
 
@@ -14960,14 +14960,14 @@ func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsOutput) CustomImages()
 	}).(DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsOutput) DefaultResourceSpec() DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsKernelGatewayAppSettings) *DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
 	}).(DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+// ARN of the Lifecycle Configurations.
 func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsKernelGatewayAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
 }
@@ -15006,7 +15006,7 @@ func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsPtrOutput) CustomImage
 	}).(DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsPtrOutput) DefaultResourceSpec() DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettingsKernelGatewayAppSettings) *DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -15016,7 +15016,7 @@ func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsPtrOutput) DefaultReso
 	}).(DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+// ARN of the Lifecycle Configurations.
 func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettingsKernelGatewayAppSettings) []string {
 		if v == nil {
@@ -15148,7 +15148,7 @@ func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArrayOutput
 type DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType *string `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
@@ -15172,7 +15172,7 @@ type DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecInput 
 type DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
@@ -15266,7 +15266,7 @@ func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
@@ -15328,7 +15328,7 @@ func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -16571,7 +16571,7 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput)
 }
 
 type DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings struct {
-	// The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+	// ARN of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker AI Canvas application. Valid values are: `ENABLED` and `DISABLED`.
 	Status *string `pulumi:"status"`
@@ -16589,7 +16589,7 @@ type DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsInput interf
 }
 
 type DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs struct {
-	// The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+	// ARN of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
 	ExecutionRoleArn pulumi.StringPtrInput `pulumi:"executionRoleArn"`
 	// Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker AI Canvas application. Valid values are: `ENABLED` and `DISABLED`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
@@ -16672,7 +16672,7 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput) T
 	}).(DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+// ARN of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
 func (o DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings) *string {
 		return v.ExecutionRoleArn
@@ -16708,7 +16708,7 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput
 	}).(DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput)
 }
 
-// The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+// ARN of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
 func (o DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings) *string {
 		if v == nil {
@@ -17122,7 +17122,7 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput) Statu
 }
 
 type DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings struct {
-	// The Amazon Resource Name (ARN) of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
+	// ARN of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
 	CrossAccountModelRegisterRoleArn *string `pulumi:"crossAccountModelRegisterRoleArn"`
 	// Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
 	Status *string `pulumi:"status"`
@@ -17140,7 +17140,7 @@ type DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsInput interf
 }
 
 type DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs struct {
-	// The Amazon Resource Name (ARN) of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
+	// ARN of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
 	CrossAccountModelRegisterRoleArn pulumi.StringPtrInput `pulumi:"crossAccountModelRegisterRoleArn"`
 	// Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
@@ -17223,7 +17223,7 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutput) T
 	}).(DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
+// ARN of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
 func (o DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutput) CrossAccountModelRegisterRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings) *string {
 		return v.CrossAccountModelRegisterRoleArn
@@ -17259,7 +17259,7 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput
 	}).(DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutput)
 }
 
-// The Amazon Resource Name (ARN) of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
+// ARN of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
 func (o DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput) CrossAccountModelRegisterRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings) *string {
 		if v == nil {
@@ -17442,7 +17442,7 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsP
 type DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings struct {
 	// The Amazon S3 bucket used to store artifacts generated by Canvas. Updating the Amazon S3 location impacts existing configuration settings, and Canvas users no longer have access to their artifacts. Canvas users must log out and log back in to apply the new location.
 	S3ArtifactPath *string `pulumi:"s3ArtifactPath"`
-	// The Amazon Web Services Key Management Service (KMS) encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
+	// KMS encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
 	S3KmsKeyId *string `pulumi:"s3KmsKeyId"`
 }
 
@@ -17460,7 +17460,7 @@ type DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsInput interface 
 type DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs struct {
 	// The Amazon S3 bucket used to store artifacts generated by Canvas. Updating the Amazon S3 location impacts existing configuration settings, and Canvas users no longer have access to their artifacts. Canvas users must log out and log back in to apply the new location.
 	S3ArtifactPath pulumi.StringPtrInput `pulumi:"s3ArtifactPath"`
-	// The Amazon Web Services Key Management Service (KMS) encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
+	// KMS encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
 	S3KmsKeyId pulumi.StringPtrInput `pulumi:"s3KmsKeyId"`
 }
 
@@ -17546,7 +17546,7 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsOutput) S3Art
 	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings) *string { return v.S3ArtifactPath }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Web Services Key Management Service (KMS) encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
+// KMS encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
 func (o DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsOutput) S3KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings) *string { return v.S3KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -17585,7 +17585,7 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput) S3
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Web Services Key Management Service (KMS) encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
+// KMS encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
 func (o DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput) S3KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings) *string {
 		if v == nil {
@@ -17602,9 +17602,9 @@ type DomainDefaultUserSettingsCodeEditorAppSettings struct {
 	BuiltInLifecycleConfigArn *string `pulumi:"builtInLifecycleConfigArn"`
 	// A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see `customImage` Block below.
 	CustomImages []DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec *DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	// ARN of the Lifecycle Configurations.
 	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
 
@@ -17626,9 +17626,9 @@ type DomainDefaultUserSettingsCodeEditorAppSettingsArgs struct {
 	BuiltInLifecycleConfigArn pulumi.StringPtrInput `pulumi:"builtInLifecycleConfigArn"`
 	// A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see `customImage` Block below.
 	CustomImages DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayInput `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	// ARN of the Lifecycle Configurations.
 	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
 
@@ -17728,14 +17728,14 @@ func (o DomainDefaultUserSettingsCodeEditorAppSettingsOutput) CustomImages() Dom
 	}).(DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultUserSettingsCodeEditorAppSettingsOutput) DefaultResourceSpec() DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsCodeEditorAppSettings) *DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
 	}).(DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+// ARN of the Lifecycle Configurations.
 func (o DomainDefaultUserSettingsCodeEditorAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsCodeEditorAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
 }
@@ -17794,7 +17794,7 @@ func (o DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput) CustomImages() 
 	}).(DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput) DefaultResourceSpec() DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsCodeEditorAppSettings) *DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -17804,7 +17804,7 @@ func (o DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput) DefaultResource
 	}).(DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+// ARN of the Lifecycle Configurations.
 func (o DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsCodeEditorAppSettings) []string {
 		if v == nil {
@@ -18273,7 +18273,7 @@ func (o DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayOutput) In
 type DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType *string `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
@@ -18297,7 +18297,7 @@ type DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecInput inte
 type DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
@@ -18391,7 +18391,7 @@ func (o DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
@@ -18453,7 +18453,7 @@ func (o DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -18917,11 +18917,11 @@ type DomainDefaultUserSettingsJupyterLabAppSettings struct {
 	CodeRepositories []DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository `pulumi:"codeRepositories"`
 	// A list of custom SageMaker AI images that are configured to run as a JupyterLab app. see `customImage` Block below.
 	CustomImages []DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec *DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 	// The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
 	EmrSettings *DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings `pulumi:"emrSettings"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	// ARN of the Lifecycle Configurations.
 	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
 
@@ -18945,11 +18945,11 @@ type DomainDefaultUserSettingsJupyterLabAppSettingsArgs struct {
 	CodeRepositories DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayInput `pulumi:"codeRepositories"`
 	// A list of custom SageMaker AI images that are configured to run as a JupyterLab app. see `customImage` Block below.
 	CustomImages DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayInput `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 	// The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
 	EmrSettings DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrInput `pulumi:"emrSettings"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	// ARN of the Lifecycle Configurations.
 	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
 
@@ -19056,7 +19056,7 @@ func (o DomainDefaultUserSettingsJupyterLabAppSettingsOutput) CustomImages() Dom
 	}).(DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultUserSettingsJupyterLabAppSettingsOutput) DefaultResourceSpec() DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettings) *DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
@@ -19070,7 +19070,7 @@ func (o DomainDefaultUserSettingsJupyterLabAppSettingsOutput) EmrSettings() Doma
 	}).(DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+// ARN of the Lifecycle Configurations.
 func (o DomainDefaultUserSettingsJupyterLabAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
 }
@@ -19139,7 +19139,7 @@ func (o DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput) CustomImages() 
 	}).(DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput) DefaultResourceSpec() DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettings) *DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -19159,7 +19159,7 @@ func (o DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput) EmrSettings() D
 	}).(DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+// ARN of the Lifecycle Configurations.
 func (o DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettings) []string {
 		if v == nil {
@@ -19725,7 +19725,7 @@ func (o DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutput) In
 type DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType *string `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
@@ -19749,7 +19749,7 @@ type DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecInput inte
 type DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
@@ -19843,7 +19843,7 @@ func (o DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
@@ -19905,7 +19905,7 @@ func (o DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -19946,9 +19946,9 @@ func (o DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutp
 }
 
 type DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings struct {
-	// An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
+	// Array of ARNs of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
 	AssumableRoleArns []string `pulumi:"assumableRoleArns"`
-	// An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+	// Array of ARNs of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
 	ExecutionRoleArns []string `pulumi:"executionRoleArns"`
 }
 
@@ -19964,9 +19964,9 @@ type DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsInput interface {
 }
 
 type DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsArgs struct {
-	// An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
+	// Array of ARNs of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
 	AssumableRoleArns pulumi.StringArrayInput `pulumi:"assumableRoleArns"`
-	// An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+	// Array of ARNs of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
 	ExecutionRoleArns pulumi.StringArrayInput `pulumi:"executionRoleArns"`
 }
 
@@ -20047,12 +20047,12 @@ func (o DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsOutput) ToDomai
 	}).(DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput)
 }
 
-// An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
+// Array of ARNs of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
 func (o DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsOutput) AssumableRoleArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings) []string { return v.AssumableRoleArns }).(pulumi.StringArrayOutput)
 }
 
-// An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+// Array of ARNs of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
 func (o DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsOutput) ExecutionRoleArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings) []string { return v.ExecutionRoleArns }).(pulumi.StringArrayOutput)
 }
@@ -20081,7 +20081,7 @@ func (o DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) Elem
 	}).(DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsOutput)
 }
 
-// An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
+// Array of ARNs of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
 func (o DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) AssumableRoleArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings) []string {
 		if v == nil {
@@ -20091,7 +20091,7 @@ func (o DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) Assu
 	}).(pulumi.StringArrayOutput)
 }
 
-// An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+// Array of ARNs of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
 func (o DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) ExecutionRoleArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings) []string {
 		if v == nil {
@@ -20104,9 +20104,9 @@ func (o DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) Exec
 type DomainDefaultUserSettingsJupyterServerAppSettings struct {
 	// A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
 	CodeRepositories []DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository `pulumi:"codeRepositories"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec *DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	// ARN of the Lifecycle Configurations.
 	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
 
@@ -20124,9 +20124,9 @@ type DomainDefaultUserSettingsJupyterServerAppSettingsInput interface {
 type DomainDefaultUserSettingsJupyterServerAppSettingsArgs struct {
 	// A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
 	CodeRepositories DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArrayInput `pulumi:"codeRepositories"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	// ARN of the Lifecycle Configurations.
 	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
 
@@ -20214,14 +20214,14 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsOutput) CodeRepositorie
 	}).(DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsOutput) DefaultResourceSpec() DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterServerAppSettings) *DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
 	}).(DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+// ARN of the Lifecycle Configurations.
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterServerAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
 }
@@ -20260,7 +20260,7 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput) CodeReposito
 	}).(DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput) DefaultResourceSpec() DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterServerAppSettings) *DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -20270,7 +20270,7 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput) DefaultResou
 	}).(DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+// ARN of the Lifecycle Configurations.
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterServerAppSettings) []string {
 		if v == nil {
@@ -20380,7 +20380,7 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArrayOutp
 type DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType *string `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
@@ -20404,7 +20404,7 @@ type DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecInput i
 type DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
@@ -20498,7 +20498,7 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
@@ -20560,7 +20560,7 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -20603,9 +20603,9 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrO
 type DomainDefaultUserSettingsKernelGatewayAppSettings struct {
 	// A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see `customImage` Block below.
 	CustomImages []DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec *DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	// ARN of the Lifecycle Configurations.
 	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
 
@@ -20623,9 +20623,9 @@ type DomainDefaultUserSettingsKernelGatewayAppSettingsInput interface {
 type DomainDefaultUserSettingsKernelGatewayAppSettingsArgs struct {
 	// A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see `customImage` Block below.
 	CustomImages DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayInput `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	// ARN of the Lifecycle Configurations.
 	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
 
@@ -20713,14 +20713,14 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsOutput) CustomImages() 
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsOutput) DefaultResourceSpec() DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettings) *DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+// ARN of the Lifecycle Configurations.
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
 }
@@ -20759,7 +20759,7 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput) CustomImages
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput) DefaultResourceSpec() DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsKernelGatewayAppSettings) *DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -20769,7 +20769,7 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput) DefaultResou
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+// ARN of the Lifecycle Configurations.
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsKernelGatewayAppSettings) []string {
 		if v == nil {
@@ -20899,7 +20899,7 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
 type DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType *string `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
@@ -20923,7 +20923,7 @@ type DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecInput i
 type DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
@@ -21017,7 +21017,7 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
@@ -21079,7 +21079,7 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -21122,7 +21122,7 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrO
 type DomainDefaultUserSettingsRSessionAppSettings struct {
 	// A list of custom SageMaker AI images that are configured to run as a RSession app. see `customImage` Block below.
 	CustomImages []DomainDefaultUserSettingsRSessionAppSettingsCustomImage `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
 	DefaultResourceSpec *DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 }
 
@@ -21140,7 +21140,7 @@ type DomainDefaultUserSettingsRSessionAppSettingsInput interface {
 type DomainDefaultUserSettingsRSessionAppSettingsArgs struct {
 	// A list of custom SageMaker AI images that are configured to run as a RSession app. see `customImage` Block below.
 	CustomImages DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayInput `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
 	DefaultResourceSpec DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 }
 
@@ -21228,7 +21228,7 @@ func (o DomainDefaultUserSettingsRSessionAppSettingsOutput) CustomImages() Domai
 	}).(DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
 func (o DomainDefaultUserSettingsRSessionAppSettingsOutput) DefaultResourceSpec() DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsRSessionAppSettings) *DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
@@ -21269,7 +21269,7 @@ func (o DomainDefaultUserSettingsRSessionAppSettingsPtrOutput) CustomImages() Do
 	}).(DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
 func (o DomainDefaultUserSettingsRSessionAppSettingsPtrOutput) DefaultResourceSpec() DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsRSessionAppSettings) *DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -21397,7 +21397,7 @@ func (o DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput) Inde
 type DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType *string `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
@@ -21421,7 +21421,7 @@ type DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecInput interf
 type DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
@@ -21513,7 +21513,7 @@ func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) I
 	return o.ApplyT(func(v DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
@@ -21575,7 +21575,7 @@ func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -21774,7 +21774,7 @@ func (o DomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput) UserGroup
 type DomainDefaultUserSettingsSharingSettings struct {
 	// Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
 	NotebookOutputOption *string `pulumi:"notebookOutputOption"`
-	// When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+	// When `notebookOutputOption` is Allowed, the KMS encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
 	S3KmsKeyId *string `pulumi:"s3KmsKeyId"`
 	// When `notebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
 	S3OutputPath *string `pulumi:"s3OutputPath"`
@@ -21794,7 +21794,7 @@ type DomainDefaultUserSettingsSharingSettingsInput interface {
 type DomainDefaultUserSettingsSharingSettingsArgs struct {
 	// Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
 	NotebookOutputOption pulumi.StringPtrInput `pulumi:"notebookOutputOption"`
-	// When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+	// When `notebookOutputOption` is Allowed, the KMS encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
 	S3KmsKeyId pulumi.StringPtrInput `pulumi:"s3KmsKeyId"`
 	// When `notebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
 	S3OutputPath pulumi.StringPtrInput `pulumi:"s3OutputPath"`
@@ -21882,7 +21882,7 @@ func (o DomainDefaultUserSettingsSharingSettingsOutput) NotebookOutputOption() p
 	return o.ApplyT(func(v DomainDefaultUserSettingsSharingSettings) *string { return v.NotebookOutputOption }).(pulumi.StringPtrOutput)
 }
 
-// When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+// When `notebookOutputOption` is Allowed, the KMS encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
 func (o DomainDefaultUserSettingsSharingSettingsOutput) S3KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsSharingSettings) *string { return v.S3KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -21926,7 +21926,7 @@ func (o DomainDefaultUserSettingsSharingSettingsPtrOutput) NotebookOutputOption(
 	}).(pulumi.StringPtrOutput)
 }
 
-// When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+// When `notebookOutputOption` is Allowed, the KMS encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
 func (o DomainDefaultUserSettingsSharingSettingsPtrOutput) S3KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsSharingSettings) *string {
 		if v == nil {
@@ -22421,7 +22421,7 @@ func (o DomainDefaultUserSettingsStudioWebPortalSettingsPtrOutput) HiddenMlTools
 }
 
 type DomainDefaultUserSettingsTensorBoardAppSettings struct {
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec *DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 }
 
@@ -22437,7 +22437,7 @@ type DomainDefaultUserSettingsTensorBoardAppSettingsInput interface {
 }
 
 type DomainDefaultUserSettingsTensorBoardAppSettingsArgs struct {
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 }
 
@@ -22518,7 +22518,7 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsOutput) ToDomainDefaultUs
 	}).(DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultUserSettingsTensorBoardAppSettingsOutput) DefaultResourceSpec() DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsTensorBoardAppSettings) *DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
@@ -22549,7 +22549,7 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput) Elem() DomainD
 	}).(DomainDefaultUserSettingsTensorBoardAppSettingsOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput) DefaultResourceSpec() DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsTensorBoardAppSettings) *DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -22562,7 +22562,7 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput) DefaultResourc
 type DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType *string `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
@@ -22586,7 +22586,7 @@ type DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecInput int
 type DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
@@ -22680,7 +22680,7 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
@@ -22742,7 +22742,7 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -22789,7 +22789,7 @@ type DomainDomainSettings struct {
 	ExecutionRoleIdentityConfig *string `pulumi:"executionRoleIdentityConfig"`
 	// A collection of settings that configure the RStudioServerPro Domain-level app. see `rStudioServerProDomainSettings` Block below.
 	RStudioServerProDomainSettings *DomainDomainSettingsRStudioServerProDomainSettings `pulumi:"rStudioServerProDomainSettings"`
-	// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+	// Security groups for the VPC that the Domain uses for communication between Domain-level apps and user apps.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Configuration for trusted identity propagation. See the `trustedIdentityPropagationSettings` Block below.
 	TrustedIdentityPropagationSettings *DomainDomainSettingsTrustedIdentityPropagationSettings `pulumi:"trustedIdentityPropagationSettings"`
@@ -22813,7 +22813,7 @@ type DomainDomainSettingsArgs struct {
 	ExecutionRoleIdentityConfig pulumi.StringPtrInput `pulumi:"executionRoleIdentityConfig"`
 	// A collection of settings that configure the RStudioServerPro Domain-level app. see `rStudioServerProDomainSettings` Block below.
 	RStudioServerProDomainSettings DomainDomainSettingsRStudioServerProDomainSettingsPtrInput `pulumi:"rStudioServerProDomainSettings"`
-	// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+	// Security groups for the VPC that the Domain uses for communication between Domain-level apps and user apps.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// Configuration for trusted identity propagation. See the `trustedIdentityPropagationSettings` Block below.
 	TrustedIdentityPropagationSettings DomainDomainSettingsTrustedIdentityPropagationSettingsPtrInput `pulumi:"trustedIdentityPropagationSettings"`
@@ -22913,7 +22913,7 @@ func (o DomainDomainSettingsOutput) RStudioServerProDomainSettings() DomainDomai
 	}).(DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput)
 }
 
-// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+// Security groups for the VPC that the Domain uses for communication between Domain-level apps and user apps.
 func (o DomainDomainSettingsOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainDomainSettings) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -22979,7 +22979,7 @@ func (o DomainDomainSettingsPtrOutput) RStudioServerProDomainSettings() DomainDo
 	}).(DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput)
 }
 
-// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+// Security groups for the VPC that the Domain uses for communication between Domain-level apps and user apps.
 func (o DomainDomainSettingsPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainDomainSettings) []string {
 		if v == nil {
@@ -23156,7 +23156,7 @@ func (o DomainDomainSettingsDockerSettingsPtrOutput) VpcOnlyTrustedAccounts() pu
 }
 
 type DomainDomainSettingsRStudioServerProDomainSettings struct {
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
 	DefaultResourceSpec *DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 	// The ARN of the execution role for the RStudioServerPro Domain-level app.
 	DomainExecutionRoleArn string `pulumi:"domainExecutionRoleArn"`
@@ -23178,7 +23178,7 @@ type DomainDomainSettingsRStudioServerProDomainSettingsInput interface {
 }
 
 type DomainDomainSettingsRStudioServerProDomainSettingsArgs struct {
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
 	DefaultResourceSpec DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 	// The ARN of the execution role for the RStudioServerPro Domain-level app.
 	DomainExecutionRoleArn pulumi.StringInput `pulumi:"domainExecutionRoleArn"`
@@ -23265,7 +23265,7 @@ func (o DomainDomainSettingsRStudioServerProDomainSettingsOutput) ToDomainDomain
 	}).(DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
 func (o DomainDomainSettingsRStudioServerProDomainSettingsOutput) DefaultResourceSpec() DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainDomainSettingsRStudioServerProDomainSettings) *DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
@@ -23311,7 +23311,7 @@ func (o DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput) Elem() Doma
 	}).(DomainDomainSettingsRStudioServerProDomainSettingsOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
 func (o DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput) DefaultResourceSpec() DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *DomainDomainSettingsRStudioServerProDomainSettings) *DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec {
 		if v == nil {
@@ -23354,7 +23354,7 @@ func (o DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput) RStudioPack
 type DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType *string `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
@@ -23378,7 +23378,7 @@ type DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecInput 
 type DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
@@ -23472,7 +23472,7 @@ func (o DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
@@ -23534,7 +23534,7 @@ func (o DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -25264,7 +25264,7 @@ func (o EndpointConfigurationProductionVariantArrayOutput) Index(i pulumi.IntInp
 type EndpointConfigurationProductionVariantCapacityReservationConfig struct {
 	// Capacity reservation preference. Valid value is `capacity-reservations-only`. When set to `capacity-reservations-only`, SageMaker AI launches instances only into an ML capacity reservation; if no capacity is available, the instances fail to launch.
 	CapacityReservationPreference *string `pulumi:"capacityReservationPreference"`
-	// The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
+	// ARN that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
 	MlReservationArn *string `pulumi:"mlReservationArn"`
 }
 
@@ -25282,7 +25282,7 @@ type EndpointConfigurationProductionVariantCapacityReservationConfigInput interf
 type EndpointConfigurationProductionVariantCapacityReservationConfigArgs struct {
 	// Capacity reservation preference. Valid value is `capacity-reservations-only`. When set to `capacity-reservations-only`, SageMaker AI launches instances only into an ML capacity reservation; if no capacity is available, the instances fail to launch.
 	CapacityReservationPreference pulumi.StringPtrInput `pulumi:"capacityReservationPreference"`
-	// The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
+	// ARN that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
 	MlReservationArn pulumi.StringPtrInput `pulumi:"mlReservationArn"`
 }
 
@@ -25370,7 +25370,7 @@ func (o EndpointConfigurationProductionVariantCapacityReservationConfigOutput) C
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
+// ARN that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
 func (o EndpointConfigurationProductionVariantCapacityReservationConfigOutput) MlReservationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariantCapacityReservationConfig) *string {
 		return v.MlReservationArn
@@ -25411,7 +25411,7 @@ func (o EndpointConfigurationProductionVariantCapacityReservationConfigPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
+// ARN that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
 func (o EndpointConfigurationProductionVariantCapacityReservationConfigPtrOutput) MlReservationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationProductionVariantCapacityReservationConfig) *string {
 		if v == nil {
@@ -26271,7 +26271,7 @@ func (o EndpointConfigurationShadowProductionVariantArrayOutput) Index(i pulumi.
 type EndpointConfigurationShadowProductionVariantCapacityReservationConfig struct {
 	// Capacity reservation preference. Valid value is `capacity-reservations-only`. When set to `capacity-reservations-only`, SageMaker AI launches instances only into an ML capacity reservation; if no capacity is available, the instances fail to launch.
 	CapacityReservationPreference *string `pulumi:"capacityReservationPreference"`
-	// The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
+	// ARN that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
 	MlReservationArn *string `pulumi:"mlReservationArn"`
 }
 
@@ -26289,7 +26289,7 @@ type EndpointConfigurationShadowProductionVariantCapacityReservationConfigInput 
 type EndpointConfigurationShadowProductionVariantCapacityReservationConfigArgs struct {
 	// Capacity reservation preference. Valid value is `capacity-reservations-only`. When set to `capacity-reservations-only`, SageMaker AI launches instances only into an ML capacity reservation; if no capacity is available, the instances fail to launch.
 	CapacityReservationPreference pulumi.StringPtrInput `pulumi:"capacityReservationPreference"`
-	// The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
+	// ARN that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
 	MlReservationArn pulumi.StringPtrInput `pulumi:"mlReservationArn"`
 }
 
@@ -26377,7 +26377,7 @@ func (o EndpointConfigurationShadowProductionVariantCapacityReservationConfigOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
+// ARN that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
 func (o EndpointConfigurationShadowProductionVariantCapacityReservationConfigOutput) MlReservationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariantCapacityReservationConfig) *string {
 		return v.MlReservationArn
@@ -26418,7 +26418,7 @@ func (o EndpointConfigurationShadowProductionVariantCapacityReservationConfigPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
+// ARN that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
 func (o EndpointConfigurationShadowProductionVariantCapacityReservationConfigPtrOutput) MlReservationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationShadowProductionVariantCapacityReservationConfig) *string {
 		if v == nil {
@@ -29419,7 +29419,7 @@ func (o FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput) TableName() pu
 }
 
 type FeatureGroupOfflineStoreConfigS3StorageConfig struct {
-	// The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
+	// KMS key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The S3 path where offline records are written.
 	ResolvedOutputS3Uri *string `pulumi:"resolvedOutputS3Uri"`
@@ -29439,7 +29439,7 @@ type FeatureGroupOfflineStoreConfigS3StorageConfigInput interface {
 }
 
 type FeatureGroupOfflineStoreConfigS3StorageConfigArgs struct {
-	// The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
+	// KMS key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// The S3 path where offline records are written.
 	ResolvedOutputS3Uri pulumi.StringPtrInput `pulumi:"resolvedOutputS3Uri"`
@@ -29524,7 +29524,7 @@ func (o FeatureGroupOfflineStoreConfigS3StorageConfigOutput) ToFeatureGroupOffli
 	}).(FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput)
 }
 
-// The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
+// KMS key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
 func (o FeatureGroupOfflineStoreConfigS3StorageConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FeatureGroupOfflineStoreConfigS3StorageConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -29563,7 +29563,7 @@ func (o FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput) Elem() FeatureGr
 	}).(FeatureGroupOfflineStoreConfigS3StorageConfigOutput)
 }
 
-// The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
+// KMS key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
 func (o FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FeatureGroupOfflineStoreConfigS3StorageConfig) *string {
 		if v == nil {
@@ -29790,7 +29790,7 @@ func (o FeatureGroupOnlineStoreConfigPtrOutput) TtlDuration() FeatureGroupOnline
 }
 
 type FeatureGroupOnlineStoreConfigSecurityConfig struct {
-	// The ID of the AWS Key Management Service (AWS KMS) key that SageMaker AI Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+	// ID of the KMS key that SageMaker AI Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 }
 
@@ -29806,7 +29806,7 @@ type FeatureGroupOnlineStoreConfigSecurityConfigInput interface {
 }
 
 type FeatureGroupOnlineStoreConfigSecurityConfigArgs struct {
-	// The ID of the AWS Key Management Service (AWS KMS) key that SageMaker AI Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+	// ID of the KMS key that SageMaker AI Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 }
 
@@ -29887,7 +29887,7 @@ func (o FeatureGroupOnlineStoreConfigSecurityConfigOutput) ToFeatureGroupOnlineS
 	}).(FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput)
 }
 
-// The ID of the AWS Key Management Service (AWS KMS) key that SageMaker AI Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+// ID of the KMS key that SageMaker AI Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
 func (o FeatureGroupOnlineStoreConfigSecurityConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FeatureGroupOnlineStoreConfigSecurityConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -29916,7 +29916,7 @@ func (o FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput) Elem() FeatureGrou
 	}).(FeatureGroupOnlineStoreConfigSecurityConfigOutput)
 }
 
-// The ID of the AWS Key Management Service (AWS KMS) key that SageMaker AI Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+// ID of the KMS key that SageMaker AI Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
 func (o FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FeatureGroupOnlineStoreConfigSecurityConfig) *string {
 		if v == nil {
@@ -30524,7 +30524,7 @@ func (o FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConf
 }
 
 type FlowDefinitionHumanLoopConfig struct {
-	// The Amazon Resource Name (ARN) of the human task user interface.
+	// ARN of the human task user interface.
 	HumanTaskUiArn string `pulumi:"humanTaskUiArn"`
 	// Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. See Public Workforce Task Price details below.
 	PublicWorkforceTaskPrice *FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice `pulumi:"publicWorkforceTaskPrice"`
@@ -30540,7 +30540,7 @@ type FlowDefinitionHumanLoopConfig struct {
 	TaskTimeLimitInSeconds *int `pulumi:"taskTimeLimitInSeconds"`
 	// A title for the human worker task.
 	TaskTitle string `pulumi:"taskTitle"`
-	// The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
+	// ARN of the human task user interface. ARN of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
 	WorkteamArn string `pulumi:"workteamArn"`
 }
 
@@ -30556,7 +30556,7 @@ type FlowDefinitionHumanLoopConfigInput interface {
 }
 
 type FlowDefinitionHumanLoopConfigArgs struct {
-	// The Amazon Resource Name (ARN) of the human task user interface.
+	// ARN of the human task user interface.
 	HumanTaskUiArn pulumi.StringInput `pulumi:"humanTaskUiArn"`
 	// Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. See Public Workforce Task Price details below.
 	PublicWorkforceTaskPrice FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrInput `pulumi:"publicWorkforceTaskPrice"`
@@ -30572,7 +30572,7 @@ type FlowDefinitionHumanLoopConfigArgs struct {
 	TaskTimeLimitInSeconds pulumi.IntPtrInput `pulumi:"taskTimeLimitInSeconds"`
 	// A title for the human worker task.
 	TaskTitle pulumi.StringInput `pulumi:"taskTitle"`
-	// The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
+	// ARN of the human task user interface. ARN of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
 	WorkteamArn pulumi.StringInput `pulumi:"workteamArn"`
 }
 
@@ -30653,7 +30653,7 @@ func (o FlowDefinitionHumanLoopConfigOutput) ToFlowDefinitionHumanLoopConfigPtrO
 	}).(FlowDefinitionHumanLoopConfigPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the human task user interface.
+// ARN of the human task user interface.
 func (o FlowDefinitionHumanLoopConfigOutput) HumanTaskUiArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDefinitionHumanLoopConfig) string { return v.HumanTaskUiArn }).(pulumi.StringOutput)
 }
@@ -30695,7 +30695,7 @@ func (o FlowDefinitionHumanLoopConfigOutput) TaskTitle() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDefinitionHumanLoopConfig) string { return v.TaskTitle }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
+// ARN of the human task user interface. ARN of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
 func (o FlowDefinitionHumanLoopConfigOutput) WorkteamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDefinitionHumanLoopConfig) string { return v.WorkteamArn }).(pulumi.StringOutput)
 }
@@ -30724,7 +30724,7 @@ func (o FlowDefinitionHumanLoopConfigPtrOutput) Elem() FlowDefinitionHumanLoopCo
 	}).(FlowDefinitionHumanLoopConfigOutput)
 }
 
-// The Amazon Resource Name (ARN) of the human task user interface.
+// ARN of the human task user interface.
 func (o FlowDefinitionHumanLoopConfigPtrOutput) HumanTaskUiArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfig) *string {
 		if v == nil {
@@ -30804,7 +30804,7 @@ func (o FlowDefinitionHumanLoopConfigPtrOutput) TaskTitle() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
+// ARN of the human task user interface. ARN of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
 func (o FlowDefinitionHumanLoopConfigPtrOutput) WorkteamArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfig) *string {
 		if v == nil {
@@ -31268,7 +31268,7 @@ func (o FlowDefinitionHumanLoopRequestSourcePtrOutput) AwsManagedHumanLoopReques
 }
 
 type FlowDefinitionOutputConfig struct {
-	// The Amazon Key Management Service (KMS) key ARN for server-side encryption.
+	// KMS key ARN for server-side encryption.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The Amazon S3 path where the object containing human output will be made available.
 	S3OutputPath string `pulumi:"s3OutputPath"`
@@ -31286,7 +31286,7 @@ type FlowDefinitionOutputConfigInput interface {
 }
 
 type FlowDefinitionOutputConfigArgs struct {
-	// The Amazon Key Management Service (KMS) key ARN for server-side encryption.
+	// KMS key ARN for server-side encryption.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// The Amazon S3 path where the object containing human output will be made available.
 	S3OutputPath pulumi.StringInput `pulumi:"s3OutputPath"`
@@ -31369,7 +31369,7 @@ func (o FlowDefinitionOutputConfigOutput) ToFlowDefinitionOutputConfigPtrOutputW
 	}).(FlowDefinitionOutputConfigPtrOutput)
 }
 
-// The Amazon Key Management Service (KMS) key ARN for server-side encryption.
+// KMS key ARN for server-side encryption.
 func (o FlowDefinitionOutputConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDefinitionOutputConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -31403,7 +31403,7 @@ func (o FlowDefinitionOutputConfigPtrOutput) Elem() FlowDefinitionOutputConfigOu
 	}).(FlowDefinitionOutputConfigOutput)
 }
 
-// The Amazon Key Management Service (KMS) key ARN for server-side encryption.
+// KMS key ARN for server-side encryption.
 func (o FlowDefinitionOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDefinitionOutputConfig) *string {
 		if v == nil {
@@ -42517,7 +42517,7 @@ type ModelContainer struct {
 	Environment map[string]string `pulumi:"environment"`
 	// Registry path where the inference code image is stored in Amazon ECR.
 	Image *string `pulumi:"image"`
-	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+	// Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
 	ImageConfig *ModelContainerImageConfig `pulumi:"imageConfig"`
 	// Inference specification name in the model package version.
 	InferenceSpecificationName *string `pulumi:"inferenceSpecificationName"`
@@ -42527,7 +42527,7 @@ type ModelContainer struct {
 	ModelDataSource *ModelContainerModelDataSource `pulumi:"modelDataSource"`
 	// URL for the S3 location where model artifacts are stored.
 	ModelDataUrl *string `pulumi:"modelDataUrl"`
-	// Amazon Resource Name (ARN) of the model package to use to create the model.
+	// ARN of the model package to use to create the model.
 	// A list of key value pairs.
 	ModelPackageName *string `pulumi:"modelPackageName"`
 	// Specifies additional configuration for multi-model endpoints. see Multi Model Config.
@@ -42554,7 +42554,7 @@ type ModelContainerArgs struct {
 	Environment pulumi.StringMapInput `pulumi:"environment"`
 	// Registry path where the inference code image is stored in Amazon ECR.
 	Image pulumi.StringPtrInput `pulumi:"image"`
-	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+	// Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
 	ImageConfig ModelContainerImageConfigPtrInput `pulumi:"imageConfig"`
 	// Inference specification name in the model package version.
 	InferenceSpecificationName pulumi.StringPtrInput `pulumi:"inferenceSpecificationName"`
@@ -42564,7 +42564,7 @@ type ModelContainerArgs struct {
 	ModelDataSource ModelContainerModelDataSourcePtrInput `pulumi:"modelDataSource"`
 	// URL for the S3 location where model artifacts are stored.
 	ModelDataUrl pulumi.StringPtrInput `pulumi:"modelDataUrl"`
-	// Amazon Resource Name (ARN) of the model package to use to create the model.
+	// ARN of the model package to use to create the model.
 	// A list of key value pairs.
 	ModelPackageName pulumi.StringPtrInput `pulumi:"modelPackageName"`
 	// Specifies additional configuration for multi-model endpoints. see Multi Model Config.
@@ -42642,7 +42642,7 @@ func (o ModelContainerOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelContainer) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+// Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
 func (o ModelContainerOutput) ImageConfig() ModelContainerImageConfigPtrOutput {
 	return o.ApplyT(func(v ModelContainer) *ModelContainerImageConfig { return v.ImageConfig }).(ModelContainerImageConfigPtrOutput)
 }
@@ -42667,7 +42667,7 @@ func (o ModelContainerOutput) ModelDataUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelContainer) *string { return v.ModelDataUrl }).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the model package to use to create the model.
+// ARN of the model package to use to create the model.
 // A list of key value pairs.
 func (o ModelContainerOutput) ModelPackageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelContainer) *string { return v.ModelPackageName }).(pulumi.StringPtrOutput)
@@ -43070,7 +43070,7 @@ func (o ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigPtrO
 }
 
 type ModelContainerImageConfig struct {
-	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+	// Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. Allowed values are: `Platform` and `Vpc`.
 	RepositoryAccessMode string `pulumi:"repositoryAccessMode"`
 	// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
 	RepositoryAuthConfig *ModelContainerImageConfigRepositoryAuthConfig `pulumi:"repositoryAuthConfig"`
@@ -43088,7 +43088,7 @@ type ModelContainerImageConfigInput interface {
 }
 
 type ModelContainerImageConfigArgs struct {
-	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+	// Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. Allowed values are: `Platform` and `Vpc`.
 	RepositoryAccessMode pulumi.StringInput `pulumi:"repositoryAccessMode"`
 	// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
 	RepositoryAuthConfig ModelContainerImageConfigRepositoryAuthConfigPtrInput `pulumi:"repositoryAuthConfig"`
@@ -43171,7 +43171,7 @@ func (o ModelContainerImageConfigOutput) ToModelContainerImageConfigPtrOutputWit
 	}).(ModelContainerImageConfigPtrOutput)
 }
 
-// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+// Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. Allowed values are: `Platform` and `Vpc`.
 func (o ModelContainerImageConfigOutput) RepositoryAccessMode() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelContainerImageConfig) string { return v.RepositoryAccessMode }).(pulumi.StringOutput)
 }
@@ -43207,7 +43207,7 @@ func (o ModelContainerImageConfigPtrOutput) Elem() ModelContainerImageConfigOutp
 	}).(ModelContainerImageConfigOutput)
 }
 
-// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+// Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. Allowed values are: `Platform` and `Vpc`.
 func (o ModelContainerImageConfigPtrOutput) RepositoryAccessMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelContainerImageConfig) *string {
 		if v == nil {
@@ -43228,7 +43228,7 @@ func (o ModelContainerImageConfigPtrOutput) RepositoryAuthConfig() ModelContaine
 }
 
 type ModelContainerImageConfigRepositoryAuthConfig struct {
-	// Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+	// ARN of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
 	RepositoryCredentialsProviderArn string `pulumi:"repositoryCredentialsProviderArn"`
 }
 
@@ -43244,7 +43244,7 @@ type ModelContainerImageConfigRepositoryAuthConfigInput interface {
 }
 
 type ModelContainerImageConfigRepositoryAuthConfigArgs struct {
-	// Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+	// ARN of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
 	RepositoryCredentialsProviderArn pulumi.StringInput `pulumi:"repositoryCredentialsProviderArn"`
 }
 
@@ -43325,7 +43325,7 @@ func (o ModelContainerImageConfigRepositoryAuthConfigOutput) ToModelContainerIma
 	}).(ModelContainerImageConfigRepositoryAuthConfigPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+// ARN of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
 func (o ModelContainerImageConfigRepositoryAuthConfigOutput) RepositoryCredentialsProviderArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelContainerImageConfigRepositoryAuthConfig) string {
 		return v.RepositoryCredentialsProviderArn
@@ -43356,7 +43356,7 @@ func (o ModelContainerImageConfigRepositoryAuthConfigPtrOutput) Elem() ModelCont
 	}).(ModelContainerImageConfigRepositoryAuthConfigOutput)
 }
 
-// Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+// ARN of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
 func (o ModelContainerImageConfigRepositoryAuthConfigPtrOutput) RepositoryCredentialsProviderArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelContainerImageConfigRepositoryAuthConfig) *string {
 		if v == nil {
@@ -44051,7 +44051,7 @@ type ModelPrimaryContainer struct {
 	Environment map[string]string `pulumi:"environment"`
 	// Registry path where the inference code image is stored in Amazon ECR.
 	Image *string `pulumi:"image"`
-	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+	// Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
 	ImageConfig *ModelPrimaryContainerImageConfig `pulumi:"imageConfig"`
 	// Inference specification name in the model package version.
 	InferenceSpecificationName *string `pulumi:"inferenceSpecificationName"`
@@ -44060,7 +44060,7 @@ type ModelPrimaryContainer struct {
 	ModelDataSource *ModelPrimaryContainerModelDataSource `pulumi:"modelDataSource"`
 	// URL for the S3 location where model artifacts are stored.
 	ModelDataUrl *string `pulumi:"modelDataUrl"`
-	// Amazon Resource Name (ARN) of the model package to use to create the model.
+	// ARN of the model package to use to create the model.
 	// A list of key value pairs.
 	ModelPackageName *string `pulumi:"modelPackageName"`
 	// Specifies additional configuration for multi-model endpoints. see Multi Model Config.
@@ -44087,7 +44087,7 @@ type ModelPrimaryContainerArgs struct {
 	Environment pulumi.StringMapInput `pulumi:"environment"`
 	// Registry path where the inference code image is stored in Amazon ECR.
 	Image pulumi.StringPtrInput `pulumi:"image"`
-	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+	// Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
 	ImageConfig ModelPrimaryContainerImageConfigPtrInput `pulumi:"imageConfig"`
 	// Inference specification name in the model package version.
 	InferenceSpecificationName pulumi.StringPtrInput `pulumi:"inferenceSpecificationName"`
@@ -44096,7 +44096,7 @@ type ModelPrimaryContainerArgs struct {
 	ModelDataSource ModelPrimaryContainerModelDataSourcePtrInput `pulumi:"modelDataSource"`
 	// URL for the S3 location where model artifacts are stored.
 	ModelDataUrl pulumi.StringPtrInput `pulumi:"modelDataUrl"`
-	// Amazon Resource Name (ARN) of the model package to use to create the model.
+	// ARN of the model package to use to create the model.
 	// A list of key value pairs.
 	ModelPackageName pulumi.StringPtrInput `pulumi:"modelPackageName"`
 	// Specifies additional configuration for multi-model endpoints. see Multi Model Config.
@@ -44202,7 +44202,7 @@ func (o ModelPrimaryContainerOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+// Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
 func (o ModelPrimaryContainerOutput) ImageConfig() ModelPrimaryContainerImageConfigPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) *ModelPrimaryContainerImageConfig { return v.ImageConfig }).(ModelPrimaryContainerImageConfigPtrOutput)
 }
@@ -44226,7 +44226,7 @@ func (o ModelPrimaryContainerOutput) ModelDataUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.ModelDataUrl }).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the model package to use to create the model.
+// ARN of the model package to use to create the model.
 // A list of key value pairs.
 func (o ModelPrimaryContainerOutput) ModelPackageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.ModelPackageName }).(pulumi.StringPtrOutput)
@@ -44301,7 +44301,7 @@ func (o ModelPrimaryContainerPtrOutput) Image() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+// Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
 func (o ModelPrimaryContainerPtrOutput) ImageConfig() ModelPrimaryContainerImageConfigPtrOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainer) *ModelPrimaryContainerImageConfig {
 		if v == nil {
@@ -44350,7 +44350,7 @@ func (o ModelPrimaryContainerPtrOutput) ModelDataUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the model package to use to create the model.
+// ARN of the model package to use to create the model.
 // A list of key value pairs.
 func (o ModelPrimaryContainerPtrOutput) ModelPackageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainer) *string {
@@ -44745,7 +44745,7 @@ func (o ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessCon
 }
 
 type ModelPrimaryContainerImageConfig struct {
-	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+	// Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. Allowed values are: `Platform` and `Vpc`.
 	RepositoryAccessMode string `pulumi:"repositoryAccessMode"`
 	// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
 	RepositoryAuthConfig *ModelPrimaryContainerImageConfigRepositoryAuthConfig `pulumi:"repositoryAuthConfig"`
@@ -44763,7 +44763,7 @@ type ModelPrimaryContainerImageConfigInput interface {
 }
 
 type ModelPrimaryContainerImageConfigArgs struct {
-	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+	// Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. Allowed values are: `Platform` and `Vpc`.
 	RepositoryAccessMode pulumi.StringInput `pulumi:"repositoryAccessMode"`
 	// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
 	RepositoryAuthConfig ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrInput `pulumi:"repositoryAuthConfig"`
@@ -44846,7 +44846,7 @@ func (o ModelPrimaryContainerImageConfigOutput) ToModelPrimaryContainerImageConf
 	}).(ModelPrimaryContainerImageConfigPtrOutput)
 }
 
-// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+// Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. Allowed values are: `Platform` and `Vpc`.
 func (o ModelPrimaryContainerImageConfigOutput) RepositoryAccessMode() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelPrimaryContainerImageConfig) string { return v.RepositoryAccessMode }).(pulumi.StringOutput)
 }
@@ -44882,7 +44882,7 @@ func (o ModelPrimaryContainerImageConfigPtrOutput) Elem() ModelPrimaryContainerI
 	}).(ModelPrimaryContainerImageConfigOutput)
 }
 
-// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+// Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. Allowed values are: `Platform` and `Vpc`.
 func (o ModelPrimaryContainerImageConfigPtrOutput) RepositoryAccessMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainerImageConfig) *string {
 		if v == nil {
@@ -44903,7 +44903,7 @@ func (o ModelPrimaryContainerImageConfigPtrOutput) RepositoryAuthConfig() ModelP
 }
 
 type ModelPrimaryContainerImageConfigRepositoryAuthConfig struct {
-	// Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+	// ARN of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
 	RepositoryCredentialsProviderArn string `pulumi:"repositoryCredentialsProviderArn"`
 }
 
@@ -44919,7 +44919,7 @@ type ModelPrimaryContainerImageConfigRepositoryAuthConfigInput interface {
 }
 
 type ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs struct {
-	// Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+	// ARN of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
 	RepositoryCredentialsProviderArn pulumi.StringInput `pulumi:"repositoryCredentialsProviderArn"`
 }
 
@@ -45000,7 +45000,7 @@ func (o ModelPrimaryContainerImageConfigRepositoryAuthConfigOutput) ToModelPrima
 	}).(ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+// ARN of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
 func (o ModelPrimaryContainerImageConfigRepositoryAuthConfigOutput) RepositoryCredentialsProviderArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelPrimaryContainerImageConfigRepositoryAuthConfig) string {
 		return v.RepositoryCredentialsProviderArn
@@ -45031,7 +45031,7 @@ func (o ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput) Elem() Mo
 	}).(ModelPrimaryContainerImageConfigRepositoryAuthConfigOutput)
 }
 
-// Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+// ARN of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
 func (o ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput) RepositoryCredentialsProviderArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainerImageConfigRepositoryAuthConfig) *string {
 		if v == nil {
@@ -50772,7 +50772,7 @@ func (o SpaceSpaceSettingsPtrOutput) SpaceStorageSettings() SpaceSpaceSettingsSp
 type SpaceSpaceSettingsCodeEditorAppSettings struct {
 	// Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `appLifecycleManagement` Block below.
 	AppLifecycleManagement *SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement `pulumi:"appLifecycleManagement"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
 	DefaultResourceSpec SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 }
 
@@ -50790,7 +50790,7 @@ type SpaceSpaceSettingsCodeEditorAppSettingsInput interface {
 type SpaceSpaceSettingsCodeEditorAppSettingsArgs struct {
 	// Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `appLifecycleManagement` Block below.
 	AppLifecycleManagement SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrInput `pulumi:"appLifecycleManagement"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
 	DefaultResourceSpec SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecInput `pulumi:"defaultResourceSpec"`
 }
 
@@ -50878,7 +50878,7 @@ func (o SpaceSpaceSettingsCodeEditorAppSettingsOutput) AppLifecycleManagement() 
 	}).(SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
 func (o SpaceSpaceSettingsCodeEditorAppSettingsOutput) DefaultResourceSpec() SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsCodeEditorAppSettings) SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
@@ -50919,7 +50919,7 @@ func (o SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput) AppLifecycleManagement
 	}).(SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
 func (o SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput) DefaultResourceSpec() SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsCodeEditorAppSettings) *SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -51210,9 +51210,9 @@ func (o SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSetting
 type SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec struct {
 	// The instance type.
 	InstanceType *string `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
-	// The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
+	// ARN of the SageMaker AI image created on the instance.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
 	// The SageMaker AI Image Version Alias.
 	SagemakerImageVersionAlias *string `pulumi:"sagemakerImageVersionAlias"`
@@ -51234,9 +51234,9 @@ type SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecInput interface {
 type SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs struct {
 	// The instance type.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
-	// The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
+	// ARN of the SageMaker AI image created on the instance.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
 	// The SageMaker AI Image Version Alias.
 	SagemakerImageVersionAlias pulumi.StringPtrInput `pulumi:"sagemakerImageVersionAlias"`
@@ -51326,14 +51326,14 @@ func (o SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) Instan
 	return o.ApplyT(func(v SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
+// ARN of the SageMaker AI image created on the instance.
 func (o SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec) *string { return v.SagemakerImageArn }).(pulumi.StringPtrOutput)
 }
@@ -51386,7 +51386,7 @@ func (o SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) Ins
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -51396,7 +51396,7 @@ func (o SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) Lif
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
+// ARN of the SageMaker AI image created on the instance.
 func (o SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -51582,7 +51582,7 @@ type SpaceSpaceSettingsJupyterLabAppSettings struct {
 	AppLifecycleManagement *SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement `pulumi:"appLifecycleManagement"`
 	// A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterLab application. See `codeRepository` Block below.
 	CodeRepositories []SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository `pulumi:"codeRepositories"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
 	DefaultResourceSpec SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 }
 
@@ -51602,7 +51602,7 @@ type SpaceSpaceSettingsJupyterLabAppSettingsArgs struct {
 	AppLifecycleManagement SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrInput `pulumi:"appLifecycleManagement"`
 	// A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterLab application. See `codeRepository` Block below.
 	CodeRepositories SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayInput `pulumi:"codeRepositories"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
 	DefaultResourceSpec SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecInput `pulumi:"defaultResourceSpec"`
 }
 
@@ -51697,7 +51697,7 @@ func (o SpaceSpaceSettingsJupyterLabAppSettingsOutput) CodeRepositories() SpaceS
 	}).(SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
 func (o SpaceSpaceSettingsJupyterLabAppSettingsOutput) DefaultResourceSpec() SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsJupyterLabAppSettings) SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
@@ -51748,7 +51748,7 @@ func (o SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput) CodeRepositories() Spa
 	}).(SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
 func (o SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput) DefaultResourceSpec() SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterLabAppSettings) *SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -52136,9 +52136,9 @@ func (o SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput) Index(
 type SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec struct {
 	// The instance type.
 	InstanceType *string `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
-	// The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
+	// ARN of the SageMaker AI image created on the instance.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
 	// The SageMaker AI Image Version Alias.
 	SagemakerImageVersionAlias *string `pulumi:"sagemakerImageVersionAlias"`
@@ -52160,9 +52160,9 @@ type SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecInput interface {
 type SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs struct {
 	// The instance type.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
-	// The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
+	// ARN of the SageMaker AI image created on the instance.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
 	// The SageMaker AI Image Version Alias.
 	SagemakerImageVersionAlias pulumi.StringPtrInput `pulumi:"sagemakerImageVersionAlias"`
@@ -52252,14 +52252,14 @@ func (o SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) Instan
 	return o.ApplyT(func(v SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
+// ARN of the SageMaker AI image created on the instance.
 func (o SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec) *string { return v.SagemakerImageArn }).(pulumi.StringPtrOutput)
 }
@@ -52312,7 +52312,7 @@ func (o SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) Ins
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -52322,7 +52322,7 @@ func (o SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) Lif
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
+// ARN of the SageMaker AI image created on the instance.
 func (o SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -52355,9 +52355,9 @@ func (o SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) Sag
 type SpaceSpaceSettingsJupyterServerAppSettings struct {
 	// A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. See `codeRepository` Block below.
 	CodeRepositories []SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository `pulumi:"codeRepositories"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
 	DefaultResourceSpec SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	// ARN of the Lifecycle Configurations.
 	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
 
@@ -52375,9 +52375,9 @@ type SpaceSpaceSettingsJupyterServerAppSettingsInput interface {
 type SpaceSpaceSettingsJupyterServerAppSettingsArgs struct {
 	// A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. See `codeRepository` Block below.
 	CodeRepositories SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayInput `pulumi:"codeRepositories"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
 	DefaultResourceSpec SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecInput `pulumi:"defaultResourceSpec"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	// ARN of the Lifecycle Configurations.
 	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
 
@@ -52465,14 +52465,14 @@ func (o SpaceSpaceSettingsJupyterServerAppSettingsOutput) CodeRepositories() Spa
 	}).(SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
 func (o SpaceSpaceSettingsJupyterServerAppSettingsOutput) DefaultResourceSpec() SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsJupyterServerAppSettings) SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
 	}).(SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+// ARN of the Lifecycle Configurations.
 func (o SpaceSpaceSettingsJupyterServerAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsJupyterServerAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
 }
@@ -52511,7 +52511,7 @@ func (o SpaceSpaceSettingsJupyterServerAppSettingsPtrOutput) CodeRepositories() 
 	}).(SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
 func (o SpaceSpaceSettingsJupyterServerAppSettingsPtrOutput) DefaultResourceSpec() SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterServerAppSettings) *SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -52521,7 +52521,7 @@ func (o SpaceSpaceSettingsJupyterServerAppSettingsPtrOutput) DefaultResourceSpec
 	}).(SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+// ARN of the Lifecycle Configurations.
 func (o SpaceSpaceSettingsJupyterServerAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterServerAppSettings) []string {
 		if v == nil {
@@ -52631,9 +52631,9 @@ func (o SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput) Ind
 type SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec struct {
 	// The instance type.
 	InstanceType *string `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
-	// The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
+	// ARN of the SageMaker AI image created on the instance.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
 	// The SageMaker AI Image Version Alias.
 	SagemakerImageVersionAlias *string `pulumi:"sagemakerImageVersionAlias"`
@@ -52655,9 +52655,9 @@ type SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecInput interfac
 type SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs struct {
 	// The instance type.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
-	// The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
+	// ARN of the SageMaker AI image created on the instance.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
 	// The SageMaker AI Image Version Alias.
 	SagemakerImageVersionAlias pulumi.StringPtrInput `pulumi:"sagemakerImageVersionAlias"`
@@ -52747,14 +52747,14 @@ func (o SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) Ins
 	return o.ApplyT(func(v SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
+// ARN of the SageMaker AI image created on the instance.
 func (o SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageArn
@@ -52809,7 +52809,7 @@ func (o SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -52819,7 +52819,7 @@ func (o SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
+// ARN of the SageMaker AI image created on the instance.
 func (o SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -52852,9 +52852,9 @@ func (o SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) 
 type SpaceSpaceSettingsKernelGatewayAppSettings struct {
 	// A list of custom SageMaker AI images that are configured to run as a KernelGateway app. See `customImage` Block below.
 	CustomImages []SpaceSpaceSettingsKernelGatewayAppSettingsCustomImage `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
 	DefaultResourceSpec SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	// ARN of the Lifecycle Configurations.
 	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
 
@@ -52872,9 +52872,9 @@ type SpaceSpaceSettingsKernelGatewayAppSettingsInput interface {
 type SpaceSpaceSettingsKernelGatewayAppSettingsArgs struct {
 	// A list of custom SageMaker AI images that are configured to run as a KernelGateway app. See `customImage` Block below.
 	CustomImages SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArrayInput `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
 	DefaultResourceSpec SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecInput `pulumi:"defaultResourceSpec"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	// ARN of the Lifecycle Configurations.
 	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
 
@@ -52962,14 +52962,14 @@ func (o SpaceSpaceSettingsKernelGatewayAppSettingsOutput) CustomImages() SpaceSp
 	}).(SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
 func (o SpaceSpaceSettingsKernelGatewayAppSettingsOutput) DefaultResourceSpec() SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsKernelGatewayAppSettings) SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
 	}).(SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+// ARN of the Lifecycle Configurations.
 func (o SpaceSpaceSettingsKernelGatewayAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsKernelGatewayAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
 }
@@ -53008,7 +53008,7 @@ func (o SpaceSpaceSettingsKernelGatewayAppSettingsPtrOutput) CustomImages() Spac
 	}).(SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
 func (o SpaceSpaceSettingsKernelGatewayAppSettingsPtrOutput) DefaultResourceSpec() SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsKernelGatewayAppSettings) *SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -53018,7 +53018,7 @@ func (o SpaceSpaceSettingsKernelGatewayAppSettingsPtrOutput) DefaultResourceSpec
 	}).(SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+// ARN of the Lifecycle Configurations.
 func (o SpaceSpaceSettingsKernelGatewayAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsKernelGatewayAppSettings) []string {
 		if v == nil {
@@ -53146,9 +53146,9 @@ func (o SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArrayOutput) Index(
 type SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec struct {
 	// The instance type.
 	InstanceType *string `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
-	// The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
+	// ARN of the SageMaker AI image created on the instance.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
 	// The SageMaker AI Image Version Alias.
 	SagemakerImageVersionAlias *string `pulumi:"sagemakerImageVersionAlias"`
@@ -53170,9 +53170,9 @@ type SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecInput interfac
 type SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs struct {
 	// The instance type.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
-	// The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
+	// ARN of the SageMaker AI image created on the instance.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
 	// The SageMaker AI Image Version Alias.
 	SagemakerImageVersionAlias pulumi.StringPtrInput `pulumi:"sagemakerImageVersionAlias"`
@@ -53262,14 +53262,14 @@ func (o SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) Ins
 	return o.ApplyT(func(v SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
+// ARN of the SageMaker AI image created on the instance.
 func (o SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		return v.SagemakerImageArn
@@ -53324,7 +53324,7 @@ func (o SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -53334,7 +53334,7 @@ func (o SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
+// ARN of the SageMaker AI image created on the instance.
 func (o SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -60301,7 +60301,7 @@ func (o UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput) S
 }
 
 type UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings struct {
-	// The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+	// ARN of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker AI Canvas application. Valid values are: `ENABLED` and `DISABLED`.
 	Status *string `pulumi:"status"`
@@ -60319,7 +60319,7 @@ type UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsInput interfac
 }
 
 type UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs struct {
-	// The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+	// ARN of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
 	ExecutionRoleArn pulumi.StringPtrInput `pulumi:"executionRoleArn"`
 	// Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker AI Canvas application. Valid values are: `ENABLED` and `DISABLED`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
@@ -60402,7 +60402,7 @@ func (o UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput) ToU
 	}).(UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+// ARN of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
 func (o UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings) *string {
 		return v.ExecutionRoleArn
@@ -60438,7 +60438,7 @@ func (o UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput) 
 	}).(UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput)
 }
 
-// The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+// ARN of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
 func (o UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings) *string {
 		if v == nil {
@@ -60850,7 +60850,7 @@ func (o UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutput) Status(
 }
 
 type UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings struct {
-	// The Amazon Resource Name (ARN) of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
+	// ARN of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
 	CrossAccountModelRegisterRoleArn *string `pulumi:"crossAccountModelRegisterRoleArn"`
 	// Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
 	Status *string `pulumi:"status"`
@@ -60868,7 +60868,7 @@ type UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsInput interfac
 }
 
 type UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs struct {
-	// The Amazon Resource Name (ARN) of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
+	// ARN of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
 	CrossAccountModelRegisterRoleArn pulumi.StringPtrInput `pulumi:"crossAccountModelRegisterRoleArn"`
 	// Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
@@ -60951,7 +60951,7 @@ func (o UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutput) ToU
 	}).(UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
+// ARN of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
 func (o UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutput) CrossAccountModelRegisterRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings) *string {
 		return v.CrossAccountModelRegisterRoleArn
@@ -60987,7 +60987,7 @@ func (o UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput) 
 	}).(UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutput)
 }
 
-// The Amazon Resource Name (ARN) of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
+// ARN of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
 func (o UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput) CrossAccountModelRegisterRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings) *string {
 		if v == nil {
@@ -61168,7 +61168,7 @@ func (o UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtr
 type UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings struct {
 	// The Amazon S3 bucket used to store artifacts generated by Canvas. Updating the Amazon S3 location impacts existing configuration settings, and Canvas users no longer have access to their artifacts. Canvas users must log out and log back in to apply the new location.
 	S3ArtifactPath *string `pulumi:"s3ArtifactPath"`
-	// The Amazon Web Services Key Management Service (KMS) encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
+	// KMS encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
 	S3KmsKeyId *string `pulumi:"s3KmsKeyId"`
 }
 
@@ -61186,7 +61186,7 @@ type UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsInput interface {
 type UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs struct {
 	// The Amazon S3 bucket used to store artifacts generated by Canvas. Updating the Amazon S3 location impacts existing configuration settings, and Canvas users no longer have access to their artifacts. Canvas users must log out and log back in to apply the new location.
 	S3ArtifactPath pulumi.StringPtrInput `pulumi:"s3ArtifactPath"`
-	// The Amazon Web Services Key Management Service (KMS) encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
+	// KMS encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
 	S3KmsKeyId pulumi.StringPtrInput `pulumi:"s3KmsKeyId"`
 }
 
@@ -61272,7 +61272,7 @@ func (o UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsOutput) S3Artif
 	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings) *string { return v.S3ArtifactPath }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Web Services Key Management Service (KMS) encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
+// KMS encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
 func (o UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsOutput) S3KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings) *string { return v.S3KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -61311,7 +61311,7 @@ func (o UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput) S3Ar
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Web Services Key Management Service (KMS) encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
+// KMS encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
 func (o UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput) S3KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings) *string {
 		if v == nil {
@@ -61328,9 +61328,9 @@ type UserProfileUserSettingsCodeEditorAppSettings struct {
 	BuiltInLifecycleConfigArn *string `pulumi:"builtInLifecycleConfigArn"`
 	// A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see Custom Image below.
 	CustomImages []UserProfileUserSettingsCodeEditorAppSettingsCustomImage `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec *UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	// ARN of the Lifecycle Configurations.
 	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
 
@@ -61352,9 +61352,9 @@ type UserProfileUserSettingsCodeEditorAppSettingsArgs struct {
 	BuiltInLifecycleConfigArn pulumi.StringPtrInput `pulumi:"builtInLifecycleConfigArn"`
 	// A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see Custom Image below.
 	CustomImages UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayInput `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	// ARN of the Lifecycle Configurations.
 	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
 
@@ -61454,14 +61454,14 @@ func (o UserProfileUserSettingsCodeEditorAppSettingsOutput) CustomImages() UserP
 	}).(UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
 func (o UserProfileUserSettingsCodeEditorAppSettingsOutput) DefaultResourceSpec() UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsCodeEditorAppSettings) *UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
 	}).(UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+// ARN of the Lifecycle Configurations.
 func (o UserProfileUserSettingsCodeEditorAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsCodeEditorAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
 }
@@ -61520,7 +61520,7 @@ func (o UserProfileUserSettingsCodeEditorAppSettingsPtrOutput) CustomImages() Us
 	}).(UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
 func (o UserProfileUserSettingsCodeEditorAppSettingsPtrOutput) DefaultResourceSpec() UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsCodeEditorAppSettings) *UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -61530,7 +61530,7 @@ func (o UserProfileUserSettingsCodeEditorAppSettingsPtrOutput) DefaultResourceSp
 	}).(UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+// ARN of the Lifecycle Configurations.
 func (o UserProfileUserSettingsCodeEditorAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsCodeEditorAppSettings) []string {
 		if v == nil {
@@ -61999,7 +61999,7 @@ func (o UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayOutput) Inde
 type UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType *string `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
@@ -62023,7 +62023,7 @@ type UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecInput interf
 type UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
@@ -62115,7 +62115,7 @@ func (o UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) I
 	return o.ApplyT(func(v UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
@@ -62177,7 +62177,7 @@ func (o UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -62588,11 +62588,11 @@ type UserProfileUserSettingsJupyterLabAppSettings struct {
 	// A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
 	CodeRepositories []UserProfileUserSettingsJupyterLabAppSettingsCodeRepository `pulumi:"codeRepositories"`
 	CustomImages     []UserProfileUserSettingsJupyterLabAppSettingsCustomImage    `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec *UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 	// The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
 	EmrSettings *UserProfileUserSettingsJupyterLabAppSettingsEmrSettings `pulumi:"emrSettings"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	// ARN of the Lifecycle Configurations.
 	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
 
@@ -62615,11 +62615,11 @@ type UserProfileUserSettingsJupyterLabAppSettingsArgs struct {
 	// A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
 	CodeRepositories UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayInput `pulumi:"codeRepositories"`
 	CustomImages     UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayInput    `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 	// The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
 	EmrSettings UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrInput `pulumi:"emrSettings"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	// ARN of the Lifecycle Configurations.
 	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
 
@@ -62725,7 +62725,7 @@ func (o UserProfileUserSettingsJupyterLabAppSettingsOutput) CustomImages() UserP
 	}).(UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
 func (o UserProfileUserSettingsJupyterLabAppSettingsOutput) DefaultResourceSpec() UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettings) *UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
@@ -62739,7 +62739,7 @@ func (o UserProfileUserSettingsJupyterLabAppSettingsOutput) EmrSettings() UserPr
 	}).(UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+// ARN of the Lifecycle Configurations.
 func (o UserProfileUserSettingsJupyterLabAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
 }
@@ -62807,7 +62807,7 @@ func (o UserProfileUserSettingsJupyterLabAppSettingsPtrOutput) CustomImages() Us
 	}).(UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
 func (o UserProfileUserSettingsJupyterLabAppSettingsPtrOutput) DefaultResourceSpec() UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettings) *UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -62827,7 +62827,7 @@ func (o UserProfileUserSettingsJupyterLabAppSettingsPtrOutput) EmrSettings() Use
 	}).(UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+// ARN of the Lifecycle Configurations.
 func (o UserProfileUserSettingsJupyterLabAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettings) []string {
 		if v == nil {
@@ -63393,7 +63393,7 @@ func (o UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayOutput) Inde
 type UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType *string `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
@@ -63417,7 +63417,7 @@ type UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecInput interf
 type UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
@@ -63509,7 +63509,7 @@ func (o UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) I
 	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
@@ -63571,7 +63571,7 @@ func (o UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -63612,9 +63612,9 @@ func (o UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput
 }
 
 type UserProfileUserSettingsJupyterLabAppSettingsEmrSettings struct {
-	// An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
+	// Array of ARNs of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
 	AssumableRoleArns []string `pulumi:"assumableRoleArns"`
-	// An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+	// Array of ARNs of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
 	ExecutionRoleArns []string `pulumi:"executionRoleArns"`
 }
 
@@ -63630,9 +63630,9 @@ type UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsInput interface {
 }
 
 type UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgs struct {
-	// An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
+	// Array of ARNs of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
 	AssumableRoleArns pulumi.StringArrayInput `pulumi:"assumableRoleArns"`
-	// An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+	// Array of ARNs of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
 	ExecutionRoleArns pulumi.StringArrayInput `pulumi:"executionRoleArns"`
 }
 
@@ -63713,12 +63713,12 @@ func (o UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsOutput) ToUserPro
 	}).(UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput)
 }
 
-// An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
+// Array of ARNs of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
 func (o UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsOutput) AssumableRoleArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettingsEmrSettings) []string { return v.AssumableRoleArns }).(pulumi.StringArrayOutput)
 }
 
-// An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+// Array of ARNs of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
 func (o UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsOutput) ExecutionRoleArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettingsEmrSettings) []string { return v.ExecutionRoleArns }).(pulumi.StringArrayOutput)
 }
@@ -63747,7 +63747,7 @@ func (o UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) Elem()
 	}).(UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsOutput)
 }
 
-// An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
+// Array of ARNs of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
 func (o UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) AssumableRoleArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettingsEmrSettings) []string {
 		if v == nil {
@@ -63757,7 +63757,7 @@ func (o UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) Assuma
 	}).(pulumi.StringArrayOutput)
 }
 
-// An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+// Array of ARNs of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
 func (o UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) ExecutionRoleArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettingsEmrSettings) []string {
 		if v == nil {
@@ -63770,9 +63770,9 @@ func (o UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) Execut
 type UserProfileUserSettingsJupyterServerAppSettings struct {
 	// A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
 	CodeRepositories []UserProfileUserSettingsJupyterServerAppSettingsCodeRepository `pulumi:"codeRepositories"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec *UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	// ARN of the Lifecycle Configurations.
 	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
 
@@ -63790,9 +63790,9 @@ type UserProfileUserSettingsJupyterServerAppSettingsInput interface {
 type UserProfileUserSettingsJupyterServerAppSettingsArgs struct {
 	// A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
 	CodeRepositories UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArrayInput `pulumi:"codeRepositories"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	// ARN of the Lifecycle Configurations.
 	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
 
@@ -63880,14 +63880,14 @@ func (o UserProfileUserSettingsJupyterServerAppSettingsOutput) CodeRepositories(
 	}).(UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
 func (o UserProfileUserSettingsJupyterServerAppSettingsOutput) DefaultResourceSpec() UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsJupyterServerAppSettings) *UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
 	}).(UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+// ARN of the Lifecycle Configurations.
 func (o UserProfileUserSettingsJupyterServerAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsJupyterServerAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
 }
@@ -63926,7 +63926,7 @@ func (o UserProfileUserSettingsJupyterServerAppSettingsPtrOutput) CodeRepositori
 	}).(UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
 func (o UserProfileUserSettingsJupyterServerAppSettingsPtrOutput) DefaultResourceSpec() UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsJupyterServerAppSettings) *UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -63936,7 +63936,7 @@ func (o UserProfileUserSettingsJupyterServerAppSettingsPtrOutput) DefaultResourc
 	}).(UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+// ARN of the Lifecycle Configurations.
 func (o UserProfileUserSettingsJupyterServerAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsJupyterServerAppSettings) []string {
 		if v == nil {
@@ -64046,7 +64046,7 @@ func (o UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArrayOutput
 type UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType *string `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
@@ -64070,7 +64070,7 @@ type UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecInput int
 type UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
@@ -64164,7 +64164,7 @@ func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
@@ -64226,7 +64226,7 @@ func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -64269,9 +64269,9 @@ func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOut
 type UserProfileUserSettingsKernelGatewayAppSettings struct {
 	// A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see Custom Image below.
 	CustomImages []UserProfileUserSettingsKernelGatewayAppSettingsCustomImage `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec *UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	// ARN of the Lifecycle Configurations.
 	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
 
@@ -64289,9 +64289,9 @@ type UserProfileUserSettingsKernelGatewayAppSettingsInput interface {
 type UserProfileUserSettingsKernelGatewayAppSettingsArgs struct {
 	// A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see Custom Image below.
 	CustomImages UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayInput `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+	// ARN of the Lifecycle Configurations.
 	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
 
@@ -64379,14 +64379,14 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsOutput) CustomImages() Us
 	}).(UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
 func (o UserProfileUserSettingsKernelGatewayAppSettingsOutput) DefaultResourceSpec() UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsKernelGatewayAppSettings) *UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
 	}).(UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+// ARN of the Lifecycle Configurations.
 func (o UserProfileUserSettingsKernelGatewayAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsKernelGatewayAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
 }
@@ -64425,7 +64425,7 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput) CustomImages()
 	}).(UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
 func (o UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput) DefaultResourceSpec() UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsKernelGatewayAppSettings) *UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -64435,7 +64435,7 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput) DefaultResourc
 	}).(UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+// ARN of the Lifecycle Configurations.
 func (o UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsKernelGatewayAppSettings) []string {
 		if v == nil {
@@ -64563,7 +64563,7 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput) I
 type UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType *string `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
@@ -64587,7 +64587,7 @@ type UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecInput int
 type UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
@@ -64681,7 +64681,7 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
@@ -64743,7 +64743,7 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -64786,7 +64786,7 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOut
 type UserProfileUserSettingsRSessionAppSettings struct {
 	// A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see Custom Image below.
 	CustomImages []UserProfileUserSettingsRSessionAppSettingsCustomImage `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec *UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 }
 
@@ -64804,7 +64804,7 @@ type UserProfileUserSettingsRSessionAppSettingsInput interface {
 type UserProfileUserSettingsRSessionAppSettingsArgs struct {
 	// A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see Custom Image below.
 	CustomImages UserProfileUserSettingsRSessionAppSettingsCustomImageArrayInput `pulumi:"customImages"`
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 }
 
@@ -64892,7 +64892,7 @@ func (o UserProfileUserSettingsRSessionAppSettingsOutput) CustomImages() UserPro
 	}).(UserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
 func (o UserProfileUserSettingsRSessionAppSettingsOutput) DefaultResourceSpec() UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsRSessionAppSettings) *UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
@@ -64933,7 +64933,7 @@ func (o UserProfileUserSettingsRSessionAppSettingsPtrOutput) CustomImages() User
 	}).(UserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
 func (o UserProfileUserSettingsRSessionAppSettingsPtrOutput) DefaultResourceSpec() UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsRSessionAppSettings) *UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -65061,7 +65061,7 @@ func (o UserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutput) Index(
 type UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType *string `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
@@ -65085,7 +65085,7 @@ type UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecInput interfac
 type UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
@@ -65177,7 +65177,7 @@ func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) Ins
 	return o.ApplyT(func(v UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
@@ -65239,7 +65239,7 @@ func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -65438,7 +65438,7 @@ func (o UserProfileUserSettingsRStudioServerProAppSettingsPtrOutput) UserGroup()
 type UserProfileUserSettingsSharingSettings struct {
 	// Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
 	NotebookOutputOption *string `pulumi:"notebookOutputOption"`
-	// When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+	// When `notebookOutputOption` is Allowed, the KMS encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
 	S3KmsKeyId *string `pulumi:"s3KmsKeyId"`
 	// When `notebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
 	S3OutputPath *string `pulumi:"s3OutputPath"`
@@ -65458,7 +65458,7 @@ type UserProfileUserSettingsSharingSettingsInput interface {
 type UserProfileUserSettingsSharingSettingsArgs struct {
 	// Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
 	NotebookOutputOption pulumi.StringPtrInput `pulumi:"notebookOutputOption"`
-	// When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+	// When `notebookOutputOption` is Allowed, the KMS encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
 	S3KmsKeyId pulumi.StringPtrInput `pulumi:"s3KmsKeyId"`
 	// When `notebookOutputOption` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
 	S3OutputPath pulumi.StringPtrInput `pulumi:"s3OutputPath"`
@@ -65546,7 +65546,7 @@ func (o UserProfileUserSettingsSharingSettingsOutput) NotebookOutputOption() pul
 	return o.ApplyT(func(v UserProfileUserSettingsSharingSettings) *string { return v.NotebookOutputOption }).(pulumi.StringPtrOutput)
 }
 
-// When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+// When `notebookOutputOption` is Allowed, the KMS encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
 func (o UserProfileUserSettingsSharingSettingsOutput) S3KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsSharingSettings) *string { return v.S3KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -65590,7 +65590,7 @@ func (o UserProfileUserSettingsSharingSettingsPtrOutput) NotebookOutputOption() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+// When `notebookOutputOption` is Allowed, the KMS encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
 func (o UserProfileUserSettingsSharingSettingsPtrOutput) S3KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsSharingSettings) *string {
 		if v == nil {
@@ -66085,7 +66085,7 @@ func (o UserProfileUserSettingsStudioWebPortalSettingsPtrOutput) HiddenMlTools()
 }
 
 type UserProfileUserSettingsTensorBoardAppSettings struct {
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec *UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 }
 
@@ -66101,7 +66101,7 @@ type UserProfileUserSettingsTensorBoardAppSettingsInput interface {
 }
 
 type UserProfileUserSettingsTensorBoardAppSettingsArgs struct {
-	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+	// Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 }
 
@@ -66182,7 +66182,7 @@ func (o UserProfileUserSettingsTensorBoardAppSettingsOutput) ToUserProfileUserSe
 	}).(UserProfileUserSettingsTensorBoardAppSettingsPtrOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
 func (o UserProfileUserSettingsTensorBoardAppSettingsOutput) DefaultResourceSpec() UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsTensorBoardAppSettings) *UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
@@ -66213,7 +66213,7 @@ func (o UserProfileUserSettingsTensorBoardAppSettingsPtrOutput) Elem() UserProfi
 	}).(UserProfileUserSettingsTensorBoardAppSettingsOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+// Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
 func (o UserProfileUserSettingsTensorBoardAppSettingsPtrOutput) DefaultResourceSpec() UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsTensorBoardAppSettings) *UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
 		if v == nil {
@@ -66226,7 +66226,7 @@ func (o UserProfileUserSettingsTensorBoardAppSettingsPtrOutput) DefaultResourceS
 type UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType *string `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
@@ -66250,7 +66250,7 @@ type UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecInput inter
 type UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs struct {
 	// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	// ARN of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
 	// The ARN of the SageMaker AI image that the image version belongs to.
 	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
@@ -66344,7 +66344,7 @@ func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
 		return v.LifecycleConfigArn
@@ -66406,7 +66406,7 @@ func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+// ARN of the Lifecycle Configuration attached to the Resource.
 func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
 		if v == nil {

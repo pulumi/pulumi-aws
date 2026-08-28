@@ -122,14 +122,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sagemaker/workteam:Workteam")
 public class Workteam extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
+     * ARN assigned by AWS to this Workteam.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
+     * @return ARN assigned by AWS to this Workteam.
      * 
      */
     public Output<String> arn() {

@@ -18,14 +18,14 @@ public final class SdkvoiceSipMediaApplicationState extends com.pulumi.resources
     public static final SdkvoiceSipMediaApplicationState Empty = new SdkvoiceSipMediaApplicationState();
 
     /**
-     * ARN (Amazon Resource Name) of the AWS Chime SDK Voice Sip Media Application
+     * ARN of the AWS Chime SDK Voice Sip Media Application
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN (Amazon Resource Name) of the AWS Chime SDK Voice Sip Media Application
+     * @return ARN of the AWS Chime SDK Voice Sip Media Application
      * 
      */
     public Optional<Output<String>> arn() {
@@ -48,14 +48,14 @@ public final class SdkvoiceSipMediaApplicationState extends com.pulumi.resources
     }
 
     /**
-     * List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
+     * List of endpoints (Lambda ARNs) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
      * 
      */
     @Import(name="endpoints")
     private @Nullable Output<SdkvoiceSipMediaApplicationEndpointsArgs> endpoints;
 
     /**
-     * @return List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
+     * @return List of endpoints (Lambda ARNs) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
      * 
      */
     public Optional<Output<SdkvoiceSipMediaApplicationEndpointsArgs>> endpoints() {
@@ -157,7 +157,7 @@ public final class SdkvoiceSipMediaApplicationState extends com.pulumi.resources
         }
 
         /**
-         * @param arn ARN (Amazon Resource Name) of the AWS Chime SDK Voice Sip Media Application
+         * @param arn ARN of the AWS Chime SDK Voice Sip Media Application
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class SdkvoiceSipMediaApplicationState extends com.pulumi.resources
         }
 
         /**
-         * @param arn ARN (Amazon Resource Name) of the AWS Chime SDK Voice Sip Media Application
+         * @param arn ARN of the AWS Chime SDK Voice Sip Media Application
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class SdkvoiceSipMediaApplicationState extends com.pulumi.resources
         }
 
         /**
-         * @param endpoints List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
+         * @param endpoints List of endpoints (Lambda ARNs) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class SdkvoiceSipMediaApplicationState extends com.pulumi.resources
         }
 
         /**
-         * @param endpoints List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
+         * @param endpoints List of endpoints (Lambda ARNs) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
          * 
          * @return builder
          * 

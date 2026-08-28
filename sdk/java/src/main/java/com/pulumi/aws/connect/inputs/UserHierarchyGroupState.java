@@ -19,14 +19,14 @@ public final class UserHierarchyGroupState extends com.pulumi.resources.Resource
     public static final UserHierarchyGroupState Empty = new UserHierarchyGroupState();
 
     /**
-     * The Amazon Resource Name (ARN) of the hierarchy group.
+     * The ARN of the hierarchy group.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the hierarchy group.
+     * @return The ARN of the hierarchy group.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -204,7 +204,7 @@ public final class UserHierarchyGroupState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the hierarchy group.
+         * @param arn The ARN of the hierarchy group.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class UserHierarchyGroupState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the hierarchy group.
+         * @param arn The ARN of the hierarchy group.
          * 
          * @return builder
          * 

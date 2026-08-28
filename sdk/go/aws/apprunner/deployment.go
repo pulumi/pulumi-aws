@@ -46,7 +46,7 @@ type Deployment struct {
 	OperationId pulumi.StringOutput `pulumi:"operationId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+	// ARN of the App Runner service to start the deployment for.
 	ServiceArn pulumi.StringOutput `pulumi:"serviceArn"`
 	// Current status of the App Runner service deployment.
 	Status   pulumi.StringOutput         `pulumi:"status"`
@@ -90,7 +90,7 @@ type deploymentState struct {
 	OperationId *string `pulumi:"operationId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+	// ARN of the App Runner service to start the deployment for.
 	ServiceArn *string `pulumi:"serviceArn"`
 	// Current status of the App Runner service deployment.
 	Status   *string             `pulumi:"status"`
@@ -102,7 +102,7 @@ type DeploymentState struct {
 	OperationId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+	// ARN of the App Runner service to start the deployment for.
 	ServiceArn pulumi.StringPtrInput
 	// Current status of the App Runner service deployment.
 	Status   pulumi.StringPtrInput
@@ -116,7 +116,7 @@ func (DeploymentState) ElementType() reflect.Type {
 type deploymentArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+	// ARN of the App Runner service to start the deployment for.
 	ServiceArn string              `pulumi:"serviceArn"`
 	Timeouts   *DeploymentTimeouts `pulumi:"timeouts"`
 }
@@ -125,7 +125,7 @@ type deploymentArgs struct {
 type DeploymentArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+	// ARN of the App Runner service to start the deployment for.
 	ServiceArn pulumi.StringInput
 	Timeouts   DeploymentTimeoutsPtrInput
 }
@@ -227,7 +227,7 @@ func (o DeploymentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+// ARN of the App Runner service to start the deployment for.
 func (o DeploymentOutput) ServiceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.ServiceArn }).(pulumi.StringOutput)
 }

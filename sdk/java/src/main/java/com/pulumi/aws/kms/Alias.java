@@ -78,14 +78,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:kms/alias:Alias")
 public class Alias extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the key alias.
+     * ARN of the key alias.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the key alias.
+     * @return ARN of the key alias.
      * 
      */
     public Output<String> arn() {
@@ -136,14 +136,14 @@ public class Alias extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) of the target key identifier.
+     * ARN of the target key identifier.
      * 
      */
     @Export(name="targetKeyArn", refs={String.class}, tree="[0]")
     private Output<String> targetKeyArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the target key identifier.
+     * @return ARN of the target key identifier.
      * 
      */
     public Output<String> targetKeyArn() {

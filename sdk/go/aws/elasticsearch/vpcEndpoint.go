@@ -62,7 +62,7 @@ import (
 type VpcEndpoint struct {
 	pulumi.CustomResourceState
 
-	// Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
+	// ARN of the domain to create the endpoint for
 	DomainArn pulumi.StringOutput `pulumi:"domainArn"`
 	// The connection endpoint ID for connecting to the domain.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
@@ -108,7 +108,7 @@ func GetVpcEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcEndpoint resources.
 type vpcEndpointState struct {
-	// Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
+	// ARN of the domain to create the endpoint for
 	DomainArn *string `pulumi:"domainArn"`
 	// The connection endpoint ID for connecting to the domain.
 	Endpoint *string `pulumi:"endpoint"`
@@ -119,7 +119,7 @@ type vpcEndpointState struct {
 }
 
 type VpcEndpointState struct {
-	// Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
+	// ARN of the domain to create the endpoint for
 	DomainArn pulumi.StringPtrInput
 	// The connection endpoint ID for connecting to the domain.
 	Endpoint pulumi.StringPtrInput
@@ -134,7 +134,7 @@ func (VpcEndpointState) ElementType() reflect.Type {
 }
 
 type vpcEndpointArgs struct {
-	// Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
+	// ARN of the domain to create the endpoint for
 	DomainArn string `pulumi:"domainArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -144,7 +144,7 @@ type vpcEndpointArgs struct {
 
 // The set of arguments for constructing a VpcEndpoint resource.
 type VpcEndpointArgs struct {
-	// Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
+	// ARN of the domain to create the endpoint for
 	DomainArn pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -239,7 +239,7 @@ func (o VpcEndpointOutput) ToVpcEndpointOutputWithContext(ctx context.Context) V
 	return o
 }
 
-// Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
+// ARN of the domain to create the endpoint for
 func (o VpcEndpointOutput) DomainArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringOutput { return v.DomainArn }).(pulumi.StringOutput)
 }

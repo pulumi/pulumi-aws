@@ -55,7 +55,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Global Accelerator custom routing endpoint group.
+    /// - `Arn` (String) ARN of the Global Accelerator custom routing endpoint group.
     /// 
     /// Using `pulumi import`, import Global Accelerator custom routing endpoint groups using the `Id`. For example:
     /// 
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     public partial class CustomRoutingEndpointGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the custom routing endpoint group.
+        /// ARN of the custom routing endpoint group.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         public Output<string> EndpointGroupRegion { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the custom routing listener.
+        /// ARN of the custom routing listener.
         /// </summary>
         [Output("listenerArn")]
         public Output<string> ListenerArn { get; private set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         public Input<string>? EndpointGroupRegion { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the custom routing listener.
+        /// ARN of the custom routing listener.
         /// </summary>
         [Input("listenerArn", required: true)]
         public Input<string> ListenerArn { get; set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     public sealed class CustomRoutingEndpointGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the custom routing endpoint group.
+        /// ARN of the custom routing endpoint group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         public Input<string>? EndpointGroupRegion { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the custom routing listener.
+        /// ARN of the custom routing listener.
         /// </summary>
         [Input("listenerArn")]
         public Input<string>? ListenerArn { get; set; }

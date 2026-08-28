@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Ebs
     public partial class VolumeCopy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the copied EBS volume.
+        /// ARN of the copied EBS volume.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -239,7 +239,7 @@ namespace Pulumi.Aws.Ebs
     public sealed class VolumeCopyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the copied EBS volume.
+        /// ARN of the copied EBS volume.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

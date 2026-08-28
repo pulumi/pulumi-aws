@@ -86,18 +86,33 @@ public final class PrivateVirtualInterfaceState extends com.pulumi.resources.Res
     }
 
     /**
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
      * 
      */
     @Import(name="bgpAsn")
     private @Nullable Output<Integer> bgpAsn;
 
     /**
-     * @return The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * @return BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
      * 
      */
     public Optional<Output<Integer>> bgpAsn() {
         return Optional.ofNullable(this.bgpAsn);
+    }
+
+    /**
+     * BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+     * 
+     */
+    @Import(name="bgpAsnLong")
+    private @Nullable Output<String> bgpAsnLong;
+
+    /**
+     * @return BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+     * 
+     */
+    public Optional<Output<String>> bgpAsnLong() {
+        return Optional.ofNullable(this.bgpAsnLong);
     }
 
     /**
@@ -306,6 +321,7 @@ public final class PrivateVirtualInterfaceState extends com.pulumi.resources.Res
         this.arn = $.arn;
         this.awsDevice = $.awsDevice;
         this.bgpAsn = $.bgpAsn;
+        this.bgpAsnLong = $.bgpAsnLong;
         this.bgpAuthKey = $.bgpAuthKey;
         this.connectionId = $.connectionId;
         this.customerAddress = $.customerAddress;
@@ -433,7 +449,7 @@ public final class PrivateVirtualInterfaceState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param bgpAsn The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+         * @param bgpAsn BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
          * 
          * @return builder
          * 
@@ -444,13 +460,34 @@ public final class PrivateVirtualInterfaceState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param bgpAsn The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+         * @param bgpAsn BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
          * 
          * @return builder
          * 
          */
         public Builder bgpAsn(Integer bgpAsn) {
             return bgpAsn(Output.of(bgpAsn));
+        }
+
+        /**
+         * @param bgpAsnLong BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bgpAsnLong(@Nullable Output<String> bgpAsnLong) {
+            $.bgpAsnLong = bgpAsnLong;
+            return this;
+        }
+
+        /**
+         * @param bgpAsnLong BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bgpAsnLong(String bgpAsnLong) {
+            return bgpAsnLong(Output.of(bgpAsnLong));
         }
 
         /**

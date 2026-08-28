@@ -154,7 +154,7 @@ namespace Pulumi.Aws.Odb
         /// </summary>
         public readonly int AdditionalStorageCount;
         /// <summary>
-        /// Amazon Resource Name (ARN) for the Exadata infrastructure.
+        /// ARN for the Exadata infrastructure.
         /// </summary>
         public readonly string Arn;
         /// <summary>

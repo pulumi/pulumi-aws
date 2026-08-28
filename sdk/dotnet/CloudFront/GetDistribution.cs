@@ -142,7 +142,7 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         public readonly string AnycastIpListId;
         /// <summary>
-        /// ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
+        /// ARN for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
         /// </summary>
         public readonly string Arn;
         /// <summary>

@@ -72,7 +72,7 @@ export class Pipeline extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
+     * ARN assigned by AWS to this Pipeline.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -170,7 +170,7 @@ export class Pipeline extends pulumi.CustomResource {
  */
 export interface PipelineState {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
+     * ARN assigned by AWS to this Pipeline.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

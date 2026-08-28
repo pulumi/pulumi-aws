@@ -75,14 +75,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:securityhub/actionTarget:ActionTarget")
 public class ActionTarget extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the Security Hub custom action target.
+     * ARN of the Security Hub custom action target.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Security Hub custom action target.
+     * @return ARN of the Security Hub custom action target.
      * 
      */
     public Output<String> arn() {

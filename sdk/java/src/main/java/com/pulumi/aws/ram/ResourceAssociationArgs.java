@@ -32,14 +32,14 @@ public final class ResourceAssociationArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+     * ARN of the resource to associate with the RAM Resource Share.
      * 
      */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+     * @return ARN of the resource to associate with the RAM Resource Share.
      * 
      */
     public Output<String> resourceArn() {
@@ -47,14 +47,14 @@ public final class ResourceAssociationArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Amazon Resource Name (ARN) of the RAM Resource Share.
+     * ARN of the RAM Resource Share.
      * 
      */
     @Import(name="resourceShareArn", required=true)
     private Output<String> resourceShareArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the RAM Resource Share.
+     * @return ARN of the RAM Resource Share.
      * 
      */
     public Output<String> resourceShareArn() {
@@ -109,7 +109,7 @@ public final class ResourceAssociationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param resourceArn Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+         * @param resourceArn ARN of the resource to associate with the RAM Resource Share.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class ResourceAssociationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param resourceArn Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+         * @param resourceArn ARN of the resource to associate with the RAM Resource Share.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ResourceAssociationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param resourceShareArn Amazon Resource Name (ARN) of the RAM Resource Share.
+         * @param resourceShareArn ARN of the RAM Resource Share.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ResourceAssociationArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param resourceShareArn Amazon Resource Name (ARN) of the RAM Resource Share.
+         * @param resourceShareArn ARN of the RAM Resource Share.
          * 
          * @return builder
          * 

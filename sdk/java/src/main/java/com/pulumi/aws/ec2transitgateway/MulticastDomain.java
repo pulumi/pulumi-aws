@@ -202,14 +202,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2transitgateway/multicastDomain:MulticastDomain")
 public class MulticastDomain extends com.pulumi.resources.CustomResource {
     /**
-     * EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
+     * EC2 Transit Gateway Multicast Domain ARN.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
+     * @return EC2 Transit Gateway Multicast Domain ARN.
      * 
      */
     public Output<String> arn() {

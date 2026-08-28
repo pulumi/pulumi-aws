@@ -102,14 +102,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sagemaker/model:Model")
 public class Model extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) assigned by AWS to this model.
+     * ARN assigned by AWS to this model.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) assigned by AWS to this model.
+     * @return ARN assigned by AWS to this model.
      * 
      */
     public Output<String> arn() {

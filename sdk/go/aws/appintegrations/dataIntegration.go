@@ -61,11 +61,11 @@ import (
 type DataIntegration struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the Data Integration.
+	// ARN of the Data Integration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Description of the Data Integration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// KMS key Amazon Resource Name (ARN) for the Data Integration.
+	// KMS key ARN for the Data Integration.
 	KmsKey pulumi.StringOutput `pulumi:"kmsKey"`
 	// Name of the Data Integration.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -120,11 +120,11 @@ func GetDataIntegration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataIntegration resources.
 type dataIntegrationState struct {
-	// Amazon Resource Name (ARN) of the Data Integration.
+	// ARN of the Data Integration.
 	Arn *string `pulumi:"arn"`
 	// Description of the Data Integration.
 	Description *string `pulumi:"description"`
-	// KMS key Amazon Resource Name (ARN) for the Data Integration.
+	// KMS key ARN for the Data Integration.
 	KmsKey *string `pulumi:"kmsKey"`
 	// Name of the Data Integration.
 	Name *string `pulumi:"name"`
@@ -141,11 +141,11 @@ type dataIntegrationState struct {
 }
 
 type DataIntegrationState struct {
-	// Amazon Resource Name (ARN) of the Data Integration.
+	// ARN of the Data Integration.
 	Arn pulumi.StringPtrInput
 	// Description of the Data Integration.
 	Description pulumi.StringPtrInput
-	// KMS key Amazon Resource Name (ARN) for the Data Integration.
+	// KMS key ARN for the Data Integration.
 	KmsKey pulumi.StringPtrInput
 	// Name of the Data Integration.
 	Name pulumi.StringPtrInput
@@ -168,7 +168,7 @@ func (DataIntegrationState) ElementType() reflect.Type {
 type dataIntegrationArgs struct {
 	// Description of the Data Integration.
 	Description *string `pulumi:"description"`
-	// KMS key Amazon Resource Name (ARN) for the Data Integration.
+	// KMS key ARN for the Data Integration.
 	KmsKey string `pulumi:"kmsKey"`
 	// Name of the Data Integration.
 	Name *string `pulumi:"name"`
@@ -186,7 +186,7 @@ type dataIntegrationArgs struct {
 type DataIntegrationArgs struct {
 	// Description of the Data Integration.
 	Description pulumi.StringPtrInput
-	// KMS key Amazon Resource Name (ARN) for the Data Integration.
+	// KMS key ARN for the Data Integration.
 	KmsKey pulumi.StringInput
 	// Name of the Data Integration.
 	Name pulumi.StringPtrInput
@@ -287,7 +287,7 @@ func (o DataIntegrationOutput) ToDataIntegrationOutputWithContext(ctx context.Co
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Data Integration.
+// ARN of the Data Integration.
 func (o DataIntegrationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataIntegration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -297,7 +297,7 @@ func (o DataIntegrationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataIntegration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// KMS key Amazon Resource Name (ARN) for the Data Integration.
+// KMS key ARN for the Data Integration.
 func (o DataIntegrationOutput) KmsKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataIntegration) pulumi.StringOutput { return v.KmsKey }).(pulumi.StringOutput)
 }

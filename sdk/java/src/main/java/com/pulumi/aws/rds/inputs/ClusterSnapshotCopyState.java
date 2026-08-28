@@ -51,14 +51,14 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the DB cluster snapshot.
+     * ARN for the DB cluster snapshot.
      * 
      */
     @Import(name="dbClusterSnapshotArn")
     private @Nullable Output<String> dbClusterSnapshotArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the DB cluster snapshot.
+     * @return ARN for the DB cluster snapshot.
      * 
      */
     public Optional<Output<String>> dbClusterSnapshotArn() {
@@ -394,7 +394,7 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param dbClusterSnapshotArn The Amazon Resource Name (ARN) for the DB cluster snapshot.
+         * @param dbClusterSnapshotArn ARN for the DB cluster snapshot.
          * 
          * @return builder
          * 
@@ -405,7 +405,7 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param dbClusterSnapshotArn The Amazon Resource Name (ARN) for the DB cluster snapshot.
+         * @param dbClusterSnapshotArn ARN for the DB cluster snapshot.
          * 
          * @return builder
          * 

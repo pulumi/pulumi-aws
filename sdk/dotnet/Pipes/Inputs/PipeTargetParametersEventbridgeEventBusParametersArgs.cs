@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Pipes.Inputs
         private InputList<string>? _resources;
 
         /// <summary>
-        /// List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
+        /// List of AWS resources, identified by ARN, which the event primarily concerns. Any number, including zero, may be present.
         /// </summary>
         public InputList<string> Resources
         {
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Pipes.Inputs
         }
 
         /// <summary>
-        /// Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+        /// Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
         /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }

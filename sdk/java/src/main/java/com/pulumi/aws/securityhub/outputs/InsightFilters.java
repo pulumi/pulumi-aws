@@ -384,7 +384,7 @@ public final class InsightFilters {
      */
     private @Nullable List<InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn> resourceAwsEc2InstanceIamInstanceProfileArns;
     /**
-     * @return The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
+     * @return AMI ID of the instance. See String Filter below for more details.
      * 
      */
     private @Nullable List<InsightFiltersResourceAwsEc2InstanceImageId> resourceAwsEc2InstanceImageIds;
@@ -963,7 +963,7 @@ public final class InsightFilters {
         return this.resourceAwsEc2InstanceIamInstanceProfileArns == null ? List.of() : this.resourceAwsEc2InstanceIamInstanceProfileArns;
     }
     /**
-     * @return The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
+     * @return AMI ID of the instance. See String Filter below for more details.
      * 
      */
     public List<InsightFiltersResourceAwsEc2InstanceImageId> resourceAwsEc2InstanceImageIds() {

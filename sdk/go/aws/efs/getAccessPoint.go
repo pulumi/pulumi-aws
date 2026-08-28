@@ -61,9 +61,9 @@ type LookupAccessPointArgs struct {
 // A collection of values returned by getAccessPoint.
 type LookupAccessPointResult struct {
 	AccessPointId string `pulumi:"accessPointId"`
-	// Amazon Resource Name of the file system.
+	// ARN of the file system.
 	Arn string `pulumi:"arn"`
-	// Amazon Resource Name of the file system.
+	// ARN of the file system.
 	FileSystemArn string `pulumi:"fileSystemArn"`
 	// ID of the file system for which the access point is intended.
 	FileSystemId string `pulumi:"fileSystemId"`
@@ -121,12 +121,12 @@ func (o LookupAccessPointResultOutput) AccessPointId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) string { return v.AccessPointId }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name of the file system.
+// ARN of the file system.
 func (o LookupAccessPointResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name of the file system.
+// ARN of the file system.
 func (o LookupAccessPointResultOutput) FileSystemArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) string { return v.FileSystemArn }).(pulumi.StringOutput)
 }

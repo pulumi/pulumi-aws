@@ -62,7 +62,7 @@ export interface GetCloudExadataInfrastructureResult {
      */
     readonly additionalStorageCount: number;
     /**
-     * Amazon Resource Name (ARN) for the Exadata infrastructure.
+     * ARN for the Exadata infrastructure.
      */
     readonly arn: string;
     /**

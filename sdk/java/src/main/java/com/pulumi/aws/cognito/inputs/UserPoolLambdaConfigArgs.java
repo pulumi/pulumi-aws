@@ -94,14 +94,14 @@ public final class UserPoolLambdaConfigArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
+     * ARN of KMS Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
+     * @return ARN of KMS Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -371,7 +371,7 @@ public final class UserPoolLambdaConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param kmsKeyId The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
+         * @param kmsKeyId ARN of KMS Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
          * 
          * @return builder
          * 
@@ -382,7 +382,7 @@ public final class UserPoolLambdaConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param kmsKeyId The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
+         * @param kmsKeyId ARN of KMS Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
          * 
          * @return builder
          * 

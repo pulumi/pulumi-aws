@@ -15,14 +15,14 @@ public final class AgentFlowDefinitionNodeConfigurationLexArgs extends com.pulum
     public static final AgentFlowDefinitionNodeConfigurationLexArgs Empty = new AgentFlowDefinitionNodeConfigurationLexArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.
+     * ARN of the Amazon Lex bot alias to invoke.
      * 
      */
     @Import(name="botAliasArn", required=true)
     private Output<String> botAliasArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.
+     * @return ARN of the Amazon Lex bot alias to invoke.
      * 
      */
     public Output<String> botAliasArn() {
@@ -70,7 +70,7 @@ public final class AgentFlowDefinitionNodeConfigurationLexArgs extends com.pulum
         }
 
         /**
-         * @param botAliasArn The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.
+         * @param botAliasArn ARN of the Amazon Lex bot alias to invoke.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class AgentFlowDefinitionNodeConfigurationLexArgs extends com.pulum
         }
 
         /**
-         * @param botAliasArn The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.
+         * @param botAliasArn ARN of the Amazon Lex bot alias to invoke.
          * 
          * @return builder
          * 

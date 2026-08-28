@@ -96,14 +96,14 @@ public class AppMonitor extends com.pulumi.resources.CustomResource {
         return this.appMonitorId;
     }
     /**
-     * The Amazon Resource Name (ARN) specifying the app monitor.
+     * ARN specifying the app monitor.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) specifying the app monitor.
+     * @return ARN specifying the app monitor.
      * 
      */
     public Output<String> arn() {

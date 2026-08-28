@@ -53,7 +53,7 @@ export class ResolverFirewallDomainList extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN (Amazon Resource Name) of the domain list.
+     * ARN of the domain list.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -115,7 +115,7 @@ export class ResolverFirewallDomainList extends pulumi.CustomResource {
  */
 export interface ResolverFirewallDomainListState {
     /**
-     * The ARN (Amazon Resource Name) of the domain list.
+     * ARN of the domain list.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

@@ -36,7 +36,7 @@ export function getEmailIdentityMailFromAttributes(args: GetEmailIdentityMailFro
  */
 export interface GetEmailIdentityMailFromAttributesArgs {
     /**
-     * The name of the email identity.
+     * Name of the email identity.
      */
     emailIdentity: string;
     /**
@@ -50,7 +50,7 @@ export interface GetEmailIdentityMailFromAttributesArgs {
  */
 export interface GetEmailIdentityMailFromAttributesResult {
     /**
-     * The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
+     * Action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
      */
     readonly behaviorOnMxFailure: string;
     readonly emailIdentity: string;
@@ -59,7 +59,7 @@ export interface GetEmailIdentityMailFromAttributesResult {
      */
     readonly id: string;
     /**
-     * The custom MAIL FROM domain that you want the verified identity to use.
+     * Custom MAIL FROM domain that you want the verified identity to use.
      */
     readonly mailFromDomain: string;
     readonly region: string;
@@ -96,7 +96,7 @@ export function getEmailIdentityMailFromAttributesOutput(args: GetEmailIdentityM
  */
 export interface GetEmailIdentityMailFromAttributesOutputArgs {
     /**
-     * The name of the email identity.
+     * Name of the email identity.
      */
     emailIdentity: pulumi.Input<string>;
     /**

@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public partial class PolicyTable : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
+        /// EC2 Transit Gateway Policy Table ARN.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public sealed class PolicyTableState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
+        /// EC2 Transit Gateway Policy Table ARN.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

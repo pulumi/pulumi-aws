@@ -79,7 +79,7 @@ type GetOutpostResult struct {
 	Name            string  `pulumi:"name"`
 	OwnerId         *string `pulumi:"ownerId"`
 	Region          string  `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the site.
+	// ARN of the site.
 	SiteArn string `pulumi:"siteArn"`
 	// The ID of the site.
 	SiteId string `pulumi:"siteId"`
@@ -173,7 +173,7 @@ func (o GetOutpostResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOutpostResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the site.
+// ARN of the site.
 func (o GetOutpostResultOutput) SiteArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOutpostResult) string { return v.SiteArn }).(pulumi.StringOutput)
 }

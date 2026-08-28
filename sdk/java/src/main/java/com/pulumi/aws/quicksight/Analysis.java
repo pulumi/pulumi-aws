@@ -354,14 +354,14 @@ public class Analysis extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
+     * ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
      * 
      */
     @Export(name="themeArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> themeArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
+     * @return ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
      * 
      */
     public Output<Optional<String>> themeArn() {

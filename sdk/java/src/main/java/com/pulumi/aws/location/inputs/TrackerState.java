@@ -122,14 +122,14 @@ public final class TrackerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
+     * ARN for the tracker resource. Used when you need to specify a resource across all AWS.
      * 
      */
     @Import(name="trackerArn")
     private @Nullable Output<String> trackerArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
+     * @return ARN for the tracker resource. Used when you need to specify a resource across all AWS.
      * 
      */
     public Optional<Output<String>> trackerArn() {
@@ -351,7 +351,7 @@ public final class TrackerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trackerArn The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
+         * @param trackerArn ARN for the tracker resource. Used when you need to specify a resource across all AWS.
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class TrackerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trackerArn The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
+         * @param trackerArn ARN for the tracker resource. Used when you need to specify a resource across all AWS.
          * 
          * @return builder
          * 

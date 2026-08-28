@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator custom routing endpoint group.
+ * - `arn` (String) ARN of the Global Accelerator custom routing endpoint group.
  * 
  * Using `pulumi import`, import Global Accelerator custom routing endpoint groups using the `id`. For example:
  * 
@@ -81,14 +81,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup")
 public class CustomRoutingEndpointGroup extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the custom routing endpoint group.
+     * ARN of the custom routing endpoint group.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the custom routing endpoint group.
+     * @return ARN of the custom routing endpoint group.
      * 
      */
     public Output<String> arn() {
@@ -137,14 +137,14 @@ public class CustomRoutingEndpointGroup extends com.pulumi.resources.CustomResou
         return this.endpointGroupRegion;
     }
     /**
-     * The Amazon Resource Name (ARN) of the custom routing listener.
+     * ARN of the custom routing listener.
      * 
      */
     @Export(name="listenerArn", refs={String.class}, tree="[0]")
     private Output<String> listenerArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the custom routing listener.
+     * @return ARN of the custom routing listener.
      * 
      */
     public Output<String> listenerArn() {

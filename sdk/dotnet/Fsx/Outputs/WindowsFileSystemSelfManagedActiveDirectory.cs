@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Fsx.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DnsIps;
         /// <summary>
-        /// Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `Username` and `Password`.
+        /// ARN for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `Username` and `Password`.
         /// </summary>
         public readonly string? DomainJoinServiceAccountSecret;
         /// <summary>

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentFlowDefinitionNodeConfigurationLambdaFunction
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Lambda function to invoke.
+        /// ARN of the Lambda function to invoke.
         /// </summary>
         public readonly string LambdaArn;
 

@@ -69,7 +69,7 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Image Builder workflow.
+    /// - `Arn` (String) ARN of the Image Builder workflow.
     /// 
     /// Using `pulumi import`, import EC2 Image Builder Workflow using the `Arn`. For example:
     /// 
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.ImageBuilder
     public partial class Workflow : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the workflow.
+        /// ARN of the workflow.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
+        /// ARN of the KMS Key used to encrypt the workflow.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
@@ -230,7 +230,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
+        /// ARN of the KMS Key used to encrypt the workflow.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -288,7 +288,7 @@ namespace Pulumi.Aws.ImageBuilder
     public sealed class WorkflowState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the workflow.
+        /// ARN of the workflow.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -318,7 +318,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
+        /// ARN of the KMS Key used to encrypt the workflow.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }

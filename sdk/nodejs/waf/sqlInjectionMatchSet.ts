@@ -64,7 +64,7 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the SQL injection match set.
+     * ARN of the SQL injection match set.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -108,7 +108,7 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
  */
 export interface SqlInjectionMatchSetState {
     /**
-     * Amazon Resource Name (ARN) of the SQL injection match set.
+     * ARN of the SQL injection match set.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

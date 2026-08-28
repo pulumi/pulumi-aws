@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreMemoryStreamDeliveryResourcesResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Kinesis Data Stream configuration. See `Kinesis` below.
+        /// Kinesis Data Stream configuration. See `Kinesis` Block below.
         /// </summary>
         [Input("kinesis")]
         public Input<Inputs.AgentcoreMemoryStreamDeliveryResourcesResourceKinesisArgs>? Kinesis { get; set; }

@@ -5888,7 +5888,7 @@ class BucketReplicationConfigRuleDestinationAccessControlTranslationArgs:
 class BucketReplicationConfigRuleDestinationEncryptionConfigurationArgsDict(TypedDict):
     replica_kms_key_id: pulumi.Input[_builtins.str]
     """
-    ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
+    ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in KMS for the destination bucket.
     """
 
 @pulumi.input_type
@@ -5896,7 +5896,7 @@ class BucketReplicationConfigRuleDestinationEncryptionConfigurationArgs:
     def __init__(__self__, *,
                  replica_kms_key_id: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] replica_kms_key_id: ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
+        :param pulumi.Input[_builtins.str] replica_kms_key_id: ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in KMS for the destination bucket.
         """
         pulumi.set(__self__, "replica_kms_key_id", replica_kms_key_id)
 
@@ -5904,7 +5904,7 @@ class BucketReplicationConfigRuleDestinationEncryptionConfigurationArgs:
     @pulumi.getter(name="replicaKmsKeyId")
     def replica_kms_key_id(self) -> pulumi.Input[_builtins.str]:
         """
-        ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
+        ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in KMS for the destination bucket.
         """
         return pulumi.get(self, "replica_kms_key_id")
 
@@ -10718,7 +10718,7 @@ class PolicyDocumentArgs:
 class VectorsIndexEncryptionConfigurationArgsDict(TypedDict):
     kms_key_arn: pulumi.Input[_builtins.str]
     """
-    AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sse_type` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key Amazon Resource Name (ARN).
+    KMS customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sse_type` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key ARN.
     """
     sse_type: pulumi.Input[_builtins.str]
     """
@@ -10731,7 +10731,7 @@ class VectorsIndexEncryptionConfigurationArgs:
                  kms_key_arn: pulumi.Input[_builtins.str],
                  sse_type: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] kms_key_arn: AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sse_type` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key Amazon Resource Name (ARN).
+        :param pulumi.Input[_builtins.str] kms_key_arn: KMS customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sse_type` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key ARN.
         :param pulumi.Input[_builtins.str] sse_type: Type of encryption to use. Valid values: `AES256`, `aws:kms`. Defaults to `AES256`.
         """
         pulumi.set(__self__, "kms_key_arn", kms_key_arn)
@@ -10741,7 +10741,7 @@ class VectorsIndexEncryptionConfigurationArgs:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sse_type` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key Amazon Resource Name (ARN).
+        KMS customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sse_type` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key ARN.
         """
         return pulumi.get(self, "kms_key_arn")
 

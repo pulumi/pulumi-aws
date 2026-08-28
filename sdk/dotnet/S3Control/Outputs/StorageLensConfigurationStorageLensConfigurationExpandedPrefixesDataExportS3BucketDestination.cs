@@ -18,7 +18,7 @@ namespace Pulumi.Aws.S3Control.Outputs
         /// </summary>
         public readonly string AccountId;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the bucket.
+        /// ARN of the bucket.
         /// </summary>
         public readonly string Arn;
         /// <summary>

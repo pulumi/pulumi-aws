@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `resourceArn` (String) Amazon Resource Name (ARN) of the Kinesis stream.
+ * - `resourceArn` (String) ARN of the Kinesis stream.
  * 
  * Using `pulumi import`, import Kinesis resource policies using the `resourceArn`. For example:
  * 
@@ -116,14 +116,14 @@ public class ResourcePolicy extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) of the data stream or consumer.
+     * ARN of the data stream or consumer.
      * 
      */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the data stream or consumer.
+     * @return ARN of the data stream or consumer.
      * 
      */
     public Output<String> resourceArn() {

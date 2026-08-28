@@ -53,7 +53,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the DocDB Elastic cluster.
+// - `arn` (String) ARN of the DocDB Elastic cluster.
 //
 // Using `pulumi import`, import DocDB (DocumentDB) Elastic Cluster using the `arn` argument. For example,
 //

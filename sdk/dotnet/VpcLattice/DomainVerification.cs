@@ -82,7 +82,7 @@ namespace Pulumi.Aws.VpcLattice
     public partial class DomainVerification : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the domain verification.
+        /// ARN of the domain verification.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -224,7 +224,7 @@ namespace Pulumi.Aws.VpcLattice
     public sealed class DomainVerificationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the domain verification.
+        /// ARN of the domain verification.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

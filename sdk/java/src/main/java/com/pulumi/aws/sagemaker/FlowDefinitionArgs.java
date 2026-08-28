@@ -112,14 +112,14 @@ public final class FlowDefinitionArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
+     * ARN of the role needed to call other services on your behalf.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
+     * @return ARN of the role needed to call other services on your behalf.
      * 
      */
     public Output<String> roleArn() {
@@ -299,7 +299,7 @@ public final class FlowDefinitionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
+         * @param roleArn ARN of the role needed to call other services on your behalf.
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class FlowDefinitionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
+         * @param roleArn ARN of the role needed to call other services on your behalf.
          * 
          * @return builder
          * 

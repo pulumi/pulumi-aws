@@ -94,7 +94,7 @@ namespace Pulumi.Aws.SesV2
     public sealed class GetEmailIdentityArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the email identity.
+        /// Name of the email identity.
         /// </summary>
         [Input("emailIdentity", required: true)]
         public string EmailIdentity { get; set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.SesV2
     public sealed class GetEmailIdentityInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the email identity.
+        /// Name of the email identity.
         /// </summary>
         [Input("emailIdentity", required: true)]
         public Input<string> EmailIdentity { get; set; } = null!;
@@ -163,9 +163,12 @@ namespace Pulumi.Aws.SesV2
         /// ARN of the Email Identity.
         /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// Configuration set associated with the email identity.
+        /// </summary>
         public readonly string ConfigurationSetName;
         /// <summary>
-        /// A list of objects that contains at most one element with information about the private key and selector that you want to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the identity, or, configures the key length to be used for Easy DKIM.
+        /// List of objects that contains at most one element with information about the private key and selector that you want to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the identity, or, configures the key length to be used for Easy DKIM.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetEmailIdentityDkimSigningAttributeResult> DkimSigningAttributes;
         public readonly string EmailIdentity;
@@ -174,7 +177,7 @@ namespace Pulumi.Aws.SesV2
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
+        /// Email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
         /// </summary>
         public readonly string IdentityType;
         public readonly string Region;
@@ -183,11 +186,11 @@ namespace Pulumi.Aws.SesV2
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
+        /// Verification status of the identity. The status can be one of the following: `PENDING`, `SUCCESS`, `FAILED`, `TEMPORARY_FAILURE`, and `NOT_STARTED`.
         /// </summary>
         public readonly string VerificationStatus;
         /// <summary>
-        /// Specifies whether or not the identity is verified.
+        /// Whether or not the identity is verified.
         /// </summary>
         public readonly bool VerifiedForSendingStatus;
 

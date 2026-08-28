@@ -145,7 +145,7 @@ class _PlaceIndexState:
         :param pulumi.Input[_builtins.str] data_source: Geospatial data provider for the new place index.
         :param pulumi.Input['PlaceIndexDataSourceConfigurationArgs'] data_source_configuration: Configuration block with the data storage option chosen for requesting Places. Detailed below.
         :param pulumi.Input[_builtins.str] description: Optional description for the place index resource.
-        :param pulumi.Input[_builtins.str] index_arn: Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
+        :param pulumi.Input[_builtins.str] index_arn: ARN for the place index resource. Used to specify a resource across AWS.
         :param pulumi.Input[_builtins.str] index_name: Name of the place index resource.
                
                The following arguments are optional:
@@ -227,7 +227,7 @@ class _PlaceIndexState:
     @pulumi.getter(name="indexArn")
     def index_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
+        ARN for the place index resource. Used to specify a resource across AWS.
         """
         return pulumi.get(self, "index_arn")
 
@@ -449,7 +449,7 @@ class PlaceIndex(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] data_source: Geospatial data provider for the new place index.
         :param pulumi.Input[Union['PlaceIndexDataSourceConfigurationArgs', 'PlaceIndexDataSourceConfigurationArgsDict']] data_source_configuration: Configuration block with the data storage option chosen for requesting Places. Detailed below.
         :param pulumi.Input[_builtins.str] description: Optional description for the place index resource.
-        :param pulumi.Input[_builtins.str] index_arn: Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
+        :param pulumi.Input[_builtins.str] index_arn: ARN for the place index resource. Used to specify a resource across AWS.
         :param pulumi.Input[_builtins.str] index_name: Name of the place index resource.
                
                The following arguments are optional:
@@ -510,7 +510,7 @@ class PlaceIndex(pulumi.CustomResource):
     @pulumi.getter(name="indexArn")
     def index_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
+        ARN for the place index resource. Used to specify a resource across AWS.
         """
         return pulumi.get(self, "index_arn")
 

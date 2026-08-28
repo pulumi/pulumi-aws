@@ -15,14 +15,14 @@ public final class UserPoolLambdaConfigCustomEmailSenderArgs extends com.pulumi.
     public static final UserPoolLambdaConfigCustomEmailSenderArgs Empty = new UserPoolLambdaConfigCustomEmailSenderArgs();
 
     /**
-     * The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
+     * Lambda ARN of the Lambda function that Amazon Cognito triggers to send email notifications to users.
      * 
      */
     @Import(name="lambdaArn", required=true)
     private Output<String> lambdaArn;
 
     /**
-     * @return The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
+     * @return Lambda ARN of the Lambda function that Amazon Cognito triggers to send email notifications to users.
      * 
      */
     public Output<String> lambdaArn() {
@@ -70,7 +70,7 @@ public final class UserPoolLambdaConfigCustomEmailSenderArgs extends com.pulumi.
         }
 
         /**
-         * @param lambdaArn The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
+         * @param lambdaArn Lambda ARN of the Lambda function that Amazon Cognito triggers to send email notifications to users.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class UserPoolLambdaConfigCustomEmailSenderArgs extends com.pulumi.
         }
 
         /**
-         * @param lambdaArn The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
+         * @param lambdaArn Lambda ARN of the Lambda function that Amazon Cognito triggers to send email notifications to users.
          * 
          * @return builder
          * 

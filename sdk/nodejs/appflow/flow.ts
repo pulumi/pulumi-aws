@@ -173,7 +173,7 @@ export class Flow extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly flowStatus: pulumi.Output<string>;
     /**
-     * ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
+     * ARN of the KMS key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
      */
     declare public readonly kmsArn: pulumi.Output<string>;
     /**
@@ -289,7 +289,7 @@ export interface FlowState {
      */
     flowStatus?: pulumi.Input<string | undefined>;
     /**
-     * ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
+     * ARN of the KMS key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
      */
     kmsArn?: pulumi.Input<string | undefined>;
     /**
@@ -339,7 +339,7 @@ export interface FlowArgs {
      */
     destinationFlowConfigs: pulumi.Input<pulumi.Input<inputs.appflow.FlowDestinationFlowConfig>[]>;
     /**
-     * ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
+     * ARN of the KMS key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
      */
     kmsArn?: pulumi.Input<string | undefined>;
     /**

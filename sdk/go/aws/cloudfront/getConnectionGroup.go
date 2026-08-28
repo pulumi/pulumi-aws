@@ -60,7 +60,7 @@ type LookupConnectionGroupArgs struct {
 type LookupConnectionGroupResult struct {
 	// ID of the anycast IP list associated with this connection group, if any.
 	AnycastIpListId string `pulumi:"anycastIpListId"`
-	// ARN (Amazon Resource Name) for the connection group.
+	// ARN for the connection group.
 	Arn string `pulumi:"arn"`
 	// Whether the connection group is enabled.
 	Enabled bool `pulumi:"enabled"`
@@ -124,7 +124,7 @@ func (o LookupConnectionGroupResultOutput) AnycastIpListId() pulumi.StringOutput
 	return o.ApplyT(func(v LookupConnectionGroupResult) string { return v.AnycastIpListId }).(pulumi.StringOutput)
 }
 
-// ARN (Amazon Resource Name) for the connection group.
+// ARN for the connection group.
 func (o LookupConnectionGroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionGroupResult) string { return v.Arn }).(pulumi.StringOutput)
 }

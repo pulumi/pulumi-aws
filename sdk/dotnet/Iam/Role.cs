@@ -321,7 +321,7 @@ namespace Pulumi.Aws.Iam
     public partial class Role : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) specifying the role.
+        /// ARN specifying the role.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -557,7 +557,7 @@ namespace Pulumi.Aws.Iam
     public sealed class RoleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) specifying the role.
+        /// ARN specifying the role.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

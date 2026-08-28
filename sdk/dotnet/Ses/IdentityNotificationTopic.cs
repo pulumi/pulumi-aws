@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Ses
     public partial class IdentityNotificationTopic : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
+        /// Identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its ARN.
         /// </summary>
         [Output("identity")]
         public Output<string> Identity { get; private set; } = null!;
@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Ses
         public Output<bool?> IncludeOriginalHeaders { get; private set; } = null!;
 
         /// <summary>
-        /// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
+        /// Type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
         /// </summary>
         [Output("notificationType")]
         public Output<string> NotificationType { get; private set; } = null!;
@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Ses
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
+        /// ARN of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
         /// </summary>
         [Output("topicArn")]
         public Output<string?> TopicArn { get; private set; } = null!;
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Ses
     public sealed class IdentityNotificationTopicArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
+        /// Identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its ARN.
         /// </summary>
         [Input("identity", required: true)]
         public Input<string> Identity { get; set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.Aws.Ses
         public Input<bool>? IncludeOriginalHeaders { get; set; }
 
         /// <summary>
-        /// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
+        /// Type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
         /// </summary>
         [Input("notificationType", required: true)]
         public Input<string> NotificationType { get; set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Ses
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
+        /// ARN of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
         /// </summary>
         [Input("topicArn")]
         public Input<string>? TopicArn { get; set; }
@@ -159,7 +159,7 @@ namespace Pulumi.Aws.Ses
     public sealed class IdentityNotificationTopicState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
+        /// Identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its ARN.
         /// </summary>
         [Input("identity")]
         public Input<string>? Identity { get; set; }
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.Ses
         public Input<bool>? IncludeOriginalHeaders { get; set; }
 
         /// <summary>
-        /// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
+        /// Type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
         /// </summary>
         [Input("notificationType")]
         public Input<string>? NotificationType { get; set; }
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.Ses
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
+        /// ARN of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
         /// </summary>
         [Input("topicArn")]
         public Input<string>? TopicArn { get; set; }

@@ -235,7 +235,7 @@ class FilterFilterCriteria(dict):
         :param Sequence['FilterFilterCriteriaCodeVulnerabilityFilePathArgs'] code_vulnerability_file_paths: (Optional) The ID of the component. Documented below.
         :param Sequence['FilterFilterCriteriaComponentIdArgs'] component_ids: (Optional) The ID of the component. Documented below.
         :param Sequence['FilterFilterCriteriaComponentTypeArgs'] component_types: (Optional) The type of the component. Documented below.
-        :param Sequence['FilterFilterCriteriaEc2InstanceImageIdArgs'] ec2_instance_image_ids: (Optional) The ID of the Amazon Machine Image (AMI). Documented below.
+        :param Sequence['FilterFilterCriteriaEc2InstanceImageIdArgs'] ec2_instance_image_ids: (Optional) ID of the AMI. Documented below.
         :param Sequence['FilterFilterCriteriaEc2InstanceSubnetIdArgs'] ec2_instance_subnet_ids: (Optional) The ID of the subnet. Documented below.
         :param Sequence['FilterFilterCriteriaEc2InstanceVpcIdArgs'] ec2_instance_vpc_ids: (Optional) The ID of the VPC. Documented below.
         :param Sequence['FilterFilterCriteriaEcrImageArchitectureArgs'] ecr_image_architectures: (Optional) The architecture of the ECR image. Documented below.
@@ -435,7 +435,7 @@ class FilterFilterCriteria(dict):
     @pulumi.getter(name="ec2InstanceImageIds")
     def ec2_instance_image_ids(self) -> Optional[Sequence['outputs.FilterFilterCriteriaEc2InstanceImageId']]:
         """
-        (Optional) The ID of the Amazon Machine Image (AMI). Documented below.
+        (Optional) ID of the AMI. Documented below.
         """
         return pulumi.get(self, "ec2_instance_image_ids")
 

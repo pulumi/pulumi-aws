@@ -165,7 +165,7 @@ export class User extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the user.
+     * ARN of the user.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -290,7 +290,7 @@ export class User extends pulumi.CustomResource {
  */
 export interface UserState {
     /**
-     * The Amazon Resource Name (ARN) of the user.
+     * ARN of the user.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

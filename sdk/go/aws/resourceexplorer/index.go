@@ -46,7 +46,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the Resource Explorer index.
+// - `arn` (String) ARN of the Resource Explorer index.
 //
 // Using `pulumi import`, import Resource Explorer indexes using the `arn`. For example:
 //
@@ -56,7 +56,7 @@ import (
 type Index struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the Resource Explorer index.
+	// ARN of the Resource Explorer index.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -102,7 +102,7 @@ func GetIndex(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Index resources.
 type indexState struct {
-	// Amazon Resource Name (ARN) of the Resource Explorer index.
+	// ARN of the Resource Explorer index.
 	Arn *string `pulumi:"arn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -116,7 +116,7 @@ type indexState struct {
 }
 
 type IndexState struct {
-	// Amazon Resource Name (ARN) of the Resource Explorer index.
+	// ARN of the Resource Explorer index.
 	Arn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -241,7 +241,7 @@ func (o IndexOutput) ToIndexOutputWithContext(ctx context.Context) IndexOutput {
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Resource Explorer index.
+// ARN of the Resource Explorer index.
 func (o IndexOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

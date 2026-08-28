@@ -31,14 +31,14 @@ public final class DefaultRouteTableRouteArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The Amazon Resource Name (ARN) of a core network.
+     * ARN of a core network.
      * 
      */
     @Import(name="coreNetworkArn")
     private @Nullable Output<String> coreNetworkArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of a core network.
+     * @return ARN of a core network.
      * 
      */
     public Optional<Output<String>> coreNetworkArn() {
@@ -260,7 +260,7 @@ public final class DefaultRouteTableRouteArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param coreNetworkArn The Amazon Resource Name (ARN) of a core network.
+         * @param coreNetworkArn ARN of a core network.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class DefaultRouteTableRouteArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param coreNetworkArn The Amazon Resource Name (ARN) of a core network.
+         * @param coreNetworkArn ARN of a core network.
          * 
          * @return builder
          * 

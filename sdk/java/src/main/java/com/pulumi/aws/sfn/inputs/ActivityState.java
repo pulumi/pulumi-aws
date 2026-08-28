@@ -18,14 +18,14 @@ public final class ActivityState extends com.pulumi.resources.ResourceArgs {
     public static final ActivityState Empty = new ActivityState();
 
     /**
-     * Amazon Resource Name (ARN) of the activity.
+     * ARN of the activity.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the activity.
+     * @return ARN of the activity.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -153,7 +153,7 @@ public final class ActivityState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the activity.
+         * @param arn ARN of the activity.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class ActivityState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the activity.
+         * @param arn ARN of the activity.
          * 
          * @return builder
          * 

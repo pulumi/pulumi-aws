@@ -306,7 +306,7 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The Amazon Machine Image (AMI) of the compute fleet.
+        /// AMI of the compute fleet.
         /// </summary>
         public readonly string ImageId;
         /// <summary>

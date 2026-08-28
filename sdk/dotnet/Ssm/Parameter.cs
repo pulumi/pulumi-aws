@@ -110,7 +110,7 @@ namespace Pulumi.Aws.Ssm
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Data type of the parameter. Valid values: `Text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
+        /// Data type of the parameter. Valid values: `Text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for AMI IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
         /// </summary>
         [Output("dataType")]
         public Output<string> DataType { get; private set; } = null!;
@@ -274,7 +274,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Data type of the parameter. Valid values: `Text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
+        /// Data type of the parameter. Valid values: `Text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for AMI IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
         /// </summary>
         [Input("dataType")]
         public Input<string>? DataType { get; set; }
@@ -403,7 +403,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Data type of the parameter. Valid values: `Text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
+        /// Data type of the parameter. Valid values: `Text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for AMI IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
         /// </summary>
         [Input("dataType")]
         public Input<string>? DataType { get; set; }

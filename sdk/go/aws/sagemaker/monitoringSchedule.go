@@ -56,7 +56,7 @@ import (
 type MonitoringSchedule struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) assigned by AWS to this monitoring schedule.
+	// ARN assigned by AWS to this monitoring schedule.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
 	MonitoringScheduleConfig MonitoringScheduleMonitoringScheduleConfigOutput `pulumi:"monitoringScheduleConfig"`
@@ -103,7 +103,7 @@ func GetMonitoringSchedule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MonitoringSchedule resources.
 type monitoringScheduleState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this monitoring schedule.
+	// ARN assigned by AWS to this monitoring schedule.
 	Arn *string `pulumi:"arn"`
 	// The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
 	MonitoringScheduleConfig *MonitoringScheduleMonitoringScheduleConfig `pulumi:"monitoringScheduleConfig"`
@@ -118,7 +118,7 @@ type monitoringScheduleState struct {
 }
 
 type MonitoringScheduleState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this monitoring schedule.
+	// ARN assigned by AWS to this monitoring schedule.
 	Arn pulumi.StringPtrInput
 	// The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
 	MonitoringScheduleConfig MonitoringScheduleMonitoringScheduleConfigPtrInput
@@ -246,7 +246,7 @@ func (o MonitoringScheduleOutput) ToMonitoringScheduleOutputWithContext(ctx cont
 	return o
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this monitoring schedule.
+// ARN assigned by AWS to this monitoring schedule.
 func (o MonitoringScheduleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MonitoringSchedule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

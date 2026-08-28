@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetResolverFirewallDomainListResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the firewall domain list.
+     * @return ARN of the firewall domain list.
      * 
      */
     private String arn;
@@ -66,7 +66,7 @@ public final class GetResolverFirewallDomainListResult {
 
     private GetResolverFirewallDomainListResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the firewall domain list.
+     * @return ARN of the firewall domain list.
      * 
      */
     public String arn() {

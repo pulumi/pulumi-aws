@@ -212,7 +212,7 @@ class EndpointKafkaSettings(dict):
         :param _builtins.str sasl_mechanism: For SASL/SSL authentication, AWS DMS supports the `scram-sha-512` mechanism by default. AWS DMS versions 3.5.0 and later also support the PLAIN mechanism. To use the PLAIN mechanism, set this parameter to `plain`.
         :param _builtins.str sasl_password: Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
         :param _builtins.str sasl_username: Secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
-        :param _builtins.str security_protocol: Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `sasl_username` and `sasl_password`.
+        :param _builtins.str security_protocol: Set secure connection to a Kafka target endpoint using TLS. Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `sasl_username` and `sasl_password`.
         :param _builtins.str ssl_ca_certificate_arn: ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
         :param _builtins.str ssl_client_certificate_arn: ARN of the client certificate used to securely connect to a Kafka target endpoint.
         :param _builtins.str ssl_client_key_arn: ARN for the client private key used to securely connect to a Kafka target endpoint.
@@ -365,7 +365,7 @@ class EndpointKafkaSettings(dict):
     @pulumi.getter(name="securityProtocol")
     def security_protocol(self) -> Optional[_builtins.str]:
         """
-        Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `sasl_username` and `sasl_password`.
+        Set secure connection to a Kafka target endpoint using TLS. Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `sasl_username` and `sasl_password`.
         """
         return pulumi.get(self, "security_protocol")
 
@@ -1707,12 +1707,12 @@ class EndpointRedisSettings(dict):
                  ssl_security_protocol: Optional[_builtins.str] = None):
         """
         :param _builtins.str auth_type: The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `auth_password` value to be provided. The `auth-role` option requires `auth_user_name` and `auth_password` values to be provided.
-        :param _builtins.int port: Transmission Control Protocol (TCP) port for the endpoint.
+        :param _builtins.int port: TCP port for the endpoint.
         :param _builtins.str server_name: Fully qualified domain name of the endpoint.
         :param _builtins.str auth_password: The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
         :param _builtins.str auth_user_name: The username provided with the `auth-role` option of the AuthType setting for a Redis target endpoint.
-        :param _builtins.str ssl_ca_certificate_arn: The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
-        :param _builtins.str ssl_security_protocol: The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
+        :param _builtins.str ssl_ca_certificate_arn: ARN for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+        :param _builtins.str ssl_security_protocol: The plaintext option doesn't provide TLS encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
         """
         pulumi.set(__self__, "auth_type", auth_type)
         pulumi.set(__self__, "port", port)
@@ -1738,7 +1738,7 @@ class EndpointRedisSettings(dict):
     @pulumi.getter
     def port(self) -> _builtins.int:
         """
-        Transmission Control Protocol (TCP) port for the endpoint.
+        TCP port for the endpoint.
         """
         return pulumi.get(self, "port")
 
@@ -1770,7 +1770,7 @@ class EndpointRedisSettings(dict):
     @pulumi.getter(name="sslCaCertificateArn")
     def ssl_ca_certificate_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+        ARN for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
         """
         return pulumi.get(self, "ssl_ca_certificate_arn")
 
@@ -1778,7 +1778,7 @@ class EndpointRedisSettings(dict):
     @pulumi.getter(name="sslSecurityProtocol")
     def ssl_security_protocol(self) -> Optional[_builtins.str]:
         """
-        The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
+        The plaintext option doesn't provide TLS encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
         """
         return pulumi.get(self, "ssl_security_protocol")
 
@@ -1821,7 +1821,7 @@ class EndpointRedshiftSettings(dict):
         :param _builtins.str bucket_name: Custom S3 Bucket name for intermediate storage.
         :param _builtins.str encryption_mode: The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
         :param _builtins.str server_side_encryption_kms_key_id: ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
-        :param _builtins.str service_access_role_arn: Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
+        :param _builtins.str service_access_role_arn: ARN of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
         """
         if bucket_folder is not None:
             pulumi.set(__self__, "bucket_folder", bucket_folder)
@@ -1870,7 +1870,7 @@ class EndpointRedshiftSettings(dict):
     @pulumi.getter(name="serviceAccessRoleArn")
     def service_access_role_arn(self) -> Optional[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
+        ARN of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
         """
         return pulumi.get(self, "service_access_role_arn")
 
@@ -1924,7 +1924,7 @@ class ReplicationConfigComputeConfig(dict):
         :param _builtins.str replication_subnet_group_id: Specifies a subnet group identifier to associate with the DMS Serverless replication.
         :param _builtins.str availability_zone: The Availability Zone where the DMS Serverless replication using this configuration will run. The default value is a random.
         :param _builtins.str dns_name_servers: A list of custom DNS name servers supported for the DMS Serverless replication to access your source or target database.
-        :param _builtins.str kms_key_id: An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
+        :param _builtins.str kms_key_id: KMS key ARN that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
         :param _builtins.int max_capacity_units: Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCUs as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
         :param _builtins.int min_capacity_units: Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn't set DMS sets the lowest allowed value, 1.
         :param _builtins.bool multi_az: Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
@@ -1934,7 +1934,7 @@ class ReplicationConfigComputeConfig(dict):
                - Format: `ddd:hh24:mi-ddd:hh24:mi`
                - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
                - Constraints: Minimum 30-minute window.
-        :param Sequence[_builtins.str] vpc_security_group_ids: Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
+        :param Sequence[_builtins.str] vpc_security_group_ids: VPC security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
         """
         pulumi.set(__self__, "replication_subnet_group_id", replication_subnet_group_id)
         if availability_zone is not None:
@@ -1982,7 +1982,7 @@ class ReplicationConfigComputeConfig(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[_builtins.str]:
         """
-        An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
+        KMS key ARN that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -2027,7 +2027,7 @@ class ReplicationConfigComputeConfig(dict):
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
         """
-        Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
+        VPC security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
         """
         return pulumi.get(self, "vpc_security_group_ids")
 

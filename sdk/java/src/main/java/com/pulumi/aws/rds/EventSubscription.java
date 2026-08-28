@@ -99,14 +99,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rds/eventSubscription:EventSubscription")
 public class EventSubscription extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name of the RDS event notification subscription
+     * ARN of the RDS event notification subscription
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name of the RDS event notification subscription
+     * @return ARN of the RDS event notification subscription
      * 
      */
     public Output<String> arn() {

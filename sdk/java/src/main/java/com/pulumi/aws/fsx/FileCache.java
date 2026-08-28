@@ -97,14 +97,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:fsx/fileCache:FileCache")
 public class FileCache extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the cache.
+     * ARN of the cache.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the cache.
+     * @return ARN of the cache.
      * 
      */
     public Output<String> arn() {
@@ -153,14 +153,14 @@ public class FileCache extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dataRepositoryAssociations);
     }
     /**
-     * Domain Name System (DNS) name for the cache.
+     * DNS name for the cache.
      * 
      */
     @Export(name="dnsName", refs={String.class}, tree="[0]")
     private Output<String> dnsName;
 
     /**
-     * @return Domain Name System (DNS) name for the cache.
+     * @return DNS name for the cache.
      * 
      */
     public Output<String> dnsName() {
@@ -209,14 +209,14 @@ public class FileCache extends com.pulumi.resources.CustomResource {
         return this.fileCacheTypeVersion;
     }
     /**
-     * ID of the AWS Key Management Service (KMS) key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
+     * ID of the KMS key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
-     * @return ID of the AWS Key Management Service (KMS) key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
+     * @return ID of the KMS key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
      * 
      */
     public Output<String> kmsKeyId() {
@@ -341,14 +341,14 @@ public class FileCache extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * ID of your virtual private cloud (VPC).
+     * ID of your VPC.
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
-     * @return ID of your virtual private cloud (VPC).
+     * @return ID of your VPC.
      * 
      */
     public Output<String> vpcId() {

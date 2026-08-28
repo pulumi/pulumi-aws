@@ -53,7 +53,7 @@ class GetEventConnectionResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        ARN (Amazon Resource Name) of the connection.
+        ARN of the connection.
         """
         return pulumi.get(self, "arn")
 

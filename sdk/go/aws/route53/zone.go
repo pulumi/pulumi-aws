@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Route53 Hosted Zone. For managing Domain Name System Security Extensions (DNSSEC), see the `route53.KeySigningKey` and `route53.HostedZoneDnsSec` resources.
+// Manages a Route53 Hosted Zone. For managing DNS Security Extensions (DNSSEC), see the `route53.KeySigningKey` and `route53.HostedZoneDnsSec` resources.
 //
 // ## Example Usage
 //
@@ -165,7 +165,7 @@ import (
 type Zone struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the Hosted Zone.
+	// ARN of the Hosted Zone.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
 	Comment pulumi.StringOutput `pulumi:"comment"`
@@ -225,7 +225,7 @@ func GetZone(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Zone resources.
 type zoneState struct {
-	// The Amazon Resource Name (ARN) of the Hosted Zone.
+	// ARN of the Hosted Zone.
 	Arn *string `pulumi:"arn"`
 	// A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
 	Comment *string `pulumi:"comment"`
@@ -253,7 +253,7 @@ type zoneState struct {
 }
 
 type ZoneState struct {
-	// The Amazon Resource Name (ARN) of the Hosted Zone.
+	// ARN of the Hosted Zone.
 	Arn pulumi.StringPtrInput
 	// A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
 	Comment pulumi.StringPtrInput
@@ -406,7 +406,7 @@ func (o ZoneOutput) ToZoneOutputWithContext(ctx context.Context) ZoneOutput {
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Hosted Zone.
+// ARN of the Hosted Zone.
 func (o ZoneOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Zone) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -16,14 +16,14 @@ public final class GatewayGatewayNetworkInterfaceArgs extends com.pulumi.resourc
     public static final GatewayGatewayNetworkInterfaceArgs Empty = new GatewayGatewayNetworkInterfaceArgs();
 
     /**
-     * The Internet Protocol version 4 (IPv4) address of the interface.
+     * IP version 4 (IPv4) address of the interface.
      * 
      */
     @Import(name="ipv4Address")
     private @Nullable Output<String> ipv4Address;
 
     /**
-     * @return The Internet Protocol version 4 (IPv4) address of the interface.
+     * @return IP version 4 (IPv4) address of the interface.
      * 
      */
     public Optional<Output<String>> ipv4Address() {
@@ -55,7 +55,7 @@ public final class GatewayGatewayNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param ipv4Address The Internet Protocol version 4 (IPv4) address of the interface.
+         * @param ipv4Address IP version 4 (IPv4) address of the interface.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class GatewayGatewayNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param ipv4Address The Internet Protocol version 4 (IPv4) address of the interface.
+         * @param ipv4Address IP version 4 (IPv4) address of the interface.
          * 
          * @return builder
          * 

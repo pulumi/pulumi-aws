@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Sagemaker
     public partial class Workforce : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
+        /// ARN assigned by AWS to this Workforce.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.Sagemaker
     public sealed class WorkforceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
+        /// ARN assigned by AWS to this Workforce.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

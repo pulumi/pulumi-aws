@@ -64,7 +64,7 @@ export class SdkvoiceSipMediaApplication extends pulumi.CustomResource {
     }
 
     /**
-     * ARN (Amazon Resource Name) of the AWS Chime SDK Voice Sip Media Application
+     * ARN of the AWS Chime SDK Voice Sip Media Application
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -72,7 +72,7 @@ export class SdkvoiceSipMediaApplication extends pulumi.CustomResource {
      */
     declare public readonly awsRegion: pulumi.Output<string>;
     /**
-     * List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
+     * List of endpoints (Lambda ARNs) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
      */
     declare public readonly endpoints: pulumi.Output<outputs.chime.SdkvoiceSipMediaApplicationEndpoints>;
     /**
@@ -140,7 +140,7 @@ export class SdkvoiceSipMediaApplication extends pulumi.CustomResource {
  */
 export interface SdkvoiceSipMediaApplicationState {
     /**
-     * ARN (Amazon Resource Name) of the AWS Chime SDK Voice Sip Media Application
+     * ARN of the AWS Chime SDK Voice Sip Media Application
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -148,7 +148,7 @@ export interface SdkvoiceSipMediaApplicationState {
      */
     awsRegion?: pulumi.Input<string | undefined>;
     /**
-     * List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
+     * List of endpoints (Lambda ARNs) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
      */
     endpoints?: pulumi.Input<inputs.chime.SdkvoiceSipMediaApplicationEndpoints | undefined>;
     /**
@@ -180,7 +180,7 @@ export interface SdkvoiceSipMediaApplicationArgs {
      */
     awsRegion: pulumi.Input<string>;
     /**
-     * List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
+     * List of endpoints (Lambda ARNs) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
      */
     endpoints: pulumi.Input<inputs.chime.SdkvoiceSipMediaApplicationEndpoints>;
     /**

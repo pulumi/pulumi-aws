@@ -56,7 +56,7 @@ class GetQuicksightGroupResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) for the group.
+        ARN for the group.
         """
         return pulumi.get(self, "arn")
 

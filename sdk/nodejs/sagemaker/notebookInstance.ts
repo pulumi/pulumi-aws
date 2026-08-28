@@ -93,7 +93,7 @@ export class NotebookInstance extends pulumi.CustomResource {
      */
     declare public readonly additionalCodeRepositories: pulumi.Output<string[] | undefined>;
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
+     * ARN assigned by AWS to this notebook instance.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -113,7 +113,7 @@ export class NotebookInstance extends pulumi.CustomResource {
      */
     declare public readonly instanceType: pulumi.Output<string>;
     /**
-     * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+     * KMS key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
      */
     declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
@@ -246,7 +246,7 @@ export interface NotebookInstanceState {
      */
     additionalCodeRepositories?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
+     * ARN assigned by AWS to this notebook instance.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -266,7 +266,7 @@ export interface NotebookInstanceState {
      */
     instanceType?: pulumi.Input<string | undefined>;
     /**
-     * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+     * KMS key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**
@@ -349,7 +349,7 @@ export interface NotebookInstanceArgs {
      */
     instanceType: pulumi.Input<string>;
     /**
-     * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+     * KMS key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**

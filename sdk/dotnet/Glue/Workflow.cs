@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Glue
     public partial class Workflow : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of Glue Workflow
+        /// ARN of Glue Workflow
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.Glue
     public sealed class WorkflowState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of Glue Workflow
+        /// ARN of Glue Workflow
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -62,7 +62,7 @@ type LookupGlobalClusterArgs struct {
 
 // A collection of values returned by getGlobalCluster.
 type LookupGlobalClusterResult struct {
-	// RDS Global Cluster Amazon Resource Name (ARN)
+	// RDS Global Cluster ARN
 	Arn string `pulumi:"arn"`
 	// Name of the automatically created database on cluster creation.
 	DatabaseName string `pulumi:"databaseName"`
@@ -126,7 +126,7 @@ func (o LookupGlobalClusterResultOutput) ToLookupGlobalClusterResultOutputWithCo
 	return o
 }
 
-// RDS Global Cluster Amazon Resource Name (ARN)
+// RDS Global Cluster ARN
 func (o LookupGlobalClusterResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGlobalClusterResult) string { return v.Arn }).(pulumi.StringOutput)
 }

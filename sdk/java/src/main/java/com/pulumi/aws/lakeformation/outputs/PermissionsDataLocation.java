@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PermissionsDataLocation {
     /**
-     * @return Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+     * @return ARN that uniquely identifies the data location resource.
      * 
      * The following argument is optional:
      * 
@@ -27,7 +27,7 @@ public final class PermissionsDataLocation {
 
     private PermissionsDataLocation() {}
     /**
-     * @return Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+     * @return ARN that uniquely identifies the data location resource.
      * 
      * The following argument is optional:
      * 

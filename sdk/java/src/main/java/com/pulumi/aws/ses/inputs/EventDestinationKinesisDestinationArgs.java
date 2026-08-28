@@ -15,14 +15,14 @@ public final class EventDestinationKinesisDestinationArgs extends com.pulumi.res
     public static final EventDestinationKinesisDestinationArgs Empty = new EventDestinationKinesisDestinationArgs();
 
     /**
-     * The ARN of the role that has permissions to access the Kinesis Stream
+     * ARN of the role that has permissions to access the Kinesis Stream
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The ARN of the role that has permissions to access the Kinesis Stream
+     * @return ARN of the role that has permissions to access the Kinesis Stream
      * 
      */
     public Output<String> roleArn() {
@@ -30,14 +30,14 @@ public final class EventDestinationKinesisDestinationArgs extends com.pulumi.res
     }
 
     /**
-     * The ARN of the Kinesis Stream
+     * ARN of the Kinesis Stream
      * 
      */
     @Import(name="streamArn", required=true)
     private Output<String> streamArn;
 
     /**
-     * @return The ARN of the Kinesis Stream
+     * @return ARN of the Kinesis Stream
      * 
      */
     public Output<String> streamArn() {
@@ -70,7 +70,7 @@ public final class EventDestinationKinesisDestinationArgs extends com.pulumi.res
         }
 
         /**
-         * @param roleArn The ARN of the role that has permissions to access the Kinesis Stream
+         * @param roleArn ARN of the role that has permissions to access the Kinesis Stream
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class EventDestinationKinesisDestinationArgs extends com.pulumi.res
         }
 
         /**
-         * @param roleArn The ARN of the role that has permissions to access the Kinesis Stream
+         * @param roleArn ARN of the role that has permissions to access the Kinesis Stream
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class EventDestinationKinesisDestinationArgs extends com.pulumi.res
         }
 
         /**
-         * @param streamArn The ARN of the Kinesis Stream
+         * @param streamArn ARN of the Kinesis Stream
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class EventDestinationKinesisDestinationArgs extends com.pulumi.res
         }
 
         /**
-         * @param streamArn The ARN of the Kinesis Stream
+         * @param streamArn ARN of the Kinesis Stream
          * 
          * @return builder
          * 

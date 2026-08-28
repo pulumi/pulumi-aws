@@ -21,9 +21,9 @@ import javax.annotation.Nullable;
 /**
  * Provides an AWS Savings Plan resource.
  * 
- * &gt; **WARNING:** Savings Plans represent a financial commitment. Once a Savings Plan becomes active, it **cannot be cancelled or deleted**. Only Savings Plans in the `queued` state (scheduled for future purchase) can be deleted. Use this resource with caution.
+ * &gt; Savings Plans represent a financial commitment. Once a Savings Plan becomes active, it **cannot be cancelled or deleted**. Only Savings Plans in the `queued` state (scheduled for future purchase) can be deleted. Use this resource with caution.
  * 
- * &gt; **Note:** Importing an active Savings Plan will add it to your Terraform state, but destroying it will only remove it from state - the actual Savings Plan will continue until its term ends.
+ * &gt; Importing an active Savings Plan will add it to your Terraform state, but destroying it will only remove it from state - the actual Savings Plan will continue until its term ends.
  * 
  * ## Example Usage
  * 
@@ -232,18 +232,18 @@ public class SavingsPlan extends com.pulumi.resources.CustomResource {
         return this.productTypes;
     }
     /**
-     * The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
+     * The time at which to purchase the Savings Plan, in UTC format (`YYYY-MM-DDTHH:MM:SSZ`). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
      * 
      */
     @Export(name="purchaseTime", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> purchaseTime;
+    private Output<String> purchaseTime;
 
     /**
-     * @return The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
+     * @return The time at which to purchase the Savings Plan, in UTC format (`YYYY-MM-DDTHH:MM:SSZ`). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
      * 
      */
-    public Output<Optional<String>> purchaseTime() {
-        return Codegen.optional(this.purchaseTime);
+    public Output<String> purchaseTime() {
+        return this.purchaseTime;
     }
     /**
      * The recurring payment amount.
@@ -420,18 +420,18 @@ public class SavingsPlan extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeouts);
     }
     /**
-     * The up-front payment amount.
+     * The up-front payment amount. Required for offerings with an `All Upfront` or `Partial Upfront` payment option. Must be omitted for `No Upfront` offerings.
      * 
      */
     @Export(name="upfrontPaymentAmount", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> upfrontPaymentAmount;
+    private Output<String> upfrontPaymentAmount;
 
     /**
-     * @return The up-front payment amount.
+     * @return The up-front payment amount. Required for offerings with an `All Upfront` or `Partial Upfront` payment option. Must be omitted for `No Upfront` offerings.
      * 
      */
-    public Output<Optional<String>> upfrontPaymentAmount() {
-        return Codegen.optional(this.upfrontPaymentAmount);
+    public Output<String> upfrontPaymentAmount() {
+        return this.upfrontPaymentAmount;
     }
 
     /**

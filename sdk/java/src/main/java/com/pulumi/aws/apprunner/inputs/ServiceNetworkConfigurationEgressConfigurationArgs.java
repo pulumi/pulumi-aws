@@ -31,14 +31,14 @@ public final class ServiceNetworkConfigurationEgressConfigurationArgs extends co
     }
 
     /**
-     * Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
+     * ARN of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
      * 
      */
     @Import(name="vpcConnectorArn")
     private @Nullable Output<String> vpcConnectorArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
+     * @return ARN of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
      * 
      */
     public Optional<Output<String>> vpcConnectorArn() {
@@ -92,7 +92,7 @@ public final class ServiceNetworkConfigurationEgressConfigurationArgs extends co
         }
 
         /**
-         * @param vpcConnectorArn Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
+         * @param vpcConnectorArn ARN of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ServiceNetworkConfigurationEgressConfigurationArgs extends co
         }
 
         /**
-         * @param vpcConnectorArn Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
+         * @param vpcConnectorArn ARN of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
          * 
          * @return builder
          * 

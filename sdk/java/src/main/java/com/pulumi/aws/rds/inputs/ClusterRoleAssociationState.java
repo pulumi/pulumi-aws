@@ -61,14 +61,14 @@ public final class ClusterRoleAssociationState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
+     * ARN of the IAM Role to associate with the DB Cluster.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
+     * @return ARN of the IAM Role to associate with the DB Cluster.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -166,7 +166,7 @@ public final class ClusterRoleAssociationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param roleArn Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
+         * @param roleArn ARN of the IAM Role to associate with the DB Cluster.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class ClusterRoleAssociationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param roleArn Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
+         * @param roleArn ARN of the IAM Role to associate with the DB Cluster.
          * 
          * @return builder
          * 

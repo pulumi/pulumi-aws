@@ -18,6 +18,18 @@ namespace Pulumi.Aws.ResilienceHub.Inputs
         [Input("systemArn", required: true)]
         public Input<string> SystemArn { get; set; } = null!;
 
+        [Input("userJourneyIds")]
+        private InputList<string>? _userJourneyIds;
+
+        /// <summary>
+        /// List of user journey identifiers that associate the system with the service.
+        /// </summary>
+        public InputList<string> UserJourneyIds
+        {
+            get => _userJourneyIds ?? (_userJourneyIds = new InputList<string>());
+            set => _userJourneyIds = value;
+        }
+
         public V2ServiceAssociatedSystemGetArgs()
         {
         }

@@ -127,7 +127,7 @@ import (
 type MailFrom struct {
 	pulumi.CustomResourceState
 
-	// The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
+	// Action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
 	BehaviorOnMxFailure pulumi.StringPtrOutput `pulumi:"behaviorOnMxFailure"`
 	// Verified domain name or email identity to generate DKIM tokens for.
 	Domain pulumi.StringOutput `pulumi:"domain"`
@@ -175,7 +175,7 @@ func GetMailFrom(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MailFrom resources.
 type mailFromState struct {
-	// The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
+	// Action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
 	BehaviorOnMxFailure *string `pulumi:"behaviorOnMxFailure"`
 	// Verified domain name or email identity to generate DKIM tokens for.
 	Domain *string `pulumi:"domain"`
@@ -188,7 +188,7 @@ type mailFromState struct {
 }
 
 type MailFromState struct {
-	// The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
+	// Action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
 	BehaviorOnMxFailure pulumi.StringPtrInput
 	// Verified domain name or email identity to generate DKIM tokens for.
 	Domain pulumi.StringPtrInput
@@ -205,7 +205,7 @@ func (MailFromState) ElementType() reflect.Type {
 }
 
 type mailFromArgs struct {
-	// The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
+	// Action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
 	BehaviorOnMxFailure *string `pulumi:"behaviorOnMxFailure"`
 	// Verified domain name or email identity to generate DKIM tokens for.
 	Domain string `pulumi:"domain"`
@@ -219,7 +219,7 @@ type mailFromArgs struct {
 
 // The set of arguments for constructing a MailFrom resource.
 type MailFromArgs struct {
-	// The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
+	// Action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
 	BehaviorOnMxFailure pulumi.StringPtrInput
 	// Verified domain name or email identity to generate DKIM tokens for.
 	Domain pulumi.StringInput
@@ -318,7 +318,7 @@ func (o MailFromOutput) ToMailFromOutputWithContext(ctx context.Context) MailFro
 	return o
 }
 
-// The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
+// Action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
 func (o MailFromOutput) BehaviorOnMxFailure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MailFrom) pulumi.StringPtrOutput { return v.BehaviorOnMxFailure }).(pulumi.StringPtrOutput)
 }

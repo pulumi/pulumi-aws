@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Ssm
     public sealed class GetContactsRotationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the rotation.
+        /// ARN of the rotation.
         /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.Ssm
     public sealed class GetContactsRotationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the rotation.
+        /// ARN of the rotation.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Ssm
     {
         public readonly string Arn;
         /// <summary>
-        /// The Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+        /// ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
         /// </summary>
         public readonly ImmutableArray<string> ContactIds;
         public readonly string Id;

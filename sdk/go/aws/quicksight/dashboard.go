@@ -171,7 +171,7 @@ type Dashboard struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity DashboardSourceEntityPtrOutput `pulumi:"sourceEntity"`
-	// Amazon Resource Name (ARN) of a template that was used to create this dashboard.
+	// ARN of a template that was used to create this dashboard.
 	SourceEntityArn pulumi.StringOutput `pulumi:"sourceEntityArn"`
 	// The dashboard creation status.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -179,7 +179,7 @@ type Dashboard struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+	// ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
 	ThemeArn pulumi.StringPtrOutput `pulumi:"themeArn"`
 	// A description of the current dashboard version being created/updated.
 	//
@@ -248,7 +248,7 @@ type dashboardState struct {
 	Region *string `pulumi:"region"`
 	// The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity *DashboardSourceEntity `pulumi:"sourceEntity"`
-	// Amazon Resource Name (ARN) of a template that was used to create this dashboard.
+	// ARN of a template that was used to create this dashboard.
 	SourceEntityArn *string `pulumi:"sourceEntityArn"`
 	// The dashboard creation status.
 	Status *string `pulumi:"status"`
@@ -256,7 +256,7 @@ type dashboardState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+	// ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
 	ThemeArn *string `pulumi:"themeArn"`
 	// A description of the current dashboard version being created/updated.
 	//
@@ -290,7 +290,7 @@ type DashboardState struct {
 	Region pulumi.StringPtrInput
 	// The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity DashboardSourceEntityPtrInput
-	// Amazon Resource Name (ARN) of a template that was used to create this dashboard.
+	// ARN of a template that was used to create this dashboard.
 	SourceEntityArn pulumi.StringPtrInput
 	// The dashboard creation status.
 	Status pulumi.StringPtrInput
@@ -298,7 +298,7 @@ type DashboardState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+	// ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
 	ThemeArn pulumi.StringPtrInput
 	// A description of the current dashboard version being created/updated.
 	//
@@ -331,7 +331,7 @@ type dashboardArgs struct {
 	SourceEntity *DashboardSourceEntity `pulumi:"sourceEntity"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+	// ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
 	ThemeArn *string `pulumi:"themeArn"`
 	// A description of the current dashboard version being created/updated.
 	//
@@ -359,7 +359,7 @@ type DashboardArgs struct {
 	SourceEntity DashboardSourceEntityPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+	// ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
 	ThemeArn pulumi.StringPtrInput
 	// A description of the current dashboard version being created/updated.
 	//
@@ -513,7 +513,7 @@ func (o DashboardOutput) SourceEntity() DashboardSourceEntityPtrOutput {
 	return o.ApplyT(func(v *Dashboard) DashboardSourceEntityPtrOutput { return v.SourceEntity }).(DashboardSourceEntityPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of a template that was used to create this dashboard.
+// ARN of a template that was used to create this dashboard.
 func (o DashboardOutput) SourceEntityArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.SourceEntityArn }).(pulumi.StringOutput)
 }
@@ -533,7 +533,7 @@ func (o DashboardOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+// ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
 func (o DashboardOutput) ThemeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringPtrOutput { return v.ThemeArn }).(pulumi.StringPtrOutput)
 }

@@ -61,11 +61,11 @@ export class DomainIdentityVerification extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the domain identity.
+     * ARN of the domain identity.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The domain name of the SES domain identity to verify.
+     * Domain name of the SES domain identity to verify.
      */
     declare public readonly domain: pulumi.Output<string>;
     /**
@@ -108,11 +108,11 @@ export class DomainIdentityVerification extends pulumi.CustomResource {
  */
 export interface DomainIdentityVerificationState {
     /**
-     * The ARN of the domain identity.
+     * ARN of the domain identity.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The domain name of the SES domain identity to verify.
+     * Domain name of the SES domain identity to verify.
      */
     domain?: pulumi.Input<string | undefined>;
     /**
@@ -126,7 +126,7 @@ export interface DomainIdentityVerificationState {
  */
 export interface DomainIdentityVerificationArgs {
     /**
-     * The domain name of the SES domain identity to verify.
+     * Domain name of the SES domain identity to verify.
      */
     domain: pulumi.Input<string>;
     /**

@@ -232,7 +232,7 @@ namespace Pulumi.Aws.AppFlow
         public Output<string> FlowStatus { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
+        /// ARN of the KMS key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
         /// </summary>
         [Output("kmsArn")]
         public Output<string> KmsArn { get; private set; } = null!;
@@ -350,7 +350,7 @@ namespace Pulumi.Aws.AppFlow
         }
 
         /// <summary>
-        /// ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
+        /// ARN of the KMS key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
         /// </summary>
         [Input("kmsArn")]
         public Input<string>? KmsArn { get; set; }
@@ -448,7 +448,7 @@ namespace Pulumi.Aws.AppFlow
         public Input<string>? FlowStatus { get; set; }
 
         /// <summary>
-        /// ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
+        /// ARN of the KMS key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
         /// </summary>
         [Input("kmsArn")]
         public Input<string>? KmsArn { get; set; }

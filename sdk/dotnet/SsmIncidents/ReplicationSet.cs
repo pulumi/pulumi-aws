@@ -100,7 +100,7 @@ namespace Pulumi.Aws.SsmIncidents
     /// 
     /// ### Basic Usage with an AWS Customer Managed Key
     /// 
-    /// Create a replication set with an AWS Key Management Service (AWS KMS) customer manager key:
+    /// Create a replication set with a KMS customer manager key:
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

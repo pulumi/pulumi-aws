@@ -94,7 +94,7 @@ class GetSecretRotationResult:
     @pulumi.getter(name="rotationLambdaArn")
     def rotation_lambda_arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) of the lambda function used for rotation.
+        ARN of the lambda function used for rotation.
         """
         return pulumi.get(self, "rotation_lambda_arn")
 

@@ -47,9 +47,9 @@ type AppAuthorizationConnection struct {
 
 	// Name of the application.
 	App pulumi.StringOutput `pulumi:"app"`
-	// Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+	// ARN or Universal Unique Identifier (UUID) of the app authorization to use for the request.
 	AppAuthorizationArn pulumi.StringOutput `pulumi:"appAuthorizationArn"`
-	// Amazon Resource Name (ARN) of the app bundle to use for the request.
+	// ARN of the app bundle to use for the request.
 	//
 	// The following arguments are optional:
 	AppBundleArn pulumi.StringOutput `pulumi:"appBundleArn"`
@@ -100,9 +100,9 @@ func GetAppAuthorizationConnection(ctx *pulumi.Context,
 type appAuthorizationConnectionState struct {
 	// Name of the application.
 	App *string `pulumi:"app"`
-	// Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+	// ARN or Universal Unique Identifier (UUID) of the app authorization to use for the request.
 	AppAuthorizationArn *string `pulumi:"appAuthorizationArn"`
-	// Amazon Resource Name (ARN) of the app bundle to use for the request.
+	// ARN of the app bundle to use for the request.
 	//
 	// The following arguments are optional:
 	AppBundleArn *string `pulumi:"appBundleArn"`
@@ -118,9 +118,9 @@ type appAuthorizationConnectionState struct {
 type AppAuthorizationConnectionState struct {
 	// Name of the application.
 	App pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+	// ARN or Universal Unique Identifier (UUID) of the app authorization to use for the request.
 	AppAuthorizationArn pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the app bundle to use for the request.
+	// ARN of the app bundle to use for the request.
 	//
 	// The following arguments are optional:
 	AppBundleArn pulumi.StringPtrInput
@@ -138,9 +138,9 @@ func (AppAuthorizationConnectionState) ElementType() reflect.Type {
 }
 
 type appAuthorizationConnectionArgs struct {
-	// Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+	// ARN or Universal Unique Identifier (UUID) of the app authorization to use for the request.
 	AppAuthorizationArn string `pulumi:"appAuthorizationArn"`
-	// Amazon Resource Name (ARN) of the app bundle to use for the request.
+	// ARN of the app bundle to use for the request.
 	//
 	// The following arguments are optional:
 	AppBundleArn string `pulumi:"appBundleArn"`
@@ -153,9 +153,9 @@ type appAuthorizationConnectionArgs struct {
 
 // The set of arguments for constructing a AppAuthorizationConnection resource.
 type AppAuthorizationConnectionArgs struct {
-	// Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+	// ARN or Universal Unique Identifier (UUID) of the app authorization to use for the request.
 	AppAuthorizationArn pulumi.StringInput
-	// Amazon Resource Name (ARN) of the app bundle to use for the request.
+	// ARN of the app bundle to use for the request.
 	//
 	// The following arguments are optional:
 	AppBundleArn pulumi.StringInput
@@ -258,12 +258,12 @@ func (o AppAuthorizationConnectionOutput) App() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppAuthorizationConnection) pulumi.StringOutput { return v.App }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+// ARN or Universal Unique Identifier (UUID) of the app authorization to use for the request.
 func (o AppAuthorizationConnectionOutput) AppAuthorizationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppAuthorizationConnection) pulumi.StringOutput { return v.AppAuthorizationArn }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the app bundle to use for the request.
+// ARN of the app bundle to use for the request.
 //
 // The following arguments are optional:
 func (o AppAuthorizationConnectionOutput) AppBundleArn() pulumi.StringOutput {

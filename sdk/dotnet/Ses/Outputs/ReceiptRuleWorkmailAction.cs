@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Ses.Outputs
     public sealed class ReceiptRuleWorkmailAction
     {
         /// <summary>
-        /// The ARN of the WorkMail organization
+        /// ARN of the WorkMail organization.
         /// </summary>
         public readonly string OrganizationArn;
         /// <summary>
-        /// The position of the action in the receipt rule
+        /// Position of the action in the receipt rule.
         /// </summary>
         public readonly int Position;
         /// <summary>
-        /// The ARN of an SNS topic to notify
+        /// ARN of an SNS topic to notify.
         /// </summary>
         public readonly string? TopicArn;
 

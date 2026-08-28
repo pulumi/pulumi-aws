@@ -18,7 +18,7 @@ public final class GetConnectionGroupResult {
      */
     private String anycastIpListId;
     /**
-     * @return ARN (Amazon Resource Name) for the connection group.
+     * @return ARN for the connection group.
      * 
      */
     private String arn;
@@ -69,7 +69,7 @@ public final class GetConnectionGroupResult {
         return this.anycastIpListId;
     }
     /**
-     * @return ARN (Amazon Resource Name) for the connection group.
+     * @return ARN for the connection group.
      * 
      */
     public String arn() {

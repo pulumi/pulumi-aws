@@ -57,7 +57,7 @@ namespace Pulumi.Aws.OpenSearch
     public partial class VpcEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
+        /// ARN of the domain to create the endpoint for
         /// </summary>
         [Output("domainArn")]
         public Output<string> DomainArn { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.OpenSearch
     public sealed class VpcEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
+        /// ARN of the domain to create the endpoint for
         /// </summary>
         [Input("domainArn", required: true)]
         public Input<string> DomainArn { get; set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.OpenSearch
     public sealed class VpcEndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
+        /// ARN of the domain to create the endpoint for
         /// </summary>
         [Input("domainArn")]
         public Input<string>? DomainArn { get; set; }

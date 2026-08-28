@@ -150,7 +150,7 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the inference profile.
+        /// The ARN of the inference profile.
         /// </summary>
         public readonly string InferenceProfileArn;
         public readonly string InferenceProfileId;

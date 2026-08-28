@@ -18,14 +18,14 @@ public final class ResolverFirewallRuleGroupAssociationState extends com.pulumi.
     public static final ResolverFirewallRuleGroupAssociationState Empty = new ResolverFirewallRuleGroupAssociationState();
 
     /**
-     * The ARN (Amazon Resource Name) of the firewall rule group association.
+     * ARN of the firewall rule group association.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN (Amazon Resource Name) of the firewall rule group association.
+     * @return ARN of the firewall rule group association.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -185,7 +185,7 @@ public final class ResolverFirewallRuleGroupAssociationState extends com.pulumi.
         }
 
         /**
-         * @param arn The ARN (Amazon Resource Name) of the firewall rule group association.
+         * @param arn ARN of the firewall rule group association.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class ResolverFirewallRuleGroupAssociationState extends com.pulumi.
         }
 
         /**
-         * @param arn The ARN (Amazon Resource Name) of the firewall rule group association.
+         * @param arn ARN of the firewall rule group association.
          * 
          * @return builder
          * 

@@ -298,7 +298,7 @@ namespace Pulumi.Aws.CodePipeline
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+        /// Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
@@ -424,7 +424,7 @@ namespace Pulumi.Aws.CodePipeline
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+        /// Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -530,7 +530,7 @@ namespace Pulumi.Aws.CodePipeline
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+        /// Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

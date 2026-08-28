@@ -64,7 +64,7 @@ type LookupServerlessCollectionArgs struct {
 
 // A collection of values returned by getServerlessCollection.
 type LookupServerlessCollectionResult struct {
-	// Amazon Resource Name (ARN) of the collection.
+	// ARN of the collection.
 	Arn string `pulumi:"arn"`
 	// Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
 	CollectionEndpoint string `pulumi:"collectionEndpoint"`
@@ -132,7 +132,7 @@ func (o LookupServerlessCollectionResultOutput) ToLookupServerlessCollectionResu
 	return o
 }
 
-// Amazon Resource Name (ARN) of the collection.
+// ARN of the collection.
 func (o LookupServerlessCollectionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.Arn }).(pulumi.StringOutput)
 }

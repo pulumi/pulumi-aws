@@ -120,7 +120,7 @@ class _KxUserState:
         """
         Input properties used for looking up and filtering KxUser resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifier of the KX user.
+        :param pulumi.Input[_builtins.str] arn: ARN identifier of the KX user.
         :param pulumi.Input[_builtins.str] environment_id: Unique identifier for the KX environment.
         :param pulumi.Input[_builtins.str] iam_role: IAM role ARN to be associated with the user.
         :param pulumi.Input[_builtins.str] name: Unique identifier for the user.
@@ -149,7 +149,7 @@ class _KxUserState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) identifier of the KX user.
+        ARN identifier of the KX user.
         """
         return pulumi.get(self, "arn")
 
@@ -416,7 +416,7 @@ class KxUser(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifier of the KX user.
+        :param pulumi.Input[_builtins.str] arn: ARN identifier of the KX user.
         :param pulumi.Input[_builtins.str] environment_id: Unique identifier for the KX environment.
         :param pulumi.Input[_builtins.str] iam_role: IAM role ARN to be associated with the user.
         :param pulumi.Input[_builtins.str] name: Unique identifier for the user.
@@ -443,7 +443,7 @@ class KxUser(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) identifier of the KX user.
+        ARN identifier of the KX user.
         """
         return pulumi.get(self, "arn")
 

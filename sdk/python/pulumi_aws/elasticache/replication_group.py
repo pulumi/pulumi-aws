@@ -26,6 +26,8 @@ class ReplicationGroupArgs:
                  at_rest_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  auth_token: pulumi.Input[Optional[_builtins.str]] = None,
                  auth_token_update_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_token_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_token_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
                  automatic_failover_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  cluster_mode: pulumi.Input[Optional[_builtins.str]] = None,
@@ -72,7 +74,10 @@ class ReplicationGroupArgs:
                When `engine` is `redis`, default is `false`.
                When `engine` is `valkey`, default is `true`.
         :param pulumi.Input[_builtins.str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
-        :param pulumi.Input[_builtins.str] auth_token_update_strategy: Strategy used when modifying `auth_token` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `auth_token` must be omitted.
+        :param pulumi.Input[_builtins.str] auth_token_update_strategy: Strategy used when modifying `auth_token` or `auth_token_wo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `auth_token` and `auth_token_wo` must be omitted.
+        :param pulumi.Input[_builtins.str] auth_token_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transit_encryption_enabled = true`. Conflicts with `auth_token`. Requires `auth_token_wo_version`.
+        :param pulumi.Input[_builtins.int] auth_token_wo_version: Integer that, when changed, triggers a re-send of `auth_token_wo` to the replication group. Requires `auth_token_wo`.
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
                Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
                Defaults to `true`.
@@ -125,8 +130,8 @@ class ReplicationGroupArgs:
         :param pulumi.Input[_builtins.str] replication_group_id: Replication group identifier. This parameter is stored as a lowercase string.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_names: Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_names: Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] snapshot_arns: List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
         :param pulumi.Input[_builtins.str] snapshot_name: Name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
         :param pulumi.Input[_builtins.int] snapshot_retention_limit: Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshot_retention_limit` is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
@@ -151,6 +156,10 @@ class ReplicationGroupArgs:
             pulumi.set(__self__, "auth_token", auth_token)
         if auth_token_update_strategy is not None:
             pulumi.set(__self__, "auth_token_update_strategy", auth_token_update_strategy)
+        if auth_token_wo is not None:
+            pulumi.set(__self__, "auth_token_wo", auth_token_wo)
+        if auth_token_wo_version is not None:
+            pulumi.set(__self__, "auth_token_wo_version", auth_token_wo_version)
         if auto_minor_version_upgrade is not None:
             pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
         if automatic_failover_enabled is not None:
@@ -280,13 +289,38 @@ class ReplicationGroupArgs:
     @pulumi.getter(name="authTokenUpdateStrategy")
     def auth_token_update_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Strategy used when modifying `auth_token` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `auth_token` must be omitted.
+        Strategy used when modifying `auth_token` or `auth_token_wo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `auth_token` and `auth_token_wo` must be omitted.
         """
         return pulumi.get(self, "auth_token_update_strategy")
 
     @auth_token_update_strategy.setter
     def auth_token_update_strategy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_token_update_strategy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authTokenWo")
+    def auth_token_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transit_encryption_enabled = true`. Conflicts with `auth_token`. Requires `auth_token_wo_version`.
+        """
+        return pulumi.get(self, "auth_token_wo")
+
+    @auth_token_wo.setter
+    def auth_token_wo(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "auth_token_wo", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authTokenWoVersion")
+    def auth_token_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Integer that, when changed, triggers a re-send of `auth_token_wo` to the replication group. Requires `auth_token_wo`.
+        """
+        return pulumi.get(self, "auth_token_wo_version")
+
+    @auth_token_wo_version.setter
+    def auth_token_wo_version(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "auth_token_wo_version", value)
 
     @_builtins.property
     @pulumi.getter(name="autoMinorVersionUpgrade")
@@ -630,7 +664,7 @@ class ReplicationGroupArgs:
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -642,7 +676,7 @@ class ReplicationGroupArgs:
     @pulumi.getter(name="securityGroupNames")
     def security_group_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
         """
         return pulumi.get(self, "security_group_names")
 
@@ -772,6 +806,8 @@ class _ReplicationGroupState:
                  at_rest_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  auth_token: pulumi.Input[Optional[_builtins.str]] = None,
                  auth_token_update_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_token_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_token_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
                  automatic_failover_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  cluster_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -826,7 +862,10 @@ class _ReplicationGroupState:
                When `engine` is `redis`, default is `false`.
                When `engine` is `valkey`, default is `true`.
         :param pulumi.Input[_builtins.str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
-        :param pulumi.Input[_builtins.str] auth_token_update_strategy: Strategy used when modifying `auth_token` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `auth_token` must be omitted.
+        :param pulumi.Input[_builtins.str] auth_token_update_strategy: Strategy used when modifying `auth_token` or `auth_token_wo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `auth_token` and `auth_token_wo` must be omitted.
+        :param pulumi.Input[_builtins.str] auth_token_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transit_encryption_enabled = true`. Conflicts with `auth_token`. Requires `auth_token_wo_version`.
+        :param pulumi.Input[_builtins.int] auth_token_wo_version: Integer that, when changed, triggers a re-send of `auth_token_wo` to the replication group. Requires `auth_token_wo`.
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
                Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
                Defaults to `true`.
@@ -886,8 +925,8 @@ class _ReplicationGroupState:
         :param pulumi.Input[_builtins.str] replication_group_id: Replication group identifier. This parameter is stored as a lowercase string.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_names: Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_names: Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] snapshot_arns: List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
         :param pulumi.Input[_builtins.str] snapshot_name: Name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
         :param pulumi.Input[_builtins.int] snapshot_retention_limit: Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshot_retention_limit` is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
@@ -914,6 +953,10 @@ class _ReplicationGroupState:
             pulumi.set(__self__, "auth_token", auth_token)
         if auth_token_update_strategy is not None:
             pulumi.set(__self__, "auth_token_update_strategy", auth_token_update_strategy)
+        if auth_token_wo is not None:
+            pulumi.set(__self__, "auth_token_wo", auth_token_wo)
+        if auth_token_wo_version is not None:
+            pulumi.set(__self__, "auth_token_wo_version", auth_token_wo_version)
         if auto_minor_version_upgrade is not None:
             pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
         if automatic_failover_enabled is not None:
@@ -1059,13 +1102,38 @@ class _ReplicationGroupState:
     @pulumi.getter(name="authTokenUpdateStrategy")
     def auth_token_update_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Strategy used when modifying `auth_token` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `auth_token` must be omitted.
+        Strategy used when modifying `auth_token` or `auth_token_wo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `auth_token` and `auth_token_wo` must be omitted.
         """
         return pulumi.get(self, "auth_token_update_strategy")
 
     @auth_token_update_strategy.setter
     def auth_token_update_strategy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_token_update_strategy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authTokenWo")
+    def auth_token_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transit_encryption_enabled = true`. Conflicts with `auth_token`. Requires `auth_token_wo_version`.
+        """
+        return pulumi.get(self, "auth_token_wo")
+
+    @auth_token_wo.setter
+    def auth_token_wo(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "auth_token_wo", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authTokenWoVersion")
+    def auth_token_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Integer that, when changed, triggers a re-send of `auth_token_wo` to the replication group. Requires `auth_token_wo`.
+        """
+        return pulumi.get(self, "auth_token_wo_version")
+
+    @auth_token_wo_version.setter
+    def auth_token_wo_version(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "auth_token_wo_version", value)
 
     @_builtins.property
     @pulumi.getter(name="autoMinorVersionUpgrade")
@@ -1493,7 +1561,7 @@ class _ReplicationGroupState:
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -1505,7 +1573,7 @@ class _ReplicationGroupState:
     @pulumi.getter(name="securityGroupNames")
     def security_group_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
         """
         return pulumi.get(self, "security_group_names")
 
@@ -1649,6 +1717,8 @@ class ReplicationGroup(pulumi.CustomResource):
                  at_rest_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  auth_token: pulumi.Input[Optional[_builtins.str]] = None,
                  auth_token_update_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_token_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_token_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
                  automatic_failover_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  cluster_mode: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1918,7 +1988,10 @@ class ReplicationGroup(pulumi.CustomResource):
                When `engine` is `redis`, default is `false`.
                When `engine` is `valkey`, default is `true`.
         :param pulumi.Input[_builtins.str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
-        :param pulumi.Input[_builtins.str] auth_token_update_strategy: Strategy used when modifying `auth_token` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `auth_token` must be omitted.
+        :param pulumi.Input[_builtins.str] auth_token_update_strategy: Strategy used when modifying `auth_token` or `auth_token_wo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `auth_token` and `auth_token_wo` must be omitted.
+        :param pulumi.Input[_builtins.str] auth_token_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transit_encryption_enabled = true`. Conflicts with `auth_token`. Requires `auth_token_wo_version`.
+        :param pulumi.Input[_builtins.int] auth_token_wo_version: Integer that, when changed, triggers a re-send of `auth_token_wo` to the replication group. Requires `auth_token_wo`.
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
                Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
                Defaults to `true`.
@@ -1972,8 +2045,8 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] replication_group_id: Replication group identifier. This parameter is stored as a lowercase string.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_names: Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_names: Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] snapshot_arns: List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
         :param pulumi.Input[_builtins.str] snapshot_name: Name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
         :param pulumi.Input[_builtins.int] snapshot_retention_limit: Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshot_retention_limit` is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
@@ -2237,6 +2310,8 @@ class ReplicationGroup(pulumi.CustomResource):
                  at_rest_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  auth_token: pulumi.Input[Optional[_builtins.str]] = None,
                  auth_token_update_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_token_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_token_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
                  automatic_failover_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  cluster_mode: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2288,6 +2363,8 @@ class ReplicationGroup(pulumi.CustomResource):
             __props__.__dict__["at_rest_encryption_enabled"] = at_rest_encryption_enabled
             __props__.__dict__["auth_token"] = None if auth_token is None else pulumi.Output.secret(auth_token)
             __props__.__dict__["auth_token_update_strategy"] = auth_token_update_strategy
+            __props__.__dict__["auth_token_wo"] = None if auth_token_wo is None else pulumi.Output.secret(auth_token_wo)
+            __props__.__dict__["auth_token_wo_version"] = auth_token_wo_version
             __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
             __props__.__dict__["automatic_failover_enabled"] = automatic_failover_enabled
             __props__.__dict__["cluster_mode"] = cluster_mode
@@ -2336,7 +2413,7 @@ class ReplicationGroup(pulumi.CustomResource):
             __props__.__dict__["primary_endpoint_address"] = None
             __props__.__dict__["reader_endpoint_address"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["authToken"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["authToken", "authTokenWo"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ReplicationGroup, __self__).__init__(
             'aws:elasticache/replicationGroup:ReplicationGroup',
@@ -2353,6 +2430,8 @@ class ReplicationGroup(pulumi.CustomResource):
             at_rest_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             auth_token: pulumi.Input[Optional[_builtins.str]] = None,
             auth_token_update_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+            auth_token_wo: pulumi.Input[Optional[_builtins.str]] = None,
+            auth_token_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
             auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
             automatic_failover_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             cluster_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -2411,7 +2490,10 @@ class ReplicationGroup(pulumi.CustomResource):
                When `engine` is `redis`, default is `false`.
                When `engine` is `valkey`, default is `true`.
         :param pulumi.Input[_builtins.str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
-        :param pulumi.Input[_builtins.str] auth_token_update_strategy: Strategy used when modifying `auth_token` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `auth_token` must be omitted.
+        :param pulumi.Input[_builtins.str] auth_token_update_strategy: Strategy used when modifying `auth_token` or `auth_token_wo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `auth_token` and `auth_token_wo` must be omitted.
+        :param pulumi.Input[_builtins.str] auth_token_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transit_encryption_enabled = true`. Conflicts with `auth_token`. Requires `auth_token_wo_version`.
+        :param pulumi.Input[_builtins.int] auth_token_wo_version: Integer that, when changed, triggers a re-send of `auth_token_wo` to the replication group. Requires `auth_token_wo`.
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
                Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
                Defaults to `true`.
@@ -2471,8 +2553,8 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] replication_group_id: Replication group identifier. This parameter is stored as a lowercase string.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_names: Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_names: Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] snapshot_arns: List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
         :param pulumi.Input[_builtins.str] snapshot_name: Name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
         :param pulumi.Input[_builtins.int] snapshot_retention_limit: Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshot_retention_limit` is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
@@ -2498,6 +2580,8 @@ class ReplicationGroup(pulumi.CustomResource):
         __props__.__dict__["at_rest_encryption_enabled"] = at_rest_encryption_enabled
         __props__.__dict__["auth_token"] = auth_token
         __props__.__dict__["auth_token_update_strategy"] = auth_token_update_strategy
+        __props__.__dict__["auth_token_wo"] = auth_token_wo
+        __props__.__dict__["auth_token_wo_version"] = auth_token_wo_version
         __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
         __props__.__dict__["automatic_failover_enabled"] = automatic_failover_enabled
         __props__.__dict__["cluster_enabled"] = cluster_enabled
@@ -2583,9 +2667,26 @@ class ReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="authTokenUpdateStrategy")
     def auth_token_update_strategy(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Strategy used when modifying `auth_token` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `auth_token` must be omitted.
+        Strategy used when modifying `auth_token` or `auth_token_wo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `auth_token` and `auth_token_wo` must be omitted.
         """
         return pulumi.get(self, "auth_token_update_strategy")
+
+    @_builtins.property
+    @pulumi.getter(name="authTokenWo")
+    def auth_token_wo(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transit_encryption_enabled = true`. Conflicts with `auth_token`. Requires `auth_token_wo_version`.
+        """
+        return pulumi.get(self, "auth_token_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="authTokenWoVersion")
+    def auth_token_wo_version(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Integer that, when changed, triggers a re-send of `auth_token_wo` to the replication group. Requires `auth_token_wo`.
+        """
+        return pulumi.get(self, "auth_token_wo_version")
 
     @_builtins.property
     @pulumi.getter(name="autoMinorVersionUpgrade")
@@ -2881,7 +2982,7 @@ class ReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -2889,7 +2990,7 @@ class ReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="securityGroupNames")
     def security_group_names(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
         """
         return pulumi.get(self, "security_group_names")
 

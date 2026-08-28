@@ -652,7 +652,7 @@ class _ClusterState:
         :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any cluster modifications
                are applied immediately, or during the next maintenance window. Default is
                `false`.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of cluster
+        :param pulumi.Input[_builtins.str] arn: ARN of cluster
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of EC2 Availability Zones that instances in the DB cluster can be created in.
                DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
                We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
@@ -817,7 +817,7 @@ class _ClusterState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of cluster
+        ARN of cluster
         """
         return pulumi.get(self, "arn")
 
@@ -1628,7 +1628,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any cluster modifications
                are applied immediately, or during the next maintenance window. Default is
                `false`.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of cluster
+        :param pulumi.Input[_builtins.str] arn: ARN of cluster
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of EC2 Availability Zones that instances in the DB cluster can be created in.
                DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
                We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
@@ -1749,7 +1749,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of cluster
+        ARN of cluster
         """
         return pulumi.get(self, "arn")
 

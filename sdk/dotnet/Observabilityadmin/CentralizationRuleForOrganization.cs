@@ -268,6 +268,18 @@ namespace Pulumi.Aws.Observabilityadmin
         public Output<string> RuleName { get; private set; } = null!;
 
         /// <summary>
+        /// Reason tag propagation is unhealthy, when applicable (for example, `RoleNotAssumable` or `RoleLacksPermissions`).
+        /// </summary>
+        [Output("tagPropagationFailureReason")]
+        public Output<string> TagPropagationFailureReason { get; private set; } = null!;
+
+        /// <summary>
+        /// Health status of tag propagation for the rule (for example, `Healthy` or `Unhealthy`). Independent of the overall rule health.
+        /// </summary>
+        [Output("tagPropagationStatus")]
+        public Output<string> TagPropagationStatus { get; private set; } = null!;
+
+        /// <summary>
         /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -396,6 +408,18 @@ namespace Pulumi.Aws.Observabilityadmin
         /// </summary>
         [Input("ruleName")]
         public Input<string>? RuleName { get; set; }
+
+        /// <summary>
+        /// Reason tag propagation is unhealthy, when applicable (for example, `RoleNotAssumable` or `RoleLacksPermissions`).
+        /// </summary>
+        [Input("tagPropagationFailureReason")]
+        public Input<string>? TagPropagationFailureReason { get; set; }
+
+        /// <summary>
+        /// Health status of tag propagation for the rule (for example, `Healthy` or `Unhealthy`). Independent of the overall rule health.
+        /// </summary>
+        [Input("tagPropagationStatus")]
+        public Input<string>? TagPropagationStatus { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

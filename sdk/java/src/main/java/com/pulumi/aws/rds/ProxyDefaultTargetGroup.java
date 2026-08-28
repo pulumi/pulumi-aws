@@ -33,14 +33,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup")
 public class ProxyDefaultTargetGroup extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) representing the target group.
+     * ARN representing the target group.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) representing the target group.
+     * @return ARN representing the target group.
      * 
      */
     public Output<String> arn() {

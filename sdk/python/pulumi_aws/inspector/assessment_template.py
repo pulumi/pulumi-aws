@@ -334,7 +334,7 @@ class AssessmentTemplate(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Inspector assessment template.
+        - `arn` (String) ARN of the Inspector assessment template.
 
         Using `pulumi import`, import `inspector.AssessmentTemplate` using the template assessment ARN. For example:
 
@@ -390,7 +390,7 @@ class AssessmentTemplate(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Inspector assessment template.
+        - `arn` (String) ARN of the Inspector assessment template.
 
         Using `pulumi import`, import `inspector.AssessmentTemplate` using the template assessment ARN. For example:
 

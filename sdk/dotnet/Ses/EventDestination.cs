@@ -119,7 +119,7 @@ namespace Pulumi.Aws.Ses
     public partial class EventDestination : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The SES event destination ARN.
+        /// SES event destination ARN.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.Aws.Ses
         public Output<ImmutableArray<Outputs.EventDestinationCloudwatchDestination>> CloudwatchDestinations { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the configuration set
+        /// Name of the configuration set
         /// </summary>
         [Output("configurationSetName")]
         public Output<string> ConfigurationSetName { get; private set; } = null!;
@@ -149,13 +149,13 @@ namespace Pulumi.Aws.Ses
         public Output<Outputs.EventDestinationKinesisDestination?> KinesisDestination { get; private set; } = null!;
 
         /// <summary>
-        /// A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
+        /// List of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
         /// </summary>
         [Output("matchingTypes")]
         public Output<ImmutableArray<string>> MatchingTypes { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the event destination
+        /// Name of the event destination
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.Ses
         }
 
         /// <summary>
-        /// The name of the configuration set
+        /// Name of the configuration set
         /// </summary>
         [Input("configurationSetName", required: true)]
         public Input<string> ConfigurationSetName { get; set; } = null!;
@@ -254,7 +254,7 @@ namespace Pulumi.Aws.Ses
         private InputList<string>? _matchingTypes;
 
         /// <summary>
-        /// A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
+        /// List of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
         /// </summary>
         public InputList<string> MatchingTypes
         {
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.Ses
         }
 
         /// <summary>
-        /// The name of the event destination
+        /// Name of the event destination
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -291,7 +291,7 @@ namespace Pulumi.Aws.Ses
     public sealed class EventDestinationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The SES event destination ARN.
+        /// SES event destination ARN.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -309,7 +309,7 @@ namespace Pulumi.Aws.Ses
         }
 
         /// <summary>
-        /// The name of the configuration set
+        /// Name of the configuration set
         /// </summary>
         [Input("configurationSetName")]
         public Input<string>? ConfigurationSetName { get; set; }
@@ -330,7 +330,7 @@ namespace Pulumi.Aws.Ses
         private InputList<string>? _matchingTypes;
 
         /// <summary>
-        /// A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
+        /// List of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
         /// </summary>
         public InputList<string> MatchingTypes
         {
@@ -339,7 +339,7 @@ namespace Pulumi.Aws.Ses
         }
 
         /// <summary>
-        /// The name of the event destination
+        /// Name of the event destination
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CodeGuruReviewer.Inputs
     public sealed class RepositoryAssociationKmsKeyDetailsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
+        /// Encryption option for a repository association. It is either owned by KMS (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
         /// </summary>
         [Input("encryptionOption")]
         public Input<string>? EncryptionOption { get; set; }

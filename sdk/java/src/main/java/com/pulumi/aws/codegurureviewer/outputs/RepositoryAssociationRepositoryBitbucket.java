@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class RepositoryAssociationRepositoryBitbucket {
     /**
-     * @return The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+     * @return ARN of an AWS CodeStar Connections connection.
      * 
      */
     private String connectionArn;
@@ -28,7 +28,7 @@ public final class RepositoryAssociationRepositoryBitbucket {
 
     private RepositoryAssociationRepositoryBitbucket() {}
     /**
-     * @return The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+     * @return ARN of an AWS CodeStar Connections connection.
      * 
      */
     public String connectionArn() {

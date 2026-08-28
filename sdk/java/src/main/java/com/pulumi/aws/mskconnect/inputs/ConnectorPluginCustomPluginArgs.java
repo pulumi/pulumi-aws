@@ -16,14 +16,14 @@ public final class ConnectorPluginCustomPluginArgs extends com.pulumi.resources.
     public static final ConnectorPluginCustomPluginArgs Empty = new ConnectorPluginCustomPluginArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the custom plugin.
+     * ARN of the custom plugin.
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the custom plugin.
+     * @return ARN of the custom plugin.
      * 
      */
     public Output<String> arn() {
@@ -71,7 +71,7 @@ public final class ConnectorPluginCustomPluginArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the custom plugin.
+         * @param arn ARN of the custom plugin.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ConnectorPluginCustomPluginArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the custom plugin.
+         * @param arn ARN of the custom plugin.
          * 
          * @return builder
          * 

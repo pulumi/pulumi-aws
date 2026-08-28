@@ -6,6 +6,7 @@ package com.pulumi.aws.observabilityadmin.outputs;
 import com.pulumi.aws.observabilityadmin.outputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfiguration;
 import com.pulumi.aws.observabilityadmin.outputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfiguration;
 import com.pulumi.aws.observabilityadmin.outputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration;
+import com.pulumi.aws.observabilityadmin.outputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationTagPropagationConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
 import java.util.Optional;
@@ -28,6 +29,11 @@ public final class CentralizationRuleForOrganizationRuleDestinationDestinationLo
      * 
      */
     private @Nullable CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration logsEncryptionConfiguration;
+    /**
+     * @return Configuration block for propagating source resource tags to centralized destination log groups. See `tagPropagationConfiguration` below.
+     * 
+     */
+    private @Nullable CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationTagPropagationConfiguration tagPropagationConfiguration;
 
     private CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguration() {}
     /**
@@ -51,6 +57,13 @@ public final class CentralizationRuleForOrganizationRuleDestinationDestinationLo
     public Optional<CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration> logsEncryptionConfiguration() {
         return Optional.ofNullable(this.logsEncryptionConfiguration);
     }
+    /**
+     * @return Configuration block for propagating source resource tags to centralized destination log groups. See `tagPropagationConfiguration` below.
+     * 
+     */
+    public Optional<CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationTagPropagationConfiguration> tagPropagationConfiguration() {
+        return Optional.ofNullable(this.tagPropagationConfiguration);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -64,12 +77,14 @@ public final class CentralizationRuleForOrganizationRuleDestinationDestinationLo
         private @Nullable CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfiguration backupConfiguration;
         private @Nullable CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfiguration logGroupNameConfiguration;
         private @Nullable CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration logsEncryptionConfiguration;
+        private @Nullable CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationTagPropagationConfiguration tagPropagationConfiguration;
         public Builder() {}
         public Builder(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.backupConfiguration = defaults.backupConfiguration;
     	      this.logGroupNameConfiguration = defaults.logGroupNameConfiguration;
     	      this.logsEncryptionConfiguration = defaults.logsEncryptionConfiguration;
+    	      this.tagPropagationConfiguration = defaults.tagPropagationConfiguration;
         }
 
         @CustomType.Setter
@@ -90,11 +105,18 @@ public final class CentralizationRuleForOrganizationRuleDestinationDestinationLo
             this.logsEncryptionConfiguration = logsEncryptionConfiguration;
             return this;
         }
+        @CustomType.Setter
+        public Builder tagPropagationConfiguration(@Nullable CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationTagPropagationConfiguration tagPropagationConfiguration) {
+
+            this.tagPropagationConfiguration = tagPropagationConfiguration;
+            return this;
+        }
         public CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguration build() {
             final var _resultValue = new CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguration();
             _resultValue.backupConfiguration = backupConfiguration;
             _resultValue.logGroupNameConfiguration = logGroupNameConfiguration;
             _resultValue.logsEncryptionConfiguration = logsEncryptionConfiguration;
+            _resultValue.tagPropagationConfiguration = tagPropagationConfiguration;
             return _resultValue;
         }
     }

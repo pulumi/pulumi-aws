@@ -70,7 +70,7 @@ export class Service extends pulumi.CustomResource {
      */
     declare public readonly authType: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the certificate.
+     * ARN of the certificate.
      */
     declare public readonly certificateArn: pulumi.Output<string | undefined>;
     /**
@@ -164,7 +164,7 @@ export interface ServiceState {
      */
     authType?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the certificate.
+     * ARN of the certificate.
      */
     certificateArn?: pulumi.Input<string | undefined>;
     /**
@@ -212,7 +212,7 @@ export interface ServiceArgs {
      */
     authType?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the certificate.
+     * ARN of the certificate.
      */
     certificateArn?: pulumi.Input<string | undefined>;
     /**

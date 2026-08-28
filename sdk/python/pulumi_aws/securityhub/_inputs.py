@@ -850,7 +850,7 @@ class AutomationRuleCriteriaArgsDict(TypedDict):
     """
     product_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaProductArnArgsDict']]]]]
     """
-    The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
+    ARN for a third-party product that generated a finding in Security Hub. Documented below.
     """
     product_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaProductNameArgsDict']]]]]
     """
@@ -870,7 +870,7 @@ class AutomationRuleCriteriaArgsDict(TypedDict):
     """
     resource_application_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceApplicationArnArgsDict']]]]]
     """
-    The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
+    ARN of the application that is related to a finding. Documented below.
     """
     resource_application_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceApplicationNameArgsDict']]]]]
     """
@@ -882,7 +882,7 @@ class AutomationRuleCriteriaArgsDict(TypedDict):
     """
     resource_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceIdArgsDict']]]]]
     """
-    The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
+    Identifier for the given resource type. For AWS resources that are identified by ARNs, this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
     """
     resource_partitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourcePartitionArgsDict']]]]]
     """
@@ -992,15 +992,15 @@ class AutomationRuleCriteriaArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaNoteTextArgs']]] note_texts: The text of a user-defined note that's added to a finding. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaNoteUpdatedAtArgs']]] note_updated_ats: The timestamp of when the note was updated. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaNoteUpdatedByArgs']]] note_updated_bies: The principal that created a note. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaProductArnArgs']]] product_arns: The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaProductArnArgs']]] product_arns: ARN for a third-party product that generated a finding in Security Hub. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaProductNameArgs']]] product_names: Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaRecordStateArgs']]] record_states: Provides the current state of a finding. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaRelatedFindingsIdArgs']]] related_findings_ids: The product-generated identifier for a related finding.  Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaRelatedFindingsProductArnArgs']]] related_findings_product_arns: The ARN for the product that generated a related finding. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceApplicationArnArgs']]] resource_application_arns: The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceApplicationArnArgs']]] resource_application_arns: ARN of the application that is related to a finding. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceApplicationNameArgs']]] resource_application_names: The name of the application that is related to a finding. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceDetailsOtherArgs']]] resource_details_others: Custom fields and values about the resource that a finding pertains to. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceIdArgs']]] resource_ids: The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceIdArgs']]] resource_ids: Identifier for the given resource type. For AWS resources that are identified by ARNs, this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourcePartitionArgs']]] resource_partitions: The partition in which the resource that the finding pertains to is located. A partition is a group of AWS Regions. Each AWS account is scoped to one partition. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceRegionArgs']]] resource_regions: The AWS Region where the resource that a finding pertains to is located. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceTagArgs']]] resource_tags: A list of AWS tags associated with a resource at the time the finding was processed. Documented below.
@@ -1299,7 +1299,7 @@ class AutomationRuleCriteriaArgs:
     @pulumi.getter(name="productArns")
     def product_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaProductArnArgs']]]]:
         """
-        The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
+        ARN for a third-party product that generated a finding in Security Hub. Documented below.
         """
         return pulumi.get(self, "product_arns")
 
@@ -1359,7 +1359,7 @@ class AutomationRuleCriteriaArgs:
     @pulumi.getter(name="resourceApplicationArns")
     def resource_application_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceApplicationArnArgs']]]]:
         """
-        The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
+        ARN of the application that is related to a finding. Documented below.
         """
         return pulumi.get(self, "resource_application_arns")
 
@@ -1395,7 +1395,7 @@ class AutomationRuleCriteriaArgs:
     @pulumi.getter(name="resourceIds")
     def resource_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceIdArgs']]]]:
         """
-        The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
+        Identifier for the given resource type. For AWS resources that are identified by ARNs, this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
         """
         return pulumi.get(self, "resource_ids")
 
@@ -4242,7 +4242,7 @@ class ConnectorV2ConnectorProviderServiceNowArgsDict(TypedDict):
     """
     secret_arn: pulumi.Input[_builtins.str]
     """
-    Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials.
+    ARN of the AWS Secrets Manager secret that contains the ServiceNow credentials.
     """
     auth_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -4257,7 +4257,7 @@ class ConnectorV2ConnectorProviderServiceNowArgs:
                  auth_status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] instance_name: Instance name of ServiceNow ITSM.
-        :param pulumi.Input[_builtins.str] secret_arn: Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials.
+        :param pulumi.Input[_builtins.str] secret_arn: ARN of the AWS Secrets Manager secret that contains the ServiceNow credentials.
         :param pulumi.Input[_builtins.str] auth_status: Status of the authorization between ServiceNow and the service.
         """
         pulumi.set(__self__, "instance_name", instance_name)
@@ -4281,7 +4281,7 @@ class ConnectorV2ConnectorProviderServiceNowArgs:
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials.
+        ARN of the AWS Secrets Manager secret that contains the ServiceNow credentials.
         """
         return pulumi.get(self, "secret_arn")
 
@@ -4595,7 +4595,7 @@ class InsightFiltersArgsDict(TypedDict):
     """
     resource_aws_ec2_instance_image_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceImageIdArgsDict']]]]]
     """
-    The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
+    AMI ID of the instance. See String Filter below for more details.
     """
     resource_aws_ec2_instance_ipv4_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIpv4AddressArgsDict']]]]]
     """
@@ -4895,7 +4895,7 @@ class InsightFiltersArgs:
         :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersRelatedFindingsIdArgs']]] related_findings_ids: The solution-generated identifier for a related finding. See String Filter below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersRelatedFindingsProductArnArgs']]] related_findings_product_arns: The ARN of the solution that generated a related finding. See String Filter below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgs']]] resource_aws_ec2_instance_iam_instance_profile_arns: The IAM profile ARN of the instance. See String Filter below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceImageIdArgs']]] resource_aws_ec2_instance_image_ids: The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceImageIdArgs']]] resource_aws_ec2_instance_image_ids: AMI ID of the instance. See String Filter below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs']]] resource_aws_ec2_instance_ipv4_addresses: The IPv4 addresses associated with the instance. See Ip Filter below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs']]] resource_aws_ec2_instance_ipv6_addresses: The IPv6 addresses associated with the instance. See Ip Filter below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceKeyNameArgs']]] resource_aws_ec2_instance_key_names: The key name associated with the instance. See String Filter below for more details.
@@ -5796,7 +5796,7 @@ class InsightFiltersArgs:
     @pulumi.getter(name="resourceAwsEc2InstanceImageIds")
     def resource_aws_ec2_instance_image_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceImageIdArgs']]]]:
         """
-        The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
+        AMI ID of the instance. See String Filter below for more details.
         """
         return pulumi.get(self, "resource_aws_ec2_instance_image_ids")
 

@@ -218,14 +218,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rds/customDbEngineVersion:CustomDbEngineVersion")
 public class CustomDbEngineVersion extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) for the custom engine version.
+     * ARN for the custom engine version.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the custom engine version.
+     * @return ARN for the custom engine version.
      * 
      */
     public Output<String> arn() {

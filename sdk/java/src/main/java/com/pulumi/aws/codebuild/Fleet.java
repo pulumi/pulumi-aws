@@ -110,7 +110,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild fleet.
+ * - `arn` (String) ARN of the CodeBuild fleet.
  * 
  * Using `pulumi import`, import CodeBuild Fleet using the `name`. For example:
  * 
@@ -224,14 +224,14 @@ public class Fleet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.fleetServiceRole);
     }
     /**
-     * The Amazon Machine Image (AMI) of the compute fleet.
+     * AMI of the compute fleet.
      * 
      */
     @Export(name="imageId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> imageId;
 
     /**
-     * @return The Amazon Machine Image (AMI) of the compute fleet.
+     * @return AMI of the compute fleet.
      * 
      */
     public Output<Optional<String>> imageId() {

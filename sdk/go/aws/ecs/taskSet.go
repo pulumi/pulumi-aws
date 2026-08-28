@@ -93,7 +93,7 @@ import (
 type TaskSet struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) that identifies the task set.
+	// ARN that identifies the task set.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Capacity provider strategy to use for the service. Can be one or more. Defined below.
 	CapacityProviderStrategies TaskSetCapacityProviderStrategyArrayOutput `pulumi:"capacityProviderStrategies"`
@@ -178,7 +178,7 @@ func GetTaskSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TaskSet resources.
 type taskSetState struct {
-	// Amazon Resource Name (ARN) that identifies the task set.
+	// ARN that identifies the task set.
 	Arn *string `pulumi:"arn"`
 	// Capacity provider strategy to use for the service. Can be one or more. Defined below.
 	CapacityProviderStrategies []TaskSetCapacityProviderStrategy `pulumi:"capacityProviderStrategies"`
@@ -225,7 +225,7 @@ type taskSetState struct {
 }
 
 type TaskSetState struct {
-	// Amazon Resource Name (ARN) that identifies the task set.
+	// ARN that identifies the task set.
 	Arn pulumi.StringPtrInput
 	// Capacity provider strategy to use for the service. Can be one or more. Defined below.
 	CapacityProviderStrategies TaskSetCapacityProviderStrategyArrayInput
@@ -437,7 +437,7 @@ func (o TaskSetOutput) ToTaskSetOutputWithContext(ctx context.Context) TaskSetOu
 	return o
 }
 
-// Amazon Resource Name (ARN) that identifies the task set.
+// ARN that identifies the task set.
 func (o TaskSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

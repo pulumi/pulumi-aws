@@ -158,7 +158,7 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         public readonly int AuthorizerResultTtlInSeconds;
         /// <summary>
-        /// Authorizer's Uniform Resource Identifier (URI).
+        /// Authorizer's URI.
         /// </summary>
         public readonly string AuthorizerUri;
         /// <summary>

@@ -68,7 +68,7 @@ export class GeoMatchSet extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN)
+     * ARN
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -112,7 +112,7 @@ export class GeoMatchSet extends pulumi.CustomResource {
  */
 export interface GeoMatchSetState {
     /**
-     * Amazon Resource Name (ARN)
+     * ARN
      */
     arn?: pulumi.Input<string | undefined>;
     /**

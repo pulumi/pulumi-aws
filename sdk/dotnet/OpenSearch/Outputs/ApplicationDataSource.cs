@@ -14,7 +14,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     public sealed class ApplicationDataSource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
+        /// ARN of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
         /// </summary>
         public readonly string? DataSourceArn;
         /// <summary>

@@ -837,7 +837,7 @@ class GetOrganizationalUnitChildAccountsAccountResult(dict):
                  state: _builtins.str,
                  status: _builtins.str):
         """
-        :param _builtins.str arn: The Amazon Resource Name (ARN) of the account.
+        :param _builtins.str arn: The ARN of the account.
         :param _builtins.str email: The email address associated with the AWS account.
         :param _builtins.str id: Parent identifier of the organizational units.
         :param _builtins.str joined_method: Method by which the account joined the organization.
@@ -859,7 +859,7 @@ class GetOrganizationalUnitChildAccountsAccountResult(dict):
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the account.
+        The ARN of the account.
         """
         return pulumi.get(self, "arn")
 
@@ -933,7 +933,7 @@ class GetOrganizationalUnitDescendantAccountsAccountResult(dict):
                  state: _builtins.str,
                  status: _builtins.str):
         """
-        :param _builtins.str arn: The Amazon Resource Name (ARN) of the account.
+        :param _builtins.str arn: The ARN of the account.
         :param _builtins.str email: The email address associated with the AWS account.
         :param _builtins.str id: Parent identifier of the organizational units.
         :param _builtins.str joined_method: Method by which the account joined the organization.
@@ -955,7 +955,7 @@ class GetOrganizationalUnitDescendantAccountsAccountResult(dict):
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the account.
+        The ARN of the account.
         """
         return pulumi.get(self, "arn")
 

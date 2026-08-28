@@ -82,14 +82,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sagemaker/featureGroup:FeatureGroup")
 public class FeatureGroup extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
+     * ARN assigned by AWS to this feature_group.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
+     * @return ARN assigned by AWS to this feature_group.
      * 
      */
     public Output<String> arn() {
@@ -208,14 +208,14 @@ public class FeatureGroup extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
+     * The ARN of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
+     * @return The ARN of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
      * 
      */
     public Output<String> roleArn() {

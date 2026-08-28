@@ -72,14 +72,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sagemaker/deviceFleet:DeviceFleet")
 public class DeviceFleet extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
+     * ARN assigned by AWS to this Device Fleet.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
+     * @return ARN assigned by AWS to this Device Fleet.
      * 
      */
     public Output<String> arn() {
@@ -162,14 +162,14 @@ public class DeviceFleet extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
+     * ARN that has access to AWS Internet of Things (IoT).
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
+     * @return ARN that has access to AWS Internet of Things (IoT).
      * 
      */
     public Output<String> roleArn() {

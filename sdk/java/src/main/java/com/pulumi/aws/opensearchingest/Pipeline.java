@@ -249,14 +249,14 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
         return this.minUnits;
     }
     /**
-     * Amazon Resource Name (ARN) of the pipeline.
+     * ARN of the pipeline.
      * 
      */
     @Export(name="pipelineArn", refs={String.class}, tree="[0]")
     private Output<String> pipelineArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the pipeline.
+     * @return ARN of the pipeline.
      * 
      */
     public Output<String> pipelineArn() {

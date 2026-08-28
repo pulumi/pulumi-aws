@@ -289,6 +289,111 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### VPC Endpoint Streaming
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.SecurityGroup;
+ * import com.pulumi.aws.ec2.SecurityGroupArgs;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.ec2.VpcEndpoint;
+ * import com.pulumi.aws.ec2.VpcEndpointArgs;
+ * import com.pulumi.aws.workspaces.Directory;
+ * import com.pulumi.aws.workspaces.DirectoryArgs;
+ * import com.pulumi.aws.workspaces.inputs.DirectoryWorkspaceAccessPropertiesArgs;
+ * import com.pulumi.aws.workspaces.inputs.DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs;
+ * import com.pulumi.aws.workspaces.inputs.DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArgs;
+ * import com.pulumi.aws.vpc.SecurityGroupIngressRule;
+ * import com.pulumi.aws.vpc.SecurityGroupIngressRuleArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var workspacesStreaming = new SecurityGroup("workspacesStreaming", SecurityGroupArgs.builder()
+ *             .name("workspaces-streaming-endpoint")
+ *             .vpcId(exampleAwsVpc.id())
+ *             .build());
+ * 
+ *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
+ * 
+ *         var workspaces = new VpcEndpoint("workspaces", VpcEndpointArgs.builder()
+ *             .vpcId(exampleAwsVpc.id())
+ *             .serviceName(String.format("com.amazonaws.%s.highlander", current.region()))
+ *             .vpcEndpointType("Interface")
+ *             .subnetIds(            
+ *                 exampleA.id(),
+ *                 exampleB.id())
+ *             .securityGroupIds(workspacesStreaming.id())
+ *             .privateDnsEnabled(true)
+ *             .build());
+ * 
+ *         var example = new Directory("example", DirectoryArgs.builder()
+ *             .workspaceAccessProperties(DirectoryWorkspaceAccessPropertiesArgs.builder()
+ *                 .accessEndpointConfig(DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs.builder()
+ *                     .accessEndpoints(DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArgs.builder()
+ *                         .accessEndpointType("STREAMING_WSP")
+ *                         .vpcEndpointId(workspaces.id())
+ *                         .build())
+ *                     .internetFallbackProtocols("PCOIP")
+ *                     .build())
+ *                 .deviceTypeWindows("ALLOW")
+ *                 .build())
+ *             .directoryId(exampleAwsDirectoryServiceDirectory.id())
+ *             .build());
+ * 
+ *         var workspacesStreamingTcp443 = new SecurityGroupIngressRule("workspacesStreamingTcp443", SecurityGroupIngressRuleArgs.builder()
+ *             .securityGroupId(workspacesStreaming.id())
+ *             .cidrIpv4(exampleAwsVpc.cidrBlock())
+ *             .fromPort(443)
+ *             .toPort(443)
+ *             .ipProtocol("tcp")
+ *             .build());
+ * 
+ *         var workspacesStreamingTcp4195 = new SecurityGroupIngressRule("workspacesStreamingTcp4195", SecurityGroupIngressRuleArgs.builder()
+ *             .securityGroupId(workspacesStreaming.id())
+ *             .cidrIpv4(exampleAwsVpc.cidrBlock())
+ *             .fromPort(4195)
+ *             .toPort(4195)
+ *             .ipProtocol("tcp")
+ *             .build());
+ * 
+ *         var workspacesStreamingUdp443 = new SecurityGroupIngressRule("workspacesStreamingUdp443", SecurityGroupIngressRuleArgs.builder()
+ *             .securityGroupId(workspacesStreaming.id())
+ *             .cidrIpv4(exampleAwsVpc.cidrBlock())
+ *             .fromPort(443)
+ *             .toPort(443)
+ *             .ipProtocol("udp")
+ *             .build());
+ * 
+ *         var workspacesStreamingUdp4195 = new SecurityGroupIngressRule("workspacesStreamingUdp4195", SecurityGroupIngressRuleArgs.builder()
+ *             .securityGroupId(workspacesStreaming.id())
+ *             .cidrIpv4(exampleAwsVpc.cidrBlock())
+ *             .fromPort(4195)
+ *             .toPort(4195)
+ *             .ipProtocol("udp")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Workspaces directory using the directory ID. For example:

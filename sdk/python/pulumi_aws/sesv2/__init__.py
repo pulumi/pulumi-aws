@@ -21,6 +21,7 @@ from .get_configuration_set import *
 from .get_dedicated_ip_pool import *
 from .get_email_identity import *
 from .get_email_identity_mail_from_attributes import *
+from .multi_region_endpoint import *
 from .tenant import *
 from .tenant_resource_association import *
 from ._inputs import *

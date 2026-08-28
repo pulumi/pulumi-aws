@@ -89,7 +89,7 @@ export class HoursOfOperation extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Hours of Operation.
+     * ARN of the Hours of Operation.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -184,7 +184,7 @@ export class HoursOfOperation extends pulumi.CustomResource {
  */
 export interface HoursOfOperationState {
     /**
-     * The Amazon Resource Name (ARN) of the Hours of Operation.
+     * ARN of the Hours of Operation.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

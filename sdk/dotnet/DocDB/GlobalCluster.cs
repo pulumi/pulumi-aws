@@ -148,7 +148,7 @@ namespace Pulumi.Aws.DocDB
     public partial class GlobalCluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Global Cluster Amazon Resource Name (ARN)
+        /// Global Cluster ARN
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.Aws.DocDB
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+        /// ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value.
         /// </summary>
         [Output("sourceDbClusterIdentifier")]
         public Output<string> SourceDbClusterIdentifier { get; private set; } = null!;
@@ -301,7 +301,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+        /// ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value.
         /// </summary>
         [Input("sourceDbClusterIdentifier")]
         public Input<string>? SourceDbClusterIdentifier { get; set; }
@@ -321,7 +321,7 @@ namespace Pulumi.Aws.DocDB
     public sealed class GlobalClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Global Cluster Amazon Resource Name (ARN)
+        /// Global Cluster ARN
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -382,7 +382,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+        /// ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value.
         /// </summary>
         [Input("sourceDbClusterIdentifier")]
         public Input<string>? SourceDbClusterIdentifier { get; set; }

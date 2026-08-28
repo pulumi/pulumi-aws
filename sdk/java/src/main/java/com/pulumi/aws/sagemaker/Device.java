@@ -74,14 +74,14 @@ public class Device extends com.pulumi.resources.CustomResource {
         return this.agentVersion;
     }
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Device.
+     * ARN assigned by AWS to this Device.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Device.
+     * @return ARN assigned by AWS to this Device.
      * 
      */
     public Output<String> arn() {

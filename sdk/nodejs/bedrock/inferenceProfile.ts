@@ -68,7 +68,7 @@ export class InferenceProfile extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the inference profile.
+     * The ARN of the inference profile.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -168,7 +168,7 @@ export class InferenceProfile extends pulumi.CustomResource {
  */
 export interface InferenceProfileState {
     /**
-     * The Amazon Resource Name (ARN) of the inference profile.
+     * The ARN of the inference profile.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

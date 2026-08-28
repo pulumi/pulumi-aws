@@ -48,14 +48,14 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the app.
+     * ARN of the app.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the app.
+     * @return ARN of the app.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -93,14 +93,14 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
+     * Instance type and the ARN of the SageMaker AI image created on the instance. See Resource Spec below.
      * 
      */
     @Import(name="resourceSpec")
     private @Nullable Output<AppResourceSpecArgs> resourceSpec;
 
     /**
-     * @return The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
+     * @return Instance type and the ARN of the SageMaker AI image created on the instance. See Resource Spec below.
      * 
      */
     public Optional<Output<AppResourceSpecArgs>> resourceSpec() {
@@ -243,7 +243,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the app.
+         * @param arn ARN of the app.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the app.
+         * @param arn ARN of the app.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceSpec The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
+         * @param resourceSpec Instance type and the ARN of the SageMaker AI image created on the instance. See Resource Spec below.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceSpec The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
+         * @param resourceSpec Instance type and the ARN of the SageMaker AI image created on the instance. See Resource Spec below.
          * 
          * @return builder
          * 

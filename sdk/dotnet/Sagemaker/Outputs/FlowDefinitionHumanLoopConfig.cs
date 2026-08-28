@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class FlowDefinitionHumanLoopConfig
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the human task user interface.
+        /// ARN of the human task user interface.
         /// </summary>
         public readonly string HumanTaskUiArn;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string TaskTitle;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
+        /// ARN of the human task user interface. ARN of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
         /// </summary>
         public readonly string WorkteamArn;
 

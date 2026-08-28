@@ -77,7 +77,7 @@ export class DrtAccessRoleArnAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
+     * ARN of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
      */
     declare public readonly roleArn: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.shield.DrtAccessRoleArnAssociationTimeouts | undefined>;
@@ -115,7 +115,7 @@ export class DrtAccessRoleArnAssociation extends pulumi.CustomResource {
  */
 export interface DrtAccessRoleArnAssociationState {
     /**
-     * The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
+     * ARN of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
      */
     roleArn?: pulumi.Input<string | undefined>;
     timeouts?: pulumi.Input<inputs.shield.DrtAccessRoleArnAssociationTimeouts | undefined>;
@@ -126,7 +126,7 @@ export interface DrtAccessRoleArnAssociationState {
  */
 export interface DrtAccessRoleArnAssociationArgs {
     /**
-     * The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
+     * ARN of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
      */
     roleArn: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.shield.DrtAccessRoleArnAssociationTimeouts | undefined>;

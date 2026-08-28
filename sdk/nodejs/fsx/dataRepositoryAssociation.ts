@@ -89,7 +89,7 @@ export class DataRepositoryAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -196,7 +196,7 @@ export class DataRepositoryAssociation extends pulumi.CustomResource {
  */
 export interface DataRepositoryAssociationState {
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

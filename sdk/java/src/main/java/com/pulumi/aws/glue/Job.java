@@ -396,14 +396,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:glue/job:Job")
 public class Job extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of Glue Job
+     * ARN of Glue Job
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of Glue Job
+     * @return ARN of Glue Job
      * 
      */
     public Output<String> arn() {

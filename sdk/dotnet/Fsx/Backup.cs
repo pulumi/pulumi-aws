@@ -138,7 +138,7 @@ namespace Pulumi.Aws.Fsx
     public partial class Backup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name of the backup.
+        /// ARN of the backup.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string?> FileSystemId { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
+        /// ID of the KMS key used to encrypt the backup of the Amazon FSx file system's data at rest.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
@@ -276,7 +276,7 @@ namespace Pulumi.Aws.Fsx
     public sealed class BackupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name of the backup.
+        /// ARN of the backup.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -288,7 +288,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? FileSystemId { get; set; }
 
         /// <summary>
-        /// ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
+        /// ID of the KMS key used to encrypt the backup of the Amazon FSx file system's data at rest.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }

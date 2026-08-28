@@ -62,7 +62,7 @@ type LookupAppregistryApplicationArgs struct {
 type LookupAppregistryApplicationResult struct {
 	// A map with a single tag key-value pair used to associate resources with the application.
 	ApplicationTag map[string]string `pulumi:"applicationTag"`
-	// ARN (Amazon Resource Name) of the application.
+	// ARN of the application.
 	Arn string `pulumi:"arn"`
 	// Description of the application.
 	Description string `pulumi:"description"`
@@ -115,7 +115,7 @@ func (o LookupAppregistryApplicationResultOutput) ApplicationTag() pulumi.String
 	return o.ApplyT(func(v LookupAppregistryApplicationResult) map[string]string { return v.ApplicationTag }).(pulumi.StringMapOutput)
 }
 
-// ARN (Amazon Resource Name) of the application.
+// ARN of the application.
 func (o LookupAppregistryApplicationResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAppregistryApplicationResult) string { return v.Arn }).(pulumi.StringOutput)
 }

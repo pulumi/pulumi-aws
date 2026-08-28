@@ -61,7 +61,7 @@ export interface GetQuicksightGroupArgs {
  */
 export interface GetQuicksightGroupResult {
     /**
-     * The Amazon Resource Name (ARN) for the group.
+     * ARN for the group.
      */
     readonly arn: string;
     readonly awsAccountId: string;

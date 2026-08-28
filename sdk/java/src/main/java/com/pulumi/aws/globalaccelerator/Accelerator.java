@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator accelerator.
+ * - `arn` (String) ARN of the Global Accelerator accelerator.
  * 
  * Using `pulumi import`, import Global Accelerator accelerators using the `arn`. For example:
  * 
@@ -82,14 +82,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:globalaccelerator/accelerator:Accelerator")
 public class Accelerator extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the accelerator.
+     * ARN of the accelerator.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the accelerator.
+     * @return ARN of the accelerator.
      * 
      */
     public Output<String> arn() {
@@ -124,14 +124,14 @@ public class Accelerator extends com.pulumi.resources.CustomResource {
         return this.dnsName;
     }
     /**
-     * The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator&#39;s four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+     * DNS name that Global Accelerator creates that points to a dual-stack accelerator&#39;s four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
      * 
      */
     @Export(name="dualStackDnsName", refs={String.class}, tree="[0]")
     private Output<String> dualStackDnsName;
 
     /**
-     * @return The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator&#39;s four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+     * @return DNS name that Global Accelerator creates that points to a dual-stack accelerator&#39;s four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
      * 
      */
     public Output<String> dualStackDnsName() {

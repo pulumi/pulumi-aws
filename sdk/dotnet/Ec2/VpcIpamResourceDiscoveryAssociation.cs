@@ -51,13 +51,13 @@ namespace Pulumi.Aws.Ec2
     public partial class VpcIpamResourceDiscoveryAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
+        /// ARN of IPAM Resource Discovery Association.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IPAM.
+        /// ARN of the IPAM.
         /// </summary>
         [Output("ipamArn")]
         public Output<string> IpamArn { get; private set; } = null!;
@@ -201,13 +201,13 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcIpamResourceDiscoveryAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
+        /// ARN of IPAM Resource Discovery Association.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IPAM.
+        /// ARN of the IPAM.
         /// </summary>
         [Input("ipamArn")]
         public Input<string>? IpamArn { get; set; }

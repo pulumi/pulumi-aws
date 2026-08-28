@@ -162,7 +162,7 @@ type Domain struct {
 	AppNetworkAccessType pulumi.StringPtrOutput `pulumi:"appNetworkAccessType"`
 	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
 	AppSecurityGroupManagement pulumi.StringPtrOutput `pulumi:"appSecurityGroupManagement"`
-	// The Amazon Resource Name (ARN) assigned by AWS to this Domain.
+	// ARN assigned by AWS to this Domain.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
 	AuthMode pulumi.StringOutput `pulumi:"authMode"`
@@ -198,7 +198,7 @@ type Domain struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The domain's URL.
 	Url pulumi.StringOutput `pulumi:"url"`
-	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+	// ID of the VPC that Studio uses for communication.
 	//
 	// The following arguments are optional:
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -253,7 +253,7 @@ type domainState struct {
 	AppNetworkAccessType *string `pulumi:"appNetworkAccessType"`
 	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
 	AppSecurityGroupManagement *string `pulumi:"appSecurityGroupManagement"`
-	// The Amazon Resource Name (ARN) assigned by AWS to this Domain.
+	// ARN assigned by AWS to this Domain.
 	Arn *string `pulumi:"arn"`
 	// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
 	AuthMode *string `pulumi:"authMode"`
@@ -289,7 +289,7 @@ type domainState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The domain's URL.
 	Url *string `pulumi:"url"`
-	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+	// ID of the VPC that Studio uses for communication.
 	//
 	// The following arguments are optional:
 	VpcId *string `pulumi:"vpcId"`
@@ -300,7 +300,7 @@ type DomainState struct {
 	AppNetworkAccessType pulumi.StringPtrInput
 	// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
 	AppSecurityGroupManagement pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) assigned by AWS to this Domain.
+	// ARN assigned by AWS to this Domain.
 	Arn pulumi.StringPtrInput
 	// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
 	AuthMode pulumi.StringPtrInput
@@ -336,7 +336,7 @@ type DomainState struct {
 	TagsAll pulumi.StringMapInput
 	// The domain's URL.
 	Url pulumi.StringPtrInput
-	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+	// ID of the VPC that Studio uses for communication.
 	//
 	// The following arguments are optional:
 	VpcId pulumi.StringPtrInput
@@ -373,7 +373,7 @@ type domainArgs struct {
 	TagPropagation *string `pulumi:"tagPropagation"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+	// ID of the VPC that Studio uses for communication.
 	//
 	// The following arguments are optional:
 	VpcId string `pulumi:"vpcId"`
@@ -407,7 +407,7 @@ type DomainArgs struct {
 	TagPropagation pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+	// ID of the VPC that Studio uses for communication.
 	//
 	// The following arguments are optional:
 	VpcId pulumi.StringInput
@@ -510,7 +510,7 @@ func (o DomainOutput) AppSecurityGroupManagement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.AppSecurityGroupManagement }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this Domain.
+// ARN assigned by AWS to this Domain.
 func (o DomainOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -600,7 +600,7 @@ func (o DomainOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }
 
-// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+// ID of the VPC that Studio uses for communication.
 //
 // The following arguments are optional:
 func (o DomainOutput) VpcId() pulumi.StringOutput {

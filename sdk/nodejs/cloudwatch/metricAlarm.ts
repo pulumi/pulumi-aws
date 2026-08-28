@@ -282,7 +282,7 @@ export class MetricAlarm extends pulumi.CustomResource {
      */
     declare public readonly actionsEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
      */
     declare public readonly alarmActions: pulumi.Output<string[] | undefined>;
     /**
@@ -329,7 +329,7 @@ export class MetricAlarm extends pulumi.CustomResource {
      */
     declare public readonly extendedStatistic: pulumi.Output<string | undefined>;
     /**
-     * The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
      */
     declare public readonly insufficientDataActions: pulumi.Output<string[] | undefined>;
     /**
@@ -351,7 +351,7 @@ export class MetricAlarm extends pulumi.CustomResource {
      */
     declare public readonly namespace: pulumi.Output<string | undefined>;
     /**
-     * The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
      */
     declare public readonly okActions: pulumi.Output<string[] | undefined>;
     /**
@@ -482,7 +482,7 @@ export interface MetricAlarmState {
      */
     actionsEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
      */
     alarmActions?: pulumi.Input<pulumi.Input<string | Topic>[] | undefined>;
     /**
@@ -529,7 +529,7 @@ export interface MetricAlarmState {
      */
     extendedStatistic?: pulumi.Input<string | undefined>;
     /**
-     * The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
      */
     insufficientDataActions?: pulumi.Input<pulumi.Input<string | Topic>[] | undefined>;
     /**
@@ -551,7 +551,7 @@ export interface MetricAlarmState {
      */
     namespace?: pulumi.Input<string | undefined>;
     /**
-     * The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
      */
     okActions?: pulumi.Input<pulumi.Input<string | Topic>[] | undefined>;
     /**
@@ -608,7 +608,7 @@ export interface MetricAlarmArgs {
      */
     actionsEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
      */
     alarmActions?: pulumi.Input<pulumi.Input<string | Topic>[] | undefined>;
     /**
@@ -651,7 +651,7 @@ export interface MetricAlarmArgs {
      */
     extendedStatistic?: pulumi.Input<string | undefined>;
     /**
-     * The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
      */
     insufficientDataActions?: pulumi.Input<pulumi.Input<string | Topic>[] | undefined>;
     /**
@@ -673,7 +673,7 @@ export interface MetricAlarmArgs {
      */
     namespace?: pulumi.Input<string | undefined>;
     /**
-     * The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
      */
     okActions?: pulumi.Input<pulumi.Input<string | Topic>[] | undefined>;
     /**

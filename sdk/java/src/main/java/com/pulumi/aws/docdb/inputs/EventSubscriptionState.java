@@ -19,14 +19,14 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
     public static final EventSubscriptionState Empty = new EventSubscriptionState();
 
     /**
-     * The Amazon Resource Name of the DocumentDB event notification subscription
+     * ARN of the DocumentDB event notification subscription
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name of the DocumentDB event notification subscription
+     * @return ARN of the DocumentDB event notification subscription
      * 
      */
     public Optional<Output<String>> arn() {
@@ -226,7 +226,7 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn The Amazon Resource Name of the DocumentDB event notification subscription
+         * @param arn ARN of the DocumentDB event notification subscription
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn The Amazon Resource Name of the DocumentDB event notification subscription
+         * @param arn ARN of the DocumentDB event notification subscription
          * 
          * @return builder
          * 

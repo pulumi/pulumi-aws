@@ -29,7 +29,7 @@ class SecretVersionArgs:
         """
         The set of arguments for constructing a SecretVersion resource.
 
-        :param pulumi.Input[_builtins.str] secret_id: Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+        :param pulumi.Input[_builtins.str] secret_id: Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] secret_binary: Binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` or `secret_string_wo` is not set. Needs to be encoded to base64.
         :param pulumi.Input[_builtins.str] secret_string: Text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string_wo` is not set.
@@ -58,7 +58,7 @@ class SecretVersionArgs:
     @pulumi.getter(name="secretId")
     def secret_id(self) -> pulumi.Input[_builtins.str]:
         """
-        Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+        Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
         """
         return pulumi.get(self, "secret_id")
 
@@ -164,7 +164,7 @@ class _SecretVersionState:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] secret_arn: ARN of the secret.
         :param pulumi.Input[_builtins.str] secret_binary: Binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` or `secret_string_wo` is not set. Needs to be encoded to base64.
-        :param pulumi.Input[_builtins.str] secret_id: Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+        :param pulumi.Input[_builtins.str] secret_id: Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
         :param pulumi.Input[_builtins.str] secret_string: Text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string_wo` is not set.
         :param pulumi.Input[_builtins.str] secret_string_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string` is not set.
@@ -265,7 +265,7 @@ class _SecretVersionState:
     @pulumi.getter(name="secretId")
     def secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+        Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
         """
         return pulumi.get(self, "secret_id")
 
@@ -424,7 +424,7 @@ class SecretVersion(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] secret_binary: Binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` or `secret_string_wo` is not set. Needs to be encoded to base64.
-        :param pulumi.Input[_builtins.str] secret_id: Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+        :param pulumi.Input[_builtins.str] secret_id: Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
         :param pulumi.Input[_builtins.str] secret_string: Text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string_wo` is not set.
         :param pulumi.Input[_builtins.str] secret_string_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string` is not set.
@@ -587,7 +587,7 @@ class SecretVersion(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] secret_arn: ARN of the secret.
         :param pulumi.Input[_builtins.str] secret_binary: Binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` or `secret_string_wo` is not set. Needs to be encoded to base64.
-        :param pulumi.Input[_builtins.str] secret_id: Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+        :param pulumi.Input[_builtins.str] secret_id: Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
         :param pulumi.Input[_builtins.str] secret_string: Text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string_wo` is not set.
         :param pulumi.Input[_builtins.str] secret_string_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string` is not set.
@@ -659,7 +659,7 @@ class SecretVersion(pulumi.CustomResource):
     @pulumi.getter(name="secretId")
     def secret_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+        Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
         """
         return pulumi.get(self, "secret_id")
 

@@ -62,7 +62,7 @@ type LookupCloudAutonomousVmClusterArgs struct {
 
 // A collection of values returned by getCloudAutonomousVmCluster.
 type LookupCloudAutonomousVmClusterResult struct {
-	// Amazon Resource Name (ARN) for the Exadata infrastructure.
+	// ARN for the Exadata infrastructure.
 	Arn string `pulumi:"arn"`
 	// Percentage of data storage currently in use for Autonomous Databases in the Autonomous VM cluster.
 	AutonomousDataStoragePercentage float64 `pulumi:"autonomousDataStoragePercentage"`
@@ -204,7 +204,7 @@ func (o LookupCloudAutonomousVmClusterResultOutput) ToLookupCloudAutonomousVmClu
 	return o
 }
 
-// Amazon Resource Name (ARN) for the Exadata infrastructure.
+// ARN for the Exadata infrastructure.
 func (o LookupCloudAutonomousVmClusterResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudAutonomousVmClusterResult) string { return v.Arn }).(pulumi.StringOutput)
 }

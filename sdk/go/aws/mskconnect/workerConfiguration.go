@@ -53,7 +53,7 @@ import (
 type WorkerConfiguration struct {
 	pulumi.CustomResourceState
 
-	// the Amazon Resource Name (ARN) of the worker configuration.
+	// the ARN of the worker configuration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A summary description of the worker configuration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -106,7 +106,7 @@ func GetWorkerConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkerConfiguration resources.
 type workerConfigurationState struct {
-	// the Amazon Resource Name (ARN) of the worker configuration.
+	// the ARN of the worker configuration.
 	Arn *string `pulumi:"arn"`
 	// A summary description of the worker configuration.
 	Description *string `pulumi:"description"`
@@ -127,7 +127,7 @@ type workerConfigurationState struct {
 }
 
 type WorkerConfigurationState struct {
-	// the Amazon Resource Name (ARN) of the worker configuration.
+	// the ARN of the worker configuration.
 	Arn pulumi.StringPtrInput
 	// A summary description of the worker configuration.
 	Description pulumi.StringPtrInput
@@ -269,7 +269,7 @@ func (o WorkerConfigurationOutput) ToWorkerConfigurationOutputWithContext(ctx co
 	return o
 }
 
-// the Amazon Resource Name (ARN) of the worker configuration.
+// the ARN of the worker configuration.
 func (o WorkerConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkerConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

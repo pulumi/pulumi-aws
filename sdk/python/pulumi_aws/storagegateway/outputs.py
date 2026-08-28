@@ -86,7 +86,7 @@ class GatewayGatewayNetworkInterface(dict):
     def __init__(__self__, *,
                  ipv4_address: Optional[_builtins.str] = None):
         """
-        :param _builtins.str ipv4_address: The Internet Protocol version 4 (IPv4) address of the interface.
+        :param _builtins.str ipv4_address: IP version 4 (IPv4) address of the interface.
         """
         if ipv4_address is not None:
             pulumi.set(__self__, "ipv4_address", ipv4_address)
@@ -95,7 +95,7 @@ class GatewayGatewayNetworkInterface(dict):
     @pulumi.getter(name="ipv4Address")
     def ipv4_address(self) -> Optional[_builtins.str]:
         """
-        The Internet Protocol version 4 (IPv4) address of the interface.
+        IP version 4 (IPv4) address of the interface.
         """
         return pulumi.get(self, "ipv4_address")
 

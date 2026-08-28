@@ -74,7 +74,7 @@ export class Protection extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * The ARN (Amazon Resource Name) of the resource to be protected.
+     * ARN of the resource to be protected.
      */
     declare public readonly resourceArn: pulumi.Output<string>;
     /**
@@ -133,7 +133,7 @@ export interface ProtectionState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The ARN (Amazon Resource Name) of the resource to be protected.
+     * ARN of the resource to be protected.
      */
     resourceArn?: pulumi.Input<string | undefined>;
     /**
@@ -155,7 +155,7 @@ export interface ProtectionArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The ARN (Amazon Resource Name) of the resource to be protected.
+     * ARN of the resource to be protected.
      */
     resourceArn: pulumi.Input<string>;
     /**

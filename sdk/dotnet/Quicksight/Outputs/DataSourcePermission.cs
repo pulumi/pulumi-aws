@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Actions;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the principal.
+        /// ARN of the principal.
         /// </summary>
         public readonly string Principal;
 

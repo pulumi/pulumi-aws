@@ -83,7 +83,7 @@ type AccountSubscription struct {
 	EmailAddress pulumi.StringPtrOutput `pulumi:"emailAddress"`
 	// First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	FirstName pulumi.StringPtrOutput `pulumi:"firstName"`
-	// The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+	// ARN for the IAM Identity Center instance.
 	IamIdentityCenterInstanceArn pulumi.StringPtrOutput `pulumi:"iamIdentityCenterInstanceArn"`
 	// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	LastName pulumi.StringPtrOutput `pulumi:"lastName"`
@@ -171,7 +171,7 @@ type accountSubscriptionState struct {
 	EmailAddress *string `pulumi:"emailAddress"`
 	// First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	FirstName *string `pulumi:"firstName"`
-	// The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+	// ARN for the IAM Identity Center instance.
 	IamIdentityCenterInstanceArn *string `pulumi:"iamIdentityCenterInstanceArn"`
 	// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	LastName *string `pulumi:"lastName"`
@@ -218,7 +218,7 @@ type AccountSubscriptionState struct {
 	EmailAddress pulumi.StringPtrInput
 	// First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	FirstName pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+	// ARN for the IAM Identity Center instance.
 	IamIdentityCenterInstanceArn pulumi.StringPtrInput
 	// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	LastName pulumi.StringPtrInput
@@ -267,7 +267,7 @@ type accountSubscriptionArgs struct {
 	EmailAddress *string `pulumi:"emailAddress"`
 	// First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	FirstName *string `pulumi:"firstName"`
-	// The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+	// ARN for the IAM Identity Center instance.
 	IamIdentityCenterInstanceArn *string `pulumi:"iamIdentityCenterInstanceArn"`
 	// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	LastName *string `pulumi:"lastName"`
@@ -313,7 +313,7 @@ type AccountSubscriptionArgs struct {
 	EmailAddress pulumi.StringPtrInput
 	// First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	FirstName pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+	// ARN for the IAM Identity Center instance.
 	IamIdentityCenterInstanceArn pulumi.StringPtrInput
 	// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	LastName pulumi.StringPtrInput
@@ -488,7 +488,7 @@ func (o AccountSubscriptionOutput) FirstName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountSubscription) pulumi.StringPtrOutput { return v.FirstName }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+// ARN for the IAM Identity Center instance.
 func (o AccountSubscriptionOutput) IamIdentityCenterInstanceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountSubscription) pulumi.StringPtrOutput { return v.IamIdentityCenterInstanceArn }).(pulumi.StringPtrOutput)
 }

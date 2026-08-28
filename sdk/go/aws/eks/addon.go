@@ -149,7 +149,7 @@ type Addon struct {
 	// The version of the EKS add-on. The version must
 	// match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
 	AddonVersion pulumi.StringOutput `pulumi:"addonVersion"`
-	// Amazon Resource Name (ARN) of the EKS add-on.
+	// ARN of the EKS add-on.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name of the EKS Cluster.
 	//
@@ -173,7 +173,7 @@ type Addon struct {
 	ResolveConflictsOnCreate pulumi.StringPtrOutput `pulumi:"resolveConflictsOnCreate"`
 	// How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Documentation.
 	ResolveConflictsOnUpdate pulumi.StringPtrOutput `pulumi:"resolveConflictsOnUpdate"`
-	// The Amazon Resource Name (ARN) of an
+	// ARN of an
 	// existing IAM role to bind to the add-on's service account. The role must be
 	// assigned the IAM permissions required by the add-on. If you don't specify
 	// an existing IAM role, then the add-on uses the permissions assigned to the node
@@ -233,7 +233,7 @@ type addonState struct {
 	// The version of the EKS add-on. The version must
 	// match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
 	AddonVersion *string `pulumi:"addonVersion"`
-	// Amazon Resource Name (ARN) of the EKS add-on.
+	// ARN of the EKS add-on.
 	Arn *string `pulumi:"arn"`
 	// Name of the EKS Cluster.
 	//
@@ -257,7 +257,7 @@ type addonState struct {
 	ResolveConflictsOnCreate *string `pulumi:"resolveConflictsOnCreate"`
 	// How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Documentation.
 	ResolveConflictsOnUpdate *string `pulumi:"resolveConflictsOnUpdate"`
-	// The Amazon Resource Name (ARN) of an
+	// ARN of an
 	// existing IAM role to bind to the add-on's service account. The role must be
 	// assigned the IAM permissions required by the add-on. If you don't specify
 	// an existing IAM role, then the add-on uses the permissions assigned to the node
@@ -282,7 +282,7 @@ type AddonState struct {
 	// The version of the EKS add-on. The version must
 	// match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
 	AddonVersion pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the EKS add-on.
+	// ARN of the EKS add-on.
 	Arn pulumi.StringPtrInput
 	// Name of the EKS Cluster.
 	//
@@ -306,7 +306,7 @@ type AddonState struct {
 	ResolveConflictsOnCreate pulumi.StringPtrInput
 	// How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Documentation.
 	ResolveConflictsOnUpdate pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of an
+	// ARN of an
 	// existing IAM role to bind to the add-on's service account. The role must be
 	// assigned the IAM permissions required by the add-on. If you don't specify
 	// an existing IAM role, then the add-on uses the permissions assigned to the node
@@ -353,7 +353,7 @@ type addonArgs struct {
 	ResolveConflictsOnCreate *string `pulumi:"resolveConflictsOnCreate"`
 	// How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Documentation.
 	ResolveConflictsOnUpdate *string `pulumi:"resolveConflictsOnUpdate"`
-	// The Amazon Resource Name (ARN) of an
+	// ARN of an
 	// existing IAM role to bind to the add-on's service account. The role must be
 	// assigned the IAM permissions required by the add-on. If you don't specify
 	// an existing IAM role, then the add-on uses the permissions assigned to the node
@@ -395,7 +395,7 @@ type AddonArgs struct {
 	ResolveConflictsOnCreate pulumi.StringPtrInput
 	// How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Documentation.
 	ResolveConflictsOnUpdate pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of an
+	// ARN of an
 	// existing IAM role to bind to the add-on's service account. The role must be
 	// assigned the IAM permissions required by the add-on. If you don't specify
 	// an existing IAM role, then the add-on uses the permissions assigned to the node
@@ -510,7 +510,7 @@ func (o AddonOutput) AddonVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Addon) pulumi.StringOutput { return v.AddonVersion }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the EKS add-on.
+// ARN of the EKS add-on.
 func (o AddonOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Addon) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -567,7 +567,7 @@ func (o AddonOutput) ResolveConflictsOnUpdate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Addon) pulumi.StringPtrOutput { return v.ResolveConflictsOnUpdate }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of an
+// ARN of an
 // existing IAM role to bind to the add-on's service account. The role must be
 // assigned the IAM permissions required by the add-on. If you don't specify
 // an existing IAM role, then the add-on uses the permissions assigned to the node

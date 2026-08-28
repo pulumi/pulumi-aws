@@ -51,14 +51,14 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Amazon Resource Name (ARN) of neptune instance
+     * ARN of neptune instance
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of neptune instance
+     * @return ARN of neptune instance
      * 
      */
     public Optional<Output<String>> arn() {
@@ -538,7 +538,7 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of neptune instance
+         * @param arn ARN of neptune instance
          * 
          * @return builder
          * 
@@ -549,7 +549,7 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of neptune instance
+         * @param arn ARN of neptune instance
          * 
          * @return builder
          * 

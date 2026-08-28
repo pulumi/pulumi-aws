@@ -55,7 +55,7 @@ namespace Pulumi.Aws.AppIntegrations
     public partial class DataIntegration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Data Integration.
+        /// ARN of the Data Integration.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.AppIntegrations
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// KMS key Amazon Resource Name (ARN) for the Data Integration.
+        /// KMS key ARN for the Data Integration.
         /// </summary>
         [Output("kmsKey")]
         public Output<string> KmsKey { get; private set; } = null!;
@@ -161,7 +161,7 @@ namespace Pulumi.Aws.AppIntegrations
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// KMS key Amazon Resource Name (ARN) for the Data Integration.
+        /// KMS key ARN for the Data Integration.
         /// </summary>
         [Input("kmsKey", required: true)]
         public Input<string> KmsKey { get; set; } = null!;
@@ -211,7 +211,7 @@ namespace Pulumi.Aws.AppIntegrations
     public sealed class DataIntegrationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Data Integration.
+        /// ARN of the Data Integration.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.AppIntegrations
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// KMS key Amazon Resource Name (ARN) for the Data Integration.
+        /// KMS key ARN for the Data Integration.
         /// </summary>
         [Input("kmsKey")]
         public Input<string>? KmsKey { get; set; }

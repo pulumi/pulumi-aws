@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> AliasName { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the template alias.
+        /// ARN of the template alias.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -176,7 +176,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? AliasName { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the template alias.
+        /// ARN of the template alias.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

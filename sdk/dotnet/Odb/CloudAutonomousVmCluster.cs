@@ -133,7 +133,7 @@ namespace Pulumi.Aws.Odb
     public partial class CloudAutonomousVmCluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) for the Exadata infrastructure.
+        /// ARN for the Exadata infrastructure.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -641,7 +641,7 @@ namespace Pulumi.Aws.Odb
     public sealed class CloudAutonomousVmClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) for the Exadata infrastructure.
+        /// ARN for the Exadata infrastructure.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

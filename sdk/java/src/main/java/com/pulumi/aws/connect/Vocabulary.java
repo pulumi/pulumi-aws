@@ -72,14 +72,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:connect/vocabulary:Vocabulary")
 public class Vocabulary extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the vocabulary.
+     * ARN of the vocabulary.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the vocabulary.
+     * @return ARN of the vocabulary.
      * 
      */
     public Output<String> arn() {

@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Transfer
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+        /// ARN of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
         /// </summary>
         [Output("role")]
         public Output<string?> Role { get; private set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+        /// ARN of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
@@ -291,7 +291,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+        /// ARN of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }

@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> DbClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
+        /// ARN for the DB Cluster Snapshot.
         /// </summary>
         [Output("dbClusterSnapshotArn")]
         public Output<string> DbClusterSnapshotArn { get; private set; } = null!;
@@ -271,7 +271,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DbClusterIdentifier { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
+        /// ARN for the DB Cluster Snapshot.
         /// </summary>
         [Input("dbClusterSnapshotArn")]
         public Input<string>? DbClusterSnapshotArn { get; set; }

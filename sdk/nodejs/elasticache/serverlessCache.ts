@@ -131,7 +131,7 @@ export class ServerlessCache extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the serverless cache.
+     * ARN of the serverless cache.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -295,7 +295,7 @@ export class ServerlessCache extends pulumi.CustomResource {
  */
 export interface ServerlessCacheState {
     /**
-     * The Amazon Resource Name (ARN) of the serverless cache.
+     * ARN of the serverless cache.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

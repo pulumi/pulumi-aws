@@ -21,14 +21,14 @@ public final class EventDestinationState extends com.pulumi.resources.ResourceAr
     public static final EventDestinationState Empty = new EventDestinationState();
 
     /**
-     * The SES event destination ARN.
+     * SES event destination ARN.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The SES event destination ARN.
+     * @return SES event destination ARN.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -51,14 +51,14 @@ public final class EventDestinationState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The name of the configuration set
+     * Name of the configuration set
      * 
      */
     @Import(name="configurationSetName")
     private @Nullable Output<String> configurationSetName;
 
     /**
-     * @return The name of the configuration set
+     * @return Name of the configuration set
      * 
      */
     public Optional<Output<String>> configurationSetName() {
@@ -96,14 +96,14 @@ public final class EventDestinationState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A list of matching types. May be any of `&#34;send&#34;`, `&#34;reject&#34;`, `&#34;bounce&#34;`, `&#34;complaint&#34;`, `&#34;delivery&#34;`, `&#34;open&#34;`, `&#34;click&#34;`, or `&#34;renderingFailure&#34;`.
+     * List of matching types. May be any of `&#34;send&#34;`, `&#34;reject&#34;`, `&#34;bounce&#34;`, `&#34;complaint&#34;`, `&#34;delivery&#34;`, `&#34;open&#34;`, `&#34;click&#34;`, or `&#34;renderingFailure&#34;`.
      * 
      */
     @Import(name="matchingTypes")
     private @Nullable Output<List<String>> matchingTypes;
 
     /**
-     * @return A list of matching types. May be any of `&#34;send&#34;`, `&#34;reject&#34;`, `&#34;bounce&#34;`, `&#34;complaint&#34;`, `&#34;delivery&#34;`, `&#34;open&#34;`, `&#34;click&#34;`, or `&#34;renderingFailure&#34;`.
+     * @return List of matching types. May be any of `&#34;send&#34;`, `&#34;reject&#34;`, `&#34;bounce&#34;`, `&#34;complaint&#34;`, `&#34;delivery&#34;`, `&#34;open&#34;`, `&#34;click&#34;`, or `&#34;renderingFailure&#34;`.
      * 
      */
     public Optional<Output<List<String>>> matchingTypes() {
@@ -111,14 +111,14 @@ public final class EventDestinationState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The name of the event destination
+     * Name of the event destination
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the event destination
+     * @return Name of the event destination
      * 
      */
     public Optional<Output<String>> name() {
@@ -192,7 +192,7 @@ public final class EventDestinationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param arn The SES event destination ARN.
+         * @param arn SES event destination ARN.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class EventDestinationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param arn The SES event destination ARN.
+         * @param arn SES event destination ARN.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class EventDestinationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param configurationSetName The name of the configuration set
+         * @param configurationSetName Name of the configuration set
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class EventDestinationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param configurationSetName The name of the configuration set
+         * @param configurationSetName Name of the configuration set
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class EventDestinationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param matchingTypes A list of matching types. May be any of `&#34;send&#34;`, `&#34;reject&#34;`, `&#34;bounce&#34;`, `&#34;complaint&#34;`, `&#34;delivery&#34;`, `&#34;open&#34;`, `&#34;click&#34;`, or `&#34;renderingFailure&#34;`.
+         * @param matchingTypes List of matching types. May be any of `&#34;send&#34;`, `&#34;reject&#34;`, `&#34;bounce&#34;`, `&#34;complaint&#34;`, `&#34;delivery&#34;`, `&#34;open&#34;`, `&#34;click&#34;`, or `&#34;renderingFailure&#34;`.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class EventDestinationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param matchingTypes A list of matching types. May be any of `&#34;send&#34;`, `&#34;reject&#34;`, `&#34;bounce&#34;`, `&#34;complaint&#34;`, `&#34;delivery&#34;`, `&#34;open&#34;`, `&#34;click&#34;`, or `&#34;renderingFailure&#34;`.
+         * @param matchingTypes List of matching types. May be any of `&#34;send&#34;`, `&#34;reject&#34;`, `&#34;bounce&#34;`, `&#34;complaint&#34;`, `&#34;delivery&#34;`, `&#34;open&#34;`, `&#34;click&#34;`, or `&#34;renderingFailure&#34;`.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class EventDestinationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param matchingTypes A list of matching types. May be any of `&#34;send&#34;`, `&#34;reject&#34;`, `&#34;bounce&#34;`, `&#34;complaint&#34;`, `&#34;delivery&#34;`, `&#34;open&#34;`, `&#34;click&#34;`, or `&#34;renderingFailure&#34;`.
+         * @param matchingTypes List of matching types. May be any of `&#34;send&#34;`, `&#34;reject&#34;`, `&#34;bounce&#34;`, `&#34;complaint&#34;`, `&#34;delivery&#34;`, `&#34;open&#34;`, `&#34;click&#34;`, or `&#34;renderingFailure&#34;`.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class EventDestinationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name The name of the event destination
+         * @param name Name of the event destination
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class EventDestinationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name The name of the event destination
+         * @param name Name of the event destination
          * 
          * @return builder
          * 

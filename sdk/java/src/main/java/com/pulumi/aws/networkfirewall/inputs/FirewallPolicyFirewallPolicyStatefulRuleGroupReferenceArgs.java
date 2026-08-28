@@ -68,14 +68,14 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs ex
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the stateful rule group.
+     * ARN of the stateful rule group.
      * 
      */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the stateful rule group.
+     * @return ARN of the stateful rule group.
      * 
      */
     public Output<String> resourceArn() {
@@ -177,7 +177,7 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs ex
         }
 
         /**
-         * @param resourceArn The Amazon Resource Name (ARN) of the stateful rule group.
+         * @param resourceArn ARN of the stateful rule group.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs ex
         }
 
         /**
-         * @param resourceArn The Amazon Resource Name (ARN) of the stateful rule group.
+         * @param resourceArn ARN of the stateful rule group.
          * 
          * @return builder
          * 

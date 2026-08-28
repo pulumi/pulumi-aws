@@ -82,7 +82,7 @@ class GetSecurityGroupRuleResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the security group rule.
+        ARN of the security group rule.
         """
         return pulumi.get(self, "arn")
 

@@ -42,7 +42,7 @@ class StudioArgs:
         :param pulumi.Input[_builtins.str] engine_security_group_id: The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.
         :param pulumi.Input[_builtins.str] service_role: The IAM role that the Amazon EMR Studio assumes. The service role provides a way for Amazon EMR Studio to interoperate with other Amazon Web Services services.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpc_id`. Studio users can create a Workspace in any of the specified subnets.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC to associate with the Studio.
         :param pulumi.Input[_builtins.str] workspace_security_group_id: The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpc_id`.
                
                The following arguments are optional:
@@ -143,7 +143,7 @@ class StudioArgs:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+        ID of the VPC to associate with the Studio.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -301,7 +301,7 @@ class _StudioState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] url: The unique access URL of the Amazon EMR Studio.
         :param pulumi.Input[_builtins.str] user_role: The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC to associate with the Studio.
         :param pulumi.Input[_builtins.str] workspace_security_group_id: The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpc_id`.
                
                The following arguments are optional:
@@ -536,7 +536,7 @@ class _StudioState:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+        ID of the VPC to associate with the Studio.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -626,7 +626,7 @@ class Studio(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpc_id`. Studio users can create a Workspace in any of the specified subnets.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] user_role: The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC to associate with the Studio.
         :param pulumi.Input[_builtins.str] workspace_security_group_id: The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpc_id`.
                
                The following arguments are optional:
@@ -788,7 +788,7 @@ class Studio(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] url: The unique access URL of the Amazon EMR Studio.
         :param pulumi.Input[_builtins.str] user_role: The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC to associate with the Studio.
         :param pulumi.Input[_builtins.str] workspace_security_group_id: The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpc_id`.
                
                The following arguments are optional:
@@ -946,7 +946,7 @@ class Studio(pulumi.CustomResource):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+        ID of the VPC to associate with the Studio.
         """
         return pulumi.get(self, "vpc_id")
 

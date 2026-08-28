@@ -152,14 +152,14 @@ public class Database extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
-     * Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+     * Encryption key block AWS Athena uses to decrypt the data in S3, such as a KMS key. See Encryption Configuration below.
      * 
      */
     @Export(name="encryptionConfiguration", refs={DatabaseEncryptionConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ DatabaseEncryptionConfiguration> encryptionConfiguration;
 
     /**
-     * @return Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+     * @return Encryption key block AWS Athena uses to decrypt the data in S3, such as a KMS key. See Encryption Configuration below.
      * 
      */
     public Output<Optional<DatabaseEncryptionConfiguration>> encryptionConfiguration() {

@@ -12,7 +12,7 @@ import (
 
 // Builds an ARN from its constituent parts.
 //
-// See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+// See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on ARNs.
 //
 // ## Signature
 func ArnBuild(ctx *pulumi.Context, partition string, service string, region string, accountId string, resource string, opts ...pulumi.InvokeOption) (string, error) {

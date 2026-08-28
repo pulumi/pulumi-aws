@@ -175,7 +175,7 @@ class _VpcIpamState:
         """
         Input properties used for looking up and filtering VpcIpam resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of IPAM
+        :param pulumi.Input[_builtins.str] arn: ARN of IPAM
         :param pulumi.Input[_builtins.bool] cascade: Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
         :param pulumi.Input[_builtins.str] default_resource_discovery_association_id: The IPAM's default resource discovery association ID.
         :param pulumi.Input[_builtins.str] default_resource_discovery_id: The IPAM's default resource discovery ID.
@@ -227,7 +227,7 @@ class _VpcIpamState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of IPAM
+        ARN of IPAM
         """
         return pulumi.get(self, "arn")
 
@@ -634,7 +634,7 @@ class VpcIpam(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of IPAM
+        :param pulumi.Input[_builtins.str] arn: ARN of IPAM
         :param pulumi.Input[_builtins.bool] cascade: Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
         :param pulumi.Input[_builtins.str] default_resource_discovery_association_id: The IPAM's default resource discovery association ID.
         :param pulumi.Input[_builtins.str] default_resource_discovery_id: The IPAM's default resource discovery ID.
@@ -676,7 +676,7 @@ class VpcIpam(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of IPAM
+        ARN of IPAM
         """
         return pulumi.get(self, "arn")
 

@@ -133,7 +133,7 @@ class _ProxyTargetState:
         :param pulumi.Input[_builtins.int] port: Port for the target RDS DB Instance or Aurora DB Cluster.
         :param pulumi.Input[_builtins.str] rds_resource_id: Identifier representing the DB Instance or DB Cluster target.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] target_arn: Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
+        :param pulumi.Input[_builtins.str] target_arn: ARN for the DB instance or DB cluster. Currently not returned by the RDS API.
         :param pulumi.Input[_builtins.str] target_group_name: The name of the target group.
         :param pulumi.Input[_builtins.str] tracked_cluster_id: DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
         :param pulumi.Input[_builtins.str] type: Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
@@ -251,7 +251,7 @@ class _ProxyTargetState:
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
+        ARN for the DB instance or DB cluster. Currently not returned by the RDS API.
         """
         return pulumi.get(self, "target_arn")
 
@@ -453,7 +453,7 @@ class ProxyTarget(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] port: Port for the target RDS DB Instance or Aurora DB Cluster.
         :param pulumi.Input[_builtins.str] rds_resource_id: Identifier representing the DB Instance or DB Cluster target.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] target_arn: Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
+        :param pulumi.Input[_builtins.str] target_arn: ARN for the DB instance or DB cluster. Currently not returned by the RDS API.
         :param pulumi.Input[_builtins.str] target_group_name: The name of the target group.
         :param pulumi.Input[_builtins.str] tracked_cluster_id: DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
         :param pulumi.Input[_builtins.str] type: Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
@@ -537,7 +537,7 @@ class ProxyTarget(pulumi.CustomResource):
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
+        ARN for the DB instance or DB cluster. Currently not returned by the RDS API.
         """
         return pulumi.get(self, "target_arn")
 

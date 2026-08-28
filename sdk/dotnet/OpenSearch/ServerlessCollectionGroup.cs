@@ -69,7 +69,7 @@ namespace Pulumi.Aws.OpenSearch
     public partial class ServerlessCollectionGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the collection group.
+        /// ARN of the collection group.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -241,7 +241,7 @@ namespace Pulumi.Aws.OpenSearch
     public sealed class ServerlessCollectionGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the collection group.
+        /// ARN of the collection group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

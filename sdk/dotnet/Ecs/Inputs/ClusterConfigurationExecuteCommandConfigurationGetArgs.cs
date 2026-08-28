@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ecs.Inputs
     public sealed class ClusterConfigurationExecuteCommandConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// AWS Key Management Service key ID to encrypt the data between the local client and the container.
+        /// KMS key ID to encrypt the data between the local client and the container.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }

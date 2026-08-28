@@ -88,7 +88,7 @@ import (
 type EventSubscription struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name of the RDS event notification subscription
+	// ARN of the RDS event notification subscription
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The AWS customer account associated with the RDS event notification subscription
 	CustomerAwsId pulumi.StringOutput `pulumi:"customerAwsId"`
@@ -147,7 +147,7 @@ func GetEventSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventSubscription resources.
 type eventSubscriptionState struct {
-	// The Amazon Resource Name of the RDS event notification subscription
+	// ARN of the RDS event notification subscription
 	Arn *string `pulumi:"arn"`
 	// The AWS customer account associated with the RDS event notification subscription
 	CustomerAwsId *string `pulumi:"customerAwsId"`
@@ -174,7 +174,7 @@ type eventSubscriptionState struct {
 }
 
 type EventSubscriptionState struct {
-	// The Amazon Resource Name of the RDS event notification subscription
+	// ARN of the RDS event notification subscription
 	Arn pulumi.StringPtrInput
 	// The AWS customer account associated with the RDS event notification subscription
 	CustomerAwsId pulumi.StringPtrInput
@@ -334,7 +334,7 @@ func (o EventSubscriptionOutput) ToEventSubscriptionOutputWithContext(ctx contex
 	return o
 }
 
-// The Amazon Resource Name of the RDS event notification subscription
+// ARN of the RDS event notification subscription
 func (o EventSubscriptionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

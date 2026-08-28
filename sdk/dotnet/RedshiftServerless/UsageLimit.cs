@@ -56,7 +56,7 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<int> Amount { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
+        /// ARN of the Redshift Serverless Usage Limit.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
+        /// ARN of the Amazon Redshift Serverless resource to create the usage limit for.
         /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.RedshiftServerless
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
+        /// ARN of the Amazon Redshift Serverless resource to create the usage limit for.
         /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.RedshiftServerless
         public Input<int>? Amount { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
+        /// ARN of the Redshift Serverless Usage Limit.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.RedshiftServerless
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
+        /// ARN of the Amazon Redshift Serverless resource to create the usage limit for.
         /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }

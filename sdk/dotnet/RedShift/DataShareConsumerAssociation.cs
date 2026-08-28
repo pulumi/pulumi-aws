@@ -76,7 +76,7 @@ namespace Pulumi.Aws.RedShift
         public Output<bool?> AssociateEntireAccount { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `AssociateEntireAccount` and `ConsumerRegion`.
+        /// ARN of the consumer that is associated with the datashare. Conflicts with `AssociateEntireAccount` and `ConsumerRegion`.
         /// </summary>
         [Output("consumerArn")]
         public Output<string?> ConsumerArn { get; private set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.RedShift
         public Output<string?> ConsumerRegion { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
+        /// ARN of the datashare that the consumer is to use with the account or the namespace.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.RedShift
         public Output<string> ManagedBy { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the producer.
+        /// ARN of the producer.
         /// </summary>
         [Output("producerArn")]
         public Output<string> ProducerArn { get; private set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.RedShift
         public Input<bool>? AssociateEntireAccount { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `AssociateEntireAccount` and `ConsumerRegion`.
+        /// ARN of the consumer that is associated with the datashare. Conflicts with `AssociateEntireAccount` and `ConsumerRegion`.
         /// </summary>
         [Input("consumerArn")]
         public Input<string>? ConsumerArn { get; set; }
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? ConsumerRegion { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
+        /// ARN of the datashare that the consumer is to use with the account or the namespace.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -218,7 +218,7 @@ namespace Pulumi.Aws.RedShift
         public Input<bool>? AssociateEntireAccount { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `AssociateEntireAccount` and `ConsumerRegion`.
+        /// ARN of the consumer that is associated with the datashare. Conflicts with `AssociateEntireAccount` and `ConsumerRegion`.
         /// </summary>
         [Input("consumerArn")]
         public Input<string>? ConsumerArn { get; set; }
@@ -230,7 +230,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? ConsumerRegion { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
+        /// ARN of the datashare that the consumer is to use with the account or the namespace.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -244,7 +244,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? ManagedBy { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the producer.
+        /// ARN of the producer.
         /// </summary>
         [Input("producerArn")]
         public Input<string>? ProducerArn { get; set; }

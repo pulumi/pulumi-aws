@@ -257,7 +257,7 @@ class _CustomDbEngineVersionState:
         """
         Input properties used for looking up and filtering CustomDbEngineVersion resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) for the custom engine version.
+        :param pulumi.Input[_builtins.str] arn: ARN for the custom engine version.
         :param pulumi.Input[_builtins.str] create_time: The date and time that the CEV was created.
         :param pulumi.Input[_builtins.str] database_installation_files_s3_bucket_name: The name of the Amazon S3 bucket that contains the database installation files.
         :param pulumi.Input[_builtins.str] database_installation_files_s3_prefix: The prefix for the Amazon S3 bucket that contains the database installation files.
@@ -323,7 +323,7 @@ class _CustomDbEngineVersionState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the custom engine version.
+        ARN for the custom engine version.
         """
         return pulumi.get(self, "arn")
 
@@ -880,7 +880,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) for the custom engine version.
+        :param pulumi.Input[_builtins.str] arn: ARN for the custom engine version.
         :param pulumi.Input[_builtins.str] create_time: The date and time that the CEV was created.
         :param pulumi.Input[_builtins.str] database_installation_files_s3_bucket_name: The name of the Amazon S3 bucket that contains the database installation files.
         :param pulumi.Input[_builtins.str] database_installation_files_s3_prefix: The prefix for the Amazon S3 bucket that contains the database installation files.
@@ -931,7 +931,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) for the custom engine version.
+        ARN for the custom engine version.
         """
         return pulumi.get(self, "arn")
 

@@ -66,7 +66,7 @@ export class Resource extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+     * ARN of the IAM Role to assume for operations.
      */
     declare public readonly roleArn: pulumi.Output<string | undefined>;
     /**
@@ -144,7 +144,7 @@ export interface ResourceState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+     * ARN of the IAM Role to assume for operations.
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
@@ -176,7 +176,7 @@ export interface ResourceArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+     * ARN of the IAM Role to assume for operations.
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**

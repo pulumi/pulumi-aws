@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CodeGuruReviewer.Inputs
     public sealed class RepositoryAssociationRepositoryGithubEnterpriseServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+        /// ARN of an AWS CodeStar Connections connection.
         /// </summary>
         [Input("connectionArn", required: true)]
         public Input<string> ConnectionArn { get; set; } = null!;

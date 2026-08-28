@@ -53,7 +53,7 @@ type EndpointAccess struct {
 
 	// The DNS address of the VPC endpoint.
 	Address pulumi.StringOutput `pulumi:"address"`
-	// Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
+	// ARN of the Redshift Serverless Endpoint Access.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the endpoint.
 	EndpointName pulumi.StringOutput `pulumi:"endpointName"`
@@ -114,7 +114,7 @@ func GetEndpointAccess(ctx *pulumi.Context,
 type endpointAccessState struct {
 	// The DNS address of the VPC endpoint.
 	Address *string `pulumi:"address"`
-	// Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
+	// ARN of the Redshift Serverless Endpoint Access.
 	Arn *string `pulumi:"arn"`
 	// The name of the endpoint.
 	EndpointName *string `pulumi:"endpointName"`
@@ -137,7 +137,7 @@ type endpointAccessState struct {
 type EndpointAccessState struct {
 	// The DNS address of the VPC endpoint.
 	Address pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
+	// ARN of the Redshift Serverless Endpoint Access.
 	Arn pulumi.StringPtrInput
 	// The name of the endpoint.
 	EndpointName pulumi.StringPtrInput
@@ -284,7 +284,7 @@ func (o EndpointAccessOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointAccess) pulumi.StringOutput { return v.Address }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
+// ARN of the Redshift Serverless Endpoint Access.
 func (o EndpointAccessOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointAccess) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

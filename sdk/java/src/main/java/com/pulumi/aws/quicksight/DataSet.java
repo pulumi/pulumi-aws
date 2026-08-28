@@ -389,14 +389,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:quicksight/dataSet:DataSet")
 public class DataSet extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the data set.
+     * ARN of the data set.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the data set.
+     * @return ARN of the data set.
      * 
      */
     public Output<String> arn() {

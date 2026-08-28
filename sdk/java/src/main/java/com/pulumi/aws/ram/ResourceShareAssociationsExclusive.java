@@ -254,7 +254,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `resourceShareArn` (String) Amazon Resource Name (ARN) of the RAM resource share.
+ * - `resourceShareArn` (String) ARN of the RAM resource share.
  * 
  * Using `pulumi import`, import RAM Resource Share Association Exclusive using the `resourceShareArn`. For example:
  * 
@@ -294,28 +294,28 @@ public class ResourceShareAssociationsExclusive extends com.pulumi.resources.Cus
         return this.region;
     }
     /**
-     * Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+     * Set of ARNs of resources to associate with the resource share. Resources not configured in this argument will be removed.
      * 
      */
     @Export(name="resourceArns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> resourceArns;
 
     /**
-     * @return Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+     * @return Set of ARNs of resources to associate with the resource share. Resources not configured in this argument will be removed.
      * 
      */
     public Output<Optional<List<String>>> resourceArns() {
         return Codegen.optional(this.resourceArns);
     }
     /**
-     * Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+     * ARN of the resource share. Changing this value forces creation of a new resource.
      * 
      */
     @Export(name="resourceShareArn", refs={String.class}, tree="[0]")
     private Output<String> resourceShareArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+     * @return ARN of the resource share. Changing this value forces creation of a new resource.
      * 
      */
     public Output<String> resourceShareArn() {

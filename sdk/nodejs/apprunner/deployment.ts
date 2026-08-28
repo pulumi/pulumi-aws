@@ -56,7 +56,7 @@ export class Deployment extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+     * ARN of the App Runner service to start the deployment for.
      */
     declare public readonly serviceArn: pulumi.Output<string>;
     /**
@@ -112,7 +112,7 @@ export interface DeploymentState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+     * ARN of the App Runner service to start the deployment for.
      */
     serviceArn?: pulumi.Input<string | undefined>;
     /**
@@ -131,7 +131,7 @@ export interface DeploymentArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+     * ARN of the App Runner service to start the deployment for.
      */
     serviceArn: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.apprunner.DeploymentTimeouts | undefined>;

@@ -75,7 +75,7 @@ import (
 type Stream struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) specifying the stream (same as `id`).
+	// ARN specifying the stream (same as `id`).
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
 	EncryptionType pulumi.StringPtrOutput `pulumi:"encryptionType"`
@@ -135,7 +135,7 @@ func GetStream(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Stream resources.
 type streamState struct {
-	// The Amazon Resource Name (ARN) specifying the stream (same as `id`).
+	// ARN specifying the stream (same as `id`).
 	Arn *string `pulumi:"arn"`
 	// The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
 	EncryptionType *string `pulumi:"encryptionType"`
@@ -166,7 +166,7 @@ type streamState struct {
 }
 
 type StreamState struct {
-	// The Amazon Resource Name (ARN) specifying the stream (same as `id`).
+	// ARN specifying the stream (same as `id`).
 	Arn pulumi.StringPtrInput
 	// The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
 	EncryptionType pulumi.StringPtrInput
@@ -201,7 +201,7 @@ func (StreamState) ElementType() reflect.Type {
 }
 
 type streamArgs struct {
-	// The Amazon Resource Name (ARN) specifying the stream (same as `id`).
+	// ARN specifying the stream (same as `id`).
 	Arn *string `pulumi:"arn"`
 	// The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
 	EncryptionType *string `pulumi:"encryptionType"`
@@ -231,7 +231,7 @@ type streamArgs struct {
 
 // The set of arguments for constructing a Stream resource.
 type StreamArgs struct {
-	// The Amazon Resource Name (ARN) specifying the stream (same as `id`).
+	// ARN specifying the stream (same as `id`).
 	Arn pulumi.StringPtrInput
 	// The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
 	EncryptionType pulumi.StringPtrInput
@@ -346,7 +346,7 @@ func (o StreamOutput) ToStreamOutputWithContext(ctx context.Context) StreamOutpu
 	return o
 }
 
-// The Amazon Resource Name (ARN) specifying the stream (same as `id`).
+// ARN specifying the stream (same as `id`).
 func (o StreamOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stream) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

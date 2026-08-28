@@ -72,7 +72,7 @@ export class ClusterRoleAssociation extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
+     * ARN of the IAM Role to associate with the DB Cluster.
      */
     declare public readonly roleArn: pulumi.Output<string>;
 
@@ -128,7 +128,7 @@ export interface ClusterRoleAssociationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
+     * ARN of the IAM Role to associate with the DB Cluster.
      */
     roleArn?: pulumi.Input<string | undefined>;
 }
@@ -150,7 +150,7 @@ export interface ClusterRoleAssociationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
+     * ARN of the IAM Role to associate with the DB Cluster.
      */
     roleArn: pulumi.Input<string>;
 }

@@ -31,14 +31,14 @@ public final class ResourceAssociationState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+     * ARN of the resource to associate with the RAM Resource Share.
      * 
      */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+     * @return ARN of the resource to associate with the RAM Resource Share.
      * 
      */
     public Optional<Output<String>> resourceArn() {
@@ -46,14 +46,14 @@ public final class ResourceAssociationState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Amazon Resource Name (ARN) of the RAM Resource Share.
+     * ARN of the RAM Resource Share.
      * 
      */
     @Import(name="resourceShareArn")
     private @Nullable Output<String> resourceShareArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the RAM Resource Share.
+     * @return ARN of the RAM Resource Share.
      * 
      */
     public Optional<Output<String>> resourceShareArn() {
@@ -108,7 +108,7 @@ public final class ResourceAssociationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param resourceArn Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+         * @param resourceArn ARN of the resource to associate with the RAM Resource Share.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class ResourceAssociationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param resourceArn Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+         * @param resourceArn ARN of the resource to associate with the RAM Resource Share.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class ResourceAssociationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param resourceShareArn Amazon Resource Name (ARN) of the RAM Resource Share.
+         * @param resourceShareArn ARN of the RAM Resource Share.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ResourceAssociationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param resourceShareArn Amazon Resource Name (ARN) of the RAM Resource Share.
+         * @param resourceShareArn ARN of the RAM Resource Share.
          * 
          * @return builder
          * 

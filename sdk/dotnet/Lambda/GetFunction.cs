@@ -673,7 +673,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// Configuration for Lambda function's capacity provider. See below.
+        /// Configuration for Lambda function's capacity provider. See `CapacityProviderConfig` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFunctionCapacityProviderConfigResult> CapacityProviderConfigs;
         /// <summary>
@@ -685,7 +685,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string CodeSigningConfigArn;
         /// <summary>
-        /// Configuration for the function's dead letter queue. See below.
+        /// Configuration for the function's dead letter queue. See `DeadLetterConfig` below.
         /// </summary>
         public readonly Outputs.GetFunctionDeadLetterConfigResult DeadLetterConfig;
         /// <summary>
@@ -693,19 +693,19 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// Configuration for the function's durable settings. See below.
+        /// Configuration for the function's durable settings. See `DurableConfig` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFunctionDurableConfigResult> DurableConfigs;
         /// <summary>
-        /// Lambda environment's configuration settings. See below.
+        /// Lambda environment's configuration settings. See `Environment` below.
         /// </summary>
         public readonly Outputs.GetFunctionEnvironmentResult Environment;
         /// <summary>
-        /// Amount of ephemeral storage (`/tmp`) allocated for the Lambda Function. See below.
+        /// Amount of ephemeral storage (`/tmp`) allocated for the Lambda Function. See `EphemeralStorage` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFunctionEphemeralStorageResult> EphemeralStorages;
         /// <summary>
-        /// Connection settings for an Amazon EFS file system. See below.
+        /// Connection settings for an Amazon EFS file system. See `FileSystemConfig` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFunctionFileSystemConfigResult> FileSystemConfigs;
         public readonly string FunctionName;
@@ -738,7 +738,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly ImmutableArray<string> Layers;
         /// <summary>
-        /// Advanced logging settings. See below.
+        /// Advanced logging settings. See `LoggingConfig` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFunctionLoggingConfigResult> LoggingConfigs;
         /// <summary>
@@ -788,7 +788,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly int SourceCodeSize;
         /// <summary>
-        /// ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package.
+        /// ARN of the KMS key used to encrypt the function's `.zip` deployment package.
         /// </summary>
         public readonly string SourceKmsKeyArn;
         /// <summary>
@@ -796,7 +796,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// Tenancy settings of the function. See below.
+        /// Tenancy settings of the function. See `TenancyConfig` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFunctionTenancyConfigResult> TenancyConfigs;
         /// <summary>
@@ -804,7 +804,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly int Timeout;
         /// <summary>
-        /// Tracing settings of the function. See below.
+        /// Tracing settings of the function. See `TracingConfig` below.
         /// </summary>
         public readonly Outputs.GetFunctionTracingConfigResult TracingConfig;
         /// <summary>
@@ -812,7 +812,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string Version;
         /// <summary>
-        /// VPC configuration associated with your Lambda function. See below.
+        /// VPC configuration associated with your Lambda function. See `VpcConfig` below.
         /// </summary>
         public readonly Outputs.GetFunctionVpcConfigResult VpcConfig;
 

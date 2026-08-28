@@ -344,7 +344,7 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the CodeBuild project.
+    /// - `Arn` (String) ARN of the CodeBuild project.
     /// 
     /// Using `pulumi import`, import CodeBuild Project using the `Name`. For example:
     /// 
@@ -421,7 +421,7 @@ namespace Pulumi.Aws.CodeBuild
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+        /// KMS customer master key (CMK) to be used for encrypting
         /// the build project's build output artifacts.
         /// </summary>
         [Output("encryptionKey")]
@@ -505,7 +505,7 @@ namespace Pulumi.Aws.CodeBuild
         public Output<ImmutableArray<Outputs.ProjectSecondarySource>> SecondarySources { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+        /// ARN of the AWS Identity and Access Management (IAM) role that
         /// enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
         /// </summary>
         [Output("serviceRole")]
@@ -647,7 +647,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+        /// KMS customer master key (CMK) to be used for encrypting
         /// the build project's build output artifacts.
         /// </summary>
         [Input("encryptionKey")]
@@ -749,7 +749,7 @@ namespace Pulumi.Aws.CodeBuild
         }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+        /// ARN of the AWS Identity and Access Management (IAM) role that
         /// enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
         /// </summary>
         [Input("serviceRole", required: true)]
@@ -864,7 +864,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+        /// KMS customer master key (CMK) to be used for encrypting
         /// the build project's build output artifacts.
         /// </summary>
         [Input("encryptionKey")]
@@ -972,7 +972,7 @@ namespace Pulumi.Aws.CodeBuild
         }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+        /// ARN of the AWS Identity and Access Management (IAM) role that
         /// enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
         /// </summary>
         [Input("serviceRole")]
