@@ -203,7 +203,7 @@ namespace Pulumi.Aws.DocDB
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value.
+        /// ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
         /// </summary>
         [Output("sourceDbClusterIdentifier")]
         public Output<string> SourceDbClusterIdentifier { get; private set; } = null!;
@@ -301,7 +301,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value.
+        /// ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
         /// </summary>
         [Input("sourceDbClusterIdentifier")]
         public Input<string>? SourceDbClusterIdentifier { get; set; }
@@ -382,7 +382,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value.
+        /// ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
         /// </summary>
         [Input("sourceDbClusterIdentifier")]
         public Input<string>? SourceDbClusterIdentifier { get; set; }
