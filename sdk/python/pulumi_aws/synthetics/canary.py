@@ -29,6 +29,7 @@ class CanaryArgs:
                  artifact_config: pulumi.Input[Optional['CanaryArtifactConfigArgs']] = None,
                  delete_lambda: pulumi.Input[Optional[_builtins.bool]] = None,
                  failure_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  run_config: pulumi.Input[Optional['CanaryRunConfigArgs']] = None,
@@ -53,6 +54,7 @@ class CanaryArgs:
         :param pulumi.Input['CanaryArtifactConfigArgs'] artifact_config: configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
         :param pulumi.Input[_builtins.bool] delete_lambda: Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
         :param pulumi.Input[_builtins.int] failure_retention_period: Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the customer-managed KMS key used to encrypt the environment variables of the canary's Lambda function at rest. If omitted, an AWS owned key is used. Note that this is distinct from `artifact_config.s3_encryption.kms_key_arn`, which encrypts the artifacts the canary uploads to Amazon S3.
         :param pulumi.Input[_builtins.str] name: Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['CanaryRunConfigArgs'] run_config: Configuration block for individual canary runs. Detailed below.
@@ -76,6 +78,8 @@ class CanaryArgs:
             pulumi.set(__self__, "delete_lambda", delete_lambda)
         if failure_retention_period is not None:
             pulumi.set(__self__, "failure_retention_period", failure_retention_period)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if region is not None:
@@ -196,6 +200,18 @@ class CanaryArgs:
     @failure_retention_period.setter
     def failure_retention_period(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "failure_retention_period", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the customer-managed KMS key used to encrypt the environment variables of the canary's Lambda function at rest. If omitted, an AWS owned key is used. Note that this is distinct from `artifact_config.s3_encryption.kms_key_arn`, which encrypts the artifacts the canary uploads to Amazon S3.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter
@@ -341,6 +357,7 @@ class _CanaryState:
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  failure_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
                  handler: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  run_config: pulumi.Input[Optional['CanaryRunConfigArgs']] = None,
@@ -369,6 +386,7 @@ class _CanaryState:
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
         :param pulumi.Input[_builtins.int] failure_retention_period: Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         :param pulumi.Input[_builtins.str] handler: Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the customer-managed KMS key used to encrypt the environment variables of the canary's Lambda function at rest. If omitted, an AWS owned key is used. Note that this is distinct from `artifact_config.s3_encryption.kms_key_arn`, which encrypts the artifacts the canary uploads to Amazon S3.
         :param pulumi.Input[_builtins.str] name: Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['CanaryRunConfigArgs'] run_config: Configuration block for individual canary runs. Detailed below.
@@ -405,6 +423,8 @@ class _CanaryState:
             pulumi.set(__self__, "failure_retention_period", failure_retention_period)
         if handler is not None:
             pulumi.set(__self__, "handler", handler)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if region is not None:
@@ -535,6 +555,18 @@ class _CanaryState:
     @handler.setter
     def handler(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "handler", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the customer-managed KMS key used to encrypt the environment variables of the canary's Lambda function at rest. If omitted, an AWS owned key is used. Note that this is distinct from `artifact_config.s3_encryption.kms_key_arn`, which encrypts the artifacts the canary uploads to Amazon S3.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter
@@ -755,6 +787,7 @@ class Canary(pulumi.CustomResource):
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  failure_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
                  handler: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  run_config: pulumi.Input[Optional[Union['CanaryRunConfigArgs', 'CanaryRunConfigArgsDict']]] = None,
@@ -809,6 +842,7 @@ class Canary(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
         :param pulumi.Input[_builtins.int] failure_retention_period: Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         :param pulumi.Input[_builtins.str] handler: Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the customer-managed KMS key used to encrypt the environment variables of the canary's Lambda function at rest. If omitted, an AWS owned key is used. Note that this is distinct from `artifact_config.s3_encryption.kms_key_arn`, which encrypts the artifacts the canary uploads to Amazon S3.
         :param pulumi.Input[_builtins.str] name: Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['CanaryRunConfigArgs', 'CanaryRunConfigArgsDict']] run_config: Configuration block for individual canary runs. Detailed below.
@@ -884,6 +918,7 @@ class Canary(pulumi.CustomResource):
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  failure_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
                  handler: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  run_config: pulumi.Input[Optional[Union['CanaryRunConfigArgs', 'CanaryRunConfigArgsDict']]] = None,
@@ -918,6 +953,7 @@ class Canary(pulumi.CustomResource):
             if handler is None and not opts.urn:
                 raise TypeError("Missing required property 'handler'")
             __props__.__dict__["handler"] = handler
+            __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["name"] = name
             __props__.__dict__["region"] = region
             __props__.__dict__["run_config"] = run_config
@@ -959,6 +995,7 @@ class Canary(pulumi.CustomResource):
             execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             failure_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
             handler: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             run_config: pulumi.Input[Optional[Union['CanaryRunConfigArgs', 'CanaryRunConfigArgsDict']]] = None,
@@ -991,6 +1028,7 @@ class Canary(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
         :param pulumi.Input[_builtins.int] failure_retention_period: Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         :param pulumi.Input[_builtins.str] handler: Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the customer-managed KMS key used to encrypt the environment variables of the canary's Lambda function at rest. If omitted, an AWS owned key is used. Note that this is distinct from `artifact_config.s3_encryption.kms_key_arn`, which encrypts the artifacts the canary uploads to Amazon S3.
         :param pulumi.Input[_builtins.str] name: Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['CanaryRunConfigArgs', 'CanaryRunConfigArgsDict']] run_config: Configuration block for individual canary runs. Detailed below.
@@ -1023,6 +1061,7 @@ class Canary(pulumi.CustomResource):
         __props__.__dict__["execution_role_arn"] = execution_role_arn
         __props__.__dict__["failure_retention_period"] = failure_retention_period
         __props__.__dict__["handler"] = handler
+        __props__.__dict__["kms_key_arn"] = kms_key_arn
         __props__.__dict__["name"] = name
         __props__.__dict__["region"] = region
         __props__.__dict__["run_config"] = run_config
@@ -1105,6 +1144,14 @@ class Canary(pulumi.CustomResource):
         Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
         """
         return pulumi.get(self, "handler")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        ARN of the customer-managed KMS key used to encrypt the environment variables of the canary's Lambda function at rest. If omitted, an AWS owned key is used. Note that this is distinct from `artifact_config.s3_encryption.kms_key_arn`, which encrypts the artifacts the canary uploads to Amazon S3.
+        """
+        return pulumi.get(self, "kms_key_arn")
 
     @_builtins.property
     @pulumi.getter

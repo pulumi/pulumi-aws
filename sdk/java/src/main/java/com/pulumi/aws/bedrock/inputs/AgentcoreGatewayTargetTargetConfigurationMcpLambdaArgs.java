@@ -31,14 +31,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs extend
     }
 
     /**
-     * Schema definition for the tool. See `toolSchema` below.
+     * Schema definition for the tool. See `toolSchema` Block below.
      * 
      */
     @Import(name="toolSchema", required=true)
     private Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs> toolSchema;
 
     /**
-     * @return Schema definition for the tool. See `toolSchema` below.
+     * @return Schema definition for the tool. See `toolSchema` Block below.
      * 
      */
     public Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs> toolSchema() {
@@ -92,7 +92,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs extend
         }
 
         /**
-         * @param toolSchema Schema definition for the tool. See `toolSchema` below.
+         * @param toolSchema Schema definition for the tool. See `toolSchema` Block below.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs extend
         }
 
         /**
-         * @param toolSchema Schema definition for the tool. See `toolSchema` below.
+         * @param toolSchema Schema definition for the tool. See `toolSchema` Block below.
          * 
          * @return builder
          * 

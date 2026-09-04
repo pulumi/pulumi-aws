@@ -21,15 +21,22 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// Runtime qualifier identifying a specific endpoint version. Defaults to `DEFAULT` when not set.
         /// </summary>
         public readonly string? Qualifier;
+        /// <summary>
+        /// API schema configuration that defines the structure of the runtime target's API. See `Schema` Block below.
+        /// </summary>
+        public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchema? Schema;
 
         [OutputConstructor]
         private AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime(
             string arn,
 
-            string? qualifier)
+            string? qualifier,
+
+            Outputs.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchema? schema)
         {
             Arn = arn;
             Qualifier = qualifier;
+            Schema = schema;
         }
     }
 }

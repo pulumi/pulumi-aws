@@ -4,6 +4,7 @@
 package com.pulumi.aws.bedrock.inputs;
 
 import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationHttpArgs;
+import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationInferenceArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -17,14 +18,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationArgs extends com.pul
     public static final AgentcoreGatewayTargetTargetConfigurationArgs Empty = new AgentcoreGatewayTargetTargetConfigurationArgs();
 
     /**
-     * HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` below.
+     * HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` Block below.
      * 
      */
     @Import(name="http")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationHttpArgs> http;
 
     /**
-     * @return HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` below.
+     * @return HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` Block below.
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationHttpArgs>> http() {
@@ -32,14 +33,29 @@ public final class AgentcoreGatewayTargetTargetConfigurationArgs extends com.pul
     }
 
     /**
-     * Model Context Protocol (MCP) configuration. See `mcp` below.
+     * Inference target configuration for routing requests to a large language model (LLM) provider, either through a built-in connector or an explicitly configured provider. See `inference` Block below.
+     * 
+     */
+    @Import(name="inference")
+    private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationInferenceArgs> inference;
+
+    /**
+     * @return Inference target configuration for routing requests to a large language model (LLM) provider, either through a built-in connector or an explicitly configured provider. See `inference` Block below.
+     * 
+     */
+    public Optional<Output<AgentcoreGatewayTargetTargetConfigurationInferenceArgs>> inference() {
+        return Optional.ofNullable(this.inference);
+    }
+
+    /**
+     * Model Context Protocol (MCP) configuration. See `mcp` Block below.
      * 
      */
     @Import(name="mcp")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpArgs> mcp;
 
     /**
-     * @return Model Context Protocol (MCP) configuration. See `mcp` below.
+     * @return Model Context Protocol (MCP) configuration. See `mcp` Block below.
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpArgs>> mcp() {
@@ -50,6 +66,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationArgs extends com.pul
 
     private AgentcoreGatewayTargetTargetConfigurationArgs(AgentcoreGatewayTargetTargetConfigurationArgs $) {
         this.http = $.http;
+        this.inference = $.inference;
         this.mcp = $.mcp;
     }
 
@@ -72,7 +89,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationArgs extends com.pul
         }
 
         /**
-         * @param http HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` below.
+         * @param http HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` Block below.
          * 
          * @return builder
          * 
@@ -83,7 +100,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationArgs extends com.pul
         }
 
         /**
-         * @param http HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` below.
+         * @param http HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` Block below.
          * 
          * @return builder
          * 
@@ -93,7 +110,28 @@ public final class AgentcoreGatewayTargetTargetConfigurationArgs extends com.pul
         }
 
         /**
-         * @param mcp Model Context Protocol (MCP) configuration. See `mcp` below.
+         * @param inference Inference target configuration for routing requests to a large language model (LLM) provider, either through a built-in connector or an explicitly configured provider. See `inference` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inference(@Nullable Output<AgentcoreGatewayTargetTargetConfigurationInferenceArgs> inference) {
+            $.inference = inference;
+            return this;
+        }
+
+        /**
+         * @param inference Inference target configuration for routing requests to a large language model (LLM) provider, either through a built-in connector or an explicitly configured provider. See `inference` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inference(AgentcoreGatewayTargetTargetConfigurationInferenceArgs inference) {
+            return inference(Output.of(inference));
+        }
+
+        /**
+         * @param mcp Model Context Protocol (MCP) configuration. See `mcp` Block below.
          * 
          * @return builder
          * 
@@ -104,7 +142,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationArgs extends com.pul
         }
 
         /**
-         * @param mcp Model Context Protocol (MCP) configuration. See `mcp` below.
+         * @param mcp Model Context Protocol (MCP) configuration. See `mcp` Block below.
          * 
          * @return builder
          * 

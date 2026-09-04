@@ -75,7 +75,7 @@ namespace Pulumi.Aws.SesV2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// List of active routes. See `Routes` below.
+        /// List of active routes. See `Routes` Block below.
         /// </summary>
         [Output("routes")]
         public Output<ImmutableArray<Outputs.MultiRegionEndpointRoute>> Routes { get; private set; } = null!;
@@ -220,7 +220,7 @@ namespace Pulumi.Aws.SesV2
         private InputList<Inputs.MultiRegionEndpointRouteGetArgs>? _routes;
 
         /// <summary>
-        /// List of active routes. See `Routes` below.
+        /// List of active routes. See `Routes` Block below.
         /// </summary>
         public InputList<Inputs.MultiRegionEndpointRouteGetArgs> Routes
         {

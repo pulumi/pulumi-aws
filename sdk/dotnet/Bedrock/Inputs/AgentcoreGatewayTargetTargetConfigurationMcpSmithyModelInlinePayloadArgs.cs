@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The inline schema payload content.
+        /// Inline schema payload content.
         /// </summary>
         [Input("payload", required: true)]
         public Input<string> Payload { get; set; } = null!;

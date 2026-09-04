@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayload
     {
         /// <summary>
-        /// The inline schema payload content.
+        /// Inline schema payload content.
         /// </summary>
         public readonly string Payload;
 

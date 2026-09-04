@@ -18,14 +18,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaA
     public static final AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs Empty = new AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs();
 
     /**
-     * Inline tool definition. See `inlinePayload` below.
+     * Inline tool definition. See `inlinePayload` Block below.
      * 
      */
     @Import(name="inlinePayloads")
     private @Nullable Output<List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs>> inlinePayloads;
 
     /**
-     * @return Inline tool definition. See `inlinePayload` below.
+     * @return Inline tool definition. See `inlinePayload` Block below.
      * 
      */
     public Optional<Output<List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs>>> inlinePayloads() {
@@ -33,14 +33,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaA
     }
 
     /**
-     * S3-based tool definition. See `s3` below.
+     * S3-based tool definition. See `s3` Block below.
      * 
      */
     @Import(name="s3")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args> s3;
 
     /**
-     * @return S3-based tool definition. See `s3` below.
+     * @return S3-based tool definition. See `s3` Block below.
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args>> s3() {
@@ -73,7 +73,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaA
         }
 
         /**
-         * @param inlinePayloads Inline tool definition. See `inlinePayload` below.
+         * @param inlinePayloads Inline tool definition. See `inlinePayload` Block below.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaA
         }
 
         /**
-         * @param inlinePayloads Inline tool definition. See `inlinePayload` below.
+         * @param inlinePayloads Inline tool definition. See `inlinePayload` Block below.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaA
         }
 
         /**
-         * @param inlinePayloads Inline tool definition. See `inlinePayload` below.
+         * @param inlinePayloads Inline tool definition. See `inlinePayload` Block below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaA
         }
 
         /**
-         * @param s3 S3-based tool definition. See `s3` below.
+         * @param s3 S3-based tool definition. See `s3` Block below.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaA
         }
 
         /**
-         * @param s3 S3-based tool definition. See `s3` below.
+         * @param s3 S3-based tool definition. See `s3` Block below.
          * 
          * @return builder
          * 

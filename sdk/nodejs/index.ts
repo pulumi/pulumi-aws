@@ -94,6 +94,7 @@ export * from "./types/enums";
 // Export sub-modules:
 import * as accessanalyzer from "./accessanalyzer";
 import * as account from "./account";
+import * as accountaccess from "./accountaccess";
 import * as acm from "./acm";
 import * as acmpca from "./acmpca";
 import * as alb from "./alb";
@@ -220,6 +221,7 @@ import * as kinesisanalyticsv2 from "./kinesisanalyticsv2";
 import * as kms from "./kms";
 import * as lakeformation from "./lakeformation";
 import * as lambda from "./lambda";
+import * as lambdamicrovms from "./lambdamicrovms";
 import * as lb from "./lb";
 import * as lex from "./lex";
 import * as licensemanager from "./licensemanager";
@@ -330,6 +332,7 @@ import * as xray from "./xray";
 export {
     accessanalyzer,
     account,
+    accountaccess,
     acm,
     acmpca,
     alb,
@@ -456,6 +459,7 @@ export {
     kms,
     lakeformation,
     lambda,
+    lambdamicrovms,
     lb,
     lex,
     licensemanager,

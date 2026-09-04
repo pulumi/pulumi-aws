@@ -335,43 +335,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### HTTP Target Routing to an AgentCore Runtime
- *
- * Routes gateway traffic directly to an AgentCore Runtime agent over HTTP, without MCP aggregation. The gateway must not have a `protocolType` set.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.bedrock.AgentcoreAgentRuntime("example", {
- *     agentRuntimeArtifact: {
- *         containerConfiguration: {
- *             containerUri: "111122223333.dkr.ecr.us-west-2.amazonaws.com/example-runtime:latest",
- *         },
- *     },
- *     networkConfiguration: {
- *         networkMode: "PUBLIC",
- *     },
- *     agentRuntimeName: "example-runtime",
- *     roleArn: runtimeRole.arn,
- * });
- * const runtime = new aws.bedrock.AgentcoreGatewayTarget("runtime", {
- *     credentialProviderConfiguration: {
- *         gatewayIamRole: {},
- *     },
- *     targetConfiguration: {
- *         http: {
- *             agentcoreRuntime: {
- *                 arn: example.agentRuntimeArn,
- *                 qualifier: "DEFAULT",
- *             },
- *         },
- *     },
- *     name: "runtime-target",
- *     gatewayIdentifier: exampleAwsBedrockagentcoreGateway.gatewayId,
- * });
- * ```
- *
  * ### Self-hosted MCP server in a VPC (managed Lattice)
  *
  * ```typescript
@@ -454,7 +417,19 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Bedrock AgentCore Gateway Target using the gateway identifier and target ID separated by a comma. For example:
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `gatewayIdentifier` (String) Gateway identifier.
+ * * `targetId` (String) Gateway target ID.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) Account ID where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
+ * Using `pulumi import`, import gateway targets using `gatewayIdentifier` and `targetId` separated by a comma (`,`). For example:
  *
  * ```sh
  * $ pulumi import aws:bedrock/agentcoreGatewayTarget:AgentcoreGatewayTarget example GATEWAY1234567890,TARGET0987654321
@@ -489,7 +464,7 @@ export class AgentcoreGatewayTarget extends pulumi.CustomResource {
     }
 
     /**
-     * Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
+     * Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` Block below.
      */
     declare public readonly credentialProviderConfiguration: pulumi.Output<outputs.bedrock.AgentcoreGatewayTargetCredentialProviderConfiguration | undefined>;
     /**
@@ -501,7 +476,7 @@ export class AgentcoreGatewayTarget extends pulumi.CustomResource {
      */
     declare public readonly gatewayIdentifier: pulumi.Output<string>;
     /**
-     * Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+     * Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` Block below.
      */
     declare public readonly metadataConfiguration: pulumi.Output<outputs.bedrock.AgentcoreGatewayTargetMetadataConfiguration | undefined>;
     /**
@@ -509,7 +484,7 @@ export class AgentcoreGatewayTarget extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+     * Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` Block below.
      */
     declare public readonly privateEndpoint: pulumi.Output<outputs.bedrock.AgentcoreGatewayTargetPrivateEndpoint | undefined>;
     /**
@@ -517,7 +492,7 @@ export class AgentcoreGatewayTarget extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Configuration for the target endpoint. See `targetConfiguration` below.
+     * Configuration for the target endpoint. See `targetConfiguration` Block below.
      *
      * The following arguments are optional:
      */
@@ -580,7 +555,7 @@ export class AgentcoreGatewayTarget extends pulumi.CustomResource {
  */
 export interface AgentcoreGatewayTargetState {
     /**
-     * Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
+     * Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` Block below.
      */
     credentialProviderConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetCredentialProviderConfiguration | undefined>;
     /**
@@ -592,7 +567,7 @@ export interface AgentcoreGatewayTargetState {
      */
     gatewayIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+     * Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` Block below.
      */
     metadataConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetMetadataConfiguration | undefined>;
     /**
@@ -600,7 +575,7 @@ export interface AgentcoreGatewayTargetState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+     * Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` Block below.
      */
     privateEndpoint?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetPrivateEndpoint | undefined>;
     /**
@@ -608,7 +583,7 @@ export interface AgentcoreGatewayTargetState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Configuration for the target endpoint. See `targetConfiguration` below.
+     * Configuration for the target endpoint. See `targetConfiguration` Block below.
      *
      * The following arguments are optional:
      */
@@ -625,7 +600,7 @@ export interface AgentcoreGatewayTargetState {
  */
 export interface AgentcoreGatewayTargetArgs {
     /**
-     * Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
+     * Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` Block below.
      */
     credentialProviderConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetCredentialProviderConfiguration | undefined>;
     /**
@@ -637,7 +612,7 @@ export interface AgentcoreGatewayTargetArgs {
      */
     gatewayIdentifier: pulumi.Input<string>;
     /**
-     * Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+     * Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` Block below.
      */
     metadataConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetMetadataConfiguration | undefined>;
     /**
@@ -645,7 +620,7 @@ export interface AgentcoreGatewayTargetArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+     * Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` Block below.
      */
     privateEndpoint?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetPrivateEndpoint | undefined>;
     /**
@@ -653,7 +628,7 @@ export interface AgentcoreGatewayTargetArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Configuration for the target endpoint. See `targetConfiguration` below.
+     * Configuration for the target endpoint. See `targetConfiguration` Block below.
      *
      * The following arguments are optional:
      */

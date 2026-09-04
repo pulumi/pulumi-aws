@@ -431,7 +431,7 @@ type Cluster struct {
 	// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
 	BootstrapActions ClusterBootstrapActionArrayOutput `pulumi:"bootstrapActions"`
 	ClusterState     pulumi.StringOutput               `pulumi:"clusterState"`
-	// List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
+	// List of configurations supplied for the EMR cluster you are creating, expressed as a string: an HTTP(S) URL to a JSON file, a path to a local `.json` file, or a raw JSON string. To supply configuration objects using Terraform syntax instead, use `configurationsJson`. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
 	Configurations pulumi.StringPtrOutput `pulumi:"configurations"`
 	// JSON string for supplying list of configurations for the EMR cluster.
 	//
@@ -583,7 +583,7 @@ type clusterState struct {
 	// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
 	BootstrapActions []ClusterBootstrapAction `pulumi:"bootstrapActions"`
 	ClusterState     *string                  `pulumi:"clusterState"`
-	// List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
+	// List of configurations supplied for the EMR cluster you are creating, expressed as a string: an HTTP(S) URL to a JSON file, a path to a local `.json` file, or a raw JSON string. To supply configuration objects using Terraform syntax instead, use `configurationsJson`. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
 	Configurations *string `pulumi:"configurations"`
 	// JSON string for supplying list of configurations for the EMR cluster.
 	//
@@ -700,7 +700,7 @@ type ClusterState struct {
 	// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
 	BootstrapActions ClusterBootstrapActionArrayInput
 	ClusterState     pulumi.StringPtrInput
-	// List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
+	// List of configurations supplied for the EMR cluster you are creating, expressed as a string: an HTTP(S) URL to a JSON file, a path to a local `.json` file, or a raw JSON string. To supply configuration objects using Terraform syntax instead, use `configurationsJson`. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
 	Configurations pulumi.StringPtrInput
 	// JSON string for supplying list of configurations for the EMR cluster.
 	//
@@ -818,7 +818,7 @@ type clusterArgs struct {
 	AutoscalingRole *string `pulumi:"autoscalingRole"`
 	// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
 	BootstrapActions []ClusterBootstrapAction `pulumi:"bootstrapActions"`
-	// List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
+	// List of configurations supplied for the EMR cluster you are creating, expressed as a string: an HTTP(S) URL to a JSON file, a path to a local `.json` file, or a raw JSON string. To supply configuration objects using Terraform syntax instead, use `configurationsJson`. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
 	Configurations *string `pulumi:"configurations"`
 	// JSON string for supplying list of configurations for the EMR cluster.
 	//
@@ -929,7 +929,7 @@ type ClusterArgs struct {
 	AutoscalingRole pulumi.StringPtrInput
 	// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
 	BootstrapActions ClusterBootstrapActionArrayInput
-	// List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
+	// List of configurations supplied for the EMR cluster you are creating, expressed as a string: an HTTP(S) URL to a JSON file, a path to a local `.json` file, or a raw JSON string. To supply configuration objects using Terraform syntax instead, use `configurationsJson`. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
 	Configurations pulumi.StringPtrInput
 	// JSON string for supplying list of configurations for the EMR cluster.
 	//
@@ -1149,7 +1149,7 @@ func (o ClusterOutput) ClusterState() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterState }).(pulumi.StringOutput)
 }
 
-// List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
+// List of configurations supplied for the EMR cluster you are creating, expressed as a string: an HTTP(S) URL to a JSON file, a path to a local `.json` file, or a raw JSON string. To supply configuration objects using Terraform syntax instead, use `configurationsJson`. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
 func (o ClusterOutput) Configurations() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Configurations }).(pulumi.StringPtrOutput)
 }

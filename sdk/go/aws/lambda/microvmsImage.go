@@ -28,7 +28,7 @@ import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambdamicrovms"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -108,8 +108,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lambda.NewMicrovmsImage(ctx, "example", &lambda.MicrovmsImageArgs{
-//				CodeArtifact: &lambda.MicrovmsImageCodeArtifactArgs{
+//			_, err = lambdamicrovms.NewImage(ctx, "example", &lambdamicrovms.ImageArgs{
+//				CodeArtifact: &lambdamicrovms.ImageCodeArtifactArgs{
 //					Uri: pulumi.All(exampleBucket.Bucket, exampleBucketObjectv2.Key).ApplyT(func(_args []interface{}) (string, error) {
 //						bucket := _args[0].(string)
 //						key := _args[1].(string)
@@ -142,6 +142,8 @@ import (
 // ```sh
 // $ pulumi import aws:lambda/microvmsImage:MicrovmsImage example arn:aws:lambda:us-east-1:123456789012:microvm-image:example
 // ```
+//
+// Deprecated: aws.lambda/microvmsimage.MicrovmsImage has been deprecated in favor of aws.lambdamicrovms/image.Image
 type MicrovmsImage struct {
 	pulumi.CustomResourceState
 

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayloadGetArgs>? InlinePayload { get; set; }
 
         /// <summary>
-        /// S3 location of the tool schema. See `S3` below.
+        /// S3 location of the tool schema. See `S3` Block below.
         /// </summary>
         [Input("s3")]
         public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3GetArgs>? S3 { get; set; }

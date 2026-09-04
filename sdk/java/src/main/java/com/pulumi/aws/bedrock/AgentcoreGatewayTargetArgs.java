@@ -22,14 +22,14 @@ public final class AgentcoreGatewayTargetArgs extends com.pulumi.resources.Resou
     public static final AgentcoreGatewayTargetArgs Empty = new AgentcoreGatewayTargetArgs();
 
     /**
-     * Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
+     * Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` Block below.
      * 
      */
     @Import(name="credentialProviderConfiguration")
     private @Nullable Output<AgentcoreGatewayTargetCredentialProviderConfigurationArgs> credentialProviderConfiguration;
 
     /**
-     * @return Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
+     * @return Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` Block below.
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetCredentialProviderConfigurationArgs>> credentialProviderConfiguration() {
@@ -67,14 +67,14 @@ public final class AgentcoreGatewayTargetArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+     * Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` Block below.
      * 
      */
     @Import(name="metadataConfiguration")
     private @Nullable Output<AgentcoreGatewayTargetMetadataConfigurationArgs> metadataConfiguration;
 
     /**
-     * @return Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+     * @return Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` Block below.
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetMetadataConfigurationArgs>> metadataConfiguration() {
@@ -97,14 +97,14 @@ public final class AgentcoreGatewayTargetArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+     * Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` Block below.
      * 
      */
     @Import(name="privateEndpoint")
     private @Nullable Output<AgentcoreGatewayTargetPrivateEndpointArgs> privateEndpoint;
 
     /**
-     * @return Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+     * @return Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` Block below.
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetPrivateEndpointArgs>> privateEndpoint() {
@@ -127,7 +127,7 @@ public final class AgentcoreGatewayTargetArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Configuration for the target endpoint. See `targetConfiguration` below.
+     * Configuration for the target endpoint. See `targetConfiguration` Block below.
      * 
      * The following arguments are optional:
      * 
@@ -136,7 +136,7 @@ public final class AgentcoreGatewayTargetArgs extends com.pulumi.resources.Resou
     private Output<AgentcoreGatewayTargetTargetConfigurationArgs> targetConfiguration;
 
     /**
-     * @return Configuration for the target endpoint. See `targetConfiguration` below.
+     * @return Configuration for the target endpoint. See `targetConfiguration` Block below.
      * 
      * The following arguments are optional:
      * 
@@ -185,7 +185,7 @@ public final class AgentcoreGatewayTargetArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param credentialProviderConfiguration Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
+         * @param credentialProviderConfiguration Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class AgentcoreGatewayTargetArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param credentialProviderConfiguration Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
+         * @param credentialProviderConfiguration Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class AgentcoreGatewayTargetArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param metadataConfiguration Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+         * @param metadataConfiguration Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class AgentcoreGatewayTargetArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param metadataConfiguration Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+         * @param metadataConfiguration Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class AgentcoreGatewayTargetArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param privateEndpoint Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+         * @param privateEndpoint Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` Block below.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class AgentcoreGatewayTargetArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param privateEndpoint Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+         * @param privateEndpoint Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` Block below.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class AgentcoreGatewayTargetArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param targetConfiguration Configuration for the target endpoint. See `targetConfiguration` below.
+         * @param targetConfiguration Configuration for the target endpoint. See `targetConfiguration` Block below.
          * 
          * The following arguments are optional:
          * 
@@ -345,7 +345,7 @@ public final class AgentcoreGatewayTargetArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param targetConfiguration Configuration for the target endpoint. See `targetConfiguration` below.
+         * @param targetConfiguration Configuration for the target endpoint. See `targetConfiguration` Block below.
          * 
          * The following arguments are optional:
          * 

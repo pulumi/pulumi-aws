@@ -110,28 +110,28 @@ public class AccountSubscription extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.activeDirectoryName);
     }
     /**
-     * Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
+     * Admin group associated with your Active Directory or IAM Identity Center account. Either this field or `adminProGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
      * 
      */
     @Export(name="adminGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> adminGroups;
 
     /**
-     * @return Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
+     * @return Admin group associated with your Active Directory or IAM Identity Center account. Either this field or `adminProGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
      * 
      */
     public Output<Optional<List<String>>> adminGroups() {
         return Codegen.optional(this.adminGroups);
     }
     /**
-     * Admin PRO group associated with your Active Directory or IAM Identity Center account.
+     * Admin PRO group associated with your Active Directory or IAM Identity Center account. Either this field or `adminGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
      * 
      */
     @Export(name="adminProGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> adminProGroups;
 
     /**
-     * @return Admin PRO group associated with your Active Directory or IAM Identity Center account.
+     * @return Admin PRO group associated with your Active Directory or IAM Identity Center account. Either this field or `adminGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
      * 
      */
     public Output<Optional<List<String>>> adminProGroups() {
@@ -338,14 +338,14 @@ public class AccountSubscription extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.readerProGroups);
     }
     /**
-     * Realm of the Active Directory that is associated with your Amazon QuickSight account.
+     * Realm of the Active Directory that is associated with your Amazon QuickSight account. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
      * 
      */
     @Export(name="realm", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> realm;
 
     /**
-     * @return Realm of the Active Directory that is associated with your Amazon QuickSight account.
+     * @return Realm of the Active Directory that is associated with your Amazon QuickSight account. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
      * 
      */
     public Output<Optional<String>> realm() {

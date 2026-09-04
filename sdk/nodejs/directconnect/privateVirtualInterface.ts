@@ -115,6 +115,18 @@ export class PrivateVirtualInterface extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
+     * The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+     */
+    declare public readonly prefixPoolAllocatedCountIpv4: pulumi.Output<number>;
+    /**
+     * The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+     */
+    declare public readonly prefixPoolAllocatedCountIpv6: pulumi.Output<number>;
+    /**
+     * Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+     */
+    declare public readonly rateLimit: pulumi.Output<string>;
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
@@ -166,6 +178,9 @@ export class PrivateVirtualInterface extends pulumi.CustomResource {
             resourceInputs["jumboFrameCapable"] = state?.jumboFrameCapable;
             resourceInputs["mtu"] = state?.mtu;
             resourceInputs["name"] = state?.name;
+            resourceInputs["prefixPoolAllocatedCountIpv4"] = state?.prefixPoolAllocatedCountIpv4;
+            resourceInputs["prefixPoolAllocatedCountIpv6"] = state?.prefixPoolAllocatedCountIpv6;
+            resourceInputs["rateLimit"] = state?.rateLimit;
             resourceInputs["region"] = state?.region;
             resourceInputs["sitelinkEnabled"] = state?.sitelinkEnabled;
             resourceInputs["tags"] = state?.tags;
@@ -193,6 +208,9 @@ export class PrivateVirtualInterface extends pulumi.CustomResource {
             resourceInputs["dxGatewayId"] = args?.dxGatewayId;
             resourceInputs["mtu"] = args?.mtu;
             resourceInputs["name"] = args?.name;
+            resourceInputs["prefixPoolAllocatedCountIpv4"] = args?.prefixPoolAllocatedCountIpv4;
+            resourceInputs["prefixPoolAllocatedCountIpv6"] = args?.prefixPoolAllocatedCountIpv6;
+            resourceInputs["rateLimit"] = args?.rateLimit;
             resourceInputs["region"] = args?.region;
             resourceInputs["sitelinkEnabled"] = args?.sitelinkEnabled;
             resourceInputs["tags"] = args?.tags;
@@ -268,6 +286,18 @@ export interface PrivateVirtualInterfaceState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
+     * The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+     */
+    prefixPoolAllocatedCountIpv4?: pulumi.Input<number | undefined>;
+    /**
+     * The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+     */
+    prefixPoolAllocatedCountIpv6?: pulumi.Input<number | undefined>;
+    /**
+     * Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+     */
+    rateLimit?: pulumi.Input<string | undefined>;
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
@@ -338,6 +368,18 @@ export interface PrivateVirtualInterfaceArgs {
      * The name for the virtual interface.
      */
     name?: pulumi.Input<string | undefined>;
+    /**
+     * The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+     */
+    prefixPoolAllocatedCountIpv4?: pulumi.Input<number | undefined>;
+    /**
+     * The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+     */
+    prefixPoolAllocatedCountIpv6?: pulumi.Input<number | undefined>;
+    /**
+     * Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+     */
+    rateLimit?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

@@ -1255,11 +1255,11 @@ func (o RoutingRuleActionArrayOutput) Index(i pulumi.IntInput) RoutingRuleAction
 }
 
 type RoutingRuleActionInvokeApi struct {
-	// Action to invoke a stage of a target API. Only REST APIs are supported.
+	// API identifier of the target API.
 	ApiId string `pulumi:"apiId"`
-	// Action to invoke a stage of a target API. Only REST APIs are supported.
+	// Name of the target stage.
 	Stage string `pulumi:"stage"`
-	// Action to invoke a stage of a target API. Only REST APIs are supported.
+	// Whether to strip the base path when forwarding the request to the target API.
 	StripBasePath *bool `pulumi:"stripBasePath"`
 }
 
@@ -1275,11 +1275,11 @@ type RoutingRuleActionInvokeApiInput interface {
 }
 
 type RoutingRuleActionInvokeApiArgs struct {
-	// Action to invoke a stage of a target API. Only REST APIs are supported.
+	// API identifier of the target API.
 	ApiId pulumi.StringInput `pulumi:"apiId"`
-	// Action to invoke a stage of a target API. Only REST APIs are supported.
+	// Name of the target stage.
 	Stage pulumi.StringInput `pulumi:"stage"`
-	// Action to invoke a stage of a target API. Only REST APIs are supported.
+	// Whether to strip the base path when forwarding the request to the target API.
 	StripBasePath pulumi.BoolPtrInput `pulumi:"stripBasePath"`
 }
 
@@ -1309,17 +1309,17 @@ func (o RoutingRuleActionInvokeApiOutput) ToRoutingRuleActionInvokeApiOutputWith
 	return o
 }
 
-// Action to invoke a stage of a target API. Only REST APIs are supported.
+// API identifier of the target API.
 func (o RoutingRuleActionInvokeApiOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingRuleActionInvokeApi) string { return v.ApiId }).(pulumi.StringOutput)
 }
 
-// Action to invoke a stage of a target API. Only REST APIs are supported.
+// Name of the target stage.
 func (o RoutingRuleActionInvokeApiOutput) Stage() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingRuleActionInvokeApi) string { return v.Stage }).(pulumi.StringOutput)
 }
 
-// Action to invoke a stage of a target API. Only REST APIs are supported.
+// Whether to strip the base path when forwarding the request to the target API.
 func (o RoutingRuleActionInvokeApiOutput) StripBasePath() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RoutingRuleActionInvokeApi) *bool { return v.StripBasePath }).(pulumi.BoolPtrOutput)
 }

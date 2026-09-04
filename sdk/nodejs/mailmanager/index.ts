@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ArchiveArgs, ArchiveState } from "./archive";
+export type Archive = import("./archive").Archive;
+export const Archive: typeof import("./archive").Archive = null as any;
+utilities.lazyLoad(exports, ["Archive"], () => require("./archive"));
+
 export { IngressPointArgs, IngressPointState } from "./ingressPoint";
 export type IngressPoint = import("./ingressPoint").IngressPoint;
 export const IngressPoint: typeof import("./ingressPoint").IngressPoint = null as any;
@@ -30,6 +35,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:mailmanager/archive:Archive":
+                return new Archive(name, <any>undefined, { urn })
             case "aws:mailmanager/ingressPoint:IngressPoint":
                 return new IngressPoint(name, <any>undefined, { urn })
             case "aws:mailmanager/relay:Relay":
@@ -43,6 +50,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "mailmanager/archive", _module)
 pulumi.runtime.registerResourceModule("aws", "mailmanager/ingressPoint", _module)
 pulumi.runtime.registerResourceModule("aws", "mailmanager/relay", _module)
 pulumi.runtime.registerResourceModule("aws", "mailmanager/ruleSet", _module)

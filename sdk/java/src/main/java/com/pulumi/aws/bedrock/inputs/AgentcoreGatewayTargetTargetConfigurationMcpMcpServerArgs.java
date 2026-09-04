@@ -49,14 +49,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs ext
     }
 
     /**
-     * Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` below.
+     * Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` Block below.
      * 
      */
     @Import(name="mcpToolSchema")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaArgs> mcpToolSchema;
 
     /**
-     * @return Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` below.
+     * @return Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` Block below.
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaArgs>> mcpToolSchema() {
@@ -148,7 +148,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs ext
         }
 
         /**
-         * @param mcpToolSchema Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` below.
+         * @param mcpToolSchema Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` Block below.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs ext
         }
 
         /**
-         * @param mcpToolSchema Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` below.
+         * @param mcpToolSchema Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` Block below.
          * 
          * @return builder
          * 

@@ -524,7 +524,7 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
     /**
      * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
      * Only supported for engine types `&#34;redis&#34;` and `&#34;valkey&#34;` and if the engine version is 6 or higher.
-     * Defaults to `true`.
+     * If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
      * 
      */
     @Export(name="autoMinorVersionUpgrade", refs={Boolean.class}, tree="[0]")
@@ -533,7 +533,7 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
      * Only supported for engine types `&#34;redis&#34;` and `&#34;valkey&#34;` and if the engine version is 6 or higher.
-     * Defaults to `true`.
+     * If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
      * 
      */
     public Output<Boolean> autoMinorVersionUpgrade() {

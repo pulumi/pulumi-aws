@@ -163,10 +163,40 @@ namespace Pulumi.Aws.DirectConnect
         public Output<string> PortEncryptionStatus { get; private set; } = null!;
 
         /// <summary>
+        /// The total number of inbound IPv4 route prefixes that can be allocated across the virtual interfaces on the connection.
+        /// </summary>
+        [Output("prefixPoolSizeIpv4")]
+        public Output<int> PrefixPoolSizeIpv4 { get; private set; } = null!;
+
+        /// <summary>
+        /// The total number of inbound IPv6 route prefixes that can be allocated across the virtual interfaces on the connection.
+        /// </summary>
+        [Output("prefixPoolSizeIpv6")]
+        public Output<int> PrefixPoolSizeIpv6 { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of inbound IPv4 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+        /// </summary>
+        [Output("prefixPoolUnallocatedCountIpv4")]
+        public Output<int> PrefixPoolUnallocatedCountIpv4 { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of inbound IPv6 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+        /// </summary>
+        [Output("prefixPoolUnallocatedCountIpv6")]
+        public Output<int> PrefixPoolUnallocatedCountIpv6 { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the service provider associated with the connection.
         /// </summary>
         [Output("providerName")]
         public Output<string> ProviderName { get; private set; } = null!;
+
+        /// <summary>
+        /// Rate limiter status for the connection. See `RateLimiterStatus` Block below.
+        /// </summary>
+        [Output("rateLimiterStatuses")]
+        public Output<ImmutableArray<Outputs.ConnectionRateLimiterStatus>> RateLimiterStatuses { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -401,10 +431,46 @@ namespace Pulumi.Aws.DirectConnect
         public Input<string>? PortEncryptionStatus { get; set; }
 
         /// <summary>
+        /// The total number of inbound IPv4 route prefixes that can be allocated across the virtual interfaces on the connection.
+        /// </summary>
+        [Input("prefixPoolSizeIpv4")]
+        public Input<int>? PrefixPoolSizeIpv4 { get; set; }
+
+        /// <summary>
+        /// The total number of inbound IPv6 route prefixes that can be allocated across the virtual interfaces on the connection.
+        /// </summary>
+        [Input("prefixPoolSizeIpv6")]
+        public Input<int>? PrefixPoolSizeIpv6 { get; set; }
+
+        /// <summary>
+        /// The number of inbound IPv4 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+        /// </summary>
+        [Input("prefixPoolUnallocatedCountIpv4")]
+        public Input<int>? PrefixPoolUnallocatedCountIpv4 { get; set; }
+
+        /// <summary>
+        /// The number of inbound IPv6 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+        /// </summary>
+        [Input("prefixPoolUnallocatedCountIpv6")]
+        public Input<int>? PrefixPoolUnallocatedCountIpv6 { get; set; }
+
+        /// <summary>
         /// The name of the service provider associated with the connection.
         /// </summary>
         [Input("providerName")]
         public Input<string>? ProviderName { get; set; }
+
+        [Input("rateLimiterStatuses")]
+        private InputList<Inputs.ConnectionRateLimiterStatusGetArgs>? _rateLimiterStatuses;
+
+        /// <summary>
+        /// Rate limiter status for the connection. See `RateLimiterStatus` Block below.
+        /// </summary>
+        public InputList<Inputs.ConnectionRateLimiterStatusGetArgs> RateLimiterStatuses
+        {
+            get => _rateLimiterStatuses ?? (_rateLimiterStatuses = new InputList<Inputs.ConnectionRateLimiterStatusGetArgs>());
+            set => _rateLimiterStatuses = value;
+        }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

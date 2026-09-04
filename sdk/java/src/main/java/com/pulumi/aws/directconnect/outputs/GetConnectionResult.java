@@ -3,10 +3,12 @@
 
 package com.pulumi.aws.directconnect.outputs;
 
+import com.pulumi.aws.directconnect.outputs.GetConnectionRateLimiterStatus;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -49,10 +51,35 @@ public final class GetConnectionResult {
      */
     private String partnerName;
     /**
+     * @return The total number of inbound IPv4 route prefixes that can be allocated across the virtual interfaces on the connection.
+     * 
+     */
+    private Integer prefixPoolSizeIpv4;
+    /**
+     * @return The total number of inbound IPv6 route prefixes that can be allocated across the virtual interfaces on the connection.
+     * 
+     */
+    private Integer prefixPoolSizeIpv6;
+    /**
+     * @return The number of inbound IPv4 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+     * 
+     */
+    private Integer prefixPoolUnallocatedCountIpv4;
+    /**
+     * @return The number of inbound IPv6 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+     * 
+     */
+    private Integer prefixPoolUnallocatedCountIpv6;
+    /**
      * @return Name of the service provider associated with the connection.
      * 
      */
     private String providerName;
+    /**
+     * @return Rate limiter status for the connection. See `rateLimiterStatus` Block below.
+     * 
+     */
+    private List<GetConnectionRateLimiterStatus> rateLimiterStatuses;
     private String region;
     /**
      * @return State of the connection.
@@ -124,11 +151,46 @@ public final class GetConnectionResult {
         return this.partnerName;
     }
     /**
+     * @return The total number of inbound IPv4 route prefixes that can be allocated across the virtual interfaces on the connection.
+     * 
+     */
+    public Integer prefixPoolSizeIpv4() {
+        return this.prefixPoolSizeIpv4;
+    }
+    /**
+     * @return The total number of inbound IPv6 route prefixes that can be allocated across the virtual interfaces on the connection.
+     * 
+     */
+    public Integer prefixPoolSizeIpv6() {
+        return this.prefixPoolSizeIpv6;
+    }
+    /**
+     * @return The number of inbound IPv4 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+     * 
+     */
+    public Integer prefixPoolUnallocatedCountIpv4() {
+        return this.prefixPoolUnallocatedCountIpv4;
+    }
+    /**
+     * @return The number of inbound IPv6 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+     * 
+     */
+    public Integer prefixPoolUnallocatedCountIpv6() {
+        return this.prefixPoolUnallocatedCountIpv6;
+    }
+    /**
      * @return Name of the service provider associated with the connection.
      * 
      */
     public String providerName() {
         return this.providerName;
+    }
+    /**
+     * @return Rate limiter status for the connection. See `rateLimiterStatus` Block below.
+     * 
+     */
+    public List<GetConnectionRateLimiterStatus> rateLimiterStatuses() {
+        return this.rateLimiterStatuses;
     }
     public String region() {
         return this.region;
@@ -172,7 +234,12 @@ public final class GetConnectionResult {
         private String name;
         private String ownerAccountId;
         private String partnerName;
+        private Integer prefixPoolSizeIpv4;
+        private Integer prefixPoolSizeIpv6;
+        private Integer prefixPoolUnallocatedCountIpv4;
+        private Integer prefixPoolUnallocatedCountIpv6;
         private String providerName;
+        private List<GetConnectionRateLimiterStatus> rateLimiterStatuses;
         private String region;
         private String state;
         private Map<String,String> tags;
@@ -188,7 +255,12 @@ public final class GetConnectionResult {
     	      this.name = defaults.name;
     	      this.ownerAccountId = defaults.ownerAccountId;
     	      this.partnerName = defaults.partnerName;
+    	      this.prefixPoolSizeIpv4 = defaults.prefixPoolSizeIpv4;
+    	      this.prefixPoolSizeIpv6 = defaults.prefixPoolSizeIpv6;
+    	      this.prefixPoolUnallocatedCountIpv4 = defaults.prefixPoolUnallocatedCountIpv4;
+    	      this.prefixPoolUnallocatedCountIpv6 = defaults.prefixPoolUnallocatedCountIpv6;
     	      this.providerName = defaults.providerName;
+    	      this.rateLimiterStatuses = defaults.rateLimiterStatuses;
     	      this.region = defaults.region;
     	      this.state = defaults.state;
     	      this.tags = defaults.tags;
@@ -260,12 +332,55 @@ public final class GetConnectionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder prefixPoolSizeIpv4(Integer prefixPoolSizeIpv4) {
+            if (prefixPoolSizeIpv4 == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "prefixPoolSizeIpv4");
+            }
+            this.prefixPoolSizeIpv4 = prefixPoolSizeIpv4;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder prefixPoolSizeIpv6(Integer prefixPoolSizeIpv6) {
+            if (prefixPoolSizeIpv6 == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "prefixPoolSizeIpv6");
+            }
+            this.prefixPoolSizeIpv6 = prefixPoolSizeIpv6;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder prefixPoolUnallocatedCountIpv4(Integer prefixPoolUnallocatedCountIpv4) {
+            if (prefixPoolUnallocatedCountIpv4 == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "prefixPoolUnallocatedCountIpv4");
+            }
+            this.prefixPoolUnallocatedCountIpv4 = prefixPoolUnallocatedCountIpv4;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder prefixPoolUnallocatedCountIpv6(Integer prefixPoolUnallocatedCountIpv6) {
+            if (prefixPoolUnallocatedCountIpv6 == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "prefixPoolUnallocatedCountIpv6");
+            }
+            this.prefixPoolUnallocatedCountIpv6 = prefixPoolUnallocatedCountIpv6;
+            return this;
+        }
+        @CustomType.Setter
         public Builder providerName(String providerName) {
             if (providerName == null) {
               throw new MissingRequiredPropertyException("GetConnectionResult", "providerName");
             }
             this.providerName = providerName;
             return this;
+        }
+        @CustomType.Setter
+        public Builder rateLimiterStatuses(List<GetConnectionRateLimiterStatus> rateLimiterStatuses) {
+            if (rateLimiterStatuses == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "rateLimiterStatuses");
+            }
+            this.rateLimiterStatuses = rateLimiterStatuses;
+            return this;
+        }
+        public Builder rateLimiterStatuses(GetConnectionRateLimiterStatus... rateLimiterStatuses) {
+            return rateLimiterStatuses(List.of(rateLimiterStatuses));
         }
         @CustomType.Setter
         public Builder region(String region) {
@@ -309,7 +424,12 @@ public final class GetConnectionResult {
             _resultValue.name = name;
             _resultValue.ownerAccountId = ownerAccountId;
             _resultValue.partnerName = partnerName;
+            _resultValue.prefixPoolSizeIpv4 = prefixPoolSizeIpv4;
+            _resultValue.prefixPoolSizeIpv6 = prefixPoolSizeIpv6;
+            _resultValue.prefixPoolUnallocatedCountIpv4 = prefixPoolUnallocatedCountIpv4;
+            _resultValue.prefixPoolUnallocatedCountIpv6 = prefixPoolUnallocatedCountIpv6;
             _resultValue.providerName = providerName;
+            _resultValue.rateLimiterStatuses = rateLimiterStatuses;
             _resultValue.region = region;
             _resultValue.state = state;
             _resultValue.tags = tags;

@@ -161,6 +161,21 @@ public final class PublicVirtualInterfaceState extends com.pulumi.resources.Reso
     }
 
     /**
+     * Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+     * 
+     */
+    @Import(name="rateLimit")
+    private @Nullable Output<String> rateLimit;
+
+    /**
+     * @return Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+     * 
+     */
+    public Optional<Output<String>> rateLimit() {
+        return Optional.ofNullable(this.rateLimit);
+    }
+
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
@@ -248,6 +263,7 @@ public final class PublicVirtualInterfaceState extends com.pulumi.resources.Reso
         this.connectionId = $.connectionId;
         this.customerAddress = $.customerAddress;
         this.name = $.name;
+        this.rateLimit = $.rateLimit;
         this.region = $.region;
         this.routeFilterPrefixes = $.routeFilterPrefixes;
         this.tags = $.tags;
@@ -469,6 +485,27 @@ public final class PublicVirtualInterfaceState extends com.pulumi.resources.Reso
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param rateLimit Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rateLimit(@Nullable Output<String> rateLimit) {
+            $.rateLimit = rateLimit;
+            return this;
+        }
+
+        /**
+         * @param rateLimit Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rateLimit(String rateLimit) {
+            return rateLimit(Output.of(rateLimit));
         }
 
         /**

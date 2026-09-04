@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['LinkAggregationGroupArgs', 'LinkAggregationGroup']
 
@@ -164,6 +166,7 @@ class _LinkAggregationGroupState:
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rate_limiter_statuses: pulumi.Input[Optional[Sequence[pulumi.Input['LinkAggregationGroupRateLimiterStatusArgs']]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -180,6 +183,7 @@ class _LinkAggregationGroupState:
         :param pulumi.Input[_builtins.str] name: The name of the LAG.
         :param pulumi.Input[_builtins.str] owner_account_id: The ID of the AWS account that owns the LAG.
         :param pulumi.Input[_builtins.str] provider_name: The name of the service provider associated with the LAG.
+        :param pulumi.Input[Sequence[pulumi.Input['LinkAggregationGroupRateLimiterStatusArgs']]] rate_limiter_statuses: Rate limiter status for the LAG. See `rate_limiter_status` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -204,6 +208,8 @@ class _LinkAggregationGroupState:
             pulumi.set(__self__, "owner_account_id", owner_account_id)
         if provider_name is not None:
             pulumi.set(__self__, "provider_name", provider_name)
+        if rate_limiter_statuses is not None:
+            pulumi.set(__self__, "rate_limiter_statuses", rate_limiter_statuses)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if tags is not None:
@@ -330,6 +336,18 @@ class _LinkAggregationGroupState:
     @provider_name.setter
     def provider_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rateLimiterStatuses")
+    def rate_limiter_statuses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LinkAggregationGroupRateLimiterStatusArgs']]]]:
+        """
+        Rate limiter status for the LAG. See `rate_limiter_status` Block below.
+        """
+        return pulumi.get(self, "rate_limiter_statuses")
+
+    @rate_limiter_statuses.setter
+    def rate_limiter_statuses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LinkAggregationGroupRateLimiterStatusArgs']]]]):
+        pulumi.set(self, "rate_limiter_statuses", value)
 
     @_builtins.property
     @pulumi.getter
@@ -502,6 +520,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
             __props__.__dict__["has_logical_redundancy"] = None
             __props__.__dict__["jumbo_frame_capable"] = None
             __props__.__dict__["owner_account_id"] = None
+            __props__.__dict__["rate_limiter_statuses"] = None
             __props__.__dict__["tags_all"] = None
         super(LinkAggregationGroup, __self__).__init__(
             'aws:directconnect/linkAggregationGroup:LinkAggregationGroup',
@@ -523,6 +542,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
             provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+            rate_limiter_statuses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkAggregationGroupRateLimiterStatusArgs', 'LinkAggregationGroupRateLimiterStatusArgsDict']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'LinkAggregationGroup':
@@ -543,6 +563,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the LAG.
         :param pulumi.Input[_builtins.str] owner_account_id: The ID of the AWS account that owns the LAG.
         :param pulumi.Input[_builtins.str] provider_name: The name of the service provider associated with the LAG.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LinkAggregationGroupRateLimiterStatusArgs', 'LinkAggregationGroupRateLimiterStatusArgsDict']]]] rate_limiter_statuses: Rate limiter status for the LAG. See `rate_limiter_status` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -561,6 +582,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["owner_account_id"] = owner_account_id
         __props__.__dict__["provider_name"] = provider_name
+        __props__.__dict__["rate_limiter_statuses"] = rate_limiter_statuses
         __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -645,6 +667,14 @@ class LinkAggregationGroup(pulumi.CustomResource):
         The name of the service provider associated with the LAG.
         """
         return pulumi.get(self, "provider_name")
+
+    @_builtins.property
+    @pulumi.getter(name="rateLimiterStatuses")
+    def rate_limiter_statuses(self) -> pulumi.Output[Sequence['outputs.LinkAggregationGroupRateLimiterStatus']]:
+        """
+        Rate limiter status for the LAG. See `rate_limiter_status` Block below.
+        """
+        return pulumi.get(self, "rate_limiter_statuses")
 
     @_builtins.property
     @pulumi.getter

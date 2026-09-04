@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfiguration {
     /**
-     * @return Repeatable block of path and method patterns to expose as tools. See `toolFilter` below.
+     * @return Repeatable block of path and method patterns to expose as tools. See `toolFilter` Block below.
      * 
      */
     private @Nullable List<AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilter> toolFilters;
     /**
-     * @return Repeatable block of explicit tool definitions with optional custom names and descriptions. See `toolOverride` below.
+     * @return Repeatable block of explicit tool definitions with optional custom names and descriptions. See `toolOverride` Block below.
      * 
      */
     private @Nullable List<AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverride> toolOverrides;
 
     private AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfiguration() {}
     /**
-     * @return Repeatable block of path and method patterns to expose as tools. See `toolFilter` below.
+     * @return Repeatable block of path and method patterns to expose as tools. See `toolFilter` Block below.
      * 
      */
     public List<AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilter> toolFilters() {
         return this.toolFilters == null ? List.of() : this.toolFilters;
     }
     /**
-     * @return Repeatable block of explicit tool definitions with optional custom names and descriptions. See `toolOverride` below.
+     * @return Repeatable block of explicit tool definitions with optional custom names and descriptions. See `toolOverride` Block below.
      * 
      */
     public List<AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverride> toolOverrides() {
