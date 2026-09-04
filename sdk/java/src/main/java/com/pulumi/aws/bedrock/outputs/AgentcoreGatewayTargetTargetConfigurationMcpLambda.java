@@ -17,7 +17,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambda {
      */
     private String lambdaArn;
     /**
-     * @return Schema definition for the tool. See `toolSchema` below.
+     * @return Schema definition for the tool. See `toolSchema` Block below.
      * 
      */
     private AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema toolSchema;
@@ -31,7 +31,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambda {
         return this.lambdaArn;
     }
     /**
-     * @return Schema definition for the tool. See `toolSchema` below.
+     * @return Schema definition for the tool. See `toolSchema` Block below.
      * 
      */
     public AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema toolSchema() {

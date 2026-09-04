@@ -13,19 +13,19 @@ namespace Pulumi.Aws.ApiGatewayV2.Inputs
     public sealed class RoutingRuleActionInvokeApiGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Action to invoke a stage of a target API. Only REST APIs are supported.
+        /// API identifier of the target API.
         /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
-        /// Action to invoke a stage of a target API. Only REST APIs are supported.
+        /// Name of the target stage.
         /// </summary>
         [Input("stage", required: true)]
         public Input<string> Stage { get; set; } = null!;
 
         /// <summary>
-        /// Action to invoke a stage of a target API. Only REST APIs are supported.
+        /// Whether to strip the base path when forwarding the request to the target API.
         /// </summary>
         [Input("stripBasePath")]
         public Input<bool>? StripBasePath { get; set; }

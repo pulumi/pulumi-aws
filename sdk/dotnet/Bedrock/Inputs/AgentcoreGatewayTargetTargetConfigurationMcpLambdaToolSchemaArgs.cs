@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs>? _inlinePayloads;
 
         /// <summary>
-        /// Inline tool definition. See `InlinePayload` below.
+        /// Inline tool definition. See `InlinePayload` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs> InlinePayloads
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         }
 
         /// <summary>
-        /// S3-based tool definition. See `S3` below.
+        /// S3-based tool definition. See `S3` Block below.
         /// </summary>
         [Input("s3")]
         public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args>? S3 { get; set; }

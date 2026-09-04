@@ -15,8 +15,214 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'ConnectionRateLimiterStatus',
+    'LinkAggregationGroupRateLimiterStatus',
+    'GetConnectionRateLimiterStatusResult',
     'GetRouterConfigurationRouterResult',
 ]
+
+@pulumi.output_type
+class ConnectionRateLimiterStatus(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inUse":
+            suggest = "in_use"
+        elif key == "maxAllowed":
+            suggest = "max_allowed"
+        elif key == "totalBandwidth":
+            suggest = "total_bandwidth"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionRateLimiterStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionRateLimiterStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionRateLimiterStatus.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 in_use: Optional[_builtins.int] = None,
+                 max_allowed: Optional[_builtins.int] = None,
+                 remaining: Optional[_builtins.int] = None,
+                 total_bandwidth: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int in_use: Number of rate limiters currently in use.
+        :param _builtins.int max_allowed: Maximum number of rate limiters allowed on the connection.
+        :param _builtins.int remaining: Number of rate limiters remaining (available).
+        :param _builtins.str total_bandwidth: Total bandwidth allocated across all rate limiters.
+        """
+        if in_use is not None:
+            pulumi.set(__self__, "in_use", in_use)
+        if max_allowed is not None:
+            pulumi.set(__self__, "max_allowed", max_allowed)
+        if remaining is not None:
+            pulumi.set(__self__, "remaining", remaining)
+        if total_bandwidth is not None:
+            pulumi.set(__self__, "total_bandwidth", total_bandwidth)
+
+    @_builtins.property
+    @pulumi.getter(name="inUse")
+    def in_use(self) -> Optional[_builtins.int]:
+        """
+        Number of rate limiters currently in use.
+        """
+        return pulumi.get(self, "in_use")
+
+    @_builtins.property
+    @pulumi.getter(name="maxAllowed")
+    def max_allowed(self) -> Optional[_builtins.int]:
+        """
+        Maximum number of rate limiters allowed on the connection.
+        """
+        return pulumi.get(self, "max_allowed")
+
+    @_builtins.property
+    @pulumi.getter
+    def remaining(self) -> Optional[_builtins.int]:
+        """
+        Number of rate limiters remaining (available).
+        """
+        return pulumi.get(self, "remaining")
+
+    @_builtins.property
+    @pulumi.getter(name="totalBandwidth")
+    def total_bandwidth(self) -> Optional[_builtins.str]:
+        """
+        Total bandwidth allocated across all rate limiters.
+        """
+        return pulumi.get(self, "total_bandwidth")
+
+
+@pulumi.output_type
+class LinkAggregationGroupRateLimiterStatus(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inUse":
+            suggest = "in_use"
+        elif key == "maxAllowed":
+            suggest = "max_allowed"
+        elif key == "totalBandwidth":
+            suggest = "total_bandwidth"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkAggregationGroupRateLimiterStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkAggregationGroupRateLimiterStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkAggregationGroupRateLimiterStatus.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 in_use: Optional[_builtins.int] = None,
+                 max_allowed: Optional[_builtins.int] = None,
+                 remaining: Optional[_builtins.int] = None,
+                 total_bandwidth: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int in_use: Number of rate limiters currently in use.
+        :param _builtins.int max_allowed: Maximum number of rate limiters allowed on the LAG.
+        :param _builtins.int remaining: Number of rate limiters remaining (available).
+        :param _builtins.str total_bandwidth: Total bandwidth allocated across all rate limiters.
+        """
+        if in_use is not None:
+            pulumi.set(__self__, "in_use", in_use)
+        if max_allowed is not None:
+            pulumi.set(__self__, "max_allowed", max_allowed)
+        if remaining is not None:
+            pulumi.set(__self__, "remaining", remaining)
+        if total_bandwidth is not None:
+            pulumi.set(__self__, "total_bandwidth", total_bandwidth)
+
+    @_builtins.property
+    @pulumi.getter(name="inUse")
+    def in_use(self) -> Optional[_builtins.int]:
+        """
+        Number of rate limiters currently in use.
+        """
+        return pulumi.get(self, "in_use")
+
+    @_builtins.property
+    @pulumi.getter(name="maxAllowed")
+    def max_allowed(self) -> Optional[_builtins.int]:
+        """
+        Maximum number of rate limiters allowed on the LAG.
+        """
+        return pulumi.get(self, "max_allowed")
+
+    @_builtins.property
+    @pulumi.getter
+    def remaining(self) -> Optional[_builtins.int]:
+        """
+        Number of rate limiters remaining (available).
+        """
+        return pulumi.get(self, "remaining")
+
+    @_builtins.property
+    @pulumi.getter(name="totalBandwidth")
+    def total_bandwidth(self) -> Optional[_builtins.str]:
+        """
+        Total bandwidth allocated across all rate limiters.
+        """
+        return pulumi.get(self, "total_bandwidth")
+
+
+@pulumi.output_type
+class GetConnectionRateLimiterStatusResult(dict):
+    def __init__(__self__, *,
+                 in_use: _builtins.int,
+                 max_allowed: _builtins.int,
+                 remaining: _builtins.int,
+                 total_bandwidth: _builtins.str):
+        """
+        :param _builtins.int in_use: Number of rate limiters currently in use.
+        :param _builtins.int max_allowed: Maximum number of rate limiters allowed on the connection.
+        :param _builtins.int remaining: Number of rate limiters remaining (available).
+        :param _builtins.str total_bandwidth: Total bandwidth allocated across all rate limiters.
+        """
+        pulumi.set(__self__, "in_use", in_use)
+        pulumi.set(__self__, "max_allowed", max_allowed)
+        pulumi.set(__self__, "remaining", remaining)
+        pulumi.set(__self__, "total_bandwidth", total_bandwidth)
+
+    @_builtins.property
+    @pulumi.getter(name="inUse")
+    def in_use(self) -> _builtins.int:
+        """
+        Number of rate limiters currently in use.
+        """
+        return pulumi.get(self, "in_use")
+
+    @_builtins.property
+    @pulumi.getter(name="maxAllowed")
+    def max_allowed(self) -> _builtins.int:
+        """
+        Maximum number of rate limiters allowed on the connection.
+        """
+        return pulumi.get(self, "max_allowed")
+
+    @_builtins.property
+    @pulumi.getter
+    def remaining(self) -> _builtins.int:
+        """
+        Number of rate limiters remaining (available).
+        """
+        return pulumi.get(self, "remaining")
+
+    @_builtins.property
+    @pulumi.getter(name="totalBandwidth")
+    def total_bandwidth(self) -> _builtins.str:
+        """
+        Total bandwidth allocated across all rate limiters.
+        """
+        return pulumi.get(self, "total_bandwidth")
+
 
 @pulumi.output_type
 class GetRouterConfigurationRouterResult(dict):

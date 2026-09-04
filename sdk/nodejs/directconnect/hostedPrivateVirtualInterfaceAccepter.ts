@@ -82,6 +82,14 @@ export class HostedPrivateVirtualInterfaceAccepter extends pulumi.CustomResource
      */
     declare public readonly dxGatewayId: pulumi.Output<string | undefined>;
     /**
+     * The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+     */
+    declare public readonly prefixPoolAllocatedCountIpv4: pulumi.Output<number>;
+    /**
+     * The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+     */
+    declare public readonly prefixPoolAllocatedCountIpv6: pulumi.Output<number>;
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
@@ -117,6 +125,8 @@ export class HostedPrivateVirtualInterfaceAccepter extends pulumi.CustomResource
             const state = argsOrState as HostedPrivateVirtualInterfaceAccepterState | undefined;
             resourceInputs["arn"] = state?.arn;
             resourceInputs["dxGatewayId"] = state?.dxGatewayId;
+            resourceInputs["prefixPoolAllocatedCountIpv4"] = state?.prefixPoolAllocatedCountIpv4;
+            resourceInputs["prefixPoolAllocatedCountIpv6"] = state?.prefixPoolAllocatedCountIpv6;
             resourceInputs["region"] = state?.region;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
@@ -128,6 +138,8 @@ export class HostedPrivateVirtualInterfaceAccepter extends pulumi.CustomResource
                 throw new Error("Missing required property 'virtualInterfaceId'");
             }
             resourceInputs["dxGatewayId"] = args?.dxGatewayId;
+            resourceInputs["prefixPoolAllocatedCountIpv4"] = args?.prefixPoolAllocatedCountIpv4;
+            resourceInputs["prefixPoolAllocatedCountIpv6"] = args?.prefixPoolAllocatedCountIpv6;
             resourceInputs["region"] = args?.region;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["virtualInterfaceId"] = args?.virtualInterfaceId;
@@ -152,6 +164,14 @@ export interface HostedPrivateVirtualInterfaceAccepterState {
      * The ID of the Direct Connect gateway to which to connect the virtual interface.
      */
     dxGatewayId?: pulumi.Input<string | undefined>;
+    /**
+     * The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+     */
+    prefixPoolAllocatedCountIpv4?: pulumi.Input<number | undefined>;
+    /**
+     * The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+     */
+    prefixPoolAllocatedCountIpv6?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -182,6 +202,14 @@ export interface HostedPrivateVirtualInterfaceAccepterArgs {
      * The ID of the Direct Connect gateway to which to connect the virtual interface.
      */
     dxGatewayId?: pulumi.Input<string | undefined>;
+    /**
+     * The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+     */
+    prefixPoolAllocatedCountIpv4?: pulumi.Input<number | undefined>;
+    /**
+     * The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+     */
+    prefixPoolAllocatedCountIpv6?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

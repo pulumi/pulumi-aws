@@ -49,6 +49,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LayerVersionPermission{}
 	case "aws:lambda/microvmsImage:MicrovmsImage":
 		r = &MicrovmsImage{}
+	case "aws:lambda/microvmsMicrovm:MicrovmsMicrovm":
+		r = &MicrovmsMicrovm{}
 	case "aws:lambda/permission:Permission":
 		r = &Permission{}
 	case "aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig":
@@ -136,6 +138,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"lambda/microvmsImage",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"lambda/microvmsMicrovm",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

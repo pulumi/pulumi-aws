@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AccessApplicationArgs, AccessApplicationState } from "./accessApplication";
+export type AccessApplication = import("./accessApplication").AccessApplication;
+export const AccessApplication: typeof import("./accessApplication").AccessApplication = null as any;
+utilities.lazyLoad(exports, ["AccessApplication"], () => require("./accessApplication"));
+
 export { AlternativeContactArgs, AlternativeContactState } from "./alternativeContact";
 export type AlternativeContact = import("./alternativeContact").AlternativeContact;
 export const AlternativeContact: typeof import("./alternativeContact").AlternativeContact = null as any;
@@ -35,6 +40,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:account/accessApplication:AccessApplication":
+                return new AccessApplication(name, <any>undefined, { urn })
             case "aws:account/alternativeContact:AlternativeContact":
                 return new AlternativeContact(name, <any>undefined, { urn })
             case "aws:account/primaryContact:PrimaryContact":
@@ -46,6 +53,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "account/accessApplication", _module)
 pulumi.runtime.registerResourceModule("aws", "account/alternativeContact", _module)
 pulumi.runtime.registerResourceModule("aws", "account/primaryContact", _module)
 pulumi.runtime.registerResourceModule("aws", "account/region", _module)

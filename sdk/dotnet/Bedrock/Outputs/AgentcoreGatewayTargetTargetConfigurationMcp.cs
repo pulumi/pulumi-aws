@@ -14,29 +14,35 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreGatewayTargetTargetConfigurationMcp
     {
         /// <summary>
-        /// API Gateway target configuration. See `ApiGateway` below.
+        /// API Gateway target configuration. See `ApiGateway` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpApiGateway? ApiGateway;
         /// <summary>
-        /// Lambda function target configuration. See `Lambda` below.
+        /// Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `Connector` Block below.
+        /// </summary>
+        public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpConnector? Connector;
+        /// <summary>
+        /// Lambda function target configuration. See `Lambda` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambda? Lambda;
         /// <summary>
-        /// MCP server target configuration. See `McpServer` below.
+        /// MCP server target configuration. See `McpServer` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServer? McpServer;
         /// <summary>
-        /// OpenAPI schema-based target configuration. See `ApiSchemaConfiguration` below.
+        /// OpenAPI schema-based target configuration. See `ApiSchemaConfiguration` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema? OpenApiSchema;
         /// <summary>
-        /// Smithy model-based target configuration. See `ApiSchemaConfiguration` below.
+        /// Smithy model-based target configuration. See `ApiSchemaConfiguration` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel? SmithyModel;
 
         [OutputConstructor]
         private AgentcoreGatewayTargetTargetConfigurationMcp(
             Outputs.AgentcoreGatewayTargetTargetConfigurationMcpApiGateway? apiGateway,
+
+            Outputs.AgentcoreGatewayTargetTargetConfigurationMcpConnector? connector,
 
             Outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambda? lambda,
 
@@ -47,6 +53,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
             Outputs.AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel? smithyModel)
         {
             ApiGateway = apiGateway;
+            Connector = connector;
             Lambda = lambda;
             McpServer = mcpServer;
             OpenApiSchema = openApiSchema;

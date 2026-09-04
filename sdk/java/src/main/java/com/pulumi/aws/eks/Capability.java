@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Basic Usage
+ * 
  * <pre>
  * {@code
  * package generated_program;
@@ -62,6 +64,76 @@ import javax.annotation.Nullable;
  *             .roleArn(exampleAwsIamRole.arn())
  *             .deletePropagationPolicy("RETAIN")
  *             .tags(Map.of("Name", "example-capability"))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Controller Log Delivery
+ * 
+ * Capability controllers run in AWS-managed infrastructure outside your cluster, and their logs are exposed through [CloudWatch Vended Logs](https://docs.aws.amazon.com/eks/latest/userguide/capabilities-controller-logs.html) rather than the EKS API. Configure delivery with the `aws.cloudwatch.LogDeliverySource`, `aws.cloudwatch.LogDeliveryDestination`, and `aws.cloudwatch.LogDelivery` resources, using the capability ARN as the source. Valid log types are `EKS_CAPABILITY_ACK_LOGS` (ACK), `EKS_CAPABILITY_KRO_LOGS` (kro), and `EKS_CAPABILITY_ARGOCD_APPLICATION_LOGS`, `EKS_CAPABILITY_ARGOCD_APPLICATIONSET_LOGS`, `EKS_CAPABILITY_ARGOCD_COMMITSERVER_LOGS`, `EKS_CAPABILITY_ARGOCD_REPOSERVER_LOGS`, and `EKS_CAPABILITY_ARGOCD_SERVER_LOGS` (Argo CD, one per controller component).
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.eks.Capability;
+ * import com.pulumi.aws.eks.CapabilityArgs;
+ * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.cloudwatch.LogGroupArgs;
+ * import com.pulumi.aws.cloudwatch.LogDeliverySource;
+ * import com.pulumi.aws.cloudwatch.LogDeliverySourceArgs;
+ * import com.pulumi.aws.cloudwatch.LogDeliveryDestination;
+ * import com.pulumi.aws.cloudwatch.LogDeliveryDestinationArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs;
+ * import com.pulumi.aws.cloudwatch.LogDelivery;
+ * import com.pulumi.aws.cloudwatch.LogDeliveryArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Capability("example", CapabilityArgs.builder()
+ *             .clusterName(exampleAwsEksCluster.name())
+ *             .capabilityName("ack")
+ *             .type("ACK")
+ *             .roleArn(exampleAwsIamRole.arn())
+ *             .deletePropagationPolicy("RETAIN")
+ *             .build());
+ * 
+ *         var ack = new LogGroup("ack", LogGroupArgs.builder()
+ *             .name("/aws/eks/example/capabilities/ack")
+ *             .build());
+ * 
+ *         var ackLogDeliverySource = new LogDeliverySource("ackLogDeliverySource", LogDeliverySourceArgs.builder()
+ *             .name("eks-capability-ack-logs")
+ *             .logType("EKS_CAPABILITY_ACK_LOGS")
+ *             .resourceArn(example.arn())
+ *             .build());
+ * 
+ *         var ackLogDeliveryDestination = new LogDeliveryDestination("ackLogDeliveryDestination", LogDeliveryDestinationArgs.builder()
+ *             .deliveryDestinationConfiguration(LogDeliveryDestinationDeliveryDestinationConfigurationArgs.builder()
+ *                 .destinationResourceArn(ack.arn())
+ *                 .build())
+ *             .name("eks-capability-ack-logs")
+ *             .build());
+ * 
+ *         var ackLogDelivery = new LogDelivery("ackLogDelivery", LogDeliveryArgs.builder()
+ *             .deliverySourceName(ackLogDeliverySource.name())
+ *             .deliveryDestinationArn(ackLogDeliveryDestination.arn())
  *             .build());
  * 
  *     }

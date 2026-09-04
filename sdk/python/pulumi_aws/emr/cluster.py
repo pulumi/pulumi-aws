@@ -66,7 +66,7 @@ class ClusterArgs:
         :param pulumi.Input['ClusterAutoTerminationPolicyArgs'] auto_termination_policy: An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
         :param pulumi.Input[_builtins.str] autoscaling_role: IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterBootstrapActionArgs']]] bootstrap_actions: Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
-        :param pulumi.Input[_builtins.str] configurations: List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
+        :param pulumi.Input[_builtins.str] configurations: List of configurations supplied for the EMR cluster you are creating, expressed as a string: an HTTP(S) URL to a JSON file, a path to a local `.json` file, or a raw JSON string. To supply configuration objects using Terraform syntax instead, use `configurations_json`. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
         :param pulumi.Input[_builtins.str] configurations_json: JSON string for supplying list of configurations for the EMR cluster.
                
                > **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
@@ -273,7 +273,7 @@ class ClusterArgs:
     @pulumi.getter
     def configurations(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
+        List of configurations supplied for the EMR cluster you are creating, expressed as a string: an HTTP(S) URL to a JSON file, a path to a local `.json` file, or a raw JSON string. To supply configuration objects using Terraform syntax instead, use `configurations_json`. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
         """
         return pulumi.get(self, "configurations")
 
@@ -656,7 +656,7 @@ class _ClusterState:
         :param pulumi.Input['ClusterAutoTerminationPolicyArgs'] auto_termination_policy: An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
         :param pulumi.Input[_builtins.str] autoscaling_role: IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterBootstrapActionArgs']]] bootstrap_actions: Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
-        :param pulumi.Input[_builtins.str] configurations: List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
+        :param pulumi.Input[_builtins.str] configurations: List of configurations supplied for the EMR cluster you are creating, expressed as a string: an HTTP(S) URL to a JSON file, a path to a local `.json` file, or a raw JSON string. To supply configuration objects using Terraform syntax instead, use `configurations_json`. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
         :param pulumi.Input[_builtins.str] configurations_json: JSON string for supplying list of configurations for the EMR cluster.
                
                > **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
@@ -874,7 +874,7 @@ class _ClusterState:
     @pulumi.getter
     def configurations(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
+        List of configurations supplied for the EMR cluster you are creating, expressed as a string: an HTTP(S) URL to a JSON file, a path to a local `.json` file, or a raw JSON string. To supply configuration objects using Terraform syntax instead, use `configurations_json`. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
         """
         return pulumi.get(self, "configurations")
 
@@ -1583,7 +1583,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Union['ClusterAutoTerminationPolicyArgs', 'ClusterAutoTerminationPolicyArgsDict']] auto_termination_policy: An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
         :param pulumi.Input[_builtins.str] autoscaling_role: IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterBootstrapActionArgs', 'ClusterBootstrapActionArgsDict']]]] bootstrap_actions: Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
-        :param pulumi.Input[_builtins.str] configurations: List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
+        :param pulumi.Input[_builtins.str] configurations: List of configurations supplied for the EMR cluster you are creating, expressed as a string: an HTTP(S) URL to a JSON file, a path to a local `.json` file, or a raw JSON string. To supply configuration objects using Terraform syntax instead, use `configurations_json`. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
         :param pulumi.Input[_builtins.str] configurations_json: JSON string for supplying list of configurations for the EMR cluster.
                
                > **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
@@ -2081,7 +2081,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Union['ClusterAutoTerminationPolicyArgs', 'ClusterAutoTerminationPolicyArgsDict']] auto_termination_policy: An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
         :param pulumi.Input[_builtins.str] autoscaling_role: IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterBootstrapActionArgs', 'ClusterBootstrapActionArgsDict']]]] bootstrap_actions: Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
-        :param pulumi.Input[_builtins.str] configurations: List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
+        :param pulumi.Input[_builtins.str] configurations: List of configurations supplied for the EMR cluster you are creating, expressed as a string: an HTTP(S) URL to a JSON file, a path to a local `.json` file, or a raw JSON string. To supply configuration objects using Terraform syntax instead, use `configurations_json`. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
         :param pulumi.Input[_builtins.str] configurations_json: JSON string for supplying list of configurations for the EMR cluster.
                
                > **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
@@ -2239,7 +2239,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def configurations(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
+        List of configurations supplied for the EMR cluster you are creating, expressed as a string: an HTTP(S) URL to a JSON file, a path to a local `.json` file, or a raw JSON string. To supply configuration objects using Terraform syntax instead, use `configurations_json`. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
         """
         return pulumi.get(self, "configurations")
 

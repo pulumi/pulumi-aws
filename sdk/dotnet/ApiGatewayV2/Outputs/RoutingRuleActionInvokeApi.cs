@@ -14,15 +14,15 @@ namespace Pulumi.Aws.ApiGatewayV2.Outputs
     public sealed class RoutingRuleActionInvokeApi
     {
         /// <summary>
-        /// Action to invoke a stage of a target API. Only REST APIs are supported.
+        /// API identifier of the target API.
         /// </summary>
         public readonly string ApiId;
         /// <summary>
-        /// Action to invoke a stage of a target API. Only REST APIs are supported.
+        /// Name of the target stage.
         /// </summary>
         public readonly string Stage;
         /// <summary>
-        /// Action to invoke a stage of a target API. Only REST APIs are supported.
+        /// Whether to strip the base path when forwarding the request to the target API.
         /// </summary>
         public readonly bool? StripBasePath;
 

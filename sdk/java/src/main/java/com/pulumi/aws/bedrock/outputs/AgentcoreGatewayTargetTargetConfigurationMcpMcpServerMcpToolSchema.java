@@ -18,7 +18,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolS
      */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayload inlinePayload;
     /**
-     * @return S3 location of the tool schema. See `s3` below.
+     * @return S3 location of the tool schema. See `s3` Block below.
      * 
      */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3 s3;
@@ -32,7 +32,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolS
         return Optional.ofNullable(this.inlinePayload);
     }
     /**
-     * @return S3 location of the tool schema. See `s3` below.
+     * @return S3 location of the tool schema. See `s3` Block below.
      * 
      */
     public Optional<AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3> s3() {

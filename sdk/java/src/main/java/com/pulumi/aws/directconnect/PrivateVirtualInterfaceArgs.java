@@ -172,6 +172,51 @@ public final class PrivateVirtualInterfaceArgs extends com.pulumi.resources.Reso
     }
 
     /**
+     * The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+     * 
+     */
+    @Import(name="prefixPoolAllocatedCountIpv4")
+    private @Nullable Output<Integer> prefixPoolAllocatedCountIpv4;
+
+    /**
+     * @return The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+     * 
+     */
+    public Optional<Output<Integer>> prefixPoolAllocatedCountIpv4() {
+        return Optional.ofNullable(this.prefixPoolAllocatedCountIpv4);
+    }
+
+    /**
+     * The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+     * 
+     */
+    @Import(name="prefixPoolAllocatedCountIpv6")
+    private @Nullable Output<Integer> prefixPoolAllocatedCountIpv6;
+
+    /**
+     * @return The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+     * 
+     */
+    public Optional<Output<Integer>> prefixPoolAllocatedCountIpv6() {
+        return Optional.ofNullable(this.prefixPoolAllocatedCountIpv6);
+    }
+
+    /**
+     * Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+     * 
+     */
+    @Import(name="rateLimit")
+    private @Nullable Output<String> rateLimit;
+
+    /**
+     * @return Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+     * 
+     */
+    public Optional<Output<String>> rateLimit() {
+        return Optional.ofNullable(this.rateLimit);
+    }
+
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
@@ -259,6 +304,9 @@ public final class PrivateVirtualInterfaceArgs extends com.pulumi.resources.Reso
         this.dxGatewayId = $.dxGatewayId;
         this.mtu = $.mtu;
         this.name = $.name;
+        this.prefixPoolAllocatedCountIpv4 = $.prefixPoolAllocatedCountIpv4;
+        this.prefixPoolAllocatedCountIpv6 = $.prefixPoolAllocatedCountIpv6;
+        this.rateLimit = $.rateLimit;
         this.region = $.region;
         this.sitelinkEnabled = $.sitelinkEnabled;
         this.tags = $.tags;
@@ -494,6 +542,69 @@ public final class PrivateVirtualInterfaceArgs extends com.pulumi.resources.Reso
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param prefixPoolAllocatedCountIpv4 The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prefixPoolAllocatedCountIpv4(@Nullable Output<Integer> prefixPoolAllocatedCountIpv4) {
+            $.prefixPoolAllocatedCountIpv4 = prefixPoolAllocatedCountIpv4;
+            return this;
+        }
+
+        /**
+         * @param prefixPoolAllocatedCountIpv4 The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prefixPoolAllocatedCountIpv4(Integer prefixPoolAllocatedCountIpv4) {
+            return prefixPoolAllocatedCountIpv4(Output.of(prefixPoolAllocatedCountIpv4));
+        }
+
+        /**
+         * @param prefixPoolAllocatedCountIpv6 The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prefixPoolAllocatedCountIpv6(@Nullable Output<Integer> prefixPoolAllocatedCountIpv6) {
+            $.prefixPoolAllocatedCountIpv6 = prefixPoolAllocatedCountIpv6;
+            return this;
+        }
+
+        /**
+         * @param prefixPoolAllocatedCountIpv6 The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prefixPoolAllocatedCountIpv6(Integer prefixPoolAllocatedCountIpv6) {
+            return prefixPoolAllocatedCountIpv6(Output.of(prefixPoolAllocatedCountIpv6));
+        }
+
+        /**
+         * @param rateLimit Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rateLimit(@Nullable Output<String> rateLimit) {
+            $.rateLimit = rateLimit;
+            return this;
+        }
+
+        /**
+         * @param rateLimit Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rateLimit(String rateLimit) {
+            return rateLimit(Output.of(rateLimit));
         }
 
         /**

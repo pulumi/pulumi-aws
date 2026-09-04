@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -138,9 +141,29 @@ export class Connection extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly portEncryptionStatus: pulumi.Output<string>;
     /**
+     * The total number of inbound IPv4 route prefixes that can be allocated across the virtual interfaces on the connection.
+     */
+    declare public /*out*/ readonly prefixPoolSizeIpv4: pulumi.Output<number>;
+    /**
+     * The total number of inbound IPv6 route prefixes that can be allocated across the virtual interfaces on the connection.
+     */
+    declare public /*out*/ readonly prefixPoolSizeIpv6: pulumi.Output<number>;
+    /**
+     * The number of inbound IPv4 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+     */
+    declare public /*out*/ readonly prefixPoolUnallocatedCountIpv4: pulumi.Output<number>;
+    /**
+     * The number of inbound IPv6 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+     */
+    declare public /*out*/ readonly prefixPoolUnallocatedCountIpv6: pulumi.Output<number>;
+    /**
      * The name of the service provider associated with the connection.
      */
     declare public readonly providerName: pulumi.Output<string>;
+    /**
+     * Rate limiter status for the connection. See `rateLimiterStatus` Block below.
+     */
+    declare public /*out*/ readonly rateLimiterStatuses: pulumi.Output<outputs.directconnect.ConnectionRateLimiterStatus[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -197,7 +220,12 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["ownerAccountId"] = state?.ownerAccountId;
             resourceInputs["partnerName"] = state?.partnerName;
             resourceInputs["portEncryptionStatus"] = state?.portEncryptionStatus;
+            resourceInputs["prefixPoolSizeIpv4"] = state?.prefixPoolSizeIpv4;
+            resourceInputs["prefixPoolSizeIpv6"] = state?.prefixPoolSizeIpv6;
+            resourceInputs["prefixPoolUnallocatedCountIpv4"] = state?.prefixPoolUnallocatedCountIpv4;
+            resourceInputs["prefixPoolUnallocatedCountIpv6"] = state?.prefixPoolUnallocatedCountIpv6;
             resourceInputs["providerName"] = state?.providerName;
+            resourceInputs["rateLimiterStatuses"] = state?.rateLimiterStatuses;
             resourceInputs["region"] = state?.region;
             resourceInputs["requestMacsec"] = state?.requestMacsec;
             resourceInputs["skipDestroy"] = state?.skipDestroy;
@@ -230,6 +258,11 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["ownerAccountId"] = undefined /*out*/;
             resourceInputs["partnerName"] = undefined /*out*/;
             resourceInputs["portEncryptionStatus"] = undefined /*out*/;
+            resourceInputs["prefixPoolSizeIpv4"] = undefined /*out*/;
+            resourceInputs["prefixPoolSizeIpv6"] = undefined /*out*/;
+            resourceInputs["prefixPoolUnallocatedCountIpv4"] = undefined /*out*/;
+            resourceInputs["prefixPoolUnallocatedCountIpv6"] = undefined /*out*/;
+            resourceInputs["rateLimiterStatuses"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["vlanId"] = undefined /*out*/;
@@ -292,9 +325,29 @@ export interface ConnectionState {
      */
     portEncryptionStatus?: pulumi.Input<string | undefined>;
     /**
+     * The total number of inbound IPv4 route prefixes that can be allocated across the virtual interfaces on the connection.
+     */
+    prefixPoolSizeIpv4?: pulumi.Input<number | undefined>;
+    /**
+     * The total number of inbound IPv6 route prefixes that can be allocated across the virtual interfaces on the connection.
+     */
+    prefixPoolSizeIpv6?: pulumi.Input<number | undefined>;
+    /**
+     * The number of inbound IPv4 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+     */
+    prefixPoolUnallocatedCountIpv4?: pulumi.Input<number | undefined>;
+    /**
+     * The number of inbound IPv6 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+     */
+    prefixPoolUnallocatedCountIpv6?: pulumi.Input<number | undefined>;
+    /**
      * The name of the service provider associated with the connection.
      */
     providerName?: pulumi.Input<string | undefined>;
+    /**
+     * Rate limiter status for the connection. See `rateLimiterStatus` Block below.
+     */
+    rateLimiterStatuses?: pulumi.Input<pulumi.Input<inputs.directconnect.ConnectionRateLimiterStatus>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

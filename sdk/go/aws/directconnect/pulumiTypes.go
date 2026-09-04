@@ -13,6 +13,378 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ConnectionRateLimiterStatus struct {
+	// Number of rate limiters currently in use.
+	InUse *int `pulumi:"inUse"`
+	// Maximum number of rate limiters allowed on the connection.
+	MaxAllowed *int `pulumi:"maxAllowed"`
+	// Number of rate limiters remaining (available).
+	Remaining *int `pulumi:"remaining"`
+	// Total bandwidth allocated across all rate limiters.
+	TotalBandwidth *string `pulumi:"totalBandwidth"`
+}
+
+// ConnectionRateLimiterStatusInput is an input type that accepts ConnectionRateLimiterStatusArgs and ConnectionRateLimiterStatusOutput values.
+// You can construct a concrete instance of `ConnectionRateLimiterStatusInput` via:
+//
+//	ConnectionRateLimiterStatusArgs{...}
+type ConnectionRateLimiterStatusInput interface {
+	pulumi.Input
+
+	ToConnectionRateLimiterStatusOutput() ConnectionRateLimiterStatusOutput
+	ToConnectionRateLimiterStatusOutputWithContext(context.Context) ConnectionRateLimiterStatusOutput
+}
+
+type ConnectionRateLimiterStatusArgs struct {
+	// Number of rate limiters currently in use.
+	InUse pulumi.IntPtrInput `pulumi:"inUse"`
+	// Maximum number of rate limiters allowed on the connection.
+	MaxAllowed pulumi.IntPtrInput `pulumi:"maxAllowed"`
+	// Number of rate limiters remaining (available).
+	Remaining pulumi.IntPtrInput `pulumi:"remaining"`
+	// Total bandwidth allocated across all rate limiters.
+	TotalBandwidth pulumi.StringPtrInput `pulumi:"totalBandwidth"`
+}
+
+func (ConnectionRateLimiterStatusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionRateLimiterStatus)(nil)).Elem()
+}
+
+func (i ConnectionRateLimiterStatusArgs) ToConnectionRateLimiterStatusOutput() ConnectionRateLimiterStatusOutput {
+	return i.ToConnectionRateLimiterStatusOutputWithContext(context.Background())
+}
+
+func (i ConnectionRateLimiterStatusArgs) ToConnectionRateLimiterStatusOutputWithContext(ctx context.Context) ConnectionRateLimiterStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionRateLimiterStatusOutput)
+}
+
+// ConnectionRateLimiterStatusArrayInput is an input type that accepts ConnectionRateLimiterStatusArray and ConnectionRateLimiterStatusArrayOutput values.
+// You can construct a concrete instance of `ConnectionRateLimiterStatusArrayInput` via:
+//
+//	ConnectionRateLimiterStatusArray{ ConnectionRateLimiterStatusArgs{...} }
+type ConnectionRateLimiterStatusArrayInput interface {
+	pulumi.Input
+
+	ToConnectionRateLimiterStatusArrayOutput() ConnectionRateLimiterStatusArrayOutput
+	ToConnectionRateLimiterStatusArrayOutputWithContext(context.Context) ConnectionRateLimiterStatusArrayOutput
+}
+
+type ConnectionRateLimiterStatusArray []ConnectionRateLimiterStatusInput
+
+func (ConnectionRateLimiterStatusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectionRateLimiterStatus)(nil)).Elem()
+}
+
+func (i ConnectionRateLimiterStatusArray) ToConnectionRateLimiterStatusArrayOutput() ConnectionRateLimiterStatusArrayOutput {
+	return i.ToConnectionRateLimiterStatusArrayOutputWithContext(context.Background())
+}
+
+func (i ConnectionRateLimiterStatusArray) ToConnectionRateLimiterStatusArrayOutputWithContext(ctx context.Context) ConnectionRateLimiterStatusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionRateLimiterStatusArrayOutput)
+}
+
+type ConnectionRateLimiterStatusOutput struct{ *pulumi.OutputState }
+
+func (ConnectionRateLimiterStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionRateLimiterStatus)(nil)).Elem()
+}
+
+func (o ConnectionRateLimiterStatusOutput) ToConnectionRateLimiterStatusOutput() ConnectionRateLimiterStatusOutput {
+	return o
+}
+
+func (o ConnectionRateLimiterStatusOutput) ToConnectionRateLimiterStatusOutputWithContext(ctx context.Context) ConnectionRateLimiterStatusOutput {
+	return o
+}
+
+// Number of rate limiters currently in use.
+func (o ConnectionRateLimiterStatusOutput) InUse() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ConnectionRateLimiterStatus) *int { return v.InUse }).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of rate limiters allowed on the connection.
+func (o ConnectionRateLimiterStatusOutput) MaxAllowed() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ConnectionRateLimiterStatus) *int { return v.MaxAllowed }).(pulumi.IntPtrOutput)
+}
+
+// Number of rate limiters remaining (available).
+func (o ConnectionRateLimiterStatusOutput) Remaining() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ConnectionRateLimiterStatus) *int { return v.Remaining }).(pulumi.IntPtrOutput)
+}
+
+// Total bandwidth allocated across all rate limiters.
+func (o ConnectionRateLimiterStatusOutput) TotalBandwidth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionRateLimiterStatus) *string { return v.TotalBandwidth }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionRateLimiterStatusArrayOutput struct{ *pulumi.OutputState }
+
+func (ConnectionRateLimiterStatusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectionRateLimiterStatus)(nil)).Elem()
+}
+
+func (o ConnectionRateLimiterStatusArrayOutput) ToConnectionRateLimiterStatusArrayOutput() ConnectionRateLimiterStatusArrayOutput {
+	return o
+}
+
+func (o ConnectionRateLimiterStatusArrayOutput) ToConnectionRateLimiterStatusArrayOutputWithContext(ctx context.Context) ConnectionRateLimiterStatusArrayOutput {
+	return o
+}
+
+func (o ConnectionRateLimiterStatusArrayOutput) Index(i pulumi.IntInput) ConnectionRateLimiterStatusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectionRateLimiterStatus {
+		return vs[0].([]ConnectionRateLimiterStatus)[vs[1].(int)]
+	}).(ConnectionRateLimiterStatusOutput)
+}
+
+type LinkAggregationGroupRateLimiterStatus struct {
+	// Number of rate limiters currently in use.
+	InUse *int `pulumi:"inUse"`
+	// Maximum number of rate limiters allowed on the LAG.
+	MaxAllowed *int `pulumi:"maxAllowed"`
+	// Number of rate limiters remaining (available).
+	Remaining *int `pulumi:"remaining"`
+	// Total bandwidth allocated across all rate limiters.
+	TotalBandwidth *string `pulumi:"totalBandwidth"`
+}
+
+// LinkAggregationGroupRateLimiterStatusInput is an input type that accepts LinkAggregationGroupRateLimiterStatusArgs and LinkAggregationGroupRateLimiterStatusOutput values.
+// You can construct a concrete instance of `LinkAggregationGroupRateLimiterStatusInput` via:
+//
+//	LinkAggregationGroupRateLimiterStatusArgs{...}
+type LinkAggregationGroupRateLimiterStatusInput interface {
+	pulumi.Input
+
+	ToLinkAggregationGroupRateLimiterStatusOutput() LinkAggregationGroupRateLimiterStatusOutput
+	ToLinkAggregationGroupRateLimiterStatusOutputWithContext(context.Context) LinkAggregationGroupRateLimiterStatusOutput
+}
+
+type LinkAggregationGroupRateLimiterStatusArgs struct {
+	// Number of rate limiters currently in use.
+	InUse pulumi.IntPtrInput `pulumi:"inUse"`
+	// Maximum number of rate limiters allowed on the LAG.
+	MaxAllowed pulumi.IntPtrInput `pulumi:"maxAllowed"`
+	// Number of rate limiters remaining (available).
+	Remaining pulumi.IntPtrInput `pulumi:"remaining"`
+	// Total bandwidth allocated across all rate limiters.
+	TotalBandwidth pulumi.StringPtrInput `pulumi:"totalBandwidth"`
+}
+
+func (LinkAggregationGroupRateLimiterStatusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkAggregationGroupRateLimiterStatus)(nil)).Elem()
+}
+
+func (i LinkAggregationGroupRateLimiterStatusArgs) ToLinkAggregationGroupRateLimiterStatusOutput() LinkAggregationGroupRateLimiterStatusOutput {
+	return i.ToLinkAggregationGroupRateLimiterStatusOutputWithContext(context.Background())
+}
+
+func (i LinkAggregationGroupRateLimiterStatusArgs) ToLinkAggregationGroupRateLimiterStatusOutputWithContext(ctx context.Context) LinkAggregationGroupRateLimiterStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkAggregationGroupRateLimiterStatusOutput)
+}
+
+// LinkAggregationGroupRateLimiterStatusArrayInput is an input type that accepts LinkAggregationGroupRateLimiterStatusArray and LinkAggregationGroupRateLimiterStatusArrayOutput values.
+// You can construct a concrete instance of `LinkAggregationGroupRateLimiterStatusArrayInput` via:
+//
+//	LinkAggregationGroupRateLimiterStatusArray{ LinkAggregationGroupRateLimiterStatusArgs{...} }
+type LinkAggregationGroupRateLimiterStatusArrayInput interface {
+	pulumi.Input
+
+	ToLinkAggregationGroupRateLimiterStatusArrayOutput() LinkAggregationGroupRateLimiterStatusArrayOutput
+	ToLinkAggregationGroupRateLimiterStatusArrayOutputWithContext(context.Context) LinkAggregationGroupRateLimiterStatusArrayOutput
+}
+
+type LinkAggregationGroupRateLimiterStatusArray []LinkAggregationGroupRateLimiterStatusInput
+
+func (LinkAggregationGroupRateLimiterStatusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkAggregationGroupRateLimiterStatus)(nil)).Elem()
+}
+
+func (i LinkAggregationGroupRateLimiterStatusArray) ToLinkAggregationGroupRateLimiterStatusArrayOutput() LinkAggregationGroupRateLimiterStatusArrayOutput {
+	return i.ToLinkAggregationGroupRateLimiterStatusArrayOutputWithContext(context.Background())
+}
+
+func (i LinkAggregationGroupRateLimiterStatusArray) ToLinkAggregationGroupRateLimiterStatusArrayOutputWithContext(ctx context.Context) LinkAggregationGroupRateLimiterStatusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkAggregationGroupRateLimiterStatusArrayOutput)
+}
+
+type LinkAggregationGroupRateLimiterStatusOutput struct{ *pulumi.OutputState }
+
+func (LinkAggregationGroupRateLimiterStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkAggregationGroupRateLimiterStatus)(nil)).Elem()
+}
+
+func (o LinkAggregationGroupRateLimiterStatusOutput) ToLinkAggregationGroupRateLimiterStatusOutput() LinkAggregationGroupRateLimiterStatusOutput {
+	return o
+}
+
+func (o LinkAggregationGroupRateLimiterStatusOutput) ToLinkAggregationGroupRateLimiterStatusOutputWithContext(ctx context.Context) LinkAggregationGroupRateLimiterStatusOutput {
+	return o
+}
+
+// Number of rate limiters currently in use.
+func (o LinkAggregationGroupRateLimiterStatusOutput) InUse() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LinkAggregationGroupRateLimiterStatus) *int { return v.InUse }).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of rate limiters allowed on the LAG.
+func (o LinkAggregationGroupRateLimiterStatusOutput) MaxAllowed() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LinkAggregationGroupRateLimiterStatus) *int { return v.MaxAllowed }).(pulumi.IntPtrOutput)
+}
+
+// Number of rate limiters remaining (available).
+func (o LinkAggregationGroupRateLimiterStatusOutput) Remaining() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LinkAggregationGroupRateLimiterStatus) *int { return v.Remaining }).(pulumi.IntPtrOutput)
+}
+
+// Total bandwidth allocated across all rate limiters.
+func (o LinkAggregationGroupRateLimiterStatusOutput) TotalBandwidth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkAggregationGroupRateLimiterStatus) *string { return v.TotalBandwidth }).(pulumi.StringPtrOutput)
+}
+
+type LinkAggregationGroupRateLimiterStatusArrayOutput struct{ *pulumi.OutputState }
+
+func (LinkAggregationGroupRateLimiterStatusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkAggregationGroupRateLimiterStatus)(nil)).Elem()
+}
+
+func (o LinkAggregationGroupRateLimiterStatusArrayOutput) ToLinkAggregationGroupRateLimiterStatusArrayOutput() LinkAggregationGroupRateLimiterStatusArrayOutput {
+	return o
+}
+
+func (o LinkAggregationGroupRateLimiterStatusArrayOutput) ToLinkAggregationGroupRateLimiterStatusArrayOutputWithContext(ctx context.Context) LinkAggregationGroupRateLimiterStatusArrayOutput {
+	return o
+}
+
+func (o LinkAggregationGroupRateLimiterStatusArrayOutput) Index(i pulumi.IntInput) LinkAggregationGroupRateLimiterStatusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkAggregationGroupRateLimiterStatus {
+		return vs[0].([]LinkAggregationGroupRateLimiterStatus)[vs[1].(int)]
+	}).(LinkAggregationGroupRateLimiterStatusOutput)
+}
+
+type GetConnectionRateLimiterStatus struct {
+	// Number of rate limiters currently in use.
+	InUse int `pulumi:"inUse"`
+	// Maximum number of rate limiters allowed on the connection.
+	MaxAllowed int `pulumi:"maxAllowed"`
+	// Number of rate limiters remaining (available).
+	Remaining int `pulumi:"remaining"`
+	// Total bandwidth allocated across all rate limiters.
+	TotalBandwidth string `pulumi:"totalBandwidth"`
+}
+
+// GetConnectionRateLimiterStatusInput is an input type that accepts GetConnectionRateLimiterStatusArgs and GetConnectionRateLimiterStatusOutput values.
+// You can construct a concrete instance of `GetConnectionRateLimiterStatusInput` via:
+//
+//	GetConnectionRateLimiterStatusArgs{...}
+type GetConnectionRateLimiterStatusInput interface {
+	pulumi.Input
+
+	ToGetConnectionRateLimiterStatusOutput() GetConnectionRateLimiterStatusOutput
+	ToGetConnectionRateLimiterStatusOutputWithContext(context.Context) GetConnectionRateLimiterStatusOutput
+}
+
+type GetConnectionRateLimiterStatusArgs struct {
+	// Number of rate limiters currently in use.
+	InUse pulumi.IntInput `pulumi:"inUse"`
+	// Maximum number of rate limiters allowed on the connection.
+	MaxAllowed pulumi.IntInput `pulumi:"maxAllowed"`
+	// Number of rate limiters remaining (available).
+	Remaining pulumi.IntInput `pulumi:"remaining"`
+	// Total bandwidth allocated across all rate limiters.
+	TotalBandwidth pulumi.StringInput `pulumi:"totalBandwidth"`
+}
+
+func (GetConnectionRateLimiterStatusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectionRateLimiterStatus)(nil)).Elem()
+}
+
+func (i GetConnectionRateLimiterStatusArgs) ToGetConnectionRateLimiterStatusOutput() GetConnectionRateLimiterStatusOutput {
+	return i.ToGetConnectionRateLimiterStatusOutputWithContext(context.Background())
+}
+
+func (i GetConnectionRateLimiterStatusArgs) ToGetConnectionRateLimiterStatusOutputWithContext(ctx context.Context) GetConnectionRateLimiterStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectionRateLimiterStatusOutput)
+}
+
+// GetConnectionRateLimiterStatusArrayInput is an input type that accepts GetConnectionRateLimiterStatusArray and GetConnectionRateLimiterStatusArrayOutput values.
+// You can construct a concrete instance of `GetConnectionRateLimiterStatusArrayInput` via:
+//
+//	GetConnectionRateLimiterStatusArray{ GetConnectionRateLimiterStatusArgs{...} }
+type GetConnectionRateLimiterStatusArrayInput interface {
+	pulumi.Input
+
+	ToGetConnectionRateLimiterStatusArrayOutput() GetConnectionRateLimiterStatusArrayOutput
+	ToGetConnectionRateLimiterStatusArrayOutputWithContext(context.Context) GetConnectionRateLimiterStatusArrayOutput
+}
+
+type GetConnectionRateLimiterStatusArray []GetConnectionRateLimiterStatusInput
+
+func (GetConnectionRateLimiterStatusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConnectionRateLimiterStatus)(nil)).Elem()
+}
+
+func (i GetConnectionRateLimiterStatusArray) ToGetConnectionRateLimiterStatusArrayOutput() GetConnectionRateLimiterStatusArrayOutput {
+	return i.ToGetConnectionRateLimiterStatusArrayOutputWithContext(context.Background())
+}
+
+func (i GetConnectionRateLimiterStatusArray) ToGetConnectionRateLimiterStatusArrayOutputWithContext(ctx context.Context) GetConnectionRateLimiterStatusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectionRateLimiterStatusArrayOutput)
+}
+
+type GetConnectionRateLimiterStatusOutput struct{ *pulumi.OutputState }
+
+func (GetConnectionRateLimiterStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectionRateLimiterStatus)(nil)).Elem()
+}
+
+func (o GetConnectionRateLimiterStatusOutput) ToGetConnectionRateLimiterStatusOutput() GetConnectionRateLimiterStatusOutput {
+	return o
+}
+
+func (o GetConnectionRateLimiterStatusOutput) ToGetConnectionRateLimiterStatusOutputWithContext(ctx context.Context) GetConnectionRateLimiterStatusOutput {
+	return o
+}
+
+// Number of rate limiters currently in use.
+func (o GetConnectionRateLimiterStatusOutput) InUse() pulumi.IntOutput {
+	return o.ApplyT(func(v GetConnectionRateLimiterStatus) int { return v.InUse }).(pulumi.IntOutput)
+}
+
+// Maximum number of rate limiters allowed on the connection.
+func (o GetConnectionRateLimiterStatusOutput) MaxAllowed() pulumi.IntOutput {
+	return o.ApplyT(func(v GetConnectionRateLimiterStatus) int { return v.MaxAllowed }).(pulumi.IntOutput)
+}
+
+// Number of rate limiters remaining (available).
+func (o GetConnectionRateLimiterStatusOutput) Remaining() pulumi.IntOutput {
+	return o.ApplyT(func(v GetConnectionRateLimiterStatus) int { return v.Remaining }).(pulumi.IntOutput)
+}
+
+// Total bandwidth allocated across all rate limiters.
+func (o GetConnectionRateLimiterStatusOutput) TotalBandwidth() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectionRateLimiterStatus) string { return v.TotalBandwidth }).(pulumi.StringOutput)
+}
+
+type GetConnectionRateLimiterStatusArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConnectionRateLimiterStatusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConnectionRateLimiterStatus)(nil)).Elem()
+}
+
+func (o GetConnectionRateLimiterStatusArrayOutput) ToGetConnectionRateLimiterStatusArrayOutput() GetConnectionRateLimiterStatusArrayOutput {
+	return o
+}
+
+func (o GetConnectionRateLimiterStatusArrayOutput) ToGetConnectionRateLimiterStatusArrayOutputWithContext(ctx context.Context) GetConnectionRateLimiterStatusArrayOutput {
+	return o
+}
+
+func (o GetConnectionRateLimiterStatusArrayOutput) Index(i pulumi.IntInput) GetConnectionRateLimiterStatusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConnectionRateLimiterStatus {
+		return vs[0].([]GetConnectionRateLimiterStatus)[vs[1].(int)]
+	}).(GetConnectionRateLimiterStatusOutput)
+}
+
 type GetRouterConfigurationRouter struct {
 	// Router platform
 	Platform string `pulumi:"platform"`
@@ -159,8 +531,20 @@ func (o GetRouterConfigurationRouterArrayOutput) Index(i pulumi.IntInput) GetRou
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionRateLimiterStatusInput)(nil)).Elem(), ConnectionRateLimiterStatusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionRateLimiterStatusArrayInput)(nil)).Elem(), ConnectionRateLimiterStatusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkAggregationGroupRateLimiterStatusInput)(nil)).Elem(), LinkAggregationGroupRateLimiterStatusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkAggregationGroupRateLimiterStatusArrayInput)(nil)).Elem(), LinkAggregationGroupRateLimiterStatusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectionRateLimiterStatusInput)(nil)).Elem(), GetConnectionRateLimiterStatusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectionRateLimiterStatusArrayInput)(nil)).Elem(), GetConnectionRateLimiterStatusArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRouterConfigurationRouterInput)(nil)).Elem(), GetRouterConfigurationRouterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRouterConfigurationRouterArrayInput)(nil)).Elem(), GetRouterConfigurationRouterArray{})
+	pulumi.RegisterOutputType(ConnectionRateLimiterStatusOutput{})
+	pulumi.RegisterOutputType(ConnectionRateLimiterStatusArrayOutput{})
+	pulumi.RegisterOutputType(LinkAggregationGroupRateLimiterStatusOutput{})
+	pulumi.RegisterOutputType(LinkAggregationGroupRateLimiterStatusArrayOutput{})
+	pulumi.RegisterOutputType(GetConnectionRateLimiterStatusOutput{})
+	pulumi.RegisterOutputType(GetConnectionRateLimiterStatusArrayOutput{})
 	pulumi.RegisterOutputType(GetRouterConfigurationRouterOutput{})
 	pulumi.RegisterOutputType(GetRouterConfigurationRouterArrayOutput{})
 }

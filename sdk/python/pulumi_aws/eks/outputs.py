@@ -38,6 +38,7 @@ __all__ = [
     'ClusterKubeApiServerConfigServiceNodePortRange',
     'ClusterKubeControllerManagerConfig',
     'ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig',
+    'ClusterKubeControllerManagerConfigPodGcControllerConfig',
     'ClusterKubeSchedulerConfig',
     'ClusterKubeSchedulerConfigNodeResourcesFit',
     'ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy',
@@ -79,6 +80,7 @@ __all__ = [
     'GetClusterKubeApiServerConfigServiceNodePortRangeResult',
     'GetClusterKubeControllerManagerConfigResult',
     'GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigResult',
+    'GetClusterKubeControllerManagerConfigPodGcControllerConfigResult',
     'GetClusterKubeSchedulerConfigResult',
     'GetClusterKubeSchedulerConfigNodeResourcesFitResult',
     'GetClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResult',
@@ -108,6 +110,9 @@ __all__ = [
     'GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigResult',
     'GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodResult',
     'GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintResult',
+    'GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigResult',
+    'GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdResult',
+    'GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintResult',
     'GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigResult',
     'GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitResult',
     'GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitScoringStrategyResult',
@@ -132,6 +137,9 @@ __all__ = [
     'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigResult',
     'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodResult',
     'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintResult',
+    'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigResult',
+    'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdResult',
+    'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintResult',
     'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigResult',
     'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitResult',
     'GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitScoringStrategyResult',
@@ -931,6 +939,8 @@ class ClusterKubeControllerManagerConfig(dict):
         suggest = None
         if key == "horizontalPodAutoscalerControllerConfig":
             suggest = "horizontal_pod_autoscaler_controller_config"
+        elif key == "podGcControllerConfig":
+            suggest = "pod_gc_controller_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ClusterKubeControllerManagerConfig. Access the value via the '{suggest}' property getter instead.")
@@ -944,24 +954,36 @@ class ClusterKubeControllerManagerConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 horizontal_pod_autoscaler_controller_config: Optional['outputs.ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig'] = None):
+                 horizontal_pod_autoscaler_controller_config: Optional['outputs.ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig'] = None,
+                 pod_gc_controller_config: Optional['outputs.ClusterKubeControllerManagerConfigPodGcControllerConfig'] = None):
         """
         :param 'ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs' horizontal_pod_autoscaler_controller_config: Configuration block for the horizontal pod autoscaler controller. Detailed below.
+        :param 'ClusterKubeControllerManagerConfigPodGcControllerConfigArgs' pod_gc_controller_config: Configuration block for the pod garbage collection controller. Detailed below.
                
                > **NOTE:** The `horizontal_pod_autoscaler_controller_config` requires a Provisioned Control Plane scaling tier (e.g., `tier-xl` or higher). It cannot be configured on clusters using the `standard` tier.
         """
         if horizontal_pod_autoscaler_controller_config is not None:
             pulumi.set(__self__, "horizontal_pod_autoscaler_controller_config", horizontal_pod_autoscaler_controller_config)
+        if pod_gc_controller_config is not None:
+            pulumi.set(__self__, "pod_gc_controller_config", pod_gc_controller_config)
 
     @_builtins.property
     @pulumi.getter(name="horizontalPodAutoscalerControllerConfig")
     def horizontal_pod_autoscaler_controller_config(self) -> Optional['outputs.ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig']:
         """
         Configuration block for the horizontal pod autoscaler controller. Detailed below.
+        """
+        return pulumi.get(self, "horizontal_pod_autoscaler_controller_config")
+
+    @_builtins.property
+    @pulumi.getter(name="podGcControllerConfig")
+    def pod_gc_controller_config(self) -> Optional['outputs.ClusterKubeControllerManagerConfigPodGcControllerConfig']:
+        """
+        Configuration block for the pod garbage collection controller. Detailed below.
 
         > **NOTE:** The `horizontal_pod_autoscaler_controller_config` requires a Provisioned Control Plane scaling tier (e.g., `tier-xl` or higher). It cannot be configured on clusters using the `standard` tier.
         """
-        return pulumi.get(self, "horizontal_pod_autoscaler_controller_config")
+        return pulumi.get(self, "pod_gc_controller_config")
 
 
 @pulumi.output_type
@@ -998,6 +1020,42 @@ class ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig(
         The interval between each sync of the horizontal pod autoscaler. Must be a single-unit duration (e.g., `10s`, `15s`). Valid range: `10s` to `15s`. Default is `15s`.
         """
         return pulumi.get(self, "horizontal_pod_autoscaler_sync_period")
+
+
+@pulumi.output_type
+class ClusterKubeControllerManagerConfigPodGcControllerConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "terminatedPodGcThreshold":
+            suggest = "terminated_pod_gc_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterKubeControllerManagerConfigPodGcControllerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterKubeControllerManagerConfigPodGcControllerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterKubeControllerManagerConfigPodGcControllerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 terminated_pod_gc_threshold: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int terminated_pod_gc_threshold: The number of terminated pods that can exist before the pod garbage collector starts deleting them. Valid range: `0` to `12500`. Refer to the `eks_get_cluster_versions` data source for any version-specific constraints.
+        """
+        if terminated_pod_gc_threshold is not None:
+            pulumi.set(__self__, "terminated_pod_gc_threshold", terminated_pod_gc_threshold)
+
+    @_builtins.property
+    @pulumi.getter(name="terminatedPodGcThreshold")
+    def terminated_pod_gc_threshold(self) -> Optional[_builtins.int]:
+        """
+        The number of terminated pods that can exist before the pod garbage collector starts deleting them. Valid range: `0` to `12500`. Refer to the `eks_get_cluster_versions` data source for any version-specific constraints.
+        """
+        return pulumi.get(self, "terminated_pod_gc_threshold")
 
 
 @pulumi.output_type
@@ -2778,11 +2836,14 @@ class GetClusterKubeApiServerConfigServiceNodePortRangeResult(dict):
 @pulumi.output_type
 class GetClusterKubeControllerManagerConfigResult(dict):
     def __init__(__self__, *,
-                 horizontal_pod_autoscaler_controller_configs: Sequence['outputs.GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigResult']):
+                 horizontal_pod_autoscaler_controller_configs: Sequence['outputs.GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigResult'],
+                 pod_gc_controller_configs: Sequence['outputs.GetClusterKubeControllerManagerConfigPodGcControllerConfigResult']):
         """
         :param Sequence['GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs'] horizontal_pod_autoscaler_controller_configs: Configuration for the horizontal pod autoscaler controller.
+        :param Sequence['GetClusterKubeControllerManagerConfigPodGcControllerConfigArgs'] pod_gc_controller_configs: Configuration for the pod garbage collection controller.
         """
         pulumi.set(__self__, "horizontal_pod_autoscaler_controller_configs", horizontal_pod_autoscaler_controller_configs)
+        pulumi.set(__self__, "pod_gc_controller_configs", pod_gc_controller_configs)
 
     @_builtins.property
     @pulumi.getter(name="horizontalPodAutoscalerControllerConfigs")
@@ -2791,6 +2852,14 @@ class GetClusterKubeControllerManagerConfigResult(dict):
         Configuration for the horizontal pod autoscaler controller.
         """
         return pulumi.get(self, "horizontal_pod_autoscaler_controller_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="podGcControllerConfigs")
+    def pod_gc_controller_configs(self) -> Sequence['outputs.GetClusterKubeControllerManagerConfigPodGcControllerConfigResult']:
+        """
+        Configuration for the pod garbage collection controller.
+        """
+        return pulumi.get(self, "pod_gc_controller_configs")
 
 
 @pulumi.output_type
@@ -2809,6 +2878,24 @@ class GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConf
         The interval between each sync of the horizontal pod autoscaler.
         """
         return pulumi.get(self, "horizontal_pod_autoscaler_sync_period")
+
+
+@pulumi.output_type
+class GetClusterKubeControllerManagerConfigPodGcControllerConfigResult(dict):
+    def __init__(__self__, *,
+                 terminated_pod_gc_threshold: _builtins.int):
+        """
+        :param _builtins.int terminated_pod_gc_threshold: The number of terminated pods that can exist before the pod garbage collector starts deleting them.
+        """
+        pulumi.set(__self__, "terminated_pod_gc_threshold", terminated_pod_gc_threshold)
+
+    @_builtins.property
+    @pulumi.getter(name="terminatedPodGcThreshold")
+    def terminated_pod_gc_threshold(self) -> _builtins.int:
+        """
+        The number of terminated pods that can exist before the pod garbage collector starts deleting them.
+        """
+        return pulumi.get(self, "terminated_pod_gc_threshold")
 
 
 @pulumi.output_type
@@ -3609,11 +3696,14 @@ class GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServerCo
 @pulumi.output_type
 class GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigResult(dict):
     def __init__(__self__, *,
-                 horizontal_pod_autoscaler_controller_configs: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigResult']):
+                 horizontal_pod_autoscaler_controller_configs: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigResult'],
+                 pod_gc_controller_configs: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigResult']):
         """
         :param Sequence['GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs'] horizontal_pod_autoscaler_controller_configs: HPA controller configuration defaults and constraints.
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArgs'] pod_gc_controller_configs: Pod garbage collection controller configuration defaults and constraints.
         """
         pulumi.set(__self__, "horizontal_pod_autoscaler_controller_configs", horizontal_pod_autoscaler_controller_configs)
+        pulumi.set(__self__, "pod_gc_controller_configs", pod_gc_controller_configs)
 
     @_builtins.property
     @pulumi.getter(name="horizontalPodAutoscalerControllerConfigs")
@@ -3622,6 +3712,14 @@ class GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerM
         HPA controller configuration defaults and constraints.
         """
         return pulumi.get(self, "horizontal_pod_autoscaler_controller_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="podGcControllerConfigs")
+    def pod_gc_controller_configs(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigResult']:
+        """
+        Pod garbage collection controller configuration defaults and constraints.
+        """
+        return pulumi.get(self, "pod_gc_controller_configs")
 
 
 @pulumi.output_type
@@ -3694,6 +3792,82 @@ class GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerM
     @_builtins.property
     @pulumi.getter
     def min(self) -> _builtins.str:
+        """
+        The minimum allowed duration.
+        """
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigResult(dict):
+    def __init__(__self__, *,
+                 terminated_pod_gc_thresholds: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdResult']):
+        """
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArgs'] terminated_pod_gc_thresholds: Terminated pod GC threshold configuration with default value and constraints.
+        """
+        pulumi.set(__self__, "terminated_pod_gc_thresholds", terminated_pod_gc_thresholds)
+
+    @_builtins.property
+    @pulumi.getter(name="terminatedPodGcThresholds")
+    def terminated_pod_gc_thresholds(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdResult']:
+        """
+        Terminated pod GC threshold configuration with default value and constraints.
+        """
+        return pulumi.get(self, "terminated_pod_gc_thresholds")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdResult(dict):
+    def __init__(__self__, *,
+                 constraints: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintResult'],
+                 default_value: _builtins.int):
+        """
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArgs'] constraints: Scoring strategy constraints.
+        :param _builtins.int default_value: Default scoring strategy (`type`, `resources`).
+        """
+        pulumi.set(__self__, "constraints", constraints)
+        pulumi.set(__self__, "default_value", default_value)
+
+    @_builtins.property
+    @pulumi.getter
+    def constraints(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintResult']:
+        """
+        Scoring strategy constraints.
+        """
+        return pulumi.get(self, "constraints")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> _builtins.int:
+        """
+        Default scoring strategy (`type`, `resources`).
+        """
+        return pulumi.get(self, "default_value")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintResult(dict):
+    def __init__(__self__, *,
+                 max: _builtins.int,
+                 min: _builtins.int):
+        """
+        :param _builtins.int max: The maximum allowed duration.
+        :param _builtins.int min: The minimum allowed duration.
+        """
+        pulumi.set(__self__, "max", max)
+        pulumi.set(__self__, "min", min)
+
+    @_builtins.property
+    @pulumi.getter
+    def max(self) -> _builtins.int:
+        """
+        The maximum allowed duration.
+        """
+        return pulumi.get(self, "max")
+
+    @_builtins.property
+    @pulumi.getter
+    def min(self) -> _builtins.int:
         """
         The minimum allowed duration.
         """
@@ -4247,11 +4421,14 @@ class GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneCompone
 @pulumi.output_type
 class GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigResult(dict):
     def __init__(__self__, *,
-                 horizontal_pod_autoscaler_controller_configs: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigResult']):
+                 horizontal_pod_autoscaler_controller_configs: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigResult'],
+                 pod_gc_controller_configs: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigResult']):
         """
         :param Sequence['GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs'] horizontal_pod_autoscaler_controller_configs: HPA controller configuration defaults and constraints.
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArgs'] pod_gc_controller_configs: Pod garbage collection controller configuration defaults and constraints.
         """
         pulumi.set(__self__, "horizontal_pod_autoscaler_controller_configs", horizontal_pod_autoscaler_controller_configs)
+        pulumi.set(__self__, "pod_gc_controller_configs", pod_gc_controller_configs)
 
     @_builtins.property
     @pulumi.getter(name="horizontalPodAutoscalerControllerConfigs")
@@ -4260,6 +4437,14 @@ class GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneCompone
         HPA controller configuration defaults and constraints.
         """
         return pulumi.get(self, "horizontal_pod_autoscaler_controller_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="podGcControllerConfigs")
+    def pod_gc_controller_configs(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigResult']:
+        """
+        Pod garbage collection controller configuration defaults and constraints.
+        """
+        return pulumi.get(self, "pod_gc_controller_configs")
 
 
 @pulumi.output_type
@@ -4332,6 +4517,82 @@ class GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneCompone
     @_builtins.property
     @pulumi.getter
     def min(self) -> _builtins.str:
+        """
+        The minimum allowed duration.
+        """
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigResult(dict):
+    def __init__(__self__, *,
+                 terminated_pod_gc_thresholds: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdResult']):
+        """
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArgs'] terminated_pod_gc_thresholds: Terminated pod GC threshold configuration with default value and constraints.
+        """
+        pulumi.set(__self__, "terminated_pod_gc_thresholds", terminated_pod_gc_thresholds)
+
+    @_builtins.property
+    @pulumi.getter(name="terminatedPodGcThresholds")
+    def terminated_pod_gc_thresholds(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdResult']:
+        """
+        Terminated pod GC threshold configuration with default value and constraints.
+        """
+        return pulumi.get(self, "terminated_pod_gc_thresholds")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdResult(dict):
+    def __init__(__self__, *,
+                 constraints: Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintResult'],
+                 default_value: _builtins.int):
+        """
+        :param Sequence['GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArgs'] constraints: Scoring strategy constraints.
+        :param _builtins.int default_value: Default scoring strategy (`type`, `resources`).
+        """
+        pulumi.set(__self__, "constraints", constraints)
+        pulumi.set(__self__, "default_value", default_value)
+
+    @_builtins.property
+    @pulumi.getter
+    def constraints(self) -> Sequence['outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintResult']:
+        """
+        Scoring strategy constraints.
+        """
+        return pulumi.get(self, "constraints")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> _builtins.int:
+        """
+        Default scoring strategy (`type`, `resources`).
+        """
+        return pulumi.get(self, "default_value")
+
+
+@pulumi.output_type
+class GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintResult(dict):
+    def __init__(__self__, *,
+                 max: _builtins.int,
+                 min: _builtins.int):
+        """
+        :param _builtins.int max: The maximum allowed duration.
+        :param _builtins.int min: The minimum allowed duration.
+        """
+        pulumi.set(__self__, "max", max)
+        pulumi.set(__self__, "min", min)
+
+    @_builtins.property
+    @pulumi.getter
+    def max(self) -> _builtins.int:
+        """
+        The maximum allowed duration.
+        """
+        return pulumi.get(self, "max")
+
+    @_builtins.property
+    @pulumi.getter
+    def min(self) -> _builtins.int:
         """
         The minimum allowed duration.
         """

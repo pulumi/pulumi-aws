@@ -6,6 +6,7 @@ package com.pulumi.aws.directconnect;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.directconnect.ConnectionArgs;
 import com.pulumi.aws.directconnect.inputs.ConnectionState;
+import com.pulumi.aws.directconnect.outputs.ConnectionRateLimiterStatus;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -13,6 +14,7 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -312,6 +314,62 @@ public class Connection extends com.pulumi.resources.CustomResource {
         return this.portEncryptionStatus;
     }
     /**
+     * The total number of inbound IPv4 route prefixes that can be allocated across the virtual interfaces on the connection.
+     * 
+     */
+    @Export(name="prefixPoolSizeIpv4", refs={Integer.class}, tree="[0]")
+    private Output<Integer> prefixPoolSizeIpv4;
+
+    /**
+     * @return The total number of inbound IPv4 route prefixes that can be allocated across the virtual interfaces on the connection.
+     * 
+     */
+    public Output<Integer> prefixPoolSizeIpv4() {
+        return this.prefixPoolSizeIpv4;
+    }
+    /**
+     * The total number of inbound IPv6 route prefixes that can be allocated across the virtual interfaces on the connection.
+     * 
+     */
+    @Export(name="prefixPoolSizeIpv6", refs={Integer.class}, tree="[0]")
+    private Output<Integer> prefixPoolSizeIpv6;
+
+    /**
+     * @return The total number of inbound IPv6 route prefixes that can be allocated across the virtual interfaces on the connection.
+     * 
+     */
+    public Output<Integer> prefixPoolSizeIpv6() {
+        return this.prefixPoolSizeIpv6;
+    }
+    /**
+     * The number of inbound IPv4 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+     * 
+     */
+    @Export(name="prefixPoolUnallocatedCountIpv4", refs={Integer.class}, tree="[0]")
+    private Output<Integer> prefixPoolUnallocatedCountIpv4;
+
+    /**
+     * @return The number of inbound IPv4 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+     * 
+     */
+    public Output<Integer> prefixPoolUnallocatedCountIpv4() {
+        return this.prefixPoolUnallocatedCountIpv4;
+    }
+    /**
+     * The number of inbound IPv6 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+     * 
+     */
+    @Export(name="prefixPoolUnallocatedCountIpv6", refs={Integer.class}, tree="[0]")
+    private Output<Integer> prefixPoolUnallocatedCountIpv6;
+
+    /**
+     * @return The number of inbound IPv6 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+     * 
+     */
+    public Output<Integer> prefixPoolUnallocatedCountIpv6() {
+        return this.prefixPoolUnallocatedCountIpv6;
+    }
+    /**
      * The name of the service provider associated with the connection.
      * 
      */
@@ -324,6 +382,20 @@ public class Connection extends com.pulumi.resources.CustomResource {
      */
     public Output<String> providerName() {
         return this.providerName;
+    }
+    /**
+     * Rate limiter status for the connection. See `rateLimiterStatus` Block below.
+     * 
+     */
+    @Export(name="rateLimiterStatuses", refs={List.class,ConnectionRateLimiterStatus.class}, tree="[0,1]")
+    private Output<List<ConnectionRateLimiterStatus>> rateLimiterStatuses;
+
+    /**
+     * @return Rate limiter status for the connection. See `rateLimiterStatus` Block below.
+     * 
+     */
+    public Output<List<ConnectionRateLimiterStatus>> rateLimiterStatuses() {
+        return this.rateLimiterStatuses;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

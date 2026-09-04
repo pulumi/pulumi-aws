@@ -114,6 +114,21 @@ public final class CanaryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * ARN of the customer-managed KMS key used to encrypt the environment variables of the canary&#39;s Lambda function at rest. If omitted, an AWS owned key is used. Note that this is distinct from `artifact_config.s3_encryption.kms_key_arn`, which encrypts the artifacts the canary uploads to Amazon S3.
+     * 
+     */
+    @Import(name="kmsKeyArn")
+    private @Nullable Output<String> kmsKeyArn;
+
+    /**
+     * @return ARN of the customer-managed KMS key used to encrypt the environment variables of the canary&#39;s Lambda function at rest. If omitted, an AWS owned key is used. Note that this is distinct from `artifact_config.s3_encryption.kms_key_arn`, which encrypts the artifacts the canary uploads to Amazon S3.
+     * 
+     */
+    public Optional<Output<String>> kmsKeyArn() {
+        return Optional.ofNullable(this.kmsKeyArn);
+    }
+
+    /**
      * Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
      * 
      */
@@ -321,6 +336,7 @@ public final class CanaryArgs extends com.pulumi.resources.ResourceArgs {
         this.executionRoleArn = $.executionRoleArn;
         this.failureRetentionPeriod = $.failureRetentionPeriod;
         this.handler = $.handler;
+        this.kmsKeyArn = $.kmsKeyArn;
         this.name = $.name;
         this.region = $.region;
         this.runConfig = $.runConfig;
@@ -478,6 +494,27 @@ public final class CanaryArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder handler(String handler) {
             return handler(Output.of(handler));
+        }
+
+        /**
+         * @param kmsKeyArn ARN of the customer-managed KMS key used to encrypt the environment variables of the canary&#39;s Lambda function at rest. If omitted, an AWS owned key is used. Note that this is distinct from `artifact_config.s3_encryption.kms_key_arn`, which encrypts the artifacts the canary uploads to Amazon S3.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyArn(@Nullable Output<String> kmsKeyArn) {
+            $.kmsKeyArn = kmsKeyArn;
+            return this;
+        }
+
+        /**
+         * @param kmsKeyArn ARN of the customer-managed KMS key used to encrypt the environment variables of the canary&#39;s Lambda function at rest. If omitted, an AWS owned key is used. Note that this is distinct from `artifact_config.s3_encryption.kms_key_arn`, which encrypts the artifacts the canary uploads to Amazon S3.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyArn(String kmsKeyArn) {
+            return kmsKeyArn(Output.of(kmsKeyArn));
         }
 
         /**

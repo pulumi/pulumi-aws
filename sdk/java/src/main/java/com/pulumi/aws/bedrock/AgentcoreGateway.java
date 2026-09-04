@@ -249,14 +249,14 @@ public class AgentcoreGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.authorizerConfiguration);
     }
     /**
-     * Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
+     * Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`, `NONE`, `AUTHENTICATE_ONLY`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
      * 
      */
     @Export(name="authorizerType", refs={String.class}, tree="[0]")
     private Output<String> authorizerType;
 
     /**
-     * @return Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
+     * @return Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`, `NONE`, `AUTHENTICATE_ONLY`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
      * 
      */
     public Output<String> authorizerType() {

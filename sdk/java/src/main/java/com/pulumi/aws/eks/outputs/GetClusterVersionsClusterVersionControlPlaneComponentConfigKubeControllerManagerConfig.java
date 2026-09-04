@@ -4,6 +4,7 @@
 package com.pulumi.aws.eks.outputs;
 
 import com.pulumi.aws.eks.outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig;
+import com.pulumi.aws.eks.outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfig;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
@@ -16,6 +17,11 @@ public final class GetClusterVersionsClusterVersionControlPlaneComponentConfigKu
      * 
      */
     private List<GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig> horizontalPodAutoscalerControllerConfigs;
+    /**
+     * @return Pod garbage collection controller configuration defaults and constraints.
+     * 
+     */
+    private List<GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfig> podGcControllerConfigs;
 
     private GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfig() {}
     /**
@@ -24,6 +30,13 @@ public final class GetClusterVersionsClusterVersionControlPlaneComponentConfigKu
      */
     public List<GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig> horizontalPodAutoscalerControllerConfigs() {
         return this.horizontalPodAutoscalerControllerConfigs;
+    }
+    /**
+     * @return Pod garbage collection controller configuration defaults and constraints.
+     * 
+     */
+    public List<GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfig> podGcControllerConfigs() {
+        return this.podGcControllerConfigs;
     }
 
     public static Builder builder() {
@@ -36,10 +49,12 @@ public final class GetClusterVersionsClusterVersionControlPlaneComponentConfigKu
     @CustomType.Builder
     public static final class Builder {
         private List<GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig> horizontalPodAutoscalerControllerConfigs;
+        private List<GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfig> podGcControllerConfigs;
         public Builder() {}
         public Builder(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.horizontalPodAutoscalerControllerConfigs = defaults.horizontalPodAutoscalerControllerConfigs;
+    	      this.podGcControllerConfigs = defaults.podGcControllerConfigs;
         }
 
         @CustomType.Setter
@@ -53,9 +68,21 @@ public final class GetClusterVersionsClusterVersionControlPlaneComponentConfigKu
         public Builder horizontalPodAutoscalerControllerConfigs(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig... horizontalPodAutoscalerControllerConfigs) {
             return horizontalPodAutoscalerControllerConfigs(List.of(horizontalPodAutoscalerControllerConfigs));
         }
+        @CustomType.Setter
+        public Builder podGcControllerConfigs(List<GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfig> podGcControllerConfigs) {
+            if (podGcControllerConfigs == null) {
+              throw new MissingRequiredPropertyException("GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfig", "podGcControllerConfigs");
+            }
+            this.podGcControllerConfigs = podGcControllerConfigs;
+            return this;
+        }
+        public Builder podGcControllerConfigs(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfig... podGcControllerConfigs) {
+            return podGcControllerConfigs(List.of(podGcControllerConfigs));
+        }
         public GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfig build() {
             final var _resultValue = new GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfig();
             _resultValue.horizontalPodAutoscalerControllerConfigs = horizontalPodAutoscalerControllerConfigs;
+            _resultValue.podGcControllerConfigs = podGcControllerConfigs;
             return _resultValue;
         }
     }

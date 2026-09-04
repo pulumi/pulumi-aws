@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreGatewayTargetTargetConfigurationMcpApiGateway {
     /**
-     * @return Configuration for API Gateway tools. See `apiGatewayToolConfiguration` below.
+     * @return Configuration for API Gateway tools. See `apiGatewayToolConfiguration` Block below.
      * 
      */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfiguration apiGatewayToolConfiguration;
@@ -31,7 +31,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpApiGateway {
 
     private AgentcoreGatewayTargetTargetConfigurationMcpApiGateway() {}
     /**
-     * @return Configuration for API Gateway tools. See `apiGatewayToolConfiguration` below.
+     * @return Configuration for API Gateway tools. See `apiGatewayToolConfiguration` Block below.
      * 
      */
     public Optional<AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfiguration> apiGatewayToolConfiguration() {

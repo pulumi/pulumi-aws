@@ -69,6 +69,11 @@ __all__ = [
     'MicrovmsImageCodeArtifact',
     'MicrovmsImageCpuConfiguration',
     'MicrovmsImageTimeouts',
+    'MicrovmsMicrovmIdlePolicy',
+    'MicrovmsMicrovmLogging',
+    'MicrovmsMicrovmLoggingCloudwatch',
+    'MicrovmsMicrovmLoggingDisabled',
+    'MicrovmsMicrovmTimeouts',
     'GetCodeSigningConfigAllowedPublisherResult',
     'GetCodeSigningConfigPolicyResult',
     'GetFunctionCapacityProviderConfigResult',
@@ -2257,6 +2262,185 @@ class MicrovmsImageTimeouts(dict):
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class MicrovmsMicrovmIdlePolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoResumeEnabled":
+            suggest = "auto_resume_enabled"
+        elif key == "maxIdleDurationSeconds":
+            suggest = "max_idle_duration_seconds"
+        elif key == "suspendedDurationSeconds":
+            suggest = "suspended_duration_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MicrovmsMicrovmIdlePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MicrovmsMicrovmIdlePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MicrovmsMicrovmIdlePolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_resume_enabled: _builtins.bool,
+                 max_idle_duration_seconds: _builtins.int,
+                 suspended_duration_seconds: _builtins.int):
+        """
+        :param _builtins.bool auto_resume_enabled: Whether to automatically resume the MicroVM when it receives a request while suspended.
+        :param _builtins.int max_idle_duration_seconds: Number of seconds without traffic after which the MicroVM is suspended.
+        :param _builtins.int suspended_duration_seconds: Number of seconds a MicroVM remains suspended before it is automatically terminated.
+        """
+        pulumi.set(__self__, "auto_resume_enabled", auto_resume_enabled)
+        pulumi.set(__self__, "max_idle_duration_seconds", max_idle_duration_seconds)
+        pulumi.set(__self__, "suspended_duration_seconds", suspended_duration_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="autoResumeEnabled")
+    def auto_resume_enabled(self) -> _builtins.bool:
+        """
+        Whether to automatically resume the MicroVM when it receives a request while suspended.
+        """
+        return pulumi.get(self, "auto_resume_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="maxIdleDurationSeconds")
+    def max_idle_duration_seconds(self) -> _builtins.int:
+        """
+        Number of seconds without traffic after which the MicroVM is suspended.
+        """
+        return pulumi.get(self, "max_idle_duration_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="suspendedDurationSeconds")
+    def suspended_duration_seconds(self) -> _builtins.int:
+        """
+        Number of seconds a MicroVM remains suspended before it is automatically terminated.
+        """
+        return pulumi.get(self, "suspended_duration_seconds")
+
+
+@pulumi.output_type
+class MicrovmsMicrovmLogging(dict):
+    def __init__(__self__, *,
+                 cloudwatch: Optional['outputs.MicrovmsMicrovmLoggingCloudwatch'] = None,
+                 disabled: Optional['outputs.MicrovmsMicrovmLoggingDisabled'] = None):
+        """
+        :param 'MicrovmsMicrovmLoggingCloudwatchArgs' cloudwatch: Send logs to Amazon CloudWatch Logs. See below.
+        :param 'MicrovmsMicrovmLoggingDisabledArgs' disabled: Disable logging for the MicroVM. Specify an empty block: `disabled {}`.
+        """
+        if cloudwatch is not None:
+            pulumi.set(__self__, "cloudwatch", cloudwatch)
+        if disabled is not None:
+            pulumi.set(__self__, "disabled", disabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def cloudwatch(self) -> Optional['outputs.MicrovmsMicrovmLoggingCloudwatch']:
+        """
+        Send logs to Amazon CloudWatch Logs. See below.
+        """
+        return pulumi.get(self, "cloudwatch")
+
+    @_builtins.property
+    @pulumi.getter
+    def disabled(self) -> Optional['outputs.MicrovmsMicrovmLoggingDisabled']:
+        """
+        Disable logging for the MicroVM. Specify an empty block: `disabled {}`.
+        """
+        return pulumi.get(self, "disabled")
+
+
+@pulumi.output_type
+class MicrovmsMicrovmLoggingCloudwatch(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroup":
+            suggest = "log_group"
+        elif key == "logStream":
+            suggest = "log_stream"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MicrovmsMicrovmLoggingCloudwatch. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MicrovmsMicrovmLoggingCloudwatch.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MicrovmsMicrovmLoggingCloudwatch.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_group: Optional[_builtins.str] = None,
+                 log_stream: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str log_group: Name of the CloudWatch Logs log group to send logs to.
+        :param _builtins.str log_stream: Name of the CloudWatch Logs log stream within the log group.
+        """
+        if log_group is not None:
+            pulumi.set(__self__, "log_group", log_group)
+        if log_stream is not None:
+            pulumi.set(__self__, "log_stream", log_stream)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> Optional[_builtins.str]:
+        """
+        Name of the CloudWatch Logs log group to send logs to.
+        """
+        return pulumi.get(self, "log_group")
+
+    @_builtins.property
+    @pulumi.getter(name="logStream")
+    def log_stream(self) -> Optional[_builtins.str]:
+        """
+        Name of the CloudWatch Logs log stream within the log group.
+        """
+        return pulumi.get(self, "log_stream")
+
+
+@pulumi.output_type
+class MicrovmsMicrovmLoggingDisabled(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class MicrovmsMicrovmTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
 
 
 @pulumi.output_type

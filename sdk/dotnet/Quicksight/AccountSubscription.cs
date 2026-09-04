@@ -65,13 +65,13 @@ namespace Pulumi.Aws.Quicksight
         public Output<string?> ActiveDirectoryName { get; private set; } = null!;
 
         /// <summary>
-        /// Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
+        /// Admin group associated with your Active Directory or IAM Identity Center account. Either this field or `AdminProGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
         /// </summary>
         [Output("adminGroups")]
         public Output<ImmutableArray<string>> AdminGroups { get; private set; } = null!;
 
         /// <summary>
-        /// Admin PRO group associated with your Active Directory or IAM Identity Center account.
+        /// Admin PRO group associated with your Active Directory or IAM Identity Center account. Either this field or `AdminGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
         /// </summary>
         [Output("adminProGroups")]
         public Output<ImmutableArray<string>> AdminProGroups { get; private set; } = null!;
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<ImmutableArray<string>> ReaderProGroups { get; private set; } = null!;
 
         /// <summary>
-        /// Realm of the Active Directory that is associated with your Amazon QuickSight account.
+        /// Realm of the Active Directory that is associated with your Amazon QuickSight account. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
         /// </summary>
         [Output("realm")]
         public Output<string?> Realm { get; private set; } = null!;
@@ -236,7 +236,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<string>? _adminGroups;
 
         /// <summary>
-        /// Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
+        /// Admin group associated with your Active Directory or IAM Identity Center account. Either this field or `AdminProGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
         /// </summary>
         public InputList<string> AdminGroups
         {
@@ -248,7 +248,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<string>? _adminProGroups;
 
         /// <summary>
-        /// Admin PRO group associated with your Active Directory or IAM Identity Center account.
+        /// Admin PRO group associated with your Active Directory or IAM Identity Center account. Either this field or `AdminGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
         /// </summary>
         public InputList<string> AdminProGroups
         {
@@ -367,7 +367,7 @@ namespace Pulumi.Aws.Quicksight
         }
 
         /// <summary>
-        /// Realm of the Active Directory that is associated with your Amazon QuickSight account.
+        /// Realm of the Active Directory that is associated with your Amazon QuickSight account. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
         /// </summary>
         [Input("realm")]
         public Input<string>? Realm { get; set; }
@@ -408,7 +408,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<string>? _adminGroups;
 
         /// <summary>
-        /// Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
+        /// Admin group associated with your Active Directory or IAM Identity Center account. Either this field or `AdminProGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
         /// </summary>
         public InputList<string> AdminGroups
         {
@@ -420,7 +420,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<string>? _adminProGroups;
 
         /// <summary>
-        /// Admin PRO group associated with your Active Directory or IAM Identity Center account.
+        /// Admin PRO group associated with your Active Directory or IAM Identity Center account. Either this field or `AdminGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
         /// </summary>
         public InputList<string> AdminProGroups
         {
@@ -539,7 +539,7 @@ namespace Pulumi.Aws.Quicksight
         }
 
         /// <summary>
-        /// Realm of the Active Directory that is associated with your Amazon QuickSight account.
+        /// Realm of the Active Directory that is associated with your Amazon QuickSight account. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
         /// </summary>
         [Input("realm")]
         public Input<string>? Realm { get; set; }

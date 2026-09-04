@@ -13,6 +13,457 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AccessApplicationIdentitySource struct {
+	// IAM Identity Center instance to use as the identity source. See `identityCenter` Block below.
+	IdentityCenter *AccessApplicationIdentitySourceIdentityCenter `pulumi:"identityCenter"`
+}
+
+// AccessApplicationIdentitySourceInput is an input type that accepts AccessApplicationIdentitySourceArgs and AccessApplicationIdentitySourceOutput values.
+// You can construct a concrete instance of `AccessApplicationIdentitySourceInput` via:
+//
+//	AccessApplicationIdentitySourceArgs{...}
+type AccessApplicationIdentitySourceInput interface {
+	pulumi.Input
+
+	ToAccessApplicationIdentitySourceOutput() AccessApplicationIdentitySourceOutput
+	ToAccessApplicationIdentitySourceOutputWithContext(context.Context) AccessApplicationIdentitySourceOutput
+}
+
+type AccessApplicationIdentitySourceArgs struct {
+	// IAM Identity Center instance to use as the identity source. See `identityCenter` Block below.
+	IdentityCenter AccessApplicationIdentitySourceIdentityCenterPtrInput `pulumi:"identityCenter"`
+}
+
+func (AccessApplicationIdentitySourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessApplicationIdentitySource)(nil)).Elem()
+}
+
+func (i AccessApplicationIdentitySourceArgs) ToAccessApplicationIdentitySourceOutput() AccessApplicationIdentitySourceOutput {
+	return i.ToAccessApplicationIdentitySourceOutputWithContext(context.Background())
+}
+
+func (i AccessApplicationIdentitySourceArgs) ToAccessApplicationIdentitySourceOutputWithContext(ctx context.Context) AccessApplicationIdentitySourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessApplicationIdentitySourceOutput)
+}
+
+func (i AccessApplicationIdentitySourceArgs) ToAccessApplicationIdentitySourcePtrOutput() AccessApplicationIdentitySourcePtrOutput {
+	return i.ToAccessApplicationIdentitySourcePtrOutputWithContext(context.Background())
+}
+
+func (i AccessApplicationIdentitySourceArgs) ToAccessApplicationIdentitySourcePtrOutputWithContext(ctx context.Context) AccessApplicationIdentitySourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessApplicationIdentitySourceOutput).ToAccessApplicationIdentitySourcePtrOutputWithContext(ctx)
+}
+
+// AccessApplicationIdentitySourcePtrInput is an input type that accepts AccessApplicationIdentitySourceArgs, AccessApplicationIdentitySourcePtr and AccessApplicationIdentitySourcePtrOutput values.
+// You can construct a concrete instance of `AccessApplicationIdentitySourcePtrInput` via:
+//
+//	        AccessApplicationIdentitySourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccessApplicationIdentitySourcePtrInput interface {
+	pulumi.Input
+
+	ToAccessApplicationIdentitySourcePtrOutput() AccessApplicationIdentitySourcePtrOutput
+	ToAccessApplicationIdentitySourcePtrOutputWithContext(context.Context) AccessApplicationIdentitySourcePtrOutput
+}
+
+type accessApplicationIdentitySourcePtrType AccessApplicationIdentitySourceArgs
+
+func AccessApplicationIdentitySourcePtr(v *AccessApplicationIdentitySourceArgs) AccessApplicationIdentitySourcePtrInput {
+	return (*accessApplicationIdentitySourcePtrType)(v)
+}
+
+func (*accessApplicationIdentitySourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessApplicationIdentitySource)(nil)).Elem()
+}
+
+func (i *accessApplicationIdentitySourcePtrType) ToAccessApplicationIdentitySourcePtrOutput() AccessApplicationIdentitySourcePtrOutput {
+	return i.ToAccessApplicationIdentitySourcePtrOutputWithContext(context.Background())
+}
+
+func (i *accessApplicationIdentitySourcePtrType) ToAccessApplicationIdentitySourcePtrOutputWithContext(ctx context.Context) AccessApplicationIdentitySourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessApplicationIdentitySourcePtrOutput)
+}
+
+type AccessApplicationIdentitySourceOutput struct{ *pulumi.OutputState }
+
+func (AccessApplicationIdentitySourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessApplicationIdentitySource)(nil)).Elem()
+}
+
+func (o AccessApplicationIdentitySourceOutput) ToAccessApplicationIdentitySourceOutput() AccessApplicationIdentitySourceOutput {
+	return o
+}
+
+func (o AccessApplicationIdentitySourceOutput) ToAccessApplicationIdentitySourceOutputWithContext(ctx context.Context) AccessApplicationIdentitySourceOutput {
+	return o
+}
+
+func (o AccessApplicationIdentitySourceOutput) ToAccessApplicationIdentitySourcePtrOutput() AccessApplicationIdentitySourcePtrOutput {
+	return o.ToAccessApplicationIdentitySourcePtrOutputWithContext(context.Background())
+}
+
+func (o AccessApplicationIdentitySourceOutput) ToAccessApplicationIdentitySourcePtrOutputWithContext(ctx context.Context) AccessApplicationIdentitySourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessApplicationIdentitySource) *AccessApplicationIdentitySource {
+		return &v
+	}).(AccessApplicationIdentitySourcePtrOutput)
+}
+
+// IAM Identity Center instance to use as the identity source. See `identityCenter` Block below.
+func (o AccessApplicationIdentitySourceOutput) IdentityCenter() AccessApplicationIdentitySourceIdentityCenterPtrOutput {
+	return o.ApplyT(func(v AccessApplicationIdentitySource) *AccessApplicationIdentitySourceIdentityCenter {
+		return v.IdentityCenter
+	}).(AccessApplicationIdentitySourceIdentityCenterPtrOutput)
+}
+
+type AccessApplicationIdentitySourcePtrOutput struct{ *pulumi.OutputState }
+
+func (AccessApplicationIdentitySourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessApplicationIdentitySource)(nil)).Elem()
+}
+
+func (o AccessApplicationIdentitySourcePtrOutput) ToAccessApplicationIdentitySourcePtrOutput() AccessApplicationIdentitySourcePtrOutput {
+	return o
+}
+
+func (o AccessApplicationIdentitySourcePtrOutput) ToAccessApplicationIdentitySourcePtrOutputWithContext(ctx context.Context) AccessApplicationIdentitySourcePtrOutput {
+	return o
+}
+
+func (o AccessApplicationIdentitySourcePtrOutput) Elem() AccessApplicationIdentitySourceOutput {
+	return o.ApplyT(func(v *AccessApplicationIdentitySource) AccessApplicationIdentitySource {
+		if v != nil {
+			return *v
+		}
+		var ret AccessApplicationIdentitySource
+		return ret
+	}).(AccessApplicationIdentitySourceOutput)
+}
+
+// IAM Identity Center instance to use as the identity source. See `identityCenter` Block below.
+func (o AccessApplicationIdentitySourcePtrOutput) IdentityCenter() AccessApplicationIdentitySourceIdentityCenterPtrOutput {
+	return o.ApplyT(func(v *AccessApplicationIdentitySource) *AccessApplicationIdentitySourceIdentityCenter {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityCenter
+	}).(AccessApplicationIdentitySourceIdentityCenterPtrOutput)
+}
+
+type AccessApplicationIdentitySourceIdentityCenter struct {
+	// ARN of the IAM Identity Center application created for this account access manager application.
+	ApplicationArn *string `pulumi:"applicationArn"`
+	// ARN of the IAM Identity Center instance.
+	InstanceArn string `pulumi:"instanceArn"`
+}
+
+// AccessApplicationIdentitySourceIdentityCenterInput is an input type that accepts AccessApplicationIdentitySourceIdentityCenterArgs and AccessApplicationIdentitySourceIdentityCenterOutput values.
+// You can construct a concrete instance of `AccessApplicationIdentitySourceIdentityCenterInput` via:
+//
+//	AccessApplicationIdentitySourceIdentityCenterArgs{...}
+type AccessApplicationIdentitySourceIdentityCenterInput interface {
+	pulumi.Input
+
+	ToAccessApplicationIdentitySourceIdentityCenterOutput() AccessApplicationIdentitySourceIdentityCenterOutput
+	ToAccessApplicationIdentitySourceIdentityCenterOutputWithContext(context.Context) AccessApplicationIdentitySourceIdentityCenterOutput
+}
+
+type AccessApplicationIdentitySourceIdentityCenterArgs struct {
+	// ARN of the IAM Identity Center application created for this account access manager application.
+	ApplicationArn pulumi.StringPtrInput `pulumi:"applicationArn"`
+	// ARN of the IAM Identity Center instance.
+	InstanceArn pulumi.StringInput `pulumi:"instanceArn"`
+}
+
+func (AccessApplicationIdentitySourceIdentityCenterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessApplicationIdentitySourceIdentityCenter)(nil)).Elem()
+}
+
+func (i AccessApplicationIdentitySourceIdentityCenterArgs) ToAccessApplicationIdentitySourceIdentityCenterOutput() AccessApplicationIdentitySourceIdentityCenterOutput {
+	return i.ToAccessApplicationIdentitySourceIdentityCenterOutputWithContext(context.Background())
+}
+
+func (i AccessApplicationIdentitySourceIdentityCenterArgs) ToAccessApplicationIdentitySourceIdentityCenterOutputWithContext(ctx context.Context) AccessApplicationIdentitySourceIdentityCenterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessApplicationIdentitySourceIdentityCenterOutput)
+}
+
+func (i AccessApplicationIdentitySourceIdentityCenterArgs) ToAccessApplicationIdentitySourceIdentityCenterPtrOutput() AccessApplicationIdentitySourceIdentityCenterPtrOutput {
+	return i.ToAccessApplicationIdentitySourceIdentityCenterPtrOutputWithContext(context.Background())
+}
+
+func (i AccessApplicationIdentitySourceIdentityCenterArgs) ToAccessApplicationIdentitySourceIdentityCenterPtrOutputWithContext(ctx context.Context) AccessApplicationIdentitySourceIdentityCenterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessApplicationIdentitySourceIdentityCenterOutput).ToAccessApplicationIdentitySourceIdentityCenterPtrOutputWithContext(ctx)
+}
+
+// AccessApplicationIdentitySourceIdentityCenterPtrInput is an input type that accepts AccessApplicationIdentitySourceIdentityCenterArgs, AccessApplicationIdentitySourceIdentityCenterPtr and AccessApplicationIdentitySourceIdentityCenterPtrOutput values.
+// You can construct a concrete instance of `AccessApplicationIdentitySourceIdentityCenterPtrInput` via:
+//
+//	        AccessApplicationIdentitySourceIdentityCenterArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccessApplicationIdentitySourceIdentityCenterPtrInput interface {
+	pulumi.Input
+
+	ToAccessApplicationIdentitySourceIdentityCenterPtrOutput() AccessApplicationIdentitySourceIdentityCenterPtrOutput
+	ToAccessApplicationIdentitySourceIdentityCenterPtrOutputWithContext(context.Context) AccessApplicationIdentitySourceIdentityCenterPtrOutput
+}
+
+type accessApplicationIdentitySourceIdentityCenterPtrType AccessApplicationIdentitySourceIdentityCenterArgs
+
+func AccessApplicationIdentitySourceIdentityCenterPtr(v *AccessApplicationIdentitySourceIdentityCenterArgs) AccessApplicationIdentitySourceIdentityCenterPtrInput {
+	return (*accessApplicationIdentitySourceIdentityCenterPtrType)(v)
+}
+
+func (*accessApplicationIdentitySourceIdentityCenterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessApplicationIdentitySourceIdentityCenter)(nil)).Elem()
+}
+
+func (i *accessApplicationIdentitySourceIdentityCenterPtrType) ToAccessApplicationIdentitySourceIdentityCenterPtrOutput() AccessApplicationIdentitySourceIdentityCenterPtrOutput {
+	return i.ToAccessApplicationIdentitySourceIdentityCenterPtrOutputWithContext(context.Background())
+}
+
+func (i *accessApplicationIdentitySourceIdentityCenterPtrType) ToAccessApplicationIdentitySourceIdentityCenterPtrOutputWithContext(ctx context.Context) AccessApplicationIdentitySourceIdentityCenterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessApplicationIdentitySourceIdentityCenterPtrOutput)
+}
+
+type AccessApplicationIdentitySourceIdentityCenterOutput struct{ *pulumi.OutputState }
+
+func (AccessApplicationIdentitySourceIdentityCenterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessApplicationIdentitySourceIdentityCenter)(nil)).Elem()
+}
+
+func (o AccessApplicationIdentitySourceIdentityCenterOutput) ToAccessApplicationIdentitySourceIdentityCenterOutput() AccessApplicationIdentitySourceIdentityCenterOutput {
+	return o
+}
+
+func (o AccessApplicationIdentitySourceIdentityCenterOutput) ToAccessApplicationIdentitySourceIdentityCenterOutputWithContext(ctx context.Context) AccessApplicationIdentitySourceIdentityCenterOutput {
+	return o
+}
+
+func (o AccessApplicationIdentitySourceIdentityCenterOutput) ToAccessApplicationIdentitySourceIdentityCenterPtrOutput() AccessApplicationIdentitySourceIdentityCenterPtrOutput {
+	return o.ToAccessApplicationIdentitySourceIdentityCenterPtrOutputWithContext(context.Background())
+}
+
+func (o AccessApplicationIdentitySourceIdentityCenterOutput) ToAccessApplicationIdentitySourceIdentityCenterPtrOutputWithContext(ctx context.Context) AccessApplicationIdentitySourceIdentityCenterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessApplicationIdentitySourceIdentityCenter) *AccessApplicationIdentitySourceIdentityCenter {
+		return &v
+	}).(AccessApplicationIdentitySourceIdentityCenterPtrOutput)
+}
+
+// ARN of the IAM Identity Center application created for this account access manager application.
+func (o AccessApplicationIdentitySourceIdentityCenterOutput) ApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessApplicationIdentitySourceIdentityCenter) *string { return v.ApplicationArn }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM Identity Center instance.
+func (o AccessApplicationIdentitySourceIdentityCenterOutput) InstanceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessApplicationIdentitySourceIdentityCenter) string { return v.InstanceArn }).(pulumi.StringOutput)
+}
+
+type AccessApplicationIdentitySourceIdentityCenterPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessApplicationIdentitySourceIdentityCenterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessApplicationIdentitySourceIdentityCenter)(nil)).Elem()
+}
+
+func (o AccessApplicationIdentitySourceIdentityCenterPtrOutput) ToAccessApplicationIdentitySourceIdentityCenterPtrOutput() AccessApplicationIdentitySourceIdentityCenterPtrOutput {
+	return o
+}
+
+func (o AccessApplicationIdentitySourceIdentityCenterPtrOutput) ToAccessApplicationIdentitySourceIdentityCenterPtrOutputWithContext(ctx context.Context) AccessApplicationIdentitySourceIdentityCenterPtrOutput {
+	return o
+}
+
+func (o AccessApplicationIdentitySourceIdentityCenterPtrOutput) Elem() AccessApplicationIdentitySourceIdentityCenterOutput {
+	return o.ApplyT(func(v *AccessApplicationIdentitySourceIdentityCenter) AccessApplicationIdentitySourceIdentityCenter {
+		if v != nil {
+			return *v
+		}
+		var ret AccessApplicationIdentitySourceIdentityCenter
+		return ret
+	}).(AccessApplicationIdentitySourceIdentityCenterOutput)
+}
+
+// ARN of the IAM Identity Center application created for this account access manager application.
+func (o AccessApplicationIdentitySourceIdentityCenterPtrOutput) ApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessApplicationIdentitySourceIdentityCenter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM Identity Center instance.
+func (o AccessApplicationIdentitySourceIdentityCenterPtrOutput) InstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessApplicationIdentitySourceIdentityCenter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InstanceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccessApplicationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// AccessApplicationTimeoutsInput is an input type that accepts AccessApplicationTimeoutsArgs and AccessApplicationTimeoutsOutput values.
+// You can construct a concrete instance of `AccessApplicationTimeoutsInput` via:
+//
+//	AccessApplicationTimeoutsArgs{...}
+type AccessApplicationTimeoutsInput interface {
+	pulumi.Input
+
+	ToAccessApplicationTimeoutsOutput() AccessApplicationTimeoutsOutput
+	ToAccessApplicationTimeoutsOutputWithContext(context.Context) AccessApplicationTimeoutsOutput
+}
+
+type AccessApplicationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (AccessApplicationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessApplicationTimeouts)(nil)).Elem()
+}
+
+func (i AccessApplicationTimeoutsArgs) ToAccessApplicationTimeoutsOutput() AccessApplicationTimeoutsOutput {
+	return i.ToAccessApplicationTimeoutsOutputWithContext(context.Background())
+}
+
+func (i AccessApplicationTimeoutsArgs) ToAccessApplicationTimeoutsOutputWithContext(ctx context.Context) AccessApplicationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessApplicationTimeoutsOutput)
+}
+
+func (i AccessApplicationTimeoutsArgs) ToAccessApplicationTimeoutsPtrOutput() AccessApplicationTimeoutsPtrOutput {
+	return i.ToAccessApplicationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i AccessApplicationTimeoutsArgs) ToAccessApplicationTimeoutsPtrOutputWithContext(ctx context.Context) AccessApplicationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessApplicationTimeoutsOutput).ToAccessApplicationTimeoutsPtrOutputWithContext(ctx)
+}
+
+// AccessApplicationTimeoutsPtrInput is an input type that accepts AccessApplicationTimeoutsArgs, AccessApplicationTimeoutsPtr and AccessApplicationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `AccessApplicationTimeoutsPtrInput` via:
+//
+//	        AccessApplicationTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccessApplicationTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToAccessApplicationTimeoutsPtrOutput() AccessApplicationTimeoutsPtrOutput
+	ToAccessApplicationTimeoutsPtrOutputWithContext(context.Context) AccessApplicationTimeoutsPtrOutput
+}
+
+type accessApplicationTimeoutsPtrType AccessApplicationTimeoutsArgs
+
+func AccessApplicationTimeoutsPtr(v *AccessApplicationTimeoutsArgs) AccessApplicationTimeoutsPtrInput {
+	return (*accessApplicationTimeoutsPtrType)(v)
+}
+
+func (*accessApplicationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessApplicationTimeouts)(nil)).Elem()
+}
+
+func (i *accessApplicationTimeoutsPtrType) ToAccessApplicationTimeoutsPtrOutput() AccessApplicationTimeoutsPtrOutput {
+	return i.ToAccessApplicationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *accessApplicationTimeoutsPtrType) ToAccessApplicationTimeoutsPtrOutputWithContext(ctx context.Context) AccessApplicationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessApplicationTimeoutsPtrOutput)
+}
+
+type AccessApplicationTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (AccessApplicationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessApplicationTimeouts)(nil)).Elem()
+}
+
+func (o AccessApplicationTimeoutsOutput) ToAccessApplicationTimeoutsOutput() AccessApplicationTimeoutsOutput {
+	return o
+}
+
+func (o AccessApplicationTimeoutsOutput) ToAccessApplicationTimeoutsOutputWithContext(ctx context.Context) AccessApplicationTimeoutsOutput {
+	return o
+}
+
+func (o AccessApplicationTimeoutsOutput) ToAccessApplicationTimeoutsPtrOutput() AccessApplicationTimeoutsPtrOutput {
+	return o.ToAccessApplicationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o AccessApplicationTimeoutsOutput) ToAccessApplicationTimeoutsPtrOutputWithContext(ctx context.Context) AccessApplicationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessApplicationTimeouts) *AccessApplicationTimeouts {
+		return &v
+	}).(AccessApplicationTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AccessApplicationTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessApplicationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AccessApplicationTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessApplicationTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type AccessApplicationTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessApplicationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessApplicationTimeouts)(nil)).Elem()
+}
+
+func (o AccessApplicationTimeoutsPtrOutput) ToAccessApplicationTimeoutsPtrOutput() AccessApplicationTimeoutsPtrOutput {
+	return o
+}
+
+func (o AccessApplicationTimeoutsPtrOutput) ToAccessApplicationTimeoutsPtrOutputWithContext(ctx context.Context) AccessApplicationTimeoutsPtrOutput {
+	return o
+}
+
+func (o AccessApplicationTimeoutsPtrOutput) Elem() AccessApplicationTimeoutsOutput {
+	return o.ApplyT(func(v *AccessApplicationTimeouts) AccessApplicationTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret AccessApplicationTimeouts
+		return ret
+	}).(AccessApplicationTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AccessApplicationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessApplicationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AccessApplicationTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessApplicationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetRegionsRegion struct {
 	// The Region code of a given Region
 	RegionName string `pulumi:"regionName"`
@@ -120,8 +571,20 @@ func (o GetRegionsRegionArrayOutput) Index(i pulumi.IntInput) GetRegionsRegionOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessApplicationIdentitySourceInput)(nil)).Elem(), AccessApplicationIdentitySourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessApplicationIdentitySourcePtrInput)(nil)).Elem(), AccessApplicationIdentitySourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessApplicationIdentitySourceIdentityCenterInput)(nil)).Elem(), AccessApplicationIdentitySourceIdentityCenterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessApplicationIdentitySourceIdentityCenterPtrInput)(nil)).Elem(), AccessApplicationIdentitySourceIdentityCenterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessApplicationTimeoutsInput)(nil)).Elem(), AccessApplicationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessApplicationTimeoutsPtrInput)(nil)).Elem(), AccessApplicationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRegionsRegionInput)(nil)).Elem(), GetRegionsRegionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRegionsRegionArrayInput)(nil)).Elem(), GetRegionsRegionArray{})
+	pulumi.RegisterOutputType(AccessApplicationIdentitySourceOutput{})
+	pulumi.RegisterOutputType(AccessApplicationIdentitySourcePtrOutput{})
+	pulumi.RegisterOutputType(AccessApplicationIdentitySourceIdentityCenterOutput{})
+	pulumi.RegisterOutputType(AccessApplicationIdentitySourceIdentityCenterPtrOutput{})
+	pulumi.RegisterOutputType(AccessApplicationTimeoutsOutput{})
+	pulumi.RegisterOutputType(AccessApplicationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(GetRegionsRegionOutput{})
 	pulumi.RegisterOutputType(GetRegionsRegionArrayOutput{})
 }

@@ -111,6 +111,11 @@ export type MicrovmsImage = import("./microvmsImage").MicrovmsImage;
 export const MicrovmsImage: typeof import("./microvmsImage").MicrovmsImage = null as any;
 utilities.lazyLoad(exports, ["MicrovmsImage"], () => require("./microvmsImage"));
 
+export { MicrovmsMicrovmArgs, MicrovmsMicrovmState } from "./microvmsMicrovm";
+export type MicrovmsMicrovm = import("./microvmsMicrovm").MicrovmsMicrovm;
+export const MicrovmsMicrovm: typeof import("./microvmsMicrovm").MicrovmsMicrovm = null as any;
+utilities.lazyLoad(exports, ["MicrovmsMicrovm"], () => require("./microvmsMicrovm"));
+
 export { PermissionArgs, PermissionState } from "./permission";
 export type Permission = import("./permission").Permission;
 export const Permission: typeof import("./permission").Permission = null as any;
@@ -163,6 +168,8 @@ const _module = {
                 return new LayerVersionPermission(name, <any>undefined, { urn })
             case "aws:lambda/microvmsImage:MicrovmsImage":
                 return new MicrovmsImage(name, <any>undefined, { urn })
+            case "aws:lambda/microvmsMicrovm:MicrovmsMicrovm":
+                return new MicrovmsMicrovm(name, <any>undefined, { urn })
             case "aws:lambda/permission:Permission":
                 return new Permission(name, <any>undefined, { urn })
             case "aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig":
@@ -188,6 +195,7 @@ pulumi.runtime.registerResourceModule("aws", "lambda/invocation", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/layerVersion", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/layerVersionPermission", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/microvmsImage", _module)
+pulumi.runtime.registerResourceModule("aws", "lambda/microvmsMicrovm", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/permission", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/provisionedConcurrencyConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/runtimeManagementConfig", _module)

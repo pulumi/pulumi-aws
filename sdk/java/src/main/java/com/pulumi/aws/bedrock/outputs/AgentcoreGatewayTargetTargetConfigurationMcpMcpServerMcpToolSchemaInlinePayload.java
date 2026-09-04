@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayload {
     /**
-     * @return The inline schema payload content.
+     * @return Inline schema payload content.
      * 
      */
     private String payload;
 
     private AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayload() {}
     /**
-     * @return The inline schema payload content.
+     * @return Inline schema payload content.
      * 
      */
     public String payload() {

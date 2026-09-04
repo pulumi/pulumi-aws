@@ -6,12 +6,14 @@ package com.pulumi.aws.directconnect;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.directconnect.LinkAggregationGroupArgs;
 import com.pulumi.aws.directconnect.inputs.LinkAggregationGroupState;
+import com.pulumi.aws.directconnect.outputs.LinkAggregationGroupRateLimiterStatus;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -207,6 +209,20 @@ public class LinkAggregationGroup extends com.pulumi.resources.CustomResource {
      */
     public Output<String> providerName() {
         return this.providerName;
+    }
+    /**
+     * Rate limiter status for the LAG. See `rateLimiterStatus` Block below.
+     * 
+     */
+    @Export(name="rateLimiterStatuses", refs={List.class,LinkAggregationGroupRateLimiterStatus.class}, tree="[0,1]")
+    private Output<List<LinkAggregationGroupRateLimiterStatus>> rateLimiterStatuses;
+
+    /**
+     * @return Rate limiter status for the LAG. See `rateLimiterStatus` Block below.
+     * 
+     */
+    public Output<List<LinkAggregationGroupRateLimiterStatus>> rateLimiterStatuses() {
+        return this.rateLimiterStatuses;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

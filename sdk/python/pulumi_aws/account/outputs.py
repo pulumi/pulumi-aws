@@ -13,10 +13,130 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
+    'AccessApplicationIdentitySource',
+    'AccessApplicationIdentitySourceIdentityCenter',
+    'AccessApplicationTimeouts',
     'GetRegionsRegionResult',
 ]
+
+@pulumi.output_type
+class AccessApplicationIdentitySource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityCenter":
+            suggest = "identity_center"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessApplicationIdentitySource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessApplicationIdentitySource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessApplicationIdentitySource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity_center: Optional['outputs.AccessApplicationIdentitySourceIdentityCenter'] = None):
+        """
+        :param 'AccessApplicationIdentitySourceIdentityCenterArgs' identity_center: IAM Identity Center instance to use as the identity source. See `identity_center` Block below.
+        """
+        if identity_center is not None:
+            pulumi.set(__self__, "identity_center", identity_center)
+
+    @_builtins.property
+    @pulumi.getter(name="identityCenter")
+    def identity_center(self) -> Optional['outputs.AccessApplicationIdentitySourceIdentityCenter']:
+        """
+        IAM Identity Center instance to use as the identity source. See `identity_center` Block below.
+        """
+        return pulumi.get(self, "identity_center")
+
+
+@pulumi.output_type
+class AccessApplicationIdentitySourceIdentityCenter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceArn":
+            suggest = "instance_arn"
+        elif key == "applicationArn":
+            suggest = "application_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessApplicationIdentitySourceIdentityCenter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessApplicationIdentitySourceIdentityCenter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessApplicationIdentitySourceIdentityCenter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_arn: _builtins.str,
+                 application_arn: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str instance_arn: ARN of the IAM Identity Center instance.
+        :param _builtins.str application_arn: ARN of the IAM Identity Center application created for this account access manager application.
+        """
+        pulumi.set(__self__, "instance_arn", instance_arn)
+        if application_arn is not None:
+            pulumi.set(__self__, "application_arn", application_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceArn")
+    def instance_arn(self) -> _builtins.str:
+        """
+        ARN of the IAM Identity Center instance.
+        """
+        return pulumi.get(self, "instance_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="applicationArn")
+    def application_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of the IAM Identity Center application created for this account access manager application.
+        """
+        return pulumi.get(self, "application_arn")
+
+
+@pulumi.output_type
+class AccessApplicationTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
 
 @pulumi.output_type
 class GetRegionsRegionResult(dict):

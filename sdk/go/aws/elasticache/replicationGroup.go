@@ -390,7 +390,7 @@ type ReplicationGroup struct {
 	AuthTokenWoVersion pulumi.IntPtrOutput `pulumi:"authTokenWoVersion"`
 	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
 	// Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
-	// Defaults to `true`.
+	// If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
 	AutoMinorVersionUpgrade pulumi.BoolOutput `pulumi:"autoMinorVersionUpgrade"`
 	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
 	AutomaticFailoverEnabled pulumi.BoolPtrOutput `pulumi:"automaticFailoverEnabled"`
@@ -574,7 +574,7 @@ type replicationGroupState struct {
 	AuthTokenWoVersion *int `pulumi:"authTokenWoVersion"`
 	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
 	// Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
-	// Defaults to `true`.
+	// If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
 	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
 	AutomaticFailoverEnabled *bool `pulumi:"automaticFailoverEnabled"`
@@ -715,7 +715,7 @@ type ReplicationGroupState struct {
 	AuthTokenWoVersion pulumi.IntPtrInput
 	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
 	// Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
-	// Defaults to `true`.
+	// If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
 	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
 	AutomaticFailoverEnabled pulumi.BoolPtrInput
@@ -858,7 +858,7 @@ type replicationGroupArgs struct {
 	AuthTokenWoVersion *int `pulumi:"authTokenWoVersion"`
 	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
 	// Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
-	// Defaults to `true`.
+	// If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
 	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
 	AutomaticFailoverEnabled *bool `pulumi:"automaticFailoverEnabled"`
@@ -984,7 +984,7 @@ type ReplicationGroupArgs struct {
 	AuthTokenWoVersion pulumi.IntPtrInput
 	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
 	// Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
-	// Defaults to `true`.
+	// If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
 	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
 	AutomaticFailoverEnabled pulumi.BoolPtrInput
@@ -1218,7 +1218,7 @@ func (o ReplicationGroupOutput) AuthTokenWoVersion() pulumi.IntPtrOutput {
 
 // Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
 // Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
-// Defaults to `true`.
+// If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
 func (o ReplicationGroupOutput) AutoMinorVersionUpgrade() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolOutput { return v.AutoMinorVersionUpgrade }).(pulumi.BoolOutput)
 }

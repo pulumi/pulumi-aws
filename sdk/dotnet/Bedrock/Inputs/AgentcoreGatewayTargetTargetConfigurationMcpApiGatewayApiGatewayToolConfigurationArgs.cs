@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArgs>? _toolFilters;
 
         /// <summary>
-        /// Repeatable block of path and method patterns to expose as tools. See `ToolFilter` below.
+        /// Repeatable block of path and method patterns to expose as tools. See `ToolFilter` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArgs> ToolFilters
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArgs>? _toolOverrides;
 
         /// <summary>
-        /// Repeatable block of explicit tool definitions with optional custom names and descriptions. See `ToolOverride` below.
+        /// Repeatable block of explicit tool definitions with optional custom names and descriptions. See `ToolOverride` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArgs> ToolOverrides
         {

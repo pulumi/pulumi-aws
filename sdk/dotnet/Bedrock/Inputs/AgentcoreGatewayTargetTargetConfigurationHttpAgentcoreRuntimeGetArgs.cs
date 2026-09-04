@@ -24,6 +24,12 @@ namespace Pulumi.Aws.Bedrock.Inputs
         [Input("qualifier")]
         public Input<string>? Qualifier { get; set; }
 
+        /// <summary>
+        /// API schema configuration that defines the structure of the runtime target's API. See `Schema` Block below.
+        /// </summary>
+        [Input("schema")]
+        public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaGetArgs>? Schema { get; set; }
+
         public AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeGetArgs()
         {
         }

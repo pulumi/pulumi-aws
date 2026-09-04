@@ -1533,6 +1533,35 @@ export namespace accessanalyzer {
 }
 
 export namespace account {
+    export interface AccessApplicationIdentitySource {
+        /**
+         * IAM Identity Center instance to use as the identity source. See `identityCenter` Block below.
+         */
+        identityCenter?: pulumi.Input<inputs.account.AccessApplicationIdentitySourceIdentityCenter | undefined>;
+    }
+
+    export interface AccessApplicationIdentitySourceIdentityCenter {
+        /**
+         * ARN of the IAM Identity Center application created for this account access manager application.
+         */
+        applicationArn?: pulumi.Input<string | undefined>;
+        /**
+         * ARN of the IAM Identity Center instance.
+         */
+        instanceArn: pulumi.Input<string>;
+    }
+
+    export interface AccessApplicationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string | undefined>;
+    }
+
 }
 
 export namespace acm {
@@ -3355,15 +3384,15 @@ export namespace apigatewayv2 {
 
     export interface RoutingRuleActionInvokeApi {
         /**
-         * Action to invoke a stage of a target API. Only REST APIs are supported.
+         * API identifier of the target API.
          */
         apiId: pulumi.Input<string>;
         /**
-         * Action to invoke a stage of a target API. Only REST APIs are supported.
+         * Name of the target stage.
          */
         stage: pulumi.Input<string>;
         /**
-         * Action to invoke a stage of a target API. Only REST APIs are supported.
+         * Whether to strip the base path when forwarding the request to the target API.
          */
         stripBasePath?: pulumi.Input<boolean | undefined>;
     }
@@ -15657,14 +15686,14 @@ export namespace bedrock {
         /**
          * Identifier of the VPC Lattice resource configuration.
          */
-        resourceConfigurationIdentifier: pulumi.Input<string>;
+        resourceConfigurationIdentifier?: pulumi.Input<string | undefined>;
     }
 
     export interface AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
         /**
          * Identifier of the VPC Lattice resource configuration.
          */
-        resourceConfigurationIdentifier: pulumi.Input<string>;
+        resourceConfigurationIdentifier?: pulumi.Input<string | undefined>;
     }
 
     export interface AgentcoreAgentRuntimeEndpointTimeouts {
@@ -16312,14 +16341,14 @@ export namespace bedrock {
         /**
          * Identifier of the VPC Lattice resource configuration.
          */
-        resourceConfigurationIdentifier: pulumi.Input<string>;
+        resourceConfigurationIdentifier?: pulumi.Input<string | undefined>;
     }
 
     export interface AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
         /**
          * Identifier of the VPC Lattice resource configuration.
          */
-        resourceConfigurationIdentifier: pulumi.Input<string>;
+        resourceConfigurationIdentifier?: pulumi.Input<string | undefined>;
     }
 
     export interface AgentcoreGatewayInterceptorConfiguration {
@@ -16602,15 +16631,15 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetCredentialProviderConfiguration {
         /**
-         * API key-based authentication configuration. See `apiKey` below.
+         * API key-based authentication configuration. See `apiKey` Block below.
          */
         apiKey?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationApiKey | undefined>;
         /**
-         * Caller IAM credentials-based authentication configuration. See `callerIamCredentials` below.
+         * Caller IAM credentials-based authentication configuration. See `callerIamCredentials` Block below.
          */
         callerIamCredentials?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentials | undefined>;
         /**
-         * Use the gateway's IAM role for authentication. See `gatewayIamRole` below.
+         * Use the gateway's IAM role for authentication. See `gatewayIamRole` Block below.
          */
         gatewayIamRole?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole | undefined>;
         /**
@@ -16618,7 +16647,7 @@ export namespace bedrock {
          */
         jwtPassthrough?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthrough | undefined>;
         /**
-         * OAuth-based authentication configuration. See `oauth` below.
+         * OAuth-based authentication configuration. See `oauth` Block below.
          */
         oauth?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationOauth | undefined>;
     }
@@ -16644,11 +16673,11 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentials {
         /**
-         * The AWS region for the credentials.
+         * AWS region for the credentials.
          */
         region?: pulumi.Input<string | undefined>;
         /**
-         * The service name for the credentials.
+         * Service name for the credentials.
          */
         service: pulumi.Input<string>;
     }
@@ -16659,7 +16688,7 @@ export namespace bedrock {
          */
         region?: pulumi.Input<string | undefined>;
         /**
-         * The target AWS service name used for SigV4 signing of upstream requests. Required when calling SigV4-protected endpoints such as another Bedrock AgentCore Runtime (use `bedrock-agentcore`). Omit for non-SigV4 IAM-role-based authentication, in which case the block can be empty (`gatewayIamRole {}`).
+         * Target AWS service name used for SigV4 signing of upstream requests. Required when calling SigV4-protected endpoints such as another Bedrock AgentCore Runtime (use `bedrock-agentcore`). Omit for non-SigV4 IAM-role-based authentication, in which case the block can be empty (`gatewayIamRole {}`).
          */
         service?: pulumi.Input<string | undefined>;
     }
@@ -16673,11 +16702,11 @@ export namespace bedrock {
          */
         customParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
         /**
-         * The URL where the end user's browser is redirected after obtaining the authorization code. Required when `grantType` is `AUTHORIZATION_CODE`.
+         * URL where the end user's browser is redirected after obtaining the authorization code. Required when `grantType` is `AUTHORIZATION_CODE`.
          */
         defaultReturnUrl?: pulumi.Input<string | undefined>;
         /**
-         * The OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+         * OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
          */
         grantType?: pulumi.Input<string | undefined>;
         /**
@@ -16692,15 +16721,15 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetMetadataConfiguration {
         /**
-         * A set of URL query parameters that are allowed to be propagated from incoming gateway URL to the target. Maximum of 10 parameters.
+         * Set of URL query parameters that are allowed to be propagated from incoming gateway URL to the target. Maximum of 10 parameters.
          */
         allowedQueryParameters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * A set of HTTP headers that are allowed to be propagated from incoming client requests to the target. Maximum of 10 headers.
+         * Set of HTTP headers that are allowed to be propagated from incoming client requests to the target. Maximum of 10 headers.
          */
         allowedRequestHeaders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * A set of HTTP headers that are allowed to be propagated from the target response back to the client. Maximum of 10 headers.
+         * Set of HTTP headers that are allowed to be propagated from the target response back to the client. Maximum of 10 headers.
          *
          * > **Note:** Header names must contain only alphanumeric characters, hyphens, and underscores. A large number of standard HTTP headers are restricted and cannot be configured for propagation, including authentication, content negotiation, caching, security, CORS, and connection management headers. Headers starting with `X-Amzn-` are prohibited except for `X-Amzn-Bedrock-AgentCore-Runtime-Custom-*` headers. These restrictions are enforced by schema validation. For the full list of restricted headers, see the [AWS documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-headers.html).
          */
@@ -16709,11 +16738,11 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetPrivateEndpoint {
         /**
-         * AWS creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role. See `managedVpcResource` below.
+         * AWS creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role. See `managedVpcResource` Block below.
          */
         managedVpcResource?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetPrivateEndpointManagedVpcResource | undefined>;
         /**
-         * Use an existing VPC Lattice resource configuration that you manage yourself. Useful for cross-account setups or advanced Lattice configurations. See `selfManagedLatticeResource` below.
+         * Use an existing VPC Lattice resource configuration that you manage yourself. Useful for cross-account setups or advanced Lattice configurations. See `selfManagedLatticeResource` Block below.
          */
         selfManagedLatticeResource?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetPrivateEndpointSelfManagedLatticeResource | undefined>;
     }
@@ -16749,27 +16778,35 @@ export namespace bedrock {
         /**
          * ARN or ID of the VPC Lattice resource configuration.
          */
-        resourceConfigurationIdentifier: pulumi.Input<string>;
+        resourceConfigurationIdentifier?: pulumi.Input<string | undefined>;
     }
 
     export interface AgentcoreGatewayTargetTargetConfiguration {
         /**
-         * HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` below.
+         * HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` Block below.
          */
         http?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttp | undefined>;
         /**
-         * Model Context Protocol (MCP) configuration. See `mcp` below.
+         * Inference target configuration for routing requests to a large language model (LLM) provider, either through a built-in connector or an explicitly configured provider. See `inference` Block below.
+         */
+        inference?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationInference | undefined>;
+        /**
+         * Model Context Protocol (MCP) configuration. See `mcp` Block below.
          */
         mcp?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcp | undefined>;
     }
 
     export interface AgentcoreGatewayTargetTargetConfigurationHttp {
         /**
-         * AgentCore Runtime target configuration. See `agentcoreRuntime` below.
+         * AgentCore Runtime target configuration. See `agentcoreRuntime` Block below.
+         */
+        agentcoreRuntime?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime | undefined>;
+        /**
+         * Passthrough target configuration that forwards requests to an external HTTPS endpoint. See `passthrough` Block below.
          *
          * > **Note:** HTTP targets can only be attached to gateways that do not have a `protocolType` set. They are not supported on MCP-protocol gateways.
          */
-        agentcoreRuntime?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime | undefined>;
+        passthrough?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpPassthrough | undefined>;
     }
 
     export interface AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime {
@@ -16781,34 +16818,221 @@ export namespace bedrock {
          * Runtime qualifier identifying a specific endpoint version. Defaults to `DEFAULT` when not set.
          */
         qualifier?: pulumi.Input<string | undefined>;
+        /**
+         * API schema configuration that defines the structure of the runtime target's API. See `schema` Block below.
+         */
+        schema?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchema | undefined>;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchema {
+        /**
+         * Configuration for API schema. See `apiSchemaConfiguration` Block below.
+         */
+        source: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSource>;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSource {
+        inlinePayload?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceInlinePayload | undefined>;
+        s3?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceS3 | undefined>;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceInlinePayload {
+        /**
+         * Inline schema payload content.
+         */
+        payload: pulumi.Input<string>;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceS3 {
+        /**
+         * Account ID of the S3 bucket owner.
+         */
+        bucketOwnerAccountId?: pulumi.Input<string | undefined>;
+        /**
+         * S3 URI where the schema is stored.
+         */
+        uri?: pulumi.Input<string | undefined>;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationHttpPassthrough {
+        /**
+         * HTTPS endpoint that the gateway forwards requests to for this passthrough target. Must start with `https://`.
+         */
+        endpoint: pulumi.Input<string>;
+        /**
+         * Application protocol the passthrough target implements. Valid values: `MCP`, `A2A`, `INFERENCE`, `CUSTOM`.
+         */
+        protocolType: pulumi.Input<string>;
+        /**
+         * API schema configuration that defines the structure of the passthrough target's API. Supports the same `inlinePayload` and `s3` blocks as `apiSchemaConfiguration`.
+         */
+        schema?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema | undefined>;
+        /**
+         * Controls precedence when a client request supplies a query parameter whose name matches a configured static query parameter. Valid values: `CLIENT_OVERRIDE`, `STATIC_OVERRIDE`.
+         */
+        staticQueryParameterConflictResolution?: pulumi.Input<string | undefined>;
+        /**
+         * Map of static query parameters that the gateway always appends to the outbound URL when forwarding requests to the target.
+         */
+        staticQueryParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * Session stickiness configuration routing requests within the same session to the same target. See `stickinessConfiguration` below.
+         */
+        stickinessConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughStickinessConfiguration | undefined>;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema {
+        /**
+         * Configuration for API schema. See `apiSchemaConfiguration` Block below.
+         */
+        source: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSource>;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSource {
+        inlinePayload?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceInlinePayload | undefined>;
+        s3?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceS3 | undefined>;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceInlinePayload {
+        /**
+         * Inline schema payload content.
+         */
+        payload: pulumi.Input<string>;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceS3 {
+        /**
+         * Account ID of the S3 bucket owner.
+         */
+        bucketOwnerAccountId?: pulumi.Input<string | undefined>;
+        /**
+         * S3 URI where the schema is stored.
+         */
+        uri?: pulumi.Input<string | undefined>;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationHttpPassthroughStickinessConfiguration {
+        /**
+         * Additional headers to include in session affinity routing.
+         */
+        compositeIdentifiers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Expression identifying where to extract the session identifier from the request (for example, `$context.header.x-session-id`).
+         */
+        identifier: pulumi.Input<string>;
+        /**
+         * Session stickiness timeout, in seconds. Valid values range from 1 to 86400.
+         */
+        timeout?: pulumi.Input<number | undefined>;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationInference {
+        /**
+         * Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `connector` Block below.
+         */
+        connector?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationInferenceConnector | undefined>;
+        /**
+         * Provider-based inference configuration that explicitly defines the endpoint, model mapping, and operations used to route requests to an LLM provider. See `provider` Block below.
+         */
+        provider?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationInferenceProvider | undefined>;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationInferenceConnector {
+        /**
+         * Source configuration identifying which connector to use. See `source` Block below.
+         */
+        source: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSource>;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSource {
+        /**
+         * Identifier for the connector integration (for example, `bedrock-knowledge-bases`).
+         */
+        connectorId: pulumi.Input<string>;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationInferenceProvider {
+        /**
+         * HTTPS endpoint of the inference provider that the gateway forwards requests to.
+         */
+        endpoint: pulumi.Input<string>;
+        /**
+         * Configuration that translates client-facing model IDs to the model IDs expected by the provider. See `modelMapping` Block below.
+         */
+        modelMapping?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMapping | undefined>;
+        /**
+         * List of per-operation configurations that map request paths to the models supported for each operation. See `operation` below.
+         */
+        operations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperation>[] | undefined>;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMapping {
+        /**
+         * Provider prefix configuration used for model ID translation. See `providerPrefix` Block below.
+         */
+        providerPrefix?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMappingProviderPrefix | undefined>;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMappingProviderPrefix {
+        /**
+         * Single character that separates the provider prefix from the model name (for example, `.`). Defaults to `.`.
+         */
+        separator?: pulumi.Input<string | undefined>;
+        /**
+         * Whether clients can omit the provider prefix from model IDs. If `true`, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. Defaults to `false`.
+         */
+        strip?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperation {
+        /**
+         * List of models supported for this operation. See `model` Block below.
+         */
+        models?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperationModel>[] | undefined>;
+        /**
+         * Request path for this operation (for example, `/v1/messages` or `/v1/responses`).
+         */
+        path: pulumi.Input<string>;
+        /**
+         * Provider path to forward requests to, if it differs from the request path. For example, `/anthropic/v1/messages` when the provider expects a different path than the client-facing `/v1/messages`.
+         */
+        providerPath?: pulumi.Input<string | undefined>;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperationModel {
+        model: pulumi.Input<string>;
     }
 
     export interface AgentcoreGatewayTargetTargetConfigurationMcp {
         /**
-         * API Gateway target configuration. See `apiGateway` below.
+         * API Gateway target configuration. See `apiGateway` Block below.
          */
         apiGateway?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpApiGateway | undefined>;
         /**
-         * Lambda function target configuration. See `lambda` below.
+         * Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `connector` Block below.
+         */
+        connector?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpConnector | undefined>;
+        /**
+         * Lambda function target configuration. See `lambda` Block below.
          */
         lambda?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambda | undefined>;
         /**
-         * MCP server target configuration. See `mcpServer` below.
+         * MCP server target configuration. See `mcpServer` Block below.
          */
         mcpServer?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServer | undefined>;
         /**
-         * OpenAPI schema-based target configuration. See `apiSchemaConfiguration` below.
+         * OpenAPI schema-based target configuration. See `apiSchemaConfiguration` Block below.
          */
         openApiSchema?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema | undefined>;
         /**
-         * Smithy model-based target configuration. See `apiSchemaConfiguration` below.
+         * Smithy model-based target configuration. See `apiSchemaConfiguration` Block below.
          */
         smithyModel?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel | undefined>;
     }
 
     export interface AgentcoreGatewayTargetTargetConfigurationMcpApiGateway {
         /**
-         * Configuration for API Gateway tools. See `apiGatewayToolConfiguration` below.
+         * Configuration for API Gateway tools. See `apiGatewayToolConfiguration` Block below.
          */
         apiGatewayToolConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfiguration | undefined>;
         /**
@@ -16823,11 +17047,11 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfiguration {
         /**
-         * Repeatable block of path and method patterns to expose as tools. See `toolFilter` below.
+         * Repeatable block of path and method patterns to expose as tools. See `toolFilter` Block below.
          */
         toolFilters?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilter>[] | undefined>;
         /**
-         * Repeatable block of explicit tool definitions with optional custom names and descriptions. See `toolOverride` below.
+         * Repeatable block of explicit tool definitions with optional custom names and descriptions. See `toolOverride` Block below.
          */
         toolOverrides?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverride>[] | undefined>;
     }
@@ -16862,24 +17086,81 @@ export namespace bedrock {
         path: pulumi.Input<string>;
     }
 
+    export interface AgentcoreGatewayTargetTargetConfigurationMcpConnector {
+        /**
+         * Per-tool configurations for the connector. See `configuration` Block below.
+         */
+        configurations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfiguration>[]>;
+        /**
+         * List of tool names to enable from this connector. If omitted, all tools provided by the connector are enabled.
+         */
+        enableds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Source configuration identifying which connector to use. See `source` Block below.
+         */
+        source: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpConnectorSource>;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfiguration {
+        /**
+         * Agent-facing description override for this tool.
+         */
+        description?: pulumi.Input<string | undefined>;
+        /**
+         * Tool or operation name (for example, `retrieve` or `webSearch`).
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Parameter overrides to control parameter visibility and descriptions. See `parameterOverride` Block below.
+         */
+        parameterOverrides?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigurationParameterOverride>[] | undefined>;
+        /**
+         * JSON-encoded parameters to set as fixed or default values when provisioning this tool. Free-form JSON whose schema is defined by the connector.
+         */
+        parameterValues?: pulumi.Input<string | undefined>;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigurationParameterOverride {
+        /**
+         * Description of the gateway target.
+         */
+        description?: pulumi.Input<string | undefined>;
+        path: pulumi.Input<string>;
+        /**
+         * Whether this parameter is visible to the agent. If not specified, uses the service default.
+         */
+        visible?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationMcpConnectorSource {
+        /**
+         * Identifier for the connector integration (for example, `bedrock-knowledge-bases`).
+         */
+        connectorId: pulumi.Input<string>;
+        /**
+         * Version of the connector to use (for example, `1.2.0`).
+         */
+        version?: pulumi.Input<string | undefined>;
+    }
+
     export interface AgentcoreGatewayTargetTargetConfigurationMcpLambda {
         /**
          * ARN of the Lambda function to invoke.
          */
         lambdaArn: pulumi.Input<string>;
         /**
-         * Schema definition for the tool. See `toolSchema` below.
+         * Schema definition for the tool. See `toolSchema` Block below.
          */
         toolSchema: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema>;
     }
 
     export interface AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema {
         /**
-         * Inline tool definition. See `inlinePayload` below.
+         * Inline tool definition. See `inlinePayload` Block below.
          */
         inlinePayloads?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload>[] | undefined>;
         /**
-         * S3-based tool definition. See `s3` below.
+         * S3-based tool definition. See `s3` Block below.
          */
         s3?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3 | undefined>;
     }
@@ -16890,7 +17171,7 @@ export namespace bedrock {
          */
         description: pulumi.Input<string>;
         /**
-         * Schema for the tool's input. See `schemaDefinition` below.
+         * Schema for the tool's input. See `schemaDefinition` Block below.
          */
         inputSchema: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema>;
         /**
@@ -16898,7 +17179,7 @@ export namespace bedrock {
          */
         name: pulumi.Input<string>;
         /**
-         * Schema for the tool's output. See `schemaDefinition` below.
+         * Schema for the tool's output. See `schemaDefinition` Block below.
          */
         outputSchema?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema | undefined>;
     }
@@ -16923,7 +17204,7 @@ export namespace bedrock {
          */
         items?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems | undefined>;
         /**
-         * Set of property definitions for arrays of objects. See `property` below.
+         * Set of property definitions for arrays of objects. See `property` Block below.
          */
         properties?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsProperty>[] | undefined>;
         /**
@@ -16984,7 +17265,7 @@ export namespace bedrock {
          */
         description?: pulumi.Input<string | undefined>;
         /**
-         * Items definition for array properties. See `items` above.
+         * Items definition for array properties. See `items` Block above.
          */
         items?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems | undefined>;
         /**
@@ -17015,7 +17296,7 @@ export namespace bedrock {
          */
         items?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems | undefined>;
         /**
-         * Set of property definitions for arrays of objects. See `property` below.
+         * Set of property definitions for arrays of objects. See `property` Block below.
          */
         properties?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty>[] | undefined>;
         /**
@@ -17117,7 +17398,7 @@ export namespace bedrock {
          */
         items?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems | undefined>;
         /**
-         * Set of property definitions for arrays of objects. See `property` below.
+         * Set of property definitions for arrays of objects. See `property` Block below.
          */
         properties?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsProperty>[] | undefined>;
         /**
@@ -17178,7 +17459,7 @@ export namespace bedrock {
          */
         description?: pulumi.Input<string | undefined>;
         /**
-         * Items definition for array properties. See `items` above.
+         * Items definition for array properties. See `items` Block above.
          */
         items?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems | undefined>;
         /**
@@ -17209,7 +17490,7 @@ export namespace bedrock {
          */
         items?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems | undefined>;
         /**
-         * Set of property definitions for arrays of objects. See `property` below.
+         * Set of property definitions for arrays of objects. See `property` Block below.
          */
         properties?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty>[] | undefined>;
         /**
@@ -17312,7 +17593,7 @@ export namespace bedrock {
          */
         listingMode?: pulumi.Input<string | undefined>;
         /**
-         * Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` below.
+         * Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` Block below.
          */
         mcpToolSchema?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchema | undefined>;
         /**
@@ -17327,14 +17608,14 @@ export namespace bedrock {
          */
         inlinePayload?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayload | undefined>;
         /**
-         * S3 location of the tool schema. See `s3` below.
+         * S3 location of the tool schema. See `s3` Block below.
          */
         s3?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3 | undefined>;
     }
 
     export interface AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayload {
         /**
-         * The inline schema payload content.
+         * Inline schema payload content.
          */
         payload: pulumi.Input<string>;
     }
@@ -17357,7 +17638,7 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayload {
         /**
-         * The inline schema payload content.
+         * Inline schema payload content.
          */
         payload: pulumi.Input<string>;
     }
@@ -17380,7 +17661,7 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayload {
         /**
-         * The inline schema payload content.
+         * Inline schema payload content.
          */
         payload: pulumi.Input<string>;
     }
@@ -17621,14 +17902,14 @@ export namespace bedrock {
         /**
          * Identifier of the VPC Lattice resource configuration.
          */
-        resourceConfigurationIdentifier: pulumi.Input<string>;
+        resourceConfigurationIdentifier?: pulumi.Input<string | undefined>;
     }
 
     export interface AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
         /**
          * Identifier of the VPC Lattice resource configuration.
          */
-        resourceConfigurationIdentifier: pulumi.Input<string>;
+        resourceConfigurationIdentifier?: pulumi.Input<string | undefined>;
     }
 
     export interface AgentcoreHarnessEnvironment {
@@ -19223,11 +19504,11 @@ export namespace bedrock {
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource {
-        resourceConfigurationIdentifier: pulumi.Input<string>;
+        resourceConfigurationIdentifier?: pulumi.Input<string | undefined>;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
-        resourceConfigurationIdentifier: pulumi.Input<string>;
+        resourceConfigurationIdentifier?: pulumi.Input<string | undefined>;
     }
 
     export interface AgentcoreRegistryTimeouts {
@@ -31913,6 +32194,239 @@ export namespace datazone {
         create?: pulumi.Input<string | undefined>;
     }
 
+    export interface PolicyGrantDetail {
+        /**
+         * Configuration for the `ADD_TO_PROJECT_MEMBER_POOL` policy type. See `addToProjectMemberPool` Block below.
+         */
+        addToProjectMemberPool?: pulumi.Input<inputs.datazone.PolicyGrantDetailAddToProjectMemberPool | undefined>;
+        /**
+         * Configuration for the `CREATE_ASSET_TYPE` policy type. See `createAssetType` Block below.
+         */
+        createAssetType?: pulumi.Input<inputs.datazone.PolicyGrantDetailCreateAssetType | undefined>;
+        /**
+         * Configuration for the `CREATE_DOMAIN_UNIT` policy type. See `createDomainUnit` Block below.
+         */
+        createDomainUnit?: pulumi.Input<inputs.datazone.PolicyGrantDetailCreateDomainUnit | undefined>;
+        /**
+         * Configuration for the `CREATE_ENVIRONMENT` policy type. Empty block.
+         */
+        createEnvironment?: pulumi.Input<inputs.datazone.PolicyGrantDetailCreateEnvironment | undefined>;
+        /**
+         * Configuration for the `CREATE_ENVIRONMENT_FROM_BLUEPRINT` policy type. Empty block.
+         */
+        createEnvironmentFromBlueprint?: pulumi.Input<inputs.datazone.PolicyGrantDetailCreateEnvironmentFromBlueprint | undefined>;
+        /**
+         * Configuration for the `CREATE_ENVIRONMENT_PROFILE` policy type. See `createEnvironmentProfile` Block below.
+         */
+        createEnvironmentProfile?: pulumi.Input<inputs.datazone.PolicyGrantDetailCreateEnvironmentProfile | undefined>;
+        /**
+         * Configuration for the `CREATE_FORM_TYPE` policy type. See `createFormType` Block below.
+         */
+        createFormType?: pulumi.Input<inputs.datazone.PolicyGrantDetailCreateFormType | undefined>;
+        /**
+         * Configuration for the `CREATE_GLOSSARY` policy type. See `createGlossary` Block below.
+         */
+        createGlossary?: pulumi.Input<inputs.datazone.PolicyGrantDetailCreateGlossary | undefined>;
+        /**
+         * Configuration for the `CREATE_PROJECT` policy type. See `createProject` Block below.
+         */
+        createProject?: pulumi.Input<inputs.datazone.PolicyGrantDetailCreateProject | undefined>;
+        /**
+         * Configuration for the `CREATE_PROJECT_FROM_PROJECT_PROFILE` policy type. See `createProjectFromProjectProfile` Block below.
+         */
+        createProjectFromProjectProfile?: pulumi.Input<inputs.datazone.PolicyGrantDetailCreateProjectFromProjectProfile | undefined>;
+        /**
+         * Configuration for the `DELEGATE_CREATE_ENVIRONMENT_PROFILE` policy type. Empty block.
+         */
+        delegateCreateEnvironmentProfile?: pulumi.Input<inputs.datazone.PolicyGrantDetailDelegateCreateEnvironmentProfile | undefined>;
+        /**
+         * Configuration for the `OVERRIDE_DOMAIN_UNIT_OWNERS` policy type. See `overrideDomainUnitOwners` Block below.
+         */
+        overrideDomainUnitOwners?: pulumi.Input<inputs.datazone.PolicyGrantDetailOverrideDomainUnitOwners | undefined>;
+        /**
+         * Configuration for the `OVERRIDE_PROJECT_OWNERS` policy type. See `overrideProjectOwners` Block below.
+         */
+        overrideProjectOwners?: pulumi.Input<inputs.datazone.PolicyGrantDetailOverrideProjectOwners | undefined>;
+        /**
+         * Configuration for the `USE_ASSET_TYPE` policy type. See `useAssetType` Block below.
+         */
+        useAssetType?: pulumi.Input<inputs.datazone.PolicyGrantDetailUseAssetType | undefined>;
+    }
+
+    export interface PolicyGrantDetailAddToProjectMemberPool {
+        /**
+         * Whether to include child domain units.
+         */
+        includeChildDomainUnits?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface PolicyGrantDetailCreateAssetType {
+        /**
+         * Whether to include child domain units.
+         */
+        includeChildDomainUnits?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface PolicyGrantDetailCreateDomainUnit {
+        /**
+         * Whether to include child domain units.
+         */
+        includeChildDomainUnits?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface PolicyGrantDetailCreateEnvironment {
+    }
+
+    export interface PolicyGrantDetailCreateEnvironmentFromBlueprint {
+    }
+
+    export interface PolicyGrantDetailCreateEnvironmentProfile {
+        /**
+         * Identifier of the domain unit.
+         */
+        domainUnitId?: pulumi.Input<string | undefined>;
+    }
+
+    export interface PolicyGrantDetailCreateFormType {
+        /**
+         * Whether to include child domain units.
+         */
+        includeChildDomainUnits?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface PolicyGrantDetailCreateGlossary {
+        /**
+         * Whether to include child domain units.
+         */
+        includeChildDomainUnits?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface PolicyGrantDetailCreateProject {
+        /**
+         * Whether to include child domain units.
+         */
+        includeChildDomainUnits?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface PolicyGrantDetailCreateProjectFromProjectProfile {
+        /**
+         * Whether to include child domain units.
+         */
+        includeChildDomainUnits?: pulumi.Input<boolean | undefined>;
+        /**
+         * List of project profile identifiers.
+         */
+        projectProfiles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface PolicyGrantDetailDelegateCreateEnvironmentProfile {
+    }
+
+    export interface PolicyGrantDetailOverrideDomainUnitOwners {
+        /**
+         * Whether to include child domain units.
+         */
+        includeChildDomainUnits?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface PolicyGrantDetailOverrideProjectOwners {
+        /**
+         * Whether to include child domain units.
+         */
+        includeChildDomainUnits?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface PolicyGrantDetailUseAssetType {
+        /**
+         * Identifier of the domain unit.
+         */
+        domainUnitId?: pulumi.Input<string | undefined>;
+    }
+
+    export interface PolicyGrantPrincipal {
+        /**
+         * Domain unit principal. See `domainUnit` Block below.
+         */
+        domainUnit?: pulumi.Input<inputs.datazone.PolicyGrantPrincipalDomainUnit | undefined>;
+        /**
+         * Group principal. See `group` Block below.
+         */
+        group?: pulumi.Input<inputs.datazone.PolicyGrantPrincipalGroup | undefined>;
+        /**
+         * Project principal. See `project` Block below.
+         */
+        project?: pulumi.Input<inputs.datazone.PolicyGrantPrincipalProject | undefined>;
+        /**
+         * User principal. See `user` Block below.
+         */
+        user?: pulumi.Input<inputs.datazone.PolicyGrantPrincipalUser | undefined>;
+    }
+
+    export interface PolicyGrantPrincipalDomainUnit {
+        /**
+         * Filter to grant access to all domain units. Empty block.
+         */
+        allDomainUnitsGrantFilter?: pulumi.Input<inputs.datazone.PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilter | undefined>;
+        /**
+         * Designation of the domain unit principal. Valid values: `OWNER`.
+         */
+        domainUnitDesignation: pulumi.Input<string>;
+        /**
+         * Identifier of the domain unit.
+         */
+        domainUnitIdentifier?: pulumi.Input<string | undefined>;
+    }
+
+    export interface PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilter {
+    }
+
+    export interface PolicyGrantPrincipalGroup {
+        /**
+         * Identifier of the group principal.
+         */
+        groupIdentifier: pulumi.Input<string>;
+    }
+
+    export interface PolicyGrantPrincipalProject {
+        /**
+         * Filter for domain unit scoping. See `domainUnitFilter` Block below.
+         */
+        domainUnitFilter?: pulumi.Input<inputs.datazone.PolicyGrantPrincipalProjectDomainUnitFilter | undefined>;
+        /**
+         * Designation of the project principal. Valid values: `CONTRIBUTOR`, `OWNER`, `PROJECT_CATALOG_STEWARD`.
+         */
+        projectDesignation: pulumi.Input<string>;
+        /**
+         * Identifier of the project.
+         */
+        projectIdentifier?: pulumi.Input<string | undefined>;
+    }
+
+    export interface PolicyGrantPrincipalProjectDomainUnitFilter {
+        /**
+         * Identifier of the domain unit for filtering.
+         */
+        domainUnit: pulumi.Input<string>;
+        /**
+         * Whether to include child domain units in the filter.
+         */
+        includeChildDomainUnits?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface PolicyGrantPrincipalUser {
+        /**
+         * Filter to grant access to all users. Empty block.
+         */
+        allUsersGrantFilter?: pulumi.Input<inputs.datazone.PolicyGrantPrincipalUserAllUsersGrantFilter | undefined>;
+        /**
+         * Identifier of the user principal.
+         */
+        userIdentifier?: pulumi.Input<string | undefined>;
+    }
+
+    export interface PolicyGrantPrincipalUserAllUsersGrantFilter {
+    }
+
     export interface ProjectFailureReason {
         code: pulumi.Input<string>;
         message: pulumi.Input<string>;
@@ -32136,6 +32650,43 @@ export namespace devopsguru {
 }
 
 export namespace directconnect {
+    export interface ConnectionRateLimiterStatus {
+        /**
+         * Number of rate limiters currently in use.
+         */
+        inUse?: pulumi.Input<number | undefined>;
+        /**
+         * Maximum number of rate limiters allowed on the connection.
+         */
+        maxAllowed?: pulumi.Input<number | undefined>;
+        /**
+         * Number of rate limiters remaining (available).
+         */
+        remaining?: pulumi.Input<number | undefined>;
+        /**
+         * Total bandwidth allocated across all rate limiters.
+         */
+        totalBandwidth?: pulumi.Input<string | undefined>;
+    }
+
+    export interface LinkAggregationGroupRateLimiterStatus {
+        /**
+         * Number of rate limiters currently in use.
+         */
+        inUse?: pulumi.Input<number | undefined>;
+        /**
+         * Maximum number of rate limiters allowed on the LAG.
+         */
+        maxAllowed?: pulumi.Input<number | undefined>;
+        /**
+         * Number of rate limiters remaining (available).
+         */
+        remaining?: pulumi.Input<number | undefined>;
+        /**
+         * Total bandwidth allocated across all rate limiters.
+         */
+        totalBandwidth?: pulumi.Input<string | undefined>;
+    }
 }
 
 export namespace directoryservice {
@@ -43279,10 +43830,14 @@ export namespace eks {
     export interface ClusterKubeControllerManagerConfig {
         /**
          * Configuration block for the horizontal pod autoscaler controller. Detailed below.
+         */
+        horizontalPodAutoscalerControllerConfig?: pulumi.Input<inputs.eks.ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig | undefined>;
+        /**
+         * Configuration block for the pod garbage collection controller. Detailed below.
          *
          * > **NOTE:** The `horizontalPodAutoscalerControllerConfig` requires a Provisioned Control Plane scaling tier (e.g., `tier-xl` or higher). It cannot be configured on clusters using the `standard` tier.
          */
-        horizontalPodAutoscalerControllerConfig?: pulumi.Input<inputs.eks.ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig | undefined>;
+        podGcControllerConfig?: pulumi.Input<inputs.eks.ClusterKubeControllerManagerConfigPodGcControllerConfig | undefined>;
     }
 
     export interface ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig {
@@ -43290,6 +43845,13 @@ export namespace eks {
          * The interval between each sync of the horizontal pod autoscaler. Must be a single-unit duration (e.g., `10s`, `15s`). Valid range: `10s` to `15s`. Default is `15s`.
          */
         horizontalPodAutoscalerSyncPeriod?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ClusterKubeControllerManagerConfigPodGcControllerConfig {
+        /**
+         * The number of terminated pods that can exist before the pod garbage collector starts deleting them. Valid range: `0` to `12500`. Refer to the `aws.eks.getClusterVersions` data source for any version-specific constraints.
+         */
+        terminatedPodGcThreshold?: pulumi.Input<number | undefined>;
     }
 
     export interface ClusterKubeSchedulerConfig {
@@ -58135,6 +58697,57 @@ export namespace lambda {
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
          */
         update?: pulumi.Input<string | undefined>;
+    }
+
+    export interface MicrovmsMicrovmIdlePolicy {
+        /**
+         * Whether to automatically resume the MicroVM when it receives a request while suspended.
+         */
+        autoResumeEnabled: pulumi.Input<boolean>;
+        /**
+         * Number of seconds without traffic after which the MicroVM is suspended.
+         */
+        maxIdleDurationSeconds: pulumi.Input<number>;
+        /**
+         * Number of seconds a MicroVM remains suspended before it is automatically terminated.
+         */
+        suspendedDurationSeconds: pulumi.Input<number>;
+    }
+
+    export interface MicrovmsMicrovmLogging {
+        /**
+         * Send logs to Amazon CloudWatch Logs. See below.
+         */
+        cloudwatch?: pulumi.Input<inputs.lambda.MicrovmsMicrovmLoggingCloudwatch | undefined>;
+        /**
+         * Disable logging for the MicroVM. Specify an empty block: `disabled {}`.
+         */
+        disabled?: pulumi.Input<inputs.lambda.MicrovmsMicrovmLoggingDisabled | undefined>;
+    }
+
+    export interface MicrovmsMicrovmLoggingCloudwatch {
+        /**
+         * Name of the CloudWatch Logs log group to send logs to.
+         */
+        logGroup?: pulumi.Input<string | undefined>;
+        /**
+         * Name of the CloudWatch Logs log stream within the log group.
+         */
+        logStream?: pulumi.Input<string | undefined>;
+    }
+
+    export interface MicrovmsMicrovmLoggingDisabled {
+    }
+
+    export interface MicrovmsMicrovmTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string | undefined>;
     }
 }
 
@@ -73460,6 +74073,20 @@ export namespace macie2 {
 }
 
 export namespace mailmanager {
+    export interface ArchiveRetention {
+        /**
+         * Retention period for the archive. Valid values: `THREE_MONTHS`, `SIX_MONTHS`, `NINE_MONTHS`, `ONE_YEAR`, `EIGHTEEN_MONTHS`, `TWO_YEARS`, `THIRTY_MONTHS`, `THREE_YEARS`, `FOUR_YEARS`, `FIVE_YEARS`, `SIX_YEARS`, `SEVEN_YEARS`, `EIGHT_YEARS`, `NINE_YEARS`, `TEN_YEARS`, `PERMANENT`.
+         */
+        retentionPeriod: pulumi.Input<string>;
+    }
+
+    export interface ArchiveRetentionActual {
+        /**
+         * Retention period for the archive. Possible values: `THREE_MONTHS`, `SIX_MONTHS`, `NINE_MONTHS`, `ONE_YEAR`, `EIGHTEEN_MONTHS`, `TWO_YEARS`, `THIRTY_MONTHS`, `THREE_YEARS`, `FOUR_YEARS`, `FIVE_YEARS`, `SIX_YEARS`, `SEVEN_YEARS`, `EIGHT_YEARS`, `NINE_YEARS`, `TEN_YEARS`, `PERMANENT`.
+         */
+        retentionPeriod: pulumi.Input<string>;
+    }
+
     export interface IngressPointIngressPointConfiguration {
         /**
          * ARN of the secret in AWS Secrets Manager that holds the SMTP password, used for `AUTH` ingress points.
@@ -98537,7 +99164,7 @@ export namespace securityhub {
          */
         enabledStandardArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
+         * Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. It must be defined if `serviceEnabled` is set to true. See below.
          */
         securityControlsConfiguration?: pulumi.Input<inputs.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration | undefined>;
         /**

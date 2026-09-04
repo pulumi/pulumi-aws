@@ -215,9 +215,7 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// An ElastiCache Parameter Group to use for the Global Replication Group.
-        /// Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
-        /// Specifying without a major version upgrade will fail.
-        /// Note that ElastiCache creates a copy of this parameter group for each member replication group.
+        /// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete. Specifying without a major version upgrade will fail. When a replication group joins a global datastore, AWS auto-generates a new parameter group (prefixed `global-datastore-`) derived from the primary's parameter group. Note that ElastiCache creates a copy of this parameter group for each member replication group.
         /// </summary>
         [Output("parameterGroupName")]
         public Output<string?> ParameterGroupName { get; private set; } = null!;
@@ -345,9 +343,7 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// An ElastiCache Parameter Group to use for the Global Replication Group.
-        /// Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
-        /// Specifying without a major version upgrade will fail.
-        /// Note that ElastiCache creates a copy of this parameter group for each member replication group.
+        /// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete. Specifying without a major version upgrade will fail. When a replication group joins a global datastore, AWS auto-generates a new parameter group (prefixed `global-datastore-`) derived from the primary's parameter group. Note that ElastiCache creates a copy of this parameter group for each member replication group.
         /// </summary>
         [Input("parameterGroupName")]
         public Input<string>? ParameterGroupName { get; set; }
@@ -480,9 +476,7 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// An ElastiCache Parameter Group to use for the Global Replication Group.
-        /// Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
-        /// Specifying without a major version upgrade will fail.
-        /// Note that ElastiCache creates a copy of this parameter group for each member replication group.
+        /// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete. Specifying without a major version upgrade will fail. When a replication group joins a global datastore, AWS auto-generates a new parameter group (prefixed `global-datastore-`) derived from the primary's parameter group. Note that ElastiCache creates a copy of this parameter group for each member replication group.
         /// </summary>
         [Input("parameterGroupName")]
         public Input<string>? ParameterGroupName { get; set; }

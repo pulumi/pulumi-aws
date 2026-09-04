@@ -208,7 +208,7 @@ type AgentcoreGateway struct {
 
 	// Configuration for request authorization. Required when `authorizerType` is set to `CUSTOM_JWT`. See `authorizerConfiguration` below.
 	AuthorizerConfiguration AgentcoreGatewayAuthorizerConfigurationPtrOutput `pulumi:"authorizerConfiguration"`
-	// Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
+	// Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`, `NONE`, `AUTHENTICATE_ONLY`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
 	AuthorizerType pulumi.StringOutput `pulumi:"authorizerType"`
 	// Description of the gateway.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -285,7 +285,7 @@ func GetAgentcoreGateway(ctx *pulumi.Context,
 type agentcoreGatewayState struct {
 	// Configuration for request authorization. Required when `authorizerType` is set to `CUSTOM_JWT`. See `authorizerConfiguration` below.
 	AuthorizerConfiguration *AgentcoreGatewayAuthorizerConfiguration `pulumi:"authorizerConfiguration"`
-	// Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
+	// Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`, `NONE`, `AUTHENTICATE_ONLY`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
 	AuthorizerType *string `pulumi:"authorizerType"`
 	// Description of the gateway.
 	Description *string `pulumi:"description"`
@@ -327,7 +327,7 @@ type agentcoreGatewayState struct {
 type AgentcoreGatewayState struct {
 	// Configuration for request authorization. Required when `authorizerType` is set to `CUSTOM_JWT`. See `authorizerConfiguration` below.
 	AuthorizerConfiguration AgentcoreGatewayAuthorizerConfigurationPtrInput
-	// Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
+	// Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`, `NONE`, `AUTHENTICATE_ONLY`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
 	AuthorizerType pulumi.StringPtrInput
 	// Description of the gateway.
 	Description pulumi.StringPtrInput
@@ -373,7 +373,7 @@ func (AgentcoreGatewayState) ElementType() reflect.Type {
 type agentcoreGatewayArgs struct {
 	// Configuration for request authorization. Required when `authorizerType` is set to `CUSTOM_JWT`. See `authorizerConfiguration` below.
 	AuthorizerConfiguration *AgentcoreGatewayAuthorizerConfiguration `pulumi:"authorizerConfiguration"`
-	// Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
+	// Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`, `NONE`, `AUTHENTICATE_ONLY`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
 	AuthorizerType string `pulumi:"authorizerType"`
 	// Description of the gateway.
 	Description *string `pulumi:"description"`
@@ -406,7 +406,7 @@ type agentcoreGatewayArgs struct {
 type AgentcoreGatewayArgs struct {
 	// Configuration for request authorization. Required when `authorizerType` is set to `CUSTOM_JWT`. See `authorizerConfiguration` below.
 	AuthorizerConfiguration AgentcoreGatewayAuthorizerConfigurationPtrInput
-	// Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
+	// Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`, `NONE`, `AUTHENTICATE_ONLY`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
 	AuthorizerType pulumi.StringInput
 	// Description of the gateway.
 	Description pulumi.StringPtrInput
@@ -529,7 +529,7 @@ func (o AgentcoreGatewayOutput) AuthorizerConfiguration() AgentcoreGatewayAuthor
 	}).(AgentcoreGatewayAuthorizerConfigurationPtrOutput)
 }
 
-// Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
+// Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`, `NONE`, `AUTHENTICATE_ONLY`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
 func (o AgentcoreGatewayOutput) AuthorizerType() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreGateway) pulumi.StringOutput { return v.AuthorizerType }).(pulumi.StringOutput)
 }

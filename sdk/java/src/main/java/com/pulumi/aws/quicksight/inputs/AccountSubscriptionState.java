@@ -62,14 +62,14 @@ public final class AccountSubscriptionState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
+     * Admin group associated with your Active Directory or IAM Identity Center account. Either this field or `adminProGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
      * 
      */
     @Import(name="adminGroups")
     private @Nullable Output<List<String>> adminGroups;
 
     /**
-     * @return Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
+     * @return Admin group associated with your Active Directory or IAM Identity Center account. Either this field or `adminProGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
      * 
      */
     public Optional<Output<List<String>>> adminGroups() {
@@ -77,14 +77,14 @@ public final class AccountSubscriptionState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Admin PRO group associated with your Active Directory or IAM Identity Center account.
+     * Admin PRO group associated with your Active Directory or IAM Identity Center account. Either this field or `adminGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
      * 
      */
     @Import(name="adminProGroups")
     private @Nullable Output<List<String>> adminProGroups;
 
     /**
-     * @return Admin PRO group associated with your Active Directory or IAM Identity Center account.
+     * @return Admin PRO group associated with your Active Directory or IAM Identity Center account. Either this field or `adminGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
      * 
      */
     public Optional<Output<List<String>>> adminProGroups() {
@@ -306,14 +306,14 @@ public final class AccountSubscriptionState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Realm of the Active Directory that is associated with your Amazon QuickSight account.
+     * Realm of the Active Directory that is associated with your Amazon QuickSight account. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
      * 
      */
     @Import(name="realm")
     private @Nullable Output<String> realm;
 
     /**
-     * @return Realm of the Active Directory that is associated with your Amazon QuickSight account.
+     * @return Realm of the Active Directory that is associated with your Amazon QuickSight account. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
      * 
      */
     public Optional<Output<String>> realm() {
@@ -443,7 +443,7 @@ public final class AccountSubscriptionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param adminGroups Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
+         * @param adminGroups Admin group associated with your Active Directory or IAM Identity Center account. Either this field or `adminProGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
          * 
          * @return builder
          * 
@@ -454,7 +454,7 @@ public final class AccountSubscriptionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param adminGroups Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
+         * @param adminGroups Admin group associated with your Active Directory or IAM Identity Center account. Either this field or `adminProGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
          * 
          * @return builder
          * 
@@ -464,7 +464,7 @@ public final class AccountSubscriptionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param adminGroups Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
+         * @param adminGroups Admin group associated with your Active Directory or IAM Identity Center account. Either this field or `adminProGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
          * 
          * @return builder
          * 
@@ -474,7 +474,7 @@ public final class AccountSubscriptionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param adminProGroups Admin PRO group associated with your Active Directory or IAM Identity Center account.
+         * @param adminProGroups Admin PRO group associated with your Active Directory or IAM Identity Center account. Either this field or `adminGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
          * 
          * @return builder
          * 
@@ -485,7 +485,7 @@ public final class AccountSubscriptionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param adminProGroups Admin PRO group associated with your Active Directory or IAM Identity Center account.
+         * @param adminProGroups Admin PRO group associated with your Active Directory or IAM Identity Center account. Either this field or `adminGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
          * 
          * @return builder
          * 
@@ -495,7 +495,7 @@ public final class AccountSubscriptionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param adminProGroups Admin PRO group associated with your Active Directory or IAM Identity Center account.
+         * @param adminProGroups Admin PRO group associated with your Active Directory or IAM Identity Center account. Either this field or `adminGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
          * 
          * @return builder
          * 
@@ -843,7 +843,7 @@ public final class AccountSubscriptionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param realm Realm of the Active Directory that is associated with your Amazon QuickSight account.
+         * @param realm Realm of the Active Directory that is associated with your Amazon QuickSight account. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
          * 
          * @return builder
          * 
@@ -854,7 +854,7 @@ public final class AccountSubscriptionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param realm Realm of the Active Directory that is associated with your Amazon QuickSight account.
+         * @param realm Realm of the Active Directory that is associated with your Amazon QuickSight account. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
          * 
          * @return builder
          * 

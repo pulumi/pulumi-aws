@@ -20,7 +20,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
      */
     private String description;
     /**
-     * @return Schema for the tool&#39;s input. See `schemaDefinition` below.
+     * @return Schema for the tool&#39;s input. See `schemaDefinition` Block below.
      * 
      */
     private AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema inputSchema;
@@ -30,7 +30,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
      */
     private String name;
     /**
-     * @return Schema for the tool&#39;s output. See `schemaDefinition` below.
+     * @return Schema for the tool&#39;s output. See `schemaDefinition` Block below.
      * 
      */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema outputSchema;
@@ -44,7 +44,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         return this.description;
     }
     /**
-     * @return Schema for the tool&#39;s input. See `schemaDefinition` below.
+     * @return Schema for the tool&#39;s input. See `schemaDefinition` Block below.
      * 
      */
     public AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema inputSchema() {
@@ -58,7 +58,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         return this.name;
     }
     /**
-     * @return Schema for the tool&#39;s output. See `schemaDefinition` below.
+     * @return Schema for the tool&#39;s output. See `schemaDefinition` Block below.
      * 
      */
     public Optional<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema> outputSchema() {

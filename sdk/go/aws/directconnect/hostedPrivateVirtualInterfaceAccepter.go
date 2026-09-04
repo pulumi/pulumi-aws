@@ -84,6 +84,10 @@ type HostedPrivateVirtualInterfaceAccepter struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ID of the Direct Connect gateway to which to connect the virtual interface.
 	DxGatewayId pulumi.StringPtrOutput `pulumi:"dxGatewayId"`
+	// The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+	PrefixPoolAllocatedCountIpv4 pulumi.IntOutput `pulumi:"prefixPoolAllocatedCountIpv4"`
+	// The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+	PrefixPoolAllocatedCountIpv6 pulumi.IntOutput `pulumi:"prefixPoolAllocatedCountIpv6"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -133,6 +137,10 @@ type hostedPrivateVirtualInterfaceAccepterState struct {
 	Arn *string `pulumi:"arn"`
 	// The ID of the Direct Connect gateway to which to connect the virtual interface.
 	DxGatewayId *string `pulumi:"dxGatewayId"`
+	// The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+	PrefixPoolAllocatedCountIpv4 *int `pulumi:"prefixPoolAllocatedCountIpv4"`
+	// The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+	PrefixPoolAllocatedCountIpv6 *int `pulumi:"prefixPoolAllocatedCountIpv6"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -150,6 +158,10 @@ type HostedPrivateVirtualInterfaceAccepterState struct {
 	Arn pulumi.StringPtrInput
 	// The ID of the Direct Connect gateway to which to connect the virtual interface.
 	DxGatewayId pulumi.StringPtrInput
+	// The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+	PrefixPoolAllocatedCountIpv4 pulumi.IntPtrInput
+	// The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+	PrefixPoolAllocatedCountIpv6 pulumi.IntPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -169,6 +181,10 @@ func (HostedPrivateVirtualInterfaceAccepterState) ElementType() reflect.Type {
 type hostedPrivateVirtualInterfaceAccepterArgs struct {
 	// The ID of the Direct Connect gateway to which to connect the virtual interface.
 	DxGatewayId *string `pulumi:"dxGatewayId"`
+	// The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+	PrefixPoolAllocatedCountIpv4 *int `pulumi:"prefixPoolAllocatedCountIpv4"`
+	// The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+	PrefixPoolAllocatedCountIpv6 *int `pulumi:"prefixPoolAllocatedCountIpv6"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -183,6 +199,10 @@ type hostedPrivateVirtualInterfaceAccepterArgs struct {
 type HostedPrivateVirtualInterfaceAccepterArgs struct {
 	// The ID of the Direct Connect gateway to which to connect the virtual interface.
 	DxGatewayId pulumi.StringPtrInput
+	// The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+	PrefixPoolAllocatedCountIpv4 pulumi.IntPtrInput
+	// The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+	PrefixPoolAllocatedCountIpv6 pulumi.IntPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -288,6 +308,16 @@ func (o HostedPrivateVirtualInterfaceAccepterOutput) Arn() pulumi.StringOutput {
 // The ID of the Direct Connect gateway to which to connect the virtual interface.
 func (o HostedPrivateVirtualInterfaceAccepterOutput) DxGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostedPrivateVirtualInterfaceAccepter) pulumi.StringPtrOutput { return v.DxGatewayId }).(pulumi.StringPtrOutput)
+}
+
+// The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+func (o HostedPrivateVirtualInterfaceAccepterOutput) PrefixPoolAllocatedCountIpv4() pulumi.IntOutput {
+	return o.ApplyT(func(v *HostedPrivateVirtualInterfaceAccepter) pulumi.IntOutput { return v.PrefixPoolAllocatedCountIpv4 }).(pulumi.IntOutput)
+}
+
+// The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+func (o HostedPrivateVirtualInterfaceAccepterOutput) PrefixPoolAllocatedCountIpv6() pulumi.IntOutput {
+	return o.ApplyT(func(v *HostedPrivateVirtualInterfaceAccepter) pulumi.IntOutput { return v.PrefixPoolAllocatedCountIpv6 }).(pulumi.IntOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

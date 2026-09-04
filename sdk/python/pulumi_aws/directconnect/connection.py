@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ConnectionArgs', 'Connection']
 
@@ -186,7 +188,12 @@ class _ConnectionState:
                  owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  partner_name: pulumi.Input[Optional[_builtins.str]] = None,
                  port_encryption_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_pool_size_ipv4: pulumi.Input[Optional[_builtins.int]] = None,
+                 prefix_pool_size_ipv6: pulumi.Input[Optional[_builtins.int]] = None,
+                 prefix_pool_unallocated_count_ipv4: pulumi.Input[Optional[_builtins.int]] = None,
+                 prefix_pool_unallocated_count_ipv6: pulumi.Input[Optional[_builtins.int]] = None,
                  provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rate_limiter_statuses: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionRateLimiterStatusArgs']]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  request_macsec: pulumi.Input[Optional[_builtins.bool]] = None,
                  skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -209,7 +216,12 @@ class _ConnectionState:
         :param pulumi.Input[_builtins.str] owner_account_id: The ID of the AWS account that owns the connection.
         :param pulumi.Input[_builtins.str] partner_name: The name of the AWS Direct Connect service provider associated with the connection.
         :param pulumi.Input[_builtins.str] port_encryption_status: The MAC Security (MACsec) port link status of the connection.
+        :param pulumi.Input[_builtins.int] prefix_pool_size_ipv4: The total number of inbound IPv4 route prefixes that can be allocated across the virtual interfaces on the connection.
+        :param pulumi.Input[_builtins.int] prefix_pool_size_ipv6: The total number of inbound IPv6 route prefixes that can be allocated across the virtual interfaces on the connection.
+        :param pulumi.Input[_builtins.int] prefix_pool_unallocated_count_ipv4: The number of inbound IPv4 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+        :param pulumi.Input[_builtins.int] prefix_pool_unallocated_count_ipv6: The number of inbound IPv6 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
         :param pulumi.Input[_builtins.str] provider_name: The name of the service provider associated with the connection.
+        :param pulumi.Input[Sequence[pulumi.Input['ConnectionRateLimiterStatusArgs']]] rate_limiter_statuses: Rate limiter status for the connection. See `rate_limiter_status` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] request_macsec: Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
                
@@ -244,8 +256,18 @@ class _ConnectionState:
             pulumi.set(__self__, "partner_name", partner_name)
         if port_encryption_status is not None:
             pulumi.set(__self__, "port_encryption_status", port_encryption_status)
+        if prefix_pool_size_ipv4 is not None:
+            pulumi.set(__self__, "prefix_pool_size_ipv4", prefix_pool_size_ipv4)
+        if prefix_pool_size_ipv6 is not None:
+            pulumi.set(__self__, "prefix_pool_size_ipv6", prefix_pool_size_ipv6)
+        if prefix_pool_unallocated_count_ipv4 is not None:
+            pulumi.set(__self__, "prefix_pool_unallocated_count_ipv4", prefix_pool_unallocated_count_ipv4)
+        if prefix_pool_unallocated_count_ipv6 is not None:
+            pulumi.set(__self__, "prefix_pool_unallocated_count_ipv6", prefix_pool_unallocated_count_ipv6)
         if provider_name is not None:
             pulumi.set(__self__, "provider_name", provider_name)
+        if rate_limiter_statuses is not None:
+            pulumi.set(__self__, "rate_limiter_statuses", rate_limiter_statuses)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if request_macsec is not None:
@@ -406,6 +428,54 @@ class _ConnectionState:
         pulumi.set(self, "port_encryption_status", value)
 
     @_builtins.property
+    @pulumi.getter(name="prefixPoolSizeIpv4")
+    def prefix_pool_size_ipv4(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The total number of inbound IPv4 route prefixes that can be allocated across the virtual interfaces on the connection.
+        """
+        return pulumi.get(self, "prefix_pool_size_ipv4")
+
+    @prefix_pool_size_ipv4.setter
+    def prefix_pool_size_ipv4(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "prefix_pool_size_ipv4", value)
+
+    @_builtins.property
+    @pulumi.getter(name="prefixPoolSizeIpv6")
+    def prefix_pool_size_ipv6(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The total number of inbound IPv6 route prefixes that can be allocated across the virtual interfaces on the connection.
+        """
+        return pulumi.get(self, "prefix_pool_size_ipv6")
+
+    @prefix_pool_size_ipv6.setter
+    def prefix_pool_size_ipv6(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "prefix_pool_size_ipv6", value)
+
+    @_builtins.property
+    @pulumi.getter(name="prefixPoolUnallocatedCountIpv4")
+    def prefix_pool_unallocated_count_ipv4(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The number of inbound IPv4 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+        """
+        return pulumi.get(self, "prefix_pool_unallocated_count_ipv4")
+
+    @prefix_pool_unallocated_count_ipv4.setter
+    def prefix_pool_unallocated_count_ipv4(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "prefix_pool_unallocated_count_ipv4", value)
+
+    @_builtins.property
+    @pulumi.getter(name="prefixPoolUnallocatedCountIpv6")
+    def prefix_pool_unallocated_count_ipv6(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The number of inbound IPv6 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+        """
+        return pulumi.get(self, "prefix_pool_unallocated_count_ipv6")
+
+    @prefix_pool_unallocated_count_ipv6.setter
+    def prefix_pool_unallocated_count_ipv6(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "prefix_pool_unallocated_count_ipv6", value)
+
+    @_builtins.property
     @pulumi.getter(name="providerName")
     def provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -416,6 +486,18 @@ class _ConnectionState:
     @provider_name.setter
     def provider_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rateLimiterStatuses")
+    def rate_limiter_statuses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionRateLimiterStatusArgs']]]]:
+        """
+        Rate limiter status for the connection. See `rate_limiter_status` Block below.
+        """
+        return pulumi.get(self, "rate_limiter_statuses")
+
+    @rate_limiter_statuses.setter
+    def rate_limiter_statuses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionRateLimiterStatusArgs']]]]):
+        pulumi.set(self, "rate_limiter_statuses", value)
 
     @_builtins.property
     @pulumi.getter
@@ -704,6 +786,11 @@ class Connection(pulumi.CustomResource):
             __props__.__dict__["owner_account_id"] = None
             __props__.__dict__["partner_name"] = None
             __props__.__dict__["port_encryption_status"] = None
+            __props__.__dict__["prefix_pool_size_ipv4"] = None
+            __props__.__dict__["prefix_pool_size_ipv6"] = None
+            __props__.__dict__["prefix_pool_unallocated_count_ipv4"] = None
+            __props__.__dict__["prefix_pool_unallocated_count_ipv6"] = None
+            __props__.__dict__["rate_limiter_statuses"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["vlan_id"] = None
@@ -729,7 +816,12 @@ class Connection(pulumi.CustomResource):
             owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
             partner_name: pulumi.Input[Optional[_builtins.str]] = None,
             port_encryption_status: pulumi.Input[Optional[_builtins.str]] = None,
+            prefix_pool_size_ipv4: pulumi.Input[Optional[_builtins.int]] = None,
+            prefix_pool_size_ipv6: pulumi.Input[Optional[_builtins.int]] = None,
+            prefix_pool_unallocated_count_ipv4: pulumi.Input[Optional[_builtins.int]] = None,
+            prefix_pool_unallocated_count_ipv6: pulumi.Input[Optional[_builtins.int]] = None,
             provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+            rate_limiter_statuses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectionRateLimiterStatusArgs', 'ConnectionRateLimiterStatusArgsDict']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             request_macsec: pulumi.Input[Optional[_builtins.bool]] = None,
             skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -756,7 +848,12 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] owner_account_id: The ID of the AWS account that owns the connection.
         :param pulumi.Input[_builtins.str] partner_name: The name of the AWS Direct Connect service provider associated with the connection.
         :param pulumi.Input[_builtins.str] port_encryption_status: The MAC Security (MACsec) port link status of the connection.
+        :param pulumi.Input[_builtins.int] prefix_pool_size_ipv4: The total number of inbound IPv4 route prefixes that can be allocated across the virtual interfaces on the connection.
+        :param pulumi.Input[_builtins.int] prefix_pool_size_ipv6: The total number of inbound IPv6 route prefixes that can be allocated across the virtual interfaces on the connection.
+        :param pulumi.Input[_builtins.int] prefix_pool_unallocated_count_ipv4: The number of inbound IPv4 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+        :param pulumi.Input[_builtins.int] prefix_pool_unallocated_count_ipv6: The number of inbound IPv6 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
         :param pulumi.Input[_builtins.str] provider_name: The name of the service provider associated with the connection.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectionRateLimiterStatusArgs', 'ConnectionRateLimiterStatusArgsDict']]]] rate_limiter_statuses: Rate limiter status for the connection. See `rate_limiter_status` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] request_macsec: Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
                
@@ -783,7 +880,12 @@ class Connection(pulumi.CustomResource):
         __props__.__dict__["owner_account_id"] = owner_account_id
         __props__.__dict__["partner_name"] = partner_name
         __props__.__dict__["port_encryption_status"] = port_encryption_status
+        __props__.__dict__["prefix_pool_size_ipv4"] = prefix_pool_size_ipv4
+        __props__.__dict__["prefix_pool_size_ipv6"] = prefix_pool_size_ipv6
+        __props__.__dict__["prefix_pool_unallocated_count_ipv4"] = prefix_pool_unallocated_count_ipv4
+        __props__.__dict__["prefix_pool_unallocated_count_ipv6"] = prefix_pool_unallocated_count_ipv6
         __props__.__dict__["provider_name"] = provider_name
+        __props__.__dict__["rate_limiter_statuses"] = rate_limiter_statuses
         __props__.__dict__["region"] = region
         __props__.__dict__["request_macsec"] = request_macsec
         __props__.__dict__["skip_destroy"] = skip_destroy
@@ -890,12 +992,52 @@ class Connection(pulumi.CustomResource):
         return pulumi.get(self, "port_encryption_status")
 
     @_builtins.property
+    @pulumi.getter(name="prefixPoolSizeIpv4")
+    def prefix_pool_size_ipv4(self) -> pulumi.Output[_builtins.int]:
+        """
+        The total number of inbound IPv4 route prefixes that can be allocated across the virtual interfaces on the connection.
+        """
+        return pulumi.get(self, "prefix_pool_size_ipv4")
+
+    @_builtins.property
+    @pulumi.getter(name="prefixPoolSizeIpv6")
+    def prefix_pool_size_ipv6(self) -> pulumi.Output[_builtins.int]:
+        """
+        The total number of inbound IPv6 route prefixes that can be allocated across the virtual interfaces on the connection.
+        """
+        return pulumi.get(self, "prefix_pool_size_ipv6")
+
+    @_builtins.property
+    @pulumi.getter(name="prefixPoolUnallocatedCountIpv4")
+    def prefix_pool_unallocated_count_ipv4(self) -> pulumi.Output[_builtins.int]:
+        """
+        The number of inbound IPv4 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+        """
+        return pulumi.get(self, "prefix_pool_unallocated_count_ipv4")
+
+    @_builtins.property
+    @pulumi.getter(name="prefixPoolUnallocatedCountIpv6")
+    def prefix_pool_unallocated_count_ipv6(self) -> pulumi.Output[_builtins.int]:
+        """
+        The number of inbound IPv6 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+        """
+        return pulumi.get(self, "prefix_pool_unallocated_count_ipv6")
+
+    @_builtins.property
     @pulumi.getter(name="providerName")
     def provider_name(self) -> pulumi.Output[_builtins.str]:
         """
         The name of the service provider associated with the connection.
         """
         return pulumi.get(self, "provider_name")
+
+    @_builtins.property
+    @pulumi.getter(name="rateLimiterStatuses")
+    def rate_limiter_statuses(self) -> pulumi.Output[Sequence['outputs.ConnectionRateLimiterStatus']]:
+        """
+        Rate limiter status for the connection. See `rate_limiter_status` Block below.
+        """
+        return pulumi.get(self, "rate_limiter_statuses")
 
     @_builtins.property
     @pulumi.getter

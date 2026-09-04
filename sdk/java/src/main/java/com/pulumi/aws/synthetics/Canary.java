@@ -194,6 +194,20 @@ public class Canary extends com.pulumi.resources.CustomResource {
         return this.handler;
     }
     /**
+     * ARN of the customer-managed KMS key used to encrypt the environment variables of the canary&#39;s Lambda function at rest. If omitted, an AWS owned key is used. Note that this is distinct from `artifact_config.s3_encryption.kms_key_arn`, which encrypts the artifacts the canary uploads to Amazon S3.
+     * 
+     */
+    @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> kmsKeyArn;
+
+    /**
+     * @return ARN of the customer-managed KMS key used to encrypt the environment variables of the canary&#39;s Lambda function at rest. If omitted, an AWS owned key is used. Note that this is distinct from `artifact_config.s3_encryption.kms_key_arn`, which encrypts the artifacts the canary uploads to Amazon S3.
+     * 
+     */
+    public Output<Optional<String>> kmsKeyArn() {
+        return Codegen.optional(this.kmsKeyArn);
+    }
+    /**
      * Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
      * 
      */

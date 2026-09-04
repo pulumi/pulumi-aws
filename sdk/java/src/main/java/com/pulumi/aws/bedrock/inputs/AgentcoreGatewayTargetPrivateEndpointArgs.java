@@ -17,14 +17,14 @@ public final class AgentcoreGatewayTargetPrivateEndpointArgs extends com.pulumi.
     public static final AgentcoreGatewayTargetPrivateEndpointArgs Empty = new AgentcoreGatewayTargetPrivateEndpointArgs();
 
     /**
-     * AWS creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role. See `managedVpcResource` below.
+     * AWS creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role. See `managedVpcResource` Block below.
      * 
      */
     @Import(name="managedVpcResource")
     private @Nullable Output<AgentcoreGatewayTargetPrivateEndpointManagedVpcResourceArgs> managedVpcResource;
 
     /**
-     * @return AWS creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role. See `managedVpcResource` below.
+     * @return AWS creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role. See `managedVpcResource` Block below.
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetPrivateEndpointManagedVpcResourceArgs>> managedVpcResource() {
@@ -32,14 +32,14 @@ public final class AgentcoreGatewayTargetPrivateEndpointArgs extends com.pulumi.
     }
 
     /**
-     * Use an existing VPC Lattice resource configuration that you manage yourself. Useful for cross-account setups or advanced Lattice configurations. See `selfManagedLatticeResource` below.
+     * Use an existing VPC Lattice resource configuration that you manage yourself. Useful for cross-account setups or advanced Lattice configurations. See `selfManagedLatticeResource` Block below.
      * 
      */
     @Import(name="selfManagedLatticeResource")
     private @Nullable Output<AgentcoreGatewayTargetPrivateEndpointSelfManagedLatticeResourceArgs> selfManagedLatticeResource;
 
     /**
-     * @return Use an existing VPC Lattice resource configuration that you manage yourself. Useful for cross-account setups or advanced Lattice configurations. See `selfManagedLatticeResource` below.
+     * @return Use an existing VPC Lattice resource configuration that you manage yourself. Useful for cross-account setups or advanced Lattice configurations. See `selfManagedLatticeResource` Block below.
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetPrivateEndpointSelfManagedLatticeResourceArgs>> selfManagedLatticeResource() {
@@ -72,7 +72,7 @@ public final class AgentcoreGatewayTargetPrivateEndpointArgs extends com.pulumi.
         }
 
         /**
-         * @param managedVpcResource AWS creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role. See `managedVpcResource` below.
+         * @param managedVpcResource AWS creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role. See `managedVpcResource` Block below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AgentcoreGatewayTargetPrivateEndpointArgs extends com.pulumi.
         }
 
         /**
-         * @param managedVpcResource AWS creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role. See `managedVpcResource` below.
+         * @param managedVpcResource AWS creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role. See `managedVpcResource` Block below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class AgentcoreGatewayTargetPrivateEndpointArgs extends com.pulumi.
         }
 
         /**
-         * @param selfManagedLatticeResource Use an existing VPC Lattice resource configuration that you manage yourself. Useful for cross-account setups or advanced Lattice configurations. See `selfManagedLatticeResource` below.
+         * @param selfManagedLatticeResource Use an existing VPC Lattice resource configuration that you manage yourself. Useful for cross-account setups or advanced Lattice configurations. See `selfManagedLatticeResource` Block below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AgentcoreGatewayTargetPrivateEndpointArgs extends com.pulumi.
         }
 
         /**
-         * @param selfManagedLatticeResource Use an existing VPC Lattice resource configuration that you manage yourself. Useful for cross-account setups or advanced Lattice configurations. See `selfManagedLatticeResource` below.
+         * @param selfManagedLatticeResource Use an existing VPC Lattice resource configuration that you manage yourself. Useful for cross-account setups or advanced Lattice configurations. See `selfManagedLatticeResource` Block below.
          * 
          * @return builder
          * 

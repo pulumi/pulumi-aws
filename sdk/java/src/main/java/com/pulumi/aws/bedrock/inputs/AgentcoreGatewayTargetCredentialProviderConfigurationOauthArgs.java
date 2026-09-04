@@ -34,14 +34,14 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationOauthArg
     }
 
     /**
-     * The URL where the end user&#39;s browser is redirected after obtaining the authorization code. Required when `grantType` is `AUTHORIZATION_CODE`.
+     * URL where the end user&#39;s browser is redirected after obtaining the authorization code. Required when `grantType` is `AUTHORIZATION_CODE`.
      * 
      */
     @Import(name="defaultReturnUrl")
     private @Nullable Output<String> defaultReturnUrl;
 
     /**
-     * @return The URL where the end user&#39;s browser is redirected after obtaining the authorization code. Required when `grantType` is `AUTHORIZATION_CODE`.
+     * @return URL where the end user&#39;s browser is redirected after obtaining the authorization code. Required when `grantType` is `AUTHORIZATION_CODE`.
      * 
      */
     public Optional<Output<String>> defaultReturnUrl() {
@@ -49,14 +49,14 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationOauthArg
     }
 
     /**
-     * The OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+     * OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
      * 
      */
     @Import(name="grantType")
     private @Nullable Output<String> grantType;
 
     /**
-     * @return The OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+     * @return OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
      * 
      */
     public Optional<Output<String>> grantType() {
@@ -143,7 +143,7 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationOauthArg
         }
 
         /**
-         * @param defaultReturnUrl The URL where the end user&#39;s browser is redirected after obtaining the authorization code. Required when `grantType` is `AUTHORIZATION_CODE`.
+         * @param defaultReturnUrl URL where the end user&#39;s browser is redirected after obtaining the authorization code. Required when `grantType` is `AUTHORIZATION_CODE`.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationOauthArg
         }
 
         /**
-         * @param defaultReturnUrl The URL where the end user&#39;s browser is redirected after obtaining the authorization code. Required when `grantType` is `AUTHORIZATION_CODE`.
+         * @param defaultReturnUrl URL where the end user&#39;s browser is redirected after obtaining the authorization code. Required when `grantType` is `AUTHORIZATION_CODE`.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationOauthArg
         }
 
         /**
-         * @param grantType The OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+         * @param grantType OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationOauthArg
         }
 
         /**
-         * @param grantType The OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+         * @param grantType OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
          * 
          * @return builder
          * 

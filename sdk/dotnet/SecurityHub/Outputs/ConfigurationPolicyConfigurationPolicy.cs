@@ -18,7 +18,7 @@ namespace Pulumi.Aws.SecurityHub.Outputs
         /// </summary>
         public readonly ImmutableArray<string> EnabledStandardArns;
         /// <summary>
-        /// Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
+        /// Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. It must be defined if `ServiceEnabled` is set to true. See below.
         /// </summary>
         public readonly Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration? SecurityControlsConfiguration;
         /// <summary>

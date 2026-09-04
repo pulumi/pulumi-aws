@@ -81,6 +81,12 @@ type HostedTransitVirtualInterface struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The AWS account that will own the new virtual interface.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
+	// The number of inbound IPv4 route prefixes allocated to the virtual interface.
+	PrefixPoolAllocatedCountIpv4 pulumi.IntOutput `pulumi:"prefixPoolAllocatedCountIpv4"`
+	// The number of inbound IPv6 route prefixes allocated to the virtual interface.
+	PrefixPoolAllocatedCountIpv6 pulumi.IntOutput `pulumi:"prefixPoolAllocatedCountIpv6"`
+	// Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Changing this forces a new resource to be created. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+	RateLimit pulumi.StringOutput `pulumi:"rateLimit"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The VLAN ID.
@@ -157,6 +163,12 @@ type hostedTransitVirtualInterfaceState struct {
 	Name *string `pulumi:"name"`
 	// The AWS account that will own the new virtual interface.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
+	// The number of inbound IPv4 route prefixes allocated to the virtual interface.
+	PrefixPoolAllocatedCountIpv4 *int `pulumi:"prefixPoolAllocatedCountIpv4"`
+	// The number of inbound IPv6 route prefixes allocated to the virtual interface.
+	PrefixPoolAllocatedCountIpv6 *int `pulumi:"prefixPoolAllocatedCountIpv6"`
+	// Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Changing this forces a new resource to be created. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+	RateLimit *string `pulumi:"rateLimit"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The VLAN ID.
@@ -189,6 +201,12 @@ type HostedTransitVirtualInterfaceState struct {
 	Name pulumi.StringPtrInput
 	// The AWS account that will own the new virtual interface.
 	OwnerAccountId pulumi.StringPtrInput
+	// The number of inbound IPv4 route prefixes allocated to the virtual interface.
+	PrefixPoolAllocatedCountIpv4 pulumi.IntPtrInput
+	// The number of inbound IPv6 route prefixes allocated to the virtual interface.
+	PrefixPoolAllocatedCountIpv6 pulumi.IntPtrInput
+	// Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Changing this forces a new resource to be created. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+	RateLimit pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The VLAN ID.
@@ -218,6 +236,8 @@ type hostedTransitVirtualInterfaceArgs struct {
 	Name *string `pulumi:"name"`
 	// The AWS account that will own the new virtual interface.
 	OwnerAccountId string `pulumi:"ownerAccountId"`
+	// Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Changing this forces a new resource to be created. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+	RateLimit *string `pulumi:"rateLimit"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The VLAN ID.
@@ -244,6 +264,8 @@ type HostedTransitVirtualInterfaceArgs struct {
 	Name pulumi.StringPtrInput
 	// The AWS account that will own the new virtual interface.
 	OwnerAccountId pulumi.StringInput
+	// Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Changing this forces a new resource to be created. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+	RateLimit pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The VLAN ID.
@@ -399,6 +421,21 @@ func (o HostedTransitVirtualInterfaceOutput) Name() pulumi.StringOutput {
 // The AWS account that will own the new virtual interface.
 func (o HostedTransitVirtualInterfaceOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedTransitVirtualInterface) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
+}
+
+// The number of inbound IPv4 route prefixes allocated to the virtual interface.
+func (o HostedTransitVirtualInterfaceOutput) PrefixPoolAllocatedCountIpv4() pulumi.IntOutput {
+	return o.ApplyT(func(v *HostedTransitVirtualInterface) pulumi.IntOutput { return v.PrefixPoolAllocatedCountIpv4 }).(pulumi.IntOutput)
+}
+
+// The number of inbound IPv6 route prefixes allocated to the virtual interface.
+func (o HostedTransitVirtualInterfaceOutput) PrefixPoolAllocatedCountIpv6() pulumi.IntOutput {
+	return o.ApplyT(func(v *HostedTransitVirtualInterface) pulumi.IntOutput { return v.PrefixPoolAllocatedCountIpv6 }).(pulumi.IntOutput)
+}
+
+// Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Changing this forces a new resource to be created. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+func (o HostedTransitVirtualInterfaceOutput) RateLimit() pulumi.StringOutput {
+	return o.ApplyT(func(v *HostedTransitVirtualInterface) pulumi.StringOutput { return v.RateLimit }).(pulumi.StringOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

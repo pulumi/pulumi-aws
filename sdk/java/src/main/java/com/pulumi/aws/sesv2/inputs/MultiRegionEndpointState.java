@@ -100,14 +100,14 @@ public final class MultiRegionEndpointState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * List of active routes. See `routes` below.
+     * List of active routes. See `routes` Block below.
      * 
      */
     @Import(name="routes")
     private @Nullable Output<List<MultiRegionEndpointRouteArgs>> routes;
 
     /**
-     * @return List of active routes. See `routes` below.
+     * @return List of active routes. See `routes` Block below.
      * 
      */
     public Optional<Output<List<MultiRegionEndpointRouteArgs>>> routes() {
@@ -293,7 +293,7 @@ public final class MultiRegionEndpointState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param routes List of active routes. See `routes` below.
+         * @param routes List of active routes. See `routes` Block below.
          * 
          * @return builder
          * 
@@ -304,7 +304,7 @@ public final class MultiRegionEndpointState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param routes List of active routes. See `routes` below.
+         * @param routes List of active routes. See `routes` Block below.
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class MultiRegionEndpointState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param routes List of active routes. See `routes` below.
+         * @param routes List of active routes. See `routes` Block below.
          * 
          * @return builder
          * 

@@ -14,38 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RoutingRuleActionInvokeApi {
     /**
-     * @return Action to invoke a stage of a target API. Only REST APIs are supported.
+     * @return API identifier of the target API.
      * 
      */
     private String apiId;
     /**
-     * @return Action to invoke a stage of a target API. Only REST APIs are supported.
+     * @return Name of the target stage.
      * 
      */
     private String stage;
     /**
-     * @return Action to invoke a stage of a target API. Only REST APIs are supported.
+     * @return Whether to strip the base path when forwarding the request to the target API.
      * 
      */
     private @Nullable Boolean stripBasePath;
 
     private RoutingRuleActionInvokeApi() {}
     /**
-     * @return Action to invoke a stage of a target API. Only REST APIs are supported.
+     * @return API identifier of the target API.
      * 
      */
     public String apiId() {
         return this.apiId;
     }
     /**
-     * @return Action to invoke a stage of a target API. Only REST APIs are supported.
+     * @return Name of the target stage.
      * 
      */
     public String stage() {
         return this.stage;
     }
     /**
-     * @return Action to invoke a stage of a target API. Only REST APIs are supported.
+     * @return Whether to strip the base path when forwarding the request to the target API.
      * 
      */
     public Optional<Boolean> stripBasePath() {

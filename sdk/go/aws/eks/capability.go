@@ -16,6 +16,8 @@ import (
 //
 // ## Example Usage
 //
+// ### Basic Usage
+//
 // ```go
 // package main
 //
@@ -45,6 +47,69 @@ import (
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example-capability"),
 //				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Controller Log Delivery
+//
+// Capability controllers run in AWS-managed infrastructure outside your cluster, and their logs are exposed through [CloudWatch Vended Logs](https://docs.aws.amazon.com/eks/latest/userguide/capabilities-controller-logs.html) rather than the EKS API. Configure delivery with the `cloudwatch.LogDeliverySource`, `cloudwatch.LogDeliveryDestination`, and `cloudwatch.LogDelivery` resources, using the capability ARN as the source. Valid log types are `EKS_CAPABILITY_ACK_LOGS` (ACK), `EKS_CAPABILITY_KRO_LOGS` (kro), and `EKS_CAPABILITY_ARGOCD_APPLICATION_LOGS`, `EKS_CAPABILITY_ARGOCD_APPLICATIONSET_LOGS`, `EKS_CAPABILITY_ARGOCD_COMMITSERVER_LOGS`, `EKS_CAPABILITY_ARGOCD_REPOSERVER_LOGS`, and `EKS_CAPABILITY_ARGOCD_SERVER_LOGS` (Argo CD, one per controller component).
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/eks"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := eks.NewCapability(ctx, "example", &eks.CapabilityArgs{
+//				ClusterName:             pulumi.Any(exampleAwsEksCluster.Name),
+//				CapabilityName:          pulumi.String("ack"),
+//				Type:                    pulumi.String("ACK"),
+//				RoleArn:                 pulumi.Any(exampleAwsIamRole.Arn),
+//				DeletePropagationPolicy: pulumi.String("RETAIN"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ack, err := cloudwatch.NewLogGroup(ctx, "ack", &cloudwatch.LogGroupArgs{
+//				Name: pulumi.String("/aws/eks/example/capabilities/ack"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ackLogDeliverySource, err := cloudwatch.NewLogDeliverySource(ctx, "ack", &cloudwatch.LogDeliverySourceArgs{
+//				Name:        pulumi.String("eks-capability-ack-logs"),
+//				LogType:     pulumi.String("EKS_CAPABILITY_ACK_LOGS"),
+//				ResourceArn: example.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ackLogDeliveryDestination, err := cloudwatch.NewLogDeliveryDestination(ctx, "ack", &cloudwatch.LogDeliveryDestinationArgs{
+//				DeliveryDestinationConfiguration: &cloudwatch.LogDeliveryDestinationDeliveryDestinationConfigurationArgs{
+//					DestinationResourceArn: ack.Arn,
+//				},
+//				Name: pulumi.String("eks-capability-ack-logs"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudwatch.NewLogDelivery(ctx, "ack", &cloudwatch.LogDeliveryArgs{
+//				DeliverySourceName:     ackLogDeliverySource.Name,
+//				DeliveryDestinationArn: ackLogDeliveryDestination.Arn,
 //			})
 //			if err != nil {
 //				return err

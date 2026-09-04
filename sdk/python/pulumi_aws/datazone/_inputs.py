@@ -45,6 +45,52 @@ __all__ = [
     'GlossaryTermTermRelationsArgsDict',
     'GlossaryTermTimeoutsArgs',
     'GlossaryTermTimeoutsArgsDict',
+    'PolicyGrantDetailArgs',
+    'PolicyGrantDetailArgsDict',
+    'PolicyGrantDetailAddToProjectMemberPoolArgs',
+    'PolicyGrantDetailAddToProjectMemberPoolArgsDict',
+    'PolicyGrantDetailCreateAssetTypeArgs',
+    'PolicyGrantDetailCreateAssetTypeArgsDict',
+    'PolicyGrantDetailCreateDomainUnitArgs',
+    'PolicyGrantDetailCreateDomainUnitArgsDict',
+    'PolicyGrantDetailCreateEnvironmentArgs',
+    'PolicyGrantDetailCreateEnvironmentArgsDict',
+    'PolicyGrantDetailCreateEnvironmentFromBlueprintArgs',
+    'PolicyGrantDetailCreateEnvironmentFromBlueprintArgsDict',
+    'PolicyGrantDetailCreateEnvironmentProfileArgs',
+    'PolicyGrantDetailCreateEnvironmentProfileArgsDict',
+    'PolicyGrantDetailCreateFormTypeArgs',
+    'PolicyGrantDetailCreateFormTypeArgsDict',
+    'PolicyGrantDetailCreateGlossaryArgs',
+    'PolicyGrantDetailCreateGlossaryArgsDict',
+    'PolicyGrantDetailCreateProjectArgs',
+    'PolicyGrantDetailCreateProjectArgsDict',
+    'PolicyGrantDetailCreateProjectFromProjectProfileArgs',
+    'PolicyGrantDetailCreateProjectFromProjectProfileArgsDict',
+    'PolicyGrantDetailDelegateCreateEnvironmentProfileArgs',
+    'PolicyGrantDetailDelegateCreateEnvironmentProfileArgsDict',
+    'PolicyGrantDetailOverrideDomainUnitOwnersArgs',
+    'PolicyGrantDetailOverrideDomainUnitOwnersArgsDict',
+    'PolicyGrantDetailOverrideProjectOwnersArgs',
+    'PolicyGrantDetailOverrideProjectOwnersArgsDict',
+    'PolicyGrantDetailUseAssetTypeArgs',
+    'PolicyGrantDetailUseAssetTypeArgsDict',
+    'PolicyGrantPrincipalArgs',
+    'PolicyGrantPrincipalArgsDict',
+    'PolicyGrantPrincipalDomainUnitArgs',
+    'PolicyGrantPrincipalDomainUnitArgsDict',
+    'PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterArgs',
+    'PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterArgsDict',
+    'PolicyGrantPrincipalGroupArgs',
+    'PolicyGrantPrincipalGroupArgsDict',
+    'PolicyGrantPrincipalProjectArgs',
+    'PolicyGrantPrincipalProjectArgsDict',
+    'PolicyGrantPrincipalProjectDomainUnitFilterArgs',
+    'PolicyGrantPrincipalProjectDomainUnitFilterArgsDict',
+    'PolicyGrantPrincipalUserArgs',
+    'PolicyGrantPrincipalUserArgsDict',
+    'PolicyGrantPrincipalUserAllUsersGrantFilterArgs',
+    'PolicyGrantPrincipalUserAllUsersGrantFilterArgsDict',
     'ProjectFailureReasonArgs',
     'ProjectFailureReasonArgsDict',
     'ProjectTimeoutsArgs',
@@ -753,6 +799,1029 @@ class GlossaryTermTimeoutsArgs:
     @create.setter
     def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
+
+
+class PolicyGrantDetailArgsDict(TypedDict):
+    add_to_project_member_pool: NotRequired[pulumi.Input[Optional['PolicyGrantDetailAddToProjectMemberPoolArgsDict']]]
+    """
+    Configuration for the `ADD_TO_PROJECT_MEMBER_POOL` policy type. See `add_to_project_member_pool` Block below.
+    """
+    create_asset_type: NotRequired[pulumi.Input[Optional['PolicyGrantDetailCreateAssetTypeArgsDict']]]
+    """
+    Configuration for the `CREATE_ASSET_TYPE` policy type. See `create_asset_type` Block below.
+    """
+    create_domain_unit: NotRequired[pulumi.Input[Optional['PolicyGrantDetailCreateDomainUnitArgsDict']]]
+    """
+    Configuration for the `CREATE_DOMAIN_UNIT` policy type. See `create_domain_unit` Block below.
+    """
+    create_environment: NotRequired[pulumi.Input[Optional['PolicyGrantDetailCreateEnvironmentArgsDict']]]
+    """
+    Configuration for the `CREATE_ENVIRONMENT` policy type. Empty block.
+    """
+    create_environment_from_blueprint: NotRequired[pulumi.Input[Optional['PolicyGrantDetailCreateEnvironmentFromBlueprintArgsDict']]]
+    """
+    Configuration for the `CREATE_ENVIRONMENT_FROM_BLUEPRINT` policy type. Empty block.
+    """
+    create_environment_profile: NotRequired[pulumi.Input[Optional['PolicyGrantDetailCreateEnvironmentProfileArgsDict']]]
+    """
+    Configuration for the `CREATE_ENVIRONMENT_PROFILE` policy type. See `create_environment_profile` Block below.
+    """
+    create_form_type: NotRequired[pulumi.Input[Optional['PolicyGrantDetailCreateFormTypeArgsDict']]]
+    """
+    Configuration for the `CREATE_FORM_TYPE` policy type. See `create_form_type` Block below.
+    """
+    create_glossary: NotRequired[pulumi.Input[Optional['PolicyGrantDetailCreateGlossaryArgsDict']]]
+    """
+    Configuration for the `CREATE_GLOSSARY` policy type. See `create_glossary` Block below.
+    """
+    create_project: NotRequired[pulumi.Input[Optional['PolicyGrantDetailCreateProjectArgsDict']]]
+    """
+    Configuration for the `CREATE_PROJECT` policy type. See `create_project` Block below.
+    """
+    create_project_from_project_profile: NotRequired[pulumi.Input[Optional['PolicyGrantDetailCreateProjectFromProjectProfileArgsDict']]]
+    """
+    Configuration for the `CREATE_PROJECT_FROM_PROJECT_PROFILE` policy type. See `create_project_from_project_profile` Block below.
+    """
+    delegate_create_environment_profile: NotRequired[pulumi.Input[Optional['PolicyGrantDetailDelegateCreateEnvironmentProfileArgsDict']]]
+    """
+    Configuration for the `DELEGATE_CREATE_ENVIRONMENT_PROFILE` policy type. Empty block.
+    """
+    override_domain_unit_owners: NotRequired[pulumi.Input[Optional['PolicyGrantDetailOverrideDomainUnitOwnersArgsDict']]]
+    """
+    Configuration for the `OVERRIDE_DOMAIN_UNIT_OWNERS` policy type. See `override_domain_unit_owners` Block below.
+    """
+    override_project_owners: NotRequired[pulumi.Input[Optional['PolicyGrantDetailOverrideProjectOwnersArgsDict']]]
+    """
+    Configuration for the `OVERRIDE_PROJECT_OWNERS` policy type. See `override_project_owners` Block below.
+    """
+    use_asset_type: NotRequired[pulumi.Input[Optional['PolicyGrantDetailUseAssetTypeArgsDict']]]
+    """
+    Configuration for the `USE_ASSET_TYPE` policy type. See `use_asset_type` Block below.
+    """
+
+@pulumi.input_type
+class PolicyGrantDetailArgs:
+    def __init__(__self__, *,
+                 add_to_project_member_pool: pulumi.Input[Optional['PolicyGrantDetailAddToProjectMemberPoolArgs']] = None,
+                 create_asset_type: pulumi.Input[Optional['PolicyGrantDetailCreateAssetTypeArgs']] = None,
+                 create_domain_unit: pulumi.Input[Optional['PolicyGrantDetailCreateDomainUnitArgs']] = None,
+                 create_environment: pulumi.Input[Optional['PolicyGrantDetailCreateEnvironmentArgs']] = None,
+                 create_environment_from_blueprint: pulumi.Input[Optional['PolicyGrantDetailCreateEnvironmentFromBlueprintArgs']] = None,
+                 create_environment_profile: pulumi.Input[Optional['PolicyGrantDetailCreateEnvironmentProfileArgs']] = None,
+                 create_form_type: pulumi.Input[Optional['PolicyGrantDetailCreateFormTypeArgs']] = None,
+                 create_glossary: pulumi.Input[Optional['PolicyGrantDetailCreateGlossaryArgs']] = None,
+                 create_project: pulumi.Input[Optional['PolicyGrantDetailCreateProjectArgs']] = None,
+                 create_project_from_project_profile: pulumi.Input[Optional['PolicyGrantDetailCreateProjectFromProjectProfileArgs']] = None,
+                 delegate_create_environment_profile: pulumi.Input[Optional['PolicyGrantDetailDelegateCreateEnvironmentProfileArgs']] = None,
+                 override_domain_unit_owners: pulumi.Input[Optional['PolicyGrantDetailOverrideDomainUnitOwnersArgs']] = None,
+                 override_project_owners: pulumi.Input[Optional['PolicyGrantDetailOverrideProjectOwnersArgs']] = None,
+                 use_asset_type: pulumi.Input[Optional['PolicyGrantDetailUseAssetTypeArgs']] = None):
+        """
+        :param pulumi.Input['PolicyGrantDetailAddToProjectMemberPoolArgs'] add_to_project_member_pool: Configuration for the `ADD_TO_PROJECT_MEMBER_POOL` policy type. See `add_to_project_member_pool` Block below.
+        :param pulumi.Input['PolicyGrantDetailCreateAssetTypeArgs'] create_asset_type: Configuration for the `CREATE_ASSET_TYPE` policy type. See `create_asset_type` Block below.
+        :param pulumi.Input['PolicyGrantDetailCreateDomainUnitArgs'] create_domain_unit: Configuration for the `CREATE_DOMAIN_UNIT` policy type. See `create_domain_unit` Block below.
+        :param pulumi.Input['PolicyGrantDetailCreateEnvironmentArgs'] create_environment: Configuration for the `CREATE_ENVIRONMENT` policy type. Empty block.
+        :param pulumi.Input['PolicyGrantDetailCreateEnvironmentFromBlueprintArgs'] create_environment_from_blueprint: Configuration for the `CREATE_ENVIRONMENT_FROM_BLUEPRINT` policy type. Empty block.
+        :param pulumi.Input['PolicyGrantDetailCreateEnvironmentProfileArgs'] create_environment_profile: Configuration for the `CREATE_ENVIRONMENT_PROFILE` policy type. See `create_environment_profile` Block below.
+        :param pulumi.Input['PolicyGrantDetailCreateFormTypeArgs'] create_form_type: Configuration for the `CREATE_FORM_TYPE` policy type. See `create_form_type` Block below.
+        :param pulumi.Input['PolicyGrantDetailCreateGlossaryArgs'] create_glossary: Configuration for the `CREATE_GLOSSARY` policy type. See `create_glossary` Block below.
+        :param pulumi.Input['PolicyGrantDetailCreateProjectArgs'] create_project: Configuration for the `CREATE_PROJECT` policy type. See `create_project` Block below.
+        :param pulumi.Input['PolicyGrantDetailCreateProjectFromProjectProfileArgs'] create_project_from_project_profile: Configuration for the `CREATE_PROJECT_FROM_PROJECT_PROFILE` policy type. See `create_project_from_project_profile` Block below.
+        :param pulumi.Input['PolicyGrantDetailDelegateCreateEnvironmentProfileArgs'] delegate_create_environment_profile: Configuration for the `DELEGATE_CREATE_ENVIRONMENT_PROFILE` policy type. Empty block.
+        :param pulumi.Input['PolicyGrantDetailOverrideDomainUnitOwnersArgs'] override_domain_unit_owners: Configuration for the `OVERRIDE_DOMAIN_UNIT_OWNERS` policy type. See `override_domain_unit_owners` Block below.
+        :param pulumi.Input['PolicyGrantDetailOverrideProjectOwnersArgs'] override_project_owners: Configuration for the `OVERRIDE_PROJECT_OWNERS` policy type. See `override_project_owners` Block below.
+        :param pulumi.Input['PolicyGrantDetailUseAssetTypeArgs'] use_asset_type: Configuration for the `USE_ASSET_TYPE` policy type. See `use_asset_type` Block below.
+        """
+        if add_to_project_member_pool is not None:
+            pulumi.set(__self__, "add_to_project_member_pool", add_to_project_member_pool)
+        if create_asset_type is not None:
+            pulumi.set(__self__, "create_asset_type", create_asset_type)
+        if create_domain_unit is not None:
+            pulumi.set(__self__, "create_domain_unit", create_domain_unit)
+        if create_environment is not None:
+            pulumi.set(__self__, "create_environment", create_environment)
+        if create_environment_from_blueprint is not None:
+            pulumi.set(__self__, "create_environment_from_blueprint", create_environment_from_blueprint)
+        if create_environment_profile is not None:
+            pulumi.set(__self__, "create_environment_profile", create_environment_profile)
+        if create_form_type is not None:
+            pulumi.set(__self__, "create_form_type", create_form_type)
+        if create_glossary is not None:
+            pulumi.set(__self__, "create_glossary", create_glossary)
+        if create_project is not None:
+            pulumi.set(__self__, "create_project", create_project)
+        if create_project_from_project_profile is not None:
+            pulumi.set(__self__, "create_project_from_project_profile", create_project_from_project_profile)
+        if delegate_create_environment_profile is not None:
+            pulumi.set(__self__, "delegate_create_environment_profile", delegate_create_environment_profile)
+        if override_domain_unit_owners is not None:
+            pulumi.set(__self__, "override_domain_unit_owners", override_domain_unit_owners)
+        if override_project_owners is not None:
+            pulumi.set(__self__, "override_project_owners", override_project_owners)
+        if use_asset_type is not None:
+            pulumi.set(__self__, "use_asset_type", use_asset_type)
+
+    @_builtins.property
+    @pulumi.getter(name="addToProjectMemberPool")
+    def add_to_project_member_pool(self) -> pulumi.Input[Optional['PolicyGrantDetailAddToProjectMemberPoolArgs']]:
+        """
+        Configuration for the `ADD_TO_PROJECT_MEMBER_POOL` policy type. See `add_to_project_member_pool` Block below.
+        """
+        return pulumi.get(self, "add_to_project_member_pool")
+
+    @add_to_project_member_pool.setter
+    def add_to_project_member_pool(self, value: pulumi.Input[Optional['PolicyGrantDetailAddToProjectMemberPoolArgs']]):
+        pulumi.set(self, "add_to_project_member_pool", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createAssetType")
+    def create_asset_type(self) -> pulumi.Input[Optional['PolicyGrantDetailCreateAssetTypeArgs']]:
+        """
+        Configuration for the `CREATE_ASSET_TYPE` policy type. See `create_asset_type` Block below.
+        """
+        return pulumi.get(self, "create_asset_type")
+
+    @create_asset_type.setter
+    def create_asset_type(self, value: pulumi.Input[Optional['PolicyGrantDetailCreateAssetTypeArgs']]):
+        pulumi.set(self, "create_asset_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createDomainUnit")
+    def create_domain_unit(self) -> pulumi.Input[Optional['PolicyGrantDetailCreateDomainUnitArgs']]:
+        """
+        Configuration for the `CREATE_DOMAIN_UNIT` policy type. See `create_domain_unit` Block below.
+        """
+        return pulumi.get(self, "create_domain_unit")
+
+    @create_domain_unit.setter
+    def create_domain_unit(self, value: pulumi.Input[Optional['PolicyGrantDetailCreateDomainUnitArgs']]):
+        pulumi.set(self, "create_domain_unit", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createEnvironment")
+    def create_environment(self) -> pulumi.Input[Optional['PolicyGrantDetailCreateEnvironmentArgs']]:
+        """
+        Configuration for the `CREATE_ENVIRONMENT` policy type. Empty block.
+        """
+        return pulumi.get(self, "create_environment")
+
+    @create_environment.setter
+    def create_environment(self, value: pulumi.Input[Optional['PolicyGrantDetailCreateEnvironmentArgs']]):
+        pulumi.set(self, "create_environment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createEnvironmentFromBlueprint")
+    def create_environment_from_blueprint(self) -> pulumi.Input[Optional['PolicyGrantDetailCreateEnvironmentFromBlueprintArgs']]:
+        """
+        Configuration for the `CREATE_ENVIRONMENT_FROM_BLUEPRINT` policy type. Empty block.
+        """
+        return pulumi.get(self, "create_environment_from_blueprint")
+
+    @create_environment_from_blueprint.setter
+    def create_environment_from_blueprint(self, value: pulumi.Input[Optional['PolicyGrantDetailCreateEnvironmentFromBlueprintArgs']]):
+        pulumi.set(self, "create_environment_from_blueprint", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createEnvironmentProfile")
+    def create_environment_profile(self) -> pulumi.Input[Optional['PolicyGrantDetailCreateEnvironmentProfileArgs']]:
+        """
+        Configuration for the `CREATE_ENVIRONMENT_PROFILE` policy type. See `create_environment_profile` Block below.
+        """
+        return pulumi.get(self, "create_environment_profile")
+
+    @create_environment_profile.setter
+    def create_environment_profile(self, value: pulumi.Input[Optional['PolicyGrantDetailCreateEnvironmentProfileArgs']]):
+        pulumi.set(self, "create_environment_profile", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createFormType")
+    def create_form_type(self) -> pulumi.Input[Optional['PolicyGrantDetailCreateFormTypeArgs']]:
+        """
+        Configuration for the `CREATE_FORM_TYPE` policy type. See `create_form_type` Block below.
+        """
+        return pulumi.get(self, "create_form_type")
+
+    @create_form_type.setter
+    def create_form_type(self, value: pulumi.Input[Optional['PolicyGrantDetailCreateFormTypeArgs']]):
+        pulumi.set(self, "create_form_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createGlossary")
+    def create_glossary(self) -> pulumi.Input[Optional['PolicyGrantDetailCreateGlossaryArgs']]:
+        """
+        Configuration for the `CREATE_GLOSSARY` policy type. See `create_glossary` Block below.
+        """
+        return pulumi.get(self, "create_glossary")
+
+    @create_glossary.setter
+    def create_glossary(self, value: pulumi.Input[Optional['PolicyGrantDetailCreateGlossaryArgs']]):
+        pulumi.set(self, "create_glossary", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createProject")
+    def create_project(self) -> pulumi.Input[Optional['PolicyGrantDetailCreateProjectArgs']]:
+        """
+        Configuration for the `CREATE_PROJECT` policy type. See `create_project` Block below.
+        """
+        return pulumi.get(self, "create_project")
+
+    @create_project.setter
+    def create_project(self, value: pulumi.Input[Optional['PolicyGrantDetailCreateProjectArgs']]):
+        pulumi.set(self, "create_project", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createProjectFromProjectProfile")
+    def create_project_from_project_profile(self) -> pulumi.Input[Optional['PolicyGrantDetailCreateProjectFromProjectProfileArgs']]:
+        """
+        Configuration for the `CREATE_PROJECT_FROM_PROJECT_PROFILE` policy type. See `create_project_from_project_profile` Block below.
+        """
+        return pulumi.get(self, "create_project_from_project_profile")
+
+    @create_project_from_project_profile.setter
+    def create_project_from_project_profile(self, value: pulumi.Input[Optional['PolicyGrantDetailCreateProjectFromProjectProfileArgs']]):
+        pulumi.set(self, "create_project_from_project_profile", value)
+
+    @_builtins.property
+    @pulumi.getter(name="delegateCreateEnvironmentProfile")
+    def delegate_create_environment_profile(self) -> pulumi.Input[Optional['PolicyGrantDetailDelegateCreateEnvironmentProfileArgs']]:
+        """
+        Configuration for the `DELEGATE_CREATE_ENVIRONMENT_PROFILE` policy type. Empty block.
+        """
+        return pulumi.get(self, "delegate_create_environment_profile")
+
+    @delegate_create_environment_profile.setter
+    def delegate_create_environment_profile(self, value: pulumi.Input[Optional['PolicyGrantDetailDelegateCreateEnvironmentProfileArgs']]):
+        pulumi.set(self, "delegate_create_environment_profile", value)
+
+    @_builtins.property
+    @pulumi.getter(name="overrideDomainUnitOwners")
+    def override_domain_unit_owners(self) -> pulumi.Input[Optional['PolicyGrantDetailOverrideDomainUnitOwnersArgs']]:
+        """
+        Configuration for the `OVERRIDE_DOMAIN_UNIT_OWNERS` policy type. See `override_domain_unit_owners` Block below.
+        """
+        return pulumi.get(self, "override_domain_unit_owners")
+
+    @override_domain_unit_owners.setter
+    def override_domain_unit_owners(self, value: pulumi.Input[Optional['PolicyGrantDetailOverrideDomainUnitOwnersArgs']]):
+        pulumi.set(self, "override_domain_unit_owners", value)
+
+    @_builtins.property
+    @pulumi.getter(name="overrideProjectOwners")
+    def override_project_owners(self) -> pulumi.Input[Optional['PolicyGrantDetailOverrideProjectOwnersArgs']]:
+        """
+        Configuration for the `OVERRIDE_PROJECT_OWNERS` policy type. See `override_project_owners` Block below.
+        """
+        return pulumi.get(self, "override_project_owners")
+
+    @override_project_owners.setter
+    def override_project_owners(self, value: pulumi.Input[Optional['PolicyGrantDetailOverrideProjectOwnersArgs']]):
+        pulumi.set(self, "override_project_owners", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useAssetType")
+    def use_asset_type(self) -> pulumi.Input[Optional['PolicyGrantDetailUseAssetTypeArgs']]:
+        """
+        Configuration for the `USE_ASSET_TYPE` policy type. See `use_asset_type` Block below.
+        """
+        return pulumi.get(self, "use_asset_type")
+
+    @use_asset_type.setter
+    def use_asset_type(self, value: pulumi.Input[Optional['PolicyGrantDetailUseAssetTypeArgs']]):
+        pulumi.set(self, "use_asset_type", value)
+
+
+class PolicyGrantDetailAddToProjectMemberPoolArgsDict(TypedDict):
+    include_child_domain_units: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to include child domain units.
+    """
+
+@pulumi.input_type
+class PolicyGrantDetailAddToProjectMemberPoolArgs:
+    def __init__(__self__, *,
+                 include_child_domain_units: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] include_child_domain_units: Whether to include child domain units.
+        """
+        if include_child_domain_units is not None:
+            pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
+
+    @_builtins.property
+    @pulumi.getter(name="includeChildDomainUnits")
+    def include_child_domain_units(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to include child domain units.
+        """
+        return pulumi.get(self, "include_child_domain_units")
+
+    @include_child_domain_units.setter
+    def include_child_domain_units(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "include_child_domain_units", value)
+
+
+class PolicyGrantDetailCreateAssetTypeArgsDict(TypedDict):
+    include_child_domain_units: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to include child domain units.
+    """
+
+@pulumi.input_type
+class PolicyGrantDetailCreateAssetTypeArgs:
+    def __init__(__self__, *,
+                 include_child_domain_units: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] include_child_domain_units: Whether to include child domain units.
+        """
+        if include_child_domain_units is not None:
+            pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
+
+    @_builtins.property
+    @pulumi.getter(name="includeChildDomainUnits")
+    def include_child_domain_units(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to include child domain units.
+        """
+        return pulumi.get(self, "include_child_domain_units")
+
+    @include_child_domain_units.setter
+    def include_child_domain_units(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "include_child_domain_units", value)
+
+
+class PolicyGrantDetailCreateDomainUnitArgsDict(TypedDict):
+    include_child_domain_units: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to include child domain units.
+    """
+
+@pulumi.input_type
+class PolicyGrantDetailCreateDomainUnitArgs:
+    def __init__(__self__, *,
+                 include_child_domain_units: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] include_child_domain_units: Whether to include child domain units.
+        """
+        if include_child_domain_units is not None:
+            pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
+
+    @_builtins.property
+    @pulumi.getter(name="includeChildDomainUnits")
+    def include_child_domain_units(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to include child domain units.
+        """
+        return pulumi.get(self, "include_child_domain_units")
+
+    @include_child_domain_units.setter
+    def include_child_domain_units(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "include_child_domain_units", value)
+
+
+class PolicyGrantDetailCreateEnvironmentArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class PolicyGrantDetailCreateEnvironmentArgs:
+    def __init__(__self__):
+        pass
+
+
+class PolicyGrantDetailCreateEnvironmentFromBlueprintArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class PolicyGrantDetailCreateEnvironmentFromBlueprintArgs:
+    def __init__(__self__):
+        pass
+
+
+class PolicyGrantDetailCreateEnvironmentProfileArgsDict(TypedDict):
+    domain_unit_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Identifier of the domain unit.
+    """
+
+@pulumi.input_type
+class PolicyGrantDetailCreateEnvironmentProfileArgs:
+    def __init__(__self__, *,
+                 domain_unit_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] domain_unit_id: Identifier of the domain unit.
+        """
+        if domain_unit_id is not None:
+            pulumi.set(__self__, "domain_unit_id", domain_unit_id)
+
+    @_builtins.property
+    @pulumi.getter(name="domainUnitId")
+    def domain_unit_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Identifier of the domain unit.
+        """
+        return pulumi.get(self, "domain_unit_id")
+
+    @domain_unit_id.setter
+    def domain_unit_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "domain_unit_id", value)
+
+
+class PolicyGrantDetailCreateFormTypeArgsDict(TypedDict):
+    include_child_domain_units: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to include child domain units.
+    """
+
+@pulumi.input_type
+class PolicyGrantDetailCreateFormTypeArgs:
+    def __init__(__self__, *,
+                 include_child_domain_units: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] include_child_domain_units: Whether to include child domain units.
+        """
+        if include_child_domain_units is not None:
+            pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
+
+    @_builtins.property
+    @pulumi.getter(name="includeChildDomainUnits")
+    def include_child_domain_units(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to include child domain units.
+        """
+        return pulumi.get(self, "include_child_domain_units")
+
+    @include_child_domain_units.setter
+    def include_child_domain_units(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "include_child_domain_units", value)
+
+
+class PolicyGrantDetailCreateGlossaryArgsDict(TypedDict):
+    include_child_domain_units: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to include child domain units.
+    """
+
+@pulumi.input_type
+class PolicyGrantDetailCreateGlossaryArgs:
+    def __init__(__self__, *,
+                 include_child_domain_units: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] include_child_domain_units: Whether to include child domain units.
+        """
+        if include_child_domain_units is not None:
+            pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
+
+    @_builtins.property
+    @pulumi.getter(name="includeChildDomainUnits")
+    def include_child_domain_units(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to include child domain units.
+        """
+        return pulumi.get(self, "include_child_domain_units")
+
+    @include_child_domain_units.setter
+    def include_child_domain_units(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "include_child_domain_units", value)
+
+
+class PolicyGrantDetailCreateProjectArgsDict(TypedDict):
+    include_child_domain_units: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to include child domain units.
+    """
+
+@pulumi.input_type
+class PolicyGrantDetailCreateProjectArgs:
+    def __init__(__self__, *,
+                 include_child_domain_units: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] include_child_domain_units: Whether to include child domain units.
+        """
+        if include_child_domain_units is not None:
+            pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
+
+    @_builtins.property
+    @pulumi.getter(name="includeChildDomainUnits")
+    def include_child_domain_units(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to include child domain units.
+        """
+        return pulumi.get(self, "include_child_domain_units")
+
+    @include_child_domain_units.setter
+    def include_child_domain_units(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "include_child_domain_units", value)
+
+
+class PolicyGrantDetailCreateProjectFromProjectProfileArgsDict(TypedDict):
+    include_child_domain_units: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to include child domain units.
+    """
+    project_profiles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    List of project profile identifiers.
+    """
+
+@pulumi.input_type
+class PolicyGrantDetailCreateProjectFromProjectProfileArgs:
+    def __init__(__self__, *,
+                 include_child_domain_units: pulumi.Input[Optional[_builtins.bool]] = None,
+                 project_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] include_child_domain_units: Whether to include child domain units.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] project_profiles: List of project profile identifiers.
+        """
+        if include_child_domain_units is not None:
+            pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
+        if project_profiles is not None:
+            pulumi.set(__self__, "project_profiles", project_profiles)
+
+    @_builtins.property
+    @pulumi.getter(name="includeChildDomainUnits")
+    def include_child_domain_units(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to include child domain units.
+        """
+        return pulumi.get(self, "include_child_domain_units")
+
+    @include_child_domain_units.setter
+    def include_child_domain_units(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "include_child_domain_units", value)
+
+    @_builtins.property
+    @pulumi.getter(name="projectProfiles")
+    def project_profiles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of project profile identifiers.
+        """
+        return pulumi.get(self, "project_profiles")
+
+    @project_profiles.setter
+    def project_profiles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "project_profiles", value)
+
+
+class PolicyGrantDetailDelegateCreateEnvironmentProfileArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class PolicyGrantDetailDelegateCreateEnvironmentProfileArgs:
+    def __init__(__self__):
+        pass
+
+
+class PolicyGrantDetailOverrideDomainUnitOwnersArgsDict(TypedDict):
+    include_child_domain_units: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to include child domain units.
+    """
+
+@pulumi.input_type
+class PolicyGrantDetailOverrideDomainUnitOwnersArgs:
+    def __init__(__self__, *,
+                 include_child_domain_units: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] include_child_domain_units: Whether to include child domain units.
+        """
+        if include_child_domain_units is not None:
+            pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
+
+    @_builtins.property
+    @pulumi.getter(name="includeChildDomainUnits")
+    def include_child_domain_units(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to include child domain units.
+        """
+        return pulumi.get(self, "include_child_domain_units")
+
+    @include_child_domain_units.setter
+    def include_child_domain_units(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "include_child_domain_units", value)
+
+
+class PolicyGrantDetailOverrideProjectOwnersArgsDict(TypedDict):
+    include_child_domain_units: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to include child domain units.
+    """
+
+@pulumi.input_type
+class PolicyGrantDetailOverrideProjectOwnersArgs:
+    def __init__(__self__, *,
+                 include_child_domain_units: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] include_child_domain_units: Whether to include child domain units.
+        """
+        if include_child_domain_units is not None:
+            pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
+
+    @_builtins.property
+    @pulumi.getter(name="includeChildDomainUnits")
+    def include_child_domain_units(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to include child domain units.
+        """
+        return pulumi.get(self, "include_child_domain_units")
+
+    @include_child_domain_units.setter
+    def include_child_domain_units(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "include_child_domain_units", value)
+
+
+class PolicyGrantDetailUseAssetTypeArgsDict(TypedDict):
+    domain_unit_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Identifier of the domain unit.
+    """
+
+@pulumi.input_type
+class PolicyGrantDetailUseAssetTypeArgs:
+    def __init__(__self__, *,
+                 domain_unit_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] domain_unit_id: Identifier of the domain unit.
+        """
+        if domain_unit_id is not None:
+            pulumi.set(__self__, "domain_unit_id", domain_unit_id)
+
+    @_builtins.property
+    @pulumi.getter(name="domainUnitId")
+    def domain_unit_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Identifier of the domain unit.
+        """
+        return pulumi.get(self, "domain_unit_id")
+
+    @domain_unit_id.setter
+    def domain_unit_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "domain_unit_id", value)
+
+
+class PolicyGrantPrincipalArgsDict(TypedDict):
+    domain_unit: NotRequired[pulumi.Input[Optional['PolicyGrantPrincipalDomainUnitArgsDict']]]
+    """
+    Domain unit principal. See `domain_unit` Block below.
+    """
+    group: NotRequired[pulumi.Input[Optional['PolicyGrantPrincipalGroupArgsDict']]]
+    """
+    Group principal. See `group` Block below.
+    """
+    project: NotRequired[pulumi.Input[Optional['PolicyGrantPrincipalProjectArgsDict']]]
+    """
+    Project principal. See `project` Block below.
+    """
+    user: NotRequired[pulumi.Input[Optional['PolicyGrantPrincipalUserArgsDict']]]
+    """
+    User principal. See `user` Block below.
+    """
+
+@pulumi.input_type
+class PolicyGrantPrincipalArgs:
+    def __init__(__self__, *,
+                 domain_unit: pulumi.Input[Optional['PolicyGrantPrincipalDomainUnitArgs']] = None,
+                 group: pulumi.Input[Optional['PolicyGrantPrincipalGroupArgs']] = None,
+                 project: pulumi.Input[Optional['PolicyGrantPrincipalProjectArgs']] = None,
+                 user: pulumi.Input[Optional['PolicyGrantPrincipalUserArgs']] = None):
+        """
+        :param pulumi.Input['PolicyGrantPrincipalDomainUnitArgs'] domain_unit: Domain unit principal. See `domain_unit` Block below.
+        :param pulumi.Input['PolicyGrantPrincipalGroupArgs'] group: Group principal. See `group` Block below.
+        :param pulumi.Input['PolicyGrantPrincipalProjectArgs'] project: Project principal. See `project` Block below.
+        :param pulumi.Input['PolicyGrantPrincipalUserArgs'] user: User principal. See `user` Block below.
+        """
+        if domain_unit is not None:
+            pulumi.set(__self__, "domain_unit", domain_unit)
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if project is not None:
+            pulumi.set(__self__, "project", project)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
+
+    @_builtins.property
+    @pulumi.getter(name="domainUnit")
+    def domain_unit(self) -> pulumi.Input[Optional['PolicyGrantPrincipalDomainUnitArgs']]:
+        """
+        Domain unit principal. See `domain_unit` Block below.
+        """
+        return pulumi.get(self, "domain_unit")
+
+    @domain_unit.setter
+    def domain_unit(self, value: pulumi.Input[Optional['PolicyGrantPrincipalDomainUnitArgs']]):
+        pulumi.set(self, "domain_unit", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def group(self) -> pulumi.Input[Optional['PolicyGrantPrincipalGroupArgs']]:
+        """
+        Group principal. See `group` Block below.
+        """
+        return pulumi.get(self, "group")
+
+    @group.setter
+    def group(self, value: pulumi.Input[Optional['PolicyGrantPrincipalGroupArgs']]):
+        pulumi.set(self, "group", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def project(self) -> pulumi.Input[Optional['PolicyGrantPrincipalProjectArgs']]:
+        """
+        Project principal. See `project` Block below.
+        """
+        return pulumi.get(self, "project")
+
+    @project.setter
+    def project(self, value: pulumi.Input[Optional['PolicyGrantPrincipalProjectArgs']]):
+        pulumi.set(self, "project", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def user(self) -> pulumi.Input[Optional['PolicyGrantPrincipalUserArgs']]:
+        """
+        User principal. See `user` Block below.
+        """
+        return pulumi.get(self, "user")
+
+    @user.setter
+    def user(self, value: pulumi.Input[Optional['PolicyGrantPrincipalUserArgs']]):
+        pulumi.set(self, "user", value)
+
+
+class PolicyGrantPrincipalDomainUnitArgsDict(TypedDict):
+    domain_unit_designation: pulumi.Input[_builtins.str]
+    """
+    Designation of the domain unit principal. Valid values: `OWNER`.
+    """
+    all_domain_units_grant_filter: NotRequired[pulumi.Input[Optional['PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterArgsDict']]]
+    """
+    Filter to grant access to all domain units. Empty block.
+    """
+    domain_unit_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Identifier of the domain unit.
+    """
+
+@pulumi.input_type
+class PolicyGrantPrincipalDomainUnitArgs:
+    def __init__(__self__, *,
+                 domain_unit_designation: pulumi.Input[_builtins.str],
+                 all_domain_units_grant_filter: pulumi.Input[Optional['PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterArgs']] = None,
+                 domain_unit_identifier: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] domain_unit_designation: Designation of the domain unit principal. Valid values: `OWNER`.
+        :param pulumi.Input['PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterArgs'] all_domain_units_grant_filter: Filter to grant access to all domain units. Empty block.
+        :param pulumi.Input[_builtins.str] domain_unit_identifier: Identifier of the domain unit.
+        """
+        pulumi.set(__self__, "domain_unit_designation", domain_unit_designation)
+        if all_domain_units_grant_filter is not None:
+            pulumi.set(__self__, "all_domain_units_grant_filter", all_domain_units_grant_filter)
+        if domain_unit_identifier is not None:
+            pulumi.set(__self__, "domain_unit_identifier", domain_unit_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="domainUnitDesignation")
+    def domain_unit_designation(self) -> pulumi.Input[_builtins.str]:
+        """
+        Designation of the domain unit principal. Valid values: `OWNER`.
+        """
+        return pulumi.get(self, "domain_unit_designation")
+
+    @domain_unit_designation.setter
+    def domain_unit_designation(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "domain_unit_designation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allDomainUnitsGrantFilter")
+    def all_domain_units_grant_filter(self) -> pulumi.Input[Optional['PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterArgs']]:
+        """
+        Filter to grant access to all domain units. Empty block.
+        """
+        return pulumi.get(self, "all_domain_units_grant_filter")
+
+    @all_domain_units_grant_filter.setter
+    def all_domain_units_grant_filter(self, value: pulumi.Input[Optional['PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterArgs']]):
+        pulumi.set(self, "all_domain_units_grant_filter", value)
+
+    @_builtins.property
+    @pulumi.getter(name="domainUnitIdentifier")
+    def domain_unit_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Identifier of the domain unit.
+        """
+        return pulumi.get(self, "domain_unit_identifier")
+
+    @domain_unit_identifier.setter
+    def domain_unit_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "domain_unit_identifier", value)
+
+
+class PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterArgs:
+    def __init__(__self__):
+        pass
+
+
+class PolicyGrantPrincipalGroupArgsDict(TypedDict):
+    group_identifier: pulumi.Input[_builtins.str]
+    """
+    Identifier of the group principal.
+    """
+
+@pulumi.input_type
+class PolicyGrantPrincipalGroupArgs:
+    def __init__(__self__, *,
+                 group_identifier: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] group_identifier: Identifier of the group principal.
+        """
+        pulumi.set(__self__, "group_identifier", group_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="groupIdentifier")
+    def group_identifier(self) -> pulumi.Input[_builtins.str]:
+        """
+        Identifier of the group principal.
+        """
+        return pulumi.get(self, "group_identifier")
+
+    @group_identifier.setter
+    def group_identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "group_identifier", value)
+
+
+class PolicyGrantPrincipalProjectArgsDict(TypedDict):
+    project_designation: pulumi.Input[_builtins.str]
+    """
+    Designation of the project principal. Valid values: `CONTRIBUTOR`, `OWNER`, `PROJECT_CATALOG_STEWARD`.
+    """
+    domain_unit_filter: NotRequired[pulumi.Input[Optional['PolicyGrantPrincipalProjectDomainUnitFilterArgsDict']]]
+    """
+    Filter for domain unit scoping. See `domain_unit_filter` Block below.
+    """
+    project_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Identifier of the project.
+    """
+
+@pulumi.input_type
+class PolicyGrantPrincipalProjectArgs:
+    def __init__(__self__, *,
+                 project_designation: pulumi.Input[_builtins.str],
+                 domain_unit_filter: pulumi.Input[Optional['PolicyGrantPrincipalProjectDomainUnitFilterArgs']] = None,
+                 project_identifier: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] project_designation: Designation of the project principal. Valid values: `CONTRIBUTOR`, `OWNER`, `PROJECT_CATALOG_STEWARD`.
+        :param pulumi.Input['PolicyGrantPrincipalProjectDomainUnitFilterArgs'] domain_unit_filter: Filter for domain unit scoping. See `domain_unit_filter` Block below.
+        :param pulumi.Input[_builtins.str] project_identifier: Identifier of the project.
+        """
+        pulumi.set(__self__, "project_designation", project_designation)
+        if domain_unit_filter is not None:
+            pulumi.set(__self__, "domain_unit_filter", domain_unit_filter)
+        if project_identifier is not None:
+            pulumi.set(__self__, "project_identifier", project_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="projectDesignation")
+    def project_designation(self) -> pulumi.Input[_builtins.str]:
+        """
+        Designation of the project principal. Valid values: `CONTRIBUTOR`, `OWNER`, `PROJECT_CATALOG_STEWARD`.
+        """
+        return pulumi.get(self, "project_designation")
+
+    @project_designation.setter
+    def project_designation(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "project_designation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="domainUnitFilter")
+    def domain_unit_filter(self) -> pulumi.Input[Optional['PolicyGrantPrincipalProjectDomainUnitFilterArgs']]:
+        """
+        Filter for domain unit scoping. See `domain_unit_filter` Block below.
+        """
+        return pulumi.get(self, "domain_unit_filter")
+
+    @domain_unit_filter.setter
+    def domain_unit_filter(self, value: pulumi.Input[Optional['PolicyGrantPrincipalProjectDomainUnitFilterArgs']]):
+        pulumi.set(self, "domain_unit_filter", value)
+
+    @_builtins.property
+    @pulumi.getter(name="projectIdentifier")
+    def project_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Identifier of the project.
+        """
+        return pulumi.get(self, "project_identifier")
+
+    @project_identifier.setter
+    def project_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "project_identifier", value)
+
+
+class PolicyGrantPrincipalProjectDomainUnitFilterArgsDict(TypedDict):
+    domain_unit: pulumi.Input[_builtins.str]
+    """
+    Identifier of the domain unit for filtering.
+    """
+    include_child_domain_units: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to include child domain units in the filter.
+    """
+
+@pulumi.input_type
+class PolicyGrantPrincipalProjectDomainUnitFilterArgs:
+    def __init__(__self__, *,
+                 domain_unit: pulumi.Input[_builtins.str],
+                 include_child_domain_units: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.str] domain_unit: Identifier of the domain unit for filtering.
+        :param pulumi.Input[_builtins.bool] include_child_domain_units: Whether to include child domain units in the filter.
+        """
+        pulumi.set(__self__, "domain_unit", domain_unit)
+        if include_child_domain_units is not None:
+            pulumi.set(__self__, "include_child_domain_units", include_child_domain_units)
+
+    @_builtins.property
+    @pulumi.getter(name="domainUnit")
+    def domain_unit(self) -> pulumi.Input[_builtins.str]:
+        """
+        Identifier of the domain unit for filtering.
+        """
+        return pulumi.get(self, "domain_unit")
+
+    @domain_unit.setter
+    def domain_unit(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "domain_unit", value)
+
+    @_builtins.property
+    @pulumi.getter(name="includeChildDomainUnits")
+    def include_child_domain_units(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to include child domain units in the filter.
+        """
+        return pulumi.get(self, "include_child_domain_units")
+
+    @include_child_domain_units.setter
+    def include_child_domain_units(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "include_child_domain_units", value)
+
+
+class PolicyGrantPrincipalUserArgsDict(TypedDict):
+    all_users_grant_filter: NotRequired[pulumi.Input[Optional['PolicyGrantPrincipalUserAllUsersGrantFilterArgsDict']]]
+    """
+    Filter to grant access to all users. Empty block.
+    """
+    user_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Identifier of the user principal.
+    """
+
+@pulumi.input_type
+class PolicyGrantPrincipalUserArgs:
+    def __init__(__self__, *,
+                 all_users_grant_filter: pulumi.Input[Optional['PolicyGrantPrincipalUserAllUsersGrantFilterArgs']] = None,
+                 user_identifier: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input['PolicyGrantPrincipalUserAllUsersGrantFilterArgs'] all_users_grant_filter: Filter to grant access to all users. Empty block.
+        :param pulumi.Input[_builtins.str] user_identifier: Identifier of the user principal.
+        """
+        if all_users_grant_filter is not None:
+            pulumi.set(__self__, "all_users_grant_filter", all_users_grant_filter)
+        if user_identifier is not None:
+            pulumi.set(__self__, "user_identifier", user_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="allUsersGrantFilter")
+    def all_users_grant_filter(self) -> pulumi.Input[Optional['PolicyGrantPrincipalUserAllUsersGrantFilterArgs']]:
+        """
+        Filter to grant access to all users. Empty block.
+        """
+        return pulumi.get(self, "all_users_grant_filter")
+
+    @all_users_grant_filter.setter
+    def all_users_grant_filter(self, value: pulumi.Input[Optional['PolicyGrantPrincipalUserAllUsersGrantFilterArgs']]):
+        pulumi.set(self, "all_users_grant_filter", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userIdentifier")
+    def user_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Identifier of the user principal.
+        """
+        return pulumi.get(self, "user_identifier")
+
+    @user_identifier.setter
+    def user_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "user_identifier", value)
+
+
+class PolicyGrantPrincipalUserAllUsersGrantFilterArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class PolicyGrantPrincipalUserAllUsersGrantFilterArgs:
+    def __init__(__self__):
+        pass
 
 
 class ProjectFailureReasonArgsDict(TypedDict):

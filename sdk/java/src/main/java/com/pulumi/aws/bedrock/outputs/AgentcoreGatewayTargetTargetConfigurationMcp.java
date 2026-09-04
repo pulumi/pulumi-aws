@@ -4,6 +4,7 @@
 package com.pulumi.aws.bedrock.outputs;
 
 import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetTargetConfigurationMcpApiGateway;
+import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetTargetConfigurationMcpConnector;
 import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambda;
 import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServer;
 import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema;
@@ -16,62 +17,74 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreGatewayTargetTargetConfigurationMcp {
     /**
-     * @return API Gateway target configuration. See `apiGateway` below.
+     * @return API Gateway target configuration. See `apiGateway` Block below.
      * 
      */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpApiGateway apiGateway;
     /**
-     * @return Lambda function target configuration. See `lambda` below.
+     * @return Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `connector` Block below.
+     * 
+     */
+    private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpConnector connector;
+    /**
+     * @return Lambda function target configuration. See `lambda` Block below.
      * 
      */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpLambda lambda;
     /**
-     * @return MCP server target configuration. See `mcpServer` below.
+     * @return MCP server target configuration. See `mcpServer` Block below.
      * 
      */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpMcpServer mcpServer;
     /**
-     * @return OpenAPI schema-based target configuration. See `apiSchemaConfiguration` below.
+     * @return OpenAPI schema-based target configuration. See `apiSchemaConfiguration` Block below.
      * 
      */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema openApiSchema;
     /**
-     * @return Smithy model-based target configuration. See `apiSchemaConfiguration` below.
+     * @return Smithy model-based target configuration. See `apiSchemaConfiguration` Block below.
      * 
      */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel smithyModel;
 
     private AgentcoreGatewayTargetTargetConfigurationMcp() {}
     /**
-     * @return API Gateway target configuration. See `apiGateway` below.
+     * @return API Gateway target configuration. See `apiGateway` Block below.
      * 
      */
     public Optional<AgentcoreGatewayTargetTargetConfigurationMcpApiGateway> apiGateway() {
         return Optional.ofNullable(this.apiGateway);
     }
     /**
-     * @return Lambda function target configuration. See `lambda` below.
+     * @return Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `connector` Block below.
+     * 
+     */
+    public Optional<AgentcoreGatewayTargetTargetConfigurationMcpConnector> connector() {
+        return Optional.ofNullable(this.connector);
+    }
+    /**
+     * @return Lambda function target configuration. See `lambda` Block below.
      * 
      */
     public Optional<AgentcoreGatewayTargetTargetConfigurationMcpLambda> lambda() {
         return Optional.ofNullable(this.lambda);
     }
     /**
-     * @return MCP server target configuration. See `mcpServer` below.
+     * @return MCP server target configuration. See `mcpServer` Block below.
      * 
      */
     public Optional<AgentcoreGatewayTargetTargetConfigurationMcpMcpServer> mcpServer() {
         return Optional.ofNullable(this.mcpServer);
     }
     /**
-     * @return OpenAPI schema-based target configuration. See `apiSchemaConfiguration` below.
+     * @return OpenAPI schema-based target configuration. See `apiSchemaConfiguration` Block below.
      * 
      */
     public Optional<AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema> openApiSchema() {
         return Optional.ofNullable(this.openApiSchema);
     }
     /**
-     * @return Smithy model-based target configuration. See `apiSchemaConfiguration` below.
+     * @return Smithy model-based target configuration. See `apiSchemaConfiguration` Block below.
      * 
      */
     public Optional<AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel> smithyModel() {
@@ -88,6 +101,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcp {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpApiGateway apiGateway;
+        private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpConnector connector;
         private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpLambda lambda;
         private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpMcpServer mcpServer;
         private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema openApiSchema;
@@ -96,6 +110,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcp {
         public Builder(AgentcoreGatewayTargetTargetConfigurationMcp defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiGateway = defaults.apiGateway;
+    	      this.connector = defaults.connector;
     	      this.lambda = defaults.lambda;
     	      this.mcpServer = defaults.mcpServer;
     	      this.openApiSchema = defaults.openApiSchema;
@@ -106,6 +121,12 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcp {
         public Builder apiGateway(@Nullable AgentcoreGatewayTargetTargetConfigurationMcpApiGateway apiGateway) {
 
             this.apiGateway = apiGateway;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder connector(@Nullable AgentcoreGatewayTargetTargetConfigurationMcpConnector connector) {
+
+            this.connector = connector;
             return this;
         }
         @CustomType.Setter
@@ -135,6 +156,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcp {
         public AgentcoreGatewayTargetTargetConfigurationMcp build() {
             final var _resultValue = new AgentcoreGatewayTargetTargetConfigurationMcp();
             _resultValue.apiGateway = apiGateway;
+            _resultValue.connector = connector;
             _resultValue.lambda = lambda;
             _resultValue.mcpServer = mcpServer;
             _resultValue.openApiSchema = openApiSchema;

@@ -30,6 +30,9 @@ class PrivateVirtualInterfaceArgs:
                  dx_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  mtu: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_pool_allocated_count_ipv4: pulumi.Input[Optional[_builtins.int]] = None,
+                 prefix_pool_allocated_count_ipv6: pulumi.Input[Optional[_builtins.int]] = None,
+                 rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  sitelink_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -49,6 +52,9 @@ class PrivateVirtualInterfaceArgs:
         :param pulumi.Input[_builtins.int] mtu: The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
                The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
         :param pulumi.Input[_builtins.str] name: The name for the virtual interface.
+        :param pulumi.Input[_builtins.int] prefix_pool_allocated_count_ipv4: The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        :param pulumi.Input[_builtins.int] prefix_pool_allocated_count_ipv6: The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        :param pulumi.Input[_builtins.str] rate_limit: Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] sitelink_enabled: Indicates whether to enable or disable SiteLink.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -73,6 +79,12 @@ class PrivateVirtualInterfaceArgs:
             pulumi.set(__self__, "mtu", mtu)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if prefix_pool_allocated_count_ipv4 is not None:
+            pulumi.set(__self__, "prefix_pool_allocated_count_ipv4", prefix_pool_allocated_count_ipv4)
+        if prefix_pool_allocated_count_ipv6 is not None:
+            pulumi.set(__self__, "prefix_pool_allocated_count_ipv6", prefix_pool_allocated_count_ipv6)
+        if rate_limit is not None:
+            pulumi.set(__self__, "rate_limit", rate_limit)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if sitelink_enabled is not None:
@@ -216,6 +228,42 @@ class PrivateVirtualInterfaceArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="prefixPoolAllocatedCountIpv4")
+    def prefix_pool_allocated_count_ipv4(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        """
+        return pulumi.get(self, "prefix_pool_allocated_count_ipv4")
+
+    @prefix_pool_allocated_count_ipv4.setter
+    def prefix_pool_allocated_count_ipv4(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "prefix_pool_allocated_count_ipv4", value)
+
+    @_builtins.property
+    @pulumi.getter(name="prefixPoolAllocatedCountIpv6")
+    def prefix_pool_allocated_count_ipv6(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        """
+        return pulumi.get(self, "prefix_pool_allocated_count_ipv6")
+
+    @prefix_pool_allocated_count_ipv6.setter
+    def prefix_pool_allocated_count_ipv6(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "prefix_pool_allocated_count_ipv6", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rateLimit")
+    def rate_limit(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+        """
+        return pulumi.get(self, "rate_limit")
+
+    @rate_limit.setter
+    def rate_limit(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "rate_limit", value)
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -281,6 +329,9 @@ class _PrivateVirtualInterfaceState:
                  jumbo_frame_capable: pulumi.Input[Optional[_builtins.bool]] = None,
                  mtu: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_pool_allocated_count_ipv4: pulumi.Input[Optional[_builtins.int]] = None,
+                 prefix_pool_allocated_count_ipv6: pulumi.Input[Optional[_builtins.int]] = None,
+                 rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  sitelink_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -304,6 +355,9 @@ class _PrivateVirtualInterfaceState:
         :param pulumi.Input[_builtins.int] mtu: The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
                The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
         :param pulumi.Input[_builtins.str] name: The name for the virtual interface.
+        :param pulumi.Input[_builtins.int] prefix_pool_allocated_count_ipv4: The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        :param pulumi.Input[_builtins.int] prefix_pool_allocated_count_ipv6: The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        :param pulumi.Input[_builtins.str] rate_limit: Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] sitelink_enabled: Indicates whether to enable or disable SiteLink.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -339,6 +393,12 @@ class _PrivateVirtualInterfaceState:
             pulumi.set(__self__, "mtu", mtu)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if prefix_pool_allocated_count_ipv4 is not None:
+            pulumi.set(__self__, "prefix_pool_allocated_count_ipv4", prefix_pool_allocated_count_ipv4)
+        if prefix_pool_allocated_count_ipv6 is not None:
+            pulumi.set(__self__, "prefix_pool_allocated_count_ipv6", prefix_pool_allocated_count_ipv6)
+        if rate_limit is not None:
+            pulumi.set(__self__, "rate_limit", rate_limit)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if sitelink_enabled is not None:
@@ -519,6 +579,42 @@ class _PrivateVirtualInterfaceState:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="prefixPoolAllocatedCountIpv4")
+    def prefix_pool_allocated_count_ipv4(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        """
+        return pulumi.get(self, "prefix_pool_allocated_count_ipv4")
+
+    @prefix_pool_allocated_count_ipv4.setter
+    def prefix_pool_allocated_count_ipv4(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "prefix_pool_allocated_count_ipv4", value)
+
+    @_builtins.property
+    @pulumi.getter(name="prefixPoolAllocatedCountIpv6")
+    def prefix_pool_allocated_count_ipv6(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        """
+        return pulumi.get(self, "prefix_pool_allocated_count_ipv6")
+
+    @prefix_pool_allocated_count_ipv6.setter
+    def prefix_pool_allocated_count_ipv6(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "prefix_pool_allocated_count_ipv6", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rateLimit")
+    def rate_limit(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+        """
+        return pulumi.get(self, "rate_limit")
+
+    @rate_limit.setter
+    def rate_limit(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "rate_limit", value)
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -607,6 +703,9 @@ class PrivateVirtualInterface(pulumi.CustomResource):
                  dx_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  mtu: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_pool_allocated_count_ipv4: pulumi.Input[Optional[_builtins.int]] = None,
+                 prefix_pool_allocated_count_ipv6: pulumi.Input[Optional[_builtins.int]] = None,
+                 rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  sitelink_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -654,6 +753,9 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] mtu: The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
                The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
         :param pulumi.Input[_builtins.str] name: The name for the virtual interface.
+        :param pulumi.Input[_builtins.int] prefix_pool_allocated_count_ipv4: The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        :param pulumi.Input[_builtins.int] prefix_pool_allocated_count_ipv6: The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        :param pulumi.Input[_builtins.str] rate_limit: Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] sitelink_enabled: Indicates whether to enable or disable SiteLink.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -719,6 +821,9 @@ class PrivateVirtualInterface(pulumi.CustomResource):
                  dx_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  mtu: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_pool_allocated_count_ipv4: pulumi.Input[Optional[_builtins.int]] = None,
+                 prefix_pool_allocated_count_ipv6: pulumi.Input[Optional[_builtins.int]] = None,
+                 rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  sitelink_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -747,6 +852,9 @@ class PrivateVirtualInterface(pulumi.CustomResource):
             __props__.__dict__["dx_gateway_id"] = dx_gateway_id
             __props__.__dict__["mtu"] = mtu
             __props__.__dict__["name"] = name
+            __props__.__dict__["prefix_pool_allocated_count_ipv4"] = prefix_pool_allocated_count_ipv4
+            __props__.__dict__["prefix_pool_allocated_count_ipv6"] = prefix_pool_allocated_count_ipv6
+            __props__.__dict__["rate_limit"] = rate_limit
             __props__.__dict__["region"] = region
             __props__.__dict__["sitelink_enabled"] = sitelink_enabled
             __props__.__dict__["tags"] = tags
@@ -783,6 +891,9 @@ class PrivateVirtualInterface(pulumi.CustomResource):
             jumbo_frame_capable: pulumi.Input[Optional[_builtins.bool]] = None,
             mtu: pulumi.Input[Optional[_builtins.int]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
+            prefix_pool_allocated_count_ipv4: pulumi.Input[Optional[_builtins.int]] = None,
+            prefix_pool_allocated_count_ipv6: pulumi.Input[Optional[_builtins.int]] = None,
+            rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             sitelink_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -810,6 +921,9 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] mtu: The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
                The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
         :param pulumi.Input[_builtins.str] name: The name for the virtual interface.
+        :param pulumi.Input[_builtins.int] prefix_pool_allocated_count_ipv4: The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        :param pulumi.Input[_builtins.int] prefix_pool_allocated_count_ipv6: The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        :param pulumi.Input[_builtins.str] rate_limit: Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] sitelink_enabled: Indicates whether to enable or disable SiteLink.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -835,6 +949,9 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         __props__.__dict__["jumbo_frame_capable"] = jumbo_frame_capable
         __props__.__dict__["mtu"] = mtu
         __props__.__dict__["name"] = name
+        __props__.__dict__["prefix_pool_allocated_count_ipv4"] = prefix_pool_allocated_count_ipv4
+        __props__.__dict__["prefix_pool_allocated_count_ipv6"] = prefix_pool_allocated_count_ipv6
+        __props__.__dict__["rate_limit"] = rate_limit
         __props__.__dict__["region"] = region
         __props__.__dict__["sitelink_enabled"] = sitelink_enabled
         __props__.__dict__["tags"] = tags
@@ -952,6 +1069,30 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         The name for the virtual interface.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="prefixPoolAllocatedCountIpv4")
+    def prefix_pool_allocated_count_ipv4(self) -> pulumi.Output[_builtins.int]:
+        """
+        The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        """
+        return pulumi.get(self, "prefix_pool_allocated_count_ipv4")
+
+    @_builtins.property
+    @pulumi.getter(name="prefixPoolAllocatedCountIpv6")
+    def prefix_pool_allocated_count_ipv6(self) -> pulumi.Output[_builtins.int]:
+        """
+        The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        """
+        return pulumi.get(self, "prefix_pool_allocated_count_ipv6")
+
+    @_builtins.property
+    @pulumi.getter(name="rateLimit")
+    def rate_limit(self) -> pulumi.Output[_builtins.str]:
+        """
+        Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+        """
+        return pulumi.get(self, "rate_limit")
 
     @_builtins.property
     @pulumi.getter

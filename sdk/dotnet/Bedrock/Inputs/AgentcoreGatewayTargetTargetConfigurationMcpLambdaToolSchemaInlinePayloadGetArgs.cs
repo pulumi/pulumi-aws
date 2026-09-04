@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string> Description { get; set; } = null!;
 
         /// <summary>
-        /// Schema for the tool's input. See `SchemaDefinition` below.
+        /// Schema for the tool's input. See `SchemaDefinition` Block below.
         /// </summary>
         [Input("inputSchema", required: true)]
         public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaGetArgs> InputSchema { get; set; } = null!;
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Schema for the tool's output. See `SchemaDefinition` below.
+        /// Schema for the tool's output. See `SchemaDefinition` Block below.
         /// </summary>
         [Input("outputSchema")]
         public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaGetArgs>? OutputSchema { get; set; }

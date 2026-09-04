@@ -135,7 +135,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
     /**
      * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
      * Only supported for engine types `&#34;redis&#34;` and `&#34;valkey&#34;` and if the engine version is 6 or higher.
-     * Defaults to `true`.
+     * If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
      * 
      */
     @Import(name="autoMinorVersionUpgrade")
@@ -144,7 +144,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
     /**
      * @return Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
      * Only supported for engine types `&#34;redis&#34;` and `&#34;valkey&#34;` and if the engine version is 6 or higher.
-     * Defaults to `true`.
+     * If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
      * 
      */
     public Optional<Output<Boolean>> autoMinorVersionUpgrade() {
@@ -1100,7 +1100,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         /**
          * @param autoMinorVersionUpgrade Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
          * Only supported for engine types `&#34;redis&#34;` and `&#34;valkey&#34;` and if the engine version is 6 or higher.
-         * Defaults to `true`.
+         * If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
          * 
          * @return builder
          * 
@@ -1113,7 +1113,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         /**
          * @param autoMinorVersionUpgrade Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
          * Only supported for engine types `&#34;redis&#34;` and `&#34;valkey&#34;` and if the engine version is 6 or higher.
-         * Defaults to `true`.
+         * If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
          * 
          * @return builder
          * 

@@ -7196,7 +7196,7 @@ func (o AutomationRuleV2CriteriaPtrOutput) OcsfFindingCriteriaJson() pulumi.Stri
 type ConfigurationPolicyConfigurationPolicy struct {
 	// A list that defines which security standards are enabled in the configuration policy. It must be defined if `serviceEnabled` is set to true.
 	EnabledStandardArns []string `pulumi:"enabledStandardArns"`
-	// Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
+	// Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. It must be defined if `serviceEnabled` is set to true. See below.
 	SecurityControlsConfiguration *ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration `pulumi:"securityControlsConfiguration"`
 	// Indicates whether Security Hub is enabled in the policy.
 	ServiceEnabled bool `pulumi:"serviceEnabled"`
@@ -7216,7 +7216,7 @@ type ConfigurationPolicyConfigurationPolicyInput interface {
 type ConfigurationPolicyConfigurationPolicyArgs struct {
 	// A list that defines which security standards are enabled in the configuration policy. It must be defined if `serviceEnabled` is set to true.
 	EnabledStandardArns pulumi.StringArrayInput `pulumi:"enabledStandardArns"`
-	// Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
+	// Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. It must be defined if `serviceEnabled` is set to true. See below.
 	SecurityControlsConfiguration ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrInput `pulumi:"securityControlsConfiguration"`
 	// Indicates whether Security Hub is enabled in the policy.
 	ServiceEnabled pulumi.BoolInput `pulumi:"serviceEnabled"`
@@ -7304,7 +7304,7 @@ func (o ConfigurationPolicyConfigurationPolicyOutput) EnabledStandardArns() pulu
 	return o.ApplyT(func(v ConfigurationPolicyConfigurationPolicy) []string { return v.EnabledStandardArns }).(pulumi.StringArrayOutput)
 }
 
-// Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
+// Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. It must be defined if `serviceEnabled` is set to true. See below.
 func (o ConfigurationPolicyConfigurationPolicyOutput) SecurityControlsConfiguration() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput {
 	return o.ApplyT(func(v ConfigurationPolicyConfigurationPolicy) *ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration {
 		return v.SecurityControlsConfiguration
@@ -7350,7 +7350,7 @@ func (o ConfigurationPolicyConfigurationPolicyPtrOutput) EnabledStandardArns() p
 	}).(pulumi.StringArrayOutput)
 }
 
-// Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
+// Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. It must be defined if `serviceEnabled` is set to true. See below.
 func (o ConfigurationPolicyConfigurationPolicyPtrOutput) SecurityControlsConfiguration() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput {
 	return o.ApplyT(func(v *ConfigurationPolicyConfigurationPolicy) *ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration {
 		if v == nil {

@@ -100,6 +100,10 @@ export class Canary extends pulumi.CustomResource {
      */
     declare public readonly handler: pulumi.Output<string>;
     /**
+     * ARN of the customer-managed KMS key used to encrypt the environment variables of the canary's Lambda function at rest. If omitted, an AWS owned key is used. Note that this is distinct from `artifact_config.s3_encryption.kms_key_arn`, which encrypts the artifacts the canary uploads to Amazon S3.
+     */
+    declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
+    /**
      * Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
      */
     declare public readonly name: pulumi.Output<string>;
@@ -191,6 +195,7 @@ export class Canary extends pulumi.CustomResource {
             resourceInputs["executionRoleArn"] = state?.executionRoleArn;
             resourceInputs["failureRetentionPeriod"] = state?.failureRetentionPeriod;
             resourceInputs["handler"] = state?.handler;
+            resourceInputs["kmsKeyArn"] = state?.kmsKeyArn;
             resourceInputs["name"] = state?.name;
             resourceInputs["region"] = state?.region;
             resourceInputs["runConfig"] = state?.runConfig;
@@ -231,6 +236,7 @@ export class Canary extends pulumi.CustomResource {
             resourceInputs["executionRoleArn"] = args?.executionRoleArn;
             resourceInputs["failureRetentionPeriod"] = args?.failureRetentionPeriod;
             resourceInputs["handler"] = args?.handler;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
             resourceInputs["name"] = args?.name;
             resourceInputs["region"] = args?.region;
             resourceInputs["runConfig"] = args?.runConfig;
@@ -292,6 +298,10 @@ export interface CanaryState {
      * Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
      */
     handler?: pulumi.Input<string | undefined>;
+    /**
+     * ARN of the customer-managed KMS key used to encrypt the environment variables of the canary's Lambda function at rest. If omitted, an AWS owned key is used. Note that this is distinct from `artifact_config.s3_encryption.kms_key_arn`, which encrypts the artifacts the canary uploads to Amazon S3.
+     */
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
      */
@@ -392,6 +402,10 @@ export interface CanaryArgs {
      * Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
      */
     handler: pulumi.Input<string>;
+    /**
+     * ARN of the customer-managed KMS key used to encrypt the environment variables of the canary's Lambda function at rest. If omitted, an AWS owned key is used. Note that this is distinct from `artifact_config.s3_encryption.kms_key_arn`, which encrypts the artifacts the canary uploads to Amazon S3.
+     */
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
      */

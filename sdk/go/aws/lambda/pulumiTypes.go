@@ -7687,6 +7687,767 @@ func (o MicrovmsImageTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type MicrovmsMicrovmIdlePolicy struct {
+	// Whether to automatically resume the MicroVM when it receives a request while suspended.
+	AutoResumeEnabled bool `pulumi:"autoResumeEnabled"`
+	// Number of seconds without traffic after which the MicroVM is suspended.
+	MaxIdleDurationSeconds int `pulumi:"maxIdleDurationSeconds"`
+	// Number of seconds a MicroVM remains suspended before it is automatically terminated.
+	SuspendedDurationSeconds int `pulumi:"suspendedDurationSeconds"`
+}
+
+// MicrovmsMicrovmIdlePolicyInput is an input type that accepts MicrovmsMicrovmIdlePolicyArgs and MicrovmsMicrovmIdlePolicyOutput values.
+// You can construct a concrete instance of `MicrovmsMicrovmIdlePolicyInput` via:
+//
+//	MicrovmsMicrovmIdlePolicyArgs{...}
+type MicrovmsMicrovmIdlePolicyInput interface {
+	pulumi.Input
+
+	ToMicrovmsMicrovmIdlePolicyOutput() MicrovmsMicrovmIdlePolicyOutput
+	ToMicrovmsMicrovmIdlePolicyOutputWithContext(context.Context) MicrovmsMicrovmIdlePolicyOutput
+}
+
+type MicrovmsMicrovmIdlePolicyArgs struct {
+	// Whether to automatically resume the MicroVM when it receives a request while suspended.
+	AutoResumeEnabled pulumi.BoolInput `pulumi:"autoResumeEnabled"`
+	// Number of seconds without traffic after which the MicroVM is suspended.
+	MaxIdleDurationSeconds pulumi.IntInput `pulumi:"maxIdleDurationSeconds"`
+	// Number of seconds a MicroVM remains suspended before it is automatically terminated.
+	SuspendedDurationSeconds pulumi.IntInput `pulumi:"suspendedDurationSeconds"`
+}
+
+func (MicrovmsMicrovmIdlePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmsMicrovmIdlePolicy)(nil)).Elem()
+}
+
+func (i MicrovmsMicrovmIdlePolicyArgs) ToMicrovmsMicrovmIdlePolicyOutput() MicrovmsMicrovmIdlePolicyOutput {
+	return i.ToMicrovmsMicrovmIdlePolicyOutputWithContext(context.Background())
+}
+
+func (i MicrovmsMicrovmIdlePolicyArgs) ToMicrovmsMicrovmIdlePolicyOutputWithContext(ctx context.Context) MicrovmsMicrovmIdlePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmsMicrovmIdlePolicyOutput)
+}
+
+func (i MicrovmsMicrovmIdlePolicyArgs) ToMicrovmsMicrovmIdlePolicyPtrOutput() MicrovmsMicrovmIdlePolicyPtrOutput {
+	return i.ToMicrovmsMicrovmIdlePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i MicrovmsMicrovmIdlePolicyArgs) ToMicrovmsMicrovmIdlePolicyPtrOutputWithContext(ctx context.Context) MicrovmsMicrovmIdlePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmsMicrovmIdlePolicyOutput).ToMicrovmsMicrovmIdlePolicyPtrOutputWithContext(ctx)
+}
+
+// MicrovmsMicrovmIdlePolicyPtrInput is an input type that accepts MicrovmsMicrovmIdlePolicyArgs, MicrovmsMicrovmIdlePolicyPtr and MicrovmsMicrovmIdlePolicyPtrOutput values.
+// You can construct a concrete instance of `MicrovmsMicrovmIdlePolicyPtrInput` via:
+//
+//	        MicrovmsMicrovmIdlePolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type MicrovmsMicrovmIdlePolicyPtrInput interface {
+	pulumi.Input
+
+	ToMicrovmsMicrovmIdlePolicyPtrOutput() MicrovmsMicrovmIdlePolicyPtrOutput
+	ToMicrovmsMicrovmIdlePolicyPtrOutputWithContext(context.Context) MicrovmsMicrovmIdlePolicyPtrOutput
+}
+
+type microvmsMicrovmIdlePolicyPtrType MicrovmsMicrovmIdlePolicyArgs
+
+func MicrovmsMicrovmIdlePolicyPtr(v *MicrovmsMicrovmIdlePolicyArgs) MicrovmsMicrovmIdlePolicyPtrInput {
+	return (*microvmsMicrovmIdlePolicyPtrType)(v)
+}
+
+func (*microvmsMicrovmIdlePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MicrovmsMicrovmIdlePolicy)(nil)).Elem()
+}
+
+func (i *microvmsMicrovmIdlePolicyPtrType) ToMicrovmsMicrovmIdlePolicyPtrOutput() MicrovmsMicrovmIdlePolicyPtrOutput {
+	return i.ToMicrovmsMicrovmIdlePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *microvmsMicrovmIdlePolicyPtrType) ToMicrovmsMicrovmIdlePolicyPtrOutputWithContext(ctx context.Context) MicrovmsMicrovmIdlePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmsMicrovmIdlePolicyPtrOutput)
+}
+
+type MicrovmsMicrovmIdlePolicyOutput struct{ *pulumi.OutputState }
+
+func (MicrovmsMicrovmIdlePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmsMicrovmIdlePolicy)(nil)).Elem()
+}
+
+func (o MicrovmsMicrovmIdlePolicyOutput) ToMicrovmsMicrovmIdlePolicyOutput() MicrovmsMicrovmIdlePolicyOutput {
+	return o
+}
+
+func (o MicrovmsMicrovmIdlePolicyOutput) ToMicrovmsMicrovmIdlePolicyOutputWithContext(ctx context.Context) MicrovmsMicrovmIdlePolicyOutput {
+	return o
+}
+
+func (o MicrovmsMicrovmIdlePolicyOutput) ToMicrovmsMicrovmIdlePolicyPtrOutput() MicrovmsMicrovmIdlePolicyPtrOutput {
+	return o.ToMicrovmsMicrovmIdlePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o MicrovmsMicrovmIdlePolicyOutput) ToMicrovmsMicrovmIdlePolicyPtrOutputWithContext(ctx context.Context) MicrovmsMicrovmIdlePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MicrovmsMicrovmIdlePolicy) *MicrovmsMicrovmIdlePolicy {
+		return &v
+	}).(MicrovmsMicrovmIdlePolicyPtrOutput)
+}
+
+// Whether to automatically resume the MicroVM when it receives a request while suspended.
+func (o MicrovmsMicrovmIdlePolicyOutput) AutoResumeEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v MicrovmsMicrovmIdlePolicy) bool { return v.AutoResumeEnabled }).(pulumi.BoolOutput)
+}
+
+// Number of seconds without traffic after which the MicroVM is suspended.
+func (o MicrovmsMicrovmIdlePolicyOutput) MaxIdleDurationSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v MicrovmsMicrovmIdlePolicy) int { return v.MaxIdleDurationSeconds }).(pulumi.IntOutput)
+}
+
+// Number of seconds a MicroVM remains suspended before it is automatically terminated.
+func (o MicrovmsMicrovmIdlePolicyOutput) SuspendedDurationSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v MicrovmsMicrovmIdlePolicy) int { return v.SuspendedDurationSeconds }).(pulumi.IntOutput)
+}
+
+type MicrovmsMicrovmIdlePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (MicrovmsMicrovmIdlePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MicrovmsMicrovmIdlePolicy)(nil)).Elem()
+}
+
+func (o MicrovmsMicrovmIdlePolicyPtrOutput) ToMicrovmsMicrovmIdlePolicyPtrOutput() MicrovmsMicrovmIdlePolicyPtrOutput {
+	return o
+}
+
+func (o MicrovmsMicrovmIdlePolicyPtrOutput) ToMicrovmsMicrovmIdlePolicyPtrOutputWithContext(ctx context.Context) MicrovmsMicrovmIdlePolicyPtrOutput {
+	return o
+}
+
+func (o MicrovmsMicrovmIdlePolicyPtrOutput) Elem() MicrovmsMicrovmIdlePolicyOutput {
+	return o.ApplyT(func(v *MicrovmsMicrovmIdlePolicy) MicrovmsMicrovmIdlePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret MicrovmsMicrovmIdlePolicy
+		return ret
+	}).(MicrovmsMicrovmIdlePolicyOutput)
+}
+
+// Whether to automatically resume the MicroVM when it receives a request while suspended.
+func (o MicrovmsMicrovmIdlePolicyPtrOutput) AutoResumeEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MicrovmsMicrovmIdlePolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AutoResumeEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Number of seconds without traffic after which the MicroVM is suspended.
+func (o MicrovmsMicrovmIdlePolicyPtrOutput) MaxIdleDurationSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MicrovmsMicrovmIdlePolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxIdleDurationSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Number of seconds a MicroVM remains suspended before it is automatically terminated.
+func (o MicrovmsMicrovmIdlePolicyPtrOutput) SuspendedDurationSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MicrovmsMicrovmIdlePolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SuspendedDurationSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type MicrovmsMicrovmLogging struct {
+	// Send logs to Amazon CloudWatch Logs. See below.
+	Cloudwatch *MicrovmsMicrovmLoggingCloudwatch `pulumi:"cloudwatch"`
+	// Disable logging for the MicroVM. Specify an empty block: `disabled {}`.
+	Disabled *MicrovmsMicrovmLoggingDisabled `pulumi:"disabled"`
+}
+
+// MicrovmsMicrovmLoggingInput is an input type that accepts MicrovmsMicrovmLoggingArgs and MicrovmsMicrovmLoggingOutput values.
+// You can construct a concrete instance of `MicrovmsMicrovmLoggingInput` via:
+//
+//	MicrovmsMicrovmLoggingArgs{...}
+type MicrovmsMicrovmLoggingInput interface {
+	pulumi.Input
+
+	ToMicrovmsMicrovmLoggingOutput() MicrovmsMicrovmLoggingOutput
+	ToMicrovmsMicrovmLoggingOutputWithContext(context.Context) MicrovmsMicrovmLoggingOutput
+}
+
+type MicrovmsMicrovmLoggingArgs struct {
+	// Send logs to Amazon CloudWatch Logs. See below.
+	Cloudwatch MicrovmsMicrovmLoggingCloudwatchPtrInput `pulumi:"cloudwatch"`
+	// Disable logging for the MicroVM. Specify an empty block: `disabled {}`.
+	Disabled MicrovmsMicrovmLoggingDisabledPtrInput `pulumi:"disabled"`
+}
+
+func (MicrovmsMicrovmLoggingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmsMicrovmLogging)(nil)).Elem()
+}
+
+func (i MicrovmsMicrovmLoggingArgs) ToMicrovmsMicrovmLoggingOutput() MicrovmsMicrovmLoggingOutput {
+	return i.ToMicrovmsMicrovmLoggingOutputWithContext(context.Background())
+}
+
+func (i MicrovmsMicrovmLoggingArgs) ToMicrovmsMicrovmLoggingOutputWithContext(ctx context.Context) MicrovmsMicrovmLoggingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmsMicrovmLoggingOutput)
+}
+
+func (i MicrovmsMicrovmLoggingArgs) ToMicrovmsMicrovmLoggingPtrOutput() MicrovmsMicrovmLoggingPtrOutput {
+	return i.ToMicrovmsMicrovmLoggingPtrOutputWithContext(context.Background())
+}
+
+func (i MicrovmsMicrovmLoggingArgs) ToMicrovmsMicrovmLoggingPtrOutputWithContext(ctx context.Context) MicrovmsMicrovmLoggingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmsMicrovmLoggingOutput).ToMicrovmsMicrovmLoggingPtrOutputWithContext(ctx)
+}
+
+// MicrovmsMicrovmLoggingPtrInput is an input type that accepts MicrovmsMicrovmLoggingArgs, MicrovmsMicrovmLoggingPtr and MicrovmsMicrovmLoggingPtrOutput values.
+// You can construct a concrete instance of `MicrovmsMicrovmLoggingPtrInput` via:
+//
+//	        MicrovmsMicrovmLoggingArgs{...}
+//
+//	or:
+//
+//	        nil
+type MicrovmsMicrovmLoggingPtrInput interface {
+	pulumi.Input
+
+	ToMicrovmsMicrovmLoggingPtrOutput() MicrovmsMicrovmLoggingPtrOutput
+	ToMicrovmsMicrovmLoggingPtrOutputWithContext(context.Context) MicrovmsMicrovmLoggingPtrOutput
+}
+
+type microvmsMicrovmLoggingPtrType MicrovmsMicrovmLoggingArgs
+
+func MicrovmsMicrovmLoggingPtr(v *MicrovmsMicrovmLoggingArgs) MicrovmsMicrovmLoggingPtrInput {
+	return (*microvmsMicrovmLoggingPtrType)(v)
+}
+
+func (*microvmsMicrovmLoggingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MicrovmsMicrovmLogging)(nil)).Elem()
+}
+
+func (i *microvmsMicrovmLoggingPtrType) ToMicrovmsMicrovmLoggingPtrOutput() MicrovmsMicrovmLoggingPtrOutput {
+	return i.ToMicrovmsMicrovmLoggingPtrOutputWithContext(context.Background())
+}
+
+func (i *microvmsMicrovmLoggingPtrType) ToMicrovmsMicrovmLoggingPtrOutputWithContext(ctx context.Context) MicrovmsMicrovmLoggingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmsMicrovmLoggingPtrOutput)
+}
+
+type MicrovmsMicrovmLoggingOutput struct{ *pulumi.OutputState }
+
+func (MicrovmsMicrovmLoggingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmsMicrovmLogging)(nil)).Elem()
+}
+
+func (o MicrovmsMicrovmLoggingOutput) ToMicrovmsMicrovmLoggingOutput() MicrovmsMicrovmLoggingOutput {
+	return o
+}
+
+func (o MicrovmsMicrovmLoggingOutput) ToMicrovmsMicrovmLoggingOutputWithContext(ctx context.Context) MicrovmsMicrovmLoggingOutput {
+	return o
+}
+
+func (o MicrovmsMicrovmLoggingOutput) ToMicrovmsMicrovmLoggingPtrOutput() MicrovmsMicrovmLoggingPtrOutput {
+	return o.ToMicrovmsMicrovmLoggingPtrOutputWithContext(context.Background())
+}
+
+func (o MicrovmsMicrovmLoggingOutput) ToMicrovmsMicrovmLoggingPtrOutputWithContext(ctx context.Context) MicrovmsMicrovmLoggingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MicrovmsMicrovmLogging) *MicrovmsMicrovmLogging {
+		return &v
+	}).(MicrovmsMicrovmLoggingPtrOutput)
+}
+
+// Send logs to Amazon CloudWatch Logs. See below.
+func (o MicrovmsMicrovmLoggingOutput) Cloudwatch() MicrovmsMicrovmLoggingCloudwatchPtrOutput {
+	return o.ApplyT(func(v MicrovmsMicrovmLogging) *MicrovmsMicrovmLoggingCloudwatch { return v.Cloudwatch }).(MicrovmsMicrovmLoggingCloudwatchPtrOutput)
+}
+
+// Disable logging for the MicroVM. Specify an empty block: `disabled {}`.
+func (o MicrovmsMicrovmLoggingOutput) Disabled() MicrovmsMicrovmLoggingDisabledPtrOutput {
+	return o.ApplyT(func(v MicrovmsMicrovmLogging) *MicrovmsMicrovmLoggingDisabled { return v.Disabled }).(MicrovmsMicrovmLoggingDisabledPtrOutput)
+}
+
+type MicrovmsMicrovmLoggingPtrOutput struct{ *pulumi.OutputState }
+
+func (MicrovmsMicrovmLoggingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MicrovmsMicrovmLogging)(nil)).Elem()
+}
+
+func (o MicrovmsMicrovmLoggingPtrOutput) ToMicrovmsMicrovmLoggingPtrOutput() MicrovmsMicrovmLoggingPtrOutput {
+	return o
+}
+
+func (o MicrovmsMicrovmLoggingPtrOutput) ToMicrovmsMicrovmLoggingPtrOutputWithContext(ctx context.Context) MicrovmsMicrovmLoggingPtrOutput {
+	return o
+}
+
+func (o MicrovmsMicrovmLoggingPtrOutput) Elem() MicrovmsMicrovmLoggingOutput {
+	return o.ApplyT(func(v *MicrovmsMicrovmLogging) MicrovmsMicrovmLogging {
+		if v != nil {
+			return *v
+		}
+		var ret MicrovmsMicrovmLogging
+		return ret
+	}).(MicrovmsMicrovmLoggingOutput)
+}
+
+// Send logs to Amazon CloudWatch Logs. See below.
+func (o MicrovmsMicrovmLoggingPtrOutput) Cloudwatch() MicrovmsMicrovmLoggingCloudwatchPtrOutput {
+	return o.ApplyT(func(v *MicrovmsMicrovmLogging) *MicrovmsMicrovmLoggingCloudwatch {
+		if v == nil {
+			return nil
+		}
+		return v.Cloudwatch
+	}).(MicrovmsMicrovmLoggingCloudwatchPtrOutput)
+}
+
+// Disable logging for the MicroVM. Specify an empty block: `disabled {}`.
+func (o MicrovmsMicrovmLoggingPtrOutput) Disabled() MicrovmsMicrovmLoggingDisabledPtrOutput {
+	return o.ApplyT(func(v *MicrovmsMicrovmLogging) *MicrovmsMicrovmLoggingDisabled {
+		if v == nil {
+			return nil
+		}
+		return v.Disabled
+	}).(MicrovmsMicrovmLoggingDisabledPtrOutput)
+}
+
+type MicrovmsMicrovmLoggingCloudwatch struct {
+	// Name of the CloudWatch Logs log group to send logs to.
+	LogGroup *string `pulumi:"logGroup"`
+	// Name of the CloudWatch Logs log stream within the log group.
+	LogStream *string `pulumi:"logStream"`
+}
+
+// MicrovmsMicrovmLoggingCloudwatchInput is an input type that accepts MicrovmsMicrovmLoggingCloudwatchArgs and MicrovmsMicrovmLoggingCloudwatchOutput values.
+// You can construct a concrete instance of `MicrovmsMicrovmLoggingCloudwatchInput` via:
+//
+//	MicrovmsMicrovmLoggingCloudwatchArgs{...}
+type MicrovmsMicrovmLoggingCloudwatchInput interface {
+	pulumi.Input
+
+	ToMicrovmsMicrovmLoggingCloudwatchOutput() MicrovmsMicrovmLoggingCloudwatchOutput
+	ToMicrovmsMicrovmLoggingCloudwatchOutputWithContext(context.Context) MicrovmsMicrovmLoggingCloudwatchOutput
+}
+
+type MicrovmsMicrovmLoggingCloudwatchArgs struct {
+	// Name of the CloudWatch Logs log group to send logs to.
+	LogGroup pulumi.StringPtrInput `pulumi:"logGroup"`
+	// Name of the CloudWatch Logs log stream within the log group.
+	LogStream pulumi.StringPtrInput `pulumi:"logStream"`
+}
+
+func (MicrovmsMicrovmLoggingCloudwatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmsMicrovmLoggingCloudwatch)(nil)).Elem()
+}
+
+func (i MicrovmsMicrovmLoggingCloudwatchArgs) ToMicrovmsMicrovmLoggingCloudwatchOutput() MicrovmsMicrovmLoggingCloudwatchOutput {
+	return i.ToMicrovmsMicrovmLoggingCloudwatchOutputWithContext(context.Background())
+}
+
+func (i MicrovmsMicrovmLoggingCloudwatchArgs) ToMicrovmsMicrovmLoggingCloudwatchOutputWithContext(ctx context.Context) MicrovmsMicrovmLoggingCloudwatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmsMicrovmLoggingCloudwatchOutput)
+}
+
+func (i MicrovmsMicrovmLoggingCloudwatchArgs) ToMicrovmsMicrovmLoggingCloudwatchPtrOutput() MicrovmsMicrovmLoggingCloudwatchPtrOutput {
+	return i.ToMicrovmsMicrovmLoggingCloudwatchPtrOutputWithContext(context.Background())
+}
+
+func (i MicrovmsMicrovmLoggingCloudwatchArgs) ToMicrovmsMicrovmLoggingCloudwatchPtrOutputWithContext(ctx context.Context) MicrovmsMicrovmLoggingCloudwatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmsMicrovmLoggingCloudwatchOutput).ToMicrovmsMicrovmLoggingCloudwatchPtrOutputWithContext(ctx)
+}
+
+// MicrovmsMicrovmLoggingCloudwatchPtrInput is an input type that accepts MicrovmsMicrovmLoggingCloudwatchArgs, MicrovmsMicrovmLoggingCloudwatchPtr and MicrovmsMicrovmLoggingCloudwatchPtrOutput values.
+// You can construct a concrete instance of `MicrovmsMicrovmLoggingCloudwatchPtrInput` via:
+//
+//	        MicrovmsMicrovmLoggingCloudwatchArgs{...}
+//
+//	or:
+//
+//	        nil
+type MicrovmsMicrovmLoggingCloudwatchPtrInput interface {
+	pulumi.Input
+
+	ToMicrovmsMicrovmLoggingCloudwatchPtrOutput() MicrovmsMicrovmLoggingCloudwatchPtrOutput
+	ToMicrovmsMicrovmLoggingCloudwatchPtrOutputWithContext(context.Context) MicrovmsMicrovmLoggingCloudwatchPtrOutput
+}
+
+type microvmsMicrovmLoggingCloudwatchPtrType MicrovmsMicrovmLoggingCloudwatchArgs
+
+func MicrovmsMicrovmLoggingCloudwatchPtr(v *MicrovmsMicrovmLoggingCloudwatchArgs) MicrovmsMicrovmLoggingCloudwatchPtrInput {
+	return (*microvmsMicrovmLoggingCloudwatchPtrType)(v)
+}
+
+func (*microvmsMicrovmLoggingCloudwatchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MicrovmsMicrovmLoggingCloudwatch)(nil)).Elem()
+}
+
+func (i *microvmsMicrovmLoggingCloudwatchPtrType) ToMicrovmsMicrovmLoggingCloudwatchPtrOutput() MicrovmsMicrovmLoggingCloudwatchPtrOutput {
+	return i.ToMicrovmsMicrovmLoggingCloudwatchPtrOutputWithContext(context.Background())
+}
+
+func (i *microvmsMicrovmLoggingCloudwatchPtrType) ToMicrovmsMicrovmLoggingCloudwatchPtrOutputWithContext(ctx context.Context) MicrovmsMicrovmLoggingCloudwatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmsMicrovmLoggingCloudwatchPtrOutput)
+}
+
+type MicrovmsMicrovmLoggingCloudwatchOutput struct{ *pulumi.OutputState }
+
+func (MicrovmsMicrovmLoggingCloudwatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmsMicrovmLoggingCloudwatch)(nil)).Elem()
+}
+
+func (o MicrovmsMicrovmLoggingCloudwatchOutput) ToMicrovmsMicrovmLoggingCloudwatchOutput() MicrovmsMicrovmLoggingCloudwatchOutput {
+	return o
+}
+
+func (o MicrovmsMicrovmLoggingCloudwatchOutput) ToMicrovmsMicrovmLoggingCloudwatchOutputWithContext(ctx context.Context) MicrovmsMicrovmLoggingCloudwatchOutput {
+	return o
+}
+
+func (o MicrovmsMicrovmLoggingCloudwatchOutput) ToMicrovmsMicrovmLoggingCloudwatchPtrOutput() MicrovmsMicrovmLoggingCloudwatchPtrOutput {
+	return o.ToMicrovmsMicrovmLoggingCloudwatchPtrOutputWithContext(context.Background())
+}
+
+func (o MicrovmsMicrovmLoggingCloudwatchOutput) ToMicrovmsMicrovmLoggingCloudwatchPtrOutputWithContext(ctx context.Context) MicrovmsMicrovmLoggingCloudwatchPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MicrovmsMicrovmLoggingCloudwatch) *MicrovmsMicrovmLoggingCloudwatch {
+		return &v
+	}).(MicrovmsMicrovmLoggingCloudwatchPtrOutput)
+}
+
+// Name of the CloudWatch Logs log group to send logs to.
+func (o MicrovmsMicrovmLoggingCloudwatchOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MicrovmsMicrovmLoggingCloudwatch) *string { return v.LogGroup }).(pulumi.StringPtrOutput)
+}
+
+// Name of the CloudWatch Logs log stream within the log group.
+func (o MicrovmsMicrovmLoggingCloudwatchOutput) LogStream() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MicrovmsMicrovmLoggingCloudwatch) *string { return v.LogStream }).(pulumi.StringPtrOutput)
+}
+
+type MicrovmsMicrovmLoggingCloudwatchPtrOutput struct{ *pulumi.OutputState }
+
+func (MicrovmsMicrovmLoggingCloudwatchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MicrovmsMicrovmLoggingCloudwatch)(nil)).Elem()
+}
+
+func (o MicrovmsMicrovmLoggingCloudwatchPtrOutput) ToMicrovmsMicrovmLoggingCloudwatchPtrOutput() MicrovmsMicrovmLoggingCloudwatchPtrOutput {
+	return o
+}
+
+func (o MicrovmsMicrovmLoggingCloudwatchPtrOutput) ToMicrovmsMicrovmLoggingCloudwatchPtrOutputWithContext(ctx context.Context) MicrovmsMicrovmLoggingCloudwatchPtrOutput {
+	return o
+}
+
+func (o MicrovmsMicrovmLoggingCloudwatchPtrOutput) Elem() MicrovmsMicrovmLoggingCloudwatchOutput {
+	return o.ApplyT(func(v *MicrovmsMicrovmLoggingCloudwatch) MicrovmsMicrovmLoggingCloudwatch {
+		if v != nil {
+			return *v
+		}
+		var ret MicrovmsMicrovmLoggingCloudwatch
+		return ret
+	}).(MicrovmsMicrovmLoggingCloudwatchOutput)
+}
+
+// Name of the CloudWatch Logs log group to send logs to.
+func (o MicrovmsMicrovmLoggingCloudwatchPtrOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MicrovmsMicrovmLoggingCloudwatch) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the CloudWatch Logs log stream within the log group.
+func (o MicrovmsMicrovmLoggingCloudwatchPtrOutput) LogStream() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MicrovmsMicrovmLoggingCloudwatch) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogStream
+	}).(pulumi.StringPtrOutput)
+}
+
+type MicrovmsMicrovmLoggingDisabled struct {
+}
+
+// MicrovmsMicrovmLoggingDisabledInput is an input type that accepts MicrovmsMicrovmLoggingDisabledArgs and MicrovmsMicrovmLoggingDisabledOutput values.
+// You can construct a concrete instance of `MicrovmsMicrovmLoggingDisabledInput` via:
+//
+//	MicrovmsMicrovmLoggingDisabledArgs{...}
+type MicrovmsMicrovmLoggingDisabledInput interface {
+	pulumi.Input
+
+	ToMicrovmsMicrovmLoggingDisabledOutput() MicrovmsMicrovmLoggingDisabledOutput
+	ToMicrovmsMicrovmLoggingDisabledOutputWithContext(context.Context) MicrovmsMicrovmLoggingDisabledOutput
+}
+
+type MicrovmsMicrovmLoggingDisabledArgs struct {
+}
+
+func (MicrovmsMicrovmLoggingDisabledArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmsMicrovmLoggingDisabled)(nil)).Elem()
+}
+
+func (i MicrovmsMicrovmLoggingDisabledArgs) ToMicrovmsMicrovmLoggingDisabledOutput() MicrovmsMicrovmLoggingDisabledOutput {
+	return i.ToMicrovmsMicrovmLoggingDisabledOutputWithContext(context.Background())
+}
+
+func (i MicrovmsMicrovmLoggingDisabledArgs) ToMicrovmsMicrovmLoggingDisabledOutputWithContext(ctx context.Context) MicrovmsMicrovmLoggingDisabledOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmsMicrovmLoggingDisabledOutput)
+}
+
+func (i MicrovmsMicrovmLoggingDisabledArgs) ToMicrovmsMicrovmLoggingDisabledPtrOutput() MicrovmsMicrovmLoggingDisabledPtrOutput {
+	return i.ToMicrovmsMicrovmLoggingDisabledPtrOutputWithContext(context.Background())
+}
+
+func (i MicrovmsMicrovmLoggingDisabledArgs) ToMicrovmsMicrovmLoggingDisabledPtrOutputWithContext(ctx context.Context) MicrovmsMicrovmLoggingDisabledPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmsMicrovmLoggingDisabledOutput).ToMicrovmsMicrovmLoggingDisabledPtrOutputWithContext(ctx)
+}
+
+// MicrovmsMicrovmLoggingDisabledPtrInput is an input type that accepts MicrovmsMicrovmLoggingDisabledArgs, MicrovmsMicrovmLoggingDisabledPtr and MicrovmsMicrovmLoggingDisabledPtrOutput values.
+// You can construct a concrete instance of `MicrovmsMicrovmLoggingDisabledPtrInput` via:
+//
+//	        MicrovmsMicrovmLoggingDisabledArgs{...}
+//
+//	or:
+//
+//	        nil
+type MicrovmsMicrovmLoggingDisabledPtrInput interface {
+	pulumi.Input
+
+	ToMicrovmsMicrovmLoggingDisabledPtrOutput() MicrovmsMicrovmLoggingDisabledPtrOutput
+	ToMicrovmsMicrovmLoggingDisabledPtrOutputWithContext(context.Context) MicrovmsMicrovmLoggingDisabledPtrOutput
+}
+
+type microvmsMicrovmLoggingDisabledPtrType MicrovmsMicrovmLoggingDisabledArgs
+
+func MicrovmsMicrovmLoggingDisabledPtr(v *MicrovmsMicrovmLoggingDisabledArgs) MicrovmsMicrovmLoggingDisabledPtrInput {
+	return (*microvmsMicrovmLoggingDisabledPtrType)(v)
+}
+
+func (*microvmsMicrovmLoggingDisabledPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MicrovmsMicrovmLoggingDisabled)(nil)).Elem()
+}
+
+func (i *microvmsMicrovmLoggingDisabledPtrType) ToMicrovmsMicrovmLoggingDisabledPtrOutput() MicrovmsMicrovmLoggingDisabledPtrOutput {
+	return i.ToMicrovmsMicrovmLoggingDisabledPtrOutputWithContext(context.Background())
+}
+
+func (i *microvmsMicrovmLoggingDisabledPtrType) ToMicrovmsMicrovmLoggingDisabledPtrOutputWithContext(ctx context.Context) MicrovmsMicrovmLoggingDisabledPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmsMicrovmLoggingDisabledPtrOutput)
+}
+
+type MicrovmsMicrovmLoggingDisabledOutput struct{ *pulumi.OutputState }
+
+func (MicrovmsMicrovmLoggingDisabledOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmsMicrovmLoggingDisabled)(nil)).Elem()
+}
+
+func (o MicrovmsMicrovmLoggingDisabledOutput) ToMicrovmsMicrovmLoggingDisabledOutput() MicrovmsMicrovmLoggingDisabledOutput {
+	return o
+}
+
+func (o MicrovmsMicrovmLoggingDisabledOutput) ToMicrovmsMicrovmLoggingDisabledOutputWithContext(ctx context.Context) MicrovmsMicrovmLoggingDisabledOutput {
+	return o
+}
+
+func (o MicrovmsMicrovmLoggingDisabledOutput) ToMicrovmsMicrovmLoggingDisabledPtrOutput() MicrovmsMicrovmLoggingDisabledPtrOutput {
+	return o.ToMicrovmsMicrovmLoggingDisabledPtrOutputWithContext(context.Background())
+}
+
+func (o MicrovmsMicrovmLoggingDisabledOutput) ToMicrovmsMicrovmLoggingDisabledPtrOutputWithContext(ctx context.Context) MicrovmsMicrovmLoggingDisabledPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MicrovmsMicrovmLoggingDisabled) *MicrovmsMicrovmLoggingDisabled {
+		return &v
+	}).(MicrovmsMicrovmLoggingDisabledPtrOutput)
+}
+
+type MicrovmsMicrovmLoggingDisabledPtrOutput struct{ *pulumi.OutputState }
+
+func (MicrovmsMicrovmLoggingDisabledPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MicrovmsMicrovmLoggingDisabled)(nil)).Elem()
+}
+
+func (o MicrovmsMicrovmLoggingDisabledPtrOutput) ToMicrovmsMicrovmLoggingDisabledPtrOutput() MicrovmsMicrovmLoggingDisabledPtrOutput {
+	return o
+}
+
+func (o MicrovmsMicrovmLoggingDisabledPtrOutput) ToMicrovmsMicrovmLoggingDisabledPtrOutputWithContext(ctx context.Context) MicrovmsMicrovmLoggingDisabledPtrOutput {
+	return o
+}
+
+func (o MicrovmsMicrovmLoggingDisabledPtrOutput) Elem() MicrovmsMicrovmLoggingDisabledOutput {
+	return o.ApplyT(func(v *MicrovmsMicrovmLoggingDisabled) MicrovmsMicrovmLoggingDisabled {
+		if v != nil {
+			return *v
+		}
+		var ret MicrovmsMicrovmLoggingDisabled
+		return ret
+	}).(MicrovmsMicrovmLoggingDisabledOutput)
+}
+
+type MicrovmsMicrovmTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// MicrovmsMicrovmTimeoutsInput is an input type that accepts MicrovmsMicrovmTimeoutsArgs and MicrovmsMicrovmTimeoutsOutput values.
+// You can construct a concrete instance of `MicrovmsMicrovmTimeoutsInput` via:
+//
+//	MicrovmsMicrovmTimeoutsArgs{...}
+type MicrovmsMicrovmTimeoutsInput interface {
+	pulumi.Input
+
+	ToMicrovmsMicrovmTimeoutsOutput() MicrovmsMicrovmTimeoutsOutput
+	ToMicrovmsMicrovmTimeoutsOutputWithContext(context.Context) MicrovmsMicrovmTimeoutsOutput
+}
+
+type MicrovmsMicrovmTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (MicrovmsMicrovmTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmsMicrovmTimeouts)(nil)).Elem()
+}
+
+func (i MicrovmsMicrovmTimeoutsArgs) ToMicrovmsMicrovmTimeoutsOutput() MicrovmsMicrovmTimeoutsOutput {
+	return i.ToMicrovmsMicrovmTimeoutsOutputWithContext(context.Background())
+}
+
+func (i MicrovmsMicrovmTimeoutsArgs) ToMicrovmsMicrovmTimeoutsOutputWithContext(ctx context.Context) MicrovmsMicrovmTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmsMicrovmTimeoutsOutput)
+}
+
+func (i MicrovmsMicrovmTimeoutsArgs) ToMicrovmsMicrovmTimeoutsPtrOutput() MicrovmsMicrovmTimeoutsPtrOutput {
+	return i.ToMicrovmsMicrovmTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i MicrovmsMicrovmTimeoutsArgs) ToMicrovmsMicrovmTimeoutsPtrOutputWithContext(ctx context.Context) MicrovmsMicrovmTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmsMicrovmTimeoutsOutput).ToMicrovmsMicrovmTimeoutsPtrOutputWithContext(ctx)
+}
+
+// MicrovmsMicrovmTimeoutsPtrInput is an input type that accepts MicrovmsMicrovmTimeoutsArgs, MicrovmsMicrovmTimeoutsPtr and MicrovmsMicrovmTimeoutsPtrOutput values.
+// You can construct a concrete instance of `MicrovmsMicrovmTimeoutsPtrInput` via:
+//
+//	        MicrovmsMicrovmTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type MicrovmsMicrovmTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToMicrovmsMicrovmTimeoutsPtrOutput() MicrovmsMicrovmTimeoutsPtrOutput
+	ToMicrovmsMicrovmTimeoutsPtrOutputWithContext(context.Context) MicrovmsMicrovmTimeoutsPtrOutput
+}
+
+type microvmsMicrovmTimeoutsPtrType MicrovmsMicrovmTimeoutsArgs
+
+func MicrovmsMicrovmTimeoutsPtr(v *MicrovmsMicrovmTimeoutsArgs) MicrovmsMicrovmTimeoutsPtrInput {
+	return (*microvmsMicrovmTimeoutsPtrType)(v)
+}
+
+func (*microvmsMicrovmTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MicrovmsMicrovmTimeouts)(nil)).Elem()
+}
+
+func (i *microvmsMicrovmTimeoutsPtrType) ToMicrovmsMicrovmTimeoutsPtrOutput() MicrovmsMicrovmTimeoutsPtrOutput {
+	return i.ToMicrovmsMicrovmTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *microvmsMicrovmTimeoutsPtrType) ToMicrovmsMicrovmTimeoutsPtrOutputWithContext(ctx context.Context) MicrovmsMicrovmTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrovmsMicrovmTimeoutsPtrOutput)
+}
+
+type MicrovmsMicrovmTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (MicrovmsMicrovmTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrovmsMicrovmTimeouts)(nil)).Elem()
+}
+
+func (o MicrovmsMicrovmTimeoutsOutput) ToMicrovmsMicrovmTimeoutsOutput() MicrovmsMicrovmTimeoutsOutput {
+	return o
+}
+
+func (o MicrovmsMicrovmTimeoutsOutput) ToMicrovmsMicrovmTimeoutsOutputWithContext(ctx context.Context) MicrovmsMicrovmTimeoutsOutput {
+	return o
+}
+
+func (o MicrovmsMicrovmTimeoutsOutput) ToMicrovmsMicrovmTimeoutsPtrOutput() MicrovmsMicrovmTimeoutsPtrOutput {
+	return o.ToMicrovmsMicrovmTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o MicrovmsMicrovmTimeoutsOutput) ToMicrovmsMicrovmTimeoutsPtrOutputWithContext(ctx context.Context) MicrovmsMicrovmTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MicrovmsMicrovmTimeouts) *MicrovmsMicrovmTimeouts {
+		return &v
+	}).(MicrovmsMicrovmTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o MicrovmsMicrovmTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MicrovmsMicrovmTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o MicrovmsMicrovmTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MicrovmsMicrovmTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type MicrovmsMicrovmTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (MicrovmsMicrovmTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MicrovmsMicrovmTimeouts)(nil)).Elem()
+}
+
+func (o MicrovmsMicrovmTimeoutsPtrOutput) ToMicrovmsMicrovmTimeoutsPtrOutput() MicrovmsMicrovmTimeoutsPtrOutput {
+	return o
+}
+
+func (o MicrovmsMicrovmTimeoutsPtrOutput) ToMicrovmsMicrovmTimeoutsPtrOutputWithContext(ctx context.Context) MicrovmsMicrovmTimeoutsPtrOutput {
+	return o
+}
+
+func (o MicrovmsMicrovmTimeoutsPtrOutput) Elem() MicrovmsMicrovmTimeoutsOutput {
+	return o.ApplyT(func(v *MicrovmsMicrovmTimeouts) MicrovmsMicrovmTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret MicrovmsMicrovmTimeouts
+		return ret
+	}).(MicrovmsMicrovmTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o MicrovmsMicrovmTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MicrovmsMicrovmTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o MicrovmsMicrovmTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MicrovmsMicrovmTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetCodeSigningConfigAllowedPublisher struct {
 	// Set of ARNs for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
 	SigningProfileVersionArns []string `pulumi:"signingProfileVersionArns"`
@@ -9113,6 +9874,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmsImageCpuConfigurationArrayInput)(nil)).Elem(), MicrovmsImageCpuConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmsImageTimeoutsInput)(nil)).Elem(), MicrovmsImageTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmsImageTimeoutsPtrInput)(nil)).Elem(), MicrovmsImageTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmsMicrovmIdlePolicyInput)(nil)).Elem(), MicrovmsMicrovmIdlePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmsMicrovmIdlePolicyPtrInput)(nil)).Elem(), MicrovmsMicrovmIdlePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmsMicrovmLoggingInput)(nil)).Elem(), MicrovmsMicrovmLoggingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmsMicrovmLoggingPtrInput)(nil)).Elem(), MicrovmsMicrovmLoggingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmsMicrovmLoggingCloudwatchInput)(nil)).Elem(), MicrovmsMicrovmLoggingCloudwatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmsMicrovmLoggingCloudwatchPtrInput)(nil)).Elem(), MicrovmsMicrovmLoggingCloudwatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmsMicrovmLoggingDisabledInput)(nil)).Elem(), MicrovmsMicrovmLoggingDisabledArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmsMicrovmLoggingDisabledPtrInput)(nil)).Elem(), MicrovmsMicrovmLoggingDisabledArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmsMicrovmTimeoutsInput)(nil)).Elem(), MicrovmsMicrovmTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmsMicrovmTimeoutsPtrInput)(nil)).Elem(), MicrovmsMicrovmTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCodeSigningConfigAllowedPublisherInput)(nil)).Elem(), GetCodeSigningConfigAllowedPublisherArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCodeSigningConfigAllowedPublisherArrayInput)(nil)).Elem(), GetCodeSigningConfigAllowedPublisherArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCodeSigningConfigPolicyInput)(nil)).Elem(), GetCodeSigningConfigPolicyArgs{})
@@ -9241,6 +10012,16 @@ func init() {
 	pulumi.RegisterOutputType(MicrovmsImageCpuConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(MicrovmsImageTimeoutsOutput{})
 	pulumi.RegisterOutputType(MicrovmsImageTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(MicrovmsMicrovmIdlePolicyOutput{})
+	pulumi.RegisterOutputType(MicrovmsMicrovmIdlePolicyPtrOutput{})
+	pulumi.RegisterOutputType(MicrovmsMicrovmLoggingOutput{})
+	pulumi.RegisterOutputType(MicrovmsMicrovmLoggingPtrOutput{})
+	pulumi.RegisterOutputType(MicrovmsMicrovmLoggingCloudwatchOutput{})
+	pulumi.RegisterOutputType(MicrovmsMicrovmLoggingCloudwatchPtrOutput{})
+	pulumi.RegisterOutputType(MicrovmsMicrovmLoggingDisabledOutput{})
+	pulumi.RegisterOutputType(MicrovmsMicrovmLoggingDisabledPtrOutput{})
+	pulumi.RegisterOutputType(MicrovmsMicrovmTimeoutsOutput{})
+	pulumi.RegisterOutputType(MicrovmsMicrovmTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(GetCodeSigningConfigAllowedPublisherOutput{})
 	pulumi.RegisterOutputType(GetCodeSigningConfigAllowedPublisherArrayOutput{})
 	pulumi.RegisterOutputType(GetCodeSigningConfigPolicyOutput{})

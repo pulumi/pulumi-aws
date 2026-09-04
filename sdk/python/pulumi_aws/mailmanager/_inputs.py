@@ -15,6 +15,10 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'ArchiveRetentionArgs',
+    'ArchiveRetentionArgsDict',
+    'ArchiveRetentionActualArgs',
+    'ArchiveRetentionActualArgsDict',
     'IngressPointIngressPointConfigurationArgs',
     'IngressPointIngressPointConfigurationArgsDict',
     'IngressPointIngressPointConfigurationTlsAuthConfigurationArgs',
@@ -156,6 +160,62 @@ __all__ = [
     'TrafficPolicyPolicyStatementConditionTlsExpressionEvaluateArgs',
     'TrafficPolicyPolicyStatementConditionTlsExpressionEvaluateArgsDict',
 ]
+
+class ArchiveRetentionArgsDict(TypedDict):
+    retention_period: pulumi.Input[_builtins.str]
+    """
+    Retention period for the archive. Valid values: `THREE_MONTHS`, `SIX_MONTHS`, `NINE_MONTHS`, `ONE_YEAR`, `EIGHTEEN_MONTHS`, `TWO_YEARS`, `THIRTY_MONTHS`, `THREE_YEARS`, `FOUR_YEARS`, `FIVE_YEARS`, `SIX_YEARS`, `SEVEN_YEARS`, `EIGHT_YEARS`, `NINE_YEARS`, `TEN_YEARS`, `PERMANENT`.
+    """
+
+@pulumi.input_type
+class ArchiveRetentionArgs:
+    def __init__(__self__, *,
+                 retention_period: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] retention_period: Retention period for the archive. Valid values: `THREE_MONTHS`, `SIX_MONTHS`, `NINE_MONTHS`, `ONE_YEAR`, `EIGHTEEN_MONTHS`, `TWO_YEARS`, `THIRTY_MONTHS`, `THREE_YEARS`, `FOUR_YEARS`, `FIVE_YEARS`, `SIX_YEARS`, `SEVEN_YEARS`, `EIGHT_YEARS`, `NINE_YEARS`, `TEN_YEARS`, `PERMANENT`.
+        """
+        pulumi.set(__self__, "retention_period", retention_period)
+
+    @_builtins.property
+    @pulumi.getter(name="retentionPeriod")
+    def retention_period(self) -> pulumi.Input[_builtins.str]:
+        """
+        Retention period for the archive. Valid values: `THREE_MONTHS`, `SIX_MONTHS`, `NINE_MONTHS`, `ONE_YEAR`, `EIGHTEEN_MONTHS`, `TWO_YEARS`, `THIRTY_MONTHS`, `THREE_YEARS`, `FOUR_YEARS`, `FIVE_YEARS`, `SIX_YEARS`, `SEVEN_YEARS`, `EIGHT_YEARS`, `NINE_YEARS`, `TEN_YEARS`, `PERMANENT`.
+        """
+        return pulumi.get(self, "retention_period")
+
+    @retention_period.setter
+    def retention_period(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "retention_period", value)
+
+
+class ArchiveRetentionActualArgsDict(TypedDict):
+    retention_period: pulumi.Input[_builtins.str]
+    """
+    Retention period for the archive. Possible values: `THREE_MONTHS`, `SIX_MONTHS`, `NINE_MONTHS`, `ONE_YEAR`, `EIGHTEEN_MONTHS`, `TWO_YEARS`, `THIRTY_MONTHS`, `THREE_YEARS`, `FOUR_YEARS`, `FIVE_YEARS`, `SIX_YEARS`, `SEVEN_YEARS`, `EIGHT_YEARS`, `NINE_YEARS`, `TEN_YEARS`, `PERMANENT`.
+    """
+
+@pulumi.input_type
+class ArchiveRetentionActualArgs:
+    def __init__(__self__, *,
+                 retention_period: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] retention_period: Retention period for the archive. Possible values: `THREE_MONTHS`, `SIX_MONTHS`, `NINE_MONTHS`, `ONE_YEAR`, `EIGHTEEN_MONTHS`, `TWO_YEARS`, `THIRTY_MONTHS`, `THREE_YEARS`, `FOUR_YEARS`, `FIVE_YEARS`, `SIX_YEARS`, `SEVEN_YEARS`, `EIGHT_YEARS`, `NINE_YEARS`, `TEN_YEARS`, `PERMANENT`.
+        """
+        pulumi.set(__self__, "retention_period", retention_period)
+
+    @_builtins.property
+    @pulumi.getter(name="retentionPeriod")
+    def retention_period(self) -> pulumi.Input[_builtins.str]:
+        """
+        Retention period for the archive. Possible values: `THREE_MONTHS`, `SIX_MONTHS`, `NINE_MONTHS`, `ONE_YEAR`, `EIGHTEEN_MONTHS`, `TWO_YEARS`, `THIRTY_MONTHS`, `THREE_YEARS`, `FOUR_YEARS`, `FIVE_YEARS`, `SIX_YEARS`, `SEVEN_YEARS`, `EIGHT_YEARS`, `NINE_YEARS`, `TEN_YEARS`, `PERMANENT`.
+        """
+        return pulumi.get(self, "retention_period")
+
+    @retention_period.setter
+    def retention_period(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "retention_period", value)
+
 
 class IngressPointIngressPointConfigurationArgsDict(TypedDict):
     secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]

@@ -309,6 +309,17 @@ class KeyPair(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `key_name` - (String) The name of the Key Pair.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import Key Pairs using the `key_name`. For example:
 
         ```sh
@@ -353,6 +364,17 @@ class KeyPair(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `key_name` - (String) The name of the Key Pair.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Key Pairs using the `key_name`. For example:
 

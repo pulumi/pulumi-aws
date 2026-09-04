@@ -457,7 +457,7 @@ namespace Pulumi.Aws.Emr
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
+        /// List of configurations supplied for the EMR cluster you are creating, expressed as a string: an HTTP(S) URL to a JSON file, a path to a local `.json` file, or a raw JSON string. To supply configuration objects using Terraform syntax instead, use `ConfigurationsJson`. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
         /// </summary>
         [Output("configurations")]
         public Output<string?> Configurations { get; private set; } = null!;
@@ -761,7 +761,7 @@ namespace Pulumi.Aws.Emr
         }
 
         /// <summary>
-        /// List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
+        /// List of configurations supplied for the EMR cluster you are creating, expressed as a string: an HTTP(S) URL to a JSON file, a path to a local `.json` file, or a raw JSON string. To supply configuration objects using Terraform syntax instead, use `ConfigurationsJson`. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
         /// </summary>
         [Input("configurations")]
         public Input<string>? Configurations { get; set; }
@@ -1048,7 +1048,7 @@ namespace Pulumi.Aws.Emr
         public Input<string>? State { get; set; }
 
         /// <summary>
-        /// List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
+        /// List of configurations supplied for the EMR cluster you are creating, expressed as a string: an HTTP(S) URL to a JSON file, a path to a local `.json` file, or a raw JSON string. To supply configuration objects using Terraform syntax instead, use `ConfigurationsJson`. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
         /// </summary>
         [Input("configurations")]
         public Input<string>? Configurations { get; set; }

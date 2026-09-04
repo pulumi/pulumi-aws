@@ -751,6 +751,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "account/accessApplication",
+  "fqn": "pulumi_aws.account",
+  "classes": {
+   "aws:account/accessApplication:AccessApplication": "AccessApplication"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "account/alternativeContact",
   "fqn": "pulumi_aws.account",
   "classes": {
@@ -4131,6 +4139,14 @@ _utilities.register(
   "fqn": "pulumi_aws.datazone",
   "classes": {
    "aws:datazone/glossaryTerm:GlossaryTerm": "GlossaryTerm"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "datazone/policyGrant",
+  "fqn": "pulumi_aws.datazone",
+  "classes": {
+   "aws:datazone/policyGrant:PolicyGrant": "PolicyGrant"
   }
  },
  {
@@ -8271,6 +8287,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "lambda/microvmsMicrovm",
+  "fqn": "pulumi_aws.lambda_",
+  "classes": {
+   "aws:lambda/microvmsMicrovm:MicrovmsMicrovm": "MicrovmsMicrovm"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "lambda/permission",
   "fqn": "pulumi_aws.lambda_",
   "classes": {
@@ -8795,6 +8819,14 @@ _utilities.register(
   "fqn": "pulumi_aws.macie2",
   "classes": {
    "aws:macie2/organizationConfiguration:OrganizationConfiguration": "OrganizationConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "mailmanager/archive",
+  "fqn": "pulumi_aws.mailmanager",
+  "classes": {
+   "aws:mailmanager/archive:Archive": "Archive"
   }
  },
  {

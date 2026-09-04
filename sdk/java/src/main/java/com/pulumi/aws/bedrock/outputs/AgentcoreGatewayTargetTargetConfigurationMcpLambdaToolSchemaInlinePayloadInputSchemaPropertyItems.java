@@ -26,7 +26,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
      */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems items;
     /**
-     * @return Set of property definitions for arrays of objects. See `property` below.
+     * @return Set of property definitions for arrays of objects. See `property` Block below.
      * 
      */
     private @Nullable List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty> properties;
@@ -52,7 +52,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         return Optional.ofNullable(this.items);
     }
     /**
-     * @return Set of property definitions for arrays of objects. See `property` below.
+     * @return Set of property definitions for arrays of objects. See `property` Block below.
      * 
      */
     public List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty> properties() {

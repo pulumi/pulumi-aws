@@ -1972,6 +1972,3515 @@ func (o GlossaryTermTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type PolicyGrantDetail struct {
+	// Configuration for the `ADD_TO_PROJECT_MEMBER_POOL` policy type. See `addToProjectMemberPool` Block below.
+	AddToProjectMemberPool *PolicyGrantDetailAddToProjectMemberPool `pulumi:"addToProjectMemberPool"`
+	// Configuration for the `CREATE_ASSET_TYPE` policy type. See `createAssetType` Block below.
+	CreateAssetType *PolicyGrantDetailCreateAssetType `pulumi:"createAssetType"`
+	// Configuration for the `CREATE_DOMAIN_UNIT` policy type. See `createDomainUnit` Block below.
+	CreateDomainUnit *PolicyGrantDetailCreateDomainUnit `pulumi:"createDomainUnit"`
+	// Configuration for the `CREATE_ENVIRONMENT` policy type. Empty block.
+	CreateEnvironment *PolicyGrantDetailCreateEnvironment `pulumi:"createEnvironment"`
+	// Configuration for the `CREATE_ENVIRONMENT_FROM_BLUEPRINT` policy type. Empty block.
+	CreateEnvironmentFromBlueprint *PolicyGrantDetailCreateEnvironmentFromBlueprint `pulumi:"createEnvironmentFromBlueprint"`
+	// Configuration for the `CREATE_ENVIRONMENT_PROFILE` policy type. See `createEnvironmentProfile` Block below.
+	CreateEnvironmentProfile *PolicyGrantDetailCreateEnvironmentProfile `pulumi:"createEnvironmentProfile"`
+	// Configuration for the `CREATE_FORM_TYPE` policy type. See `createFormType` Block below.
+	CreateFormType *PolicyGrantDetailCreateFormType `pulumi:"createFormType"`
+	// Configuration for the `CREATE_GLOSSARY` policy type. See `createGlossary` Block below.
+	CreateGlossary *PolicyGrantDetailCreateGlossary `pulumi:"createGlossary"`
+	// Configuration for the `CREATE_PROJECT` policy type. See `createProject` Block below.
+	CreateProject *PolicyGrantDetailCreateProject `pulumi:"createProject"`
+	// Configuration for the `CREATE_PROJECT_FROM_PROJECT_PROFILE` policy type. See `createProjectFromProjectProfile` Block below.
+	CreateProjectFromProjectProfile *PolicyGrantDetailCreateProjectFromProjectProfile `pulumi:"createProjectFromProjectProfile"`
+	// Configuration for the `DELEGATE_CREATE_ENVIRONMENT_PROFILE` policy type. Empty block.
+	DelegateCreateEnvironmentProfile *PolicyGrantDetailDelegateCreateEnvironmentProfile `pulumi:"delegateCreateEnvironmentProfile"`
+	// Configuration for the `OVERRIDE_DOMAIN_UNIT_OWNERS` policy type. See `overrideDomainUnitOwners` Block below.
+	OverrideDomainUnitOwners *PolicyGrantDetailOverrideDomainUnitOwners `pulumi:"overrideDomainUnitOwners"`
+	// Configuration for the `OVERRIDE_PROJECT_OWNERS` policy type. See `overrideProjectOwners` Block below.
+	OverrideProjectOwners *PolicyGrantDetailOverrideProjectOwners `pulumi:"overrideProjectOwners"`
+	// Configuration for the `USE_ASSET_TYPE` policy type. See `useAssetType` Block below.
+	UseAssetType *PolicyGrantDetailUseAssetType `pulumi:"useAssetType"`
+}
+
+// PolicyGrantDetailInput is an input type that accepts PolicyGrantDetailArgs and PolicyGrantDetailOutput values.
+// You can construct a concrete instance of `PolicyGrantDetailInput` via:
+//
+//	PolicyGrantDetailArgs{...}
+type PolicyGrantDetailInput interface {
+	pulumi.Input
+
+	ToPolicyGrantDetailOutput() PolicyGrantDetailOutput
+	ToPolicyGrantDetailOutputWithContext(context.Context) PolicyGrantDetailOutput
+}
+
+type PolicyGrantDetailArgs struct {
+	// Configuration for the `ADD_TO_PROJECT_MEMBER_POOL` policy type. See `addToProjectMemberPool` Block below.
+	AddToProjectMemberPool PolicyGrantDetailAddToProjectMemberPoolPtrInput `pulumi:"addToProjectMemberPool"`
+	// Configuration for the `CREATE_ASSET_TYPE` policy type. See `createAssetType` Block below.
+	CreateAssetType PolicyGrantDetailCreateAssetTypePtrInput `pulumi:"createAssetType"`
+	// Configuration for the `CREATE_DOMAIN_UNIT` policy type. See `createDomainUnit` Block below.
+	CreateDomainUnit PolicyGrantDetailCreateDomainUnitPtrInput `pulumi:"createDomainUnit"`
+	// Configuration for the `CREATE_ENVIRONMENT` policy type. Empty block.
+	CreateEnvironment PolicyGrantDetailCreateEnvironmentPtrInput `pulumi:"createEnvironment"`
+	// Configuration for the `CREATE_ENVIRONMENT_FROM_BLUEPRINT` policy type. Empty block.
+	CreateEnvironmentFromBlueprint PolicyGrantDetailCreateEnvironmentFromBlueprintPtrInput `pulumi:"createEnvironmentFromBlueprint"`
+	// Configuration for the `CREATE_ENVIRONMENT_PROFILE` policy type. See `createEnvironmentProfile` Block below.
+	CreateEnvironmentProfile PolicyGrantDetailCreateEnvironmentProfilePtrInput `pulumi:"createEnvironmentProfile"`
+	// Configuration for the `CREATE_FORM_TYPE` policy type. See `createFormType` Block below.
+	CreateFormType PolicyGrantDetailCreateFormTypePtrInput `pulumi:"createFormType"`
+	// Configuration for the `CREATE_GLOSSARY` policy type. See `createGlossary` Block below.
+	CreateGlossary PolicyGrantDetailCreateGlossaryPtrInput `pulumi:"createGlossary"`
+	// Configuration for the `CREATE_PROJECT` policy type. See `createProject` Block below.
+	CreateProject PolicyGrantDetailCreateProjectPtrInput `pulumi:"createProject"`
+	// Configuration for the `CREATE_PROJECT_FROM_PROJECT_PROFILE` policy type. See `createProjectFromProjectProfile` Block below.
+	CreateProjectFromProjectProfile PolicyGrantDetailCreateProjectFromProjectProfilePtrInput `pulumi:"createProjectFromProjectProfile"`
+	// Configuration for the `DELEGATE_CREATE_ENVIRONMENT_PROFILE` policy type. Empty block.
+	DelegateCreateEnvironmentProfile PolicyGrantDetailDelegateCreateEnvironmentProfilePtrInput `pulumi:"delegateCreateEnvironmentProfile"`
+	// Configuration for the `OVERRIDE_DOMAIN_UNIT_OWNERS` policy type. See `overrideDomainUnitOwners` Block below.
+	OverrideDomainUnitOwners PolicyGrantDetailOverrideDomainUnitOwnersPtrInput `pulumi:"overrideDomainUnitOwners"`
+	// Configuration for the `OVERRIDE_PROJECT_OWNERS` policy type. See `overrideProjectOwners` Block below.
+	OverrideProjectOwners PolicyGrantDetailOverrideProjectOwnersPtrInput `pulumi:"overrideProjectOwners"`
+	// Configuration for the `USE_ASSET_TYPE` policy type. See `useAssetType` Block below.
+	UseAssetType PolicyGrantDetailUseAssetTypePtrInput `pulumi:"useAssetType"`
+}
+
+func (PolicyGrantDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantDetail)(nil)).Elem()
+}
+
+func (i PolicyGrantDetailArgs) ToPolicyGrantDetailOutput() PolicyGrantDetailOutput {
+	return i.ToPolicyGrantDetailOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantDetailArgs) ToPolicyGrantDetailOutputWithContext(ctx context.Context) PolicyGrantDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailOutput)
+}
+
+func (i PolicyGrantDetailArgs) ToPolicyGrantDetailPtrOutput() PolicyGrantDetailPtrOutput {
+	return i.ToPolicyGrantDetailPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantDetailArgs) ToPolicyGrantDetailPtrOutputWithContext(ctx context.Context) PolicyGrantDetailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailOutput).ToPolicyGrantDetailPtrOutputWithContext(ctx)
+}
+
+// PolicyGrantDetailPtrInput is an input type that accepts PolicyGrantDetailArgs, PolicyGrantDetailPtr and PolicyGrantDetailPtrOutput values.
+// You can construct a concrete instance of `PolicyGrantDetailPtrInput` via:
+//
+//	        PolicyGrantDetailArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyGrantDetailPtrInput interface {
+	pulumi.Input
+
+	ToPolicyGrantDetailPtrOutput() PolicyGrantDetailPtrOutput
+	ToPolicyGrantDetailPtrOutputWithContext(context.Context) PolicyGrantDetailPtrOutput
+}
+
+type policyGrantDetailPtrType PolicyGrantDetailArgs
+
+func PolicyGrantDetailPtr(v *PolicyGrantDetailArgs) PolicyGrantDetailPtrInput {
+	return (*policyGrantDetailPtrType)(v)
+}
+
+func (*policyGrantDetailPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantDetail)(nil)).Elem()
+}
+
+func (i *policyGrantDetailPtrType) ToPolicyGrantDetailPtrOutput() PolicyGrantDetailPtrOutput {
+	return i.ToPolicyGrantDetailPtrOutputWithContext(context.Background())
+}
+
+func (i *policyGrantDetailPtrType) ToPolicyGrantDetailPtrOutputWithContext(ctx context.Context) PolicyGrantDetailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailPtrOutput)
+}
+
+type PolicyGrantDetailOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantDetail)(nil)).Elem()
+}
+
+func (o PolicyGrantDetailOutput) ToPolicyGrantDetailOutput() PolicyGrantDetailOutput {
+	return o
+}
+
+func (o PolicyGrantDetailOutput) ToPolicyGrantDetailOutputWithContext(ctx context.Context) PolicyGrantDetailOutput {
+	return o
+}
+
+func (o PolicyGrantDetailOutput) ToPolicyGrantDetailPtrOutput() PolicyGrantDetailPtrOutput {
+	return o.ToPolicyGrantDetailPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyGrantDetailOutput) ToPolicyGrantDetailPtrOutputWithContext(ctx context.Context) PolicyGrantDetailPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyGrantDetail) *PolicyGrantDetail {
+		return &v
+	}).(PolicyGrantDetailPtrOutput)
+}
+
+// Configuration for the `ADD_TO_PROJECT_MEMBER_POOL` policy type. See `addToProjectMemberPool` Block below.
+func (o PolicyGrantDetailOutput) AddToProjectMemberPool() PolicyGrantDetailAddToProjectMemberPoolPtrOutput {
+	return o.ApplyT(func(v PolicyGrantDetail) *PolicyGrantDetailAddToProjectMemberPool { return v.AddToProjectMemberPool }).(PolicyGrantDetailAddToProjectMemberPoolPtrOutput)
+}
+
+// Configuration for the `CREATE_ASSET_TYPE` policy type. See `createAssetType` Block below.
+func (o PolicyGrantDetailOutput) CreateAssetType() PolicyGrantDetailCreateAssetTypePtrOutput {
+	return o.ApplyT(func(v PolicyGrantDetail) *PolicyGrantDetailCreateAssetType { return v.CreateAssetType }).(PolicyGrantDetailCreateAssetTypePtrOutput)
+}
+
+// Configuration for the `CREATE_DOMAIN_UNIT` policy type. See `createDomainUnit` Block below.
+func (o PolicyGrantDetailOutput) CreateDomainUnit() PolicyGrantDetailCreateDomainUnitPtrOutput {
+	return o.ApplyT(func(v PolicyGrantDetail) *PolicyGrantDetailCreateDomainUnit { return v.CreateDomainUnit }).(PolicyGrantDetailCreateDomainUnitPtrOutput)
+}
+
+// Configuration for the `CREATE_ENVIRONMENT` policy type. Empty block.
+func (o PolicyGrantDetailOutput) CreateEnvironment() PolicyGrantDetailCreateEnvironmentPtrOutput {
+	return o.ApplyT(func(v PolicyGrantDetail) *PolicyGrantDetailCreateEnvironment { return v.CreateEnvironment }).(PolicyGrantDetailCreateEnvironmentPtrOutput)
+}
+
+// Configuration for the `CREATE_ENVIRONMENT_FROM_BLUEPRINT` policy type. Empty block.
+func (o PolicyGrantDetailOutput) CreateEnvironmentFromBlueprint() PolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutput {
+	return o.ApplyT(func(v PolicyGrantDetail) *PolicyGrantDetailCreateEnvironmentFromBlueprint {
+		return v.CreateEnvironmentFromBlueprint
+	}).(PolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutput)
+}
+
+// Configuration for the `CREATE_ENVIRONMENT_PROFILE` policy type. See `createEnvironmentProfile` Block below.
+func (o PolicyGrantDetailOutput) CreateEnvironmentProfile() PolicyGrantDetailCreateEnvironmentProfilePtrOutput {
+	return o.ApplyT(func(v PolicyGrantDetail) *PolicyGrantDetailCreateEnvironmentProfile {
+		return v.CreateEnvironmentProfile
+	}).(PolicyGrantDetailCreateEnvironmentProfilePtrOutput)
+}
+
+// Configuration for the `CREATE_FORM_TYPE` policy type. See `createFormType` Block below.
+func (o PolicyGrantDetailOutput) CreateFormType() PolicyGrantDetailCreateFormTypePtrOutput {
+	return o.ApplyT(func(v PolicyGrantDetail) *PolicyGrantDetailCreateFormType { return v.CreateFormType }).(PolicyGrantDetailCreateFormTypePtrOutput)
+}
+
+// Configuration for the `CREATE_GLOSSARY` policy type. See `createGlossary` Block below.
+func (o PolicyGrantDetailOutput) CreateGlossary() PolicyGrantDetailCreateGlossaryPtrOutput {
+	return o.ApplyT(func(v PolicyGrantDetail) *PolicyGrantDetailCreateGlossary { return v.CreateGlossary }).(PolicyGrantDetailCreateGlossaryPtrOutput)
+}
+
+// Configuration for the `CREATE_PROJECT` policy type. See `createProject` Block below.
+func (o PolicyGrantDetailOutput) CreateProject() PolicyGrantDetailCreateProjectPtrOutput {
+	return o.ApplyT(func(v PolicyGrantDetail) *PolicyGrantDetailCreateProject { return v.CreateProject }).(PolicyGrantDetailCreateProjectPtrOutput)
+}
+
+// Configuration for the `CREATE_PROJECT_FROM_PROJECT_PROFILE` policy type. See `createProjectFromProjectProfile` Block below.
+func (o PolicyGrantDetailOutput) CreateProjectFromProjectProfile() PolicyGrantDetailCreateProjectFromProjectProfilePtrOutput {
+	return o.ApplyT(func(v PolicyGrantDetail) *PolicyGrantDetailCreateProjectFromProjectProfile {
+		return v.CreateProjectFromProjectProfile
+	}).(PolicyGrantDetailCreateProjectFromProjectProfilePtrOutput)
+}
+
+// Configuration for the `DELEGATE_CREATE_ENVIRONMENT_PROFILE` policy type. Empty block.
+func (o PolicyGrantDetailOutput) DelegateCreateEnvironmentProfile() PolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutput {
+	return o.ApplyT(func(v PolicyGrantDetail) *PolicyGrantDetailDelegateCreateEnvironmentProfile {
+		return v.DelegateCreateEnvironmentProfile
+	}).(PolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutput)
+}
+
+// Configuration for the `OVERRIDE_DOMAIN_UNIT_OWNERS` policy type. See `overrideDomainUnitOwners` Block below.
+func (o PolicyGrantDetailOutput) OverrideDomainUnitOwners() PolicyGrantDetailOverrideDomainUnitOwnersPtrOutput {
+	return o.ApplyT(func(v PolicyGrantDetail) *PolicyGrantDetailOverrideDomainUnitOwners {
+		return v.OverrideDomainUnitOwners
+	}).(PolicyGrantDetailOverrideDomainUnitOwnersPtrOutput)
+}
+
+// Configuration for the `OVERRIDE_PROJECT_OWNERS` policy type. See `overrideProjectOwners` Block below.
+func (o PolicyGrantDetailOutput) OverrideProjectOwners() PolicyGrantDetailOverrideProjectOwnersPtrOutput {
+	return o.ApplyT(func(v PolicyGrantDetail) *PolicyGrantDetailOverrideProjectOwners { return v.OverrideProjectOwners }).(PolicyGrantDetailOverrideProjectOwnersPtrOutput)
+}
+
+// Configuration for the `USE_ASSET_TYPE` policy type. See `useAssetType` Block below.
+func (o PolicyGrantDetailOutput) UseAssetType() PolicyGrantDetailUseAssetTypePtrOutput {
+	return o.ApplyT(func(v PolicyGrantDetail) *PolicyGrantDetailUseAssetType { return v.UseAssetType }).(PolicyGrantDetailUseAssetTypePtrOutput)
+}
+
+type PolicyGrantDetailPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantDetailPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantDetail)(nil)).Elem()
+}
+
+func (o PolicyGrantDetailPtrOutput) ToPolicyGrantDetailPtrOutput() PolicyGrantDetailPtrOutput {
+	return o
+}
+
+func (o PolicyGrantDetailPtrOutput) ToPolicyGrantDetailPtrOutputWithContext(ctx context.Context) PolicyGrantDetailPtrOutput {
+	return o
+}
+
+func (o PolicyGrantDetailPtrOutput) Elem() PolicyGrantDetailOutput {
+	return o.ApplyT(func(v *PolicyGrantDetail) PolicyGrantDetail {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyGrantDetail
+		return ret
+	}).(PolicyGrantDetailOutput)
+}
+
+// Configuration for the `ADD_TO_PROJECT_MEMBER_POOL` policy type. See `addToProjectMemberPool` Block below.
+func (o PolicyGrantDetailPtrOutput) AddToProjectMemberPool() PolicyGrantDetailAddToProjectMemberPoolPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantDetail) *PolicyGrantDetailAddToProjectMemberPool {
+		if v == nil {
+			return nil
+		}
+		return v.AddToProjectMemberPool
+	}).(PolicyGrantDetailAddToProjectMemberPoolPtrOutput)
+}
+
+// Configuration for the `CREATE_ASSET_TYPE` policy type. See `createAssetType` Block below.
+func (o PolicyGrantDetailPtrOutput) CreateAssetType() PolicyGrantDetailCreateAssetTypePtrOutput {
+	return o.ApplyT(func(v *PolicyGrantDetail) *PolicyGrantDetailCreateAssetType {
+		if v == nil {
+			return nil
+		}
+		return v.CreateAssetType
+	}).(PolicyGrantDetailCreateAssetTypePtrOutput)
+}
+
+// Configuration for the `CREATE_DOMAIN_UNIT` policy type. See `createDomainUnit` Block below.
+func (o PolicyGrantDetailPtrOutput) CreateDomainUnit() PolicyGrantDetailCreateDomainUnitPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantDetail) *PolicyGrantDetailCreateDomainUnit {
+		if v == nil {
+			return nil
+		}
+		return v.CreateDomainUnit
+	}).(PolicyGrantDetailCreateDomainUnitPtrOutput)
+}
+
+// Configuration for the `CREATE_ENVIRONMENT` policy type. Empty block.
+func (o PolicyGrantDetailPtrOutput) CreateEnvironment() PolicyGrantDetailCreateEnvironmentPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantDetail) *PolicyGrantDetailCreateEnvironment {
+		if v == nil {
+			return nil
+		}
+		return v.CreateEnvironment
+	}).(PolicyGrantDetailCreateEnvironmentPtrOutput)
+}
+
+// Configuration for the `CREATE_ENVIRONMENT_FROM_BLUEPRINT` policy type. Empty block.
+func (o PolicyGrantDetailPtrOutput) CreateEnvironmentFromBlueprint() PolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantDetail) *PolicyGrantDetailCreateEnvironmentFromBlueprint {
+		if v == nil {
+			return nil
+		}
+		return v.CreateEnvironmentFromBlueprint
+	}).(PolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutput)
+}
+
+// Configuration for the `CREATE_ENVIRONMENT_PROFILE` policy type. See `createEnvironmentProfile` Block below.
+func (o PolicyGrantDetailPtrOutput) CreateEnvironmentProfile() PolicyGrantDetailCreateEnvironmentProfilePtrOutput {
+	return o.ApplyT(func(v *PolicyGrantDetail) *PolicyGrantDetailCreateEnvironmentProfile {
+		if v == nil {
+			return nil
+		}
+		return v.CreateEnvironmentProfile
+	}).(PolicyGrantDetailCreateEnvironmentProfilePtrOutput)
+}
+
+// Configuration for the `CREATE_FORM_TYPE` policy type. See `createFormType` Block below.
+func (o PolicyGrantDetailPtrOutput) CreateFormType() PolicyGrantDetailCreateFormTypePtrOutput {
+	return o.ApplyT(func(v *PolicyGrantDetail) *PolicyGrantDetailCreateFormType {
+		if v == nil {
+			return nil
+		}
+		return v.CreateFormType
+	}).(PolicyGrantDetailCreateFormTypePtrOutput)
+}
+
+// Configuration for the `CREATE_GLOSSARY` policy type. See `createGlossary` Block below.
+func (o PolicyGrantDetailPtrOutput) CreateGlossary() PolicyGrantDetailCreateGlossaryPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantDetail) *PolicyGrantDetailCreateGlossary {
+		if v == nil {
+			return nil
+		}
+		return v.CreateGlossary
+	}).(PolicyGrantDetailCreateGlossaryPtrOutput)
+}
+
+// Configuration for the `CREATE_PROJECT` policy type. See `createProject` Block below.
+func (o PolicyGrantDetailPtrOutput) CreateProject() PolicyGrantDetailCreateProjectPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantDetail) *PolicyGrantDetailCreateProject {
+		if v == nil {
+			return nil
+		}
+		return v.CreateProject
+	}).(PolicyGrantDetailCreateProjectPtrOutput)
+}
+
+// Configuration for the `CREATE_PROJECT_FROM_PROJECT_PROFILE` policy type. See `createProjectFromProjectProfile` Block below.
+func (o PolicyGrantDetailPtrOutput) CreateProjectFromProjectProfile() PolicyGrantDetailCreateProjectFromProjectProfilePtrOutput {
+	return o.ApplyT(func(v *PolicyGrantDetail) *PolicyGrantDetailCreateProjectFromProjectProfile {
+		if v == nil {
+			return nil
+		}
+		return v.CreateProjectFromProjectProfile
+	}).(PolicyGrantDetailCreateProjectFromProjectProfilePtrOutput)
+}
+
+// Configuration for the `DELEGATE_CREATE_ENVIRONMENT_PROFILE` policy type. Empty block.
+func (o PolicyGrantDetailPtrOutput) DelegateCreateEnvironmentProfile() PolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutput {
+	return o.ApplyT(func(v *PolicyGrantDetail) *PolicyGrantDetailDelegateCreateEnvironmentProfile {
+		if v == nil {
+			return nil
+		}
+		return v.DelegateCreateEnvironmentProfile
+	}).(PolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutput)
+}
+
+// Configuration for the `OVERRIDE_DOMAIN_UNIT_OWNERS` policy type. See `overrideDomainUnitOwners` Block below.
+func (o PolicyGrantDetailPtrOutput) OverrideDomainUnitOwners() PolicyGrantDetailOverrideDomainUnitOwnersPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantDetail) *PolicyGrantDetailOverrideDomainUnitOwners {
+		if v == nil {
+			return nil
+		}
+		return v.OverrideDomainUnitOwners
+	}).(PolicyGrantDetailOverrideDomainUnitOwnersPtrOutput)
+}
+
+// Configuration for the `OVERRIDE_PROJECT_OWNERS` policy type. See `overrideProjectOwners` Block below.
+func (o PolicyGrantDetailPtrOutput) OverrideProjectOwners() PolicyGrantDetailOverrideProjectOwnersPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantDetail) *PolicyGrantDetailOverrideProjectOwners {
+		if v == nil {
+			return nil
+		}
+		return v.OverrideProjectOwners
+	}).(PolicyGrantDetailOverrideProjectOwnersPtrOutput)
+}
+
+// Configuration for the `USE_ASSET_TYPE` policy type. See `useAssetType` Block below.
+func (o PolicyGrantDetailPtrOutput) UseAssetType() PolicyGrantDetailUseAssetTypePtrOutput {
+	return o.ApplyT(func(v *PolicyGrantDetail) *PolicyGrantDetailUseAssetType {
+		if v == nil {
+			return nil
+		}
+		return v.UseAssetType
+	}).(PolicyGrantDetailUseAssetTypePtrOutput)
+}
+
+type PolicyGrantDetailAddToProjectMemberPool struct {
+	// Whether to include child domain units.
+	IncludeChildDomainUnits *bool `pulumi:"includeChildDomainUnits"`
+}
+
+// PolicyGrantDetailAddToProjectMemberPoolInput is an input type that accepts PolicyGrantDetailAddToProjectMemberPoolArgs and PolicyGrantDetailAddToProjectMemberPoolOutput values.
+// You can construct a concrete instance of `PolicyGrantDetailAddToProjectMemberPoolInput` via:
+//
+//	PolicyGrantDetailAddToProjectMemberPoolArgs{...}
+type PolicyGrantDetailAddToProjectMemberPoolInput interface {
+	pulumi.Input
+
+	ToPolicyGrantDetailAddToProjectMemberPoolOutput() PolicyGrantDetailAddToProjectMemberPoolOutput
+	ToPolicyGrantDetailAddToProjectMemberPoolOutputWithContext(context.Context) PolicyGrantDetailAddToProjectMemberPoolOutput
+}
+
+type PolicyGrantDetailAddToProjectMemberPoolArgs struct {
+	// Whether to include child domain units.
+	IncludeChildDomainUnits pulumi.BoolPtrInput `pulumi:"includeChildDomainUnits"`
+}
+
+func (PolicyGrantDetailAddToProjectMemberPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantDetailAddToProjectMemberPool)(nil)).Elem()
+}
+
+func (i PolicyGrantDetailAddToProjectMemberPoolArgs) ToPolicyGrantDetailAddToProjectMemberPoolOutput() PolicyGrantDetailAddToProjectMemberPoolOutput {
+	return i.ToPolicyGrantDetailAddToProjectMemberPoolOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantDetailAddToProjectMemberPoolArgs) ToPolicyGrantDetailAddToProjectMemberPoolOutputWithContext(ctx context.Context) PolicyGrantDetailAddToProjectMemberPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailAddToProjectMemberPoolOutput)
+}
+
+func (i PolicyGrantDetailAddToProjectMemberPoolArgs) ToPolicyGrantDetailAddToProjectMemberPoolPtrOutput() PolicyGrantDetailAddToProjectMemberPoolPtrOutput {
+	return i.ToPolicyGrantDetailAddToProjectMemberPoolPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantDetailAddToProjectMemberPoolArgs) ToPolicyGrantDetailAddToProjectMemberPoolPtrOutputWithContext(ctx context.Context) PolicyGrantDetailAddToProjectMemberPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailAddToProjectMemberPoolOutput).ToPolicyGrantDetailAddToProjectMemberPoolPtrOutputWithContext(ctx)
+}
+
+// PolicyGrantDetailAddToProjectMemberPoolPtrInput is an input type that accepts PolicyGrantDetailAddToProjectMemberPoolArgs, PolicyGrantDetailAddToProjectMemberPoolPtr and PolicyGrantDetailAddToProjectMemberPoolPtrOutput values.
+// You can construct a concrete instance of `PolicyGrantDetailAddToProjectMemberPoolPtrInput` via:
+//
+//	        PolicyGrantDetailAddToProjectMemberPoolArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyGrantDetailAddToProjectMemberPoolPtrInput interface {
+	pulumi.Input
+
+	ToPolicyGrantDetailAddToProjectMemberPoolPtrOutput() PolicyGrantDetailAddToProjectMemberPoolPtrOutput
+	ToPolicyGrantDetailAddToProjectMemberPoolPtrOutputWithContext(context.Context) PolicyGrantDetailAddToProjectMemberPoolPtrOutput
+}
+
+type policyGrantDetailAddToProjectMemberPoolPtrType PolicyGrantDetailAddToProjectMemberPoolArgs
+
+func PolicyGrantDetailAddToProjectMemberPoolPtr(v *PolicyGrantDetailAddToProjectMemberPoolArgs) PolicyGrantDetailAddToProjectMemberPoolPtrInput {
+	return (*policyGrantDetailAddToProjectMemberPoolPtrType)(v)
+}
+
+func (*policyGrantDetailAddToProjectMemberPoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantDetailAddToProjectMemberPool)(nil)).Elem()
+}
+
+func (i *policyGrantDetailAddToProjectMemberPoolPtrType) ToPolicyGrantDetailAddToProjectMemberPoolPtrOutput() PolicyGrantDetailAddToProjectMemberPoolPtrOutput {
+	return i.ToPolicyGrantDetailAddToProjectMemberPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *policyGrantDetailAddToProjectMemberPoolPtrType) ToPolicyGrantDetailAddToProjectMemberPoolPtrOutputWithContext(ctx context.Context) PolicyGrantDetailAddToProjectMemberPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailAddToProjectMemberPoolPtrOutput)
+}
+
+type PolicyGrantDetailAddToProjectMemberPoolOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantDetailAddToProjectMemberPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantDetailAddToProjectMemberPool)(nil)).Elem()
+}
+
+func (o PolicyGrantDetailAddToProjectMemberPoolOutput) ToPolicyGrantDetailAddToProjectMemberPoolOutput() PolicyGrantDetailAddToProjectMemberPoolOutput {
+	return o
+}
+
+func (o PolicyGrantDetailAddToProjectMemberPoolOutput) ToPolicyGrantDetailAddToProjectMemberPoolOutputWithContext(ctx context.Context) PolicyGrantDetailAddToProjectMemberPoolOutput {
+	return o
+}
+
+func (o PolicyGrantDetailAddToProjectMemberPoolOutput) ToPolicyGrantDetailAddToProjectMemberPoolPtrOutput() PolicyGrantDetailAddToProjectMemberPoolPtrOutput {
+	return o.ToPolicyGrantDetailAddToProjectMemberPoolPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyGrantDetailAddToProjectMemberPoolOutput) ToPolicyGrantDetailAddToProjectMemberPoolPtrOutputWithContext(ctx context.Context) PolicyGrantDetailAddToProjectMemberPoolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyGrantDetailAddToProjectMemberPool) *PolicyGrantDetailAddToProjectMemberPool {
+		return &v
+	}).(PolicyGrantDetailAddToProjectMemberPoolPtrOutput)
+}
+
+// Whether to include child domain units.
+func (o PolicyGrantDetailAddToProjectMemberPoolOutput) IncludeChildDomainUnits() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PolicyGrantDetailAddToProjectMemberPool) *bool { return v.IncludeChildDomainUnits }).(pulumi.BoolPtrOutput)
+}
+
+type PolicyGrantDetailAddToProjectMemberPoolPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantDetailAddToProjectMemberPoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantDetailAddToProjectMemberPool)(nil)).Elem()
+}
+
+func (o PolicyGrantDetailAddToProjectMemberPoolPtrOutput) ToPolicyGrantDetailAddToProjectMemberPoolPtrOutput() PolicyGrantDetailAddToProjectMemberPoolPtrOutput {
+	return o
+}
+
+func (o PolicyGrantDetailAddToProjectMemberPoolPtrOutput) ToPolicyGrantDetailAddToProjectMemberPoolPtrOutputWithContext(ctx context.Context) PolicyGrantDetailAddToProjectMemberPoolPtrOutput {
+	return o
+}
+
+func (o PolicyGrantDetailAddToProjectMemberPoolPtrOutput) Elem() PolicyGrantDetailAddToProjectMemberPoolOutput {
+	return o.ApplyT(func(v *PolicyGrantDetailAddToProjectMemberPool) PolicyGrantDetailAddToProjectMemberPool {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyGrantDetailAddToProjectMemberPool
+		return ret
+	}).(PolicyGrantDetailAddToProjectMemberPoolOutput)
+}
+
+// Whether to include child domain units.
+func (o PolicyGrantDetailAddToProjectMemberPoolPtrOutput) IncludeChildDomainUnits() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantDetailAddToProjectMemberPool) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeChildDomainUnits
+	}).(pulumi.BoolPtrOutput)
+}
+
+type PolicyGrantDetailCreateAssetType struct {
+	// Whether to include child domain units.
+	IncludeChildDomainUnits *bool `pulumi:"includeChildDomainUnits"`
+}
+
+// PolicyGrantDetailCreateAssetTypeInput is an input type that accepts PolicyGrantDetailCreateAssetTypeArgs and PolicyGrantDetailCreateAssetTypeOutput values.
+// You can construct a concrete instance of `PolicyGrantDetailCreateAssetTypeInput` via:
+//
+//	PolicyGrantDetailCreateAssetTypeArgs{...}
+type PolicyGrantDetailCreateAssetTypeInput interface {
+	pulumi.Input
+
+	ToPolicyGrantDetailCreateAssetTypeOutput() PolicyGrantDetailCreateAssetTypeOutput
+	ToPolicyGrantDetailCreateAssetTypeOutputWithContext(context.Context) PolicyGrantDetailCreateAssetTypeOutput
+}
+
+type PolicyGrantDetailCreateAssetTypeArgs struct {
+	// Whether to include child domain units.
+	IncludeChildDomainUnits pulumi.BoolPtrInput `pulumi:"includeChildDomainUnits"`
+}
+
+func (PolicyGrantDetailCreateAssetTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantDetailCreateAssetType)(nil)).Elem()
+}
+
+func (i PolicyGrantDetailCreateAssetTypeArgs) ToPolicyGrantDetailCreateAssetTypeOutput() PolicyGrantDetailCreateAssetTypeOutput {
+	return i.ToPolicyGrantDetailCreateAssetTypeOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantDetailCreateAssetTypeArgs) ToPolicyGrantDetailCreateAssetTypeOutputWithContext(ctx context.Context) PolicyGrantDetailCreateAssetTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailCreateAssetTypeOutput)
+}
+
+func (i PolicyGrantDetailCreateAssetTypeArgs) ToPolicyGrantDetailCreateAssetTypePtrOutput() PolicyGrantDetailCreateAssetTypePtrOutput {
+	return i.ToPolicyGrantDetailCreateAssetTypePtrOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantDetailCreateAssetTypeArgs) ToPolicyGrantDetailCreateAssetTypePtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateAssetTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailCreateAssetTypeOutput).ToPolicyGrantDetailCreateAssetTypePtrOutputWithContext(ctx)
+}
+
+// PolicyGrantDetailCreateAssetTypePtrInput is an input type that accepts PolicyGrantDetailCreateAssetTypeArgs, PolicyGrantDetailCreateAssetTypePtr and PolicyGrantDetailCreateAssetTypePtrOutput values.
+// You can construct a concrete instance of `PolicyGrantDetailCreateAssetTypePtrInput` via:
+//
+//	        PolicyGrantDetailCreateAssetTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyGrantDetailCreateAssetTypePtrInput interface {
+	pulumi.Input
+
+	ToPolicyGrantDetailCreateAssetTypePtrOutput() PolicyGrantDetailCreateAssetTypePtrOutput
+	ToPolicyGrantDetailCreateAssetTypePtrOutputWithContext(context.Context) PolicyGrantDetailCreateAssetTypePtrOutput
+}
+
+type policyGrantDetailCreateAssetTypePtrType PolicyGrantDetailCreateAssetTypeArgs
+
+func PolicyGrantDetailCreateAssetTypePtr(v *PolicyGrantDetailCreateAssetTypeArgs) PolicyGrantDetailCreateAssetTypePtrInput {
+	return (*policyGrantDetailCreateAssetTypePtrType)(v)
+}
+
+func (*policyGrantDetailCreateAssetTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantDetailCreateAssetType)(nil)).Elem()
+}
+
+func (i *policyGrantDetailCreateAssetTypePtrType) ToPolicyGrantDetailCreateAssetTypePtrOutput() PolicyGrantDetailCreateAssetTypePtrOutput {
+	return i.ToPolicyGrantDetailCreateAssetTypePtrOutputWithContext(context.Background())
+}
+
+func (i *policyGrantDetailCreateAssetTypePtrType) ToPolicyGrantDetailCreateAssetTypePtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateAssetTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailCreateAssetTypePtrOutput)
+}
+
+type PolicyGrantDetailCreateAssetTypeOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantDetailCreateAssetTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantDetailCreateAssetType)(nil)).Elem()
+}
+
+func (o PolicyGrantDetailCreateAssetTypeOutput) ToPolicyGrantDetailCreateAssetTypeOutput() PolicyGrantDetailCreateAssetTypeOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateAssetTypeOutput) ToPolicyGrantDetailCreateAssetTypeOutputWithContext(ctx context.Context) PolicyGrantDetailCreateAssetTypeOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateAssetTypeOutput) ToPolicyGrantDetailCreateAssetTypePtrOutput() PolicyGrantDetailCreateAssetTypePtrOutput {
+	return o.ToPolicyGrantDetailCreateAssetTypePtrOutputWithContext(context.Background())
+}
+
+func (o PolicyGrantDetailCreateAssetTypeOutput) ToPolicyGrantDetailCreateAssetTypePtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateAssetTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyGrantDetailCreateAssetType) *PolicyGrantDetailCreateAssetType {
+		return &v
+	}).(PolicyGrantDetailCreateAssetTypePtrOutput)
+}
+
+// Whether to include child domain units.
+func (o PolicyGrantDetailCreateAssetTypeOutput) IncludeChildDomainUnits() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PolicyGrantDetailCreateAssetType) *bool { return v.IncludeChildDomainUnits }).(pulumi.BoolPtrOutput)
+}
+
+type PolicyGrantDetailCreateAssetTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantDetailCreateAssetTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantDetailCreateAssetType)(nil)).Elem()
+}
+
+func (o PolicyGrantDetailCreateAssetTypePtrOutput) ToPolicyGrantDetailCreateAssetTypePtrOutput() PolicyGrantDetailCreateAssetTypePtrOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateAssetTypePtrOutput) ToPolicyGrantDetailCreateAssetTypePtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateAssetTypePtrOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateAssetTypePtrOutput) Elem() PolicyGrantDetailCreateAssetTypeOutput {
+	return o.ApplyT(func(v *PolicyGrantDetailCreateAssetType) PolicyGrantDetailCreateAssetType {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyGrantDetailCreateAssetType
+		return ret
+	}).(PolicyGrantDetailCreateAssetTypeOutput)
+}
+
+// Whether to include child domain units.
+func (o PolicyGrantDetailCreateAssetTypePtrOutput) IncludeChildDomainUnits() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantDetailCreateAssetType) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeChildDomainUnits
+	}).(pulumi.BoolPtrOutput)
+}
+
+type PolicyGrantDetailCreateDomainUnit struct {
+	// Whether to include child domain units.
+	IncludeChildDomainUnits *bool `pulumi:"includeChildDomainUnits"`
+}
+
+// PolicyGrantDetailCreateDomainUnitInput is an input type that accepts PolicyGrantDetailCreateDomainUnitArgs and PolicyGrantDetailCreateDomainUnitOutput values.
+// You can construct a concrete instance of `PolicyGrantDetailCreateDomainUnitInput` via:
+//
+//	PolicyGrantDetailCreateDomainUnitArgs{...}
+type PolicyGrantDetailCreateDomainUnitInput interface {
+	pulumi.Input
+
+	ToPolicyGrantDetailCreateDomainUnitOutput() PolicyGrantDetailCreateDomainUnitOutput
+	ToPolicyGrantDetailCreateDomainUnitOutputWithContext(context.Context) PolicyGrantDetailCreateDomainUnitOutput
+}
+
+type PolicyGrantDetailCreateDomainUnitArgs struct {
+	// Whether to include child domain units.
+	IncludeChildDomainUnits pulumi.BoolPtrInput `pulumi:"includeChildDomainUnits"`
+}
+
+func (PolicyGrantDetailCreateDomainUnitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantDetailCreateDomainUnit)(nil)).Elem()
+}
+
+func (i PolicyGrantDetailCreateDomainUnitArgs) ToPolicyGrantDetailCreateDomainUnitOutput() PolicyGrantDetailCreateDomainUnitOutput {
+	return i.ToPolicyGrantDetailCreateDomainUnitOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantDetailCreateDomainUnitArgs) ToPolicyGrantDetailCreateDomainUnitOutputWithContext(ctx context.Context) PolicyGrantDetailCreateDomainUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailCreateDomainUnitOutput)
+}
+
+func (i PolicyGrantDetailCreateDomainUnitArgs) ToPolicyGrantDetailCreateDomainUnitPtrOutput() PolicyGrantDetailCreateDomainUnitPtrOutput {
+	return i.ToPolicyGrantDetailCreateDomainUnitPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantDetailCreateDomainUnitArgs) ToPolicyGrantDetailCreateDomainUnitPtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateDomainUnitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailCreateDomainUnitOutput).ToPolicyGrantDetailCreateDomainUnitPtrOutputWithContext(ctx)
+}
+
+// PolicyGrantDetailCreateDomainUnitPtrInput is an input type that accepts PolicyGrantDetailCreateDomainUnitArgs, PolicyGrantDetailCreateDomainUnitPtr and PolicyGrantDetailCreateDomainUnitPtrOutput values.
+// You can construct a concrete instance of `PolicyGrantDetailCreateDomainUnitPtrInput` via:
+//
+//	        PolicyGrantDetailCreateDomainUnitArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyGrantDetailCreateDomainUnitPtrInput interface {
+	pulumi.Input
+
+	ToPolicyGrantDetailCreateDomainUnitPtrOutput() PolicyGrantDetailCreateDomainUnitPtrOutput
+	ToPolicyGrantDetailCreateDomainUnitPtrOutputWithContext(context.Context) PolicyGrantDetailCreateDomainUnitPtrOutput
+}
+
+type policyGrantDetailCreateDomainUnitPtrType PolicyGrantDetailCreateDomainUnitArgs
+
+func PolicyGrantDetailCreateDomainUnitPtr(v *PolicyGrantDetailCreateDomainUnitArgs) PolicyGrantDetailCreateDomainUnitPtrInput {
+	return (*policyGrantDetailCreateDomainUnitPtrType)(v)
+}
+
+func (*policyGrantDetailCreateDomainUnitPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantDetailCreateDomainUnit)(nil)).Elem()
+}
+
+func (i *policyGrantDetailCreateDomainUnitPtrType) ToPolicyGrantDetailCreateDomainUnitPtrOutput() PolicyGrantDetailCreateDomainUnitPtrOutput {
+	return i.ToPolicyGrantDetailCreateDomainUnitPtrOutputWithContext(context.Background())
+}
+
+func (i *policyGrantDetailCreateDomainUnitPtrType) ToPolicyGrantDetailCreateDomainUnitPtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateDomainUnitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailCreateDomainUnitPtrOutput)
+}
+
+type PolicyGrantDetailCreateDomainUnitOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantDetailCreateDomainUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantDetailCreateDomainUnit)(nil)).Elem()
+}
+
+func (o PolicyGrantDetailCreateDomainUnitOutput) ToPolicyGrantDetailCreateDomainUnitOutput() PolicyGrantDetailCreateDomainUnitOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateDomainUnitOutput) ToPolicyGrantDetailCreateDomainUnitOutputWithContext(ctx context.Context) PolicyGrantDetailCreateDomainUnitOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateDomainUnitOutput) ToPolicyGrantDetailCreateDomainUnitPtrOutput() PolicyGrantDetailCreateDomainUnitPtrOutput {
+	return o.ToPolicyGrantDetailCreateDomainUnitPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyGrantDetailCreateDomainUnitOutput) ToPolicyGrantDetailCreateDomainUnitPtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateDomainUnitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyGrantDetailCreateDomainUnit) *PolicyGrantDetailCreateDomainUnit {
+		return &v
+	}).(PolicyGrantDetailCreateDomainUnitPtrOutput)
+}
+
+// Whether to include child domain units.
+func (o PolicyGrantDetailCreateDomainUnitOutput) IncludeChildDomainUnits() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PolicyGrantDetailCreateDomainUnit) *bool { return v.IncludeChildDomainUnits }).(pulumi.BoolPtrOutput)
+}
+
+type PolicyGrantDetailCreateDomainUnitPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantDetailCreateDomainUnitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantDetailCreateDomainUnit)(nil)).Elem()
+}
+
+func (o PolicyGrantDetailCreateDomainUnitPtrOutput) ToPolicyGrantDetailCreateDomainUnitPtrOutput() PolicyGrantDetailCreateDomainUnitPtrOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateDomainUnitPtrOutput) ToPolicyGrantDetailCreateDomainUnitPtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateDomainUnitPtrOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateDomainUnitPtrOutput) Elem() PolicyGrantDetailCreateDomainUnitOutput {
+	return o.ApplyT(func(v *PolicyGrantDetailCreateDomainUnit) PolicyGrantDetailCreateDomainUnit {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyGrantDetailCreateDomainUnit
+		return ret
+	}).(PolicyGrantDetailCreateDomainUnitOutput)
+}
+
+// Whether to include child domain units.
+func (o PolicyGrantDetailCreateDomainUnitPtrOutput) IncludeChildDomainUnits() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantDetailCreateDomainUnit) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeChildDomainUnits
+	}).(pulumi.BoolPtrOutput)
+}
+
+type PolicyGrantDetailCreateEnvironment struct {
+}
+
+// PolicyGrantDetailCreateEnvironmentInput is an input type that accepts PolicyGrantDetailCreateEnvironmentArgs and PolicyGrantDetailCreateEnvironmentOutput values.
+// You can construct a concrete instance of `PolicyGrantDetailCreateEnvironmentInput` via:
+//
+//	PolicyGrantDetailCreateEnvironmentArgs{...}
+type PolicyGrantDetailCreateEnvironmentInput interface {
+	pulumi.Input
+
+	ToPolicyGrantDetailCreateEnvironmentOutput() PolicyGrantDetailCreateEnvironmentOutput
+	ToPolicyGrantDetailCreateEnvironmentOutputWithContext(context.Context) PolicyGrantDetailCreateEnvironmentOutput
+}
+
+type PolicyGrantDetailCreateEnvironmentArgs struct {
+}
+
+func (PolicyGrantDetailCreateEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantDetailCreateEnvironment)(nil)).Elem()
+}
+
+func (i PolicyGrantDetailCreateEnvironmentArgs) ToPolicyGrantDetailCreateEnvironmentOutput() PolicyGrantDetailCreateEnvironmentOutput {
+	return i.ToPolicyGrantDetailCreateEnvironmentOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantDetailCreateEnvironmentArgs) ToPolicyGrantDetailCreateEnvironmentOutputWithContext(ctx context.Context) PolicyGrantDetailCreateEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailCreateEnvironmentOutput)
+}
+
+func (i PolicyGrantDetailCreateEnvironmentArgs) ToPolicyGrantDetailCreateEnvironmentPtrOutput() PolicyGrantDetailCreateEnvironmentPtrOutput {
+	return i.ToPolicyGrantDetailCreateEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantDetailCreateEnvironmentArgs) ToPolicyGrantDetailCreateEnvironmentPtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailCreateEnvironmentOutput).ToPolicyGrantDetailCreateEnvironmentPtrOutputWithContext(ctx)
+}
+
+// PolicyGrantDetailCreateEnvironmentPtrInput is an input type that accepts PolicyGrantDetailCreateEnvironmentArgs, PolicyGrantDetailCreateEnvironmentPtr and PolicyGrantDetailCreateEnvironmentPtrOutput values.
+// You can construct a concrete instance of `PolicyGrantDetailCreateEnvironmentPtrInput` via:
+//
+//	        PolicyGrantDetailCreateEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyGrantDetailCreateEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToPolicyGrantDetailCreateEnvironmentPtrOutput() PolicyGrantDetailCreateEnvironmentPtrOutput
+	ToPolicyGrantDetailCreateEnvironmentPtrOutputWithContext(context.Context) PolicyGrantDetailCreateEnvironmentPtrOutput
+}
+
+type policyGrantDetailCreateEnvironmentPtrType PolicyGrantDetailCreateEnvironmentArgs
+
+func PolicyGrantDetailCreateEnvironmentPtr(v *PolicyGrantDetailCreateEnvironmentArgs) PolicyGrantDetailCreateEnvironmentPtrInput {
+	return (*policyGrantDetailCreateEnvironmentPtrType)(v)
+}
+
+func (*policyGrantDetailCreateEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantDetailCreateEnvironment)(nil)).Elem()
+}
+
+func (i *policyGrantDetailCreateEnvironmentPtrType) ToPolicyGrantDetailCreateEnvironmentPtrOutput() PolicyGrantDetailCreateEnvironmentPtrOutput {
+	return i.ToPolicyGrantDetailCreateEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *policyGrantDetailCreateEnvironmentPtrType) ToPolicyGrantDetailCreateEnvironmentPtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailCreateEnvironmentPtrOutput)
+}
+
+type PolicyGrantDetailCreateEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantDetailCreateEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantDetailCreateEnvironment)(nil)).Elem()
+}
+
+func (o PolicyGrantDetailCreateEnvironmentOutput) ToPolicyGrantDetailCreateEnvironmentOutput() PolicyGrantDetailCreateEnvironmentOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateEnvironmentOutput) ToPolicyGrantDetailCreateEnvironmentOutputWithContext(ctx context.Context) PolicyGrantDetailCreateEnvironmentOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateEnvironmentOutput) ToPolicyGrantDetailCreateEnvironmentPtrOutput() PolicyGrantDetailCreateEnvironmentPtrOutput {
+	return o.ToPolicyGrantDetailCreateEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyGrantDetailCreateEnvironmentOutput) ToPolicyGrantDetailCreateEnvironmentPtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyGrantDetailCreateEnvironment) *PolicyGrantDetailCreateEnvironment {
+		return &v
+	}).(PolicyGrantDetailCreateEnvironmentPtrOutput)
+}
+
+type PolicyGrantDetailCreateEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantDetailCreateEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantDetailCreateEnvironment)(nil)).Elem()
+}
+
+func (o PolicyGrantDetailCreateEnvironmentPtrOutput) ToPolicyGrantDetailCreateEnvironmentPtrOutput() PolicyGrantDetailCreateEnvironmentPtrOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateEnvironmentPtrOutput) ToPolicyGrantDetailCreateEnvironmentPtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateEnvironmentPtrOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateEnvironmentPtrOutput) Elem() PolicyGrantDetailCreateEnvironmentOutput {
+	return o.ApplyT(func(v *PolicyGrantDetailCreateEnvironment) PolicyGrantDetailCreateEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyGrantDetailCreateEnvironment
+		return ret
+	}).(PolicyGrantDetailCreateEnvironmentOutput)
+}
+
+type PolicyGrantDetailCreateEnvironmentFromBlueprint struct {
+}
+
+// PolicyGrantDetailCreateEnvironmentFromBlueprintInput is an input type that accepts PolicyGrantDetailCreateEnvironmentFromBlueprintArgs and PolicyGrantDetailCreateEnvironmentFromBlueprintOutput values.
+// You can construct a concrete instance of `PolicyGrantDetailCreateEnvironmentFromBlueprintInput` via:
+//
+//	PolicyGrantDetailCreateEnvironmentFromBlueprintArgs{...}
+type PolicyGrantDetailCreateEnvironmentFromBlueprintInput interface {
+	pulumi.Input
+
+	ToPolicyGrantDetailCreateEnvironmentFromBlueprintOutput() PolicyGrantDetailCreateEnvironmentFromBlueprintOutput
+	ToPolicyGrantDetailCreateEnvironmentFromBlueprintOutputWithContext(context.Context) PolicyGrantDetailCreateEnvironmentFromBlueprintOutput
+}
+
+type PolicyGrantDetailCreateEnvironmentFromBlueprintArgs struct {
+}
+
+func (PolicyGrantDetailCreateEnvironmentFromBlueprintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantDetailCreateEnvironmentFromBlueprint)(nil)).Elem()
+}
+
+func (i PolicyGrantDetailCreateEnvironmentFromBlueprintArgs) ToPolicyGrantDetailCreateEnvironmentFromBlueprintOutput() PolicyGrantDetailCreateEnvironmentFromBlueprintOutput {
+	return i.ToPolicyGrantDetailCreateEnvironmentFromBlueprintOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantDetailCreateEnvironmentFromBlueprintArgs) ToPolicyGrantDetailCreateEnvironmentFromBlueprintOutputWithContext(ctx context.Context) PolicyGrantDetailCreateEnvironmentFromBlueprintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailCreateEnvironmentFromBlueprintOutput)
+}
+
+func (i PolicyGrantDetailCreateEnvironmentFromBlueprintArgs) ToPolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutput() PolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutput {
+	return i.ToPolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantDetailCreateEnvironmentFromBlueprintArgs) ToPolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailCreateEnvironmentFromBlueprintOutput).ToPolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutputWithContext(ctx)
+}
+
+// PolicyGrantDetailCreateEnvironmentFromBlueprintPtrInput is an input type that accepts PolicyGrantDetailCreateEnvironmentFromBlueprintArgs, PolicyGrantDetailCreateEnvironmentFromBlueprintPtr and PolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutput values.
+// You can construct a concrete instance of `PolicyGrantDetailCreateEnvironmentFromBlueprintPtrInput` via:
+//
+//	        PolicyGrantDetailCreateEnvironmentFromBlueprintArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyGrantDetailCreateEnvironmentFromBlueprintPtrInput interface {
+	pulumi.Input
+
+	ToPolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutput() PolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutput
+	ToPolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutputWithContext(context.Context) PolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutput
+}
+
+type policyGrantDetailCreateEnvironmentFromBlueprintPtrType PolicyGrantDetailCreateEnvironmentFromBlueprintArgs
+
+func PolicyGrantDetailCreateEnvironmentFromBlueprintPtr(v *PolicyGrantDetailCreateEnvironmentFromBlueprintArgs) PolicyGrantDetailCreateEnvironmentFromBlueprintPtrInput {
+	return (*policyGrantDetailCreateEnvironmentFromBlueprintPtrType)(v)
+}
+
+func (*policyGrantDetailCreateEnvironmentFromBlueprintPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantDetailCreateEnvironmentFromBlueprint)(nil)).Elem()
+}
+
+func (i *policyGrantDetailCreateEnvironmentFromBlueprintPtrType) ToPolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutput() PolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutput {
+	return i.ToPolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutputWithContext(context.Background())
+}
+
+func (i *policyGrantDetailCreateEnvironmentFromBlueprintPtrType) ToPolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutput)
+}
+
+type PolicyGrantDetailCreateEnvironmentFromBlueprintOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantDetailCreateEnvironmentFromBlueprintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantDetailCreateEnvironmentFromBlueprint)(nil)).Elem()
+}
+
+func (o PolicyGrantDetailCreateEnvironmentFromBlueprintOutput) ToPolicyGrantDetailCreateEnvironmentFromBlueprintOutput() PolicyGrantDetailCreateEnvironmentFromBlueprintOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateEnvironmentFromBlueprintOutput) ToPolicyGrantDetailCreateEnvironmentFromBlueprintOutputWithContext(ctx context.Context) PolicyGrantDetailCreateEnvironmentFromBlueprintOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateEnvironmentFromBlueprintOutput) ToPolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutput() PolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutput {
+	return o.ToPolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyGrantDetailCreateEnvironmentFromBlueprintOutput) ToPolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyGrantDetailCreateEnvironmentFromBlueprint) *PolicyGrantDetailCreateEnvironmentFromBlueprint {
+		return &v
+	}).(PolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutput)
+}
+
+type PolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantDetailCreateEnvironmentFromBlueprint)(nil)).Elem()
+}
+
+func (o PolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutput) ToPolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutput() PolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutput) ToPolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutput) Elem() PolicyGrantDetailCreateEnvironmentFromBlueprintOutput {
+	return o.ApplyT(func(v *PolicyGrantDetailCreateEnvironmentFromBlueprint) PolicyGrantDetailCreateEnvironmentFromBlueprint {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyGrantDetailCreateEnvironmentFromBlueprint
+		return ret
+	}).(PolicyGrantDetailCreateEnvironmentFromBlueprintOutput)
+}
+
+type PolicyGrantDetailCreateEnvironmentProfile struct {
+	// Identifier of the domain unit.
+	DomainUnitId *string `pulumi:"domainUnitId"`
+}
+
+// PolicyGrantDetailCreateEnvironmentProfileInput is an input type that accepts PolicyGrantDetailCreateEnvironmentProfileArgs and PolicyGrantDetailCreateEnvironmentProfileOutput values.
+// You can construct a concrete instance of `PolicyGrantDetailCreateEnvironmentProfileInput` via:
+//
+//	PolicyGrantDetailCreateEnvironmentProfileArgs{...}
+type PolicyGrantDetailCreateEnvironmentProfileInput interface {
+	pulumi.Input
+
+	ToPolicyGrantDetailCreateEnvironmentProfileOutput() PolicyGrantDetailCreateEnvironmentProfileOutput
+	ToPolicyGrantDetailCreateEnvironmentProfileOutputWithContext(context.Context) PolicyGrantDetailCreateEnvironmentProfileOutput
+}
+
+type PolicyGrantDetailCreateEnvironmentProfileArgs struct {
+	// Identifier of the domain unit.
+	DomainUnitId pulumi.StringPtrInput `pulumi:"domainUnitId"`
+}
+
+func (PolicyGrantDetailCreateEnvironmentProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantDetailCreateEnvironmentProfile)(nil)).Elem()
+}
+
+func (i PolicyGrantDetailCreateEnvironmentProfileArgs) ToPolicyGrantDetailCreateEnvironmentProfileOutput() PolicyGrantDetailCreateEnvironmentProfileOutput {
+	return i.ToPolicyGrantDetailCreateEnvironmentProfileOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantDetailCreateEnvironmentProfileArgs) ToPolicyGrantDetailCreateEnvironmentProfileOutputWithContext(ctx context.Context) PolicyGrantDetailCreateEnvironmentProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailCreateEnvironmentProfileOutput)
+}
+
+func (i PolicyGrantDetailCreateEnvironmentProfileArgs) ToPolicyGrantDetailCreateEnvironmentProfilePtrOutput() PolicyGrantDetailCreateEnvironmentProfilePtrOutput {
+	return i.ToPolicyGrantDetailCreateEnvironmentProfilePtrOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantDetailCreateEnvironmentProfileArgs) ToPolicyGrantDetailCreateEnvironmentProfilePtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateEnvironmentProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailCreateEnvironmentProfileOutput).ToPolicyGrantDetailCreateEnvironmentProfilePtrOutputWithContext(ctx)
+}
+
+// PolicyGrantDetailCreateEnvironmentProfilePtrInput is an input type that accepts PolicyGrantDetailCreateEnvironmentProfileArgs, PolicyGrantDetailCreateEnvironmentProfilePtr and PolicyGrantDetailCreateEnvironmentProfilePtrOutput values.
+// You can construct a concrete instance of `PolicyGrantDetailCreateEnvironmentProfilePtrInput` via:
+//
+//	        PolicyGrantDetailCreateEnvironmentProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyGrantDetailCreateEnvironmentProfilePtrInput interface {
+	pulumi.Input
+
+	ToPolicyGrantDetailCreateEnvironmentProfilePtrOutput() PolicyGrantDetailCreateEnvironmentProfilePtrOutput
+	ToPolicyGrantDetailCreateEnvironmentProfilePtrOutputWithContext(context.Context) PolicyGrantDetailCreateEnvironmentProfilePtrOutput
+}
+
+type policyGrantDetailCreateEnvironmentProfilePtrType PolicyGrantDetailCreateEnvironmentProfileArgs
+
+func PolicyGrantDetailCreateEnvironmentProfilePtr(v *PolicyGrantDetailCreateEnvironmentProfileArgs) PolicyGrantDetailCreateEnvironmentProfilePtrInput {
+	return (*policyGrantDetailCreateEnvironmentProfilePtrType)(v)
+}
+
+func (*policyGrantDetailCreateEnvironmentProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantDetailCreateEnvironmentProfile)(nil)).Elem()
+}
+
+func (i *policyGrantDetailCreateEnvironmentProfilePtrType) ToPolicyGrantDetailCreateEnvironmentProfilePtrOutput() PolicyGrantDetailCreateEnvironmentProfilePtrOutput {
+	return i.ToPolicyGrantDetailCreateEnvironmentProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *policyGrantDetailCreateEnvironmentProfilePtrType) ToPolicyGrantDetailCreateEnvironmentProfilePtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateEnvironmentProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailCreateEnvironmentProfilePtrOutput)
+}
+
+type PolicyGrantDetailCreateEnvironmentProfileOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantDetailCreateEnvironmentProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantDetailCreateEnvironmentProfile)(nil)).Elem()
+}
+
+func (o PolicyGrantDetailCreateEnvironmentProfileOutput) ToPolicyGrantDetailCreateEnvironmentProfileOutput() PolicyGrantDetailCreateEnvironmentProfileOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateEnvironmentProfileOutput) ToPolicyGrantDetailCreateEnvironmentProfileOutputWithContext(ctx context.Context) PolicyGrantDetailCreateEnvironmentProfileOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateEnvironmentProfileOutput) ToPolicyGrantDetailCreateEnvironmentProfilePtrOutput() PolicyGrantDetailCreateEnvironmentProfilePtrOutput {
+	return o.ToPolicyGrantDetailCreateEnvironmentProfilePtrOutputWithContext(context.Background())
+}
+
+func (o PolicyGrantDetailCreateEnvironmentProfileOutput) ToPolicyGrantDetailCreateEnvironmentProfilePtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateEnvironmentProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyGrantDetailCreateEnvironmentProfile) *PolicyGrantDetailCreateEnvironmentProfile {
+		return &v
+	}).(PolicyGrantDetailCreateEnvironmentProfilePtrOutput)
+}
+
+// Identifier of the domain unit.
+func (o PolicyGrantDetailCreateEnvironmentProfileOutput) DomainUnitId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyGrantDetailCreateEnvironmentProfile) *string { return v.DomainUnitId }).(pulumi.StringPtrOutput)
+}
+
+type PolicyGrantDetailCreateEnvironmentProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantDetailCreateEnvironmentProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantDetailCreateEnvironmentProfile)(nil)).Elem()
+}
+
+func (o PolicyGrantDetailCreateEnvironmentProfilePtrOutput) ToPolicyGrantDetailCreateEnvironmentProfilePtrOutput() PolicyGrantDetailCreateEnvironmentProfilePtrOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateEnvironmentProfilePtrOutput) ToPolicyGrantDetailCreateEnvironmentProfilePtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateEnvironmentProfilePtrOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateEnvironmentProfilePtrOutput) Elem() PolicyGrantDetailCreateEnvironmentProfileOutput {
+	return o.ApplyT(func(v *PolicyGrantDetailCreateEnvironmentProfile) PolicyGrantDetailCreateEnvironmentProfile {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyGrantDetailCreateEnvironmentProfile
+		return ret
+	}).(PolicyGrantDetailCreateEnvironmentProfileOutput)
+}
+
+// Identifier of the domain unit.
+func (o PolicyGrantDetailCreateEnvironmentProfilePtrOutput) DomainUnitId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantDetailCreateEnvironmentProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DomainUnitId
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyGrantDetailCreateFormType struct {
+	// Whether to include child domain units.
+	IncludeChildDomainUnits *bool `pulumi:"includeChildDomainUnits"`
+}
+
+// PolicyGrantDetailCreateFormTypeInput is an input type that accepts PolicyGrantDetailCreateFormTypeArgs and PolicyGrantDetailCreateFormTypeOutput values.
+// You can construct a concrete instance of `PolicyGrantDetailCreateFormTypeInput` via:
+//
+//	PolicyGrantDetailCreateFormTypeArgs{...}
+type PolicyGrantDetailCreateFormTypeInput interface {
+	pulumi.Input
+
+	ToPolicyGrantDetailCreateFormTypeOutput() PolicyGrantDetailCreateFormTypeOutput
+	ToPolicyGrantDetailCreateFormTypeOutputWithContext(context.Context) PolicyGrantDetailCreateFormTypeOutput
+}
+
+type PolicyGrantDetailCreateFormTypeArgs struct {
+	// Whether to include child domain units.
+	IncludeChildDomainUnits pulumi.BoolPtrInput `pulumi:"includeChildDomainUnits"`
+}
+
+func (PolicyGrantDetailCreateFormTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantDetailCreateFormType)(nil)).Elem()
+}
+
+func (i PolicyGrantDetailCreateFormTypeArgs) ToPolicyGrantDetailCreateFormTypeOutput() PolicyGrantDetailCreateFormTypeOutput {
+	return i.ToPolicyGrantDetailCreateFormTypeOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantDetailCreateFormTypeArgs) ToPolicyGrantDetailCreateFormTypeOutputWithContext(ctx context.Context) PolicyGrantDetailCreateFormTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailCreateFormTypeOutput)
+}
+
+func (i PolicyGrantDetailCreateFormTypeArgs) ToPolicyGrantDetailCreateFormTypePtrOutput() PolicyGrantDetailCreateFormTypePtrOutput {
+	return i.ToPolicyGrantDetailCreateFormTypePtrOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantDetailCreateFormTypeArgs) ToPolicyGrantDetailCreateFormTypePtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateFormTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailCreateFormTypeOutput).ToPolicyGrantDetailCreateFormTypePtrOutputWithContext(ctx)
+}
+
+// PolicyGrantDetailCreateFormTypePtrInput is an input type that accepts PolicyGrantDetailCreateFormTypeArgs, PolicyGrantDetailCreateFormTypePtr and PolicyGrantDetailCreateFormTypePtrOutput values.
+// You can construct a concrete instance of `PolicyGrantDetailCreateFormTypePtrInput` via:
+//
+//	        PolicyGrantDetailCreateFormTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyGrantDetailCreateFormTypePtrInput interface {
+	pulumi.Input
+
+	ToPolicyGrantDetailCreateFormTypePtrOutput() PolicyGrantDetailCreateFormTypePtrOutput
+	ToPolicyGrantDetailCreateFormTypePtrOutputWithContext(context.Context) PolicyGrantDetailCreateFormTypePtrOutput
+}
+
+type policyGrantDetailCreateFormTypePtrType PolicyGrantDetailCreateFormTypeArgs
+
+func PolicyGrantDetailCreateFormTypePtr(v *PolicyGrantDetailCreateFormTypeArgs) PolicyGrantDetailCreateFormTypePtrInput {
+	return (*policyGrantDetailCreateFormTypePtrType)(v)
+}
+
+func (*policyGrantDetailCreateFormTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantDetailCreateFormType)(nil)).Elem()
+}
+
+func (i *policyGrantDetailCreateFormTypePtrType) ToPolicyGrantDetailCreateFormTypePtrOutput() PolicyGrantDetailCreateFormTypePtrOutput {
+	return i.ToPolicyGrantDetailCreateFormTypePtrOutputWithContext(context.Background())
+}
+
+func (i *policyGrantDetailCreateFormTypePtrType) ToPolicyGrantDetailCreateFormTypePtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateFormTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailCreateFormTypePtrOutput)
+}
+
+type PolicyGrantDetailCreateFormTypeOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantDetailCreateFormTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantDetailCreateFormType)(nil)).Elem()
+}
+
+func (o PolicyGrantDetailCreateFormTypeOutput) ToPolicyGrantDetailCreateFormTypeOutput() PolicyGrantDetailCreateFormTypeOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateFormTypeOutput) ToPolicyGrantDetailCreateFormTypeOutputWithContext(ctx context.Context) PolicyGrantDetailCreateFormTypeOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateFormTypeOutput) ToPolicyGrantDetailCreateFormTypePtrOutput() PolicyGrantDetailCreateFormTypePtrOutput {
+	return o.ToPolicyGrantDetailCreateFormTypePtrOutputWithContext(context.Background())
+}
+
+func (o PolicyGrantDetailCreateFormTypeOutput) ToPolicyGrantDetailCreateFormTypePtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateFormTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyGrantDetailCreateFormType) *PolicyGrantDetailCreateFormType {
+		return &v
+	}).(PolicyGrantDetailCreateFormTypePtrOutput)
+}
+
+// Whether to include child domain units.
+func (o PolicyGrantDetailCreateFormTypeOutput) IncludeChildDomainUnits() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PolicyGrantDetailCreateFormType) *bool { return v.IncludeChildDomainUnits }).(pulumi.BoolPtrOutput)
+}
+
+type PolicyGrantDetailCreateFormTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantDetailCreateFormTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantDetailCreateFormType)(nil)).Elem()
+}
+
+func (o PolicyGrantDetailCreateFormTypePtrOutput) ToPolicyGrantDetailCreateFormTypePtrOutput() PolicyGrantDetailCreateFormTypePtrOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateFormTypePtrOutput) ToPolicyGrantDetailCreateFormTypePtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateFormTypePtrOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateFormTypePtrOutput) Elem() PolicyGrantDetailCreateFormTypeOutput {
+	return o.ApplyT(func(v *PolicyGrantDetailCreateFormType) PolicyGrantDetailCreateFormType {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyGrantDetailCreateFormType
+		return ret
+	}).(PolicyGrantDetailCreateFormTypeOutput)
+}
+
+// Whether to include child domain units.
+func (o PolicyGrantDetailCreateFormTypePtrOutput) IncludeChildDomainUnits() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantDetailCreateFormType) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeChildDomainUnits
+	}).(pulumi.BoolPtrOutput)
+}
+
+type PolicyGrantDetailCreateGlossary struct {
+	// Whether to include child domain units.
+	IncludeChildDomainUnits *bool `pulumi:"includeChildDomainUnits"`
+}
+
+// PolicyGrantDetailCreateGlossaryInput is an input type that accepts PolicyGrantDetailCreateGlossaryArgs and PolicyGrantDetailCreateGlossaryOutput values.
+// You can construct a concrete instance of `PolicyGrantDetailCreateGlossaryInput` via:
+//
+//	PolicyGrantDetailCreateGlossaryArgs{...}
+type PolicyGrantDetailCreateGlossaryInput interface {
+	pulumi.Input
+
+	ToPolicyGrantDetailCreateGlossaryOutput() PolicyGrantDetailCreateGlossaryOutput
+	ToPolicyGrantDetailCreateGlossaryOutputWithContext(context.Context) PolicyGrantDetailCreateGlossaryOutput
+}
+
+type PolicyGrantDetailCreateGlossaryArgs struct {
+	// Whether to include child domain units.
+	IncludeChildDomainUnits pulumi.BoolPtrInput `pulumi:"includeChildDomainUnits"`
+}
+
+func (PolicyGrantDetailCreateGlossaryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantDetailCreateGlossary)(nil)).Elem()
+}
+
+func (i PolicyGrantDetailCreateGlossaryArgs) ToPolicyGrantDetailCreateGlossaryOutput() PolicyGrantDetailCreateGlossaryOutput {
+	return i.ToPolicyGrantDetailCreateGlossaryOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantDetailCreateGlossaryArgs) ToPolicyGrantDetailCreateGlossaryOutputWithContext(ctx context.Context) PolicyGrantDetailCreateGlossaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailCreateGlossaryOutput)
+}
+
+func (i PolicyGrantDetailCreateGlossaryArgs) ToPolicyGrantDetailCreateGlossaryPtrOutput() PolicyGrantDetailCreateGlossaryPtrOutput {
+	return i.ToPolicyGrantDetailCreateGlossaryPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantDetailCreateGlossaryArgs) ToPolicyGrantDetailCreateGlossaryPtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateGlossaryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailCreateGlossaryOutput).ToPolicyGrantDetailCreateGlossaryPtrOutputWithContext(ctx)
+}
+
+// PolicyGrantDetailCreateGlossaryPtrInput is an input type that accepts PolicyGrantDetailCreateGlossaryArgs, PolicyGrantDetailCreateGlossaryPtr and PolicyGrantDetailCreateGlossaryPtrOutput values.
+// You can construct a concrete instance of `PolicyGrantDetailCreateGlossaryPtrInput` via:
+//
+//	        PolicyGrantDetailCreateGlossaryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyGrantDetailCreateGlossaryPtrInput interface {
+	pulumi.Input
+
+	ToPolicyGrantDetailCreateGlossaryPtrOutput() PolicyGrantDetailCreateGlossaryPtrOutput
+	ToPolicyGrantDetailCreateGlossaryPtrOutputWithContext(context.Context) PolicyGrantDetailCreateGlossaryPtrOutput
+}
+
+type policyGrantDetailCreateGlossaryPtrType PolicyGrantDetailCreateGlossaryArgs
+
+func PolicyGrantDetailCreateGlossaryPtr(v *PolicyGrantDetailCreateGlossaryArgs) PolicyGrantDetailCreateGlossaryPtrInput {
+	return (*policyGrantDetailCreateGlossaryPtrType)(v)
+}
+
+func (*policyGrantDetailCreateGlossaryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantDetailCreateGlossary)(nil)).Elem()
+}
+
+func (i *policyGrantDetailCreateGlossaryPtrType) ToPolicyGrantDetailCreateGlossaryPtrOutput() PolicyGrantDetailCreateGlossaryPtrOutput {
+	return i.ToPolicyGrantDetailCreateGlossaryPtrOutputWithContext(context.Background())
+}
+
+func (i *policyGrantDetailCreateGlossaryPtrType) ToPolicyGrantDetailCreateGlossaryPtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateGlossaryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailCreateGlossaryPtrOutput)
+}
+
+type PolicyGrantDetailCreateGlossaryOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantDetailCreateGlossaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantDetailCreateGlossary)(nil)).Elem()
+}
+
+func (o PolicyGrantDetailCreateGlossaryOutput) ToPolicyGrantDetailCreateGlossaryOutput() PolicyGrantDetailCreateGlossaryOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateGlossaryOutput) ToPolicyGrantDetailCreateGlossaryOutputWithContext(ctx context.Context) PolicyGrantDetailCreateGlossaryOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateGlossaryOutput) ToPolicyGrantDetailCreateGlossaryPtrOutput() PolicyGrantDetailCreateGlossaryPtrOutput {
+	return o.ToPolicyGrantDetailCreateGlossaryPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyGrantDetailCreateGlossaryOutput) ToPolicyGrantDetailCreateGlossaryPtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateGlossaryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyGrantDetailCreateGlossary) *PolicyGrantDetailCreateGlossary {
+		return &v
+	}).(PolicyGrantDetailCreateGlossaryPtrOutput)
+}
+
+// Whether to include child domain units.
+func (o PolicyGrantDetailCreateGlossaryOutput) IncludeChildDomainUnits() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PolicyGrantDetailCreateGlossary) *bool { return v.IncludeChildDomainUnits }).(pulumi.BoolPtrOutput)
+}
+
+type PolicyGrantDetailCreateGlossaryPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantDetailCreateGlossaryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantDetailCreateGlossary)(nil)).Elem()
+}
+
+func (o PolicyGrantDetailCreateGlossaryPtrOutput) ToPolicyGrantDetailCreateGlossaryPtrOutput() PolicyGrantDetailCreateGlossaryPtrOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateGlossaryPtrOutput) ToPolicyGrantDetailCreateGlossaryPtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateGlossaryPtrOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateGlossaryPtrOutput) Elem() PolicyGrantDetailCreateGlossaryOutput {
+	return o.ApplyT(func(v *PolicyGrantDetailCreateGlossary) PolicyGrantDetailCreateGlossary {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyGrantDetailCreateGlossary
+		return ret
+	}).(PolicyGrantDetailCreateGlossaryOutput)
+}
+
+// Whether to include child domain units.
+func (o PolicyGrantDetailCreateGlossaryPtrOutput) IncludeChildDomainUnits() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantDetailCreateGlossary) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeChildDomainUnits
+	}).(pulumi.BoolPtrOutput)
+}
+
+type PolicyGrantDetailCreateProject struct {
+	// Whether to include child domain units.
+	IncludeChildDomainUnits *bool `pulumi:"includeChildDomainUnits"`
+}
+
+// PolicyGrantDetailCreateProjectInput is an input type that accepts PolicyGrantDetailCreateProjectArgs and PolicyGrantDetailCreateProjectOutput values.
+// You can construct a concrete instance of `PolicyGrantDetailCreateProjectInput` via:
+//
+//	PolicyGrantDetailCreateProjectArgs{...}
+type PolicyGrantDetailCreateProjectInput interface {
+	pulumi.Input
+
+	ToPolicyGrantDetailCreateProjectOutput() PolicyGrantDetailCreateProjectOutput
+	ToPolicyGrantDetailCreateProjectOutputWithContext(context.Context) PolicyGrantDetailCreateProjectOutput
+}
+
+type PolicyGrantDetailCreateProjectArgs struct {
+	// Whether to include child domain units.
+	IncludeChildDomainUnits pulumi.BoolPtrInput `pulumi:"includeChildDomainUnits"`
+}
+
+func (PolicyGrantDetailCreateProjectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantDetailCreateProject)(nil)).Elem()
+}
+
+func (i PolicyGrantDetailCreateProjectArgs) ToPolicyGrantDetailCreateProjectOutput() PolicyGrantDetailCreateProjectOutput {
+	return i.ToPolicyGrantDetailCreateProjectOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantDetailCreateProjectArgs) ToPolicyGrantDetailCreateProjectOutputWithContext(ctx context.Context) PolicyGrantDetailCreateProjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailCreateProjectOutput)
+}
+
+func (i PolicyGrantDetailCreateProjectArgs) ToPolicyGrantDetailCreateProjectPtrOutput() PolicyGrantDetailCreateProjectPtrOutput {
+	return i.ToPolicyGrantDetailCreateProjectPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantDetailCreateProjectArgs) ToPolicyGrantDetailCreateProjectPtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateProjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailCreateProjectOutput).ToPolicyGrantDetailCreateProjectPtrOutputWithContext(ctx)
+}
+
+// PolicyGrantDetailCreateProjectPtrInput is an input type that accepts PolicyGrantDetailCreateProjectArgs, PolicyGrantDetailCreateProjectPtr and PolicyGrantDetailCreateProjectPtrOutput values.
+// You can construct a concrete instance of `PolicyGrantDetailCreateProjectPtrInput` via:
+//
+//	        PolicyGrantDetailCreateProjectArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyGrantDetailCreateProjectPtrInput interface {
+	pulumi.Input
+
+	ToPolicyGrantDetailCreateProjectPtrOutput() PolicyGrantDetailCreateProjectPtrOutput
+	ToPolicyGrantDetailCreateProjectPtrOutputWithContext(context.Context) PolicyGrantDetailCreateProjectPtrOutput
+}
+
+type policyGrantDetailCreateProjectPtrType PolicyGrantDetailCreateProjectArgs
+
+func PolicyGrantDetailCreateProjectPtr(v *PolicyGrantDetailCreateProjectArgs) PolicyGrantDetailCreateProjectPtrInput {
+	return (*policyGrantDetailCreateProjectPtrType)(v)
+}
+
+func (*policyGrantDetailCreateProjectPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantDetailCreateProject)(nil)).Elem()
+}
+
+func (i *policyGrantDetailCreateProjectPtrType) ToPolicyGrantDetailCreateProjectPtrOutput() PolicyGrantDetailCreateProjectPtrOutput {
+	return i.ToPolicyGrantDetailCreateProjectPtrOutputWithContext(context.Background())
+}
+
+func (i *policyGrantDetailCreateProjectPtrType) ToPolicyGrantDetailCreateProjectPtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateProjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailCreateProjectPtrOutput)
+}
+
+type PolicyGrantDetailCreateProjectOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantDetailCreateProjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantDetailCreateProject)(nil)).Elem()
+}
+
+func (o PolicyGrantDetailCreateProjectOutput) ToPolicyGrantDetailCreateProjectOutput() PolicyGrantDetailCreateProjectOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateProjectOutput) ToPolicyGrantDetailCreateProjectOutputWithContext(ctx context.Context) PolicyGrantDetailCreateProjectOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateProjectOutput) ToPolicyGrantDetailCreateProjectPtrOutput() PolicyGrantDetailCreateProjectPtrOutput {
+	return o.ToPolicyGrantDetailCreateProjectPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyGrantDetailCreateProjectOutput) ToPolicyGrantDetailCreateProjectPtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateProjectPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyGrantDetailCreateProject) *PolicyGrantDetailCreateProject {
+		return &v
+	}).(PolicyGrantDetailCreateProjectPtrOutput)
+}
+
+// Whether to include child domain units.
+func (o PolicyGrantDetailCreateProjectOutput) IncludeChildDomainUnits() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PolicyGrantDetailCreateProject) *bool { return v.IncludeChildDomainUnits }).(pulumi.BoolPtrOutput)
+}
+
+type PolicyGrantDetailCreateProjectPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantDetailCreateProjectPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantDetailCreateProject)(nil)).Elem()
+}
+
+func (o PolicyGrantDetailCreateProjectPtrOutput) ToPolicyGrantDetailCreateProjectPtrOutput() PolicyGrantDetailCreateProjectPtrOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateProjectPtrOutput) ToPolicyGrantDetailCreateProjectPtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateProjectPtrOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateProjectPtrOutput) Elem() PolicyGrantDetailCreateProjectOutput {
+	return o.ApplyT(func(v *PolicyGrantDetailCreateProject) PolicyGrantDetailCreateProject {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyGrantDetailCreateProject
+		return ret
+	}).(PolicyGrantDetailCreateProjectOutput)
+}
+
+// Whether to include child domain units.
+func (o PolicyGrantDetailCreateProjectPtrOutput) IncludeChildDomainUnits() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantDetailCreateProject) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeChildDomainUnits
+	}).(pulumi.BoolPtrOutput)
+}
+
+type PolicyGrantDetailCreateProjectFromProjectProfile struct {
+	// Whether to include child domain units.
+	IncludeChildDomainUnits *bool `pulumi:"includeChildDomainUnits"`
+	// List of project profile identifiers.
+	ProjectProfiles []string `pulumi:"projectProfiles"`
+}
+
+// PolicyGrantDetailCreateProjectFromProjectProfileInput is an input type that accepts PolicyGrantDetailCreateProjectFromProjectProfileArgs and PolicyGrantDetailCreateProjectFromProjectProfileOutput values.
+// You can construct a concrete instance of `PolicyGrantDetailCreateProjectFromProjectProfileInput` via:
+//
+//	PolicyGrantDetailCreateProjectFromProjectProfileArgs{...}
+type PolicyGrantDetailCreateProjectFromProjectProfileInput interface {
+	pulumi.Input
+
+	ToPolicyGrantDetailCreateProjectFromProjectProfileOutput() PolicyGrantDetailCreateProjectFromProjectProfileOutput
+	ToPolicyGrantDetailCreateProjectFromProjectProfileOutputWithContext(context.Context) PolicyGrantDetailCreateProjectFromProjectProfileOutput
+}
+
+type PolicyGrantDetailCreateProjectFromProjectProfileArgs struct {
+	// Whether to include child domain units.
+	IncludeChildDomainUnits pulumi.BoolPtrInput `pulumi:"includeChildDomainUnits"`
+	// List of project profile identifiers.
+	ProjectProfiles pulumi.StringArrayInput `pulumi:"projectProfiles"`
+}
+
+func (PolicyGrantDetailCreateProjectFromProjectProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantDetailCreateProjectFromProjectProfile)(nil)).Elem()
+}
+
+func (i PolicyGrantDetailCreateProjectFromProjectProfileArgs) ToPolicyGrantDetailCreateProjectFromProjectProfileOutput() PolicyGrantDetailCreateProjectFromProjectProfileOutput {
+	return i.ToPolicyGrantDetailCreateProjectFromProjectProfileOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantDetailCreateProjectFromProjectProfileArgs) ToPolicyGrantDetailCreateProjectFromProjectProfileOutputWithContext(ctx context.Context) PolicyGrantDetailCreateProjectFromProjectProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailCreateProjectFromProjectProfileOutput)
+}
+
+func (i PolicyGrantDetailCreateProjectFromProjectProfileArgs) ToPolicyGrantDetailCreateProjectFromProjectProfilePtrOutput() PolicyGrantDetailCreateProjectFromProjectProfilePtrOutput {
+	return i.ToPolicyGrantDetailCreateProjectFromProjectProfilePtrOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantDetailCreateProjectFromProjectProfileArgs) ToPolicyGrantDetailCreateProjectFromProjectProfilePtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateProjectFromProjectProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailCreateProjectFromProjectProfileOutput).ToPolicyGrantDetailCreateProjectFromProjectProfilePtrOutputWithContext(ctx)
+}
+
+// PolicyGrantDetailCreateProjectFromProjectProfilePtrInput is an input type that accepts PolicyGrantDetailCreateProjectFromProjectProfileArgs, PolicyGrantDetailCreateProjectFromProjectProfilePtr and PolicyGrantDetailCreateProjectFromProjectProfilePtrOutput values.
+// You can construct a concrete instance of `PolicyGrantDetailCreateProjectFromProjectProfilePtrInput` via:
+//
+//	        PolicyGrantDetailCreateProjectFromProjectProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyGrantDetailCreateProjectFromProjectProfilePtrInput interface {
+	pulumi.Input
+
+	ToPolicyGrantDetailCreateProjectFromProjectProfilePtrOutput() PolicyGrantDetailCreateProjectFromProjectProfilePtrOutput
+	ToPolicyGrantDetailCreateProjectFromProjectProfilePtrOutputWithContext(context.Context) PolicyGrantDetailCreateProjectFromProjectProfilePtrOutput
+}
+
+type policyGrantDetailCreateProjectFromProjectProfilePtrType PolicyGrantDetailCreateProjectFromProjectProfileArgs
+
+func PolicyGrantDetailCreateProjectFromProjectProfilePtr(v *PolicyGrantDetailCreateProjectFromProjectProfileArgs) PolicyGrantDetailCreateProjectFromProjectProfilePtrInput {
+	return (*policyGrantDetailCreateProjectFromProjectProfilePtrType)(v)
+}
+
+func (*policyGrantDetailCreateProjectFromProjectProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantDetailCreateProjectFromProjectProfile)(nil)).Elem()
+}
+
+func (i *policyGrantDetailCreateProjectFromProjectProfilePtrType) ToPolicyGrantDetailCreateProjectFromProjectProfilePtrOutput() PolicyGrantDetailCreateProjectFromProjectProfilePtrOutput {
+	return i.ToPolicyGrantDetailCreateProjectFromProjectProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *policyGrantDetailCreateProjectFromProjectProfilePtrType) ToPolicyGrantDetailCreateProjectFromProjectProfilePtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateProjectFromProjectProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailCreateProjectFromProjectProfilePtrOutput)
+}
+
+type PolicyGrantDetailCreateProjectFromProjectProfileOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantDetailCreateProjectFromProjectProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantDetailCreateProjectFromProjectProfile)(nil)).Elem()
+}
+
+func (o PolicyGrantDetailCreateProjectFromProjectProfileOutput) ToPolicyGrantDetailCreateProjectFromProjectProfileOutput() PolicyGrantDetailCreateProjectFromProjectProfileOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateProjectFromProjectProfileOutput) ToPolicyGrantDetailCreateProjectFromProjectProfileOutputWithContext(ctx context.Context) PolicyGrantDetailCreateProjectFromProjectProfileOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateProjectFromProjectProfileOutput) ToPolicyGrantDetailCreateProjectFromProjectProfilePtrOutput() PolicyGrantDetailCreateProjectFromProjectProfilePtrOutput {
+	return o.ToPolicyGrantDetailCreateProjectFromProjectProfilePtrOutputWithContext(context.Background())
+}
+
+func (o PolicyGrantDetailCreateProjectFromProjectProfileOutput) ToPolicyGrantDetailCreateProjectFromProjectProfilePtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateProjectFromProjectProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyGrantDetailCreateProjectFromProjectProfile) *PolicyGrantDetailCreateProjectFromProjectProfile {
+		return &v
+	}).(PolicyGrantDetailCreateProjectFromProjectProfilePtrOutput)
+}
+
+// Whether to include child domain units.
+func (o PolicyGrantDetailCreateProjectFromProjectProfileOutput) IncludeChildDomainUnits() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PolicyGrantDetailCreateProjectFromProjectProfile) *bool { return v.IncludeChildDomainUnits }).(pulumi.BoolPtrOutput)
+}
+
+// List of project profile identifiers.
+func (o PolicyGrantDetailCreateProjectFromProjectProfileOutput) ProjectProfiles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PolicyGrantDetailCreateProjectFromProjectProfile) []string { return v.ProjectProfiles }).(pulumi.StringArrayOutput)
+}
+
+type PolicyGrantDetailCreateProjectFromProjectProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantDetailCreateProjectFromProjectProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantDetailCreateProjectFromProjectProfile)(nil)).Elem()
+}
+
+func (o PolicyGrantDetailCreateProjectFromProjectProfilePtrOutput) ToPolicyGrantDetailCreateProjectFromProjectProfilePtrOutput() PolicyGrantDetailCreateProjectFromProjectProfilePtrOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateProjectFromProjectProfilePtrOutput) ToPolicyGrantDetailCreateProjectFromProjectProfilePtrOutputWithContext(ctx context.Context) PolicyGrantDetailCreateProjectFromProjectProfilePtrOutput {
+	return o
+}
+
+func (o PolicyGrantDetailCreateProjectFromProjectProfilePtrOutput) Elem() PolicyGrantDetailCreateProjectFromProjectProfileOutput {
+	return o.ApplyT(func(v *PolicyGrantDetailCreateProjectFromProjectProfile) PolicyGrantDetailCreateProjectFromProjectProfile {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyGrantDetailCreateProjectFromProjectProfile
+		return ret
+	}).(PolicyGrantDetailCreateProjectFromProjectProfileOutput)
+}
+
+// Whether to include child domain units.
+func (o PolicyGrantDetailCreateProjectFromProjectProfilePtrOutput) IncludeChildDomainUnits() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantDetailCreateProjectFromProjectProfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeChildDomainUnits
+	}).(pulumi.BoolPtrOutput)
+}
+
+// List of project profile identifiers.
+func (o PolicyGrantDetailCreateProjectFromProjectProfilePtrOutput) ProjectProfiles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PolicyGrantDetailCreateProjectFromProjectProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ProjectProfiles
+	}).(pulumi.StringArrayOutput)
+}
+
+type PolicyGrantDetailDelegateCreateEnvironmentProfile struct {
+}
+
+// PolicyGrantDetailDelegateCreateEnvironmentProfileInput is an input type that accepts PolicyGrantDetailDelegateCreateEnvironmentProfileArgs and PolicyGrantDetailDelegateCreateEnvironmentProfileOutput values.
+// You can construct a concrete instance of `PolicyGrantDetailDelegateCreateEnvironmentProfileInput` via:
+//
+//	PolicyGrantDetailDelegateCreateEnvironmentProfileArgs{...}
+type PolicyGrantDetailDelegateCreateEnvironmentProfileInput interface {
+	pulumi.Input
+
+	ToPolicyGrantDetailDelegateCreateEnvironmentProfileOutput() PolicyGrantDetailDelegateCreateEnvironmentProfileOutput
+	ToPolicyGrantDetailDelegateCreateEnvironmentProfileOutputWithContext(context.Context) PolicyGrantDetailDelegateCreateEnvironmentProfileOutput
+}
+
+type PolicyGrantDetailDelegateCreateEnvironmentProfileArgs struct {
+}
+
+func (PolicyGrantDetailDelegateCreateEnvironmentProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantDetailDelegateCreateEnvironmentProfile)(nil)).Elem()
+}
+
+func (i PolicyGrantDetailDelegateCreateEnvironmentProfileArgs) ToPolicyGrantDetailDelegateCreateEnvironmentProfileOutput() PolicyGrantDetailDelegateCreateEnvironmentProfileOutput {
+	return i.ToPolicyGrantDetailDelegateCreateEnvironmentProfileOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantDetailDelegateCreateEnvironmentProfileArgs) ToPolicyGrantDetailDelegateCreateEnvironmentProfileOutputWithContext(ctx context.Context) PolicyGrantDetailDelegateCreateEnvironmentProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailDelegateCreateEnvironmentProfileOutput)
+}
+
+func (i PolicyGrantDetailDelegateCreateEnvironmentProfileArgs) ToPolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutput() PolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutput {
+	return i.ToPolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantDetailDelegateCreateEnvironmentProfileArgs) ToPolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutputWithContext(ctx context.Context) PolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailDelegateCreateEnvironmentProfileOutput).ToPolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutputWithContext(ctx)
+}
+
+// PolicyGrantDetailDelegateCreateEnvironmentProfilePtrInput is an input type that accepts PolicyGrantDetailDelegateCreateEnvironmentProfileArgs, PolicyGrantDetailDelegateCreateEnvironmentProfilePtr and PolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutput values.
+// You can construct a concrete instance of `PolicyGrantDetailDelegateCreateEnvironmentProfilePtrInput` via:
+//
+//	        PolicyGrantDetailDelegateCreateEnvironmentProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyGrantDetailDelegateCreateEnvironmentProfilePtrInput interface {
+	pulumi.Input
+
+	ToPolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutput() PolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutput
+	ToPolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutputWithContext(context.Context) PolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutput
+}
+
+type policyGrantDetailDelegateCreateEnvironmentProfilePtrType PolicyGrantDetailDelegateCreateEnvironmentProfileArgs
+
+func PolicyGrantDetailDelegateCreateEnvironmentProfilePtr(v *PolicyGrantDetailDelegateCreateEnvironmentProfileArgs) PolicyGrantDetailDelegateCreateEnvironmentProfilePtrInput {
+	return (*policyGrantDetailDelegateCreateEnvironmentProfilePtrType)(v)
+}
+
+func (*policyGrantDetailDelegateCreateEnvironmentProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantDetailDelegateCreateEnvironmentProfile)(nil)).Elem()
+}
+
+func (i *policyGrantDetailDelegateCreateEnvironmentProfilePtrType) ToPolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutput() PolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutput {
+	return i.ToPolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *policyGrantDetailDelegateCreateEnvironmentProfilePtrType) ToPolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutputWithContext(ctx context.Context) PolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutput)
+}
+
+type PolicyGrantDetailDelegateCreateEnvironmentProfileOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantDetailDelegateCreateEnvironmentProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantDetailDelegateCreateEnvironmentProfile)(nil)).Elem()
+}
+
+func (o PolicyGrantDetailDelegateCreateEnvironmentProfileOutput) ToPolicyGrantDetailDelegateCreateEnvironmentProfileOutput() PolicyGrantDetailDelegateCreateEnvironmentProfileOutput {
+	return o
+}
+
+func (o PolicyGrantDetailDelegateCreateEnvironmentProfileOutput) ToPolicyGrantDetailDelegateCreateEnvironmentProfileOutputWithContext(ctx context.Context) PolicyGrantDetailDelegateCreateEnvironmentProfileOutput {
+	return o
+}
+
+func (o PolicyGrantDetailDelegateCreateEnvironmentProfileOutput) ToPolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutput() PolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutput {
+	return o.ToPolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutputWithContext(context.Background())
+}
+
+func (o PolicyGrantDetailDelegateCreateEnvironmentProfileOutput) ToPolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutputWithContext(ctx context.Context) PolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyGrantDetailDelegateCreateEnvironmentProfile) *PolicyGrantDetailDelegateCreateEnvironmentProfile {
+		return &v
+	}).(PolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutput)
+}
+
+type PolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantDetailDelegateCreateEnvironmentProfile)(nil)).Elem()
+}
+
+func (o PolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutput) ToPolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutput() PolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutput {
+	return o
+}
+
+func (o PolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutput) ToPolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutputWithContext(ctx context.Context) PolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutput {
+	return o
+}
+
+func (o PolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutput) Elem() PolicyGrantDetailDelegateCreateEnvironmentProfileOutput {
+	return o.ApplyT(func(v *PolicyGrantDetailDelegateCreateEnvironmentProfile) PolicyGrantDetailDelegateCreateEnvironmentProfile {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyGrantDetailDelegateCreateEnvironmentProfile
+		return ret
+	}).(PolicyGrantDetailDelegateCreateEnvironmentProfileOutput)
+}
+
+type PolicyGrantDetailOverrideDomainUnitOwners struct {
+	// Whether to include child domain units.
+	IncludeChildDomainUnits *bool `pulumi:"includeChildDomainUnits"`
+}
+
+// PolicyGrantDetailOverrideDomainUnitOwnersInput is an input type that accepts PolicyGrantDetailOverrideDomainUnitOwnersArgs and PolicyGrantDetailOverrideDomainUnitOwnersOutput values.
+// You can construct a concrete instance of `PolicyGrantDetailOverrideDomainUnitOwnersInput` via:
+//
+//	PolicyGrantDetailOverrideDomainUnitOwnersArgs{...}
+type PolicyGrantDetailOverrideDomainUnitOwnersInput interface {
+	pulumi.Input
+
+	ToPolicyGrantDetailOverrideDomainUnitOwnersOutput() PolicyGrantDetailOverrideDomainUnitOwnersOutput
+	ToPolicyGrantDetailOverrideDomainUnitOwnersOutputWithContext(context.Context) PolicyGrantDetailOverrideDomainUnitOwnersOutput
+}
+
+type PolicyGrantDetailOverrideDomainUnitOwnersArgs struct {
+	// Whether to include child domain units.
+	IncludeChildDomainUnits pulumi.BoolPtrInput `pulumi:"includeChildDomainUnits"`
+}
+
+func (PolicyGrantDetailOverrideDomainUnitOwnersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantDetailOverrideDomainUnitOwners)(nil)).Elem()
+}
+
+func (i PolicyGrantDetailOverrideDomainUnitOwnersArgs) ToPolicyGrantDetailOverrideDomainUnitOwnersOutput() PolicyGrantDetailOverrideDomainUnitOwnersOutput {
+	return i.ToPolicyGrantDetailOverrideDomainUnitOwnersOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantDetailOverrideDomainUnitOwnersArgs) ToPolicyGrantDetailOverrideDomainUnitOwnersOutputWithContext(ctx context.Context) PolicyGrantDetailOverrideDomainUnitOwnersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailOverrideDomainUnitOwnersOutput)
+}
+
+func (i PolicyGrantDetailOverrideDomainUnitOwnersArgs) ToPolicyGrantDetailOverrideDomainUnitOwnersPtrOutput() PolicyGrantDetailOverrideDomainUnitOwnersPtrOutput {
+	return i.ToPolicyGrantDetailOverrideDomainUnitOwnersPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantDetailOverrideDomainUnitOwnersArgs) ToPolicyGrantDetailOverrideDomainUnitOwnersPtrOutputWithContext(ctx context.Context) PolicyGrantDetailOverrideDomainUnitOwnersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailOverrideDomainUnitOwnersOutput).ToPolicyGrantDetailOverrideDomainUnitOwnersPtrOutputWithContext(ctx)
+}
+
+// PolicyGrantDetailOverrideDomainUnitOwnersPtrInput is an input type that accepts PolicyGrantDetailOverrideDomainUnitOwnersArgs, PolicyGrantDetailOverrideDomainUnitOwnersPtr and PolicyGrantDetailOverrideDomainUnitOwnersPtrOutput values.
+// You can construct a concrete instance of `PolicyGrantDetailOverrideDomainUnitOwnersPtrInput` via:
+//
+//	        PolicyGrantDetailOverrideDomainUnitOwnersArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyGrantDetailOverrideDomainUnitOwnersPtrInput interface {
+	pulumi.Input
+
+	ToPolicyGrantDetailOverrideDomainUnitOwnersPtrOutput() PolicyGrantDetailOverrideDomainUnitOwnersPtrOutput
+	ToPolicyGrantDetailOverrideDomainUnitOwnersPtrOutputWithContext(context.Context) PolicyGrantDetailOverrideDomainUnitOwnersPtrOutput
+}
+
+type policyGrantDetailOverrideDomainUnitOwnersPtrType PolicyGrantDetailOverrideDomainUnitOwnersArgs
+
+func PolicyGrantDetailOverrideDomainUnitOwnersPtr(v *PolicyGrantDetailOverrideDomainUnitOwnersArgs) PolicyGrantDetailOverrideDomainUnitOwnersPtrInput {
+	return (*policyGrantDetailOverrideDomainUnitOwnersPtrType)(v)
+}
+
+func (*policyGrantDetailOverrideDomainUnitOwnersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantDetailOverrideDomainUnitOwners)(nil)).Elem()
+}
+
+func (i *policyGrantDetailOverrideDomainUnitOwnersPtrType) ToPolicyGrantDetailOverrideDomainUnitOwnersPtrOutput() PolicyGrantDetailOverrideDomainUnitOwnersPtrOutput {
+	return i.ToPolicyGrantDetailOverrideDomainUnitOwnersPtrOutputWithContext(context.Background())
+}
+
+func (i *policyGrantDetailOverrideDomainUnitOwnersPtrType) ToPolicyGrantDetailOverrideDomainUnitOwnersPtrOutputWithContext(ctx context.Context) PolicyGrantDetailOverrideDomainUnitOwnersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailOverrideDomainUnitOwnersPtrOutput)
+}
+
+type PolicyGrantDetailOverrideDomainUnitOwnersOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantDetailOverrideDomainUnitOwnersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantDetailOverrideDomainUnitOwners)(nil)).Elem()
+}
+
+func (o PolicyGrantDetailOverrideDomainUnitOwnersOutput) ToPolicyGrantDetailOverrideDomainUnitOwnersOutput() PolicyGrantDetailOverrideDomainUnitOwnersOutput {
+	return o
+}
+
+func (o PolicyGrantDetailOverrideDomainUnitOwnersOutput) ToPolicyGrantDetailOverrideDomainUnitOwnersOutputWithContext(ctx context.Context) PolicyGrantDetailOverrideDomainUnitOwnersOutput {
+	return o
+}
+
+func (o PolicyGrantDetailOverrideDomainUnitOwnersOutput) ToPolicyGrantDetailOverrideDomainUnitOwnersPtrOutput() PolicyGrantDetailOverrideDomainUnitOwnersPtrOutput {
+	return o.ToPolicyGrantDetailOverrideDomainUnitOwnersPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyGrantDetailOverrideDomainUnitOwnersOutput) ToPolicyGrantDetailOverrideDomainUnitOwnersPtrOutputWithContext(ctx context.Context) PolicyGrantDetailOverrideDomainUnitOwnersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyGrantDetailOverrideDomainUnitOwners) *PolicyGrantDetailOverrideDomainUnitOwners {
+		return &v
+	}).(PolicyGrantDetailOverrideDomainUnitOwnersPtrOutput)
+}
+
+// Whether to include child domain units.
+func (o PolicyGrantDetailOverrideDomainUnitOwnersOutput) IncludeChildDomainUnits() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PolicyGrantDetailOverrideDomainUnitOwners) *bool { return v.IncludeChildDomainUnits }).(pulumi.BoolPtrOutput)
+}
+
+type PolicyGrantDetailOverrideDomainUnitOwnersPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantDetailOverrideDomainUnitOwnersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantDetailOverrideDomainUnitOwners)(nil)).Elem()
+}
+
+func (o PolicyGrantDetailOverrideDomainUnitOwnersPtrOutput) ToPolicyGrantDetailOverrideDomainUnitOwnersPtrOutput() PolicyGrantDetailOverrideDomainUnitOwnersPtrOutput {
+	return o
+}
+
+func (o PolicyGrantDetailOverrideDomainUnitOwnersPtrOutput) ToPolicyGrantDetailOverrideDomainUnitOwnersPtrOutputWithContext(ctx context.Context) PolicyGrantDetailOverrideDomainUnitOwnersPtrOutput {
+	return o
+}
+
+func (o PolicyGrantDetailOverrideDomainUnitOwnersPtrOutput) Elem() PolicyGrantDetailOverrideDomainUnitOwnersOutput {
+	return o.ApplyT(func(v *PolicyGrantDetailOverrideDomainUnitOwners) PolicyGrantDetailOverrideDomainUnitOwners {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyGrantDetailOverrideDomainUnitOwners
+		return ret
+	}).(PolicyGrantDetailOverrideDomainUnitOwnersOutput)
+}
+
+// Whether to include child domain units.
+func (o PolicyGrantDetailOverrideDomainUnitOwnersPtrOutput) IncludeChildDomainUnits() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantDetailOverrideDomainUnitOwners) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeChildDomainUnits
+	}).(pulumi.BoolPtrOutput)
+}
+
+type PolicyGrantDetailOverrideProjectOwners struct {
+	// Whether to include child domain units.
+	IncludeChildDomainUnits *bool `pulumi:"includeChildDomainUnits"`
+}
+
+// PolicyGrantDetailOverrideProjectOwnersInput is an input type that accepts PolicyGrantDetailOverrideProjectOwnersArgs and PolicyGrantDetailOverrideProjectOwnersOutput values.
+// You can construct a concrete instance of `PolicyGrantDetailOverrideProjectOwnersInput` via:
+//
+//	PolicyGrantDetailOverrideProjectOwnersArgs{...}
+type PolicyGrantDetailOverrideProjectOwnersInput interface {
+	pulumi.Input
+
+	ToPolicyGrantDetailOverrideProjectOwnersOutput() PolicyGrantDetailOverrideProjectOwnersOutput
+	ToPolicyGrantDetailOverrideProjectOwnersOutputWithContext(context.Context) PolicyGrantDetailOverrideProjectOwnersOutput
+}
+
+type PolicyGrantDetailOverrideProjectOwnersArgs struct {
+	// Whether to include child domain units.
+	IncludeChildDomainUnits pulumi.BoolPtrInput `pulumi:"includeChildDomainUnits"`
+}
+
+func (PolicyGrantDetailOverrideProjectOwnersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantDetailOverrideProjectOwners)(nil)).Elem()
+}
+
+func (i PolicyGrantDetailOverrideProjectOwnersArgs) ToPolicyGrantDetailOverrideProjectOwnersOutput() PolicyGrantDetailOverrideProjectOwnersOutput {
+	return i.ToPolicyGrantDetailOverrideProjectOwnersOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantDetailOverrideProjectOwnersArgs) ToPolicyGrantDetailOverrideProjectOwnersOutputWithContext(ctx context.Context) PolicyGrantDetailOverrideProjectOwnersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailOverrideProjectOwnersOutput)
+}
+
+func (i PolicyGrantDetailOverrideProjectOwnersArgs) ToPolicyGrantDetailOverrideProjectOwnersPtrOutput() PolicyGrantDetailOverrideProjectOwnersPtrOutput {
+	return i.ToPolicyGrantDetailOverrideProjectOwnersPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantDetailOverrideProjectOwnersArgs) ToPolicyGrantDetailOverrideProjectOwnersPtrOutputWithContext(ctx context.Context) PolicyGrantDetailOverrideProjectOwnersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailOverrideProjectOwnersOutput).ToPolicyGrantDetailOverrideProjectOwnersPtrOutputWithContext(ctx)
+}
+
+// PolicyGrantDetailOverrideProjectOwnersPtrInput is an input type that accepts PolicyGrantDetailOverrideProjectOwnersArgs, PolicyGrantDetailOverrideProjectOwnersPtr and PolicyGrantDetailOverrideProjectOwnersPtrOutput values.
+// You can construct a concrete instance of `PolicyGrantDetailOverrideProjectOwnersPtrInput` via:
+//
+//	        PolicyGrantDetailOverrideProjectOwnersArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyGrantDetailOverrideProjectOwnersPtrInput interface {
+	pulumi.Input
+
+	ToPolicyGrantDetailOverrideProjectOwnersPtrOutput() PolicyGrantDetailOverrideProjectOwnersPtrOutput
+	ToPolicyGrantDetailOverrideProjectOwnersPtrOutputWithContext(context.Context) PolicyGrantDetailOverrideProjectOwnersPtrOutput
+}
+
+type policyGrantDetailOverrideProjectOwnersPtrType PolicyGrantDetailOverrideProjectOwnersArgs
+
+func PolicyGrantDetailOverrideProjectOwnersPtr(v *PolicyGrantDetailOverrideProjectOwnersArgs) PolicyGrantDetailOverrideProjectOwnersPtrInput {
+	return (*policyGrantDetailOverrideProjectOwnersPtrType)(v)
+}
+
+func (*policyGrantDetailOverrideProjectOwnersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantDetailOverrideProjectOwners)(nil)).Elem()
+}
+
+func (i *policyGrantDetailOverrideProjectOwnersPtrType) ToPolicyGrantDetailOverrideProjectOwnersPtrOutput() PolicyGrantDetailOverrideProjectOwnersPtrOutput {
+	return i.ToPolicyGrantDetailOverrideProjectOwnersPtrOutputWithContext(context.Background())
+}
+
+func (i *policyGrantDetailOverrideProjectOwnersPtrType) ToPolicyGrantDetailOverrideProjectOwnersPtrOutputWithContext(ctx context.Context) PolicyGrantDetailOverrideProjectOwnersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailOverrideProjectOwnersPtrOutput)
+}
+
+type PolicyGrantDetailOverrideProjectOwnersOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantDetailOverrideProjectOwnersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantDetailOverrideProjectOwners)(nil)).Elem()
+}
+
+func (o PolicyGrantDetailOverrideProjectOwnersOutput) ToPolicyGrantDetailOverrideProjectOwnersOutput() PolicyGrantDetailOverrideProjectOwnersOutput {
+	return o
+}
+
+func (o PolicyGrantDetailOverrideProjectOwnersOutput) ToPolicyGrantDetailOverrideProjectOwnersOutputWithContext(ctx context.Context) PolicyGrantDetailOverrideProjectOwnersOutput {
+	return o
+}
+
+func (o PolicyGrantDetailOverrideProjectOwnersOutput) ToPolicyGrantDetailOverrideProjectOwnersPtrOutput() PolicyGrantDetailOverrideProjectOwnersPtrOutput {
+	return o.ToPolicyGrantDetailOverrideProjectOwnersPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyGrantDetailOverrideProjectOwnersOutput) ToPolicyGrantDetailOverrideProjectOwnersPtrOutputWithContext(ctx context.Context) PolicyGrantDetailOverrideProjectOwnersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyGrantDetailOverrideProjectOwners) *PolicyGrantDetailOverrideProjectOwners {
+		return &v
+	}).(PolicyGrantDetailOverrideProjectOwnersPtrOutput)
+}
+
+// Whether to include child domain units.
+func (o PolicyGrantDetailOverrideProjectOwnersOutput) IncludeChildDomainUnits() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PolicyGrantDetailOverrideProjectOwners) *bool { return v.IncludeChildDomainUnits }).(pulumi.BoolPtrOutput)
+}
+
+type PolicyGrantDetailOverrideProjectOwnersPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantDetailOverrideProjectOwnersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantDetailOverrideProjectOwners)(nil)).Elem()
+}
+
+func (o PolicyGrantDetailOverrideProjectOwnersPtrOutput) ToPolicyGrantDetailOverrideProjectOwnersPtrOutput() PolicyGrantDetailOverrideProjectOwnersPtrOutput {
+	return o
+}
+
+func (o PolicyGrantDetailOverrideProjectOwnersPtrOutput) ToPolicyGrantDetailOverrideProjectOwnersPtrOutputWithContext(ctx context.Context) PolicyGrantDetailOverrideProjectOwnersPtrOutput {
+	return o
+}
+
+func (o PolicyGrantDetailOverrideProjectOwnersPtrOutput) Elem() PolicyGrantDetailOverrideProjectOwnersOutput {
+	return o.ApplyT(func(v *PolicyGrantDetailOverrideProjectOwners) PolicyGrantDetailOverrideProjectOwners {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyGrantDetailOverrideProjectOwners
+		return ret
+	}).(PolicyGrantDetailOverrideProjectOwnersOutput)
+}
+
+// Whether to include child domain units.
+func (o PolicyGrantDetailOverrideProjectOwnersPtrOutput) IncludeChildDomainUnits() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantDetailOverrideProjectOwners) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeChildDomainUnits
+	}).(pulumi.BoolPtrOutput)
+}
+
+type PolicyGrantDetailUseAssetType struct {
+	// Identifier of the domain unit.
+	DomainUnitId *string `pulumi:"domainUnitId"`
+}
+
+// PolicyGrantDetailUseAssetTypeInput is an input type that accepts PolicyGrantDetailUseAssetTypeArgs and PolicyGrantDetailUseAssetTypeOutput values.
+// You can construct a concrete instance of `PolicyGrantDetailUseAssetTypeInput` via:
+//
+//	PolicyGrantDetailUseAssetTypeArgs{...}
+type PolicyGrantDetailUseAssetTypeInput interface {
+	pulumi.Input
+
+	ToPolicyGrantDetailUseAssetTypeOutput() PolicyGrantDetailUseAssetTypeOutput
+	ToPolicyGrantDetailUseAssetTypeOutputWithContext(context.Context) PolicyGrantDetailUseAssetTypeOutput
+}
+
+type PolicyGrantDetailUseAssetTypeArgs struct {
+	// Identifier of the domain unit.
+	DomainUnitId pulumi.StringPtrInput `pulumi:"domainUnitId"`
+}
+
+func (PolicyGrantDetailUseAssetTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantDetailUseAssetType)(nil)).Elem()
+}
+
+func (i PolicyGrantDetailUseAssetTypeArgs) ToPolicyGrantDetailUseAssetTypeOutput() PolicyGrantDetailUseAssetTypeOutput {
+	return i.ToPolicyGrantDetailUseAssetTypeOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantDetailUseAssetTypeArgs) ToPolicyGrantDetailUseAssetTypeOutputWithContext(ctx context.Context) PolicyGrantDetailUseAssetTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailUseAssetTypeOutput)
+}
+
+func (i PolicyGrantDetailUseAssetTypeArgs) ToPolicyGrantDetailUseAssetTypePtrOutput() PolicyGrantDetailUseAssetTypePtrOutput {
+	return i.ToPolicyGrantDetailUseAssetTypePtrOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantDetailUseAssetTypeArgs) ToPolicyGrantDetailUseAssetTypePtrOutputWithContext(ctx context.Context) PolicyGrantDetailUseAssetTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailUseAssetTypeOutput).ToPolicyGrantDetailUseAssetTypePtrOutputWithContext(ctx)
+}
+
+// PolicyGrantDetailUseAssetTypePtrInput is an input type that accepts PolicyGrantDetailUseAssetTypeArgs, PolicyGrantDetailUseAssetTypePtr and PolicyGrantDetailUseAssetTypePtrOutput values.
+// You can construct a concrete instance of `PolicyGrantDetailUseAssetTypePtrInput` via:
+//
+//	        PolicyGrantDetailUseAssetTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyGrantDetailUseAssetTypePtrInput interface {
+	pulumi.Input
+
+	ToPolicyGrantDetailUseAssetTypePtrOutput() PolicyGrantDetailUseAssetTypePtrOutput
+	ToPolicyGrantDetailUseAssetTypePtrOutputWithContext(context.Context) PolicyGrantDetailUseAssetTypePtrOutput
+}
+
+type policyGrantDetailUseAssetTypePtrType PolicyGrantDetailUseAssetTypeArgs
+
+func PolicyGrantDetailUseAssetTypePtr(v *PolicyGrantDetailUseAssetTypeArgs) PolicyGrantDetailUseAssetTypePtrInput {
+	return (*policyGrantDetailUseAssetTypePtrType)(v)
+}
+
+func (*policyGrantDetailUseAssetTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantDetailUseAssetType)(nil)).Elem()
+}
+
+func (i *policyGrantDetailUseAssetTypePtrType) ToPolicyGrantDetailUseAssetTypePtrOutput() PolicyGrantDetailUseAssetTypePtrOutput {
+	return i.ToPolicyGrantDetailUseAssetTypePtrOutputWithContext(context.Background())
+}
+
+func (i *policyGrantDetailUseAssetTypePtrType) ToPolicyGrantDetailUseAssetTypePtrOutputWithContext(ctx context.Context) PolicyGrantDetailUseAssetTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantDetailUseAssetTypePtrOutput)
+}
+
+type PolicyGrantDetailUseAssetTypeOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantDetailUseAssetTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantDetailUseAssetType)(nil)).Elem()
+}
+
+func (o PolicyGrantDetailUseAssetTypeOutput) ToPolicyGrantDetailUseAssetTypeOutput() PolicyGrantDetailUseAssetTypeOutput {
+	return o
+}
+
+func (o PolicyGrantDetailUseAssetTypeOutput) ToPolicyGrantDetailUseAssetTypeOutputWithContext(ctx context.Context) PolicyGrantDetailUseAssetTypeOutput {
+	return o
+}
+
+func (o PolicyGrantDetailUseAssetTypeOutput) ToPolicyGrantDetailUseAssetTypePtrOutput() PolicyGrantDetailUseAssetTypePtrOutput {
+	return o.ToPolicyGrantDetailUseAssetTypePtrOutputWithContext(context.Background())
+}
+
+func (o PolicyGrantDetailUseAssetTypeOutput) ToPolicyGrantDetailUseAssetTypePtrOutputWithContext(ctx context.Context) PolicyGrantDetailUseAssetTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyGrantDetailUseAssetType) *PolicyGrantDetailUseAssetType {
+		return &v
+	}).(PolicyGrantDetailUseAssetTypePtrOutput)
+}
+
+// Identifier of the domain unit.
+func (o PolicyGrantDetailUseAssetTypeOutput) DomainUnitId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyGrantDetailUseAssetType) *string { return v.DomainUnitId }).(pulumi.StringPtrOutput)
+}
+
+type PolicyGrantDetailUseAssetTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantDetailUseAssetTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantDetailUseAssetType)(nil)).Elem()
+}
+
+func (o PolicyGrantDetailUseAssetTypePtrOutput) ToPolicyGrantDetailUseAssetTypePtrOutput() PolicyGrantDetailUseAssetTypePtrOutput {
+	return o
+}
+
+func (o PolicyGrantDetailUseAssetTypePtrOutput) ToPolicyGrantDetailUseAssetTypePtrOutputWithContext(ctx context.Context) PolicyGrantDetailUseAssetTypePtrOutput {
+	return o
+}
+
+func (o PolicyGrantDetailUseAssetTypePtrOutput) Elem() PolicyGrantDetailUseAssetTypeOutput {
+	return o.ApplyT(func(v *PolicyGrantDetailUseAssetType) PolicyGrantDetailUseAssetType {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyGrantDetailUseAssetType
+		return ret
+	}).(PolicyGrantDetailUseAssetTypeOutput)
+}
+
+// Identifier of the domain unit.
+func (o PolicyGrantDetailUseAssetTypePtrOutput) DomainUnitId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantDetailUseAssetType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DomainUnitId
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyGrantPrincipal struct {
+	// Domain unit principal. See `domainUnit` Block below.
+	DomainUnit *PolicyGrantPrincipalDomainUnit `pulumi:"domainUnit"`
+	// Group principal. See `group` Block below.
+	Group *PolicyGrantPrincipalGroup `pulumi:"group"`
+	// Project principal. See `project` Block below.
+	Project *PolicyGrantPrincipalProject `pulumi:"project"`
+	// User principal. See `user` Block below.
+	User *PolicyGrantPrincipalUser `pulumi:"user"`
+}
+
+// PolicyGrantPrincipalInput is an input type that accepts PolicyGrantPrincipalArgs and PolicyGrantPrincipalOutput values.
+// You can construct a concrete instance of `PolicyGrantPrincipalInput` via:
+//
+//	PolicyGrantPrincipalArgs{...}
+type PolicyGrantPrincipalInput interface {
+	pulumi.Input
+
+	ToPolicyGrantPrincipalOutput() PolicyGrantPrincipalOutput
+	ToPolicyGrantPrincipalOutputWithContext(context.Context) PolicyGrantPrincipalOutput
+}
+
+type PolicyGrantPrincipalArgs struct {
+	// Domain unit principal. See `domainUnit` Block below.
+	DomainUnit PolicyGrantPrincipalDomainUnitPtrInput `pulumi:"domainUnit"`
+	// Group principal. See `group` Block below.
+	Group PolicyGrantPrincipalGroupPtrInput `pulumi:"group"`
+	// Project principal. See `project` Block below.
+	Project PolicyGrantPrincipalProjectPtrInput `pulumi:"project"`
+	// User principal. See `user` Block below.
+	User PolicyGrantPrincipalUserPtrInput `pulumi:"user"`
+}
+
+func (PolicyGrantPrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantPrincipal)(nil)).Elem()
+}
+
+func (i PolicyGrantPrincipalArgs) ToPolicyGrantPrincipalOutput() PolicyGrantPrincipalOutput {
+	return i.ToPolicyGrantPrincipalOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantPrincipalArgs) ToPolicyGrantPrincipalOutputWithContext(ctx context.Context) PolicyGrantPrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantPrincipalOutput)
+}
+
+func (i PolicyGrantPrincipalArgs) ToPolicyGrantPrincipalPtrOutput() PolicyGrantPrincipalPtrOutput {
+	return i.ToPolicyGrantPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantPrincipalArgs) ToPolicyGrantPrincipalPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantPrincipalOutput).ToPolicyGrantPrincipalPtrOutputWithContext(ctx)
+}
+
+// PolicyGrantPrincipalPtrInput is an input type that accepts PolicyGrantPrincipalArgs, PolicyGrantPrincipalPtr and PolicyGrantPrincipalPtrOutput values.
+// You can construct a concrete instance of `PolicyGrantPrincipalPtrInput` via:
+//
+//	        PolicyGrantPrincipalArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyGrantPrincipalPtrInput interface {
+	pulumi.Input
+
+	ToPolicyGrantPrincipalPtrOutput() PolicyGrantPrincipalPtrOutput
+	ToPolicyGrantPrincipalPtrOutputWithContext(context.Context) PolicyGrantPrincipalPtrOutput
+}
+
+type policyGrantPrincipalPtrType PolicyGrantPrincipalArgs
+
+func PolicyGrantPrincipalPtr(v *PolicyGrantPrincipalArgs) PolicyGrantPrincipalPtrInput {
+	return (*policyGrantPrincipalPtrType)(v)
+}
+
+func (*policyGrantPrincipalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantPrincipal)(nil)).Elem()
+}
+
+func (i *policyGrantPrincipalPtrType) ToPolicyGrantPrincipalPtrOutput() PolicyGrantPrincipalPtrOutput {
+	return i.ToPolicyGrantPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i *policyGrantPrincipalPtrType) ToPolicyGrantPrincipalPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantPrincipalPtrOutput)
+}
+
+type PolicyGrantPrincipalOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantPrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantPrincipal)(nil)).Elem()
+}
+
+func (o PolicyGrantPrincipalOutput) ToPolicyGrantPrincipalOutput() PolicyGrantPrincipalOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalOutput) ToPolicyGrantPrincipalOutputWithContext(ctx context.Context) PolicyGrantPrincipalOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalOutput) ToPolicyGrantPrincipalPtrOutput() PolicyGrantPrincipalPtrOutput {
+	return o.ToPolicyGrantPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyGrantPrincipalOutput) ToPolicyGrantPrincipalPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyGrantPrincipal) *PolicyGrantPrincipal {
+		return &v
+	}).(PolicyGrantPrincipalPtrOutput)
+}
+
+// Domain unit principal. See `domainUnit` Block below.
+func (o PolicyGrantPrincipalOutput) DomainUnit() PolicyGrantPrincipalDomainUnitPtrOutput {
+	return o.ApplyT(func(v PolicyGrantPrincipal) *PolicyGrantPrincipalDomainUnit { return v.DomainUnit }).(PolicyGrantPrincipalDomainUnitPtrOutput)
+}
+
+// Group principal. See `group` Block below.
+func (o PolicyGrantPrincipalOutput) Group() PolicyGrantPrincipalGroupPtrOutput {
+	return o.ApplyT(func(v PolicyGrantPrincipal) *PolicyGrantPrincipalGroup { return v.Group }).(PolicyGrantPrincipalGroupPtrOutput)
+}
+
+// Project principal. See `project` Block below.
+func (o PolicyGrantPrincipalOutput) Project() PolicyGrantPrincipalProjectPtrOutput {
+	return o.ApplyT(func(v PolicyGrantPrincipal) *PolicyGrantPrincipalProject { return v.Project }).(PolicyGrantPrincipalProjectPtrOutput)
+}
+
+// User principal. See `user` Block below.
+func (o PolicyGrantPrincipalOutput) User() PolicyGrantPrincipalUserPtrOutput {
+	return o.ApplyT(func(v PolicyGrantPrincipal) *PolicyGrantPrincipalUser { return v.User }).(PolicyGrantPrincipalUserPtrOutput)
+}
+
+type PolicyGrantPrincipalPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantPrincipalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantPrincipal)(nil)).Elem()
+}
+
+func (o PolicyGrantPrincipalPtrOutput) ToPolicyGrantPrincipalPtrOutput() PolicyGrantPrincipalPtrOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalPtrOutput) ToPolicyGrantPrincipalPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalPtrOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalPtrOutput) Elem() PolicyGrantPrincipalOutput {
+	return o.ApplyT(func(v *PolicyGrantPrincipal) PolicyGrantPrincipal {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyGrantPrincipal
+		return ret
+	}).(PolicyGrantPrincipalOutput)
+}
+
+// Domain unit principal. See `domainUnit` Block below.
+func (o PolicyGrantPrincipalPtrOutput) DomainUnit() PolicyGrantPrincipalDomainUnitPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantPrincipal) *PolicyGrantPrincipalDomainUnit {
+		if v == nil {
+			return nil
+		}
+		return v.DomainUnit
+	}).(PolicyGrantPrincipalDomainUnitPtrOutput)
+}
+
+// Group principal. See `group` Block below.
+func (o PolicyGrantPrincipalPtrOutput) Group() PolicyGrantPrincipalGroupPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantPrincipal) *PolicyGrantPrincipalGroup {
+		if v == nil {
+			return nil
+		}
+		return v.Group
+	}).(PolicyGrantPrincipalGroupPtrOutput)
+}
+
+// Project principal. See `project` Block below.
+func (o PolicyGrantPrincipalPtrOutput) Project() PolicyGrantPrincipalProjectPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantPrincipal) *PolicyGrantPrincipalProject {
+		if v == nil {
+			return nil
+		}
+		return v.Project
+	}).(PolicyGrantPrincipalProjectPtrOutput)
+}
+
+// User principal. See `user` Block below.
+func (o PolicyGrantPrincipalPtrOutput) User() PolicyGrantPrincipalUserPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantPrincipal) *PolicyGrantPrincipalUser {
+		if v == nil {
+			return nil
+		}
+		return v.User
+	}).(PolicyGrantPrincipalUserPtrOutput)
+}
+
+type PolicyGrantPrincipalDomainUnit struct {
+	// Filter to grant access to all domain units. Empty block.
+	AllDomainUnitsGrantFilter *PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilter `pulumi:"allDomainUnitsGrantFilter"`
+	// Designation of the domain unit principal. Valid values: `OWNER`.
+	DomainUnitDesignation string `pulumi:"domainUnitDesignation"`
+	// Identifier of the domain unit.
+	DomainUnitIdentifier *string `pulumi:"domainUnitIdentifier"`
+}
+
+// PolicyGrantPrincipalDomainUnitInput is an input type that accepts PolicyGrantPrincipalDomainUnitArgs and PolicyGrantPrincipalDomainUnitOutput values.
+// You can construct a concrete instance of `PolicyGrantPrincipalDomainUnitInput` via:
+//
+//	PolicyGrantPrincipalDomainUnitArgs{...}
+type PolicyGrantPrincipalDomainUnitInput interface {
+	pulumi.Input
+
+	ToPolicyGrantPrincipalDomainUnitOutput() PolicyGrantPrincipalDomainUnitOutput
+	ToPolicyGrantPrincipalDomainUnitOutputWithContext(context.Context) PolicyGrantPrincipalDomainUnitOutput
+}
+
+type PolicyGrantPrincipalDomainUnitArgs struct {
+	// Filter to grant access to all domain units. Empty block.
+	AllDomainUnitsGrantFilter PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrInput `pulumi:"allDomainUnitsGrantFilter"`
+	// Designation of the domain unit principal. Valid values: `OWNER`.
+	DomainUnitDesignation pulumi.StringInput `pulumi:"domainUnitDesignation"`
+	// Identifier of the domain unit.
+	DomainUnitIdentifier pulumi.StringPtrInput `pulumi:"domainUnitIdentifier"`
+}
+
+func (PolicyGrantPrincipalDomainUnitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantPrincipalDomainUnit)(nil)).Elem()
+}
+
+func (i PolicyGrantPrincipalDomainUnitArgs) ToPolicyGrantPrincipalDomainUnitOutput() PolicyGrantPrincipalDomainUnitOutput {
+	return i.ToPolicyGrantPrincipalDomainUnitOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantPrincipalDomainUnitArgs) ToPolicyGrantPrincipalDomainUnitOutputWithContext(ctx context.Context) PolicyGrantPrincipalDomainUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantPrincipalDomainUnitOutput)
+}
+
+func (i PolicyGrantPrincipalDomainUnitArgs) ToPolicyGrantPrincipalDomainUnitPtrOutput() PolicyGrantPrincipalDomainUnitPtrOutput {
+	return i.ToPolicyGrantPrincipalDomainUnitPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantPrincipalDomainUnitArgs) ToPolicyGrantPrincipalDomainUnitPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalDomainUnitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantPrincipalDomainUnitOutput).ToPolicyGrantPrincipalDomainUnitPtrOutputWithContext(ctx)
+}
+
+// PolicyGrantPrincipalDomainUnitPtrInput is an input type that accepts PolicyGrantPrincipalDomainUnitArgs, PolicyGrantPrincipalDomainUnitPtr and PolicyGrantPrincipalDomainUnitPtrOutput values.
+// You can construct a concrete instance of `PolicyGrantPrincipalDomainUnitPtrInput` via:
+//
+//	        PolicyGrantPrincipalDomainUnitArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyGrantPrincipalDomainUnitPtrInput interface {
+	pulumi.Input
+
+	ToPolicyGrantPrincipalDomainUnitPtrOutput() PolicyGrantPrincipalDomainUnitPtrOutput
+	ToPolicyGrantPrincipalDomainUnitPtrOutputWithContext(context.Context) PolicyGrantPrincipalDomainUnitPtrOutput
+}
+
+type policyGrantPrincipalDomainUnitPtrType PolicyGrantPrincipalDomainUnitArgs
+
+func PolicyGrantPrincipalDomainUnitPtr(v *PolicyGrantPrincipalDomainUnitArgs) PolicyGrantPrincipalDomainUnitPtrInput {
+	return (*policyGrantPrincipalDomainUnitPtrType)(v)
+}
+
+func (*policyGrantPrincipalDomainUnitPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantPrincipalDomainUnit)(nil)).Elem()
+}
+
+func (i *policyGrantPrincipalDomainUnitPtrType) ToPolicyGrantPrincipalDomainUnitPtrOutput() PolicyGrantPrincipalDomainUnitPtrOutput {
+	return i.ToPolicyGrantPrincipalDomainUnitPtrOutputWithContext(context.Background())
+}
+
+func (i *policyGrantPrincipalDomainUnitPtrType) ToPolicyGrantPrincipalDomainUnitPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalDomainUnitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantPrincipalDomainUnitPtrOutput)
+}
+
+type PolicyGrantPrincipalDomainUnitOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantPrincipalDomainUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantPrincipalDomainUnit)(nil)).Elem()
+}
+
+func (o PolicyGrantPrincipalDomainUnitOutput) ToPolicyGrantPrincipalDomainUnitOutput() PolicyGrantPrincipalDomainUnitOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalDomainUnitOutput) ToPolicyGrantPrincipalDomainUnitOutputWithContext(ctx context.Context) PolicyGrantPrincipalDomainUnitOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalDomainUnitOutput) ToPolicyGrantPrincipalDomainUnitPtrOutput() PolicyGrantPrincipalDomainUnitPtrOutput {
+	return o.ToPolicyGrantPrincipalDomainUnitPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyGrantPrincipalDomainUnitOutput) ToPolicyGrantPrincipalDomainUnitPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalDomainUnitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyGrantPrincipalDomainUnit) *PolicyGrantPrincipalDomainUnit {
+		return &v
+	}).(PolicyGrantPrincipalDomainUnitPtrOutput)
+}
+
+// Filter to grant access to all domain units. Empty block.
+func (o PolicyGrantPrincipalDomainUnitOutput) AllDomainUnitsGrantFilter() PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutput {
+	return o.ApplyT(func(v PolicyGrantPrincipalDomainUnit) *PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilter {
+		return v.AllDomainUnitsGrantFilter
+	}).(PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutput)
+}
+
+// Designation of the domain unit principal. Valid values: `OWNER`.
+func (o PolicyGrantPrincipalDomainUnitOutput) DomainUnitDesignation() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyGrantPrincipalDomainUnit) string { return v.DomainUnitDesignation }).(pulumi.StringOutput)
+}
+
+// Identifier of the domain unit.
+func (o PolicyGrantPrincipalDomainUnitOutput) DomainUnitIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyGrantPrincipalDomainUnit) *string { return v.DomainUnitIdentifier }).(pulumi.StringPtrOutput)
+}
+
+type PolicyGrantPrincipalDomainUnitPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantPrincipalDomainUnitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantPrincipalDomainUnit)(nil)).Elem()
+}
+
+func (o PolicyGrantPrincipalDomainUnitPtrOutput) ToPolicyGrantPrincipalDomainUnitPtrOutput() PolicyGrantPrincipalDomainUnitPtrOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalDomainUnitPtrOutput) ToPolicyGrantPrincipalDomainUnitPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalDomainUnitPtrOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalDomainUnitPtrOutput) Elem() PolicyGrantPrincipalDomainUnitOutput {
+	return o.ApplyT(func(v *PolicyGrantPrincipalDomainUnit) PolicyGrantPrincipalDomainUnit {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyGrantPrincipalDomainUnit
+		return ret
+	}).(PolicyGrantPrincipalDomainUnitOutput)
+}
+
+// Filter to grant access to all domain units. Empty block.
+func (o PolicyGrantPrincipalDomainUnitPtrOutput) AllDomainUnitsGrantFilter() PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantPrincipalDomainUnit) *PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilter {
+		if v == nil {
+			return nil
+		}
+		return v.AllDomainUnitsGrantFilter
+	}).(PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutput)
+}
+
+// Designation of the domain unit principal. Valid values: `OWNER`.
+func (o PolicyGrantPrincipalDomainUnitPtrOutput) DomainUnitDesignation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantPrincipalDomainUnit) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainUnitDesignation
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the domain unit.
+func (o PolicyGrantPrincipalDomainUnitPtrOutput) DomainUnitIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantPrincipalDomainUnit) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DomainUnitIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilter struct {
+}
+
+// PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterInput is an input type that accepts PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterArgs and PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterOutput values.
+// You can construct a concrete instance of `PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterInput` via:
+//
+//	PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterArgs{...}
+type PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterInput interface {
+	pulumi.Input
+
+	ToPolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterOutput() PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterOutput
+	ToPolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterOutputWithContext(context.Context) PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterOutput
+}
+
+type PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterArgs struct {
+}
+
+func (PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilter)(nil)).Elem()
+}
+
+func (i PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterArgs) ToPolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterOutput() PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterOutput {
+	return i.ToPolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterArgs) ToPolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterOutputWithContext(ctx context.Context) PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterOutput)
+}
+
+func (i PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterArgs) ToPolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutput() PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutput {
+	return i.ToPolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterArgs) ToPolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterOutput).ToPolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutputWithContext(ctx)
+}
+
+// PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrInput is an input type that accepts PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterArgs, PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtr and PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutput values.
+// You can construct a concrete instance of `PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrInput` via:
+//
+//	        PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrInput interface {
+	pulumi.Input
+
+	ToPolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutput() PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutput
+	ToPolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutputWithContext(context.Context) PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutput
+}
+
+type policyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrType PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterArgs
+
+func PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtr(v *PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterArgs) PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrInput {
+	return (*policyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrType)(v)
+}
+
+func (*policyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilter)(nil)).Elem()
+}
+
+func (i *policyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrType) ToPolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutput() PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutput {
+	return i.ToPolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *policyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrType) ToPolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutput)
+}
+
+type PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilter)(nil)).Elem()
+}
+
+func (o PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterOutput) ToPolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterOutput() PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterOutput) ToPolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterOutputWithContext(ctx context.Context) PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterOutput) ToPolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutput() PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutput {
+	return o.ToPolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterOutput) ToPolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilter) *PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilter {
+		return &v
+	}).(PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutput)
+}
+
+type PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilter)(nil)).Elem()
+}
+
+func (o PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutput) ToPolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutput() PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutput) ToPolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutput) Elem() PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterOutput {
+	return o.ApplyT(func(v *PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilter) PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilter {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilter
+		return ret
+	}).(PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterOutput)
+}
+
+type PolicyGrantPrincipalGroup struct {
+	// Identifier of the group principal.
+	GroupIdentifier string `pulumi:"groupIdentifier"`
+}
+
+// PolicyGrantPrincipalGroupInput is an input type that accepts PolicyGrantPrincipalGroupArgs and PolicyGrantPrincipalGroupOutput values.
+// You can construct a concrete instance of `PolicyGrantPrincipalGroupInput` via:
+//
+//	PolicyGrantPrincipalGroupArgs{...}
+type PolicyGrantPrincipalGroupInput interface {
+	pulumi.Input
+
+	ToPolicyGrantPrincipalGroupOutput() PolicyGrantPrincipalGroupOutput
+	ToPolicyGrantPrincipalGroupOutputWithContext(context.Context) PolicyGrantPrincipalGroupOutput
+}
+
+type PolicyGrantPrincipalGroupArgs struct {
+	// Identifier of the group principal.
+	GroupIdentifier pulumi.StringInput `pulumi:"groupIdentifier"`
+}
+
+func (PolicyGrantPrincipalGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantPrincipalGroup)(nil)).Elem()
+}
+
+func (i PolicyGrantPrincipalGroupArgs) ToPolicyGrantPrincipalGroupOutput() PolicyGrantPrincipalGroupOutput {
+	return i.ToPolicyGrantPrincipalGroupOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantPrincipalGroupArgs) ToPolicyGrantPrincipalGroupOutputWithContext(ctx context.Context) PolicyGrantPrincipalGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantPrincipalGroupOutput)
+}
+
+func (i PolicyGrantPrincipalGroupArgs) ToPolicyGrantPrincipalGroupPtrOutput() PolicyGrantPrincipalGroupPtrOutput {
+	return i.ToPolicyGrantPrincipalGroupPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantPrincipalGroupArgs) ToPolicyGrantPrincipalGroupPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantPrincipalGroupOutput).ToPolicyGrantPrincipalGroupPtrOutputWithContext(ctx)
+}
+
+// PolicyGrantPrincipalGroupPtrInput is an input type that accepts PolicyGrantPrincipalGroupArgs, PolicyGrantPrincipalGroupPtr and PolicyGrantPrincipalGroupPtrOutput values.
+// You can construct a concrete instance of `PolicyGrantPrincipalGroupPtrInput` via:
+//
+//	        PolicyGrantPrincipalGroupArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyGrantPrincipalGroupPtrInput interface {
+	pulumi.Input
+
+	ToPolicyGrantPrincipalGroupPtrOutput() PolicyGrantPrincipalGroupPtrOutput
+	ToPolicyGrantPrincipalGroupPtrOutputWithContext(context.Context) PolicyGrantPrincipalGroupPtrOutput
+}
+
+type policyGrantPrincipalGroupPtrType PolicyGrantPrincipalGroupArgs
+
+func PolicyGrantPrincipalGroupPtr(v *PolicyGrantPrincipalGroupArgs) PolicyGrantPrincipalGroupPtrInput {
+	return (*policyGrantPrincipalGroupPtrType)(v)
+}
+
+func (*policyGrantPrincipalGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantPrincipalGroup)(nil)).Elem()
+}
+
+func (i *policyGrantPrincipalGroupPtrType) ToPolicyGrantPrincipalGroupPtrOutput() PolicyGrantPrincipalGroupPtrOutput {
+	return i.ToPolicyGrantPrincipalGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *policyGrantPrincipalGroupPtrType) ToPolicyGrantPrincipalGroupPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantPrincipalGroupPtrOutput)
+}
+
+type PolicyGrantPrincipalGroupOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantPrincipalGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantPrincipalGroup)(nil)).Elem()
+}
+
+func (o PolicyGrantPrincipalGroupOutput) ToPolicyGrantPrincipalGroupOutput() PolicyGrantPrincipalGroupOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalGroupOutput) ToPolicyGrantPrincipalGroupOutputWithContext(ctx context.Context) PolicyGrantPrincipalGroupOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalGroupOutput) ToPolicyGrantPrincipalGroupPtrOutput() PolicyGrantPrincipalGroupPtrOutput {
+	return o.ToPolicyGrantPrincipalGroupPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyGrantPrincipalGroupOutput) ToPolicyGrantPrincipalGroupPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalGroupPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyGrantPrincipalGroup) *PolicyGrantPrincipalGroup {
+		return &v
+	}).(PolicyGrantPrincipalGroupPtrOutput)
+}
+
+// Identifier of the group principal.
+func (o PolicyGrantPrincipalGroupOutput) GroupIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyGrantPrincipalGroup) string { return v.GroupIdentifier }).(pulumi.StringOutput)
+}
+
+type PolicyGrantPrincipalGroupPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantPrincipalGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantPrincipalGroup)(nil)).Elem()
+}
+
+func (o PolicyGrantPrincipalGroupPtrOutput) ToPolicyGrantPrincipalGroupPtrOutput() PolicyGrantPrincipalGroupPtrOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalGroupPtrOutput) ToPolicyGrantPrincipalGroupPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalGroupPtrOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalGroupPtrOutput) Elem() PolicyGrantPrincipalGroupOutput {
+	return o.ApplyT(func(v *PolicyGrantPrincipalGroup) PolicyGrantPrincipalGroup {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyGrantPrincipalGroup
+		return ret
+	}).(PolicyGrantPrincipalGroupOutput)
+}
+
+// Identifier of the group principal.
+func (o PolicyGrantPrincipalGroupPtrOutput) GroupIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantPrincipalGroup) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyGrantPrincipalProject struct {
+	// Filter for domain unit scoping. See `domainUnitFilter` Block below.
+	DomainUnitFilter *PolicyGrantPrincipalProjectDomainUnitFilter `pulumi:"domainUnitFilter"`
+	// Designation of the project principal. Valid values: `CONTRIBUTOR`, `OWNER`, `PROJECT_CATALOG_STEWARD`.
+	ProjectDesignation string `pulumi:"projectDesignation"`
+	// Identifier of the project.
+	ProjectIdentifier *string `pulumi:"projectIdentifier"`
+}
+
+// PolicyGrantPrincipalProjectInput is an input type that accepts PolicyGrantPrincipalProjectArgs and PolicyGrantPrincipalProjectOutput values.
+// You can construct a concrete instance of `PolicyGrantPrincipalProjectInput` via:
+//
+//	PolicyGrantPrincipalProjectArgs{...}
+type PolicyGrantPrincipalProjectInput interface {
+	pulumi.Input
+
+	ToPolicyGrantPrincipalProjectOutput() PolicyGrantPrincipalProjectOutput
+	ToPolicyGrantPrincipalProjectOutputWithContext(context.Context) PolicyGrantPrincipalProjectOutput
+}
+
+type PolicyGrantPrincipalProjectArgs struct {
+	// Filter for domain unit scoping. See `domainUnitFilter` Block below.
+	DomainUnitFilter PolicyGrantPrincipalProjectDomainUnitFilterPtrInput `pulumi:"domainUnitFilter"`
+	// Designation of the project principal. Valid values: `CONTRIBUTOR`, `OWNER`, `PROJECT_CATALOG_STEWARD`.
+	ProjectDesignation pulumi.StringInput `pulumi:"projectDesignation"`
+	// Identifier of the project.
+	ProjectIdentifier pulumi.StringPtrInput `pulumi:"projectIdentifier"`
+}
+
+func (PolicyGrantPrincipalProjectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantPrincipalProject)(nil)).Elem()
+}
+
+func (i PolicyGrantPrincipalProjectArgs) ToPolicyGrantPrincipalProjectOutput() PolicyGrantPrincipalProjectOutput {
+	return i.ToPolicyGrantPrincipalProjectOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantPrincipalProjectArgs) ToPolicyGrantPrincipalProjectOutputWithContext(ctx context.Context) PolicyGrantPrincipalProjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantPrincipalProjectOutput)
+}
+
+func (i PolicyGrantPrincipalProjectArgs) ToPolicyGrantPrincipalProjectPtrOutput() PolicyGrantPrincipalProjectPtrOutput {
+	return i.ToPolicyGrantPrincipalProjectPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantPrincipalProjectArgs) ToPolicyGrantPrincipalProjectPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalProjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantPrincipalProjectOutput).ToPolicyGrantPrincipalProjectPtrOutputWithContext(ctx)
+}
+
+// PolicyGrantPrincipalProjectPtrInput is an input type that accepts PolicyGrantPrincipalProjectArgs, PolicyGrantPrincipalProjectPtr and PolicyGrantPrincipalProjectPtrOutput values.
+// You can construct a concrete instance of `PolicyGrantPrincipalProjectPtrInput` via:
+//
+//	        PolicyGrantPrincipalProjectArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyGrantPrincipalProjectPtrInput interface {
+	pulumi.Input
+
+	ToPolicyGrantPrincipalProjectPtrOutput() PolicyGrantPrincipalProjectPtrOutput
+	ToPolicyGrantPrincipalProjectPtrOutputWithContext(context.Context) PolicyGrantPrincipalProjectPtrOutput
+}
+
+type policyGrantPrincipalProjectPtrType PolicyGrantPrincipalProjectArgs
+
+func PolicyGrantPrincipalProjectPtr(v *PolicyGrantPrincipalProjectArgs) PolicyGrantPrincipalProjectPtrInput {
+	return (*policyGrantPrincipalProjectPtrType)(v)
+}
+
+func (*policyGrantPrincipalProjectPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantPrincipalProject)(nil)).Elem()
+}
+
+func (i *policyGrantPrincipalProjectPtrType) ToPolicyGrantPrincipalProjectPtrOutput() PolicyGrantPrincipalProjectPtrOutput {
+	return i.ToPolicyGrantPrincipalProjectPtrOutputWithContext(context.Background())
+}
+
+func (i *policyGrantPrincipalProjectPtrType) ToPolicyGrantPrincipalProjectPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalProjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantPrincipalProjectPtrOutput)
+}
+
+type PolicyGrantPrincipalProjectOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantPrincipalProjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantPrincipalProject)(nil)).Elem()
+}
+
+func (o PolicyGrantPrincipalProjectOutput) ToPolicyGrantPrincipalProjectOutput() PolicyGrantPrincipalProjectOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalProjectOutput) ToPolicyGrantPrincipalProjectOutputWithContext(ctx context.Context) PolicyGrantPrincipalProjectOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalProjectOutput) ToPolicyGrantPrincipalProjectPtrOutput() PolicyGrantPrincipalProjectPtrOutput {
+	return o.ToPolicyGrantPrincipalProjectPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyGrantPrincipalProjectOutput) ToPolicyGrantPrincipalProjectPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalProjectPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyGrantPrincipalProject) *PolicyGrantPrincipalProject {
+		return &v
+	}).(PolicyGrantPrincipalProjectPtrOutput)
+}
+
+// Filter for domain unit scoping. See `domainUnitFilter` Block below.
+func (o PolicyGrantPrincipalProjectOutput) DomainUnitFilter() PolicyGrantPrincipalProjectDomainUnitFilterPtrOutput {
+	return o.ApplyT(func(v PolicyGrantPrincipalProject) *PolicyGrantPrincipalProjectDomainUnitFilter {
+		return v.DomainUnitFilter
+	}).(PolicyGrantPrincipalProjectDomainUnitFilterPtrOutput)
+}
+
+// Designation of the project principal. Valid values: `CONTRIBUTOR`, `OWNER`, `PROJECT_CATALOG_STEWARD`.
+func (o PolicyGrantPrincipalProjectOutput) ProjectDesignation() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyGrantPrincipalProject) string { return v.ProjectDesignation }).(pulumi.StringOutput)
+}
+
+// Identifier of the project.
+func (o PolicyGrantPrincipalProjectOutput) ProjectIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyGrantPrincipalProject) *string { return v.ProjectIdentifier }).(pulumi.StringPtrOutput)
+}
+
+type PolicyGrantPrincipalProjectPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantPrincipalProjectPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantPrincipalProject)(nil)).Elem()
+}
+
+func (o PolicyGrantPrincipalProjectPtrOutput) ToPolicyGrantPrincipalProjectPtrOutput() PolicyGrantPrincipalProjectPtrOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalProjectPtrOutput) ToPolicyGrantPrincipalProjectPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalProjectPtrOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalProjectPtrOutput) Elem() PolicyGrantPrincipalProjectOutput {
+	return o.ApplyT(func(v *PolicyGrantPrincipalProject) PolicyGrantPrincipalProject {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyGrantPrincipalProject
+		return ret
+	}).(PolicyGrantPrincipalProjectOutput)
+}
+
+// Filter for domain unit scoping. See `domainUnitFilter` Block below.
+func (o PolicyGrantPrincipalProjectPtrOutput) DomainUnitFilter() PolicyGrantPrincipalProjectDomainUnitFilterPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantPrincipalProject) *PolicyGrantPrincipalProjectDomainUnitFilter {
+		if v == nil {
+			return nil
+		}
+		return v.DomainUnitFilter
+	}).(PolicyGrantPrincipalProjectDomainUnitFilterPtrOutput)
+}
+
+// Designation of the project principal. Valid values: `CONTRIBUTOR`, `OWNER`, `PROJECT_CATALOG_STEWARD`.
+func (o PolicyGrantPrincipalProjectPtrOutput) ProjectDesignation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantPrincipalProject) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProjectDesignation
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the project.
+func (o PolicyGrantPrincipalProjectPtrOutput) ProjectIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantPrincipalProject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProjectIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyGrantPrincipalProjectDomainUnitFilter struct {
+	// Identifier of the domain unit for filtering.
+	DomainUnit string `pulumi:"domainUnit"`
+	// Whether to include child domain units in the filter.
+	IncludeChildDomainUnits *bool `pulumi:"includeChildDomainUnits"`
+}
+
+// PolicyGrantPrincipalProjectDomainUnitFilterInput is an input type that accepts PolicyGrantPrincipalProjectDomainUnitFilterArgs and PolicyGrantPrincipalProjectDomainUnitFilterOutput values.
+// You can construct a concrete instance of `PolicyGrantPrincipalProjectDomainUnitFilterInput` via:
+//
+//	PolicyGrantPrincipalProjectDomainUnitFilterArgs{...}
+type PolicyGrantPrincipalProjectDomainUnitFilterInput interface {
+	pulumi.Input
+
+	ToPolicyGrantPrincipalProjectDomainUnitFilterOutput() PolicyGrantPrincipalProjectDomainUnitFilterOutput
+	ToPolicyGrantPrincipalProjectDomainUnitFilterOutputWithContext(context.Context) PolicyGrantPrincipalProjectDomainUnitFilterOutput
+}
+
+type PolicyGrantPrincipalProjectDomainUnitFilterArgs struct {
+	// Identifier of the domain unit for filtering.
+	DomainUnit pulumi.StringInput `pulumi:"domainUnit"`
+	// Whether to include child domain units in the filter.
+	IncludeChildDomainUnits pulumi.BoolPtrInput `pulumi:"includeChildDomainUnits"`
+}
+
+func (PolicyGrantPrincipalProjectDomainUnitFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantPrincipalProjectDomainUnitFilter)(nil)).Elem()
+}
+
+func (i PolicyGrantPrincipalProjectDomainUnitFilterArgs) ToPolicyGrantPrincipalProjectDomainUnitFilterOutput() PolicyGrantPrincipalProjectDomainUnitFilterOutput {
+	return i.ToPolicyGrantPrincipalProjectDomainUnitFilterOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantPrincipalProjectDomainUnitFilterArgs) ToPolicyGrantPrincipalProjectDomainUnitFilterOutputWithContext(ctx context.Context) PolicyGrantPrincipalProjectDomainUnitFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantPrincipalProjectDomainUnitFilterOutput)
+}
+
+func (i PolicyGrantPrincipalProjectDomainUnitFilterArgs) ToPolicyGrantPrincipalProjectDomainUnitFilterPtrOutput() PolicyGrantPrincipalProjectDomainUnitFilterPtrOutput {
+	return i.ToPolicyGrantPrincipalProjectDomainUnitFilterPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantPrincipalProjectDomainUnitFilterArgs) ToPolicyGrantPrincipalProjectDomainUnitFilterPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalProjectDomainUnitFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantPrincipalProjectDomainUnitFilterOutput).ToPolicyGrantPrincipalProjectDomainUnitFilterPtrOutputWithContext(ctx)
+}
+
+// PolicyGrantPrincipalProjectDomainUnitFilterPtrInput is an input type that accepts PolicyGrantPrincipalProjectDomainUnitFilterArgs, PolicyGrantPrincipalProjectDomainUnitFilterPtr and PolicyGrantPrincipalProjectDomainUnitFilterPtrOutput values.
+// You can construct a concrete instance of `PolicyGrantPrincipalProjectDomainUnitFilterPtrInput` via:
+//
+//	        PolicyGrantPrincipalProjectDomainUnitFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyGrantPrincipalProjectDomainUnitFilterPtrInput interface {
+	pulumi.Input
+
+	ToPolicyGrantPrincipalProjectDomainUnitFilterPtrOutput() PolicyGrantPrincipalProjectDomainUnitFilterPtrOutput
+	ToPolicyGrantPrincipalProjectDomainUnitFilterPtrOutputWithContext(context.Context) PolicyGrantPrincipalProjectDomainUnitFilterPtrOutput
+}
+
+type policyGrantPrincipalProjectDomainUnitFilterPtrType PolicyGrantPrincipalProjectDomainUnitFilterArgs
+
+func PolicyGrantPrincipalProjectDomainUnitFilterPtr(v *PolicyGrantPrincipalProjectDomainUnitFilterArgs) PolicyGrantPrincipalProjectDomainUnitFilterPtrInput {
+	return (*policyGrantPrincipalProjectDomainUnitFilterPtrType)(v)
+}
+
+func (*policyGrantPrincipalProjectDomainUnitFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantPrincipalProjectDomainUnitFilter)(nil)).Elem()
+}
+
+func (i *policyGrantPrincipalProjectDomainUnitFilterPtrType) ToPolicyGrantPrincipalProjectDomainUnitFilterPtrOutput() PolicyGrantPrincipalProjectDomainUnitFilterPtrOutput {
+	return i.ToPolicyGrantPrincipalProjectDomainUnitFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *policyGrantPrincipalProjectDomainUnitFilterPtrType) ToPolicyGrantPrincipalProjectDomainUnitFilterPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalProjectDomainUnitFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantPrincipalProjectDomainUnitFilterPtrOutput)
+}
+
+type PolicyGrantPrincipalProjectDomainUnitFilterOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantPrincipalProjectDomainUnitFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantPrincipalProjectDomainUnitFilter)(nil)).Elem()
+}
+
+func (o PolicyGrantPrincipalProjectDomainUnitFilterOutput) ToPolicyGrantPrincipalProjectDomainUnitFilterOutput() PolicyGrantPrincipalProjectDomainUnitFilterOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalProjectDomainUnitFilterOutput) ToPolicyGrantPrincipalProjectDomainUnitFilterOutputWithContext(ctx context.Context) PolicyGrantPrincipalProjectDomainUnitFilterOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalProjectDomainUnitFilterOutput) ToPolicyGrantPrincipalProjectDomainUnitFilterPtrOutput() PolicyGrantPrincipalProjectDomainUnitFilterPtrOutput {
+	return o.ToPolicyGrantPrincipalProjectDomainUnitFilterPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyGrantPrincipalProjectDomainUnitFilterOutput) ToPolicyGrantPrincipalProjectDomainUnitFilterPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalProjectDomainUnitFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyGrantPrincipalProjectDomainUnitFilter) *PolicyGrantPrincipalProjectDomainUnitFilter {
+		return &v
+	}).(PolicyGrantPrincipalProjectDomainUnitFilterPtrOutput)
+}
+
+// Identifier of the domain unit for filtering.
+func (o PolicyGrantPrincipalProjectDomainUnitFilterOutput) DomainUnit() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyGrantPrincipalProjectDomainUnitFilter) string { return v.DomainUnit }).(pulumi.StringOutput)
+}
+
+// Whether to include child domain units in the filter.
+func (o PolicyGrantPrincipalProjectDomainUnitFilterOutput) IncludeChildDomainUnits() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PolicyGrantPrincipalProjectDomainUnitFilter) *bool { return v.IncludeChildDomainUnits }).(pulumi.BoolPtrOutput)
+}
+
+type PolicyGrantPrincipalProjectDomainUnitFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantPrincipalProjectDomainUnitFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantPrincipalProjectDomainUnitFilter)(nil)).Elem()
+}
+
+func (o PolicyGrantPrincipalProjectDomainUnitFilterPtrOutput) ToPolicyGrantPrincipalProjectDomainUnitFilterPtrOutput() PolicyGrantPrincipalProjectDomainUnitFilterPtrOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalProjectDomainUnitFilterPtrOutput) ToPolicyGrantPrincipalProjectDomainUnitFilterPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalProjectDomainUnitFilterPtrOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalProjectDomainUnitFilterPtrOutput) Elem() PolicyGrantPrincipalProjectDomainUnitFilterOutput {
+	return o.ApplyT(func(v *PolicyGrantPrincipalProjectDomainUnitFilter) PolicyGrantPrincipalProjectDomainUnitFilter {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyGrantPrincipalProjectDomainUnitFilter
+		return ret
+	}).(PolicyGrantPrincipalProjectDomainUnitFilterOutput)
+}
+
+// Identifier of the domain unit for filtering.
+func (o PolicyGrantPrincipalProjectDomainUnitFilterPtrOutput) DomainUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantPrincipalProjectDomainUnitFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainUnit
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to include child domain units in the filter.
+func (o PolicyGrantPrincipalProjectDomainUnitFilterPtrOutput) IncludeChildDomainUnits() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantPrincipalProjectDomainUnitFilter) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeChildDomainUnits
+	}).(pulumi.BoolPtrOutput)
+}
+
+type PolicyGrantPrincipalUser struct {
+	// Filter to grant access to all users. Empty block.
+	AllUsersGrantFilter *PolicyGrantPrincipalUserAllUsersGrantFilter `pulumi:"allUsersGrantFilter"`
+	// Identifier of the user principal.
+	UserIdentifier *string `pulumi:"userIdentifier"`
+}
+
+// PolicyGrantPrincipalUserInput is an input type that accepts PolicyGrantPrincipalUserArgs and PolicyGrantPrincipalUserOutput values.
+// You can construct a concrete instance of `PolicyGrantPrincipalUserInput` via:
+//
+//	PolicyGrantPrincipalUserArgs{...}
+type PolicyGrantPrincipalUserInput interface {
+	pulumi.Input
+
+	ToPolicyGrantPrincipalUserOutput() PolicyGrantPrincipalUserOutput
+	ToPolicyGrantPrincipalUserOutputWithContext(context.Context) PolicyGrantPrincipalUserOutput
+}
+
+type PolicyGrantPrincipalUserArgs struct {
+	// Filter to grant access to all users. Empty block.
+	AllUsersGrantFilter PolicyGrantPrincipalUserAllUsersGrantFilterPtrInput `pulumi:"allUsersGrantFilter"`
+	// Identifier of the user principal.
+	UserIdentifier pulumi.StringPtrInput `pulumi:"userIdentifier"`
+}
+
+func (PolicyGrantPrincipalUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantPrincipalUser)(nil)).Elem()
+}
+
+func (i PolicyGrantPrincipalUserArgs) ToPolicyGrantPrincipalUserOutput() PolicyGrantPrincipalUserOutput {
+	return i.ToPolicyGrantPrincipalUserOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantPrincipalUserArgs) ToPolicyGrantPrincipalUserOutputWithContext(ctx context.Context) PolicyGrantPrincipalUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantPrincipalUserOutput)
+}
+
+func (i PolicyGrantPrincipalUserArgs) ToPolicyGrantPrincipalUserPtrOutput() PolicyGrantPrincipalUserPtrOutput {
+	return i.ToPolicyGrantPrincipalUserPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantPrincipalUserArgs) ToPolicyGrantPrincipalUserPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalUserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantPrincipalUserOutput).ToPolicyGrantPrincipalUserPtrOutputWithContext(ctx)
+}
+
+// PolicyGrantPrincipalUserPtrInput is an input type that accepts PolicyGrantPrincipalUserArgs, PolicyGrantPrincipalUserPtr and PolicyGrantPrincipalUserPtrOutput values.
+// You can construct a concrete instance of `PolicyGrantPrincipalUserPtrInput` via:
+//
+//	        PolicyGrantPrincipalUserArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyGrantPrincipalUserPtrInput interface {
+	pulumi.Input
+
+	ToPolicyGrantPrincipalUserPtrOutput() PolicyGrantPrincipalUserPtrOutput
+	ToPolicyGrantPrincipalUserPtrOutputWithContext(context.Context) PolicyGrantPrincipalUserPtrOutput
+}
+
+type policyGrantPrincipalUserPtrType PolicyGrantPrincipalUserArgs
+
+func PolicyGrantPrincipalUserPtr(v *PolicyGrantPrincipalUserArgs) PolicyGrantPrincipalUserPtrInput {
+	return (*policyGrantPrincipalUserPtrType)(v)
+}
+
+func (*policyGrantPrincipalUserPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantPrincipalUser)(nil)).Elem()
+}
+
+func (i *policyGrantPrincipalUserPtrType) ToPolicyGrantPrincipalUserPtrOutput() PolicyGrantPrincipalUserPtrOutput {
+	return i.ToPolicyGrantPrincipalUserPtrOutputWithContext(context.Background())
+}
+
+func (i *policyGrantPrincipalUserPtrType) ToPolicyGrantPrincipalUserPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalUserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantPrincipalUserPtrOutput)
+}
+
+type PolicyGrantPrincipalUserOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantPrincipalUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantPrincipalUser)(nil)).Elem()
+}
+
+func (o PolicyGrantPrincipalUserOutput) ToPolicyGrantPrincipalUserOutput() PolicyGrantPrincipalUserOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalUserOutput) ToPolicyGrantPrincipalUserOutputWithContext(ctx context.Context) PolicyGrantPrincipalUserOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalUserOutput) ToPolicyGrantPrincipalUserPtrOutput() PolicyGrantPrincipalUserPtrOutput {
+	return o.ToPolicyGrantPrincipalUserPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyGrantPrincipalUserOutput) ToPolicyGrantPrincipalUserPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalUserPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyGrantPrincipalUser) *PolicyGrantPrincipalUser {
+		return &v
+	}).(PolicyGrantPrincipalUserPtrOutput)
+}
+
+// Filter to grant access to all users. Empty block.
+func (o PolicyGrantPrincipalUserOutput) AllUsersGrantFilter() PolicyGrantPrincipalUserAllUsersGrantFilterPtrOutput {
+	return o.ApplyT(func(v PolicyGrantPrincipalUser) *PolicyGrantPrincipalUserAllUsersGrantFilter {
+		return v.AllUsersGrantFilter
+	}).(PolicyGrantPrincipalUserAllUsersGrantFilterPtrOutput)
+}
+
+// Identifier of the user principal.
+func (o PolicyGrantPrincipalUserOutput) UserIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyGrantPrincipalUser) *string { return v.UserIdentifier }).(pulumi.StringPtrOutput)
+}
+
+type PolicyGrantPrincipalUserPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantPrincipalUserPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantPrincipalUser)(nil)).Elem()
+}
+
+func (o PolicyGrantPrincipalUserPtrOutput) ToPolicyGrantPrincipalUserPtrOutput() PolicyGrantPrincipalUserPtrOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalUserPtrOutput) ToPolicyGrantPrincipalUserPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalUserPtrOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalUserPtrOutput) Elem() PolicyGrantPrincipalUserOutput {
+	return o.ApplyT(func(v *PolicyGrantPrincipalUser) PolicyGrantPrincipalUser {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyGrantPrincipalUser
+		return ret
+	}).(PolicyGrantPrincipalUserOutput)
+}
+
+// Filter to grant access to all users. Empty block.
+func (o PolicyGrantPrincipalUserPtrOutput) AllUsersGrantFilter() PolicyGrantPrincipalUserAllUsersGrantFilterPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantPrincipalUser) *PolicyGrantPrincipalUserAllUsersGrantFilter {
+		if v == nil {
+			return nil
+		}
+		return v.AllUsersGrantFilter
+	}).(PolicyGrantPrincipalUserAllUsersGrantFilterPtrOutput)
+}
+
+// Identifier of the user principal.
+func (o PolicyGrantPrincipalUserPtrOutput) UserIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyGrantPrincipalUser) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyGrantPrincipalUserAllUsersGrantFilter struct {
+}
+
+// PolicyGrantPrincipalUserAllUsersGrantFilterInput is an input type that accepts PolicyGrantPrincipalUserAllUsersGrantFilterArgs and PolicyGrantPrincipalUserAllUsersGrantFilterOutput values.
+// You can construct a concrete instance of `PolicyGrantPrincipalUserAllUsersGrantFilterInput` via:
+//
+//	PolicyGrantPrincipalUserAllUsersGrantFilterArgs{...}
+type PolicyGrantPrincipalUserAllUsersGrantFilterInput interface {
+	pulumi.Input
+
+	ToPolicyGrantPrincipalUserAllUsersGrantFilterOutput() PolicyGrantPrincipalUserAllUsersGrantFilterOutput
+	ToPolicyGrantPrincipalUserAllUsersGrantFilterOutputWithContext(context.Context) PolicyGrantPrincipalUserAllUsersGrantFilterOutput
+}
+
+type PolicyGrantPrincipalUserAllUsersGrantFilterArgs struct {
+}
+
+func (PolicyGrantPrincipalUserAllUsersGrantFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantPrincipalUserAllUsersGrantFilter)(nil)).Elem()
+}
+
+func (i PolicyGrantPrincipalUserAllUsersGrantFilterArgs) ToPolicyGrantPrincipalUserAllUsersGrantFilterOutput() PolicyGrantPrincipalUserAllUsersGrantFilterOutput {
+	return i.ToPolicyGrantPrincipalUserAllUsersGrantFilterOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantPrincipalUserAllUsersGrantFilterArgs) ToPolicyGrantPrincipalUserAllUsersGrantFilterOutputWithContext(ctx context.Context) PolicyGrantPrincipalUserAllUsersGrantFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantPrincipalUserAllUsersGrantFilterOutput)
+}
+
+func (i PolicyGrantPrincipalUserAllUsersGrantFilterArgs) ToPolicyGrantPrincipalUserAllUsersGrantFilterPtrOutput() PolicyGrantPrincipalUserAllUsersGrantFilterPtrOutput {
+	return i.ToPolicyGrantPrincipalUserAllUsersGrantFilterPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyGrantPrincipalUserAllUsersGrantFilterArgs) ToPolicyGrantPrincipalUserAllUsersGrantFilterPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalUserAllUsersGrantFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantPrincipalUserAllUsersGrantFilterOutput).ToPolicyGrantPrincipalUserAllUsersGrantFilterPtrOutputWithContext(ctx)
+}
+
+// PolicyGrantPrincipalUserAllUsersGrantFilterPtrInput is an input type that accepts PolicyGrantPrincipalUserAllUsersGrantFilterArgs, PolicyGrantPrincipalUserAllUsersGrantFilterPtr and PolicyGrantPrincipalUserAllUsersGrantFilterPtrOutput values.
+// You can construct a concrete instance of `PolicyGrantPrincipalUserAllUsersGrantFilterPtrInput` via:
+//
+//	        PolicyGrantPrincipalUserAllUsersGrantFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyGrantPrincipalUserAllUsersGrantFilterPtrInput interface {
+	pulumi.Input
+
+	ToPolicyGrantPrincipalUserAllUsersGrantFilterPtrOutput() PolicyGrantPrincipalUserAllUsersGrantFilterPtrOutput
+	ToPolicyGrantPrincipalUserAllUsersGrantFilterPtrOutputWithContext(context.Context) PolicyGrantPrincipalUserAllUsersGrantFilterPtrOutput
+}
+
+type policyGrantPrincipalUserAllUsersGrantFilterPtrType PolicyGrantPrincipalUserAllUsersGrantFilterArgs
+
+func PolicyGrantPrincipalUserAllUsersGrantFilterPtr(v *PolicyGrantPrincipalUserAllUsersGrantFilterArgs) PolicyGrantPrincipalUserAllUsersGrantFilterPtrInput {
+	return (*policyGrantPrincipalUserAllUsersGrantFilterPtrType)(v)
+}
+
+func (*policyGrantPrincipalUserAllUsersGrantFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantPrincipalUserAllUsersGrantFilter)(nil)).Elem()
+}
+
+func (i *policyGrantPrincipalUserAllUsersGrantFilterPtrType) ToPolicyGrantPrincipalUserAllUsersGrantFilterPtrOutput() PolicyGrantPrincipalUserAllUsersGrantFilterPtrOutput {
+	return i.ToPolicyGrantPrincipalUserAllUsersGrantFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *policyGrantPrincipalUserAllUsersGrantFilterPtrType) ToPolicyGrantPrincipalUserAllUsersGrantFilterPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalUserAllUsersGrantFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyGrantPrincipalUserAllUsersGrantFilterPtrOutput)
+}
+
+type PolicyGrantPrincipalUserAllUsersGrantFilterOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantPrincipalUserAllUsersGrantFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyGrantPrincipalUserAllUsersGrantFilter)(nil)).Elem()
+}
+
+func (o PolicyGrantPrincipalUserAllUsersGrantFilterOutput) ToPolicyGrantPrincipalUserAllUsersGrantFilterOutput() PolicyGrantPrincipalUserAllUsersGrantFilterOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalUserAllUsersGrantFilterOutput) ToPolicyGrantPrincipalUserAllUsersGrantFilterOutputWithContext(ctx context.Context) PolicyGrantPrincipalUserAllUsersGrantFilterOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalUserAllUsersGrantFilterOutput) ToPolicyGrantPrincipalUserAllUsersGrantFilterPtrOutput() PolicyGrantPrincipalUserAllUsersGrantFilterPtrOutput {
+	return o.ToPolicyGrantPrincipalUserAllUsersGrantFilterPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyGrantPrincipalUserAllUsersGrantFilterOutput) ToPolicyGrantPrincipalUserAllUsersGrantFilterPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalUserAllUsersGrantFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyGrantPrincipalUserAllUsersGrantFilter) *PolicyGrantPrincipalUserAllUsersGrantFilter {
+		return &v
+	}).(PolicyGrantPrincipalUserAllUsersGrantFilterPtrOutput)
+}
+
+type PolicyGrantPrincipalUserAllUsersGrantFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyGrantPrincipalUserAllUsersGrantFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyGrantPrincipalUserAllUsersGrantFilter)(nil)).Elem()
+}
+
+func (o PolicyGrantPrincipalUserAllUsersGrantFilterPtrOutput) ToPolicyGrantPrincipalUserAllUsersGrantFilterPtrOutput() PolicyGrantPrincipalUserAllUsersGrantFilterPtrOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalUserAllUsersGrantFilterPtrOutput) ToPolicyGrantPrincipalUserAllUsersGrantFilterPtrOutputWithContext(ctx context.Context) PolicyGrantPrincipalUserAllUsersGrantFilterPtrOutput {
+	return o
+}
+
+func (o PolicyGrantPrincipalUserAllUsersGrantFilterPtrOutput) Elem() PolicyGrantPrincipalUserAllUsersGrantFilterOutput {
+	return o.ApplyT(func(v *PolicyGrantPrincipalUserAllUsersGrantFilter) PolicyGrantPrincipalUserAllUsersGrantFilter {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyGrantPrincipalUserAllUsersGrantFilter
+		return ret
+	}).(PolicyGrantPrincipalUserAllUsersGrantFilterOutput)
+}
+
 type ProjectFailureReason struct {
 	Code    string `pulumi:"code"`
 	Message string `pulumi:"message"`
@@ -2715,6 +6224,52 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlossaryTermTermRelationsPtrInput)(nil)).Elem(), GlossaryTermTermRelationsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlossaryTermTimeoutsInput)(nil)).Elem(), GlossaryTermTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlossaryTermTimeoutsPtrInput)(nil)).Elem(), GlossaryTermTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDetailInput)(nil)).Elem(), PolicyGrantDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDetailPtrInput)(nil)).Elem(), PolicyGrantDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDetailAddToProjectMemberPoolInput)(nil)).Elem(), PolicyGrantDetailAddToProjectMemberPoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDetailAddToProjectMemberPoolPtrInput)(nil)).Elem(), PolicyGrantDetailAddToProjectMemberPoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDetailCreateAssetTypeInput)(nil)).Elem(), PolicyGrantDetailCreateAssetTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDetailCreateAssetTypePtrInput)(nil)).Elem(), PolicyGrantDetailCreateAssetTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDetailCreateDomainUnitInput)(nil)).Elem(), PolicyGrantDetailCreateDomainUnitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDetailCreateDomainUnitPtrInput)(nil)).Elem(), PolicyGrantDetailCreateDomainUnitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDetailCreateEnvironmentInput)(nil)).Elem(), PolicyGrantDetailCreateEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDetailCreateEnvironmentPtrInput)(nil)).Elem(), PolicyGrantDetailCreateEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDetailCreateEnvironmentFromBlueprintInput)(nil)).Elem(), PolicyGrantDetailCreateEnvironmentFromBlueprintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDetailCreateEnvironmentFromBlueprintPtrInput)(nil)).Elem(), PolicyGrantDetailCreateEnvironmentFromBlueprintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDetailCreateEnvironmentProfileInput)(nil)).Elem(), PolicyGrantDetailCreateEnvironmentProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDetailCreateEnvironmentProfilePtrInput)(nil)).Elem(), PolicyGrantDetailCreateEnvironmentProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDetailCreateFormTypeInput)(nil)).Elem(), PolicyGrantDetailCreateFormTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDetailCreateFormTypePtrInput)(nil)).Elem(), PolicyGrantDetailCreateFormTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDetailCreateGlossaryInput)(nil)).Elem(), PolicyGrantDetailCreateGlossaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDetailCreateGlossaryPtrInput)(nil)).Elem(), PolicyGrantDetailCreateGlossaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDetailCreateProjectInput)(nil)).Elem(), PolicyGrantDetailCreateProjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDetailCreateProjectPtrInput)(nil)).Elem(), PolicyGrantDetailCreateProjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDetailCreateProjectFromProjectProfileInput)(nil)).Elem(), PolicyGrantDetailCreateProjectFromProjectProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDetailCreateProjectFromProjectProfilePtrInput)(nil)).Elem(), PolicyGrantDetailCreateProjectFromProjectProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDetailDelegateCreateEnvironmentProfileInput)(nil)).Elem(), PolicyGrantDetailDelegateCreateEnvironmentProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDetailDelegateCreateEnvironmentProfilePtrInput)(nil)).Elem(), PolicyGrantDetailDelegateCreateEnvironmentProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDetailOverrideDomainUnitOwnersInput)(nil)).Elem(), PolicyGrantDetailOverrideDomainUnitOwnersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDetailOverrideDomainUnitOwnersPtrInput)(nil)).Elem(), PolicyGrantDetailOverrideDomainUnitOwnersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDetailOverrideProjectOwnersInput)(nil)).Elem(), PolicyGrantDetailOverrideProjectOwnersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDetailOverrideProjectOwnersPtrInput)(nil)).Elem(), PolicyGrantDetailOverrideProjectOwnersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDetailUseAssetTypeInput)(nil)).Elem(), PolicyGrantDetailUseAssetTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantDetailUseAssetTypePtrInput)(nil)).Elem(), PolicyGrantDetailUseAssetTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantPrincipalInput)(nil)).Elem(), PolicyGrantPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantPrincipalPtrInput)(nil)).Elem(), PolicyGrantPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantPrincipalDomainUnitInput)(nil)).Elem(), PolicyGrantPrincipalDomainUnitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantPrincipalDomainUnitPtrInput)(nil)).Elem(), PolicyGrantPrincipalDomainUnitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterInput)(nil)).Elem(), PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrInput)(nil)).Elem(), PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantPrincipalGroupInput)(nil)).Elem(), PolicyGrantPrincipalGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantPrincipalGroupPtrInput)(nil)).Elem(), PolicyGrantPrincipalGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantPrincipalProjectInput)(nil)).Elem(), PolicyGrantPrincipalProjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantPrincipalProjectPtrInput)(nil)).Elem(), PolicyGrantPrincipalProjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantPrincipalProjectDomainUnitFilterInput)(nil)).Elem(), PolicyGrantPrincipalProjectDomainUnitFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantPrincipalProjectDomainUnitFilterPtrInput)(nil)).Elem(), PolicyGrantPrincipalProjectDomainUnitFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantPrincipalUserInput)(nil)).Elem(), PolicyGrantPrincipalUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantPrincipalUserPtrInput)(nil)).Elem(), PolicyGrantPrincipalUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantPrincipalUserAllUsersGrantFilterInput)(nil)).Elem(), PolicyGrantPrincipalUserAllUsersGrantFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantPrincipalUserAllUsersGrantFilterPtrInput)(nil)).Elem(), PolicyGrantPrincipalUserAllUsersGrantFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectFailureReasonInput)(nil)).Elem(), ProjectFailureReasonArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectFailureReasonArrayInput)(nil)).Elem(), ProjectFailureReasonArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTimeoutsInput)(nil)).Elem(), ProjectTimeoutsArgs{})
@@ -2757,6 +6312,52 @@ func init() {
 	pulumi.RegisterOutputType(GlossaryTermTermRelationsPtrOutput{})
 	pulumi.RegisterOutputType(GlossaryTermTimeoutsOutput{})
 	pulumi.RegisterOutputType(GlossaryTermTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(PolicyGrantDetailOutput{})
+	pulumi.RegisterOutputType(PolicyGrantDetailPtrOutput{})
+	pulumi.RegisterOutputType(PolicyGrantDetailAddToProjectMemberPoolOutput{})
+	pulumi.RegisterOutputType(PolicyGrantDetailAddToProjectMemberPoolPtrOutput{})
+	pulumi.RegisterOutputType(PolicyGrantDetailCreateAssetTypeOutput{})
+	pulumi.RegisterOutputType(PolicyGrantDetailCreateAssetTypePtrOutput{})
+	pulumi.RegisterOutputType(PolicyGrantDetailCreateDomainUnitOutput{})
+	pulumi.RegisterOutputType(PolicyGrantDetailCreateDomainUnitPtrOutput{})
+	pulumi.RegisterOutputType(PolicyGrantDetailCreateEnvironmentOutput{})
+	pulumi.RegisterOutputType(PolicyGrantDetailCreateEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(PolicyGrantDetailCreateEnvironmentFromBlueprintOutput{})
+	pulumi.RegisterOutputType(PolicyGrantDetailCreateEnvironmentFromBlueprintPtrOutput{})
+	pulumi.RegisterOutputType(PolicyGrantDetailCreateEnvironmentProfileOutput{})
+	pulumi.RegisterOutputType(PolicyGrantDetailCreateEnvironmentProfilePtrOutput{})
+	pulumi.RegisterOutputType(PolicyGrantDetailCreateFormTypeOutput{})
+	pulumi.RegisterOutputType(PolicyGrantDetailCreateFormTypePtrOutput{})
+	pulumi.RegisterOutputType(PolicyGrantDetailCreateGlossaryOutput{})
+	pulumi.RegisterOutputType(PolicyGrantDetailCreateGlossaryPtrOutput{})
+	pulumi.RegisterOutputType(PolicyGrantDetailCreateProjectOutput{})
+	pulumi.RegisterOutputType(PolicyGrantDetailCreateProjectPtrOutput{})
+	pulumi.RegisterOutputType(PolicyGrantDetailCreateProjectFromProjectProfileOutput{})
+	pulumi.RegisterOutputType(PolicyGrantDetailCreateProjectFromProjectProfilePtrOutput{})
+	pulumi.RegisterOutputType(PolicyGrantDetailDelegateCreateEnvironmentProfileOutput{})
+	pulumi.RegisterOutputType(PolicyGrantDetailDelegateCreateEnvironmentProfilePtrOutput{})
+	pulumi.RegisterOutputType(PolicyGrantDetailOverrideDomainUnitOwnersOutput{})
+	pulumi.RegisterOutputType(PolicyGrantDetailOverrideDomainUnitOwnersPtrOutput{})
+	pulumi.RegisterOutputType(PolicyGrantDetailOverrideProjectOwnersOutput{})
+	pulumi.RegisterOutputType(PolicyGrantDetailOverrideProjectOwnersPtrOutput{})
+	pulumi.RegisterOutputType(PolicyGrantDetailUseAssetTypeOutput{})
+	pulumi.RegisterOutputType(PolicyGrantDetailUseAssetTypePtrOutput{})
+	pulumi.RegisterOutputType(PolicyGrantPrincipalOutput{})
+	pulumi.RegisterOutputType(PolicyGrantPrincipalPtrOutput{})
+	pulumi.RegisterOutputType(PolicyGrantPrincipalDomainUnitOutput{})
+	pulumi.RegisterOutputType(PolicyGrantPrincipalDomainUnitPtrOutput{})
+	pulumi.RegisterOutputType(PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterOutput{})
+	pulumi.RegisterOutputType(PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilterPtrOutput{})
+	pulumi.RegisterOutputType(PolicyGrantPrincipalGroupOutput{})
+	pulumi.RegisterOutputType(PolicyGrantPrincipalGroupPtrOutput{})
+	pulumi.RegisterOutputType(PolicyGrantPrincipalProjectOutput{})
+	pulumi.RegisterOutputType(PolicyGrantPrincipalProjectPtrOutput{})
+	pulumi.RegisterOutputType(PolicyGrantPrincipalProjectDomainUnitFilterOutput{})
+	pulumi.RegisterOutputType(PolicyGrantPrincipalProjectDomainUnitFilterPtrOutput{})
+	pulumi.RegisterOutputType(PolicyGrantPrincipalUserOutput{})
+	pulumi.RegisterOutputType(PolicyGrantPrincipalUserPtrOutput{})
+	pulumi.RegisterOutputType(PolicyGrantPrincipalUserAllUsersGrantFilterOutput{})
+	pulumi.RegisterOutputType(PolicyGrantPrincipalUserAllUsersGrantFilterPtrOutput{})
 	pulumi.RegisterOutputType(ProjectFailureReasonOutput{})
 	pulumi.RegisterOutputType(ProjectFailureReasonArrayOutput{})
 	pulumi.RegisterOutputType(ProjectTimeoutsOutput{})

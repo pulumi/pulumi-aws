@@ -14,16 +14,24 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreGatewayTargetTargetConfigurationHttp
     {
         /// <summary>
-        /// AgentCore Runtime target configuration. See `AgentcoreRuntime` below.
+        /// AgentCore Runtime target configuration. See `AgentcoreRuntime` Block below.
+        /// </summary>
+        public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime? AgentcoreRuntime;
+        /// <summary>
+        /// Passthrough target configuration that forwards requests to an external HTTPS endpoint. See `Passthrough` Block below.
         /// 
         /// &gt; **Note:** HTTP targets can only be attached to gateways that do not have a `ProtocolType` set. They are not supported on MCP-protocol gateways.
         /// </summary>
-        public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime? AgentcoreRuntime;
+        public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationHttpPassthrough? Passthrough;
 
         [OutputConstructor]
-        private AgentcoreGatewayTargetTargetConfigurationHttp(Outputs.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime? agentcoreRuntime)
+        private AgentcoreGatewayTargetTargetConfigurationHttp(
+            Outputs.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime? agentcoreRuntime,
+
+            Outputs.AgentcoreGatewayTargetTargetConfigurationHttpPassthrough? passthrough)
         {
             AgentcoreRuntime = agentcoreRuntime;
+            Passthrough = passthrough;
         }
     }
 }

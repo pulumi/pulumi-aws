@@ -18,14 +18,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs ex
     public static final AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs Empty = new AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs();
 
     /**
-     * Configuration for API Gateway tools. See `apiGatewayToolConfiguration` below.
+     * Configuration for API Gateway tools. See `apiGatewayToolConfiguration` Block below.
      * 
      */
     @Import(name="apiGatewayToolConfiguration")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgs> apiGatewayToolConfiguration;
 
     /**
-     * @return Configuration for API Gateway tools. See `apiGatewayToolConfiguration` below.
+     * @return Configuration for API Gateway tools. See `apiGatewayToolConfiguration` Block below.
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgs>> apiGatewayToolConfiguration() {
@@ -89,7 +89,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs ex
         }
 
         /**
-         * @param apiGatewayToolConfiguration Configuration for API Gateway tools. See `apiGatewayToolConfiguration` below.
+         * @param apiGatewayToolConfiguration Configuration for API Gateway tools. See `apiGatewayToolConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs ex
         }
 
         /**
-         * @param apiGatewayToolConfiguration Configuration for API Gateway tools. See `apiGatewayToolConfiguration` below.
+         * @param apiGatewayToolConfiguration Configuration for API Gateway tools. See `apiGatewayToolConfiguration` Block below.
          * 
          * @return builder
          * 

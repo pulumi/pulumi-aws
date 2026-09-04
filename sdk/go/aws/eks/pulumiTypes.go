@@ -2871,9 +2871,11 @@ func (o ClusterKubeApiServerConfigServiceNodePortRangePtrOutput) MinPort() pulum
 
 type ClusterKubeControllerManagerConfig struct {
 	// Configuration block for the horizontal pod autoscaler controller. Detailed below.
+	HorizontalPodAutoscalerControllerConfig *ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig `pulumi:"horizontalPodAutoscalerControllerConfig"`
+	// Configuration block for the pod garbage collection controller. Detailed below.
 	//
 	// > **NOTE:** The `horizontalPodAutoscalerControllerConfig` requires a Provisioned Control Plane scaling tier (e.g., `tier-xl` or higher). It cannot be configured on clusters using the `standard` tier.
-	HorizontalPodAutoscalerControllerConfig *ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig `pulumi:"horizontalPodAutoscalerControllerConfig"`
+	PodGcControllerConfig *ClusterKubeControllerManagerConfigPodGcControllerConfig `pulumi:"podGcControllerConfig"`
 }
 
 // ClusterKubeControllerManagerConfigInput is an input type that accepts ClusterKubeControllerManagerConfigArgs and ClusterKubeControllerManagerConfigOutput values.
@@ -2889,9 +2891,11 @@ type ClusterKubeControllerManagerConfigInput interface {
 
 type ClusterKubeControllerManagerConfigArgs struct {
 	// Configuration block for the horizontal pod autoscaler controller. Detailed below.
+	HorizontalPodAutoscalerControllerConfig ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrInput `pulumi:"horizontalPodAutoscalerControllerConfig"`
+	// Configuration block for the pod garbage collection controller. Detailed below.
 	//
 	// > **NOTE:** The `horizontalPodAutoscalerControllerConfig` requires a Provisioned Control Plane scaling tier (e.g., `tier-xl` or higher). It cannot be configured on clusters using the `standard` tier.
-	HorizontalPodAutoscalerControllerConfig ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrInput `pulumi:"horizontalPodAutoscalerControllerConfig"`
+	PodGcControllerConfig ClusterKubeControllerManagerConfigPodGcControllerConfigPtrInput `pulumi:"podGcControllerConfig"`
 }
 
 func (ClusterKubeControllerManagerConfigArgs) ElementType() reflect.Type {
@@ -2972,12 +2976,19 @@ func (o ClusterKubeControllerManagerConfigOutput) ToClusterKubeControllerManager
 }
 
 // Configuration block for the horizontal pod autoscaler controller. Detailed below.
-//
-// > **NOTE:** The `horizontalPodAutoscalerControllerConfig` requires a Provisioned Control Plane scaling tier (e.g., `tier-xl` or higher). It cannot be configured on clusters using the `standard` tier.
 func (o ClusterKubeControllerManagerConfigOutput) HorizontalPodAutoscalerControllerConfig() ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput {
 	return o.ApplyT(func(v ClusterKubeControllerManagerConfig) *ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig {
 		return v.HorizontalPodAutoscalerControllerConfig
 	}).(ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput)
+}
+
+// Configuration block for the pod garbage collection controller. Detailed below.
+//
+// > **NOTE:** The `horizontalPodAutoscalerControllerConfig` requires a Provisioned Control Plane scaling tier (e.g., `tier-xl` or higher). It cannot be configured on clusters using the `standard` tier.
+func (o ClusterKubeControllerManagerConfigOutput) PodGcControllerConfig() ClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutput {
+	return o.ApplyT(func(v ClusterKubeControllerManagerConfig) *ClusterKubeControllerManagerConfigPodGcControllerConfig {
+		return v.PodGcControllerConfig
+	}).(ClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutput)
 }
 
 type ClusterKubeControllerManagerConfigPtrOutput struct{ *pulumi.OutputState }
@@ -3005,8 +3016,6 @@ func (o ClusterKubeControllerManagerConfigPtrOutput) Elem() ClusterKubeControlle
 }
 
 // Configuration block for the horizontal pod autoscaler controller. Detailed below.
-//
-// > **NOTE:** The `horizontalPodAutoscalerControllerConfig` requires a Provisioned Control Plane scaling tier (e.g., `tier-xl` or higher). It cannot be configured on clusters using the `standard` tier.
 func (o ClusterKubeControllerManagerConfigPtrOutput) HorizontalPodAutoscalerControllerConfig() ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput {
 	return o.ApplyT(func(v *ClusterKubeControllerManagerConfig) *ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig {
 		if v == nil {
@@ -3014,6 +3023,18 @@ func (o ClusterKubeControllerManagerConfigPtrOutput) HorizontalPodAutoscalerCont
 		}
 		return v.HorizontalPodAutoscalerControllerConfig
 	}).(ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput)
+}
+
+// Configuration block for the pod garbage collection controller. Detailed below.
+//
+// > **NOTE:** The `horizontalPodAutoscalerControllerConfig` requires a Provisioned Control Plane scaling tier (e.g., `tier-xl` or higher). It cannot be configured on clusters using the `standard` tier.
+func (o ClusterKubeControllerManagerConfigPtrOutput) PodGcControllerConfig() ClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutput {
+	return o.ApplyT(func(v *ClusterKubeControllerManagerConfig) *ClusterKubeControllerManagerConfigPodGcControllerConfig {
+		if v == nil {
+			return nil
+		}
+		return v.PodGcControllerConfig
+	}).(ClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutput)
 }
 
 type ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig struct {
@@ -3153,6 +3174,145 @@ func (o ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfi
 		}
 		return v.HorizontalPodAutoscalerSyncPeriod
 	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterKubeControllerManagerConfigPodGcControllerConfig struct {
+	// The number of terminated pods that can exist before the pod garbage collector starts deleting them. Valid range: `0` to `12500`. Refer to the `eks.getClusterVersions` data source for any version-specific constraints.
+	TerminatedPodGcThreshold *int `pulumi:"terminatedPodGcThreshold"`
+}
+
+// ClusterKubeControllerManagerConfigPodGcControllerConfigInput is an input type that accepts ClusterKubeControllerManagerConfigPodGcControllerConfigArgs and ClusterKubeControllerManagerConfigPodGcControllerConfigOutput values.
+// You can construct a concrete instance of `ClusterKubeControllerManagerConfigPodGcControllerConfigInput` via:
+//
+//	ClusterKubeControllerManagerConfigPodGcControllerConfigArgs{...}
+type ClusterKubeControllerManagerConfigPodGcControllerConfigInput interface {
+	pulumi.Input
+
+	ToClusterKubeControllerManagerConfigPodGcControllerConfigOutput() ClusterKubeControllerManagerConfigPodGcControllerConfigOutput
+	ToClusterKubeControllerManagerConfigPodGcControllerConfigOutputWithContext(context.Context) ClusterKubeControllerManagerConfigPodGcControllerConfigOutput
+}
+
+type ClusterKubeControllerManagerConfigPodGcControllerConfigArgs struct {
+	// The number of terminated pods that can exist before the pod garbage collector starts deleting them. Valid range: `0` to `12500`. Refer to the `eks.getClusterVersions` data source for any version-specific constraints.
+	TerminatedPodGcThreshold pulumi.IntPtrInput `pulumi:"terminatedPodGcThreshold"`
+}
+
+func (ClusterKubeControllerManagerConfigPodGcControllerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubeControllerManagerConfigPodGcControllerConfig)(nil)).Elem()
+}
+
+func (i ClusterKubeControllerManagerConfigPodGcControllerConfigArgs) ToClusterKubeControllerManagerConfigPodGcControllerConfigOutput() ClusterKubeControllerManagerConfigPodGcControllerConfigOutput {
+	return i.ToClusterKubeControllerManagerConfigPodGcControllerConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterKubeControllerManagerConfigPodGcControllerConfigArgs) ToClusterKubeControllerManagerConfigPodGcControllerConfigOutputWithContext(ctx context.Context) ClusterKubeControllerManagerConfigPodGcControllerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeControllerManagerConfigPodGcControllerConfigOutput)
+}
+
+func (i ClusterKubeControllerManagerConfigPodGcControllerConfigArgs) ToClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutput() ClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutput {
+	return i.ToClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterKubeControllerManagerConfigPodGcControllerConfigArgs) ToClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeControllerManagerConfigPodGcControllerConfigOutput).ToClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterKubeControllerManagerConfigPodGcControllerConfigPtrInput is an input type that accepts ClusterKubeControllerManagerConfigPodGcControllerConfigArgs, ClusterKubeControllerManagerConfigPodGcControllerConfigPtr and ClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterKubeControllerManagerConfigPodGcControllerConfigPtrInput` via:
+//
+//	        ClusterKubeControllerManagerConfigPodGcControllerConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterKubeControllerManagerConfigPodGcControllerConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutput() ClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutput
+	ToClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutputWithContext(context.Context) ClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutput
+}
+
+type clusterKubeControllerManagerConfigPodGcControllerConfigPtrType ClusterKubeControllerManagerConfigPodGcControllerConfigArgs
+
+func ClusterKubeControllerManagerConfigPodGcControllerConfigPtr(v *ClusterKubeControllerManagerConfigPodGcControllerConfigArgs) ClusterKubeControllerManagerConfigPodGcControllerConfigPtrInput {
+	return (*clusterKubeControllerManagerConfigPodGcControllerConfigPtrType)(v)
+}
+
+func (*clusterKubeControllerManagerConfigPodGcControllerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubeControllerManagerConfigPodGcControllerConfig)(nil)).Elem()
+}
+
+func (i *clusterKubeControllerManagerConfigPodGcControllerConfigPtrType) ToClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutput() ClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutput {
+	return i.ToClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterKubeControllerManagerConfigPodGcControllerConfigPtrType) ToClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutput)
+}
+
+type ClusterKubeControllerManagerConfigPodGcControllerConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubeControllerManagerConfigPodGcControllerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubeControllerManagerConfigPodGcControllerConfig)(nil)).Elem()
+}
+
+func (o ClusterKubeControllerManagerConfigPodGcControllerConfigOutput) ToClusterKubeControllerManagerConfigPodGcControllerConfigOutput() ClusterKubeControllerManagerConfigPodGcControllerConfigOutput {
+	return o
+}
+
+func (o ClusterKubeControllerManagerConfigPodGcControllerConfigOutput) ToClusterKubeControllerManagerConfigPodGcControllerConfigOutputWithContext(ctx context.Context) ClusterKubeControllerManagerConfigPodGcControllerConfigOutput {
+	return o
+}
+
+func (o ClusterKubeControllerManagerConfigPodGcControllerConfigOutput) ToClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutput() ClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutput {
+	return o.ToClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterKubeControllerManagerConfigPodGcControllerConfigOutput) ToClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterKubeControllerManagerConfigPodGcControllerConfig) *ClusterKubeControllerManagerConfigPodGcControllerConfig {
+		return &v
+	}).(ClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutput)
+}
+
+// The number of terminated pods that can exist before the pod garbage collector starts deleting them. Valid range: `0` to `12500`. Refer to the `eks.getClusterVersions` data source for any version-specific constraints.
+func (o ClusterKubeControllerManagerConfigPodGcControllerConfigOutput) TerminatedPodGcThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterKubeControllerManagerConfigPodGcControllerConfig) *int {
+		return v.TerminatedPodGcThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+type ClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubeControllerManagerConfigPodGcControllerConfig)(nil)).Elem()
+}
+
+func (o ClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutput) ToClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutput() ClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutput {
+	return o
+}
+
+func (o ClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutput) ToClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutput {
+	return o
+}
+
+func (o ClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutput) Elem() ClusterKubeControllerManagerConfigPodGcControllerConfigOutput {
+	return o.ApplyT(func(v *ClusterKubeControllerManagerConfigPodGcControllerConfig) ClusterKubeControllerManagerConfigPodGcControllerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterKubeControllerManagerConfigPodGcControllerConfig
+		return ret
+	}).(ClusterKubeControllerManagerConfigPodGcControllerConfigOutput)
+}
+
+// The number of terminated pods that can exist before the pod garbage collector starts deleting them. Valid range: `0` to `12500`. Refer to the `eks.getClusterVersions` data source for any version-specific constraints.
+func (o ClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutput) TerminatedPodGcThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterKubeControllerManagerConfigPodGcControllerConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TerminatedPodGcThreshold
+	}).(pulumi.IntPtrOutput)
 }
 
 type ClusterKubeSchedulerConfig struct {
@@ -8825,6 +8985,8 @@ func (o GetClusterKubeApiServerConfigServiceNodePortRangeArrayOutput) Index(i pu
 type GetClusterKubeControllerManagerConfig struct {
 	// Configuration for the horizontal pod autoscaler controller.
 	HorizontalPodAutoscalerControllerConfigs []GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig `pulumi:"horizontalPodAutoscalerControllerConfigs"`
+	// Configuration for the pod garbage collection controller.
+	PodGcControllerConfigs []GetClusterKubeControllerManagerConfigPodGcControllerConfig `pulumi:"podGcControllerConfigs"`
 }
 
 // GetClusterKubeControllerManagerConfigInput is an input type that accepts GetClusterKubeControllerManagerConfigArgs and GetClusterKubeControllerManagerConfigOutput values.
@@ -8841,6 +9003,8 @@ type GetClusterKubeControllerManagerConfigInput interface {
 type GetClusterKubeControllerManagerConfigArgs struct {
 	// Configuration for the horizontal pod autoscaler controller.
 	HorizontalPodAutoscalerControllerConfigs GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayInput `pulumi:"horizontalPodAutoscalerControllerConfigs"`
+	// Configuration for the pod garbage collection controller.
+	PodGcControllerConfigs GetClusterKubeControllerManagerConfigPodGcControllerConfigArrayInput `pulumi:"podGcControllerConfigs"`
 }
 
 func (GetClusterKubeControllerManagerConfigArgs) ElementType() reflect.Type {
@@ -8899,6 +9063,13 @@ func (o GetClusterKubeControllerManagerConfigOutput) HorizontalPodAutoscalerCont
 	return o.ApplyT(func(v GetClusterKubeControllerManagerConfig) []GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig {
 		return v.HorizontalPodAutoscalerControllerConfigs
 	}).(GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput)
+}
+
+// Configuration for the pod garbage collection controller.
+func (o GetClusterKubeControllerManagerConfigOutput) PodGcControllerConfigs() GetClusterKubeControllerManagerConfigPodGcControllerConfigArrayOutput {
+	return o.ApplyT(func(v GetClusterKubeControllerManagerConfig) []GetClusterKubeControllerManagerConfigPodGcControllerConfig {
+		return v.PodGcControllerConfigs
+	}).(GetClusterKubeControllerManagerConfigPodGcControllerConfigArrayOutput)
 }
 
 type GetClusterKubeControllerManagerConfigArrayOutput struct{ *pulumi.OutputState }
@@ -9018,6 +9189,105 @@ func (o GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerCo
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig {
 		return vs[0].([]GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig)[vs[1].(int)]
 	}).(GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput)
+}
+
+type GetClusterKubeControllerManagerConfigPodGcControllerConfig struct {
+	// The number of terminated pods that can exist before the pod garbage collector starts deleting them.
+	TerminatedPodGcThreshold int `pulumi:"terminatedPodGcThreshold"`
+}
+
+// GetClusterKubeControllerManagerConfigPodGcControllerConfigInput is an input type that accepts GetClusterKubeControllerManagerConfigPodGcControllerConfigArgs and GetClusterKubeControllerManagerConfigPodGcControllerConfigOutput values.
+// You can construct a concrete instance of `GetClusterKubeControllerManagerConfigPodGcControllerConfigInput` via:
+//
+//	GetClusterKubeControllerManagerConfigPodGcControllerConfigArgs{...}
+type GetClusterKubeControllerManagerConfigPodGcControllerConfigInput interface {
+	pulumi.Input
+
+	ToGetClusterKubeControllerManagerConfigPodGcControllerConfigOutput() GetClusterKubeControllerManagerConfigPodGcControllerConfigOutput
+	ToGetClusterKubeControllerManagerConfigPodGcControllerConfigOutputWithContext(context.Context) GetClusterKubeControllerManagerConfigPodGcControllerConfigOutput
+}
+
+type GetClusterKubeControllerManagerConfigPodGcControllerConfigArgs struct {
+	// The number of terminated pods that can exist before the pod garbage collector starts deleting them.
+	TerminatedPodGcThreshold pulumi.IntInput `pulumi:"terminatedPodGcThreshold"`
+}
+
+func (GetClusterKubeControllerManagerConfigPodGcControllerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterKubeControllerManagerConfigPodGcControllerConfig)(nil)).Elem()
+}
+
+func (i GetClusterKubeControllerManagerConfigPodGcControllerConfigArgs) ToGetClusterKubeControllerManagerConfigPodGcControllerConfigOutput() GetClusterKubeControllerManagerConfigPodGcControllerConfigOutput {
+	return i.ToGetClusterKubeControllerManagerConfigPodGcControllerConfigOutputWithContext(context.Background())
+}
+
+func (i GetClusterKubeControllerManagerConfigPodGcControllerConfigArgs) ToGetClusterKubeControllerManagerConfigPodGcControllerConfigOutputWithContext(ctx context.Context) GetClusterKubeControllerManagerConfigPodGcControllerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterKubeControllerManagerConfigPodGcControllerConfigOutput)
+}
+
+// GetClusterKubeControllerManagerConfigPodGcControllerConfigArrayInput is an input type that accepts GetClusterKubeControllerManagerConfigPodGcControllerConfigArray and GetClusterKubeControllerManagerConfigPodGcControllerConfigArrayOutput values.
+// You can construct a concrete instance of `GetClusterKubeControllerManagerConfigPodGcControllerConfigArrayInput` via:
+//
+//	GetClusterKubeControllerManagerConfigPodGcControllerConfigArray{ GetClusterKubeControllerManagerConfigPodGcControllerConfigArgs{...} }
+type GetClusterKubeControllerManagerConfigPodGcControllerConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterKubeControllerManagerConfigPodGcControllerConfigArrayOutput() GetClusterKubeControllerManagerConfigPodGcControllerConfigArrayOutput
+	ToGetClusterKubeControllerManagerConfigPodGcControllerConfigArrayOutputWithContext(context.Context) GetClusterKubeControllerManagerConfigPodGcControllerConfigArrayOutput
+}
+
+type GetClusterKubeControllerManagerConfigPodGcControllerConfigArray []GetClusterKubeControllerManagerConfigPodGcControllerConfigInput
+
+func (GetClusterKubeControllerManagerConfigPodGcControllerConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterKubeControllerManagerConfigPodGcControllerConfig)(nil)).Elem()
+}
+
+func (i GetClusterKubeControllerManagerConfigPodGcControllerConfigArray) ToGetClusterKubeControllerManagerConfigPodGcControllerConfigArrayOutput() GetClusterKubeControllerManagerConfigPodGcControllerConfigArrayOutput {
+	return i.ToGetClusterKubeControllerManagerConfigPodGcControllerConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterKubeControllerManagerConfigPodGcControllerConfigArray) ToGetClusterKubeControllerManagerConfigPodGcControllerConfigArrayOutputWithContext(ctx context.Context) GetClusterKubeControllerManagerConfigPodGcControllerConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterKubeControllerManagerConfigPodGcControllerConfigArrayOutput)
+}
+
+type GetClusterKubeControllerManagerConfigPodGcControllerConfigOutput struct{ *pulumi.OutputState }
+
+func (GetClusterKubeControllerManagerConfigPodGcControllerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterKubeControllerManagerConfigPodGcControllerConfig)(nil)).Elem()
+}
+
+func (o GetClusterKubeControllerManagerConfigPodGcControllerConfigOutput) ToGetClusterKubeControllerManagerConfigPodGcControllerConfigOutput() GetClusterKubeControllerManagerConfigPodGcControllerConfigOutput {
+	return o
+}
+
+func (o GetClusterKubeControllerManagerConfigPodGcControllerConfigOutput) ToGetClusterKubeControllerManagerConfigPodGcControllerConfigOutputWithContext(ctx context.Context) GetClusterKubeControllerManagerConfigPodGcControllerConfigOutput {
+	return o
+}
+
+// The number of terminated pods that can exist before the pod garbage collector starts deleting them.
+func (o GetClusterKubeControllerManagerConfigPodGcControllerConfigOutput) TerminatedPodGcThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterKubeControllerManagerConfigPodGcControllerConfig) int {
+		return v.TerminatedPodGcThreshold
+	}).(pulumi.IntOutput)
+}
+
+type GetClusterKubeControllerManagerConfigPodGcControllerConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterKubeControllerManagerConfigPodGcControllerConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterKubeControllerManagerConfigPodGcControllerConfig)(nil)).Elem()
+}
+
+func (o GetClusterKubeControllerManagerConfigPodGcControllerConfigArrayOutput) ToGetClusterKubeControllerManagerConfigPodGcControllerConfigArrayOutput() GetClusterKubeControllerManagerConfigPodGcControllerConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterKubeControllerManagerConfigPodGcControllerConfigArrayOutput) ToGetClusterKubeControllerManagerConfigPodGcControllerConfigArrayOutputWithContext(ctx context.Context) GetClusterKubeControllerManagerConfigPodGcControllerConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterKubeControllerManagerConfigPodGcControllerConfigArrayOutput) Index(i pulumi.IntInput) GetClusterKubeControllerManagerConfigPodGcControllerConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterKubeControllerManagerConfigPodGcControllerConfig {
+		return vs[0].([]GetClusterKubeControllerManagerConfigPodGcControllerConfig)[vs[1].(int)]
+	}).(GetClusterKubeControllerManagerConfigPodGcControllerConfigOutput)
 }
 
 type GetClusterKubeSchedulerConfig struct {
@@ -11789,6 +12059,8 @@ func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeApiServer
 type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfig struct {
 	// HPA controller configuration defaults and constraints.
 	HorizontalPodAutoscalerControllerConfigs []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig `pulumi:"horizontalPodAutoscalerControllerConfigs"`
+	// Pod garbage collection controller configuration defaults and constraints.
+	PodGcControllerConfigs []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfig `pulumi:"podGcControllerConfigs"`
 }
 
 // GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArgs and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigOutput values.
@@ -11805,6 +12077,8 @@ type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerMa
 type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArgs struct {
 	// HPA controller configuration defaults and constraints.
 	HorizontalPodAutoscalerControllerConfigs GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayInput `pulumi:"horizontalPodAutoscalerControllerConfigs"`
+	// Pod garbage collection controller configuration defaults and constraints.
+	PodGcControllerConfigs GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArrayInput `pulumi:"podGcControllerConfigs"`
 }
 
 func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArgs) ElementType() reflect.Type {
@@ -11863,6 +12137,13 @@ func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControlle
 	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfig) []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig {
 		return v.HorizontalPodAutoscalerControllerConfigs
 	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput)
+}
+
+// Pod garbage collection controller configuration defaults and constraints.
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigOutput) PodGcControllerConfigs() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfig) []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfig {
+		return v.PodGcControllerConfigs
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArrayOutput)
 }
 
 type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigArrayOutput struct{ *pulumi.OutputState }
@@ -12202,6 +12483,325 @@ func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControlle
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraint {
 		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraint)[vs[1].(int)]
 	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfig struct {
+	// Terminated pod GC threshold configuration with default value and constraints.
+	TerminatedPodGcThresholds []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThreshold `pulumi:"terminatedPodGcThresholds"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArgs and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArgs struct {
+	// Terminated pod GC threshold configuration with default value and constraints.
+	TerminatedPodGcThresholds GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayInput `pulumi:"terminatedPodGcThresholds"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfig)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArray and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArray{ GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArray []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigInput
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfig)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfig)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigOutput {
+	return o
+}
+
+// Terminated pod GC threshold configuration with default value and constraints.
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigOutput) TerminatedPodGcThresholds() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfig) []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThreshold {
+		return v.TerminatedPodGcThresholds
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfig)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfig {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfig)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThreshold struct {
+	// Scoring strategy constraints.
+	Constraints []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraint `pulumi:"constraints"`
+	// Default scoring strategy (`type`, `resources`).
+	DefaultValue int `pulumi:"defaultValue"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArgs and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArgs struct {
+	// Scoring strategy constraints.
+	Constraints GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayInput `pulumi:"constraints"`
+	// Default scoring strategy (`type`, `resources`).
+	DefaultValue pulumi.IntInput `pulumi:"defaultValue"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThreshold)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArray and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArray{ GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArray []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdInput
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThreshold)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThreshold)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput {
+	return o
+}
+
+// Scoring strategy constraints.
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput) Constraints() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThreshold) []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraint {
+		return v.Constraints
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput)
+}
+
+// Default scoring strategy (`type`, `resources`).
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput) DefaultValue() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThreshold) int {
+		return v.DefaultValue
+	}).(pulumi.IntOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThreshold)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThreshold {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThreshold)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraint struct {
+	// The maximum allowed duration.
+	Max int `pulumi:"max"`
+	// The minimum allowed duration.
+	Min int `pulumi:"min"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArgs and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArgs struct {
+	// The maximum allowed duration.
+	Max pulumi.IntInput `pulumi:"max"`
+	// The minimum allowed duration.
+	Min pulumi.IntInput `pulumi:"min"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraint)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArgs) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArray and GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArray{ GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArray []GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintInput
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraint)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArray) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraint)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput {
+	return o
+}
+
+// The maximum allowed duration.
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput) Max() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraint) int {
+		return v.Max
+	}).(pulumi.IntOutput)
+}
+
+// The minimum allowed duration.
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput) Min() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraint) int {
+		return v.Min
+	}).(pulumi.IntOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraint)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput() GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraint {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraint)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput)
 }
 
 type GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfig struct {
@@ -14380,6 +14980,8 @@ func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneCompo
 type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfig struct {
 	// HPA controller configuration defaults and constraints.
 	HorizontalPodAutoscalerControllerConfigs []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig `pulumi:"horizontalPodAutoscalerControllerConfigs"`
+	// Pod garbage collection controller configuration defaults and constraints.
+	PodGcControllerConfigs []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfig `pulumi:"podGcControllerConfigs"`
 }
 
 // GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArgs and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigOutput values.
@@ -14396,6 +14998,8 @@ type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponen
 type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArgs struct {
 	// HPA controller configuration defaults and constraints.
 	HorizontalPodAutoscalerControllerConfigs GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayInput `pulumi:"horizontalPodAutoscalerControllerConfigs"`
+	// Pod garbage collection controller configuration defaults and constraints.
+	PodGcControllerConfigs GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArrayInput `pulumi:"podGcControllerConfigs"`
 }
 
 func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArgs) ElementType() reflect.Type {
@@ -14454,6 +15058,13 @@ func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneCompo
 	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfig) []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig {
 		return v.HorizontalPodAutoscalerControllerConfigs
 	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput)
+}
+
+// Pod garbage collection controller configuration defaults and constraints.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigOutput) PodGcControllerConfigs() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfig) []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfig {
+		return v.PodGcControllerConfigs
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArrayOutput)
 }
 
 type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigArrayOutput struct{ *pulumi.OutputState }
@@ -14793,6 +15404,325 @@ func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneCompo
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraint {
 		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraint)[vs[1].(int)]
 	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfig struct {
+	// Terminated pod GC threshold configuration with default value and constraints.
+	TerminatedPodGcThresholds []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThreshold `pulumi:"terminatedPodGcThresholds"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArgs and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArgs struct {
+	// Terminated pod GC threshold configuration with default value and constraints.
+	TerminatedPodGcThresholds GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayInput `pulumi:"terminatedPodGcThresholds"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfig)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArray and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArray{ GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArray []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigInput
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfig)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfig)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigOutput {
+	return o
+}
+
+// Terminated pod GC threshold configuration with default value and constraints.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigOutput) TerminatedPodGcThresholds() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfig) []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThreshold {
+		return v.TerminatedPodGcThresholds
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfig)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfig {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfig)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThreshold struct {
+	// Scoring strategy constraints.
+	Constraints []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraint `pulumi:"constraints"`
+	// Default scoring strategy (`type`, `resources`).
+	DefaultValue int `pulumi:"defaultValue"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArgs and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArgs struct {
+	// Scoring strategy constraints.
+	Constraints GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayInput `pulumi:"constraints"`
+	// Default scoring strategy (`type`, `resources`).
+	DefaultValue pulumi.IntInput `pulumi:"defaultValue"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThreshold)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArray and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArray{ GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArray []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdInput
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThreshold)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThreshold)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput {
+	return o
+}
+
+// Scoring strategy constraints.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput) Constraints() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThreshold) []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraint {
+		return v.Constraints
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput)
+}
+
+// Default scoring strategy (`type`, `resources`).
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput) DefaultValue() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThreshold) int {
+		return v.DefaultValue
+	}).(pulumi.IntOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThreshold)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThreshold {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThreshold)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraint struct {
+	// The maximum allowed duration.
+	Max int `pulumi:"max"`
+	// The minimum allowed duration.
+	Min int `pulumi:"min"`
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArgs and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArgs{...}
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArgs struct {
+	// The maximum allowed duration.
+	Max pulumi.IntInput `pulumi:"max"`
+	// The minimum allowed duration.
+	Min pulumi.IntInput `pulumi:"min"`
+}
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraint)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArgs) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput)
+}
+
+// GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayInput is an input type that accepts GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArray and GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput values.
+// You can construct a concrete instance of `GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayInput` via:
+//
+//	GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArray{ GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArgs{...} }
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput
+	ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutputWithContext(context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArray []GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintInput
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraint)(nil)).Elem()
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput {
+	return i.ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArray) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraint)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput {
+	return o
+}
+
+// The maximum allowed duration.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput) Max() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraint) int {
+		return v.Max
+	}).(pulumi.IntOutput)
+}
+
+// The minimum allowed duration.
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput) Min() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraint) int {
+		return v.Min
+	}).(pulumi.IntOutput)
+}
+
+type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraint)(nil)).Elem()
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput() GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput) ToGetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutputWithContext(ctx context.Context) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput {
+	return o
+}
+
+func (o GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput) Index(i pulumi.IntInput) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraint {
+		return vs[0].([]GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraint)[vs[1].(int)]
+	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput)
 }
 
 type GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfig struct {
@@ -16971,6 +17901,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubeControllerManagerConfigPtrInput)(nil)).Elem(), ClusterKubeControllerManagerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigInput)(nil)).Elem(), ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrInput)(nil)).Elem(), ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubeControllerManagerConfigPodGcControllerConfigInput)(nil)).Elem(), ClusterKubeControllerManagerConfigPodGcControllerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubeControllerManagerConfigPodGcControllerConfigPtrInput)(nil)).Elem(), ClusterKubeControllerManagerConfigPodGcControllerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubeSchedulerConfigInput)(nil)).Elem(), ClusterKubeSchedulerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubeSchedulerConfigPtrInput)(nil)).Elem(), ClusterKubeSchedulerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubeSchedulerConfigNodeResourcesFitInput)(nil)).Elem(), ClusterKubeSchedulerConfigNodeResourcesFitArgs{})
@@ -17053,6 +17985,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubeControllerManagerConfigArrayInput)(nil)).Elem(), GetClusterKubeControllerManagerConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigInput)(nil)).Elem(), GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayInput)(nil)).Elem(), GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubeControllerManagerConfigPodGcControllerConfigInput)(nil)).Elem(), GetClusterKubeControllerManagerConfigPodGcControllerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubeControllerManagerConfigPodGcControllerConfigArrayInput)(nil)).Elem(), GetClusterKubeControllerManagerConfigPodGcControllerConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubeSchedulerConfigInput)(nil)).Elem(), GetClusterKubeSchedulerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubeSchedulerConfigArrayInput)(nil)).Elem(), GetClusterKubeSchedulerConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubeSchedulerConfigNodeResourcesFitInput)(nil)).Elem(), GetClusterKubeSchedulerConfigNodeResourcesFitArgs{})
@@ -17111,6 +18045,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitArgs{})
@@ -17159,6 +18099,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArrayInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitInput)(nil)).Elem(), GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitArgs{})
@@ -17242,6 +18188,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterKubeControllerManagerConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput{})
 	pulumi.RegisterOutputType(ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterKubeControllerManagerConfigPodGcControllerConfigOutput{})
+	pulumi.RegisterOutputType(ClusterKubeControllerManagerConfigPodGcControllerConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterKubeSchedulerConfigOutput{})
 	pulumi.RegisterOutputType(ClusterKubeSchedulerConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterKubeSchedulerConfigNodeResourcesFitOutput{})
@@ -17324,6 +18272,8 @@ func init() {
 	pulumi.RegisterOutputType(GetClusterKubeControllerManagerConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigOutput{})
 	pulumi.RegisterOutputType(GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterKubeControllerManagerConfigPodGcControllerConfigOutput{})
+	pulumi.RegisterOutputType(GetClusterKubeControllerManagerConfigPodGcControllerConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterKubeSchedulerConfigOutput{})
 	pulumi.RegisterOutputType(GetClusterKubeSchedulerConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterKubeSchedulerConfigNodeResourcesFitOutput{})
@@ -17382,6 +18332,12 @@ func init() {
 	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput{})
 	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigOutput{})
 	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfigNodeResourcesFitOutput{})
@@ -17430,6 +18386,12 @@ func init() {
 	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintOutput{})
 	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigHorizontalPodAutoscalerSyncPeriodConstraintArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintOutput{})
+	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraintArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigOutput{})
 	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfigNodeResourcesFitOutput{})

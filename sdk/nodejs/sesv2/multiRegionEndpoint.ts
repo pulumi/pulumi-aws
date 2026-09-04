@@ -79,7 +79,7 @@ export class MultiRegionEndpoint extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * List of active routes. See `routes` below.
+     * List of active routes. See `routes` Block below.
      */
     declare public /*out*/ readonly routes: pulumi.Output<outputs.sesv2.MultiRegionEndpointRoute[]>;
     /**
@@ -161,7 +161,7 @@ export interface MultiRegionEndpointState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * List of active routes. See `routes` below.
+     * List of active routes. See `routes` Block below.
      */
     routes?: pulumi.Input<pulumi.Input<inputs.sesv2.MultiRegionEndpointRoute>[] | undefined>;
     /**

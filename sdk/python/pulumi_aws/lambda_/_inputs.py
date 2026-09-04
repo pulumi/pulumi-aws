@@ -120,6 +120,16 @@ __all__ = [
     'MicrovmsImageCpuConfigurationArgsDict',
     'MicrovmsImageTimeoutsArgs',
     'MicrovmsImageTimeoutsArgsDict',
+    'MicrovmsMicrovmIdlePolicyArgs',
+    'MicrovmsMicrovmIdlePolicyArgsDict',
+    'MicrovmsMicrovmLoggingArgs',
+    'MicrovmsMicrovmLoggingArgsDict',
+    'MicrovmsMicrovmLoggingCloudwatchArgs',
+    'MicrovmsMicrovmLoggingCloudwatchArgsDict',
+    'MicrovmsMicrovmLoggingDisabledArgs',
+    'MicrovmsMicrovmLoggingDisabledArgsDict',
+    'MicrovmsMicrovmTimeoutsArgs',
+    'MicrovmsMicrovmTimeoutsArgsDict',
 ]
 
 class AliasRoutingConfigArgsDict(TypedDict):
@@ -2598,5 +2608,227 @@ class MicrovmsImageTimeoutsArgs:
     @update.setter
     def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
+
+
+class MicrovmsMicrovmIdlePolicyArgsDict(TypedDict):
+    auto_resume_enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether to automatically resume the MicroVM when it receives a request while suspended.
+    """
+    max_idle_duration_seconds: pulumi.Input[_builtins.int]
+    """
+    Number of seconds without traffic after which the MicroVM is suspended.
+    """
+    suspended_duration_seconds: pulumi.Input[_builtins.int]
+    """
+    Number of seconds a MicroVM remains suspended before it is automatically terminated.
+    """
+
+@pulumi.input_type
+class MicrovmsMicrovmIdlePolicyArgs:
+    def __init__(__self__, *,
+                 auto_resume_enabled: pulumi.Input[_builtins.bool],
+                 max_idle_duration_seconds: pulumi.Input[_builtins.int],
+                 suspended_duration_seconds: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.bool] auto_resume_enabled: Whether to automatically resume the MicroVM when it receives a request while suspended.
+        :param pulumi.Input[_builtins.int] max_idle_duration_seconds: Number of seconds without traffic after which the MicroVM is suspended.
+        :param pulumi.Input[_builtins.int] suspended_duration_seconds: Number of seconds a MicroVM remains suspended before it is automatically terminated.
+        """
+        pulumi.set(__self__, "auto_resume_enabled", auto_resume_enabled)
+        pulumi.set(__self__, "max_idle_duration_seconds", max_idle_duration_seconds)
+        pulumi.set(__self__, "suspended_duration_seconds", suspended_duration_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="autoResumeEnabled")
+    def auto_resume_enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether to automatically resume the MicroVM when it receives a request while suspended.
+        """
+        return pulumi.get(self, "auto_resume_enabled")
+
+    @auto_resume_enabled.setter
+    def auto_resume_enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "auto_resume_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxIdleDurationSeconds")
+    def max_idle_duration_seconds(self) -> pulumi.Input[_builtins.int]:
+        """
+        Number of seconds without traffic after which the MicroVM is suspended.
+        """
+        return pulumi.get(self, "max_idle_duration_seconds")
+
+    @max_idle_duration_seconds.setter
+    def max_idle_duration_seconds(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "max_idle_duration_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="suspendedDurationSeconds")
+    def suspended_duration_seconds(self) -> pulumi.Input[_builtins.int]:
+        """
+        Number of seconds a MicroVM remains suspended before it is automatically terminated.
+        """
+        return pulumi.get(self, "suspended_duration_seconds")
+
+    @suspended_duration_seconds.setter
+    def suspended_duration_seconds(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "suspended_duration_seconds", value)
+
+
+class MicrovmsMicrovmLoggingArgsDict(TypedDict):
+    cloudwatch: NotRequired[pulumi.Input[Optional['MicrovmsMicrovmLoggingCloudwatchArgsDict']]]
+    """
+    Send logs to Amazon CloudWatch Logs. See below.
+    """
+    disabled: NotRequired[pulumi.Input[Optional['MicrovmsMicrovmLoggingDisabledArgsDict']]]
+    """
+    Disable logging for the MicroVM. Specify an empty block: `disabled {}`.
+    """
+
+@pulumi.input_type
+class MicrovmsMicrovmLoggingArgs:
+    def __init__(__self__, *,
+                 cloudwatch: pulumi.Input[Optional['MicrovmsMicrovmLoggingCloudwatchArgs']] = None,
+                 disabled: pulumi.Input[Optional['MicrovmsMicrovmLoggingDisabledArgs']] = None):
+        """
+        :param pulumi.Input['MicrovmsMicrovmLoggingCloudwatchArgs'] cloudwatch: Send logs to Amazon CloudWatch Logs. See below.
+        :param pulumi.Input['MicrovmsMicrovmLoggingDisabledArgs'] disabled: Disable logging for the MicroVM. Specify an empty block: `disabled {}`.
+        """
+        if cloudwatch is not None:
+            pulumi.set(__self__, "cloudwatch", cloudwatch)
+        if disabled is not None:
+            pulumi.set(__self__, "disabled", disabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def cloudwatch(self) -> pulumi.Input[Optional['MicrovmsMicrovmLoggingCloudwatchArgs']]:
+        """
+        Send logs to Amazon CloudWatch Logs. See below.
+        """
+        return pulumi.get(self, "cloudwatch")
+
+    @cloudwatch.setter
+    def cloudwatch(self, value: pulumi.Input[Optional['MicrovmsMicrovmLoggingCloudwatchArgs']]):
+        pulumi.set(self, "cloudwatch", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def disabled(self) -> pulumi.Input[Optional['MicrovmsMicrovmLoggingDisabledArgs']]:
+        """
+        Disable logging for the MicroVM. Specify an empty block: `disabled {}`.
+        """
+        return pulumi.get(self, "disabled")
+
+    @disabled.setter
+    def disabled(self, value: pulumi.Input[Optional['MicrovmsMicrovmLoggingDisabledArgs']]):
+        pulumi.set(self, "disabled", value)
+
+
+class MicrovmsMicrovmLoggingCloudwatchArgsDict(TypedDict):
+    log_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the CloudWatch Logs log group to send logs to.
+    """
+    log_stream: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the CloudWatch Logs log stream within the log group.
+    """
+
+@pulumi.input_type
+class MicrovmsMicrovmLoggingCloudwatchArgs:
+    def __init__(__self__, *,
+                 log_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_stream: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] log_group: Name of the CloudWatch Logs log group to send logs to.
+        :param pulumi.Input[_builtins.str] log_stream: Name of the CloudWatch Logs log stream within the log group.
+        """
+        if log_group is not None:
+            pulumi.set(__self__, "log_group", log_group)
+        if log_stream is not None:
+            pulumi.set(__self__, "log_stream", log_stream)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the CloudWatch Logs log group to send logs to.
+        """
+        return pulumi.get(self, "log_group")
+
+    @log_group.setter
+    def log_group(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "log_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logStream")
+    def log_stream(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the CloudWatch Logs log stream within the log group.
+        """
+        return pulumi.get(self, "log_stream")
+
+    @log_stream.setter
+    def log_stream(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "log_stream", value)
+
+
+class MicrovmsMicrovmLoggingDisabledArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class MicrovmsMicrovmLoggingDisabledArgs:
+    def __init__(__self__):
+        pass
+
+
+class MicrovmsMicrovmTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+
+@pulumi.input_type
+class MicrovmsMicrovmTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "delete", value)
 
 

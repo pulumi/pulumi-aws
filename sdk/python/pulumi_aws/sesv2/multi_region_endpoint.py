@@ -128,7 +128,7 @@ class _MultiRegionEndpointState:
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['MultiRegionEndpointRouteArgs']]] routes: List of active routes. See `routes` below.
+        :param pulumi.Input[Sequence[pulumi.Input['MultiRegionEndpointRouteArgs']]] routes: List of active routes. See `routes` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -217,7 +217,7 @@ class _MultiRegionEndpointState:
     @pulumi.getter
     def routes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MultiRegionEndpointRouteArgs']]]]:
         """
-        List of active routes. See `routes` below.
+        List of active routes. See `routes` Block below.
         """
         return pulumi.get(self, "routes")
 
@@ -401,7 +401,7 @@ class MultiRegionEndpoint(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MultiRegionEndpointRouteArgs', 'MultiRegionEndpointRouteArgsDict']]]] routes: List of active routes. See `routes` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MultiRegionEndpointRouteArgs', 'MultiRegionEndpointRouteArgsDict']]]] routes: List of active routes. See `routes` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -466,7 +466,7 @@ class MultiRegionEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def routes(self) -> pulumi.Output[Sequence['outputs.MultiRegionEndpointRoute']]:
         """
-        List of active routes. See `routes` below.
+        List of active routes. See `routes` Block below.
         """
         return pulumi.get(self, "routes")
 

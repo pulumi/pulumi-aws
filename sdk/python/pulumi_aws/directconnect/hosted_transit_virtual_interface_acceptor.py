@@ -21,6 +21,8 @@ class HostedTransitVirtualInterfaceAcceptorArgs:
     def __init__(__self__, *,
                  dx_gateway_id: pulumi.Input[_builtins.str],
                  virtual_interface_id: pulumi.Input[_builtins.str],
+                 prefix_pool_allocated_count_ipv4: pulumi.Input[Optional[_builtins.int]] = None,
+                 prefix_pool_allocated_count_ipv6: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -28,11 +30,17 @@ class HostedTransitVirtualInterfaceAcceptorArgs:
 
         :param pulumi.Input[_builtins.str] dx_gateway_id: The ID of the Direct Connect gateway to which to connect the virtual interface.
         :param pulumi.Input[_builtins.str] virtual_interface_id: The ID of the Direct Connect virtual interface to accept.
+        :param pulumi.Input[_builtins.int] prefix_pool_allocated_count_ipv4: The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        :param pulumi.Input[_builtins.int] prefix_pool_allocated_count_ipv6: The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "dx_gateway_id", dx_gateway_id)
         pulumi.set(__self__, "virtual_interface_id", virtual_interface_id)
+        if prefix_pool_allocated_count_ipv4 is not None:
+            pulumi.set(__self__, "prefix_pool_allocated_count_ipv4", prefix_pool_allocated_count_ipv4)
+        if prefix_pool_allocated_count_ipv6 is not None:
+            pulumi.set(__self__, "prefix_pool_allocated_count_ipv6", prefix_pool_allocated_count_ipv6)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if tags is not None:
@@ -61,6 +69,30 @@ class HostedTransitVirtualInterfaceAcceptorArgs:
     @virtual_interface_id.setter
     def virtual_interface_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "virtual_interface_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="prefixPoolAllocatedCountIpv4")
+    def prefix_pool_allocated_count_ipv4(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        """
+        return pulumi.get(self, "prefix_pool_allocated_count_ipv4")
+
+    @prefix_pool_allocated_count_ipv4.setter
+    def prefix_pool_allocated_count_ipv4(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "prefix_pool_allocated_count_ipv4", value)
+
+    @_builtins.property
+    @pulumi.getter(name="prefixPoolAllocatedCountIpv6")
+    def prefix_pool_allocated_count_ipv6(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        """
+        return pulumi.get(self, "prefix_pool_allocated_count_ipv6")
+
+    @prefix_pool_allocated_count_ipv6.setter
+    def prefix_pool_allocated_count_ipv6(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "prefix_pool_allocated_count_ipv6", value)
 
     @_builtins.property
     @pulumi.getter
@@ -92,6 +124,8 @@ class _HostedTransitVirtualInterfaceAcceptorState:
     def __init__(__self__, *,
                  arn: pulumi.Input[Optional[_builtins.str]] = None,
                  dx_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_pool_allocated_count_ipv4: pulumi.Input[Optional[_builtins.int]] = None,
+                 prefix_pool_allocated_count_ipv6: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -101,6 +135,8 @@ class _HostedTransitVirtualInterfaceAcceptorState:
 
         :param pulumi.Input[_builtins.str] arn: The ARN of the virtual interface.
         :param pulumi.Input[_builtins.str] dx_gateway_id: The ID of the Direct Connect gateway to which to connect the virtual interface.
+        :param pulumi.Input[_builtins.int] prefix_pool_allocated_count_ipv4: The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        :param pulumi.Input[_builtins.int] prefix_pool_allocated_count_ipv6: The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -110,6 +146,10 @@ class _HostedTransitVirtualInterfaceAcceptorState:
             pulumi.set(__self__, "arn", arn)
         if dx_gateway_id is not None:
             pulumi.set(__self__, "dx_gateway_id", dx_gateway_id)
+        if prefix_pool_allocated_count_ipv4 is not None:
+            pulumi.set(__self__, "prefix_pool_allocated_count_ipv4", prefix_pool_allocated_count_ipv4)
+        if prefix_pool_allocated_count_ipv6 is not None:
+            pulumi.set(__self__, "prefix_pool_allocated_count_ipv6", prefix_pool_allocated_count_ipv6)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if tags is not None:
@@ -142,6 +182,30 @@ class _HostedTransitVirtualInterfaceAcceptorState:
     @dx_gateway_id.setter
     def dx_gateway_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dx_gateway_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="prefixPoolAllocatedCountIpv4")
+    def prefix_pool_allocated_count_ipv4(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        """
+        return pulumi.get(self, "prefix_pool_allocated_count_ipv4")
+
+    @prefix_pool_allocated_count_ipv4.setter
+    def prefix_pool_allocated_count_ipv4(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "prefix_pool_allocated_count_ipv4", value)
+
+    @_builtins.property
+    @pulumi.getter(name="prefixPoolAllocatedCountIpv6")
+    def prefix_pool_allocated_count_ipv6(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        """
+        return pulumi.get(self, "prefix_pool_allocated_count_ipv6")
+
+    @prefix_pool_allocated_count_ipv6.setter
+    def prefix_pool_allocated_count_ipv6(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "prefix_pool_allocated_count_ipv6", value)
 
     @_builtins.property
     @pulumi.getter
@@ -199,6 +263,8 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dx_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_pool_allocated_count_ipv4: pulumi.Input[Optional[_builtins.int]] = None,
+                 prefix_pool_allocated_count_ipv6: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -249,6 +315,8 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dx_gateway_id: The ID of the Direct Connect gateway to which to connect the virtual interface.
+        :param pulumi.Input[_builtins.int] prefix_pool_allocated_count_ipv4: The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        :param pulumi.Input[_builtins.int] prefix_pool_allocated_count_ipv6: The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] virtual_interface_id: The ID of the Direct Connect virtual interface to accept.
@@ -318,6 +386,8 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dx_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_pool_allocated_count_ipv4: pulumi.Input[Optional[_builtins.int]] = None,
+                 prefix_pool_allocated_count_ipv6: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -333,6 +403,8 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
             if dx_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'dx_gateway_id'")
             __props__.__dict__["dx_gateway_id"] = dx_gateway_id
+            __props__.__dict__["prefix_pool_allocated_count_ipv4"] = prefix_pool_allocated_count_ipv4
+            __props__.__dict__["prefix_pool_allocated_count_ipv6"] = prefix_pool_allocated_count_ipv6
             __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             if virtual_interface_id is None and not opts.urn:
@@ -352,6 +424,8 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             dx_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            prefix_pool_allocated_count_ipv4: pulumi.Input[Optional[_builtins.int]] = None,
+            prefix_pool_allocated_count_ipv6: pulumi.Input[Optional[_builtins.int]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -365,6 +439,8 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: The ARN of the virtual interface.
         :param pulumi.Input[_builtins.str] dx_gateway_id: The ID of the Direct Connect gateway to which to connect the virtual interface.
+        :param pulumi.Input[_builtins.int] prefix_pool_allocated_count_ipv4: The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        :param pulumi.Input[_builtins.int] prefix_pool_allocated_count_ipv6: The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -376,6 +452,8 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["dx_gateway_id"] = dx_gateway_id
+        __props__.__dict__["prefix_pool_allocated_count_ipv4"] = prefix_pool_allocated_count_ipv4
+        __props__.__dict__["prefix_pool_allocated_count_ipv6"] = prefix_pool_allocated_count_ipv6
         __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -397,6 +475,22 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
         The ID of the Direct Connect gateway to which to connect the virtual interface.
         """
         return pulumi.get(self, "dx_gateway_id")
+
+    @_builtins.property
+    @pulumi.getter(name="prefixPoolAllocatedCountIpv4")
+    def prefix_pool_allocated_count_ipv4(self) -> pulumi.Output[_builtins.int]:
+        """
+        The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        """
+        return pulumi.get(self, "prefix_pool_allocated_count_ipv4")
+
+    @_builtins.property
+    @pulumi.getter(name="prefixPoolAllocatedCountIpv6")
+    def prefix_pool_allocated_count_ipv6(self) -> pulumi.Output[_builtins.int]:
+        """
+        The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        """
+        return pulumi.get(self, "prefix_pool_allocated_count_ipv6")
 
     @_builtins.property
     @pulumi.getter

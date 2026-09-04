@@ -39,14 +39,14 @@ public final class AgentcoreGatewayState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
+     * Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`, `NONE`, `AUTHENTICATE_ONLY`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
      * 
      */
     @Import(name="authorizerType")
     private @Nullable Output<String> authorizerType;
 
     /**
-     * @return Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
+     * @return Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`, `NONE`, `AUTHENTICATE_ONLY`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
      * 
      */
     public Optional<Output<String>> authorizerType() {
@@ -368,7 +368,7 @@ public final class AgentcoreGatewayState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param authorizerType Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
+         * @param authorizerType Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`, `NONE`, `AUTHENTICATE_ONLY`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class AgentcoreGatewayState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param authorizerType Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
+         * @param authorizerType Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`, `NONE`, `AUTHENTICATE_ONLY`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
          * 
          * @return builder
          * 

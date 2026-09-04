@@ -12,6 +12,8 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic Usage
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,6 +35,39 @@ import * as utilities from "../utilities";
  *     tags: {
  *         Name: "example-capability",
  *     },
+ * });
+ * ```
+ *
+ * ### Controller Log Delivery
+ *
+ * Capability controllers run in AWS-managed infrastructure outside your cluster, and their logs are exposed through [CloudWatch Vended Logs](https://docs.aws.amazon.com/eks/latest/userguide/capabilities-controller-logs.html) rather than the EKS API. Configure delivery with the `aws.cloudwatch.LogDeliverySource`, `aws.cloudwatch.LogDeliveryDestination`, and `aws.cloudwatch.LogDelivery` resources, using the capability ARN as the source. Valid log types are `EKS_CAPABILITY_ACK_LOGS` (ACK), `EKS_CAPABILITY_KRO_LOGS` (kro), and `EKS_CAPABILITY_ARGOCD_APPLICATION_LOGS`, `EKS_CAPABILITY_ARGOCD_APPLICATIONSET_LOGS`, `EKS_CAPABILITY_ARGOCD_COMMITSERVER_LOGS`, `EKS_CAPABILITY_ARGOCD_REPOSERVER_LOGS`, and `EKS_CAPABILITY_ARGOCD_SERVER_LOGS` (Argo CD, one per controller component).
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.eks.Capability("example", {
+ *     clusterName: exampleAwsEksCluster.name,
+ *     capabilityName: "ack",
+ *     type: "ACK",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     deletePropagationPolicy: "RETAIN",
+ * });
+ * const ack = new aws.cloudwatch.LogGroup("ack", {name: "/aws/eks/example/capabilities/ack"});
+ * const ackLogDeliverySource = new aws.cloudwatch.LogDeliverySource("ack", {
+ *     name: "eks-capability-ack-logs",
+ *     logType: "EKS_CAPABILITY_ACK_LOGS",
+ *     resourceArn: example.arn,
+ * });
+ * const ackLogDeliveryDestination = new aws.cloudwatch.LogDeliveryDestination("ack", {
+ *     deliveryDestinationConfiguration: {
+ *         destinationResourceArn: ack.arn,
+ *     },
+ *     name: "eks-capability-ack-logs",
+ * });
+ * const ackLogDelivery = new aws.cloudwatch.LogDelivery("ack", {
+ *     deliverySourceName: ackLogDeliverySource.name,
+ *     deliveryDestinationArn: ackLogDeliveryDestination.arn,
  * });
  * ```
  *

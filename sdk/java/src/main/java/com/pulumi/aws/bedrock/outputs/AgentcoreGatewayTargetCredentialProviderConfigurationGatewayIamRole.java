@@ -17,7 +17,7 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationGatewayI
      */
     private @Nullable String region;
     /**
-     * @return The target AWS service name used for SigV4 signing of upstream requests. Required when calling SigV4-protected endpoints such as another Bedrock AgentCore Runtime (use `bedrock-agentcore`). Omit for non-SigV4 IAM-role-based authentication, in which case the block can be empty (`gatewayIamRole {}`).
+     * @return Target AWS service name used for SigV4 signing of upstream requests. Required when calling SigV4-protected endpoints such as another Bedrock AgentCore Runtime (use `bedrock-agentcore`). Omit for non-SigV4 IAM-role-based authentication, in which case the block can be empty (`gatewayIamRole {}`).
      * 
      */
     private @Nullable String service;
@@ -31,7 +31,7 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationGatewayI
         return Optional.ofNullable(this.region);
     }
     /**
-     * @return The target AWS service name used for SigV4 signing of upstream requests. Required when calling SigV4-protected endpoints such as another Bedrock AgentCore Runtime (use `bedrock-agentcore`). Omit for non-SigV4 IAM-role-based authentication, in which case the block can be empty (`gatewayIamRole {}`).
+     * @return Target AWS service name used for SigV4 signing of upstream requests. Required when calling SigV4-protected endpoints such as another Bedrock AgentCore Runtime (use `bedrock-agentcore`). Omit for non-SigV4 IAM-role-based authentication, in which case the block can be empty (`gatewayIamRole {}`).
      * 
      */
     public Optional<String> service() {

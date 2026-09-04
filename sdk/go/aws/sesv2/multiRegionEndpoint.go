@@ -61,7 +61,7 @@ type MultiRegionEndpoint struct {
 	EndpointName pulumi.StringOutput `pulumi:"endpointName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// List of active routes. See `routes` below.
+	// List of active routes. See `routes` Block below.
 	Routes MultiRegionEndpointRouteArrayOutput `pulumi:"routes"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -115,7 +115,7 @@ type multiRegionEndpointState struct {
 	EndpointName *string `pulumi:"endpointName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// List of active routes. See `routes` below.
+	// List of active routes. See `routes` Block below.
 	Routes []MultiRegionEndpointRoute `pulumi:"routes"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -137,7 +137,7 @@ type MultiRegionEndpointState struct {
 	EndpointName pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// List of active routes. See `routes` below.
+	// List of active routes. See `routes` Block below.
 	Routes MultiRegionEndpointRouteArrayInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -293,7 +293,7 @@ func (o MultiRegionEndpointOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiRegionEndpoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// List of active routes. See `routes` below.
+// List of active routes. See `routes` Block below.
 func (o MultiRegionEndpointOutput) Routes() MultiRegionEndpointRouteArrayOutput {
 	return o.ApplyT(func(v *MultiRegionEndpoint) MultiRegionEndpointRouteArrayOutput { return v.Routes }).(MultiRegionEndpointRouteArrayOutput)
 }

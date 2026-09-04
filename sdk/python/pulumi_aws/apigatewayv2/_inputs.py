@@ -575,15 +575,15 @@ class RoutingRuleActionArgs:
 class RoutingRuleActionInvokeApiArgsDict(TypedDict):
     api_id: pulumi.Input[_builtins.str]
     """
-    Action to invoke a stage of a target API. Only REST APIs are supported.
+    API identifier of the target API.
     """
     stage: pulumi.Input[_builtins.str]
     """
-    Action to invoke a stage of a target API. Only REST APIs are supported.
+    Name of the target stage.
     """
     strip_base_path: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Action to invoke a stage of a target API. Only REST APIs are supported.
+    Whether to strip the base path when forwarding the request to the target API.
     """
 
 @pulumi.input_type
@@ -593,9 +593,9 @@ class RoutingRuleActionInvokeApiArgs:
                  stage: pulumi.Input[_builtins.str],
                  strip_base_path: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.str] api_id: Action to invoke a stage of a target API. Only REST APIs are supported.
-        :param pulumi.Input[_builtins.str] stage: Action to invoke a stage of a target API. Only REST APIs are supported.
-        :param pulumi.Input[_builtins.bool] strip_base_path: Action to invoke a stage of a target API. Only REST APIs are supported.
+        :param pulumi.Input[_builtins.str] api_id: API identifier of the target API.
+        :param pulumi.Input[_builtins.str] stage: Name of the target stage.
+        :param pulumi.Input[_builtins.bool] strip_base_path: Whether to strip the base path when forwarding the request to the target API.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "stage", stage)
@@ -606,7 +606,7 @@ class RoutingRuleActionInvokeApiArgs:
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[_builtins.str]:
         """
-        Action to invoke a stage of a target API. Only REST APIs are supported.
+        API identifier of the target API.
         """
         return pulumi.get(self, "api_id")
 
@@ -618,7 +618,7 @@ class RoutingRuleActionInvokeApiArgs:
     @pulumi.getter
     def stage(self) -> pulumi.Input[_builtins.str]:
         """
-        Action to invoke a stage of a target API. Only REST APIs are supported.
+        Name of the target stage.
         """
         return pulumi.get(self, "stage")
 
@@ -630,7 +630,7 @@ class RoutingRuleActionInvokeApiArgs:
     @pulumi.getter(name="stripBasePath")
     def strip_base_path(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Action to invoke a stage of a target API. Only REST APIs are supported.
+        Whether to strip the base path when forwarding the request to the target API.
         """
         return pulumi.get(self, "strip_base_path")
 

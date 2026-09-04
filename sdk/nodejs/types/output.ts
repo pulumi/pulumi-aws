@@ -137,6 +137,35 @@ export namespace accessanalyzer {
 }
 
 export namespace account {
+    export interface AccessApplicationIdentitySource {
+        /**
+         * IAM Identity Center instance to use as the identity source. See `identityCenter` Block below.
+         */
+        identityCenter?: outputs.account.AccessApplicationIdentitySourceIdentityCenter;
+    }
+
+    export interface AccessApplicationIdentitySourceIdentityCenter {
+        /**
+         * ARN of the IAM Identity Center application created for this account access manager application.
+         */
+        applicationArn: string;
+        /**
+         * ARN of the IAM Identity Center instance.
+         */
+        instanceArn: string;
+    }
+
+    export interface AccessApplicationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+    }
+
     export interface GetRegionsRegion {
         /**
          * The Region code of a given Region
@@ -2261,15 +2290,15 @@ export namespace apigatewayv2 {
 
     export interface RoutingRuleActionInvokeApi {
         /**
-         * Action to invoke a stage of a target API. Only REST APIs are supported.
+         * API identifier of the target API.
          */
         apiId: string;
         /**
-         * Action to invoke a stage of a target API. Only REST APIs are supported.
+         * Name of the target stage.
          */
         stage: string;
         /**
-         * Action to invoke a stage of a target API. Only REST APIs are supported.
+         * Whether to strip the base path when forwarding the request to the target API.
          */
         stripBasePath?: boolean;
     }
@@ -17492,14 +17521,14 @@ export namespace bedrock {
         /**
          * Identifier of the VPC Lattice resource configuration.
          */
-        resourceConfigurationIdentifier: string;
+        resourceConfigurationIdentifier?: string;
     }
 
     export interface AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
         /**
          * Identifier of the VPC Lattice resource configuration.
          */
-        resourceConfigurationIdentifier: string;
+        resourceConfigurationIdentifier?: string;
     }
 
     export interface AgentcoreAgentRuntimeEndpointTimeouts {
@@ -18147,14 +18176,14 @@ export namespace bedrock {
         /**
          * Identifier of the VPC Lattice resource configuration.
          */
-        resourceConfigurationIdentifier: string;
+        resourceConfigurationIdentifier?: string;
     }
 
     export interface AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
         /**
          * Identifier of the VPC Lattice resource configuration.
          */
-        resourceConfigurationIdentifier: string;
+        resourceConfigurationIdentifier?: string;
     }
 
     export interface AgentcoreGatewayInterceptorConfiguration {
@@ -18437,15 +18466,15 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetCredentialProviderConfiguration {
         /**
-         * API key-based authentication configuration. See `apiKey` below.
+         * API key-based authentication configuration. See `apiKey` Block below.
          */
         apiKey?: outputs.bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationApiKey;
         /**
-         * Caller IAM credentials-based authentication configuration. See `callerIamCredentials` below.
+         * Caller IAM credentials-based authentication configuration. See `callerIamCredentials` Block below.
          */
         callerIamCredentials?: outputs.bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentials;
         /**
-         * Use the gateway's IAM role for authentication. See `gatewayIamRole` below.
+         * Use the gateway's IAM role for authentication. See `gatewayIamRole` Block below.
          */
         gatewayIamRole?: outputs.bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole;
         /**
@@ -18453,7 +18482,7 @@ export namespace bedrock {
          */
         jwtPassthrough?: outputs.bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthrough;
         /**
-         * OAuth-based authentication configuration. See `oauth` below.
+         * OAuth-based authentication configuration. See `oauth` Block below.
          */
         oauth?: outputs.bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationOauth;
     }
@@ -18479,11 +18508,11 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentials {
         /**
-         * The AWS region for the credentials.
+         * AWS region for the credentials.
          */
         region?: string;
         /**
-         * The service name for the credentials.
+         * Service name for the credentials.
          */
         service: string;
     }
@@ -18494,7 +18523,7 @@ export namespace bedrock {
          */
         region?: string;
         /**
-         * The target AWS service name used for SigV4 signing of upstream requests. Required when calling SigV4-protected endpoints such as another Bedrock AgentCore Runtime (use `bedrock-agentcore`). Omit for non-SigV4 IAM-role-based authentication, in which case the block can be empty (`gatewayIamRole {}`).
+         * Target AWS service name used for SigV4 signing of upstream requests. Required when calling SigV4-protected endpoints such as another Bedrock AgentCore Runtime (use `bedrock-agentcore`). Omit for non-SigV4 IAM-role-based authentication, in which case the block can be empty (`gatewayIamRole {}`).
          */
         service?: string;
     }
@@ -18508,11 +18537,11 @@ export namespace bedrock {
          */
         customParameters?: {[key: string]: string};
         /**
-         * The URL where the end user's browser is redirected after obtaining the authorization code. Required when `grantType` is `AUTHORIZATION_CODE`.
+         * URL where the end user's browser is redirected after obtaining the authorization code. Required when `grantType` is `AUTHORIZATION_CODE`.
          */
         defaultReturnUrl?: string;
         /**
-         * The OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+         * OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
          */
         grantType?: string;
         /**
@@ -18527,15 +18556,15 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetMetadataConfiguration {
         /**
-         * A set of URL query parameters that are allowed to be propagated from incoming gateway URL to the target. Maximum of 10 parameters.
+         * Set of URL query parameters that are allowed to be propagated from incoming gateway URL to the target. Maximum of 10 parameters.
          */
         allowedQueryParameters?: string[];
         /**
-         * A set of HTTP headers that are allowed to be propagated from incoming client requests to the target. Maximum of 10 headers.
+         * Set of HTTP headers that are allowed to be propagated from incoming client requests to the target. Maximum of 10 headers.
          */
         allowedRequestHeaders?: string[];
         /**
-         * A set of HTTP headers that are allowed to be propagated from the target response back to the client. Maximum of 10 headers.
+         * Set of HTTP headers that are allowed to be propagated from the target response back to the client. Maximum of 10 headers.
          *
          * > **Note:** Header names must contain only alphanumeric characters, hyphens, and underscores. A large number of standard HTTP headers are restricted and cannot be configured for propagation, including authentication, content negotiation, caching, security, CORS, and connection management headers. Headers starting with `X-Amzn-` are prohibited except for `X-Amzn-Bedrock-AgentCore-Runtime-Custom-*` headers. These restrictions are enforced by schema validation. For the full list of restricted headers, see the [AWS documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-headers.html).
          */
@@ -18544,11 +18573,11 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetPrivateEndpoint {
         /**
-         * AWS creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role. See `managedVpcResource` below.
+         * AWS creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role. See `managedVpcResource` Block below.
          */
         managedVpcResource?: outputs.bedrock.AgentcoreGatewayTargetPrivateEndpointManagedVpcResource;
         /**
-         * Use an existing VPC Lattice resource configuration that you manage yourself. Useful for cross-account setups or advanced Lattice configurations. See `selfManagedLatticeResource` below.
+         * Use an existing VPC Lattice resource configuration that you manage yourself. Useful for cross-account setups or advanced Lattice configurations. See `selfManagedLatticeResource` Block below.
          */
         selfManagedLatticeResource?: outputs.bedrock.AgentcoreGatewayTargetPrivateEndpointSelfManagedLatticeResource;
     }
@@ -18584,27 +18613,35 @@ export namespace bedrock {
         /**
          * ARN or ID of the VPC Lattice resource configuration.
          */
-        resourceConfigurationIdentifier: string;
+        resourceConfigurationIdentifier?: string;
     }
 
     export interface AgentcoreGatewayTargetTargetConfiguration {
         /**
-         * HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` below.
+         * HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` Block below.
          */
         http?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttp;
         /**
-         * Model Context Protocol (MCP) configuration. See `mcp` below.
+         * Inference target configuration for routing requests to a large language model (LLM) provider, either through a built-in connector or an explicitly configured provider. See `inference` Block below.
+         */
+        inference?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationInference;
+        /**
+         * Model Context Protocol (MCP) configuration. See `mcp` Block below.
          */
         mcp?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcp;
     }
 
     export interface AgentcoreGatewayTargetTargetConfigurationHttp {
         /**
-         * AgentCore Runtime target configuration. See `agentcoreRuntime` below.
+         * AgentCore Runtime target configuration. See `agentcoreRuntime` Block below.
+         */
+        agentcoreRuntime?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime;
+        /**
+         * Passthrough target configuration that forwards requests to an external HTTPS endpoint. See `passthrough` Block below.
          *
          * > **Note:** HTTP targets can only be attached to gateways that do not have a `protocolType` set. They are not supported on MCP-protocol gateways.
          */
-        agentcoreRuntime?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime;
+        passthrough?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpPassthrough;
     }
 
     export interface AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime {
@@ -18616,34 +18653,221 @@ export namespace bedrock {
          * Runtime qualifier identifying a specific endpoint version. Defaults to `DEFAULT` when not set.
          */
         qualifier?: string;
+        /**
+         * API schema configuration that defines the structure of the runtime target's API. See `schema` Block below.
+         */
+        schema?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchema;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchema {
+        /**
+         * Configuration for API schema. See `apiSchemaConfiguration` Block below.
+         */
+        source: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSource;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSource {
+        inlinePayload?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceInlinePayload;
+        s3?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceS3;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceInlinePayload {
+        /**
+         * Inline schema payload content.
+         */
+        payload: string;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceS3 {
+        /**
+         * Account ID of the S3 bucket owner.
+         */
+        bucketOwnerAccountId?: string;
+        /**
+         * S3 URI where the schema is stored.
+         */
+        uri?: string;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationHttpPassthrough {
+        /**
+         * HTTPS endpoint that the gateway forwards requests to for this passthrough target. Must start with `https://`.
+         */
+        endpoint: string;
+        /**
+         * Application protocol the passthrough target implements. Valid values: `MCP`, `A2A`, `INFERENCE`, `CUSTOM`.
+         */
+        protocolType: string;
+        /**
+         * API schema configuration that defines the structure of the passthrough target's API. Supports the same `inlinePayload` and `s3` blocks as `apiSchemaConfiguration`.
+         */
+        schema?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema;
+        /**
+         * Controls precedence when a client request supplies a query parameter whose name matches a configured static query parameter. Valid values: `CLIENT_OVERRIDE`, `STATIC_OVERRIDE`.
+         */
+        staticQueryParameterConflictResolution?: string;
+        /**
+         * Map of static query parameters that the gateway always appends to the outbound URL when forwarding requests to the target.
+         */
+        staticQueryParameters?: {[key: string]: string};
+        /**
+         * Session stickiness configuration routing requests within the same session to the same target. See `stickinessConfiguration` below.
+         */
+        stickinessConfiguration?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughStickinessConfiguration;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema {
+        /**
+         * Configuration for API schema. See `apiSchemaConfiguration` Block below.
+         */
+        source: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSource;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSource {
+        inlinePayload?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceInlinePayload;
+        s3?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceS3;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceInlinePayload {
+        /**
+         * Inline schema payload content.
+         */
+        payload: string;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceS3 {
+        /**
+         * Account ID of the S3 bucket owner.
+         */
+        bucketOwnerAccountId?: string;
+        /**
+         * S3 URI where the schema is stored.
+         */
+        uri?: string;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationHttpPassthroughStickinessConfiguration {
+        /**
+         * Additional headers to include in session affinity routing.
+         */
+        compositeIdentifiers?: string[];
+        /**
+         * Expression identifying where to extract the session identifier from the request (for example, `$context.header.x-session-id`).
+         */
+        identifier: string;
+        /**
+         * Session stickiness timeout, in seconds. Valid values range from 1 to 86400.
+         */
+        timeout?: number;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationInference {
+        /**
+         * Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `connector` Block below.
+         */
+        connector?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationInferenceConnector;
+        /**
+         * Provider-based inference configuration that explicitly defines the endpoint, model mapping, and operations used to route requests to an LLM provider. See `provider` Block below.
+         */
+        provider?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationInferenceProvider;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationInferenceConnector {
+        /**
+         * Source configuration identifying which connector to use. See `source` Block below.
+         */
+        source: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSource;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSource {
+        /**
+         * Identifier for the connector integration (for example, `bedrock-knowledge-bases`).
+         */
+        connectorId: string;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationInferenceProvider {
+        /**
+         * HTTPS endpoint of the inference provider that the gateway forwards requests to.
+         */
+        endpoint: string;
+        /**
+         * Configuration that translates client-facing model IDs to the model IDs expected by the provider. See `modelMapping` Block below.
+         */
+        modelMapping?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMapping;
+        /**
+         * List of per-operation configurations that map request paths to the models supported for each operation. See `operation` below.
+         */
+        operations?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperation[];
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMapping {
+        /**
+         * Provider prefix configuration used for model ID translation. See `providerPrefix` Block below.
+         */
+        providerPrefix?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMappingProviderPrefix;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMappingProviderPrefix {
+        /**
+         * Single character that separates the provider prefix from the model name (for example, `.`). Defaults to `.`.
+         */
+        separator?: string;
+        /**
+         * Whether clients can omit the provider prefix from model IDs. If `true`, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. Defaults to `false`.
+         */
+        strip: boolean;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperation {
+        /**
+         * List of models supported for this operation. See `model` Block below.
+         */
+        models?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperationModel[];
+        /**
+         * Request path for this operation (for example, `/v1/messages` or `/v1/responses`).
+         */
+        path: string;
+        /**
+         * Provider path to forward requests to, if it differs from the request path. For example, `/anthropic/v1/messages` when the provider expects a different path than the client-facing `/v1/messages`.
+         */
+        providerPath?: string;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperationModel {
+        model: string;
     }
 
     export interface AgentcoreGatewayTargetTargetConfigurationMcp {
         /**
-         * API Gateway target configuration. See `apiGateway` below.
+         * API Gateway target configuration. See `apiGateway` Block below.
          */
         apiGateway?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpApiGateway;
         /**
-         * Lambda function target configuration. See `lambda` below.
+         * Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `connector` Block below.
+         */
+        connector?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpConnector;
+        /**
+         * Lambda function target configuration. See `lambda` Block below.
          */
         lambda?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambda;
         /**
-         * MCP server target configuration. See `mcpServer` below.
+         * MCP server target configuration. See `mcpServer` Block below.
          */
         mcpServer?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServer;
         /**
-         * OpenAPI schema-based target configuration. See `apiSchemaConfiguration` below.
+         * OpenAPI schema-based target configuration. See `apiSchemaConfiguration` Block below.
          */
         openApiSchema?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema;
         /**
-         * Smithy model-based target configuration. See `apiSchemaConfiguration` below.
+         * Smithy model-based target configuration. See `apiSchemaConfiguration` Block below.
          */
         smithyModel?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel;
     }
 
     export interface AgentcoreGatewayTargetTargetConfigurationMcpApiGateway {
         /**
-         * Configuration for API Gateway tools. See `apiGatewayToolConfiguration` below.
+         * Configuration for API Gateway tools. See `apiGatewayToolConfiguration` Block below.
          */
         apiGatewayToolConfiguration?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfiguration;
         /**
@@ -18658,11 +18882,11 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfiguration {
         /**
-         * Repeatable block of path and method patterns to expose as tools. See `toolFilter` below.
+         * Repeatable block of path and method patterns to expose as tools. See `toolFilter` Block below.
          */
         toolFilters?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilter[];
         /**
-         * Repeatable block of explicit tool definitions with optional custom names and descriptions. See `toolOverride` below.
+         * Repeatable block of explicit tool definitions with optional custom names and descriptions. See `toolOverride` Block below.
          */
         toolOverrides?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverride[];
     }
@@ -18697,24 +18921,81 @@ export namespace bedrock {
         path: string;
     }
 
+    export interface AgentcoreGatewayTargetTargetConfigurationMcpConnector {
+        /**
+         * Per-tool configurations for the connector. See `configuration` Block below.
+         */
+        configurations: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfiguration[];
+        /**
+         * List of tool names to enable from this connector. If omitted, all tools provided by the connector are enabled.
+         */
+        enableds?: string[];
+        /**
+         * Source configuration identifying which connector to use. See `source` Block below.
+         */
+        source: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpConnectorSource;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfiguration {
+        /**
+         * Agent-facing description override for this tool.
+         */
+        description?: string;
+        /**
+         * Tool or operation name (for example, `retrieve` or `webSearch`).
+         */
+        name: string;
+        /**
+         * Parameter overrides to control parameter visibility and descriptions. See `parameterOverride` Block below.
+         */
+        parameterOverrides?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigurationParameterOverride[];
+        /**
+         * JSON-encoded parameters to set as fixed or default values when provisioning this tool. Free-form JSON whose schema is defined by the connector.
+         */
+        parameterValues?: string;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigurationParameterOverride {
+        /**
+         * Description of the gateway target.
+         */
+        description?: string;
+        path: string;
+        /**
+         * Whether this parameter is visible to the agent. If not specified, uses the service default.
+         */
+        visible?: boolean;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationMcpConnectorSource {
+        /**
+         * Identifier for the connector integration (for example, `bedrock-knowledge-bases`).
+         */
+        connectorId: string;
+        /**
+         * Version of the connector to use (for example, `1.2.0`).
+         */
+        version: string;
+    }
+
     export interface AgentcoreGatewayTargetTargetConfigurationMcpLambda {
         /**
          * ARN of the Lambda function to invoke.
          */
         lambdaArn: string;
         /**
-         * Schema definition for the tool. See `toolSchema` below.
+         * Schema definition for the tool. See `toolSchema` Block below.
          */
         toolSchema: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema;
     }
 
     export interface AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema {
         /**
-         * Inline tool definition. See `inlinePayload` below.
+         * Inline tool definition. See `inlinePayload` Block below.
          */
         inlinePayloads?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload[];
         /**
-         * S3-based tool definition. See `s3` below.
+         * S3-based tool definition. See `s3` Block below.
          */
         s3?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3;
     }
@@ -18725,7 +19006,7 @@ export namespace bedrock {
          */
         description: string;
         /**
-         * Schema for the tool's input. See `schemaDefinition` below.
+         * Schema for the tool's input. See `schemaDefinition` Block below.
          */
         inputSchema: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema;
         /**
@@ -18733,7 +19014,7 @@ export namespace bedrock {
          */
         name: string;
         /**
-         * Schema for the tool's output. See `schemaDefinition` below.
+         * Schema for the tool's output. See `schemaDefinition` Block below.
          */
         outputSchema?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema;
     }
@@ -18758,7 +19039,7 @@ export namespace bedrock {
          */
         items?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems;
         /**
-         * Set of property definitions for arrays of objects. See `property` below.
+         * Set of property definitions for arrays of objects. See `property` Block below.
          */
         properties?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsProperty[];
         /**
@@ -18819,7 +19100,7 @@ export namespace bedrock {
          */
         description?: string;
         /**
-         * Items definition for array properties. See `items` above.
+         * Items definition for array properties. See `items` Block above.
          */
         items?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems;
         /**
@@ -18850,7 +19131,7 @@ export namespace bedrock {
          */
         items?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems;
         /**
-         * Set of property definitions for arrays of objects. See `property` below.
+         * Set of property definitions for arrays of objects. See `property` Block below.
          */
         properties?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty[];
         /**
@@ -18952,7 +19233,7 @@ export namespace bedrock {
          */
         items?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems;
         /**
-         * Set of property definitions for arrays of objects. See `property` below.
+         * Set of property definitions for arrays of objects. See `property` Block below.
          */
         properties?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsProperty[];
         /**
@@ -19013,7 +19294,7 @@ export namespace bedrock {
          */
         description?: string;
         /**
-         * Items definition for array properties. See `items` above.
+         * Items definition for array properties. See `items` Block above.
          */
         items?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems;
         /**
@@ -19044,7 +19325,7 @@ export namespace bedrock {
          */
         items?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems;
         /**
-         * Set of property definitions for arrays of objects. See `property` below.
+         * Set of property definitions for arrays of objects. See `property` Block below.
          */
         properties?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty[];
         /**
@@ -19147,7 +19428,7 @@ export namespace bedrock {
          */
         listingMode: string;
         /**
-         * Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` below.
+         * Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` Block below.
          */
         mcpToolSchema?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchema;
         /**
@@ -19162,14 +19443,14 @@ export namespace bedrock {
          */
         inlinePayload?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayload;
         /**
-         * S3 location of the tool schema. See `s3` below.
+         * S3 location of the tool schema. See `s3` Block below.
          */
         s3?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3;
     }
 
     export interface AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayload {
         /**
-         * The inline schema payload content.
+         * Inline schema payload content.
          */
         payload: string;
     }
@@ -19192,7 +19473,7 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayload {
         /**
-         * The inline schema payload content.
+         * Inline schema payload content.
          */
         payload: string;
     }
@@ -19215,7 +19496,7 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayload {
         /**
-         * The inline schema payload content.
+         * Inline schema payload content.
          */
         payload: string;
     }
@@ -19456,14 +19737,14 @@ export namespace bedrock {
         /**
          * Identifier of the VPC Lattice resource configuration.
          */
-        resourceConfigurationIdentifier: string;
+        resourceConfigurationIdentifier?: string;
     }
 
     export interface AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
         /**
          * Identifier of the VPC Lattice resource configuration.
          */
-        resourceConfigurationIdentifier: string;
+        resourceConfigurationIdentifier?: string;
     }
 
     export interface AgentcoreHarnessEnvironment {
@@ -21058,11 +21339,11 @@ export namespace bedrock {
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource {
-        resourceConfigurationIdentifier: string;
+        resourceConfigurationIdentifier?: string;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
-        resourceConfigurationIdentifier: string;
+        resourceConfigurationIdentifier?: string;
     }
 
     export interface AgentcoreRegistryTimeouts {
@@ -37403,6 +37684,239 @@ export namespace datazone {
         create?: string;
     }
 
+    export interface PolicyGrantDetail {
+        /**
+         * Configuration for the `ADD_TO_PROJECT_MEMBER_POOL` policy type. See `addToProjectMemberPool` Block below.
+         */
+        addToProjectMemberPool?: outputs.datazone.PolicyGrantDetailAddToProjectMemberPool;
+        /**
+         * Configuration for the `CREATE_ASSET_TYPE` policy type. See `createAssetType` Block below.
+         */
+        createAssetType?: outputs.datazone.PolicyGrantDetailCreateAssetType;
+        /**
+         * Configuration for the `CREATE_DOMAIN_UNIT` policy type. See `createDomainUnit` Block below.
+         */
+        createDomainUnit?: outputs.datazone.PolicyGrantDetailCreateDomainUnit;
+        /**
+         * Configuration for the `CREATE_ENVIRONMENT` policy type. Empty block.
+         */
+        createEnvironment?: outputs.datazone.PolicyGrantDetailCreateEnvironment;
+        /**
+         * Configuration for the `CREATE_ENVIRONMENT_FROM_BLUEPRINT` policy type. Empty block.
+         */
+        createEnvironmentFromBlueprint?: outputs.datazone.PolicyGrantDetailCreateEnvironmentFromBlueprint;
+        /**
+         * Configuration for the `CREATE_ENVIRONMENT_PROFILE` policy type. See `createEnvironmentProfile` Block below.
+         */
+        createEnvironmentProfile?: outputs.datazone.PolicyGrantDetailCreateEnvironmentProfile;
+        /**
+         * Configuration for the `CREATE_FORM_TYPE` policy type. See `createFormType` Block below.
+         */
+        createFormType?: outputs.datazone.PolicyGrantDetailCreateFormType;
+        /**
+         * Configuration for the `CREATE_GLOSSARY` policy type. See `createGlossary` Block below.
+         */
+        createGlossary?: outputs.datazone.PolicyGrantDetailCreateGlossary;
+        /**
+         * Configuration for the `CREATE_PROJECT` policy type. See `createProject` Block below.
+         */
+        createProject?: outputs.datazone.PolicyGrantDetailCreateProject;
+        /**
+         * Configuration for the `CREATE_PROJECT_FROM_PROJECT_PROFILE` policy type. See `createProjectFromProjectProfile` Block below.
+         */
+        createProjectFromProjectProfile?: outputs.datazone.PolicyGrantDetailCreateProjectFromProjectProfile;
+        /**
+         * Configuration for the `DELEGATE_CREATE_ENVIRONMENT_PROFILE` policy type. Empty block.
+         */
+        delegateCreateEnvironmentProfile?: outputs.datazone.PolicyGrantDetailDelegateCreateEnvironmentProfile;
+        /**
+         * Configuration for the `OVERRIDE_DOMAIN_UNIT_OWNERS` policy type. See `overrideDomainUnitOwners` Block below.
+         */
+        overrideDomainUnitOwners?: outputs.datazone.PolicyGrantDetailOverrideDomainUnitOwners;
+        /**
+         * Configuration for the `OVERRIDE_PROJECT_OWNERS` policy type. See `overrideProjectOwners` Block below.
+         */
+        overrideProjectOwners?: outputs.datazone.PolicyGrantDetailOverrideProjectOwners;
+        /**
+         * Configuration for the `USE_ASSET_TYPE` policy type. See `useAssetType` Block below.
+         */
+        useAssetType?: outputs.datazone.PolicyGrantDetailUseAssetType;
+    }
+
+    export interface PolicyGrantDetailAddToProjectMemberPool {
+        /**
+         * Whether to include child domain units.
+         */
+        includeChildDomainUnits?: boolean;
+    }
+
+    export interface PolicyGrantDetailCreateAssetType {
+        /**
+         * Whether to include child domain units.
+         */
+        includeChildDomainUnits?: boolean;
+    }
+
+    export interface PolicyGrantDetailCreateDomainUnit {
+        /**
+         * Whether to include child domain units.
+         */
+        includeChildDomainUnits?: boolean;
+    }
+
+    export interface PolicyGrantDetailCreateEnvironment {
+    }
+
+    export interface PolicyGrantDetailCreateEnvironmentFromBlueprint {
+    }
+
+    export interface PolicyGrantDetailCreateEnvironmentProfile {
+        /**
+         * Identifier of the domain unit.
+         */
+        domainUnitId?: string;
+    }
+
+    export interface PolicyGrantDetailCreateFormType {
+        /**
+         * Whether to include child domain units.
+         */
+        includeChildDomainUnits?: boolean;
+    }
+
+    export interface PolicyGrantDetailCreateGlossary {
+        /**
+         * Whether to include child domain units.
+         */
+        includeChildDomainUnits?: boolean;
+    }
+
+    export interface PolicyGrantDetailCreateProject {
+        /**
+         * Whether to include child domain units.
+         */
+        includeChildDomainUnits?: boolean;
+    }
+
+    export interface PolicyGrantDetailCreateProjectFromProjectProfile {
+        /**
+         * Whether to include child domain units.
+         */
+        includeChildDomainUnits?: boolean;
+        /**
+         * List of project profile identifiers.
+         */
+        projectProfiles?: string[];
+    }
+
+    export interface PolicyGrantDetailDelegateCreateEnvironmentProfile {
+    }
+
+    export interface PolicyGrantDetailOverrideDomainUnitOwners {
+        /**
+         * Whether to include child domain units.
+         */
+        includeChildDomainUnits?: boolean;
+    }
+
+    export interface PolicyGrantDetailOverrideProjectOwners {
+        /**
+         * Whether to include child domain units.
+         */
+        includeChildDomainUnits?: boolean;
+    }
+
+    export interface PolicyGrantDetailUseAssetType {
+        /**
+         * Identifier of the domain unit.
+         */
+        domainUnitId?: string;
+    }
+
+    export interface PolicyGrantPrincipal {
+        /**
+         * Domain unit principal. See `domainUnit` Block below.
+         */
+        domainUnit?: outputs.datazone.PolicyGrantPrincipalDomainUnit;
+        /**
+         * Group principal. See `group` Block below.
+         */
+        group?: outputs.datazone.PolicyGrantPrincipalGroup;
+        /**
+         * Project principal. See `project` Block below.
+         */
+        project?: outputs.datazone.PolicyGrantPrincipalProject;
+        /**
+         * User principal. See `user` Block below.
+         */
+        user?: outputs.datazone.PolicyGrantPrincipalUser;
+    }
+
+    export interface PolicyGrantPrincipalDomainUnit {
+        /**
+         * Filter to grant access to all domain units. Empty block.
+         */
+        allDomainUnitsGrantFilter?: outputs.datazone.PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilter;
+        /**
+         * Designation of the domain unit principal. Valid values: `OWNER`.
+         */
+        domainUnitDesignation: string;
+        /**
+         * Identifier of the domain unit.
+         */
+        domainUnitIdentifier?: string;
+    }
+
+    export interface PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilter {
+    }
+
+    export interface PolicyGrantPrincipalGroup {
+        /**
+         * Identifier of the group principal.
+         */
+        groupIdentifier: string;
+    }
+
+    export interface PolicyGrantPrincipalProject {
+        /**
+         * Filter for domain unit scoping. See `domainUnitFilter` Block below.
+         */
+        domainUnitFilter?: outputs.datazone.PolicyGrantPrincipalProjectDomainUnitFilter;
+        /**
+         * Designation of the project principal. Valid values: `CONTRIBUTOR`, `OWNER`, `PROJECT_CATALOG_STEWARD`.
+         */
+        projectDesignation: string;
+        /**
+         * Identifier of the project.
+         */
+        projectIdentifier?: string;
+    }
+
+    export interface PolicyGrantPrincipalProjectDomainUnitFilter {
+        /**
+         * Identifier of the domain unit for filtering.
+         */
+        domainUnit: string;
+        /**
+         * Whether to include child domain units in the filter.
+         */
+        includeChildDomainUnits?: boolean;
+    }
+
+    export interface PolicyGrantPrincipalUser {
+        /**
+         * Filter to grant access to all users. Empty block.
+         */
+        allUsersGrantFilter?: outputs.datazone.PolicyGrantPrincipalUserAllUsersGrantFilter;
+        /**
+         * Identifier of the user principal.
+         */
+        userIdentifier?: string;
+    }
+
+    export interface PolicyGrantPrincipalUserAllUsersGrantFilter {
+    }
+
     export interface ProjectFailureReason {
         code: string;
         message: string;
@@ -37630,6 +38144,44 @@ export namespace devopsguru {
 }
 
 export namespace directconnect {
+    export interface ConnectionRateLimiterStatus {
+        /**
+         * Number of rate limiters currently in use.
+         */
+        inUse: number;
+        /**
+         * Maximum number of rate limiters allowed on the connection.
+         */
+        maxAllowed: number;
+        /**
+         * Number of rate limiters remaining (available).
+         */
+        remaining: number;
+        /**
+         * Total bandwidth allocated across all rate limiters.
+         */
+        totalBandwidth: string;
+    }
+
+    export interface GetConnectionRateLimiterStatus {
+        /**
+         * Number of rate limiters currently in use.
+         */
+        inUse: number;
+        /**
+         * Maximum number of rate limiters allowed on the connection.
+         */
+        maxAllowed: number;
+        /**
+         * Number of rate limiters remaining (available).
+         */
+        remaining: number;
+        /**
+         * Total bandwidth allocated across all rate limiters.
+         */
+        totalBandwidth: string;
+    }
+
     export interface GetRouterConfigurationRouter {
         /**
          * Router platform
@@ -37669,6 +38221,25 @@ export namespace directconnect {
          */
         xsltTemplateName: string;
         xsltTemplateNameForMacSec: string;
+    }
+
+    export interface LinkAggregationGroupRateLimiterStatus {
+        /**
+         * Number of rate limiters currently in use.
+         */
+        inUse: number;
+        /**
+         * Maximum number of rate limiters allowed on the LAG.
+         */
+        maxAllowed: number;
+        /**
+         * Number of rate limiters remaining (available).
+         */
+        remaining: number;
+        /**
+         * Total bandwidth allocated across all rate limiters.
+         */
+        totalBandwidth: string;
     }
 
 }
@@ -50743,10 +51314,14 @@ export namespace eks {
     export interface ClusterKubeControllerManagerConfig {
         /**
          * Configuration block for the horizontal pod autoscaler controller. Detailed below.
+         */
+        horizontalPodAutoscalerControllerConfig: outputs.eks.ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig;
+        /**
+         * Configuration block for the pod garbage collection controller. Detailed below.
          *
          * > **NOTE:** The `horizontalPodAutoscalerControllerConfig` requires a Provisioned Control Plane scaling tier (e.g., `tier-xl` or higher). It cannot be configured on clusters using the `standard` tier.
          */
-        horizontalPodAutoscalerControllerConfig: outputs.eks.ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig;
+        podGcControllerConfig: outputs.eks.ClusterKubeControllerManagerConfigPodGcControllerConfig;
     }
 
     export interface ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig {
@@ -50754,6 +51329,13 @@ export namespace eks {
          * The interval between each sync of the horizontal pod autoscaler. Must be a single-unit duration (e.g., `10s`, `15s`). Valid range: `10s` to `15s`. Default is `15s`.
          */
         horizontalPodAutoscalerSyncPeriod: string;
+    }
+
+    export interface ClusterKubeControllerManagerConfigPodGcControllerConfig {
+        /**
+         * The number of terminated pods that can exist before the pod garbage collector starts deleting them. Valid range: `0` to `12500`. Refer to the `aws.eks.getClusterVersions` data source for any version-specific constraints.
+         */
+        terminatedPodGcThreshold: number;
     }
 
     export interface ClusterKubeSchedulerConfig {
@@ -51079,6 +51661,10 @@ export namespace eks {
          * Configuration for the horizontal pod autoscaler controller.
          */
         horizontalPodAutoscalerControllerConfigs: outputs.eks.GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig[];
+        /**
+         * Configuration for the pod garbage collection controller.
+         */
+        podGcControllerConfigs: outputs.eks.GetClusterKubeControllerManagerConfigPodGcControllerConfig[];
     }
 
     export interface GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig {
@@ -51086,6 +51672,13 @@ export namespace eks {
          * The interval between each sync of the horizontal pod autoscaler.
          */
         horizontalPodAutoscalerSyncPeriod: string;
+    }
+
+    export interface GetClusterKubeControllerManagerConfigPodGcControllerConfig {
+        /**
+         * The number of terminated pods that can exist before the pod garbage collector starts deleting them.
+         */
+        terminatedPodGcThreshold: number;
     }
 
     export interface GetClusterKubeSchedulerConfig {
@@ -51394,6 +51987,10 @@ export namespace eks {
          * HPA controller configuration defaults and constraints.
          */
         horizontalPodAutoscalerControllerConfigs: outputs.eks.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig[];
+        /**
+         * Pod garbage collection controller configuration defaults and constraints.
+         */
+        podGcControllerConfigs: outputs.eks.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfig[];
     }
 
     export interface GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig {
@@ -51423,6 +52020,35 @@ export namespace eks {
          * The minimum allowed duration.
          */
         min: string;
+    }
+
+    export interface GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfig {
+        /**
+         * Terminated pod GC threshold configuration with default value and constraints.
+         */
+        terminatedPodGcThresholds: outputs.eks.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThreshold[];
+    }
+
+    export interface GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThreshold {
+        /**
+         * Scoring strategy constraints.
+         */
+        constraints: outputs.eks.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraint[];
+        /**
+         * Default scoring strategy (`type`, `resources`).
+         */
+        defaultValue: number;
+    }
+
+    export interface GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraint {
+        /**
+         * The maximum allowed duration.
+         */
+        max: number;
+        /**
+         * The minimum allowed duration.
+         */
+        min: number;
     }
 
     export interface GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfig {
@@ -51629,6 +52255,10 @@ export namespace eks {
          * HPA controller configuration defaults and constraints.
          */
         horizontalPodAutoscalerControllerConfigs: outputs.eks.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig[];
+        /**
+         * Pod garbage collection controller configuration defaults and constraints.
+         */
+        podGcControllerConfigs: outputs.eks.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfig[];
     }
 
     export interface GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig {
@@ -51658,6 +52288,35 @@ export namespace eks {
          * The minimum allowed duration.
          */
         min: string;
+    }
+
+    export interface GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfig {
+        /**
+         * Terminated pod GC threshold configuration with default value and constraints.
+         */
+        terminatedPodGcThresholds: outputs.eks.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThreshold[];
+    }
+
+    export interface GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThreshold {
+        /**
+         * Scoring strategy constraints.
+         */
+        constraints: outputs.eks.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraint[];
+        /**
+         * Default scoring strategy (`type`, `resources`).
+         */
+        defaultValue: number;
+    }
+
+    export interface GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraint {
+        /**
+         * The maximum allowed duration.
+         */
+        max: number;
+        /**
+         * The minimum allowed duration.
+         */
+        min: number;
     }
 
     export interface GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfig {
@@ -68604,6 +69263,57 @@ export namespace lambda {
         update?: string;
     }
 
+    export interface MicrovmsMicrovmIdlePolicy {
+        /**
+         * Whether to automatically resume the MicroVM when it receives a request while suspended.
+         */
+        autoResumeEnabled: boolean;
+        /**
+         * Number of seconds without traffic after which the MicroVM is suspended.
+         */
+        maxIdleDurationSeconds: number;
+        /**
+         * Number of seconds a MicroVM remains suspended before it is automatically terminated.
+         */
+        suspendedDurationSeconds: number;
+    }
+
+    export interface MicrovmsMicrovmLogging {
+        /**
+         * Send logs to Amazon CloudWatch Logs. See below.
+         */
+        cloudwatch?: outputs.lambda.MicrovmsMicrovmLoggingCloudwatch;
+        /**
+         * Disable logging for the MicroVM. Specify an empty block: `disabled {}`.
+         */
+        disabled?: outputs.lambda.MicrovmsMicrovmLoggingDisabled;
+    }
+
+    export interface MicrovmsMicrovmLoggingCloudwatch {
+        /**
+         * Name of the CloudWatch Logs log group to send logs to.
+         */
+        logGroup?: string;
+        /**
+         * Name of the CloudWatch Logs log stream within the log group.
+         */
+        logStream?: string;
+    }
+
+    export interface MicrovmsMicrovmLoggingDisabled {
+    }
+
+    export interface MicrovmsMicrovmTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+    }
+
 }
 
 export namespace lb {
@@ -83767,6 +84477,20 @@ export namespace macie2 {
 }
 
 export namespace mailmanager {
+    export interface ArchiveRetention {
+        /**
+         * Retention period for the archive. Valid values: `THREE_MONTHS`, `SIX_MONTHS`, `NINE_MONTHS`, `ONE_YEAR`, `EIGHTEEN_MONTHS`, `TWO_YEARS`, `THIRTY_MONTHS`, `THREE_YEARS`, `FOUR_YEARS`, `FIVE_YEARS`, `SIX_YEARS`, `SEVEN_YEARS`, `EIGHT_YEARS`, `NINE_YEARS`, `TEN_YEARS`, `PERMANENT`.
+         */
+        retentionPeriod: string;
+    }
+
+    export interface ArchiveRetentionActual {
+        /**
+         * Retention period for the archive. Possible values: `THREE_MONTHS`, `SIX_MONTHS`, `NINE_MONTHS`, `ONE_YEAR`, `EIGHTEEN_MONTHS`, `TWO_YEARS`, `THIRTY_MONTHS`, `THREE_YEARS`, `FOUR_YEARS`, `FIVE_YEARS`, `SIX_YEARS`, `SEVEN_YEARS`, `EIGHT_YEARS`, `NINE_YEARS`, `TEN_YEARS`, `PERMANENT`.
+         */
+        retentionPeriod: string;
+    }
+
     export interface IngressPointIngressPointConfiguration {
         /**
          * ARN of the secret in AWS Secrets Manager that holds the SMTP password, used for `AUTH` ingress points.
@@ -111748,7 +112472,7 @@ export namespace securityhub {
          */
         enabledStandardArns?: string[];
         /**
-         * Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
+         * Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. It must be defined if `serviceEnabled` is set to true. See below.
          */
         securityControlsConfiguration?: outputs.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration;
         /**

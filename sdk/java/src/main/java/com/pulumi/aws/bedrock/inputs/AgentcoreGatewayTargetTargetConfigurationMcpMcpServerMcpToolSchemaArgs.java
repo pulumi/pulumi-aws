@@ -32,14 +32,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolS
     }
 
     /**
-     * S3 location of the tool schema. See `s3` below.
+     * S3 location of the tool schema. See `s3` Block below.
      * 
      */
     @Import(name="s3")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3Args> s3;
 
     /**
-     * @return S3 location of the tool schema. See `s3` below.
+     * @return S3 location of the tool schema. See `s3` Block below.
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3Args>> s3() {
@@ -93,7 +93,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolS
         }
 
         /**
-         * @param s3 S3 location of the tool schema. See `s3` below.
+         * @param s3 S3 location of the tool schema. See `s3` Block below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolS
         }
 
         /**
-         * @param s3 S3 location of the tool schema. See `s3` below.
+         * @param s3 S3 location of the tool schema. See `s3` Block below.
          * 
          * @return builder
          * 

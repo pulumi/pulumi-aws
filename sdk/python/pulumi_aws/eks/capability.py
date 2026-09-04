@@ -380,6 +380,8 @@ class Capability(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -401,6 +403,35 @@ class Capability(pulumi.CustomResource):
             tags={
                 "Name": "example-capability",
             })
+        ```
+
+        ### Controller Log Delivery
+
+        Capability controllers run in AWS-managed infrastructure outside your cluster, and their logs are exposed through [CloudWatch Vended Logs](https://docs.aws.amazon.com/eks/latest/userguide/capabilities-controller-logs.html) rather than the EKS API. Configure delivery with the `cloudwatch.LogDeliverySource`, `cloudwatch.LogDeliveryDestination`, and `cloudwatch.LogDelivery` resources, using the capability ARN as the source. Valid log types are `EKS_CAPABILITY_ACK_LOGS` (ACK), `EKS_CAPABILITY_KRO_LOGS` (kro), and `EKS_CAPABILITY_ARGOCD_APPLICATION_LOGS`, `EKS_CAPABILITY_ARGOCD_APPLICATIONSET_LOGS`, `EKS_CAPABILITY_ARGOCD_COMMITSERVER_LOGS`, `EKS_CAPABILITY_ARGOCD_REPOSERVER_LOGS`, and `EKS_CAPABILITY_ARGOCD_SERVER_LOGS` (Argo CD, one per controller component).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.eks.Capability("example",
+            cluster_name=example_aws_eks_cluster["name"],
+            capability_name="ack",
+            type="ACK",
+            role_arn=example_aws_iam_role["arn"],
+            delete_propagation_policy="RETAIN")
+        ack = aws.cloudwatch.LogGroup("ack", name="/aws/eks/example/capabilities/ack")
+        ack_log_delivery_source = aws.cloudwatch.LogDeliverySource("ack",
+            name="eks-capability-ack-logs",
+            log_type="EKS_CAPABILITY_ACK_LOGS",
+            resource_arn=example.arn)
+        ack_log_delivery_destination = aws.cloudwatch.LogDeliveryDestination("ack",
+            delivery_destination_configuration={
+                "destination_resource_arn": ack.arn,
+            },
+            name="eks-capability-ack-logs")
+        ack_log_delivery = aws.cloudwatch.LogDelivery("ack",
+            delivery_source_name=ack_log_delivery_source.name,
+            delivery_destination_arn=ack_log_delivery_destination.arn)
         ```
 
         ## Import
@@ -446,6 +477,8 @@ class Capability(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -467,6 +500,35 @@ class Capability(pulumi.CustomResource):
             tags={
                 "Name": "example-capability",
             })
+        ```
+
+        ### Controller Log Delivery
+
+        Capability controllers run in AWS-managed infrastructure outside your cluster, and their logs are exposed through [CloudWatch Vended Logs](https://docs.aws.amazon.com/eks/latest/userguide/capabilities-controller-logs.html) rather than the EKS API. Configure delivery with the `cloudwatch.LogDeliverySource`, `cloudwatch.LogDeliveryDestination`, and `cloudwatch.LogDelivery` resources, using the capability ARN as the source. Valid log types are `EKS_CAPABILITY_ACK_LOGS` (ACK), `EKS_CAPABILITY_KRO_LOGS` (kro), and `EKS_CAPABILITY_ARGOCD_APPLICATION_LOGS`, `EKS_CAPABILITY_ARGOCD_APPLICATIONSET_LOGS`, `EKS_CAPABILITY_ARGOCD_COMMITSERVER_LOGS`, `EKS_CAPABILITY_ARGOCD_REPOSERVER_LOGS`, and `EKS_CAPABILITY_ARGOCD_SERVER_LOGS` (Argo CD, one per controller component).
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.eks.Capability("example",
+            cluster_name=example_aws_eks_cluster["name"],
+            capability_name="ack",
+            type="ACK",
+            role_arn=example_aws_iam_role["arn"],
+            delete_propagation_policy="RETAIN")
+        ack = aws.cloudwatch.LogGroup("ack", name="/aws/eks/example/capabilities/ack")
+        ack_log_delivery_source = aws.cloudwatch.LogDeliverySource("ack",
+            name="eks-capability-ack-logs",
+            log_type="EKS_CAPABILITY_ACK_LOGS",
+            resource_arn=example.arn)
+        ack_log_delivery_destination = aws.cloudwatch.LogDeliveryDestination("ack",
+            delivery_destination_configuration={
+                "destination_resource_arn": ack.arn,
+            },
+            name="eks-capability-ack-logs")
+        ack_log_delivery = aws.cloudwatch.LogDelivery("ack",
+            delivery_source_name=ack_log_delivery_source.name,
+            delivery_destination_arn=ack_log_delivery_destination.arn)
         ```
 
         ## Import

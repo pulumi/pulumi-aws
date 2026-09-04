@@ -3546,7 +3546,7 @@ class ConfigurationPolicyConfigurationPolicyArgsDict(TypedDict):
     """
     security_controls_configuration: NotRequired[pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgsDict']]]
     """
-    Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
+    Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. It must be defined if `service_enabled` is set to true. See below.
     """
 
 @pulumi.input_type
@@ -3558,7 +3558,7 @@ class ConfigurationPolicyConfigurationPolicyArgs:
         """
         :param pulumi.Input[_builtins.bool] service_enabled: Indicates whether Security Hub is enabled in the policy.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_standard_arns: A list that defines which security standards are enabled in the configuration policy. It must be defined if `service_enabled` is set to true.
-        :param pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs'] security_controls_configuration: Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
+        :param pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs'] security_controls_configuration: Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. It must be defined if `service_enabled` is set to true. See below.
         """
         pulumi.set(__self__, "service_enabled", service_enabled)
         if enabled_standard_arns is not None:
@@ -3594,7 +3594,7 @@ class ConfigurationPolicyConfigurationPolicyArgs:
     @pulumi.getter(name="securityControlsConfiguration")
     def security_controls_configuration(self) -> pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs']]:
         """
-        Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
+        Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. It must be defined if `service_enabled` is set to true. See below.
         """
         return pulumi.get(self, "security_controls_configuration")
 

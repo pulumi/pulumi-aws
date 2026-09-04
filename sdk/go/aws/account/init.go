@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:account/accessApplication:AccessApplication":
+		r = &AccessApplication{}
 	case "aws:account/alternativeContact:AlternativeContact":
 		r = &AlternativeContact{}
 	case "aws:account/primaryContact:PrimaryContact":
@@ -40,6 +42,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"account/accessApplication",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"account/alternativeContact",

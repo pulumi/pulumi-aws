@@ -495,61 +495,6 @@ import (
 //
 // ```
 //
-// ### HTTP Target Routing to an AgentCore Runtime
-//
-// Routes gateway traffic directly to an AgentCore Runtime agent over HTTP, without MCP aggregation. The gateway must not have a `protocolType` set.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := bedrock.NewAgentcoreAgentRuntime(ctx, "example", &bedrock.AgentcoreAgentRuntimeArgs{
-//				AgentRuntimeArtifact: &bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs{
-//					ContainerConfiguration: &bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs{
-//						ContainerUri: pulumi.String("111122223333.dkr.ecr.us-west-2.amazonaws.com/example-runtime:latest"),
-//					},
-//				},
-//				NetworkConfiguration: &bedrock.AgentcoreAgentRuntimeNetworkConfigurationArgs{
-//					NetworkMode: pulumi.String("PUBLIC"),
-//				},
-//				AgentRuntimeName: pulumi.String("example-runtime"),
-//				RoleArn:          pulumi.Any(runtimeRole.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = bedrock.NewAgentcoreGatewayTarget(ctx, "runtime", &bedrock.AgentcoreGatewayTargetArgs{
-//				CredentialProviderConfiguration: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationArgs{
-//					GatewayIamRole: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs{},
-//				},
-//				TargetConfiguration: &bedrock.AgentcoreGatewayTargetTargetConfigurationArgs{
-//					Http: &bedrock.AgentcoreGatewayTargetTargetConfigurationHttpArgs{
-//						AgentcoreRuntime: &bedrock.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgs{
-//							Arn:       example.AgentRuntimeArn,
-//							Qualifier: pulumi.String("DEFAULT"),
-//						},
-//					},
-//				},
-//				Name:              pulumi.String("runtime-target"),
-//				GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ### Self-hosted MCP server in a VPC (managed Lattice)
 //
 // ```go
@@ -675,7 +620,19 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Bedrock AgentCore Gateway Target using the gateway identifier and target ID separated by a comma. For example:
+// ### Identity Schema
+//
+// #### Required
+//
+// * `gatewayIdentifier` (String) Gateway identifier.
+// * `targetId` (String) Gateway target ID.
+//
+// #### Optional
+//
+// * `accountId` (String) Account ID where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
+// Using `pulumi import`, import gateway targets using `gatewayIdentifier` and `targetId` separated by a comma (`,`). For example:
 //
 // ```sh
 // $ pulumi import aws:bedrock/agentcoreGatewayTarget:AgentcoreGatewayTarget example GATEWAY1234567890,TARGET0987654321
@@ -683,21 +640,21 @@ import (
 type AgentcoreGatewayTarget struct {
 	pulumi.CustomResourceState
 
-	// Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
+	// Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` Block below.
 	CredentialProviderConfiguration AgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput `pulumi:"credentialProviderConfiguration"`
 	// Description of the gateway target.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Identifier of the gateway that this target belongs to.
 	GatewayIdentifier pulumi.StringOutput `pulumi:"gatewayIdentifier"`
-	// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+	// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` Block below.
 	MetadataConfiguration AgentcoreGatewayTargetMetadataConfigurationPtrOutput `pulumi:"metadataConfiguration"`
 	// Name of the gateway target.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+	// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` Block below.
 	PrivateEndpoint AgentcoreGatewayTargetPrivateEndpointPtrOutput `pulumi:"privateEndpoint"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Configuration for the target endpoint. See `targetConfiguration` below.
+	// Configuration for the target endpoint. See `targetConfiguration` Block below.
 	//
 	// The following arguments are optional:
 	TargetConfiguration AgentcoreGatewayTargetTargetConfigurationOutput `pulumi:"targetConfiguration"`
@@ -742,21 +699,21 @@ func GetAgentcoreGatewayTarget(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AgentcoreGatewayTarget resources.
 type agentcoreGatewayTargetState struct {
-	// Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
+	// Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` Block below.
 	CredentialProviderConfiguration *AgentcoreGatewayTargetCredentialProviderConfiguration `pulumi:"credentialProviderConfiguration"`
 	// Description of the gateway target.
 	Description *string `pulumi:"description"`
 	// Identifier of the gateway that this target belongs to.
 	GatewayIdentifier *string `pulumi:"gatewayIdentifier"`
-	// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+	// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` Block below.
 	MetadataConfiguration *AgentcoreGatewayTargetMetadataConfiguration `pulumi:"metadataConfiguration"`
 	// Name of the gateway target.
 	Name *string `pulumi:"name"`
-	// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+	// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` Block below.
 	PrivateEndpoint *AgentcoreGatewayTargetPrivateEndpoint `pulumi:"privateEndpoint"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Configuration for the target endpoint. See `targetConfiguration` below.
+	// Configuration for the target endpoint. See `targetConfiguration` Block below.
 	//
 	// The following arguments are optional:
 	TargetConfiguration *AgentcoreGatewayTargetTargetConfiguration `pulumi:"targetConfiguration"`
@@ -766,21 +723,21 @@ type agentcoreGatewayTargetState struct {
 }
 
 type AgentcoreGatewayTargetState struct {
-	// Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
+	// Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` Block below.
 	CredentialProviderConfiguration AgentcoreGatewayTargetCredentialProviderConfigurationPtrInput
 	// Description of the gateway target.
 	Description pulumi.StringPtrInput
 	// Identifier of the gateway that this target belongs to.
 	GatewayIdentifier pulumi.StringPtrInput
-	// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+	// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` Block below.
 	MetadataConfiguration AgentcoreGatewayTargetMetadataConfigurationPtrInput
 	// Name of the gateway target.
 	Name pulumi.StringPtrInput
-	// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+	// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` Block below.
 	PrivateEndpoint AgentcoreGatewayTargetPrivateEndpointPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Configuration for the target endpoint. See `targetConfiguration` below.
+	// Configuration for the target endpoint. See `targetConfiguration` Block below.
 	//
 	// The following arguments are optional:
 	TargetConfiguration AgentcoreGatewayTargetTargetConfigurationPtrInput
@@ -794,21 +751,21 @@ func (AgentcoreGatewayTargetState) ElementType() reflect.Type {
 }
 
 type agentcoreGatewayTargetArgs struct {
-	// Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
+	// Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` Block below.
 	CredentialProviderConfiguration *AgentcoreGatewayTargetCredentialProviderConfiguration `pulumi:"credentialProviderConfiguration"`
 	// Description of the gateway target.
 	Description *string `pulumi:"description"`
 	// Identifier of the gateway that this target belongs to.
 	GatewayIdentifier string `pulumi:"gatewayIdentifier"`
-	// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+	// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` Block below.
 	MetadataConfiguration *AgentcoreGatewayTargetMetadataConfiguration `pulumi:"metadataConfiguration"`
 	// Name of the gateway target.
 	Name *string `pulumi:"name"`
-	// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+	// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` Block below.
 	PrivateEndpoint *AgentcoreGatewayTargetPrivateEndpoint `pulumi:"privateEndpoint"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Configuration for the target endpoint. See `targetConfiguration` below.
+	// Configuration for the target endpoint. See `targetConfiguration` Block below.
 	//
 	// The following arguments are optional:
 	TargetConfiguration AgentcoreGatewayTargetTargetConfiguration `pulumi:"targetConfiguration"`
@@ -817,21 +774,21 @@ type agentcoreGatewayTargetArgs struct {
 
 // The set of arguments for constructing a AgentcoreGatewayTarget resource.
 type AgentcoreGatewayTargetArgs struct {
-	// Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
+	// Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` Block below.
 	CredentialProviderConfiguration AgentcoreGatewayTargetCredentialProviderConfigurationPtrInput
 	// Description of the gateway target.
 	Description pulumi.StringPtrInput
 	// Identifier of the gateway that this target belongs to.
 	GatewayIdentifier pulumi.StringInput
-	// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+	// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` Block below.
 	MetadataConfiguration AgentcoreGatewayTargetMetadataConfigurationPtrInput
 	// Name of the gateway target.
 	Name pulumi.StringPtrInput
-	// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+	// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` Block below.
 	PrivateEndpoint AgentcoreGatewayTargetPrivateEndpointPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Configuration for the target endpoint. See `targetConfiguration` below.
+	// Configuration for the target endpoint. See `targetConfiguration` Block below.
 	//
 	// The following arguments are optional:
 	TargetConfiguration AgentcoreGatewayTargetTargetConfigurationInput
@@ -925,7 +882,7 @@ func (o AgentcoreGatewayTargetOutput) ToAgentcoreGatewayTargetOutputWithContext(
 	return o
 }
 
-// Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
+// Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` Block below.
 func (o AgentcoreGatewayTargetOutput) CredentialProviderConfiguration() AgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTarget) AgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput {
 		return v.CredentialProviderConfiguration
@@ -942,7 +899,7 @@ func (o AgentcoreGatewayTargetOutput) GatewayIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTarget) pulumi.StringOutput { return v.GatewayIdentifier }).(pulumi.StringOutput)
 }
 
-// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` Block below.
 func (o AgentcoreGatewayTargetOutput) MetadataConfiguration() AgentcoreGatewayTargetMetadataConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTarget) AgentcoreGatewayTargetMetadataConfigurationPtrOutput {
 		return v.MetadataConfiguration
@@ -954,7 +911,7 @@ func (o AgentcoreGatewayTargetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTarget) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` Block below.
 func (o AgentcoreGatewayTargetOutput) PrivateEndpoint() AgentcoreGatewayTargetPrivateEndpointPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTarget) AgentcoreGatewayTargetPrivateEndpointPtrOutput {
 		return v.PrivateEndpoint
@@ -966,7 +923,7 @@ func (o AgentcoreGatewayTargetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTarget) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Configuration for the target endpoint. See `targetConfiguration` below.
+// Configuration for the target endpoint. See `targetConfiguration` Block below.
 //
 // The following arguments are optional:
 func (o AgentcoreGatewayTargetOutput) TargetConfiguration() AgentcoreGatewayTargetTargetConfigurationOutput {

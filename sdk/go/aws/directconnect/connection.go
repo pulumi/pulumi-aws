@@ -139,8 +139,18 @@ type Connection struct {
 	PartnerName pulumi.StringOutput `pulumi:"partnerName"`
 	// The MAC Security (MACsec) port link status of the connection.
 	PortEncryptionStatus pulumi.StringOutput `pulumi:"portEncryptionStatus"`
+	// The total number of inbound IPv4 route prefixes that can be allocated across the virtual interfaces on the connection.
+	PrefixPoolSizeIpv4 pulumi.IntOutput `pulumi:"prefixPoolSizeIpv4"`
+	// The total number of inbound IPv6 route prefixes that can be allocated across the virtual interfaces on the connection.
+	PrefixPoolSizeIpv6 pulumi.IntOutput `pulumi:"prefixPoolSizeIpv6"`
+	// The number of inbound IPv4 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+	PrefixPoolUnallocatedCountIpv4 pulumi.IntOutput `pulumi:"prefixPoolUnallocatedCountIpv4"`
+	// The number of inbound IPv6 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+	PrefixPoolUnallocatedCountIpv6 pulumi.IntOutput `pulumi:"prefixPoolUnallocatedCountIpv6"`
 	// The name of the service provider associated with the connection.
 	ProviderName pulumi.StringOutput `pulumi:"providerName"`
+	// Rate limiter status for the connection. See `rateLimiterStatus` Block below.
+	RateLimiterStatuses ConnectionRateLimiterStatusArrayOutput `pulumi:"rateLimiterStatuses"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
@@ -219,8 +229,18 @@ type connectionState struct {
 	PartnerName *string `pulumi:"partnerName"`
 	// The MAC Security (MACsec) port link status of the connection.
 	PortEncryptionStatus *string `pulumi:"portEncryptionStatus"`
+	// The total number of inbound IPv4 route prefixes that can be allocated across the virtual interfaces on the connection.
+	PrefixPoolSizeIpv4 *int `pulumi:"prefixPoolSizeIpv4"`
+	// The total number of inbound IPv6 route prefixes that can be allocated across the virtual interfaces on the connection.
+	PrefixPoolSizeIpv6 *int `pulumi:"prefixPoolSizeIpv6"`
+	// The number of inbound IPv4 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+	PrefixPoolUnallocatedCountIpv4 *int `pulumi:"prefixPoolUnallocatedCountIpv4"`
+	// The number of inbound IPv6 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+	PrefixPoolUnallocatedCountIpv6 *int `pulumi:"prefixPoolUnallocatedCountIpv6"`
 	// The name of the service provider associated with the connection.
 	ProviderName *string `pulumi:"providerName"`
+	// Rate limiter status for the connection. See `rateLimiterStatus` Block below.
+	RateLimiterStatuses []ConnectionRateLimiterStatus `pulumi:"rateLimiterStatuses"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
@@ -264,8 +284,18 @@ type ConnectionState struct {
 	PartnerName pulumi.StringPtrInput
 	// The MAC Security (MACsec) port link status of the connection.
 	PortEncryptionStatus pulumi.StringPtrInput
+	// The total number of inbound IPv4 route prefixes that can be allocated across the virtual interfaces on the connection.
+	PrefixPoolSizeIpv4 pulumi.IntPtrInput
+	// The total number of inbound IPv6 route prefixes that can be allocated across the virtual interfaces on the connection.
+	PrefixPoolSizeIpv6 pulumi.IntPtrInput
+	// The number of inbound IPv4 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+	PrefixPoolUnallocatedCountIpv4 pulumi.IntPtrInput
+	// The number of inbound IPv6 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+	PrefixPoolUnallocatedCountIpv6 pulumi.IntPtrInput
 	// The name of the service provider associated with the connection.
 	ProviderName pulumi.StringPtrInput
+	// Rate limiter status for the connection. See `rateLimiterStatus` Block below.
+	RateLimiterStatuses ConnectionRateLimiterStatusArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
@@ -482,9 +512,34 @@ func (o ConnectionOutput) PortEncryptionStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.PortEncryptionStatus }).(pulumi.StringOutput)
 }
 
+// The total number of inbound IPv4 route prefixes that can be allocated across the virtual interfaces on the connection.
+func (o ConnectionOutput) PrefixPoolSizeIpv4() pulumi.IntOutput {
+	return o.ApplyT(func(v *Connection) pulumi.IntOutput { return v.PrefixPoolSizeIpv4 }).(pulumi.IntOutput)
+}
+
+// The total number of inbound IPv6 route prefixes that can be allocated across the virtual interfaces on the connection.
+func (o ConnectionOutput) PrefixPoolSizeIpv6() pulumi.IntOutput {
+	return o.ApplyT(func(v *Connection) pulumi.IntOutput { return v.PrefixPoolSizeIpv6 }).(pulumi.IntOutput)
+}
+
+// The number of inbound IPv4 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+func (o ConnectionOutput) PrefixPoolUnallocatedCountIpv4() pulumi.IntOutput {
+	return o.ApplyT(func(v *Connection) pulumi.IntOutput { return v.PrefixPoolUnallocatedCountIpv4 }).(pulumi.IntOutput)
+}
+
+// The number of inbound IPv6 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+func (o ConnectionOutput) PrefixPoolUnallocatedCountIpv6() pulumi.IntOutput {
+	return o.ApplyT(func(v *Connection) pulumi.IntOutput { return v.PrefixPoolUnallocatedCountIpv6 }).(pulumi.IntOutput)
+}
+
 // The name of the service provider associated with the connection.
 func (o ConnectionOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.ProviderName }).(pulumi.StringOutput)
+}
+
+// Rate limiter status for the connection. See `rateLimiterStatus` Block below.
+func (o ConnectionOutput) RateLimiterStatuses() ConnectionRateLimiterStatusArrayOutput {
+	return o.ApplyT(func(v *Connection) ConnectionRateLimiterStatusArrayOutput { return v.RateLimiterStatuses }).(ConnectionRateLimiterStatusArrayOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

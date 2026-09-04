@@ -4,6 +4,7 @@
 package com.pulumi.aws.eks.outputs;
 
 import com.pulumi.aws.eks.outputs.GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig;
+import com.pulumi.aws.eks.outputs.GetClusterKubeControllerManagerConfigPodGcControllerConfig;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
@@ -16,6 +17,11 @@ public final class GetClusterKubeControllerManagerConfig {
      * 
      */
     private List<GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig> horizontalPodAutoscalerControllerConfigs;
+    /**
+     * @return Configuration for the pod garbage collection controller.
+     * 
+     */
+    private List<GetClusterKubeControllerManagerConfigPodGcControllerConfig> podGcControllerConfigs;
 
     private GetClusterKubeControllerManagerConfig() {}
     /**
@@ -24,6 +30,13 @@ public final class GetClusterKubeControllerManagerConfig {
      */
     public List<GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig> horizontalPodAutoscalerControllerConfigs() {
         return this.horizontalPodAutoscalerControllerConfigs;
+    }
+    /**
+     * @return Configuration for the pod garbage collection controller.
+     * 
+     */
+    public List<GetClusterKubeControllerManagerConfigPodGcControllerConfig> podGcControllerConfigs() {
+        return this.podGcControllerConfigs;
     }
 
     public static Builder builder() {
@@ -36,10 +49,12 @@ public final class GetClusterKubeControllerManagerConfig {
     @CustomType.Builder
     public static final class Builder {
         private List<GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig> horizontalPodAutoscalerControllerConfigs;
+        private List<GetClusterKubeControllerManagerConfigPodGcControllerConfig> podGcControllerConfigs;
         public Builder() {}
         public Builder(GetClusterKubeControllerManagerConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.horizontalPodAutoscalerControllerConfigs = defaults.horizontalPodAutoscalerControllerConfigs;
+    	      this.podGcControllerConfigs = defaults.podGcControllerConfigs;
         }
 
         @CustomType.Setter
@@ -53,9 +68,21 @@ public final class GetClusterKubeControllerManagerConfig {
         public Builder horizontalPodAutoscalerControllerConfigs(GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig... horizontalPodAutoscalerControllerConfigs) {
             return horizontalPodAutoscalerControllerConfigs(List.of(horizontalPodAutoscalerControllerConfigs));
         }
+        @CustomType.Setter
+        public Builder podGcControllerConfigs(List<GetClusterKubeControllerManagerConfigPodGcControllerConfig> podGcControllerConfigs) {
+            if (podGcControllerConfigs == null) {
+              throw new MissingRequiredPropertyException("GetClusterKubeControllerManagerConfig", "podGcControllerConfigs");
+            }
+            this.podGcControllerConfigs = podGcControllerConfigs;
+            return this;
+        }
+        public Builder podGcControllerConfigs(GetClusterKubeControllerManagerConfigPodGcControllerConfig... podGcControllerConfigs) {
+            return podGcControllerConfigs(List.of(podGcControllerConfigs));
+        }
         public GetClusterKubeControllerManagerConfig build() {
             final var _resultValue = new GetClusterKubeControllerManagerConfig();
             _resultValue.horizontalPodAutoscalerControllerConfigs = horizontalPodAutoscalerControllerConfigs;
+            _resultValue.podGcControllerConfigs = podGcControllerConfigs;
             return _resultValue;
         }
     }

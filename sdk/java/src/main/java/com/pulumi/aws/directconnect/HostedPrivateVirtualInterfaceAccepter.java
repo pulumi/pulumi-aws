@@ -10,6 +10,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Optional;
@@ -116,6 +117,34 @@ public class HostedPrivateVirtualInterfaceAccepter extends com.pulumi.resources.
      */
     public Output<Optional<String>> dxGatewayId() {
         return Codegen.optional(this.dxGatewayId);
+    }
+    /**
+     * The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+     * 
+     */
+    @Export(name="prefixPoolAllocatedCountIpv4", refs={Integer.class}, tree="[0]")
+    private Output<Integer> prefixPoolAllocatedCountIpv4;
+
+    /**
+     * @return The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+     * 
+     */
+    public Output<Integer> prefixPoolAllocatedCountIpv4() {
+        return this.prefixPoolAllocatedCountIpv4;
+    }
+    /**
+     * The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+     * 
+     */
+    @Export(name="prefixPoolAllocatedCountIpv6", refs={Integer.class}, tree="[0]")
+    private Output<Integer> prefixPoolAllocatedCountIpv6;
+
+    /**
+     * @return The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+     * 
+     */
+    public Output<Integer> prefixPoolAllocatedCountIpv6() {
+        return this.prefixPoolAllocatedCountIpv6;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

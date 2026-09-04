@@ -30,4 +30,5 @@ from .macsec_key_association import *
 from .private_virtual_interface import *
 from .public_virtual_interface import *
 from .transit_virtual_interface import *
+from ._inputs import *
 from . import outputs

@@ -13,6 +13,2975 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfig struct {
+	// Name of the CloudWatch log group where evaluation results are written.
+	LogGroupName string `pulumi:"logGroupName"`
+}
+
+// AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigInput is an input type that accepts AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArgs and AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigOutput values.
+// You can construct a concrete instance of `AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigInput` via:
+//
+//	AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArgs{...}
+type AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigInput interface {
+	pulumi.Input
+
+	ToAgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigOutput() AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigOutput
+	ToAgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigOutputWithContext(context.Context) AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigOutput
+}
+
+type AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArgs struct {
+	// Name of the CloudWatch log group where evaluation results are written.
+	LogGroupName pulumi.StringInput `pulumi:"logGroupName"`
+}
+
+func (AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfig)(nil)).Elem()
+}
+
+func (i AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArgs) ToAgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigOutput() AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigOutput {
+	return i.ToAgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArgs) ToAgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigOutput)
+}
+
+// AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayInput is an input type that accepts AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArray and AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayOutput values.
+// You can construct a concrete instance of `AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayInput` via:
+//
+//	AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArray{ AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArgs{...} }
+type AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayOutput() AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayOutput
+	ToAgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayOutputWithContext(context.Context) AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayOutput
+}
+
+type AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArray []AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigInput
+
+func (AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfig)(nil)).Elem()
+}
+
+func (i AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArray) ToAgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayOutput() AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayOutput {
+	return i.ToAgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArray) ToAgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayOutput)
+}
+
+type AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfig)(nil)).Elem()
+}
+
+func (o AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigOutput) ToAgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigOutput() AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigOutput) ToAgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigOutput {
+	return o
+}
+
+// Name of the CloudWatch log group where evaluation results are written.
+func (o AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigOutput) LogGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfig) string { return v.LogGroupName }).(pulumi.StringOutput)
+}
+
+type AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfig)(nil)).Elem()
+}
+
+func (o AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayOutput) ToAgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayOutput() AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayOutput) ToAgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayOutput) Index(i pulumi.IntInput) AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfig {
+		return vs[0].([]AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfig)[vs[1].(int)]
+	}).(AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigOutput)
+}
+
+type AgentcoreOnlineEvaluationConfigRule struct {
+	// List of filters determining which agent traces to evaluate. Maximum 5. See `filter` Block below.
+	Filters []AgentcoreOnlineEvaluationConfigRuleFilter `pulumi:"filters"`
+	// Sampling configuration determining what percentage of agent traces to evaluate. See `samplingConfig` Block below.
+	SamplingConfig AgentcoreOnlineEvaluationConfigRuleSamplingConfig `pulumi:"samplingConfig"`
+	// Session configuration defining timeout settings for detecting when agent sessions are complete. See `sessionConfig` Block below.
+	SessionConfig *AgentcoreOnlineEvaluationConfigRuleSessionConfig `pulumi:"sessionConfig"`
+}
+
+// AgentcoreOnlineEvaluationConfigRuleInput is an input type that accepts AgentcoreOnlineEvaluationConfigRuleArgs and AgentcoreOnlineEvaluationConfigRuleOutput values.
+// You can construct a concrete instance of `AgentcoreOnlineEvaluationConfigRuleInput` via:
+//
+//	AgentcoreOnlineEvaluationConfigRuleArgs{...}
+type AgentcoreOnlineEvaluationConfigRuleInput interface {
+	pulumi.Input
+
+	ToAgentcoreOnlineEvaluationConfigRuleOutput() AgentcoreOnlineEvaluationConfigRuleOutput
+	ToAgentcoreOnlineEvaluationConfigRuleOutputWithContext(context.Context) AgentcoreOnlineEvaluationConfigRuleOutput
+}
+
+type AgentcoreOnlineEvaluationConfigRuleArgs struct {
+	// List of filters determining which agent traces to evaluate. Maximum 5. See `filter` Block below.
+	Filters AgentcoreOnlineEvaluationConfigRuleFilterArrayInput `pulumi:"filters"`
+	// Sampling configuration determining what percentage of agent traces to evaluate. See `samplingConfig` Block below.
+	SamplingConfig AgentcoreOnlineEvaluationConfigRuleSamplingConfigInput `pulumi:"samplingConfig"`
+	// Session configuration defining timeout settings for detecting when agent sessions are complete. See `sessionConfig` Block below.
+	SessionConfig AgentcoreOnlineEvaluationConfigRuleSessionConfigPtrInput `pulumi:"sessionConfig"`
+}
+
+func (AgentcoreOnlineEvaluationConfigRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOnlineEvaluationConfigRule)(nil)).Elem()
+}
+
+func (i AgentcoreOnlineEvaluationConfigRuleArgs) ToAgentcoreOnlineEvaluationConfigRuleOutput() AgentcoreOnlineEvaluationConfigRuleOutput {
+	return i.ToAgentcoreOnlineEvaluationConfigRuleOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOnlineEvaluationConfigRuleArgs) ToAgentcoreOnlineEvaluationConfigRuleOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigRuleOutput)
+}
+
+func (i AgentcoreOnlineEvaluationConfigRuleArgs) ToAgentcoreOnlineEvaluationConfigRulePtrOutput() AgentcoreOnlineEvaluationConfigRulePtrOutput {
+	return i.ToAgentcoreOnlineEvaluationConfigRulePtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOnlineEvaluationConfigRuleArgs) ToAgentcoreOnlineEvaluationConfigRulePtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigRuleOutput).ToAgentcoreOnlineEvaluationConfigRulePtrOutputWithContext(ctx)
+}
+
+// AgentcoreOnlineEvaluationConfigRulePtrInput is an input type that accepts AgentcoreOnlineEvaluationConfigRuleArgs, AgentcoreOnlineEvaluationConfigRulePtr and AgentcoreOnlineEvaluationConfigRulePtrOutput values.
+// You can construct a concrete instance of `AgentcoreOnlineEvaluationConfigRulePtrInput` via:
+//
+//	        AgentcoreOnlineEvaluationConfigRuleArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreOnlineEvaluationConfigRulePtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreOnlineEvaluationConfigRulePtrOutput() AgentcoreOnlineEvaluationConfigRulePtrOutput
+	ToAgentcoreOnlineEvaluationConfigRulePtrOutputWithContext(context.Context) AgentcoreOnlineEvaluationConfigRulePtrOutput
+}
+
+type agentcoreOnlineEvaluationConfigRulePtrType AgentcoreOnlineEvaluationConfigRuleArgs
+
+func AgentcoreOnlineEvaluationConfigRulePtr(v *AgentcoreOnlineEvaluationConfigRuleArgs) AgentcoreOnlineEvaluationConfigRulePtrInput {
+	return (*agentcoreOnlineEvaluationConfigRulePtrType)(v)
+}
+
+func (*agentcoreOnlineEvaluationConfigRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOnlineEvaluationConfigRule)(nil)).Elem()
+}
+
+func (i *agentcoreOnlineEvaluationConfigRulePtrType) ToAgentcoreOnlineEvaluationConfigRulePtrOutput() AgentcoreOnlineEvaluationConfigRulePtrOutput {
+	return i.ToAgentcoreOnlineEvaluationConfigRulePtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreOnlineEvaluationConfigRulePtrType) ToAgentcoreOnlineEvaluationConfigRulePtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigRulePtrOutput)
+}
+
+type AgentcoreOnlineEvaluationConfigRuleOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOnlineEvaluationConfigRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOnlineEvaluationConfigRule)(nil)).Elem()
+}
+
+func (o AgentcoreOnlineEvaluationConfigRuleOutput) ToAgentcoreOnlineEvaluationConfigRuleOutput() AgentcoreOnlineEvaluationConfigRuleOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigRuleOutput) ToAgentcoreOnlineEvaluationConfigRuleOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigRuleOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigRuleOutput) ToAgentcoreOnlineEvaluationConfigRulePtrOutput() AgentcoreOnlineEvaluationConfigRulePtrOutput {
+	return o.ToAgentcoreOnlineEvaluationConfigRulePtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreOnlineEvaluationConfigRuleOutput) ToAgentcoreOnlineEvaluationConfigRulePtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreOnlineEvaluationConfigRule) *AgentcoreOnlineEvaluationConfigRule {
+		return &v
+	}).(AgentcoreOnlineEvaluationConfigRulePtrOutput)
+}
+
+// List of filters determining which agent traces to evaluate. Maximum 5. See `filter` Block below.
+func (o AgentcoreOnlineEvaluationConfigRuleOutput) Filters() AgentcoreOnlineEvaluationConfigRuleFilterArrayOutput {
+	return o.ApplyT(func(v AgentcoreOnlineEvaluationConfigRule) []AgentcoreOnlineEvaluationConfigRuleFilter {
+		return v.Filters
+	}).(AgentcoreOnlineEvaluationConfigRuleFilterArrayOutput)
+}
+
+// Sampling configuration determining what percentage of agent traces to evaluate. See `samplingConfig` Block below.
+func (o AgentcoreOnlineEvaluationConfigRuleOutput) SamplingConfig() AgentcoreOnlineEvaluationConfigRuleSamplingConfigOutput {
+	return o.ApplyT(func(v AgentcoreOnlineEvaluationConfigRule) AgentcoreOnlineEvaluationConfigRuleSamplingConfig {
+		return v.SamplingConfig
+	}).(AgentcoreOnlineEvaluationConfigRuleSamplingConfigOutput)
+}
+
+// Session configuration defining timeout settings for detecting when agent sessions are complete. See `sessionConfig` Block below.
+func (o AgentcoreOnlineEvaluationConfigRuleOutput) SessionConfig() AgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutput {
+	return o.ApplyT(func(v AgentcoreOnlineEvaluationConfigRule) *AgentcoreOnlineEvaluationConfigRuleSessionConfig {
+		return v.SessionConfig
+	}).(AgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutput)
+}
+
+type AgentcoreOnlineEvaluationConfigRulePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOnlineEvaluationConfigRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOnlineEvaluationConfigRule)(nil)).Elem()
+}
+
+func (o AgentcoreOnlineEvaluationConfigRulePtrOutput) ToAgentcoreOnlineEvaluationConfigRulePtrOutput() AgentcoreOnlineEvaluationConfigRulePtrOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigRulePtrOutput) ToAgentcoreOnlineEvaluationConfigRulePtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigRulePtrOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigRulePtrOutput) Elem() AgentcoreOnlineEvaluationConfigRuleOutput {
+	return o.ApplyT(func(v *AgentcoreOnlineEvaluationConfigRule) AgentcoreOnlineEvaluationConfigRule {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreOnlineEvaluationConfigRule
+		return ret
+	}).(AgentcoreOnlineEvaluationConfigRuleOutput)
+}
+
+// List of filters determining which agent traces to evaluate. Maximum 5. See `filter` Block below.
+func (o AgentcoreOnlineEvaluationConfigRulePtrOutput) Filters() AgentcoreOnlineEvaluationConfigRuleFilterArrayOutput {
+	return o.ApplyT(func(v *AgentcoreOnlineEvaluationConfigRule) []AgentcoreOnlineEvaluationConfigRuleFilter {
+		if v == nil {
+			return nil
+		}
+		return v.Filters
+	}).(AgentcoreOnlineEvaluationConfigRuleFilterArrayOutput)
+}
+
+// Sampling configuration determining what percentage of agent traces to evaluate. See `samplingConfig` Block below.
+func (o AgentcoreOnlineEvaluationConfigRulePtrOutput) SamplingConfig() AgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOnlineEvaluationConfigRule) *AgentcoreOnlineEvaluationConfigRuleSamplingConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.SamplingConfig
+	}).(AgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutput)
+}
+
+// Session configuration defining timeout settings for detecting when agent sessions are complete. See `sessionConfig` Block below.
+func (o AgentcoreOnlineEvaluationConfigRulePtrOutput) SessionConfig() AgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOnlineEvaluationConfigRule) *AgentcoreOnlineEvaluationConfigRuleSessionConfig {
+		if v == nil {
+			return nil
+		}
+		return v.SessionConfig
+	}).(AgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutput)
+}
+
+type AgentcoreOnlineEvaluationConfigRuleFilter struct {
+	// Key or field name to filter on within the agent trace data.
+	Key string `pulumi:"key"`
+	// Comparison operator. Valid values: `Equals`, `NotEquals`, `GreaterThan`, `LessThan`, `GreaterThanOrEqual`, `LessThanOrEqual`, `Contains`, `NotContains`.
+	Operator string `pulumi:"operator"`
+	// Value to compare against. See `value` Block below.
+	Value AgentcoreOnlineEvaluationConfigRuleFilterValue `pulumi:"value"`
+}
+
+// AgentcoreOnlineEvaluationConfigRuleFilterInput is an input type that accepts AgentcoreOnlineEvaluationConfigRuleFilterArgs and AgentcoreOnlineEvaluationConfigRuleFilterOutput values.
+// You can construct a concrete instance of `AgentcoreOnlineEvaluationConfigRuleFilterInput` via:
+//
+//	AgentcoreOnlineEvaluationConfigRuleFilterArgs{...}
+type AgentcoreOnlineEvaluationConfigRuleFilterInput interface {
+	pulumi.Input
+
+	ToAgentcoreOnlineEvaluationConfigRuleFilterOutput() AgentcoreOnlineEvaluationConfigRuleFilterOutput
+	ToAgentcoreOnlineEvaluationConfigRuleFilterOutputWithContext(context.Context) AgentcoreOnlineEvaluationConfigRuleFilterOutput
+}
+
+type AgentcoreOnlineEvaluationConfigRuleFilterArgs struct {
+	// Key or field name to filter on within the agent trace data.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Comparison operator. Valid values: `Equals`, `NotEquals`, `GreaterThan`, `LessThan`, `GreaterThanOrEqual`, `LessThanOrEqual`, `Contains`, `NotContains`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Value to compare against. See `value` Block below.
+	Value AgentcoreOnlineEvaluationConfigRuleFilterValueInput `pulumi:"value"`
+}
+
+func (AgentcoreOnlineEvaluationConfigRuleFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOnlineEvaluationConfigRuleFilter)(nil)).Elem()
+}
+
+func (i AgentcoreOnlineEvaluationConfigRuleFilterArgs) ToAgentcoreOnlineEvaluationConfigRuleFilterOutput() AgentcoreOnlineEvaluationConfigRuleFilterOutput {
+	return i.ToAgentcoreOnlineEvaluationConfigRuleFilterOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOnlineEvaluationConfigRuleFilterArgs) ToAgentcoreOnlineEvaluationConfigRuleFilterOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigRuleFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigRuleFilterOutput)
+}
+
+// AgentcoreOnlineEvaluationConfigRuleFilterArrayInput is an input type that accepts AgentcoreOnlineEvaluationConfigRuleFilterArray and AgentcoreOnlineEvaluationConfigRuleFilterArrayOutput values.
+// You can construct a concrete instance of `AgentcoreOnlineEvaluationConfigRuleFilterArrayInput` via:
+//
+//	AgentcoreOnlineEvaluationConfigRuleFilterArray{ AgentcoreOnlineEvaluationConfigRuleFilterArgs{...} }
+type AgentcoreOnlineEvaluationConfigRuleFilterArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreOnlineEvaluationConfigRuleFilterArrayOutput() AgentcoreOnlineEvaluationConfigRuleFilterArrayOutput
+	ToAgentcoreOnlineEvaluationConfigRuleFilterArrayOutputWithContext(context.Context) AgentcoreOnlineEvaluationConfigRuleFilterArrayOutput
+}
+
+type AgentcoreOnlineEvaluationConfigRuleFilterArray []AgentcoreOnlineEvaluationConfigRuleFilterInput
+
+func (AgentcoreOnlineEvaluationConfigRuleFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOnlineEvaluationConfigRuleFilter)(nil)).Elem()
+}
+
+func (i AgentcoreOnlineEvaluationConfigRuleFilterArray) ToAgentcoreOnlineEvaluationConfigRuleFilterArrayOutput() AgentcoreOnlineEvaluationConfigRuleFilterArrayOutput {
+	return i.ToAgentcoreOnlineEvaluationConfigRuleFilterArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOnlineEvaluationConfigRuleFilterArray) ToAgentcoreOnlineEvaluationConfigRuleFilterArrayOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigRuleFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigRuleFilterArrayOutput)
+}
+
+type AgentcoreOnlineEvaluationConfigRuleFilterOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOnlineEvaluationConfigRuleFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOnlineEvaluationConfigRuleFilter)(nil)).Elem()
+}
+
+func (o AgentcoreOnlineEvaluationConfigRuleFilterOutput) ToAgentcoreOnlineEvaluationConfigRuleFilterOutput() AgentcoreOnlineEvaluationConfigRuleFilterOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigRuleFilterOutput) ToAgentcoreOnlineEvaluationConfigRuleFilterOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigRuleFilterOutput {
+	return o
+}
+
+// Key or field name to filter on within the agent trace data.
+func (o AgentcoreOnlineEvaluationConfigRuleFilterOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreOnlineEvaluationConfigRuleFilter) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Comparison operator. Valid values: `Equals`, `NotEquals`, `GreaterThan`, `LessThan`, `GreaterThanOrEqual`, `LessThanOrEqual`, `Contains`, `NotContains`.
+func (o AgentcoreOnlineEvaluationConfigRuleFilterOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreOnlineEvaluationConfigRuleFilter) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Value to compare against. See `value` Block below.
+func (o AgentcoreOnlineEvaluationConfigRuleFilterOutput) Value() AgentcoreOnlineEvaluationConfigRuleFilterValueOutput {
+	return o.ApplyT(func(v AgentcoreOnlineEvaluationConfigRuleFilter) AgentcoreOnlineEvaluationConfigRuleFilterValue {
+		return v.Value
+	}).(AgentcoreOnlineEvaluationConfigRuleFilterValueOutput)
+}
+
+type AgentcoreOnlineEvaluationConfigRuleFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOnlineEvaluationConfigRuleFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOnlineEvaluationConfigRuleFilter)(nil)).Elem()
+}
+
+func (o AgentcoreOnlineEvaluationConfigRuleFilterArrayOutput) ToAgentcoreOnlineEvaluationConfigRuleFilterArrayOutput() AgentcoreOnlineEvaluationConfigRuleFilterArrayOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigRuleFilterArrayOutput) ToAgentcoreOnlineEvaluationConfigRuleFilterArrayOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigRuleFilterArrayOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigRuleFilterArrayOutput) Index(i pulumi.IntInput) AgentcoreOnlineEvaluationConfigRuleFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreOnlineEvaluationConfigRuleFilter {
+		return vs[0].([]AgentcoreOnlineEvaluationConfigRuleFilter)[vs[1].(int)]
+	}).(AgentcoreOnlineEvaluationConfigRuleFilterOutput)
+}
+
+type AgentcoreOnlineEvaluationConfigRuleFilterValue struct {
+	// Boolean value for true/false filtering.
+	BooleanValue *bool `pulumi:"booleanValue"`
+	// Numeric value for numerical filtering.
+	DoubleValue *float64 `pulumi:"doubleValue"`
+	// String value for text-based filtering.
+	StringValue *string `pulumi:"stringValue"`
+}
+
+// AgentcoreOnlineEvaluationConfigRuleFilterValueInput is an input type that accepts AgentcoreOnlineEvaluationConfigRuleFilterValueArgs and AgentcoreOnlineEvaluationConfigRuleFilterValueOutput values.
+// You can construct a concrete instance of `AgentcoreOnlineEvaluationConfigRuleFilterValueInput` via:
+//
+//	AgentcoreOnlineEvaluationConfigRuleFilterValueArgs{...}
+type AgentcoreOnlineEvaluationConfigRuleFilterValueInput interface {
+	pulumi.Input
+
+	ToAgentcoreOnlineEvaluationConfigRuleFilterValueOutput() AgentcoreOnlineEvaluationConfigRuleFilterValueOutput
+	ToAgentcoreOnlineEvaluationConfigRuleFilterValueOutputWithContext(context.Context) AgentcoreOnlineEvaluationConfigRuleFilterValueOutput
+}
+
+type AgentcoreOnlineEvaluationConfigRuleFilterValueArgs struct {
+	// Boolean value for true/false filtering.
+	BooleanValue pulumi.BoolPtrInput `pulumi:"booleanValue"`
+	// Numeric value for numerical filtering.
+	DoubleValue pulumi.Float64PtrInput `pulumi:"doubleValue"`
+	// String value for text-based filtering.
+	StringValue pulumi.StringPtrInput `pulumi:"stringValue"`
+}
+
+func (AgentcoreOnlineEvaluationConfigRuleFilterValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOnlineEvaluationConfigRuleFilterValue)(nil)).Elem()
+}
+
+func (i AgentcoreOnlineEvaluationConfigRuleFilterValueArgs) ToAgentcoreOnlineEvaluationConfigRuleFilterValueOutput() AgentcoreOnlineEvaluationConfigRuleFilterValueOutput {
+	return i.ToAgentcoreOnlineEvaluationConfigRuleFilterValueOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOnlineEvaluationConfigRuleFilterValueArgs) ToAgentcoreOnlineEvaluationConfigRuleFilterValueOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigRuleFilterValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigRuleFilterValueOutput)
+}
+
+type AgentcoreOnlineEvaluationConfigRuleFilterValueOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOnlineEvaluationConfigRuleFilterValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOnlineEvaluationConfigRuleFilterValue)(nil)).Elem()
+}
+
+func (o AgentcoreOnlineEvaluationConfigRuleFilterValueOutput) ToAgentcoreOnlineEvaluationConfigRuleFilterValueOutput() AgentcoreOnlineEvaluationConfigRuleFilterValueOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigRuleFilterValueOutput) ToAgentcoreOnlineEvaluationConfigRuleFilterValueOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigRuleFilterValueOutput {
+	return o
+}
+
+// Boolean value for true/false filtering.
+func (o AgentcoreOnlineEvaluationConfigRuleFilterValueOutput) BooleanValue() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AgentcoreOnlineEvaluationConfigRuleFilterValue) *bool { return v.BooleanValue }).(pulumi.BoolPtrOutput)
+}
+
+// Numeric value for numerical filtering.
+func (o AgentcoreOnlineEvaluationConfigRuleFilterValueOutput) DoubleValue() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AgentcoreOnlineEvaluationConfigRuleFilterValue) *float64 { return v.DoubleValue }).(pulumi.Float64PtrOutput)
+}
+
+// String value for text-based filtering.
+func (o AgentcoreOnlineEvaluationConfigRuleFilterValueOutput) StringValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOnlineEvaluationConfigRuleFilterValue) *string { return v.StringValue }).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreOnlineEvaluationConfigRuleSamplingConfig struct {
+	// Percentage of agent traces to sample for evaluation, from 0.01 to 100.
+	SamplingPercentage float64 `pulumi:"samplingPercentage"`
+}
+
+// AgentcoreOnlineEvaluationConfigRuleSamplingConfigInput is an input type that accepts AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs and AgentcoreOnlineEvaluationConfigRuleSamplingConfigOutput values.
+// You can construct a concrete instance of `AgentcoreOnlineEvaluationConfigRuleSamplingConfigInput` via:
+//
+//	AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs{...}
+type AgentcoreOnlineEvaluationConfigRuleSamplingConfigInput interface {
+	pulumi.Input
+
+	ToAgentcoreOnlineEvaluationConfigRuleSamplingConfigOutput() AgentcoreOnlineEvaluationConfigRuleSamplingConfigOutput
+	ToAgentcoreOnlineEvaluationConfigRuleSamplingConfigOutputWithContext(context.Context) AgentcoreOnlineEvaluationConfigRuleSamplingConfigOutput
+}
+
+type AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs struct {
+	// Percentage of agent traces to sample for evaluation, from 0.01 to 100.
+	SamplingPercentage pulumi.Float64Input `pulumi:"samplingPercentage"`
+}
+
+func (AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOnlineEvaluationConfigRuleSamplingConfig)(nil)).Elem()
+}
+
+func (i AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs) ToAgentcoreOnlineEvaluationConfigRuleSamplingConfigOutput() AgentcoreOnlineEvaluationConfigRuleSamplingConfigOutput {
+	return i.ToAgentcoreOnlineEvaluationConfigRuleSamplingConfigOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs) ToAgentcoreOnlineEvaluationConfigRuleSamplingConfigOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigRuleSamplingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigRuleSamplingConfigOutput)
+}
+
+func (i AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs) ToAgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutput() AgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutput {
+	return i.ToAgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs) ToAgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigRuleSamplingConfigOutput).ToAgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutputWithContext(ctx)
+}
+
+// AgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrInput is an input type that accepts AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs, AgentcoreOnlineEvaluationConfigRuleSamplingConfigPtr and AgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutput values.
+// You can construct a concrete instance of `AgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrInput` via:
+//
+//	        AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutput() AgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutput
+	ToAgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutputWithContext(context.Context) AgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutput
+}
+
+type agentcoreOnlineEvaluationConfigRuleSamplingConfigPtrType AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs
+
+func AgentcoreOnlineEvaluationConfigRuleSamplingConfigPtr(v *AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs) AgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrInput {
+	return (*agentcoreOnlineEvaluationConfigRuleSamplingConfigPtrType)(v)
+}
+
+func (*agentcoreOnlineEvaluationConfigRuleSamplingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOnlineEvaluationConfigRuleSamplingConfig)(nil)).Elem()
+}
+
+func (i *agentcoreOnlineEvaluationConfigRuleSamplingConfigPtrType) ToAgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutput() AgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutput {
+	return i.ToAgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreOnlineEvaluationConfigRuleSamplingConfigPtrType) ToAgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutput)
+}
+
+type AgentcoreOnlineEvaluationConfigRuleSamplingConfigOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOnlineEvaluationConfigRuleSamplingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOnlineEvaluationConfigRuleSamplingConfig)(nil)).Elem()
+}
+
+func (o AgentcoreOnlineEvaluationConfigRuleSamplingConfigOutput) ToAgentcoreOnlineEvaluationConfigRuleSamplingConfigOutput() AgentcoreOnlineEvaluationConfigRuleSamplingConfigOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigRuleSamplingConfigOutput) ToAgentcoreOnlineEvaluationConfigRuleSamplingConfigOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigRuleSamplingConfigOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigRuleSamplingConfigOutput) ToAgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutput() AgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutput {
+	return o.ToAgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreOnlineEvaluationConfigRuleSamplingConfigOutput) ToAgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreOnlineEvaluationConfigRuleSamplingConfig) *AgentcoreOnlineEvaluationConfigRuleSamplingConfig {
+		return &v
+	}).(AgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutput)
+}
+
+// Percentage of agent traces to sample for evaluation, from 0.01 to 100.
+func (o AgentcoreOnlineEvaluationConfigRuleSamplingConfigOutput) SamplingPercentage() pulumi.Float64Output {
+	return o.ApplyT(func(v AgentcoreOnlineEvaluationConfigRuleSamplingConfig) float64 { return v.SamplingPercentage }).(pulumi.Float64Output)
+}
+
+type AgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOnlineEvaluationConfigRuleSamplingConfig)(nil)).Elem()
+}
+
+func (o AgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutput) ToAgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutput() AgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutput) ToAgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutput) Elem() AgentcoreOnlineEvaluationConfigRuleSamplingConfigOutput {
+	return o.ApplyT(func(v *AgentcoreOnlineEvaluationConfigRuleSamplingConfig) AgentcoreOnlineEvaluationConfigRuleSamplingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreOnlineEvaluationConfigRuleSamplingConfig
+		return ret
+	}).(AgentcoreOnlineEvaluationConfigRuleSamplingConfigOutput)
+}
+
+// Percentage of agent traces to sample for evaluation, from 0.01 to 100.
+func (o AgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutput) SamplingPercentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AgentcoreOnlineEvaluationConfigRuleSamplingConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.SamplingPercentage
+	}).(pulumi.Float64PtrOutput)
+}
+
+type AgentcoreOnlineEvaluationConfigRuleSessionConfig struct {
+	// Minutes of inactivity after which a session is considered complete. Between 1 and 60.
+	SessionTimeoutMinutes int `pulumi:"sessionTimeoutMinutes"`
+}
+
+// AgentcoreOnlineEvaluationConfigRuleSessionConfigInput is an input type that accepts AgentcoreOnlineEvaluationConfigRuleSessionConfigArgs and AgentcoreOnlineEvaluationConfigRuleSessionConfigOutput values.
+// You can construct a concrete instance of `AgentcoreOnlineEvaluationConfigRuleSessionConfigInput` via:
+//
+//	AgentcoreOnlineEvaluationConfigRuleSessionConfigArgs{...}
+type AgentcoreOnlineEvaluationConfigRuleSessionConfigInput interface {
+	pulumi.Input
+
+	ToAgentcoreOnlineEvaluationConfigRuleSessionConfigOutput() AgentcoreOnlineEvaluationConfigRuleSessionConfigOutput
+	ToAgentcoreOnlineEvaluationConfigRuleSessionConfigOutputWithContext(context.Context) AgentcoreOnlineEvaluationConfigRuleSessionConfigOutput
+}
+
+type AgentcoreOnlineEvaluationConfigRuleSessionConfigArgs struct {
+	// Minutes of inactivity after which a session is considered complete. Between 1 and 60.
+	SessionTimeoutMinutes pulumi.IntInput `pulumi:"sessionTimeoutMinutes"`
+}
+
+func (AgentcoreOnlineEvaluationConfigRuleSessionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOnlineEvaluationConfigRuleSessionConfig)(nil)).Elem()
+}
+
+func (i AgentcoreOnlineEvaluationConfigRuleSessionConfigArgs) ToAgentcoreOnlineEvaluationConfigRuleSessionConfigOutput() AgentcoreOnlineEvaluationConfigRuleSessionConfigOutput {
+	return i.ToAgentcoreOnlineEvaluationConfigRuleSessionConfigOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOnlineEvaluationConfigRuleSessionConfigArgs) ToAgentcoreOnlineEvaluationConfigRuleSessionConfigOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigRuleSessionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigRuleSessionConfigOutput)
+}
+
+func (i AgentcoreOnlineEvaluationConfigRuleSessionConfigArgs) ToAgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutput() AgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutput {
+	return i.ToAgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOnlineEvaluationConfigRuleSessionConfigArgs) ToAgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigRuleSessionConfigOutput).ToAgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutputWithContext(ctx)
+}
+
+// AgentcoreOnlineEvaluationConfigRuleSessionConfigPtrInput is an input type that accepts AgentcoreOnlineEvaluationConfigRuleSessionConfigArgs, AgentcoreOnlineEvaluationConfigRuleSessionConfigPtr and AgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutput values.
+// You can construct a concrete instance of `AgentcoreOnlineEvaluationConfigRuleSessionConfigPtrInput` via:
+//
+//	        AgentcoreOnlineEvaluationConfigRuleSessionConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreOnlineEvaluationConfigRuleSessionConfigPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutput() AgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutput
+	ToAgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutputWithContext(context.Context) AgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutput
+}
+
+type agentcoreOnlineEvaluationConfigRuleSessionConfigPtrType AgentcoreOnlineEvaluationConfigRuleSessionConfigArgs
+
+func AgentcoreOnlineEvaluationConfigRuleSessionConfigPtr(v *AgentcoreOnlineEvaluationConfigRuleSessionConfigArgs) AgentcoreOnlineEvaluationConfigRuleSessionConfigPtrInput {
+	return (*agentcoreOnlineEvaluationConfigRuleSessionConfigPtrType)(v)
+}
+
+func (*agentcoreOnlineEvaluationConfigRuleSessionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOnlineEvaluationConfigRuleSessionConfig)(nil)).Elem()
+}
+
+func (i *agentcoreOnlineEvaluationConfigRuleSessionConfigPtrType) ToAgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutput() AgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutput {
+	return i.ToAgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreOnlineEvaluationConfigRuleSessionConfigPtrType) ToAgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutput)
+}
+
+type AgentcoreOnlineEvaluationConfigRuleSessionConfigOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOnlineEvaluationConfigRuleSessionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOnlineEvaluationConfigRuleSessionConfig)(nil)).Elem()
+}
+
+func (o AgentcoreOnlineEvaluationConfigRuleSessionConfigOutput) ToAgentcoreOnlineEvaluationConfigRuleSessionConfigOutput() AgentcoreOnlineEvaluationConfigRuleSessionConfigOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigRuleSessionConfigOutput) ToAgentcoreOnlineEvaluationConfigRuleSessionConfigOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigRuleSessionConfigOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigRuleSessionConfigOutput) ToAgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutput() AgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutput {
+	return o.ToAgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreOnlineEvaluationConfigRuleSessionConfigOutput) ToAgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreOnlineEvaluationConfigRuleSessionConfig) *AgentcoreOnlineEvaluationConfigRuleSessionConfig {
+		return &v
+	}).(AgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutput)
+}
+
+// Minutes of inactivity after which a session is considered complete. Between 1 and 60.
+func (o AgentcoreOnlineEvaluationConfigRuleSessionConfigOutput) SessionTimeoutMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v AgentcoreOnlineEvaluationConfigRuleSessionConfig) int { return v.SessionTimeoutMinutes }).(pulumi.IntOutput)
+}
+
+type AgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOnlineEvaluationConfigRuleSessionConfig)(nil)).Elem()
+}
+
+func (o AgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutput) ToAgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutput() AgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutput) ToAgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutput) Elem() AgentcoreOnlineEvaluationConfigRuleSessionConfigOutput {
+	return o.ApplyT(func(v *AgentcoreOnlineEvaluationConfigRuleSessionConfig) AgentcoreOnlineEvaluationConfigRuleSessionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreOnlineEvaluationConfigRuleSessionConfig
+		return ret
+	}).(AgentcoreOnlineEvaluationConfigRuleSessionConfigOutput)
+}
+
+// Minutes of inactivity after which a session is considered complete. Between 1 and 60.
+func (o AgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutput) SessionTimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOnlineEvaluationConfigRuleSessionConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SessionTimeoutMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+type AgentcoreOnlineEvaluationConfigTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// AgentcoreOnlineEvaluationConfigTimeoutsInput is an input type that accepts AgentcoreOnlineEvaluationConfigTimeoutsArgs and AgentcoreOnlineEvaluationConfigTimeoutsOutput values.
+// You can construct a concrete instance of `AgentcoreOnlineEvaluationConfigTimeoutsInput` via:
+//
+//	AgentcoreOnlineEvaluationConfigTimeoutsArgs{...}
+type AgentcoreOnlineEvaluationConfigTimeoutsInput interface {
+	pulumi.Input
+
+	ToAgentcoreOnlineEvaluationConfigTimeoutsOutput() AgentcoreOnlineEvaluationConfigTimeoutsOutput
+	ToAgentcoreOnlineEvaluationConfigTimeoutsOutputWithContext(context.Context) AgentcoreOnlineEvaluationConfigTimeoutsOutput
+}
+
+type AgentcoreOnlineEvaluationConfigTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (AgentcoreOnlineEvaluationConfigTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOnlineEvaluationConfigTimeouts)(nil)).Elem()
+}
+
+func (i AgentcoreOnlineEvaluationConfigTimeoutsArgs) ToAgentcoreOnlineEvaluationConfigTimeoutsOutput() AgentcoreOnlineEvaluationConfigTimeoutsOutput {
+	return i.ToAgentcoreOnlineEvaluationConfigTimeoutsOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOnlineEvaluationConfigTimeoutsArgs) ToAgentcoreOnlineEvaluationConfigTimeoutsOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigTimeoutsOutput)
+}
+
+func (i AgentcoreOnlineEvaluationConfigTimeoutsArgs) ToAgentcoreOnlineEvaluationConfigTimeoutsPtrOutput() AgentcoreOnlineEvaluationConfigTimeoutsPtrOutput {
+	return i.ToAgentcoreOnlineEvaluationConfigTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOnlineEvaluationConfigTimeoutsArgs) ToAgentcoreOnlineEvaluationConfigTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigTimeoutsOutput).ToAgentcoreOnlineEvaluationConfigTimeoutsPtrOutputWithContext(ctx)
+}
+
+// AgentcoreOnlineEvaluationConfigTimeoutsPtrInput is an input type that accepts AgentcoreOnlineEvaluationConfigTimeoutsArgs, AgentcoreOnlineEvaluationConfigTimeoutsPtr and AgentcoreOnlineEvaluationConfigTimeoutsPtrOutput values.
+// You can construct a concrete instance of `AgentcoreOnlineEvaluationConfigTimeoutsPtrInput` via:
+//
+//	        AgentcoreOnlineEvaluationConfigTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreOnlineEvaluationConfigTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreOnlineEvaluationConfigTimeoutsPtrOutput() AgentcoreOnlineEvaluationConfigTimeoutsPtrOutput
+	ToAgentcoreOnlineEvaluationConfigTimeoutsPtrOutputWithContext(context.Context) AgentcoreOnlineEvaluationConfigTimeoutsPtrOutput
+}
+
+type agentcoreOnlineEvaluationConfigTimeoutsPtrType AgentcoreOnlineEvaluationConfigTimeoutsArgs
+
+func AgentcoreOnlineEvaluationConfigTimeoutsPtr(v *AgentcoreOnlineEvaluationConfigTimeoutsArgs) AgentcoreOnlineEvaluationConfigTimeoutsPtrInput {
+	return (*agentcoreOnlineEvaluationConfigTimeoutsPtrType)(v)
+}
+
+func (*agentcoreOnlineEvaluationConfigTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOnlineEvaluationConfigTimeouts)(nil)).Elem()
+}
+
+func (i *agentcoreOnlineEvaluationConfigTimeoutsPtrType) ToAgentcoreOnlineEvaluationConfigTimeoutsPtrOutput() AgentcoreOnlineEvaluationConfigTimeoutsPtrOutput {
+	return i.ToAgentcoreOnlineEvaluationConfigTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreOnlineEvaluationConfigTimeoutsPtrType) ToAgentcoreOnlineEvaluationConfigTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigTimeoutsPtrOutput)
+}
+
+type AgentcoreOnlineEvaluationConfigTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOnlineEvaluationConfigTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOnlineEvaluationConfigTimeouts)(nil)).Elem()
+}
+
+func (o AgentcoreOnlineEvaluationConfigTimeoutsOutput) ToAgentcoreOnlineEvaluationConfigTimeoutsOutput() AgentcoreOnlineEvaluationConfigTimeoutsOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigTimeoutsOutput) ToAgentcoreOnlineEvaluationConfigTimeoutsOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigTimeoutsOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigTimeoutsOutput) ToAgentcoreOnlineEvaluationConfigTimeoutsPtrOutput() AgentcoreOnlineEvaluationConfigTimeoutsPtrOutput {
+	return o.ToAgentcoreOnlineEvaluationConfigTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreOnlineEvaluationConfigTimeoutsOutput) ToAgentcoreOnlineEvaluationConfigTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreOnlineEvaluationConfigTimeouts) *AgentcoreOnlineEvaluationConfigTimeouts {
+		return &v
+	}).(AgentcoreOnlineEvaluationConfigTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreOnlineEvaluationConfigTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOnlineEvaluationConfigTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentcoreOnlineEvaluationConfigTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOnlineEvaluationConfigTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreOnlineEvaluationConfigTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOnlineEvaluationConfigTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreOnlineEvaluationConfigTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOnlineEvaluationConfigTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOnlineEvaluationConfigTimeouts)(nil)).Elem()
+}
+
+func (o AgentcoreOnlineEvaluationConfigTimeoutsPtrOutput) ToAgentcoreOnlineEvaluationConfigTimeoutsPtrOutput() AgentcoreOnlineEvaluationConfigTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigTimeoutsPtrOutput) ToAgentcoreOnlineEvaluationConfigTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigTimeoutsPtrOutput) Elem() AgentcoreOnlineEvaluationConfigTimeoutsOutput {
+	return o.ApplyT(func(v *AgentcoreOnlineEvaluationConfigTimeouts) AgentcoreOnlineEvaluationConfigTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreOnlineEvaluationConfigTimeouts
+		return ret
+	}).(AgentcoreOnlineEvaluationConfigTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreOnlineEvaluationConfigTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOnlineEvaluationConfigTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentcoreOnlineEvaluationConfigTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOnlineEvaluationConfigTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreOnlineEvaluationConfigTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOnlineEvaluationConfigTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcorePolicyDefinition struct {
+	// Inline Cedar policy. See `cedar` Block for details.
+	Cedar AgentcorePolicyDefinitionCedar `pulumi:"cedar"`
+}
+
+// AgentcorePolicyDefinitionInput is an input type that accepts AgentcorePolicyDefinitionArgs and AgentcorePolicyDefinitionOutput values.
+// You can construct a concrete instance of `AgentcorePolicyDefinitionInput` via:
+//
+//	AgentcorePolicyDefinitionArgs{...}
+type AgentcorePolicyDefinitionInput interface {
+	pulumi.Input
+
+	ToAgentcorePolicyDefinitionOutput() AgentcorePolicyDefinitionOutput
+	ToAgentcorePolicyDefinitionOutputWithContext(context.Context) AgentcorePolicyDefinitionOutput
+}
+
+type AgentcorePolicyDefinitionArgs struct {
+	// Inline Cedar policy. See `cedar` Block for details.
+	Cedar AgentcorePolicyDefinitionCedarInput `pulumi:"cedar"`
+}
+
+func (AgentcorePolicyDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcorePolicyDefinition)(nil)).Elem()
+}
+
+func (i AgentcorePolicyDefinitionArgs) ToAgentcorePolicyDefinitionOutput() AgentcorePolicyDefinitionOutput {
+	return i.ToAgentcorePolicyDefinitionOutputWithContext(context.Background())
+}
+
+func (i AgentcorePolicyDefinitionArgs) ToAgentcorePolicyDefinitionOutputWithContext(ctx context.Context) AgentcorePolicyDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcorePolicyDefinitionOutput)
+}
+
+func (i AgentcorePolicyDefinitionArgs) ToAgentcorePolicyDefinitionPtrOutput() AgentcorePolicyDefinitionPtrOutput {
+	return i.ToAgentcorePolicyDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcorePolicyDefinitionArgs) ToAgentcorePolicyDefinitionPtrOutputWithContext(ctx context.Context) AgentcorePolicyDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcorePolicyDefinitionOutput).ToAgentcorePolicyDefinitionPtrOutputWithContext(ctx)
+}
+
+// AgentcorePolicyDefinitionPtrInput is an input type that accepts AgentcorePolicyDefinitionArgs, AgentcorePolicyDefinitionPtr and AgentcorePolicyDefinitionPtrOutput values.
+// You can construct a concrete instance of `AgentcorePolicyDefinitionPtrInput` via:
+//
+//	        AgentcorePolicyDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcorePolicyDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToAgentcorePolicyDefinitionPtrOutput() AgentcorePolicyDefinitionPtrOutput
+	ToAgentcorePolicyDefinitionPtrOutputWithContext(context.Context) AgentcorePolicyDefinitionPtrOutput
+}
+
+type agentcorePolicyDefinitionPtrType AgentcorePolicyDefinitionArgs
+
+func AgentcorePolicyDefinitionPtr(v *AgentcorePolicyDefinitionArgs) AgentcorePolicyDefinitionPtrInput {
+	return (*agentcorePolicyDefinitionPtrType)(v)
+}
+
+func (*agentcorePolicyDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcorePolicyDefinition)(nil)).Elem()
+}
+
+func (i *agentcorePolicyDefinitionPtrType) ToAgentcorePolicyDefinitionPtrOutput() AgentcorePolicyDefinitionPtrOutput {
+	return i.ToAgentcorePolicyDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcorePolicyDefinitionPtrType) ToAgentcorePolicyDefinitionPtrOutputWithContext(ctx context.Context) AgentcorePolicyDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcorePolicyDefinitionPtrOutput)
+}
+
+type AgentcorePolicyDefinitionOutput struct{ *pulumi.OutputState }
+
+func (AgentcorePolicyDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcorePolicyDefinition)(nil)).Elem()
+}
+
+func (o AgentcorePolicyDefinitionOutput) ToAgentcorePolicyDefinitionOutput() AgentcorePolicyDefinitionOutput {
+	return o
+}
+
+func (o AgentcorePolicyDefinitionOutput) ToAgentcorePolicyDefinitionOutputWithContext(ctx context.Context) AgentcorePolicyDefinitionOutput {
+	return o
+}
+
+func (o AgentcorePolicyDefinitionOutput) ToAgentcorePolicyDefinitionPtrOutput() AgentcorePolicyDefinitionPtrOutput {
+	return o.ToAgentcorePolicyDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcorePolicyDefinitionOutput) ToAgentcorePolicyDefinitionPtrOutputWithContext(ctx context.Context) AgentcorePolicyDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcorePolicyDefinition) *AgentcorePolicyDefinition {
+		return &v
+	}).(AgentcorePolicyDefinitionPtrOutput)
+}
+
+// Inline Cedar policy. See `cedar` Block for details.
+func (o AgentcorePolicyDefinitionOutput) Cedar() AgentcorePolicyDefinitionCedarOutput {
+	return o.ApplyT(func(v AgentcorePolicyDefinition) AgentcorePolicyDefinitionCedar { return v.Cedar }).(AgentcorePolicyDefinitionCedarOutput)
+}
+
+type AgentcorePolicyDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcorePolicyDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcorePolicyDefinition)(nil)).Elem()
+}
+
+func (o AgentcorePolicyDefinitionPtrOutput) ToAgentcorePolicyDefinitionPtrOutput() AgentcorePolicyDefinitionPtrOutput {
+	return o
+}
+
+func (o AgentcorePolicyDefinitionPtrOutput) ToAgentcorePolicyDefinitionPtrOutputWithContext(ctx context.Context) AgentcorePolicyDefinitionPtrOutput {
+	return o
+}
+
+func (o AgentcorePolicyDefinitionPtrOutput) Elem() AgentcorePolicyDefinitionOutput {
+	return o.ApplyT(func(v *AgentcorePolicyDefinition) AgentcorePolicyDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcorePolicyDefinition
+		return ret
+	}).(AgentcorePolicyDefinitionOutput)
+}
+
+// Inline Cedar policy. See `cedar` Block for details.
+func (o AgentcorePolicyDefinitionPtrOutput) Cedar() AgentcorePolicyDefinitionCedarPtrOutput {
+	return o.ApplyT(func(v *AgentcorePolicyDefinition) *AgentcorePolicyDefinitionCedar {
+		if v == nil {
+			return nil
+		}
+		return &v.Cedar
+	}).(AgentcorePolicyDefinitionCedarPtrOutput)
+}
+
+type AgentcorePolicyDefinitionCedar struct {
+	// Cedar policy statement.
+	Statement string `pulumi:"statement"`
+}
+
+// AgentcorePolicyDefinitionCedarInput is an input type that accepts AgentcorePolicyDefinitionCedarArgs and AgentcorePolicyDefinitionCedarOutput values.
+// You can construct a concrete instance of `AgentcorePolicyDefinitionCedarInput` via:
+//
+//	AgentcorePolicyDefinitionCedarArgs{...}
+type AgentcorePolicyDefinitionCedarInput interface {
+	pulumi.Input
+
+	ToAgentcorePolicyDefinitionCedarOutput() AgentcorePolicyDefinitionCedarOutput
+	ToAgentcorePolicyDefinitionCedarOutputWithContext(context.Context) AgentcorePolicyDefinitionCedarOutput
+}
+
+type AgentcorePolicyDefinitionCedarArgs struct {
+	// Cedar policy statement.
+	Statement pulumi.StringInput `pulumi:"statement"`
+}
+
+func (AgentcorePolicyDefinitionCedarArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcorePolicyDefinitionCedar)(nil)).Elem()
+}
+
+func (i AgentcorePolicyDefinitionCedarArgs) ToAgentcorePolicyDefinitionCedarOutput() AgentcorePolicyDefinitionCedarOutput {
+	return i.ToAgentcorePolicyDefinitionCedarOutputWithContext(context.Background())
+}
+
+func (i AgentcorePolicyDefinitionCedarArgs) ToAgentcorePolicyDefinitionCedarOutputWithContext(ctx context.Context) AgentcorePolicyDefinitionCedarOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcorePolicyDefinitionCedarOutput)
+}
+
+func (i AgentcorePolicyDefinitionCedarArgs) ToAgentcorePolicyDefinitionCedarPtrOutput() AgentcorePolicyDefinitionCedarPtrOutput {
+	return i.ToAgentcorePolicyDefinitionCedarPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcorePolicyDefinitionCedarArgs) ToAgentcorePolicyDefinitionCedarPtrOutputWithContext(ctx context.Context) AgentcorePolicyDefinitionCedarPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcorePolicyDefinitionCedarOutput).ToAgentcorePolicyDefinitionCedarPtrOutputWithContext(ctx)
+}
+
+// AgentcorePolicyDefinitionCedarPtrInput is an input type that accepts AgentcorePolicyDefinitionCedarArgs, AgentcorePolicyDefinitionCedarPtr and AgentcorePolicyDefinitionCedarPtrOutput values.
+// You can construct a concrete instance of `AgentcorePolicyDefinitionCedarPtrInput` via:
+//
+//	        AgentcorePolicyDefinitionCedarArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcorePolicyDefinitionCedarPtrInput interface {
+	pulumi.Input
+
+	ToAgentcorePolicyDefinitionCedarPtrOutput() AgentcorePolicyDefinitionCedarPtrOutput
+	ToAgentcorePolicyDefinitionCedarPtrOutputWithContext(context.Context) AgentcorePolicyDefinitionCedarPtrOutput
+}
+
+type agentcorePolicyDefinitionCedarPtrType AgentcorePolicyDefinitionCedarArgs
+
+func AgentcorePolicyDefinitionCedarPtr(v *AgentcorePolicyDefinitionCedarArgs) AgentcorePolicyDefinitionCedarPtrInput {
+	return (*agentcorePolicyDefinitionCedarPtrType)(v)
+}
+
+func (*agentcorePolicyDefinitionCedarPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcorePolicyDefinitionCedar)(nil)).Elem()
+}
+
+func (i *agentcorePolicyDefinitionCedarPtrType) ToAgentcorePolicyDefinitionCedarPtrOutput() AgentcorePolicyDefinitionCedarPtrOutput {
+	return i.ToAgentcorePolicyDefinitionCedarPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcorePolicyDefinitionCedarPtrType) ToAgentcorePolicyDefinitionCedarPtrOutputWithContext(ctx context.Context) AgentcorePolicyDefinitionCedarPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcorePolicyDefinitionCedarPtrOutput)
+}
+
+type AgentcorePolicyDefinitionCedarOutput struct{ *pulumi.OutputState }
+
+func (AgentcorePolicyDefinitionCedarOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcorePolicyDefinitionCedar)(nil)).Elem()
+}
+
+func (o AgentcorePolicyDefinitionCedarOutput) ToAgentcorePolicyDefinitionCedarOutput() AgentcorePolicyDefinitionCedarOutput {
+	return o
+}
+
+func (o AgentcorePolicyDefinitionCedarOutput) ToAgentcorePolicyDefinitionCedarOutputWithContext(ctx context.Context) AgentcorePolicyDefinitionCedarOutput {
+	return o
+}
+
+func (o AgentcorePolicyDefinitionCedarOutput) ToAgentcorePolicyDefinitionCedarPtrOutput() AgentcorePolicyDefinitionCedarPtrOutput {
+	return o.ToAgentcorePolicyDefinitionCedarPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcorePolicyDefinitionCedarOutput) ToAgentcorePolicyDefinitionCedarPtrOutputWithContext(ctx context.Context) AgentcorePolicyDefinitionCedarPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcorePolicyDefinitionCedar) *AgentcorePolicyDefinitionCedar {
+		return &v
+	}).(AgentcorePolicyDefinitionCedarPtrOutput)
+}
+
+// Cedar policy statement.
+func (o AgentcorePolicyDefinitionCedarOutput) Statement() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcorePolicyDefinitionCedar) string { return v.Statement }).(pulumi.StringOutput)
+}
+
+type AgentcorePolicyDefinitionCedarPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcorePolicyDefinitionCedarPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcorePolicyDefinitionCedar)(nil)).Elem()
+}
+
+func (o AgentcorePolicyDefinitionCedarPtrOutput) ToAgentcorePolicyDefinitionCedarPtrOutput() AgentcorePolicyDefinitionCedarPtrOutput {
+	return o
+}
+
+func (o AgentcorePolicyDefinitionCedarPtrOutput) ToAgentcorePolicyDefinitionCedarPtrOutputWithContext(ctx context.Context) AgentcorePolicyDefinitionCedarPtrOutput {
+	return o
+}
+
+func (o AgentcorePolicyDefinitionCedarPtrOutput) Elem() AgentcorePolicyDefinitionCedarOutput {
+	return o.ApplyT(func(v *AgentcorePolicyDefinitionCedar) AgentcorePolicyDefinitionCedar {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcorePolicyDefinitionCedar
+		return ret
+	}).(AgentcorePolicyDefinitionCedarOutput)
+}
+
+// Cedar policy statement.
+func (o AgentcorePolicyDefinitionCedarPtrOutput) Statement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcorePolicyDefinitionCedar) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Statement
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcorePolicyEngineTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// AgentcorePolicyEngineTimeoutsInput is an input type that accepts AgentcorePolicyEngineTimeoutsArgs and AgentcorePolicyEngineTimeoutsOutput values.
+// You can construct a concrete instance of `AgentcorePolicyEngineTimeoutsInput` via:
+//
+//	AgentcorePolicyEngineTimeoutsArgs{...}
+type AgentcorePolicyEngineTimeoutsInput interface {
+	pulumi.Input
+
+	ToAgentcorePolicyEngineTimeoutsOutput() AgentcorePolicyEngineTimeoutsOutput
+	ToAgentcorePolicyEngineTimeoutsOutputWithContext(context.Context) AgentcorePolicyEngineTimeoutsOutput
+}
+
+type AgentcorePolicyEngineTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (AgentcorePolicyEngineTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcorePolicyEngineTimeouts)(nil)).Elem()
+}
+
+func (i AgentcorePolicyEngineTimeoutsArgs) ToAgentcorePolicyEngineTimeoutsOutput() AgentcorePolicyEngineTimeoutsOutput {
+	return i.ToAgentcorePolicyEngineTimeoutsOutputWithContext(context.Background())
+}
+
+func (i AgentcorePolicyEngineTimeoutsArgs) ToAgentcorePolicyEngineTimeoutsOutputWithContext(ctx context.Context) AgentcorePolicyEngineTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcorePolicyEngineTimeoutsOutput)
+}
+
+func (i AgentcorePolicyEngineTimeoutsArgs) ToAgentcorePolicyEngineTimeoutsPtrOutput() AgentcorePolicyEngineTimeoutsPtrOutput {
+	return i.ToAgentcorePolicyEngineTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcorePolicyEngineTimeoutsArgs) ToAgentcorePolicyEngineTimeoutsPtrOutputWithContext(ctx context.Context) AgentcorePolicyEngineTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcorePolicyEngineTimeoutsOutput).ToAgentcorePolicyEngineTimeoutsPtrOutputWithContext(ctx)
+}
+
+// AgentcorePolicyEngineTimeoutsPtrInput is an input type that accepts AgentcorePolicyEngineTimeoutsArgs, AgentcorePolicyEngineTimeoutsPtr and AgentcorePolicyEngineTimeoutsPtrOutput values.
+// You can construct a concrete instance of `AgentcorePolicyEngineTimeoutsPtrInput` via:
+//
+//	        AgentcorePolicyEngineTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcorePolicyEngineTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToAgentcorePolicyEngineTimeoutsPtrOutput() AgentcorePolicyEngineTimeoutsPtrOutput
+	ToAgentcorePolicyEngineTimeoutsPtrOutputWithContext(context.Context) AgentcorePolicyEngineTimeoutsPtrOutput
+}
+
+type agentcorePolicyEngineTimeoutsPtrType AgentcorePolicyEngineTimeoutsArgs
+
+func AgentcorePolicyEngineTimeoutsPtr(v *AgentcorePolicyEngineTimeoutsArgs) AgentcorePolicyEngineTimeoutsPtrInput {
+	return (*agentcorePolicyEngineTimeoutsPtrType)(v)
+}
+
+func (*agentcorePolicyEngineTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcorePolicyEngineTimeouts)(nil)).Elem()
+}
+
+func (i *agentcorePolicyEngineTimeoutsPtrType) ToAgentcorePolicyEngineTimeoutsPtrOutput() AgentcorePolicyEngineTimeoutsPtrOutput {
+	return i.ToAgentcorePolicyEngineTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcorePolicyEngineTimeoutsPtrType) ToAgentcorePolicyEngineTimeoutsPtrOutputWithContext(ctx context.Context) AgentcorePolicyEngineTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcorePolicyEngineTimeoutsPtrOutput)
+}
+
+type AgentcorePolicyEngineTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (AgentcorePolicyEngineTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcorePolicyEngineTimeouts)(nil)).Elem()
+}
+
+func (o AgentcorePolicyEngineTimeoutsOutput) ToAgentcorePolicyEngineTimeoutsOutput() AgentcorePolicyEngineTimeoutsOutput {
+	return o
+}
+
+func (o AgentcorePolicyEngineTimeoutsOutput) ToAgentcorePolicyEngineTimeoutsOutputWithContext(ctx context.Context) AgentcorePolicyEngineTimeoutsOutput {
+	return o
+}
+
+func (o AgentcorePolicyEngineTimeoutsOutput) ToAgentcorePolicyEngineTimeoutsPtrOutput() AgentcorePolicyEngineTimeoutsPtrOutput {
+	return o.ToAgentcorePolicyEngineTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcorePolicyEngineTimeoutsOutput) ToAgentcorePolicyEngineTimeoutsPtrOutputWithContext(ctx context.Context) AgentcorePolicyEngineTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcorePolicyEngineTimeouts) *AgentcorePolicyEngineTimeouts {
+		return &v
+	}).(AgentcorePolicyEngineTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcorePolicyEngineTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcorePolicyEngineTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentcorePolicyEngineTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcorePolicyEngineTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcorePolicyEngineTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcorePolicyEngineTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type AgentcorePolicyEngineTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcorePolicyEngineTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcorePolicyEngineTimeouts)(nil)).Elem()
+}
+
+func (o AgentcorePolicyEngineTimeoutsPtrOutput) ToAgentcorePolicyEngineTimeoutsPtrOutput() AgentcorePolicyEngineTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentcorePolicyEngineTimeoutsPtrOutput) ToAgentcorePolicyEngineTimeoutsPtrOutputWithContext(ctx context.Context) AgentcorePolicyEngineTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentcorePolicyEngineTimeoutsPtrOutput) Elem() AgentcorePolicyEngineTimeoutsOutput {
+	return o.ApplyT(func(v *AgentcorePolicyEngineTimeouts) AgentcorePolicyEngineTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcorePolicyEngineTimeouts
+		return ret
+	}).(AgentcorePolicyEngineTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcorePolicyEngineTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcorePolicyEngineTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentcorePolicyEngineTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcorePolicyEngineTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcorePolicyEngineTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcorePolicyEngineTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcorePolicyTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// AgentcorePolicyTimeoutsInput is an input type that accepts AgentcorePolicyTimeoutsArgs and AgentcorePolicyTimeoutsOutput values.
+// You can construct a concrete instance of `AgentcorePolicyTimeoutsInput` via:
+//
+//	AgentcorePolicyTimeoutsArgs{...}
+type AgentcorePolicyTimeoutsInput interface {
+	pulumi.Input
+
+	ToAgentcorePolicyTimeoutsOutput() AgentcorePolicyTimeoutsOutput
+	ToAgentcorePolicyTimeoutsOutputWithContext(context.Context) AgentcorePolicyTimeoutsOutput
+}
+
+type AgentcorePolicyTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (AgentcorePolicyTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcorePolicyTimeouts)(nil)).Elem()
+}
+
+func (i AgentcorePolicyTimeoutsArgs) ToAgentcorePolicyTimeoutsOutput() AgentcorePolicyTimeoutsOutput {
+	return i.ToAgentcorePolicyTimeoutsOutputWithContext(context.Background())
+}
+
+func (i AgentcorePolicyTimeoutsArgs) ToAgentcorePolicyTimeoutsOutputWithContext(ctx context.Context) AgentcorePolicyTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcorePolicyTimeoutsOutput)
+}
+
+func (i AgentcorePolicyTimeoutsArgs) ToAgentcorePolicyTimeoutsPtrOutput() AgentcorePolicyTimeoutsPtrOutput {
+	return i.ToAgentcorePolicyTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcorePolicyTimeoutsArgs) ToAgentcorePolicyTimeoutsPtrOutputWithContext(ctx context.Context) AgentcorePolicyTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcorePolicyTimeoutsOutput).ToAgentcorePolicyTimeoutsPtrOutputWithContext(ctx)
+}
+
+// AgentcorePolicyTimeoutsPtrInput is an input type that accepts AgentcorePolicyTimeoutsArgs, AgentcorePolicyTimeoutsPtr and AgentcorePolicyTimeoutsPtrOutput values.
+// You can construct a concrete instance of `AgentcorePolicyTimeoutsPtrInput` via:
+//
+//	        AgentcorePolicyTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcorePolicyTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToAgentcorePolicyTimeoutsPtrOutput() AgentcorePolicyTimeoutsPtrOutput
+	ToAgentcorePolicyTimeoutsPtrOutputWithContext(context.Context) AgentcorePolicyTimeoutsPtrOutput
+}
+
+type agentcorePolicyTimeoutsPtrType AgentcorePolicyTimeoutsArgs
+
+func AgentcorePolicyTimeoutsPtr(v *AgentcorePolicyTimeoutsArgs) AgentcorePolicyTimeoutsPtrInput {
+	return (*agentcorePolicyTimeoutsPtrType)(v)
+}
+
+func (*agentcorePolicyTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcorePolicyTimeouts)(nil)).Elem()
+}
+
+func (i *agentcorePolicyTimeoutsPtrType) ToAgentcorePolicyTimeoutsPtrOutput() AgentcorePolicyTimeoutsPtrOutput {
+	return i.ToAgentcorePolicyTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcorePolicyTimeoutsPtrType) ToAgentcorePolicyTimeoutsPtrOutputWithContext(ctx context.Context) AgentcorePolicyTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcorePolicyTimeoutsPtrOutput)
+}
+
+type AgentcorePolicyTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (AgentcorePolicyTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcorePolicyTimeouts)(nil)).Elem()
+}
+
+func (o AgentcorePolicyTimeoutsOutput) ToAgentcorePolicyTimeoutsOutput() AgentcorePolicyTimeoutsOutput {
+	return o
+}
+
+func (o AgentcorePolicyTimeoutsOutput) ToAgentcorePolicyTimeoutsOutputWithContext(ctx context.Context) AgentcorePolicyTimeoutsOutput {
+	return o
+}
+
+func (o AgentcorePolicyTimeoutsOutput) ToAgentcorePolicyTimeoutsPtrOutput() AgentcorePolicyTimeoutsPtrOutput {
+	return o.ToAgentcorePolicyTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcorePolicyTimeoutsOutput) ToAgentcorePolicyTimeoutsPtrOutputWithContext(ctx context.Context) AgentcorePolicyTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcorePolicyTimeouts) *AgentcorePolicyTimeouts {
+		return &v
+	}).(AgentcorePolicyTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcorePolicyTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcorePolicyTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentcorePolicyTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcorePolicyTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcorePolicyTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcorePolicyTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type AgentcorePolicyTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcorePolicyTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcorePolicyTimeouts)(nil)).Elem()
+}
+
+func (o AgentcorePolicyTimeoutsPtrOutput) ToAgentcorePolicyTimeoutsPtrOutput() AgentcorePolicyTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentcorePolicyTimeoutsPtrOutput) ToAgentcorePolicyTimeoutsPtrOutputWithContext(ctx context.Context) AgentcorePolicyTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentcorePolicyTimeoutsPtrOutput) Elem() AgentcorePolicyTimeoutsOutput {
+	return o.ApplyT(func(v *AgentcorePolicyTimeouts) AgentcorePolicyTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcorePolicyTimeouts
+		return ret
+	}).(AgentcorePolicyTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcorePolicyTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcorePolicyTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentcorePolicyTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcorePolicyTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcorePolicyTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcorePolicyTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreRegistryApprovalConfiguration struct {
+	AutoApproval bool `pulumi:"autoApproval"`
+}
+
+// AgentcoreRegistryApprovalConfigurationInput is an input type that accepts AgentcoreRegistryApprovalConfigurationArgs and AgentcoreRegistryApprovalConfigurationOutput values.
+// You can construct a concrete instance of `AgentcoreRegistryApprovalConfigurationInput` via:
+//
+//	AgentcoreRegistryApprovalConfigurationArgs{...}
+type AgentcoreRegistryApprovalConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentcoreRegistryApprovalConfigurationOutput() AgentcoreRegistryApprovalConfigurationOutput
+	ToAgentcoreRegistryApprovalConfigurationOutputWithContext(context.Context) AgentcoreRegistryApprovalConfigurationOutput
+}
+
+type AgentcoreRegistryApprovalConfigurationArgs struct {
+	AutoApproval pulumi.BoolInput `pulumi:"autoApproval"`
+}
+
+func (AgentcoreRegistryApprovalConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreRegistryApprovalConfiguration)(nil)).Elem()
+}
+
+func (i AgentcoreRegistryApprovalConfigurationArgs) ToAgentcoreRegistryApprovalConfigurationOutput() AgentcoreRegistryApprovalConfigurationOutput {
+	return i.ToAgentcoreRegistryApprovalConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentcoreRegistryApprovalConfigurationArgs) ToAgentcoreRegistryApprovalConfigurationOutputWithContext(ctx context.Context) AgentcoreRegistryApprovalConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryApprovalConfigurationOutput)
+}
+
+// AgentcoreRegistryApprovalConfigurationArrayInput is an input type that accepts AgentcoreRegistryApprovalConfigurationArray and AgentcoreRegistryApprovalConfigurationArrayOutput values.
+// You can construct a concrete instance of `AgentcoreRegistryApprovalConfigurationArrayInput` via:
+//
+//	AgentcoreRegistryApprovalConfigurationArray{ AgentcoreRegistryApprovalConfigurationArgs{...} }
+type AgentcoreRegistryApprovalConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreRegistryApprovalConfigurationArrayOutput() AgentcoreRegistryApprovalConfigurationArrayOutput
+	ToAgentcoreRegistryApprovalConfigurationArrayOutputWithContext(context.Context) AgentcoreRegistryApprovalConfigurationArrayOutput
+}
+
+type AgentcoreRegistryApprovalConfigurationArray []AgentcoreRegistryApprovalConfigurationInput
+
+func (AgentcoreRegistryApprovalConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreRegistryApprovalConfiguration)(nil)).Elem()
+}
+
+func (i AgentcoreRegistryApprovalConfigurationArray) ToAgentcoreRegistryApprovalConfigurationArrayOutput() AgentcoreRegistryApprovalConfigurationArrayOutput {
+	return i.ToAgentcoreRegistryApprovalConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreRegistryApprovalConfigurationArray) ToAgentcoreRegistryApprovalConfigurationArrayOutputWithContext(ctx context.Context) AgentcoreRegistryApprovalConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryApprovalConfigurationArrayOutput)
+}
+
+type AgentcoreRegistryApprovalConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreRegistryApprovalConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreRegistryApprovalConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreRegistryApprovalConfigurationOutput) ToAgentcoreRegistryApprovalConfigurationOutput() AgentcoreRegistryApprovalConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreRegistryApprovalConfigurationOutput) ToAgentcoreRegistryApprovalConfigurationOutputWithContext(ctx context.Context) AgentcoreRegistryApprovalConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreRegistryApprovalConfigurationOutput) AutoApproval() pulumi.BoolOutput {
+	return o.ApplyT(func(v AgentcoreRegistryApprovalConfiguration) bool { return v.AutoApproval }).(pulumi.BoolOutput)
+}
+
+type AgentcoreRegistryApprovalConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreRegistryApprovalConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreRegistryApprovalConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreRegistryApprovalConfigurationArrayOutput) ToAgentcoreRegistryApprovalConfigurationArrayOutput() AgentcoreRegistryApprovalConfigurationArrayOutput {
+	return o
+}
+
+func (o AgentcoreRegistryApprovalConfigurationArrayOutput) ToAgentcoreRegistryApprovalConfigurationArrayOutputWithContext(ctx context.Context) AgentcoreRegistryApprovalConfigurationArrayOutput {
+	return o
+}
+
+func (o AgentcoreRegistryApprovalConfigurationArrayOutput) Index(i pulumi.IntInput) AgentcoreRegistryApprovalConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreRegistryApprovalConfiguration {
+		return vs[0].([]AgentcoreRegistryApprovalConfiguration)[vs[1].(int)]
+	}).(AgentcoreRegistryApprovalConfigurationOutput)
+}
+
+type AgentcoreRegistryAuthorizerConfiguration struct {
+	CustomJwtAuthorizer *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer `pulumi:"customJwtAuthorizer"`
+}
+
+// AgentcoreRegistryAuthorizerConfigurationInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationArgs and AgentcoreRegistryAuthorizerConfigurationOutput values.
+// You can construct a concrete instance of `AgentcoreRegistryAuthorizerConfigurationInput` via:
+//
+//	AgentcoreRegistryAuthorizerConfigurationArgs{...}
+type AgentcoreRegistryAuthorizerConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentcoreRegistryAuthorizerConfigurationOutput() AgentcoreRegistryAuthorizerConfigurationOutput
+	ToAgentcoreRegistryAuthorizerConfigurationOutputWithContext(context.Context) AgentcoreRegistryAuthorizerConfigurationOutput
+}
+
+type AgentcoreRegistryAuthorizerConfigurationArgs struct {
+	CustomJwtAuthorizer AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrInput `pulumi:"customJwtAuthorizer"`
+}
+
+func (AgentcoreRegistryAuthorizerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreRegistryAuthorizerConfiguration)(nil)).Elem()
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationArgs) ToAgentcoreRegistryAuthorizerConfigurationOutput() AgentcoreRegistryAuthorizerConfigurationOutput {
+	return i.ToAgentcoreRegistryAuthorizerConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationArgs) ToAgentcoreRegistryAuthorizerConfigurationOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationOutput)
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationArgs) ToAgentcoreRegistryAuthorizerConfigurationPtrOutput() AgentcoreRegistryAuthorizerConfigurationPtrOutput {
+	return i.ToAgentcoreRegistryAuthorizerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationArgs) ToAgentcoreRegistryAuthorizerConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationOutput).ToAgentcoreRegistryAuthorizerConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentcoreRegistryAuthorizerConfigurationPtrInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationArgs, AgentcoreRegistryAuthorizerConfigurationPtr and AgentcoreRegistryAuthorizerConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentcoreRegistryAuthorizerConfigurationPtrInput` via:
+//
+//	        AgentcoreRegistryAuthorizerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreRegistryAuthorizerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreRegistryAuthorizerConfigurationPtrOutput() AgentcoreRegistryAuthorizerConfigurationPtrOutput
+	ToAgentcoreRegistryAuthorizerConfigurationPtrOutputWithContext(context.Context) AgentcoreRegistryAuthorizerConfigurationPtrOutput
+}
+
+type agentcoreRegistryAuthorizerConfigurationPtrType AgentcoreRegistryAuthorizerConfigurationArgs
+
+func AgentcoreRegistryAuthorizerConfigurationPtr(v *AgentcoreRegistryAuthorizerConfigurationArgs) AgentcoreRegistryAuthorizerConfigurationPtrInput {
+	return (*agentcoreRegistryAuthorizerConfigurationPtrType)(v)
+}
+
+func (*agentcoreRegistryAuthorizerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreRegistryAuthorizerConfiguration)(nil)).Elem()
+}
+
+func (i *agentcoreRegistryAuthorizerConfigurationPtrType) ToAgentcoreRegistryAuthorizerConfigurationPtrOutput() AgentcoreRegistryAuthorizerConfigurationPtrOutput {
+	return i.ToAgentcoreRegistryAuthorizerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreRegistryAuthorizerConfigurationPtrType) ToAgentcoreRegistryAuthorizerConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationPtrOutput)
+}
+
+type AgentcoreRegistryAuthorizerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreRegistryAuthorizerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreRegistryAuthorizerConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationOutput) ToAgentcoreRegistryAuthorizerConfigurationOutput() AgentcoreRegistryAuthorizerConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationOutput) ToAgentcoreRegistryAuthorizerConfigurationOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationOutput) ToAgentcoreRegistryAuthorizerConfigurationPtrOutput() AgentcoreRegistryAuthorizerConfigurationPtrOutput {
+	return o.ToAgentcoreRegistryAuthorizerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationOutput) ToAgentcoreRegistryAuthorizerConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreRegistryAuthorizerConfiguration) *AgentcoreRegistryAuthorizerConfiguration {
+		return &v
+	}).(AgentcoreRegistryAuthorizerConfigurationPtrOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationOutput) CustomJwtAuthorizer() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
+	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfiguration) *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer {
+		return v.CustomJwtAuthorizer
+	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput)
+}
+
+type AgentcoreRegistryAuthorizerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreRegistryAuthorizerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreRegistryAuthorizerConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationPtrOutput) ToAgentcoreRegistryAuthorizerConfigurationPtrOutput() AgentcoreRegistryAuthorizerConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationPtrOutput) ToAgentcoreRegistryAuthorizerConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationPtrOutput) Elem() AgentcoreRegistryAuthorizerConfigurationOutput {
+	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfiguration) AgentcoreRegistryAuthorizerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreRegistryAuthorizerConfiguration
+		return ret
+	}).(AgentcoreRegistryAuthorizerConfigurationOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationPtrOutput) CustomJwtAuthorizer() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
+	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfiguration) *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer {
+		if v == nil {
+			return nil
+		}
+		return v.CustomJwtAuthorizer
+	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput)
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer struct {
+	AllowedAudiences             []string                                                                                 `pulumi:"allowedAudiences"`
+	AllowedClients               []string                                                                                 `pulumi:"allowedClients"`
+	AllowedScopes                []string                                                                                 `pulumi:"allowedScopes"`
+	AllowedWorkloadConfiguration *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration `pulumi:"allowedWorkloadConfiguration"`
+	CustomClaims                 []AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim                 `pulumi:"customClaims"`
+	DiscoveryUrl                 string                                                                                   `pulumi:"discoveryUrl"`
+	PrivateEndpoint              *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint              `pulumi:"privateEndpoint"`
+	PrivateEndpointOverrides     []AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride     `pulumi:"privateEndpointOverrides"`
+}
+
+// AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs and AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput values.
+// You can construct a concrete instance of `AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerInput` via:
+//
+//	AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs{...}
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerInput interface {
+	pulumi.Input
+
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutputWithContext(context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs struct {
+	AllowedAudiences             pulumi.StringArrayInput                                                                         `pulumi:"allowedAudiences"`
+	AllowedClients               pulumi.StringArrayInput                                                                         `pulumi:"allowedClients"`
+	AllowedScopes                pulumi.StringArrayInput                                                                         `pulumi:"allowedScopes"`
+	AllowedWorkloadConfiguration AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrInput `pulumi:"allowedWorkloadConfiguration"`
+	CustomClaims                 AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayInput                `pulumi:"customClaims"`
+	DiscoveryUrl                 pulumi.StringInput                                                                              `pulumi:"discoveryUrl"`
+	PrivateEndpoint              AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrInput              `pulumi:"privateEndpoint"`
+	PrivateEndpointOverrides     AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayInput    `pulumi:"privateEndpointOverrides"`
+}
+
+func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer)(nil)).Elem()
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput {
+	return i.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutputWithContext(context.Background())
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput)
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
+	return i.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput).ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutputWithContext(ctx)
+}
+
+// AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs, AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtr and AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput values.
+// You can construct a concrete instance of `AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrInput` via:
+//
+//	        AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutputWithContext(context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput
+}
+
+type agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrType AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs
+
+func AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtr(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrInput {
+	return (*agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrType)(v)
+}
+
+func (*agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer)(nil)).Elem()
+}
+
+func (i *agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrType) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
+	return i.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrType) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput)
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer)(nil)).Elem()
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
+	return o.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer {
+		return &v
+	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput) AllowedAudiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) []string {
+		return v.AllowedAudiences
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput) AllowedClients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) []string { return v.AllowedClients }).(pulumi.StringArrayOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput) AllowedScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) []string { return v.AllowedScopes }).(pulumi.StringArrayOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput) AllowedWorkloadConfiguration() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration {
+		return v.AllowedWorkloadConfiguration
+	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput) CustomClaims() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput {
+	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) []AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim {
+		return v.CustomClaims
+	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput) DiscoveryUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) string { return v.DiscoveryUrl }).(pulumi.StringOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput) PrivateEndpoint() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput {
+	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint {
+		return v.PrivateEndpoint
+	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput) PrivateEndpointOverrides() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput {
+	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) []AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride {
+		return v.PrivateEndpointOverrides
+	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput)
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer)(nil)).Elem()
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) Elem() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput {
+	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer
+		return ret
+	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) AllowedAudiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedAudiences
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) AllowedClients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedClients
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) AllowedScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedScopes
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) AllowedWorkloadConfiguration() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedWorkloadConfiguration
+	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) CustomClaims() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput {
+	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) []AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim {
+		if v == nil {
+			return nil
+		}
+		return v.CustomClaims
+	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) DiscoveryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DiscoveryUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) PrivateEndpoint() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput {
+	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateEndpoint
+	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) PrivateEndpointOverrides() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput {
+	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) []AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateEndpointOverrides
+	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput)
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration struct {
+	HostingEnvironments []AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment `pulumi:"hostingEnvironments"`
+	WorkloadIdentities  []string                                                                                                    `pulumi:"workloadIdentities"`
+}
+
+// AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs and AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationOutput values.
+// You can construct a concrete instance of `AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationInput` via:
+//
+//	AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs{...}
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationOutput
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationOutputWithContext(context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationOutput
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs struct {
+	HostingEnvironments AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayInput `pulumi:"hostingEnvironments"`
+	WorkloadIdentities  pulumi.StringArrayInput                                                                                             `pulumi:"workloadIdentities"`
+}
+
+func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration)(nil)).Elem()
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationOutput {
+	return i.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationOutput)
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput {
+	return i.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationOutput).ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs, AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtr and AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrInput` via:
+//
+//	        AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutputWithContext(context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput
+}
+
+type agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrType AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs
+
+func AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtr(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrInput {
+	return (*agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrType)(v)
+}
+
+func (*agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration)(nil)).Elem()
+}
+
+func (i *agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrType) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput {
+	return i.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrType) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput)
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput {
+	return o.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration) *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration {
+		return &v
+	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationOutput) HostingEnvironments() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayOutput {
+	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration) []AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment {
+		return v.HostingEnvironments
+	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationOutput) WorkloadIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration) []string {
+		return v.WorkloadIdentities
+	}).(pulumi.StringArrayOutput)
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration)(nil)).Elem()
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput) Elem() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationOutput {
+	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration
+		return ret
+	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput) HostingEnvironments() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayOutput {
+	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration) []AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment {
+		if v == nil {
+			return nil
+		}
+		return v.HostingEnvironments
+	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput) WorkloadIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.WorkloadIdentities
+	}).(pulumi.StringArrayOutput)
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment struct {
+	Arn string `pulumi:"arn"`
+}
+
+// AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs and AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentOutput values.
+// You can construct a concrete instance of `AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentInput` via:
+//
+//	AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs{...}
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentInput interface {
+	pulumi.Input
+
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentOutput
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentOutputWithContext(context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentOutput
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs struct {
+	Arn pulumi.StringInput `pulumi:"arn"`
+}
+
+func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment)(nil)).Elem()
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentOutput {
+	return i.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentOutputWithContext(context.Background())
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentOutput)
+}
+
+// AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArray and AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayOutput values.
+// You can construct a concrete instance of `AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayInput` via:
+//
+//	AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArray{ AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs{...} }
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayOutput
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayOutputWithContext(context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayOutput
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArray []AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentInput
+
+func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment)(nil)).Elem()
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArray) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayOutput {
+	return i.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArray) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayOutput)
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment)(nil)).Elem()
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment) string {
+		return v.Arn
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment)(nil)).Elem()
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayOutput) Index(i pulumi.IntInput) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment {
+		return vs[0].([]AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment)[vs[1].(int)]
+	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentOutput)
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim struct {
+	AuthorizingClaimMatchValue AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue `pulumi:"authorizingClaimMatchValue"`
+	InboundTokenClaimName      string                                                                                           `pulumi:"inboundTokenClaimName"`
+	InboundTokenClaimValueType string                                                                                           `pulumi:"inboundTokenClaimValueType"`
+}
+
+// AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs and AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput values.
+// You can construct a concrete instance of `AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimInput` via:
+//
+//	AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs{...}
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimInput interface {
+	pulumi.Input
+
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutputWithContext(context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs struct {
+	AuthorizingClaimMatchValue AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueInput `pulumi:"authorizingClaimMatchValue"`
+	InboundTokenClaimName      pulumi.StringInput                                                                                    `pulumi:"inboundTokenClaimName"`
+	InboundTokenClaimValueType pulumi.StringInput                                                                                    `pulumi:"inboundTokenClaimValueType"`
+}
+
+func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim)(nil)).Elem()
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput {
+	return i.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutputWithContext(context.Background())
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput)
+}
+
+// AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArray and AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput values.
+// You can construct a concrete instance of `AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayInput` via:
+//
+//	AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArray{ AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs{...} }
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutputWithContext(context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArray []AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimInput
+
+func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim)(nil)).Elem()
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArray) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput {
+	return i.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArray) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput)
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim)(nil)).Elem()
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput) AuthorizingClaimMatchValue() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput {
+	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue {
+		return v.AuthorizingClaimMatchValue
+	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput) InboundTokenClaimName() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim) string {
+		return v.InboundTokenClaimName
+	}).(pulumi.StringOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput) InboundTokenClaimValueType() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim) string {
+		return v.InboundTokenClaimValueType
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim)(nil)).Elem()
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput) Index(i pulumi.IntInput) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim {
+		return vs[0].([]AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim)[vs[1].(int)]
+	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput)
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue struct {
+	ClaimMatchOperator string                                                                                                          `pulumi:"claimMatchOperator"`
+	ClaimMatchValue    AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue `pulumi:"claimMatchValue"`
+}
+
+// AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs and AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput values.
+// You can construct a concrete instance of `AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueInput` via:
+//
+//	AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs{...}
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueInput interface {
+	pulumi.Input
+
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutputWithContext(context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs struct {
+	ClaimMatchOperator pulumi.StringInput                                                                                                   `pulumi:"claimMatchOperator"`
+	ClaimMatchValue    AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueInput `pulumi:"claimMatchValue"`
+}
+
+func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue)(nil)).Elem()
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput {
+	return i.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutputWithContext(context.Background())
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput)
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue)(nil)).Elem()
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput) ClaimMatchOperator() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue) string {
+		return v.ClaimMatchOperator
+	}).(pulumi.StringOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput) ClaimMatchValue() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput {
+	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue {
+		return v.ClaimMatchValue
+	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput)
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue struct {
+	MatchValueString      *string  `pulumi:"matchValueString"`
+	MatchValueStringLists []string `pulumi:"matchValueStringLists"`
+}
+
+// AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs and AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput values.
+// You can construct a concrete instance of `AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueInput` via:
+//
+//	AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs{...}
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueInput interface {
+	pulumi.Input
+
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutputWithContext(context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs struct {
+	MatchValueString      pulumi.StringPtrInput   `pulumi:"matchValueString"`
+	MatchValueStringLists pulumi.StringArrayInput `pulumi:"matchValueStringLists"`
+}
+
+func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue)(nil)).Elem()
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput {
+	return i.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutputWithContext(context.Background())
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput)
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue)(nil)).Elem()
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput) MatchValueString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue) *string {
+		return v.MatchValueString
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput) MatchValueStringLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue) []string {
+		return v.MatchValueStringLists
+	}).(pulumi.StringArrayOutput)
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint struct {
+	ManagedVpcResource         *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource         `pulumi:"managedVpcResource"`
+	SelfManagedLatticeResource *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource `pulumi:"selfManagedLatticeResource"`
+}
+
+// AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs and AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput values.
+// You can construct a concrete instance of `AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointInput` via:
+//
+//	AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs{...}
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointInput interface {
+	pulumi.Input
+
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutputWithContext(context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs struct {
+	ManagedVpcResource         AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrInput         `pulumi:"managedVpcResource"`
+	SelfManagedLatticeResource AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrInput `pulumi:"selfManagedLatticeResource"`
+}
+
+func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint)(nil)).Elem()
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput {
+	return i.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutputWithContext(context.Background())
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput)
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput {
+	return i.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput).ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutputWithContext(ctx)
+}
+
+// AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs, AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtr and AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput values.
+// You can construct a concrete instance of `AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrInput` via:
+//
+//	        AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutputWithContext(context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput
+}
+
+type agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrType AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs
+
+func AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtr(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrInput {
+	return (*agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrType)(v)
+}
+
+func (*agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint)(nil)).Elem()
+}
+
+func (i *agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrType) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput {
+	return i.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrType) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput)
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint)(nil)).Elem()
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput {
+	return o.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint) *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint {
+		return &v
+	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput) ManagedVpcResource() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput {
+	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint) *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource {
+		return v.ManagedVpcResource
+	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput) SelfManagedLatticeResource() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput {
+	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint) *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
+		return v.SelfManagedLatticeResource
+	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput)
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint)(nil)).Elem()
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput) Elem() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput {
+	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint
+		return ret
+	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput) ManagedVpcResource() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput {
+	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint) *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedVpcResource
+	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput) SelfManagedLatticeResource() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput {
+	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint) *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
+		if v == nil {
+			return nil
+		}
+		return v.SelfManagedLatticeResource
+	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput)
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource struct {
+	EndpointIpAddressType string            `pulumi:"endpointIpAddressType"`
+	RoutingDomain         *string           `pulumi:"routingDomain"`
+	SecurityGroupIds      []string          `pulumi:"securityGroupIds"`
+	SubnetIds             []string          `pulumi:"subnetIds"`
+	Tags                  map[string]string `pulumi:"tags"`
+	VpcIdentifier         string            `pulumi:"vpcIdentifier"`
+}
+
+// AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs and AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput values.
+// You can construct a concrete instance of `AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceInput` via:
+//
+//	AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs{...}
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceInput interface {
+	pulumi.Input
+
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutputWithContext(context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs struct {
+	EndpointIpAddressType pulumi.StringInput      `pulumi:"endpointIpAddressType"`
+	RoutingDomain         pulumi.StringPtrInput   `pulumi:"routingDomain"`
+	SecurityGroupIds      pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	SubnetIds             pulumi.StringArrayInput `pulumi:"subnetIds"`
+	Tags                  pulumi.StringMapInput   `pulumi:"tags"`
+	VpcIdentifier         pulumi.StringInput      `pulumi:"vpcIdentifier"`
+}
+
+func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource)(nil)).Elem()
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput {
+	return i.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutputWithContext(context.Background())
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput)
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput {
+	return i.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput).ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutputWithContext(ctx)
+}
+
+// AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs, AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtr and AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput values.
+// You can construct a concrete instance of `AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrInput` via:
+//
+//	        AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutputWithContext(context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput
+}
+
+type agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrType AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs
+
+func AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtr(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrInput {
+	return (*agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrType)(v)
+}
+
+func (*agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource)(nil)).Elem()
+}
+
+func (i *agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrType) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput {
+	return i.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrType) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput)
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource)(nil)).Elem()
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput {
+	return o.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource {
+		return &v
+	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) EndpointIpAddressType() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) string {
+		return v.EndpointIpAddressType
+	}).(pulumi.StringOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) RoutingDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) *string {
+		return v.RoutingDomain
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) []string {
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) []string {
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) map[string]string {
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) VpcIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) string {
+		return v.VpcIdentifier
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource)(nil)).Elem()
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput) Elem() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput {
+	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource
+		return ret
+	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput) EndpointIpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndpointIpAddressType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput) RoutingDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoutingDomain
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput) VpcIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride struct {
+	Domain          string                                                                                            `pulumi:"domain"`
+	PrivateEndpoint AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint `pulumi:"privateEndpoint"`
+}
+
+// AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs and AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput values.
+// You can construct a concrete instance of `AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideInput` via:
+//
+//	AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs{...}
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideInput interface {
+	pulumi.Input
+
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutputWithContext(context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs struct {
+	Domain          pulumi.StringInput                                                                                     `pulumi:"domain"`
+	PrivateEndpoint AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointInput `pulumi:"privateEndpoint"`
+}
+
+func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride)(nil)).Elem()
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput {
+	return i.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutputWithContext(context.Background())
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput)
+}
+
+// AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArray and AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput values.
+// You can construct a concrete instance of `AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayInput` via:
+//
+//	AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArray{ AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs{...} }
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput
+	ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutputWithContext(context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArray []AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideInput
+
+func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride)(nil)).Elem()
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArray) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput {
+	return i.ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArray) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput)
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride)(nil)).Elem()
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride) string {
+		return v.Domain
+	}).(pulumi.StringOutput)
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput) PrivateEndpoint() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput {
+	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint {
+		return v.PrivateEndpoint
+	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput)
+}
+
+type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride)(nil)).Elem()
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput) ToAgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutputWithContext(ctx context.Context) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput {
+	return o
+}
+
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput) Index(i pulumi.IntInput) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride {
+		return vs[0].([]AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride)[vs[1].(int)]
+	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput)
+}
+
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint struct {
 	ManagedVpcResource         *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource         `pulumi:"managedVpcResource"`
 	SelfManagedLatticeResource *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource `pulumi:"selfManagedLatticeResource"`
@@ -293,7 +3262,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource struct {
-	ResourceConfigurationIdentifier string `pulumi:"resourceConfigurationIdentifier"`
+	ResourceConfigurationIdentifier *string `pulumi:"resourceConfigurationIdentifier"`
 }
 
 // AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs and AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput values.
@@ -308,7 +3277,7 @@ type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointO
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs struct {
-	ResourceConfigurationIdentifier pulumi.StringInput `pulumi:"resourceConfigurationIdentifier"`
+	ResourceConfigurationIdentifier pulumi.StringPtrInput `pulumi:"resourceConfigurationIdentifier"`
 }
 
 func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs) ElementType() reflect.Type {
@@ -388,10 +3357,10 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput)
 }
 
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput) ResourceConfigurationIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource) string {
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput) ResourceConfigurationIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource) *string {
 		return v.ResourceConfigurationIdentifier
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput struct{ *pulumi.OutputState }
@@ -423,12 +3392,12 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 		if v == nil {
 			return nil
 		}
-		return &v.ResourceConfigurationIdentifier
+		return v.ResourceConfigurationIdentifier
 	}).(pulumi.StringPtrOutput)
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource struct {
-	ResourceConfigurationIdentifier string `pulumi:"resourceConfigurationIdentifier"`
+	ResourceConfigurationIdentifier *string `pulumi:"resourceConfigurationIdentifier"`
 }
 
 // AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs and AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput values.
@@ -443,7 +3412,7 @@ type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointS
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs struct {
-	ResourceConfigurationIdentifier pulumi.StringInput `pulumi:"resourceConfigurationIdentifier"`
+	ResourceConfigurationIdentifier pulumi.StringPtrInput `pulumi:"resourceConfigurationIdentifier"`
 }
 
 func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs) ElementType() reflect.Type {
@@ -523,10 +3492,10 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput)
 }
 
-func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput) ResourceConfigurationIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource) string {
+func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput) ResourceConfigurationIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource) *string {
 		return v.ResourceConfigurationIdentifier
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput struct{ *pulumi.OutputState }
@@ -558,7 +3527,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 		if v == nil {
 			return nil
 		}
-		return &v.ResourceConfigurationIdentifier
+		return v.ResourceConfigurationIdentifier
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -11347,6 +14316,47 @@ func (o GetInferenceProfilesInferenceProfileSummaryModelArrayOutput) Index(i pul
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigRuleInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigRulePtrInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigRuleFilterInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigRuleFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigRuleFilterArrayInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigRuleFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigRuleFilterValueInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigRuleFilterValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigRuleSamplingConfigInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigRuleSessionConfigInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigRuleSessionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigRuleSessionConfigPtrInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigRuleSessionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigTimeoutsInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigTimeoutsPtrInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcorePolicyDefinitionInput)(nil)).Elem(), AgentcorePolicyDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcorePolicyDefinitionPtrInput)(nil)).Elem(), AgentcorePolicyDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcorePolicyDefinitionCedarInput)(nil)).Elem(), AgentcorePolicyDefinitionCedarArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcorePolicyDefinitionCedarPtrInput)(nil)).Elem(), AgentcorePolicyDefinitionCedarArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcorePolicyEngineTimeoutsInput)(nil)).Elem(), AgentcorePolicyEngineTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcorePolicyEngineTimeoutsPtrInput)(nil)).Elem(), AgentcorePolicyEngineTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcorePolicyTimeoutsInput)(nil)).Elem(), AgentcorePolicyTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcorePolicyTimeoutsPtrInput)(nil)).Elem(), AgentcorePolicyTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryApprovalConfigurationInput)(nil)).Elem(), AgentcoreRegistryApprovalConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryApprovalConfigurationArrayInput)(nil)).Elem(), AgentcoreRegistryApprovalConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationInput)(nil)).Elem(), AgentcoreRegistryAuthorizerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationPtrInput)(nil)).Elem(), AgentcoreRegistryAuthorizerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerInput)(nil)).Elem(), AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrInput)(nil)).Elem(), AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationInput)(nil)).Elem(), AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrInput)(nil)).Elem(), AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentInput)(nil)).Elem(), AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayInput)(nil)).Elem(), AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimInput)(nil)).Elem(), AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayInput)(nil)).Elem(), AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueInput)(nil)).Elem(), AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueInput)(nil)).Elem(), AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointInput)(nil)).Elem(), AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrInput)(nil)).Elem(), AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceInput)(nil)).Elem(), AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrInput)(nil)).Elem(), AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideInput)(nil)).Elem(), AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayInput)(nil)).Elem(), AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointInput)(nil)).Elem(), AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceInput)(nil)).Elem(), AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrInput)(nil)).Elem(), AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs{})
@@ -11512,6 +14522,47 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInferenceProfilesInferenceProfileSummaryArrayInput)(nil)).Elem(), GetInferenceProfilesInferenceProfileSummaryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInferenceProfilesInferenceProfileSummaryModelInput)(nil)).Elem(), GetInferenceProfilesInferenceProfileSummaryModelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInferenceProfilesInferenceProfileSummaryModelArrayInput)(nil)).Elem(), GetInferenceProfilesInferenceProfileSummaryModelArray{})
+	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigOutput{})
+	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigRuleOutput{})
+	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigRulePtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigRuleFilterOutput{})
+	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigRuleFilterArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigRuleFilterValueOutput{})
+	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigRuleSamplingConfigOutput{})
+	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigRuleSamplingConfigPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigRuleSessionConfigOutput{})
+	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigRuleSessionConfigPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigTimeoutsOutput{})
+	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(AgentcorePolicyDefinitionOutput{})
+	pulumi.RegisterOutputType(AgentcorePolicyDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(AgentcorePolicyDefinitionCedarOutput{})
+	pulumi.RegisterOutputType(AgentcorePolicyDefinitionCedarPtrOutput{})
+	pulumi.RegisterOutputType(AgentcorePolicyEngineTimeoutsOutput{})
+	pulumi.RegisterOutputType(AgentcorePolicyEngineTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(AgentcorePolicyTimeoutsOutput{})
+	pulumi.RegisterOutputType(AgentcorePolicyTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreRegistryApprovalConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentcoreRegistryApprovalConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreRegistryAuthorizerConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentcoreRegistryAuthorizerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput{})
+	pulumi.RegisterOutputType(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentOutput{})
+	pulumi.RegisterOutputType(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput{})
+	pulumi.RegisterOutputType(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput{})
+	pulumi.RegisterOutputType(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput{})
+	pulumi.RegisterOutputType(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput{})
+	pulumi.RegisterOutputType(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput{})
+	pulumi.RegisterOutputType(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput{})
+	pulumi.RegisterOutputType(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput{})
 	pulumi.RegisterOutputType(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput{})
 	pulumi.RegisterOutputType(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput{})
 	pulumi.RegisterOutputType(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput{})

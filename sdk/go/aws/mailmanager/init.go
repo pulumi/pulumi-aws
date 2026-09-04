@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:mailmanager/archive:Archive":
+		r = &Archive{}
 	case "aws:mailmanager/ingressPoint:IngressPoint":
 		r = &IngressPoint{}
 	case "aws:mailmanager/relay:Relay":
@@ -42,6 +44,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"mailmanager/archive",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"mailmanager/ingressPoint",
