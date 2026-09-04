@@ -156,14 +156,14 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value.
+     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
      * 
      */
     @Import(name="sourceDbClusterIdentifier")
     private @Nullable Output<String> sourceDbClusterIdentifier;
 
     /**
-     * @return ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value.
+     * @return ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
      * 
      */
     public Optional<Output<String>> sourceDbClusterIdentifier() {
@@ -429,7 +429,7 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sourceDbClusterIdentifier ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value.
+         * @param sourceDbClusterIdentifier ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
          * 
          * @return builder
          * 
@@ -440,7 +440,7 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sourceDbClusterIdentifier ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value.
+         * @param sourceDbClusterIdentifier ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
          * 
          * @return builder
          * 

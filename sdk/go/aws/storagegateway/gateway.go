@@ -274,7 +274,7 @@ type Gateway struct {
 	GatewayTimezone pulumi.StringOutput `pulumi:"gatewayTimezone"`
 	// Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_FSX_SMB`, `FILE_S3`, `STORED`, `VTL`.
 	GatewayType pulumi.StringPtrOutput `pulumi:"gatewayType"`
-	// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running terraform. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+	// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
 	GatewayVpcEndpoint pulumi.StringPtrOutput `pulumi:"gatewayVpcEndpoint"`
 	// The type of hypervisor environment used by the host.
 	HostEnvironment pulumi.StringOutput `pulumi:"hostEnvironment"`
@@ -371,7 +371,7 @@ type gatewayState struct {
 	GatewayTimezone *string `pulumi:"gatewayTimezone"`
 	// Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_FSX_SMB`, `FILE_S3`, `STORED`, `VTL`.
 	GatewayType *string `pulumi:"gatewayType"`
-	// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running terraform. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+	// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
 	GatewayVpcEndpoint *string `pulumi:"gatewayVpcEndpoint"`
 	// The type of hypervisor environment used by the host.
 	HostEnvironment *string `pulumi:"hostEnvironment"`
@@ -426,7 +426,7 @@ type GatewayState struct {
 	GatewayTimezone pulumi.StringPtrInput
 	// Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_FSX_SMB`, `FILE_S3`, `STORED`, `VTL`.
 	GatewayType pulumi.StringPtrInput
-	// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running terraform. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+	// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
 	GatewayVpcEndpoint pulumi.StringPtrInput
 	// The type of hypervisor environment used by the host.
 	HostEnvironment pulumi.StringPtrInput
@@ -475,7 +475,7 @@ type gatewayArgs struct {
 	GatewayTimezone string `pulumi:"gatewayTimezone"`
 	// Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_FSX_SMB`, `FILE_S3`, `STORED`, `VTL`.
 	GatewayType *string `pulumi:"gatewayType"`
-	// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running terraform. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+	// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
 	GatewayVpcEndpoint *string `pulumi:"gatewayVpcEndpoint"`
 	// The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
 	MaintenanceStartTime *GatewayMaintenanceStartTime `pulumi:"maintenanceStartTime"`
@@ -517,7 +517,7 @@ type GatewayArgs struct {
 	GatewayTimezone pulumi.StringInput
 	// Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_FSX_SMB`, `FILE_S3`, `STORED`, `VTL`.
 	GatewayType pulumi.StringPtrInput
-	// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running terraform. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+	// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
 	GatewayVpcEndpoint pulumi.StringPtrInput
 	// The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
 	MaintenanceStartTime GatewayMaintenanceStartTimePtrInput
@@ -693,7 +693,7 @@ func (o GatewayOutput) GatewayType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringPtrOutput { return v.GatewayType }).(pulumi.StringPtrOutput)
 }
 
-// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running terraform. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
 func (o GatewayOutput) GatewayVpcEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringPtrOutput { return v.GatewayVpcEndpoint }).(pulumi.StringPtrOutput)
 }

@@ -275,7 +275,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string?> GatewayType { get; private set; } = null!;
 
         /// <summary>
-        /// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running terraform. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+        /// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
         /// </summary>
         [Output("gatewayVpcEndpoint")]
         public Output<string?> GatewayVpcEndpoint { get; private set; } = null!;
@@ -447,7 +447,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? GatewayType { get; set; }
 
         /// <summary>
-        /// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running terraform. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+        /// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
         /// </summary>
         [Input("gatewayVpcEndpoint")]
         public Input<string>? GatewayVpcEndpoint { get; set; }
@@ -617,7 +617,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? GatewayType { get; set; }
 
         /// <summary>
-        /// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running terraform. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+        /// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
         /// </summary>
         [Input("gatewayVpcEndpoint")]
         public Input<string>? GatewayVpcEndpoint { get; set; }

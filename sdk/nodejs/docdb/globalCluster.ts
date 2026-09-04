@@ -159,7 +159,7 @@ export class GlobalCluster extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value.
+     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
      */
     declare public readonly sourceDbClusterIdentifier: pulumi.Output<string>;
     declare public /*out*/ readonly status: pulumi.Output<string>;
@@ -258,7 +258,7 @@ export interface GlobalClusterState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value.
+     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
      */
     sourceDbClusterIdentifier?: pulumi.Input<string | undefined>;
     status?: pulumi.Input<string | undefined>;
@@ -298,7 +298,7 @@ export interface GlobalClusterArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value.
+     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
      */
     sourceDbClusterIdentifier?: pulumi.Input<string | undefined>;
     /**

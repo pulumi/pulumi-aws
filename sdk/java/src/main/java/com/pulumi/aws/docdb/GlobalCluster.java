@@ -315,14 +315,14 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value.
+     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
      * 
      */
     @Export(name="sourceDbClusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> sourceDbClusterIdentifier;
 
     /**
-     * @return ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value.
+     * @return ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
      * 
      */
     public Output<String> sourceDbClusterIdentifier() {
