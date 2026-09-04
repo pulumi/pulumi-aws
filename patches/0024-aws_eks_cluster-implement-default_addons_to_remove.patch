@@ -5,7 +5,7 @@ Subject: [PATCH] aws_eks_cluster: implement default_addons_to_remove
 
 
 diff --git a/internal/service/eks/cluster.go b/internal/service/eks/cluster.go
-index a3d71bc7eb2..98c2eeb16d4 100644
+index 3bffa4aae659..9d30ab9d17c6 100644
 --- a/internal/service/eks/cluster.go
 +++ b/internal/service/eks/cluster.go
 @@ -136,6 +136,14 @@ func resourceCluster() *schema.Resource {
@@ -23,7 +23,7 @@ index a3d71bc7eb2..98c2eeb16d4 100644
  				"compute_config": {
  					Type:     schema.TypeList,
  					Optional: true,
-@@ -787,6 +795,10 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta any
+@@ -802,6 +810,10 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta any
  		return sdkdiag.AppendErrorf(diags, "waiting for EKS Cluster (%s) create: %s", d.Id(), err)
  	}
  
@@ -36,7 +36,7 @@ index a3d71bc7eb2..98c2eeb16d4 100644
  
 diff --git a/internal/service/eks/cluster_addon_removal.go b/internal/service/eks/cluster_addon_removal.go
 new file mode 100644
-index 00000000000..82c6f9c0d33
+index 000000000000..82c6f9c0d33a
 --- /dev/null
 +++ b/internal/service/eks/cluster_addon_removal.go
 @@ -0,0 +1,134 @@

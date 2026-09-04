@@ -5,7 +5,7 @@ Subject: [PATCH] Add custom appautoscaling examples
 
 
 diff --git a/website/docs/r/appautoscaling_policy.html.markdown b/website/docs/r/appautoscaling_policy.html.markdown
-index efb91c5bef3..5222bed54a8 100644
+index efb91c5bef3b..5222bed54a85 100644
 --- a/website/docs/r/appautoscaling_policy.html.markdown
 +++ b/website/docs/r/appautoscaling_policy.html.markdown
 @@ -218,6 +218,34 @@ resource "aws_appautoscaling_policy" "example" {
@@ -44,7 +44,7 @@ index efb91c5bef3..5222bed54a8 100644
  
  This resource supports the following arguments:
 diff --git a/website/docs/r/appautoscaling_target.html.markdown b/website/docs/r/appautoscaling_target.html.markdown
-index 044318bcb42..b044bd3bb4c 100644
+index 044318bcb427..b044bd3bb4c8 100644
 --- a/website/docs/r/appautoscaling_target.html.markdown
 +++ b/website/docs/r/appautoscaling_target.html.markdown
 @@ -82,6 +82,18 @@ resource "aws_appautoscaling_target" "ecs_target" {

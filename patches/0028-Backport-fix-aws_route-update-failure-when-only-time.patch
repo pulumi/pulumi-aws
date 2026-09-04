@@ -6,7 +6,7 @@ Subject: [PATCH] Backport fix aws_route update failure when only timeouts
 
 
 diff --git a/internal/service/ec2/vpc_route.go b/internal/service/ec2/vpc_route.go
-index 286fb0568e5..cdc01f2f7c4 100644
+index 286fb0568e58..cdc01f2f7c41 100644
 --- a/internal/service/ec2/vpc_route.go
 +++ b/internal/service/ec2/vpc_route.go
 @@ -379,6 +379,12 @@ func resourceRouteFlatten(d *schema.ResourceData, route *awstypes.Route) diag.Di
@@ -23,7 +23,7 @@ index 286fb0568e5..cdc01f2f7c4 100644
  
  	destinationAttributeKey, destination, err := routeDestinationAttribute(d)
 diff --git a/internal/service/ec2/vpc_route_test.go b/internal/service/ec2/vpc_route_test.go
-index 618e778c7f0..59f8a689eb3 100644
+index 618e778c7f0d..59f8a689eb3c 100644
 --- a/internal/service/ec2/vpc_route_test.go
 +++ b/internal/service/ec2/vpc_route_test.go
 @@ -1531,6 +1531,37 @@ func TestAccVPCRoute_IPv6Update_target(t *testing.T) {
