@@ -302,7 +302,9 @@ export_patches() {
   
   # Extract patches from the commits in the 'pulumi/patch-checkout' branch into the 'patches' directory.
   # Use the 'pulumi/checkout-base' branch to determine the base commit of the patches.
-  (cd upstream && git format-patch pulumi/checkout-base -o ../patches --zero-commit --no-signature --no-stat --no-numbered)
+  # Pin --abbrev so patches don't differ between machines: git's default width
+  # varies with the upstream clone's object count.
+  (cd upstream && git format-patch pulumi/checkout-base -o ../patches --zero-commit --no-signature --no-stat --no-numbered --abbrev=12)
 }
 
 format_patches() {
