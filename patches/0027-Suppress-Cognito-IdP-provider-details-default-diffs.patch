@@ -5,7 +5,7 @@ Subject: [PATCH] Suppress Cognito IdP provider details default diffs
 
 
 diff --git a/internal/service/cognitoidp/identity_provider.go b/internal/service/cognitoidp/identity_provider.go
-index 4cc88b544a2..d904fe43b4b 100644
+index 4cc88b544a22..d904fe43b4b2 100644
 --- a/internal/service/cognitoidp/identity_provider.go
 +++ b/internal/service/cognitoidp/identity_provider.go
 @@ -9,6 +9,7 @@ import (
@@ -147,7 +147,7 @@ index 4cc88b544a2..d904fe43b4b 100644
  	conn := meta.(*conns.AWSClient).CognitoIDPClient(ctx)
 diff --git a/internal/service/cognitoidp/identity_provider_internal_test.go b/internal/service/cognitoidp/identity_provider_internal_test.go
 new file mode 100644
-index 00000000000..ff216a7eba0
+index 000000000000..ff216a7eba02
 --- /dev/null
 +++ b/internal/service/cognitoidp/identity_provider_internal_test.go
 @@ -0,0 +1,171 @@
@@ -323,7 +323,7 @@ index 00000000000..ff216a7eba0
 +	}
 +}
 diff --git a/internal/service/cognitoidp/identity_provider_test.go b/internal/service/cognitoidp/identity_provider_test.go
-index 7d775cb6f16..2190cb67677 100644
+index 7d775cb6f162..2190cb676773 100644
 --- a/internal/service/cognitoidp/identity_provider_test.go
 +++ b/internal/service/cognitoidp/identity_provider_test.go
 @@ -81,6 +81,48 @@ func TestAccCognitoIDPIdentityProvider_basic(t *testing.T) {

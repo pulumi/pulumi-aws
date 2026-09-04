@@ -5,7 +5,7 @@ Subject: [PATCH] De-deprecate bucket_object
 
 
 diff --git a/internal/service/s3/bucket_object.go b/internal/service/s3/bucket_object.go
-index 60b4e05da34..31ddf085f5c 100644
+index 60b4e05da34a..31ddf085f5ce 100644
 --- a/internal/service/s3/bucket_object.go
 +++ b/internal/service/s3/bucket_object.go
 @@ -70,7 +70,7 @@ func resourceBucketObject() *schema.Resource {

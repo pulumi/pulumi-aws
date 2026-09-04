@@ -12,7 +12,7 @@ Upstream: https://github.com/hashicorp/terraform-provider-aws/pull/49209
 
 diff --git a/.changelog/49209.txt b/.changelog/49209.txt
 new file mode 100644
-index 00000000000..48d992326af
+index 000000000000..48d992326af3
 --- /dev/null
 +++ b/.changelog/49209.txt
 @@ -0,0 +1,3 @@
@@ -20,7 +20,7 @@ index 00000000000..48d992326af
 +resource/aws_rds_cluster: Fix `storage_type` changes incorrectly forcing resource replacement for non-Aurora clusters
 +```
 diff --git a/internal/service/rds/cluster.go b/internal/service/rds/cluster.go
-index a1b8a7e922b..7adfe40c45d 100644
+index a1b8a7e922b7..7adfe40c45d9 100644
 --- a/internal/service/rds/cluster.go
 +++ b/internal/service/rds/cluster.go
 @@ -20,7 +20,6 @@ import (
@@ -94,7 +94,7 @@ index a1b8a7e922b..7adfe40c45d 100644
  
  		if d.HasChange(names.AttrVPCSecurityGroupIDs) {
 diff --git a/internal/service/rds/cluster_test.go b/internal/service/rds/cluster_test.go
-index 4bd48a8698d..714a87a5ea7 100644
+index 4bd48a8698d5..714a87a5ea7b 100644
 --- a/internal/service/rds/cluster_test.go
 +++ b/internal/service/rds/cluster_test.go
 @@ -864,6 +864,91 @@ func TestAccRDSCluster_storageTypeAuroraIopt1UpdateAurora(t *testing.T) {

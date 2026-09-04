@@ -9,6 +9,10 @@
   "aws_account_alternate_contact": {
     "hasInputName": true
   },
+  "aws_accountaccess_application": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
   "aws_acm_certificate": {
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
@@ -1581,6 +1585,9 @@
   },
   "aws_datazone_glossary_term": {
     "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_datazone_policy_grant": {
     "hasUsableRegion": true
   },
   "aws_datazone_project": {
@@ -3282,6 +3289,9 @@
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
   },
+  "aws_lambdamicrovms_microvm": {
+    "hasUsableRegion": true
+  },
   "aws_launch_configuration": {
     "hasInputName": true,
     "hasUsableRegion": true
@@ -3553,6 +3563,11 @@
   },
   "aws_macie2_organization_configuration": {
     "hasUsableRegion": true
+  },
+  "aws_mailmanager_archive": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
   },
   "aws_mailmanager_ingress_point": {
     "hasInputName": true,
