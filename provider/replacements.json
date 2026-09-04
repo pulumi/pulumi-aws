@@ -982,7 +982,7 @@
     },
     {
       "old": "* `configurations` - (Optional) List of configurations supplied for the EMR cluster you are creating, expressed as a string: an HTTP(S) URL to a JSON file, a path to a local `.json` file, or a raw JSON string. To supply configuration objects using Terraform syntax instead, use `configurations_json`. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.\n",
-      "new": "* `configurations` - (Optional) List of configurations supplied for the EMR cluster you are creating, expressed as a string: an HTTP(S) URL to a JSON file, a path to a local `.json` file, or a raw JSON string. To supply configuration objects using TODO syntax instead, use `configurations_json`. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.\n"
+      "new": "* `configurations` - (Optional) List of configurations supplied for the EMR cluster you are creating, expressed as a string: an HTTP(S) URL to a JSON file, a path to a local `.json` file, or a raw JSON string. To supply configuration objects using Pulumi syntax instead, use `configurations_json`. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.\n"
     }
   ],
   "emr_security_configuration.html.markdown": [
