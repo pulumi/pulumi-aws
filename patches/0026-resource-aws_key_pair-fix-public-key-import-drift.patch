@@ -1,6 +1,6 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: corymhall <43035978+corymhall@users.noreply.github.com>
-Date: Thu, 30 Apr 2026 08:20:40 -0400
+Date: Fri, 4 Sep 2026 15:05:34 -0400
 Subject: [PATCH] resource/aws_key_pair: fix public key import drift
 
 Backport the upstream fix for EC2 key pair imports so reads request and persist
@@ -66,10 +66,10 @@ index 65eb85d86d9c..f67af432c1b7 100644
  	setTagsOut(ctx, keyPair.Tags)
  }
 diff --git a/internal/service/ec2/ec2_key_pair_test.go b/internal/service/ec2/ec2_key_pair_test.go
-index a5155282b55b..806a52cc331a 100644
+index a5155282b55b..af8ef20ff163 100644
 --- a/internal/service/ec2/ec2_key_pair_test.go
 +++ b/internal/service/ec2/ec2_key_pair_test.go
-@@ -45,19 +45,25 @@ func TestAccEC2KeyPair_basic(t *testing.T) {
+@@ -45,14 +45,19 @@ func TestAccEC2KeyPair_basic(t *testing.T) {
  					resource.TestMatchResourceAttr(resourceName, "fingerprint", regexache.MustCompile(`[0-9a-f]{2}(:[0-9a-f]{2}){15}`)),
  					resource.TestCheckResourceAttr(resourceName, "key_name", rName),
  					resource.TestCheckResourceAttr(resourceName, "key_name_prefix", ""),
@@ -94,13 +94,7 @@ index a5155282b55b..806a52cc331a 100644
  			},
  		},
  	})
- }
- 
-+
- func TestAccEC2KeyPair_nameGenerated(t *testing.T) {
- 	ctx := acctest.Context(t)
- 	var keyPair awstypes.KeyPairInfo
-@@ -83,10 +89,9 @@ func TestAccEC2KeyPair_nameGenerated(t *testing.T) {
+@@ -83,10 +88,9 @@ func TestAccEC2KeyPair_nameGenerated(t *testing.T) {
  				),
  			},
  			{
@@ -114,7 +108,7 @@ index a5155282b55b..806a52cc331a 100644
  			},
  		},
  	})
-@@ -117,10 +122,48 @@ func TestAccEC2KeyPair_namePrefix(t *testing.T) {
+@@ -117,10 +121,48 @@ func TestAccEC2KeyPair_namePrefix(t *testing.T) {
  				),
  			},
  			{
