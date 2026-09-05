@@ -176,6 +176,7 @@ const (
 	pinpointMod                 = "Pinpoint"                 // Pinpoint
 	pipesMod                    = "Pipes"                    // Pipes
 	pricingMod                  = "Pricing"                  // Pricing
+	pricingPlanManagerMod       = "PricingPlanManager"       // Pricing Plan Manager
 	qldbMod                     = "Qldb"                     // QLDB
 	quicksightMod               = "Quicksight"               // Quicksight
 	ramMod                      = "Ram"                      // Resource Access Manager
@@ -421,6 +422,7 @@ var moduleMap = map[string]string{
 	"pipes":                           pipesMod,
 	"polly":                           "Polly",
 	"pricing":                         pricingMod,
+	"pricingplanmanager":              pricingPlanManagerMod,
 	"prometheus":                      ampMod,
 	"qbusiness":                       "Qbusiness",
 	"qldb":                            qldbMod,
