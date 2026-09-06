@@ -62,8 +62,6 @@ import (
 type Archive struct {
 	pulumi.CustomResourceState
 
-	// Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
-	ArchiveState pulumi.StringOutput `pulumi:"archiveState"`
 	// ARN of the archive.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Timestamp of when the archive was created.
@@ -82,6 +80,8 @@ type Archive struct {
 	Retention ArchiveRetentionPtrOutput `pulumi:"retention"`
 	// Effective retention policy for the archive, including the default (`SIX_MONTHS`) when no `retention` block is configured. See `retentionActual` Block below.
 	RetentionActuals ArchiveRetentionActualArrayOutput `pulumi:"retentionActuals"`
+	// Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
+	State pulumi.StringOutput `pulumi:"state"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -118,8 +118,6 @@ func GetArchive(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Archive resources.
 type archiveState struct {
-	// Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
-	ArchiveState *string `pulumi:"archiveState"`
 	// ARN of the archive.
 	Arn *string `pulumi:"arn"`
 	// Timestamp of when the archive was created.
@@ -138,6 +136,8 @@ type archiveState struct {
 	Retention *ArchiveRetention `pulumi:"retention"`
 	// Effective retention policy for the archive, including the default (`SIX_MONTHS`) when no `retention` block is configured. See `retentionActual` Block below.
 	RetentionActuals []ArchiveRetentionActual `pulumi:"retentionActuals"`
+	// Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
+	State *string `pulumi:"state"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -145,8 +145,6 @@ type archiveState struct {
 }
 
 type ArchiveState struct {
-	// Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
-	ArchiveState pulumi.StringPtrInput
 	// ARN of the archive.
 	Arn pulumi.StringPtrInput
 	// Timestamp of when the archive was created.
@@ -165,6 +163,8 @@ type ArchiveState struct {
 	Retention ArchiveRetentionPtrInput
 	// Effective retention policy for the archive, including the default (`SIX_MONTHS`) when no `retention` block is configured. See `retentionActual` Block below.
 	RetentionActuals ArchiveRetentionActualArrayInput
+	// Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
+	State pulumi.StringPtrInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -293,11 +293,6 @@ func (o ArchiveOutput) ToArchiveOutputWithContext(ctx context.Context) ArchiveOu
 	return o
 }
 
-// Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
-func (o ArchiveOutput) ArchiveState() pulumi.StringOutput {
-	return o.ApplyT(func(v *Archive) pulumi.StringOutput { return v.ArchiveState }).(pulumi.StringOutput)
-}
-
 // ARN of the archive.
 func (o ArchiveOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Archive) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
@@ -338,6 +333,11 @@ func (o ArchiveOutput) Retention() ArchiveRetentionPtrOutput {
 // Effective retention policy for the archive, including the default (`SIX_MONTHS`) when no `retention` block is configured. See `retentionActual` Block below.
 func (o ArchiveOutput) RetentionActuals() ArchiveRetentionActualArrayOutput {
 	return o.ApplyT(func(v *Archive) ArchiveRetentionActualArrayOutput { return v.RetentionActuals }).(ArchiveRetentionActualArrayOutput)
+}
+
+// Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
+func (o ArchiveOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *Archive) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
 // Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

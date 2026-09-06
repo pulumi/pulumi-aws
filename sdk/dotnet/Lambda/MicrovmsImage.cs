@@ -84,9 +84,9 @@ namespace Pulumi.Aws.Lambda
     ///         Source = new FileAsset("code.zip"),
     ///     });
     /// 
-    ///     var exampleImage = new Aws.LambdaMicrovms.Image("example", new()
+    ///     var exampleImage = new Aws.LambdaMicroVMs.Image("example", new()
     ///     {
-    ///         CodeArtifact = new Aws.LambdaMicrovms.Inputs.ImageCodeArtifactArgs
+    ///         CodeArtifact = new Aws.LambdaMicroVMs.Inputs.ImageCodeArtifactArgs
     ///         {
     ///             Uri = Output.Tuple(exampleBucket.BucketName, exampleBucketObjectv2.Key).Apply(values =&gt;
     ///             {

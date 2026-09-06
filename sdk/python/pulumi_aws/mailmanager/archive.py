@@ -114,7 +114,6 @@ class ArchiveArgs:
 @pulumi.input_type
 class _ArchiveState:
     def __init__(__self__, *,
-                 archive_state: pulumi.Input[Optional[_builtins.str]] = None,
                  arn: pulumi.Input[Optional[_builtins.str]] = None,
                  created_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -123,12 +122,12 @@ class _ArchiveState:
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  retention: pulumi.Input[Optional['ArchiveRetentionArgs']] = None,
                  retention_actuals: pulumi.Input[Optional[Sequence[pulumi.Input['ArchiveRetentionActualArgs']]]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Archive resources.
 
-        :param pulumi.Input[_builtins.str] archive_state: Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
         :param pulumi.Input[_builtins.str] arn: ARN of the archive.
         :param pulumi.Input[_builtins.str] created_timestamp: Timestamp of when the archive was created.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the archive.
@@ -139,11 +138,10 @@ class _ArchiveState:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ArchiveRetentionArgs'] retention: Retention policy for the archive. See `retention` Block.
         :param pulumi.Input[Sequence[pulumi.Input['ArchiveRetentionActualArgs']]] retention_actuals: Effective retention policy for the archive, including the default (`SIX_MONTHS`) when no `retention` block is configured. See `retention_actual` Block below.
+        :param pulumi.Input[_builtins.str] state: Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        if archive_state is not None:
-            pulumi.set(__self__, "archive_state", archive_state)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if created_timestamp is not None:
@@ -160,22 +158,12 @@ class _ArchiveState:
             pulumi.set(__self__, "retention", retention)
         if retention_actuals is not None:
             pulumi.set(__self__, "retention_actuals", retention_actuals)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
-
-    @_builtins.property
-    @pulumi.getter(name="archiveState")
-    def archive_state(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
-        """
-        return pulumi.get(self, "archive_state")
-
-    @archive_state.setter
-    def archive_state(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "archive_state", value)
 
     @_builtins.property
     @pulumi.getter
@@ -274,6 +262,18 @@ class _ArchiveState:
     @retention_actuals.setter
     def retention_actuals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ArchiveRetentionActualArgs']]]]):
         pulumi.set(self, "retention_actuals", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
@@ -430,11 +430,11 @@ class Archive(pulumi.CustomResource):
             __props__.__dict__["region"] = region
             __props__.__dict__["retention"] = retention
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["archive_state"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_timestamp"] = None
             __props__.__dict__["last_updated_timestamp"] = None
             __props__.__dict__["retention_actuals"] = None
+            __props__.__dict__["state"] = None
             __props__.__dict__["tags_all"] = None
         super(Archive, __self__).__init__(
             'aws:mailmanager/archive:Archive',
@@ -446,7 +446,6 @@ class Archive(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            archive_state: pulumi.Input[Optional[_builtins.str]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             created_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
             kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -455,6 +454,7 @@ class Archive(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             retention: pulumi.Input[Optional[Union['ArchiveRetentionArgs', 'ArchiveRetentionArgsDict']]] = None,
             retention_actuals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ArchiveRetentionActualArgs', 'ArchiveRetentionActualArgsDict']]]]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Archive':
         """
@@ -464,7 +464,6 @@ class Archive(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] archive_state: Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
         :param pulumi.Input[_builtins.str] arn: ARN of the archive.
         :param pulumi.Input[_builtins.str] created_timestamp: Timestamp of when the archive was created.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the archive.
@@ -475,6 +474,7 @@ class Archive(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ArchiveRetentionArgs', 'ArchiveRetentionArgsDict']] retention: Retention policy for the archive. See `retention` Block.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ArchiveRetentionActualArgs', 'ArchiveRetentionActualArgsDict']]]] retention_actuals: Effective retention policy for the archive, including the default (`SIX_MONTHS`) when no `retention` block is configured. See `retention_actual` Block below.
+        :param pulumi.Input[_builtins.str] state: Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -482,7 +482,6 @@ class Archive(pulumi.CustomResource):
 
         __props__ = _ArchiveState.__new__(_ArchiveState)
 
-        __props__.__dict__["archive_state"] = archive_state
         __props__.__dict__["arn"] = arn
         __props__.__dict__["created_timestamp"] = created_timestamp
         __props__.__dict__["kms_key_arn"] = kms_key_arn
@@ -491,17 +490,10 @@ class Archive(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         __props__.__dict__["retention"] = retention
         __props__.__dict__["retention_actuals"] = retention_actuals
+        __props__.__dict__["state"] = state
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return Archive(resource_name, opts=opts, __props__=__props__)
-
-    @_builtins.property
-    @pulumi.getter(name="archiveState")
-    def archive_state(self) -> pulumi.Output[_builtins.str]:
-        """
-        Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
-        """
-        return pulumi.get(self, "archive_state")
 
     @_builtins.property
     @pulumi.getter
@@ -568,6 +560,14 @@ class Archive(pulumi.CustomResource):
         Effective retention policy for the archive, including the default (`SIX_MONTHS`) when no `retention` block is configured. See `retention_actual` Block below.
         """
         return pulumi.get(self, "retention_actuals")
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> pulumi.Output[_builtins.str]:
+        """
+        Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
+        """
+        return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter

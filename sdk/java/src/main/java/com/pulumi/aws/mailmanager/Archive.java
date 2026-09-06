@@ -79,20 +79,6 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:mailmanager/archive:Archive")
 public class Archive extends com.pulumi.resources.CustomResource {
     /**
-     * Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
-     * 
-     */
-    @Export(name="archiveState", refs={String.class}, tree="[0]")
-    private Output<String> archiveState;
-
-    /**
-     * @return Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
-     * 
-     */
-    public Output<String> archiveState() {
-        return this.archiveState;
-    }
-    /**
      * ARN of the archive.
      * 
      */
@@ -207,6 +193,20 @@ public class Archive extends com.pulumi.resources.CustomResource {
      */
     public Output<List<ArchiveRetentionActual>> retentionActuals() {
         return this.retentionActuals;
+    }
+    /**
+     * Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
+     * 
+     */
+    @Export(name="state", refs={String.class}, tree="[0]")
+    private Output<String> state;
+
+    /**
+     * @return Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
+     * 
+     */
+    public Output<String> state() {
+        return this.state;
     }
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

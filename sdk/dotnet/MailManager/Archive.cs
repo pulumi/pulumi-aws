@@ -55,12 +55,6 @@ namespace Pulumi.Aws.MailManager
     public partial class Archive : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
-        /// </summary>
-        [Output("archiveState")]
-        public Output<string> ArchiveState { get; private set; } = null!;
-
-        /// <summary>
         /// ARN of the archive.
         /// </summary>
         [Output("arn")]
@@ -109,6 +103,12 @@ namespace Pulumi.Aws.MailManager
         /// </summary>
         [Output("retentionActuals")]
         public Output<ImmutableArray<Outputs.ArchiveRetentionActual>> RetentionActuals { get; private set; } = null!;
+
+        /// <summary>
+        /// Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
+        /// </summary>
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -215,12 +215,6 @@ namespace Pulumi.Aws.MailManager
     public sealed class ArchiveState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
-        /// </summary>
-        [Input("archiveState")]
-        public Input<string>? ArchiveState { get; set; }
-
-        /// <summary>
         /// ARN of the archive.
         /// </summary>
         [Input("arn")]
@@ -275,6 +269,12 @@ namespace Pulumi.Aws.MailManager
             get => _retentionActuals ?? (_retentionActuals = new InputList<Inputs.ArchiveRetentionActualGetArgs>());
             set => _retentionActuals = value;
         }
+
+        /// <summary>
+        /// Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
+        /// </summary>
+        [Input("state")]
+        public Input<string>? State { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

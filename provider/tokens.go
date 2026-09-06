@@ -142,7 +142,7 @@ const (
 	kmsMod                      = "Kms"                      // Key Management Service (KMS)
 	lakeFormationMod            = "LakeFormation"            // LakeFormation
 	lambdaMod                   = "Lambda"                   // Lambda
-	lambdaMicrovmsMod           = "LambdaMicrovms"           // Lambda MicroVMs
+	lambdaMicrovmsMod           = "LambdaMicroVMs"           // Lambda MicroVMs
 	lexMod                      = "Lex"                      // Lex
 	licensemanagerMod           = "LicenseManager"           // License Manager
 	lightsailMod                = "LightSail"                // LightSail

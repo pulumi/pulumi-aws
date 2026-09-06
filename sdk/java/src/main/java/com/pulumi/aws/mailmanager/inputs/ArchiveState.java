@@ -20,21 +20,6 @@ public final class ArchiveState extends com.pulumi.resources.ResourceArgs {
     public static final ArchiveState Empty = new ArchiveState();
 
     /**
-     * Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
-     * 
-     */
-    @Import(name="archiveState")
-    private @Nullable Output<String> archiveState;
-
-    /**
-     * @return Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
-     * 
-     */
-    public Optional<Output<String>> archiveState() {
-        return Optional.ofNullable(this.archiveState);
-    }
-
-    /**
      * ARN of the archive.
      * 
      */
@@ -159,6 +144,21 @@ public final class ArchiveState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
+     * 
+     */
+    @Import(name="state")
+    private @Nullable Output<String> state;
+
+    /**
+     * @return Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
+     * 
+     */
+    public Optional<Output<String>> state() {
+        return Optional.ofNullable(this.state);
+    }
+
+    /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -191,7 +191,6 @@ public final class ArchiveState extends com.pulumi.resources.ResourceArgs {
     private ArchiveState() {}
 
     private ArchiveState(ArchiveState $) {
-        this.archiveState = $.archiveState;
         this.arn = $.arn;
         this.createdTimestamp = $.createdTimestamp;
         this.kmsKeyArn = $.kmsKeyArn;
@@ -200,6 +199,7 @@ public final class ArchiveState extends com.pulumi.resources.ResourceArgs {
         this.region = $.region;
         this.retention = $.retention;
         this.retentionActuals = $.retentionActuals;
+        this.state = $.state;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
     }
@@ -220,27 +220,6 @@ public final class ArchiveState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ArchiveState defaults) {
             $ = new ArchiveState(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param archiveState Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder archiveState(@Nullable Output<String> archiveState) {
-            $.archiveState = archiveState;
-            return this;
-        }
-
-        /**
-         * @param archiveState Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder archiveState(String archiveState) {
-            return archiveState(Output.of(archiveState));
         }
 
         /**
@@ -423,6 +402,27 @@ public final class ArchiveState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder retentionActuals(ArchiveRetentionActualArgs... retentionActuals) {
             return retentionActuals(List.of(retentionActuals));
+        }
+
+        /**
+         * @param state Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder state(@Nullable Output<String> state) {
+            $.state = state;
+            return this;
+        }
+
+        /**
+         * @param state Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder state(String state) {
+            return state(Output.of(state));
         }
 
         /**

@@ -69,10 +69,6 @@ export class Archive extends pulumi.CustomResource {
     }
 
     /**
-     * Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
-     */
-    declare public /*out*/ readonly archiveState: pulumi.Output<string>;
-    /**
      * ARN of the archive.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
@@ -107,6 +103,10 @@ export class Archive extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly retentionActuals: pulumi.Output<outputs.mailmanager.ArchiveRetentionActual[]>;
     /**
+     * Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
+     */
+    declare public /*out*/ readonly state: pulumi.Output<string>;
+    /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
@@ -128,7 +128,6 @@ export class Archive extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ArchiveState | undefined;
-            resourceInputs["archiveState"] = state?.archiveState;
             resourceInputs["arn"] = state?.arn;
             resourceInputs["createdTimestamp"] = state?.createdTimestamp;
             resourceInputs["kmsKeyArn"] = state?.kmsKeyArn;
@@ -137,6 +136,7 @@ export class Archive extends pulumi.CustomResource {
             resourceInputs["region"] = state?.region;
             resourceInputs["retention"] = state?.retention;
             resourceInputs["retentionActuals"] = state?.retentionActuals;
+            resourceInputs["state"] = state?.state;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
@@ -146,11 +146,11 @@ export class Archive extends pulumi.CustomResource {
             resourceInputs["region"] = args?.region;
             resourceInputs["retention"] = args?.retention;
             resourceInputs["tags"] = args?.tags;
-            resourceInputs["archiveState"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["lastUpdatedTimestamp"] = undefined /*out*/;
             resourceInputs["retentionActuals"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -162,10 +162,6 @@ export class Archive extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Archive resources.
  */
 export interface ArchiveState {
-    /**
-     * Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
-     */
-    archiveState?: pulumi.Input<string | undefined>;
     /**
      * ARN of the archive.
      */
@@ -200,6 +196,10 @@ export interface ArchiveState {
      * Effective retention policy for the archive, including the default (`SIX_MONTHS`) when no `retention` block is configured. See `retentionActual` Block below.
      */
     retentionActuals?: pulumi.Input<pulumi.Input<inputs.mailmanager.ArchiveRetentionActual>[] | undefined>;
+    /**
+     * Current state of the archive. Always set to `ACTIVE` and will only be set to `PENDING_DELETION` when the archive is deleted.
+     */
+    state?: pulumi.Input<string | undefined>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
