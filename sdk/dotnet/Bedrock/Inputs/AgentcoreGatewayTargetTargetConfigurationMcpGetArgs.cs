@@ -13,31 +13,37 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreGatewayTargetTargetConfigurationMcpGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// API Gateway target configuration. See `ApiGateway` below.
+        /// API Gateway target configuration. See `ApiGateway` Block below.
         /// </summary>
         [Input("apiGateway")]
         public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayGetArgs>? ApiGateway { get; set; }
 
         /// <summary>
-        /// Lambda function target configuration. See `Lambda` below.
+        /// Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `Connector` Block below.
+        /// </summary>
+        [Input("connector")]
+        public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpConnectorGetArgs>? Connector { get; set; }
+
+        /// <summary>
+        /// Lambda function target configuration. See `Lambda` Block below.
         /// </summary>
         [Input("lambda")]
         public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaGetArgs>? Lambda { get; set; }
 
         /// <summary>
-        /// MCP server target configuration. See `McpServer` below.
+        /// MCP server target configuration. See `McpServer` Block below.
         /// </summary>
         [Input("mcpServer")]
         public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerGetArgs>? McpServer { get; set; }
 
         /// <summary>
-        /// OpenAPI schema-based target configuration. See `ApiSchemaConfiguration` below.
+        /// OpenAPI schema-based target configuration. See `ApiSchemaConfiguration` Block below.
         /// </summary>
         [Input("openApiSchema")]
         public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaGetArgs>? OpenApiSchema { get; set; }
 
         /// <summary>
-        /// Smithy model-based target configuration. See `ApiSchemaConfiguration` below.
+        /// Smithy model-based target configuration. See `ApiSchemaConfiguration` Block below.
         /// </summary>
         [Input("smithyModel")]
         public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelGetArgs>? SmithyModel { get; set; }

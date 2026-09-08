@@ -370,7 +370,7 @@ namespace Pulumi.Aws.ElastiCache
         /// <summary>
         /// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
         /// Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
-        /// Defaults to `True`.
+        /// If this argument is not explicitly set in the configuration, AWS will set a default value of `True` and Terraform will not detect drift on this attribute.
         /// </summary>
         [Output("autoMinorVersionUpgrade")]
         public Output<bool> AutoMinorVersionUpgrade { get; private set; } = null!;
@@ -781,7 +781,7 @@ namespace Pulumi.Aws.ElastiCache
         /// <summary>
         /// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
         /// Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
-        /// Defaults to `True`.
+        /// If this argument is not explicitly set in the configuration, AWS will set a default value of `True` and Terraform will not detect drift on this attribute.
         /// </summary>
         [Input("autoMinorVersionUpgrade")]
         public Input<bool>? AutoMinorVersionUpgrade { get; set; }
@@ -1161,7 +1161,7 @@ namespace Pulumi.Aws.ElastiCache
         /// <summary>
         /// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
         /// Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
-        /// Defaults to `True`.
+        /// If this argument is not explicitly set in the configuration, AWS will set a default value of `True` and Terraform will not detect drift on this attribute.
         /// </summary>
         [Input("autoMinorVersionUpgrade")]
         public Input<bool>? AutoMinorVersionUpgrade { get; set; }

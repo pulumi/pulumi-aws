@@ -16,10 +16,10 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// <summary>
         /// Identifier of the VPC Lattice resource configuration.
         /// </summary>
-        public readonly string ResourceConfigurationIdentifier;
+        public readonly string? ResourceConfigurationIdentifier;
 
         [OutputConstructor]
-        private AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource(string resourceConfigurationIdentifier)
+        private AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource(string? resourceConfigurationIdentifier)
         {
             ResourceConfigurationIdentifier = resourceConfigurationIdentifier;
         }

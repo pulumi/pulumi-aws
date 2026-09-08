@@ -4,6 +4,7 @@
 package com.pulumi.aws.bedrock.outputs;
 
 import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime;
+import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetTargetConfigurationHttpPassthrough;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
 import java.util.Optional;
@@ -12,22 +13,34 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreGatewayTargetTargetConfigurationHttp {
     /**
-     * @return AgentCore Runtime target configuration. See `agentcoreRuntime` below.
+     * @return AgentCore Runtime target configuration. See `agentcoreRuntime` Block below.
+     * 
+     */
+    private @Nullable AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime agentcoreRuntime;
+    /**
+     * @return Passthrough target configuration that forwards requests to an external HTTPS endpoint. See `passthrough` Block below.
      * 
      * &gt; **Note:** HTTP targets can only be attached to gateways that do not have a `protocolType` set. They are not supported on MCP-protocol gateways.
      * 
      */
-    private @Nullable AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime agentcoreRuntime;
+    private @Nullable AgentcoreGatewayTargetTargetConfigurationHttpPassthrough passthrough;
 
     private AgentcoreGatewayTargetTargetConfigurationHttp() {}
     /**
-     * @return AgentCore Runtime target configuration. See `agentcoreRuntime` below.
-     * 
-     * &gt; **Note:** HTTP targets can only be attached to gateways that do not have a `protocolType` set. They are not supported on MCP-protocol gateways.
+     * @return AgentCore Runtime target configuration. See `agentcoreRuntime` Block below.
      * 
      */
     public Optional<AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime> agentcoreRuntime() {
         return Optional.ofNullable(this.agentcoreRuntime);
+    }
+    /**
+     * @return Passthrough target configuration that forwards requests to an external HTTPS endpoint. See `passthrough` Block below.
+     * 
+     * &gt; **Note:** HTTP targets can only be attached to gateways that do not have a `protocolType` set. They are not supported on MCP-protocol gateways.
+     * 
+     */
+    public Optional<AgentcoreGatewayTargetTargetConfigurationHttpPassthrough> passthrough() {
+        return Optional.ofNullable(this.passthrough);
     }
 
     public static Builder builder() {
@@ -40,10 +53,12 @@ public final class AgentcoreGatewayTargetTargetConfigurationHttp {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime agentcoreRuntime;
+        private @Nullable AgentcoreGatewayTargetTargetConfigurationHttpPassthrough passthrough;
         public Builder() {}
         public Builder(AgentcoreGatewayTargetTargetConfigurationHttp defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.agentcoreRuntime = defaults.agentcoreRuntime;
+    	      this.passthrough = defaults.passthrough;
         }
 
         @CustomType.Setter
@@ -52,9 +67,16 @@ public final class AgentcoreGatewayTargetTargetConfigurationHttp {
             this.agentcoreRuntime = agentcoreRuntime;
             return this;
         }
+        @CustomType.Setter
+        public Builder passthrough(@Nullable AgentcoreGatewayTargetTargetConfigurationHttpPassthrough passthrough) {
+
+            this.passthrough = passthrough;
+            return this;
+        }
         public AgentcoreGatewayTargetTargetConfigurationHttp build() {
             final var _resultValue = new AgentcoreGatewayTargetTargetConfigurationHttp();
             _resultValue.agentcoreRuntime = agentcoreRuntime;
+            _resultValue.passthrough = passthrough;
             return _resultValue;
         }
     }

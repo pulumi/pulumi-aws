@@ -15,8 +15,8 @@ namespace Pulumi.Aws.Bedrock.Inputs
         /// <summary>
         /// Identifier of the VPC Lattice resource configuration.
         /// </summary>
-        [Input("resourceConfigurationIdentifier", required: true)]
-        public Input<string> ResourceConfigurationIdentifier { get; set; } = null!;
+        [Input("resourceConfigurationIdentifier")]
+        public Input<string>? ResourceConfigurationIdentifier { get; set; }
 
         public AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs()
         {

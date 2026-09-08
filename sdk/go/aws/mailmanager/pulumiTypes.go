@@ -13,6 +13,240 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ArchiveRetention struct {
+	// Retention period for the archive. Valid values: `THREE_MONTHS`, `SIX_MONTHS`, `NINE_MONTHS`, `ONE_YEAR`, `EIGHTEEN_MONTHS`, `TWO_YEARS`, `THIRTY_MONTHS`, `THREE_YEARS`, `FOUR_YEARS`, `FIVE_YEARS`, `SIX_YEARS`, `SEVEN_YEARS`, `EIGHT_YEARS`, `NINE_YEARS`, `TEN_YEARS`, `PERMANENT`.
+	RetentionPeriod string `pulumi:"retentionPeriod"`
+}
+
+// ArchiveRetentionInput is an input type that accepts ArchiveRetentionArgs and ArchiveRetentionOutput values.
+// You can construct a concrete instance of `ArchiveRetentionInput` via:
+//
+//	ArchiveRetentionArgs{...}
+type ArchiveRetentionInput interface {
+	pulumi.Input
+
+	ToArchiveRetentionOutput() ArchiveRetentionOutput
+	ToArchiveRetentionOutputWithContext(context.Context) ArchiveRetentionOutput
+}
+
+type ArchiveRetentionArgs struct {
+	// Retention period for the archive. Valid values: `THREE_MONTHS`, `SIX_MONTHS`, `NINE_MONTHS`, `ONE_YEAR`, `EIGHTEEN_MONTHS`, `TWO_YEARS`, `THIRTY_MONTHS`, `THREE_YEARS`, `FOUR_YEARS`, `FIVE_YEARS`, `SIX_YEARS`, `SEVEN_YEARS`, `EIGHT_YEARS`, `NINE_YEARS`, `TEN_YEARS`, `PERMANENT`.
+	RetentionPeriod pulumi.StringInput `pulumi:"retentionPeriod"`
+}
+
+func (ArchiveRetentionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArchiveRetention)(nil)).Elem()
+}
+
+func (i ArchiveRetentionArgs) ToArchiveRetentionOutput() ArchiveRetentionOutput {
+	return i.ToArchiveRetentionOutputWithContext(context.Background())
+}
+
+func (i ArchiveRetentionArgs) ToArchiveRetentionOutputWithContext(ctx context.Context) ArchiveRetentionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArchiveRetentionOutput)
+}
+
+func (i ArchiveRetentionArgs) ToArchiveRetentionPtrOutput() ArchiveRetentionPtrOutput {
+	return i.ToArchiveRetentionPtrOutputWithContext(context.Background())
+}
+
+func (i ArchiveRetentionArgs) ToArchiveRetentionPtrOutputWithContext(ctx context.Context) ArchiveRetentionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArchiveRetentionOutput).ToArchiveRetentionPtrOutputWithContext(ctx)
+}
+
+// ArchiveRetentionPtrInput is an input type that accepts ArchiveRetentionArgs, ArchiveRetentionPtr and ArchiveRetentionPtrOutput values.
+// You can construct a concrete instance of `ArchiveRetentionPtrInput` via:
+//
+//	        ArchiveRetentionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ArchiveRetentionPtrInput interface {
+	pulumi.Input
+
+	ToArchiveRetentionPtrOutput() ArchiveRetentionPtrOutput
+	ToArchiveRetentionPtrOutputWithContext(context.Context) ArchiveRetentionPtrOutput
+}
+
+type archiveRetentionPtrType ArchiveRetentionArgs
+
+func ArchiveRetentionPtr(v *ArchiveRetentionArgs) ArchiveRetentionPtrInput {
+	return (*archiveRetentionPtrType)(v)
+}
+
+func (*archiveRetentionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArchiveRetention)(nil)).Elem()
+}
+
+func (i *archiveRetentionPtrType) ToArchiveRetentionPtrOutput() ArchiveRetentionPtrOutput {
+	return i.ToArchiveRetentionPtrOutputWithContext(context.Background())
+}
+
+func (i *archiveRetentionPtrType) ToArchiveRetentionPtrOutputWithContext(ctx context.Context) ArchiveRetentionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArchiveRetentionPtrOutput)
+}
+
+type ArchiveRetentionOutput struct{ *pulumi.OutputState }
+
+func (ArchiveRetentionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArchiveRetention)(nil)).Elem()
+}
+
+func (o ArchiveRetentionOutput) ToArchiveRetentionOutput() ArchiveRetentionOutput {
+	return o
+}
+
+func (o ArchiveRetentionOutput) ToArchiveRetentionOutputWithContext(ctx context.Context) ArchiveRetentionOutput {
+	return o
+}
+
+func (o ArchiveRetentionOutput) ToArchiveRetentionPtrOutput() ArchiveRetentionPtrOutput {
+	return o.ToArchiveRetentionPtrOutputWithContext(context.Background())
+}
+
+func (o ArchiveRetentionOutput) ToArchiveRetentionPtrOutputWithContext(ctx context.Context) ArchiveRetentionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArchiveRetention) *ArchiveRetention {
+		return &v
+	}).(ArchiveRetentionPtrOutput)
+}
+
+// Retention period for the archive. Valid values: `THREE_MONTHS`, `SIX_MONTHS`, `NINE_MONTHS`, `ONE_YEAR`, `EIGHTEEN_MONTHS`, `TWO_YEARS`, `THIRTY_MONTHS`, `THREE_YEARS`, `FOUR_YEARS`, `FIVE_YEARS`, `SIX_YEARS`, `SEVEN_YEARS`, `EIGHT_YEARS`, `NINE_YEARS`, `TEN_YEARS`, `PERMANENT`.
+func (o ArchiveRetentionOutput) RetentionPeriod() pulumi.StringOutput {
+	return o.ApplyT(func(v ArchiveRetention) string { return v.RetentionPeriod }).(pulumi.StringOutput)
+}
+
+type ArchiveRetentionPtrOutput struct{ *pulumi.OutputState }
+
+func (ArchiveRetentionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArchiveRetention)(nil)).Elem()
+}
+
+func (o ArchiveRetentionPtrOutput) ToArchiveRetentionPtrOutput() ArchiveRetentionPtrOutput {
+	return o
+}
+
+func (o ArchiveRetentionPtrOutput) ToArchiveRetentionPtrOutputWithContext(ctx context.Context) ArchiveRetentionPtrOutput {
+	return o
+}
+
+func (o ArchiveRetentionPtrOutput) Elem() ArchiveRetentionOutput {
+	return o.ApplyT(func(v *ArchiveRetention) ArchiveRetention {
+		if v != nil {
+			return *v
+		}
+		var ret ArchiveRetention
+		return ret
+	}).(ArchiveRetentionOutput)
+}
+
+// Retention period for the archive. Valid values: `THREE_MONTHS`, `SIX_MONTHS`, `NINE_MONTHS`, `ONE_YEAR`, `EIGHTEEN_MONTHS`, `TWO_YEARS`, `THIRTY_MONTHS`, `THREE_YEARS`, `FOUR_YEARS`, `FIVE_YEARS`, `SIX_YEARS`, `SEVEN_YEARS`, `EIGHT_YEARS`, `NINE_YEARS`, `TEN_YEARS`, `PERMANENT`.
+func (o ArchiveRetentionPtrOutput) RetentionPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArchiveRetention) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RetentionPeriod
+	}).(pulumi.StringPtrOutput)
+}
+
+type ArchiveRetentionActual struct {
+	// Retention period for the archive. Possible values: `THREE_MONTHS`, `SIX_MONTHS`, `NINE_MONTHS`, `ONE_YEAR`, `EIGHTEEN_MONTHS`, `TWO_YEARS`, `THIRTY_MONTHS`, `THREE_YEARS`, `FOUR_YEARS`, `FIVE_YEARS`, `SIX_YEARS`, `SEVEN_YEARS`, `EIGHT_YEARS`, `NINE_YEARS`, `TEN_YEARS`, `PERMANENT`.
+	RetentionPeriod string `pulumi:"retentionPeriod"`
+}
+
+// ArchiveRetentionActualInput is an input type that accepts ArchiveRetentionActualArgs and ArchiveRetentionActualOutput values.
+// You can construct a concrete instance of `ArchiveRetentionActualInput` via:
+//
+//	ArchiveRetentionActualArgs{...}
+type ArchiveRetentionActualInput interface {
+	pulumi.Input
+
+	ToArchiveRetentionActualOutput() ArchiveRetentionActualOutput
+	ToArchiveRetentionActualOutputWithContext(context.Context) ArchiveRetentionActualOutput
+}
+
+type ArchiveRetentionActualArgs struct {
+	// Retention period for the archive. Possible values: `THREE_MONTHS`, `SIX_MONTHS`, `NINE_MONTHS`, `ONE_YEAR`, `EIGHTEEN_MONTHS`, `TWO_YEARS`, `THIRTY_MONTHS`, `THREE_YEARS`, `FOUR_YEARS`, `FIVE_YEARS`, `SIX_YEARS`, `SEVEN_YEARS`, `EIGHT_YEARS`, `NINE_YEARS`, `TEN_YEARS`, `PERMANENT`.
+	RetentionPeriod pulumi.StringInput `pulumi:"retentionPeriod"`
+}
+
+func (ArchiveRetentionActualArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArchiveRetentionActual)(nil)).Elem()
+}
+
+func (i ArchiveRetentionActualArgs) ToArchiveRetentionActualOutput() ArchiveRetentionActualOutput {
+	return i.ToArchiveRetentionActualOutputWithContext(context.Background())
+}
+
+func (i ArchiveRetentionActualArgs) ToArchiveRetentionActualOutputWithContext(ctx context.Context) ArchiveRetentionActualOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArchiveRetentionActualOutput)
+}
+
+// ArchiveRetentionActualArrayInput is an input type that accepts ArchiveRetentionActualArray and ArchiveRetentionActualArrayOutput values.
+// You can construct a concrete instance of `ArchiveRetentionActualArrayInput` via:
+//
+//	ArchiveRetentionActualArray{ ArchiveRetentionActualArgs{...} }
+type ArchiveRetentionActualArrayInput interface {
+	pulumi.Input
+
+	ToArchiveRetentionActualArrayOutput() ArchiveRetentionActualArrayOutput
+	ToArchiveRetentionActualArrayOutputWithContext(context.Context) ArchiveRetentionActualArrayOutput
+}
+
+type ArchiveRetentionActualArray []ArchiveRetentionActualInput
+
+func (ArchiveRetentionActualArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ArchiveRetentionActual)(nil)).Elem()
+}
+
+func (i ArchiveRetentionActualArray) ToArchiveRetentionActualArrayOutput() ArchiveRetentionActualArrayOutput {
+	return i.ToArchiveRetentionActualArrayOutputWithContext(context.Background())
+}
+
+func (i ArchiveRetentionActualArray) ToArchiveRetentionActualArrayOutputWithContext(ctx context.Context) ArchiveRetentionActualArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArchiveRetentionActualArrayOutput)
+}
+
+type ArchiveRetentionActualOutput struct{ *pulumi.OutputState }
+
+func (ArchiveRetentionActualOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArchiveRetentionActual)(nil)).Elem()
+}
+
+func (o ArchiveRetentionActualOutput) ToArchiveRetentionActualOutput() ArchiveRetentionActualOutput {
+	return o
+}
+
+func (o ArchiveRetentionActualOutput) ToArchiveRetentionActualOutputWithContext(ctx context.Context) ArchiveRetentionActualOutput {
+	return o
+}
+
+// Retention period for the archive. Possible values: `THREE_MONTHS`, `SIX_MONTHS`, `NINE_MONTHS`, `ONE_YEAR`, `EIGHTEEN_MONTHS`, `TWO_YEARS`, `THIRTY_MONTHS`, `THREE_YEARS`, `FOUR_YEARS`, `FIVE_YEARS`, `SIX_YEARS`, `SEVEN_YEARS`, `EIGHT_YEARS`, `NINE_YEARS`, `TEN_YEARS`, `PERMANENT`.
+func (o ArchiveRetentionActualOutput) RetentionPeriod() pulumi.StringOutput {
+	return o.ApplyT(func(v ArchiveRetentionActual) string { return v.RetentionPeriod }).(pulumi.StringOutput)
+}
+
+type ArchiveRetentionActualArrayOutput struct{ *pulumi.OutputState }
+
+func (ArchiveRetentionActualArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ArchiveRetentionActual)(nil)).Elem()
+}
+
+func (o ArchiveRetentionActualArrayOutput) ToArchiveRetentionActualArrayOutput() ArchiveRetentionActualArrayOutput {
+	return o
+}
+
+func (o ArchiveRetentionActualArrayOutput) ToArchiveRetentionActualArrayOutputWithContext(ctx context.Context) ArchiveRetentionActualArrayOutput {
+	return o
+}
+
+func (o ArchiveRetentionActualArrayOutput) Index(i pulumi.IntInput) ArchiveRetentionActualOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ArchiveRetentionActual {
+		return vs[0].([]ArchiveRetentionActual)[vs[1].(int)]
+	}).(ArchiveRetentionActualOutput)
+}
+
 type IngressPointIngressPointConfiguration struct {
 	// ARN of the secret in AWS Secrets Manager that holds the SMTP password, used for `AUTH` ingress points.
 	SecretArn *string `pulumi:"secretArn"`
@@ -11386,6 +11620,10 @@ func (o TrafficPolicyPolicyStatementConditionTlsExpressionEvaluatePtrOutput) Att
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ArchiveRetentionInput)(nil)).Elem(), ArchiveRetentionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ArchiveRetentionPtrInput)(nil)).Elem(), ArchiveRetentionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ArchiveRetentionActualInput)(nil)).Elem(), ArchiveRetentionActualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ArchiveRetentionActualArrayInput)(nil)).Elem(), ArchiveRetentionActualArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IngressPointIngressPointConfigurationInput)(nil)).Elem(), IngressPointIngressPointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IngressPointIngressPointConfigurationPtrInput)(nil)).Elem(), IngressPointIngressPointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IngressPointIngressPointConfigurationTlsAuthConfigurationInput)(nil)).Elem(), IngressPointIngressPointConfigurationTlsAuthConfigurationArgs{})
@@ -11526,6 +11764,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficPolicyPolicyStatementConditionTlsExpressionPtrInput)(nil)).Elem(), TrafficPolicyPolicyStatementConditionTlsExpressionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficPolicyPolicyStatementConditionTlsExpressionEvaluateInput)(nil)).Elem(), TrafficPolicyPolicyStatementConditionTlsExpressionEvaluateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficPolicyPolicyStatementConditionTlsExpressionEvaluatePtrInput)(nil)).Elem(), TrafficPolicyPolicyStatementConditionTlsExpressionEvaluateArgs{})
+	pulumi.RegisterOutputType(ArchiveRetentionOutput{})
+	pulumi.RegisterOutputType(ArchiveRetentionPtrOutput{})
+	pulumi.RegisterOutputType(ArchiveRetentionActualOutput{})
+	pulumi.RegisterOutputType(ArchiveRetentionActualArrayOutput{})
 	pulumi.RegisterOutputType(IngressPointIngressPointConfigurationOutput{})
 	pulumi.RegisterOutputType(IngressPointIngressPointConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(IngressPointIngressPointConfigurationTlsAuthConfigurationOutput{})

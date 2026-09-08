@@ -59,6 +59,8 @@ __all__ = [
     'ClusterKubeControllerManagerConfigArgsDict',
     'ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs',
     'ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgsDict',
+    'ClusterKubeControllerManagerConfigPodGcControllerConfigArgs',
+    'ClusterKubeControllerManagerConfigPodGcControllerConfigArgsDict',
     'ClusterKubeSchedulerConfigArgs',
     'ClusterKubeSchedulerConfigArgsDict',
     'ClusterKubeSchedulerConfigNodeResourcesFitArgs',
@@ -1044,6 +1046,10 @@ class ClusterKubeControllerManagerConfigArgsDict(TypedDict):
     horizontal_pod_autoscaler_controller_config: NotRequired[pulumi.Input[Optional['ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgsDict']]]
     """
     Configuration block for the horizontal pod autoscaler controller. Detailed below.
+    """
+    pod_gc_controller_config: NotRequired[pulumi.Input[Optional['ClusterKubeControllerManagerConfigPodGcControllerConfigArgsDict']]]
+    """
+    Configuration block for the pod garbage collection controller. Detailed below.
 
     > **NOTE:** The `horizontal_pod_autoscaler_controller_config` requires a Provisioned Control Plane scaling tier (e.g., `tier-xl` or higher). It cannot be configured on clusters using the `standard` tier.
     """
@@ -1051,28 +1057,44 @@ class ClusterKubeControllerManagerConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterKubeControllerManagerConfigArgs:
     def __init__(__self__, *,
-                 horizontal_pod_autoscaler_controller_config: pulumi.Input[Optional['ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs']] = None):
+                 horizontal_pod_autoscaler_controller_config: pulumi.Input[Optional['ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs']] = None,
+                 pod_gc_controller_config: pulumi.Input[Optional['ClusterKubeControllerManagerConfigPodGcControllerConfigArgs']] = None):
         """
         :param pulumi.Input['ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs'] horizontal_pod_autoscaler_controller_config: Configuration block for the horizontal pod autoscaler controller. Detailed below.
+        :param pulumi.Input['ClusterKubeControllerManagerConfigPodGcControllerConfigArgs'] pod_gc_controller_config: Configuration block for the pod garbage collection controller. Detailed below.
                
                > **NOTE:** The `horizontal_pod_autoscaler_controller_config` requires a Provisioned Control Plane scaling tier (e.g., `tier-xl` or higher). It cannot be configured on clusters using the `standard` tier.
         """
         if horizontal_pod_autoscaler_controller_config is not None:
             pulumi.set(__self__, "horizontal_pod_autoscaler_controller_config", horizontal_pod_autoscaler_controller_config)
+        if pod_gc_controller_config is not None:
+            pulumi.set(__self__, "pod_gc_controller_config", pod_gc_controller_config)
 
     @_builtins.property
     @pulumi.getter(name="horizontalPodAutoscalerControllerConfig")
     def horizontal_pod_autoscaler_controller_config(self) -> pulumi.Input[Optional['ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs']]:
         """
         Configuration block for the horizontal pod autoscaler controller. Detailed below.
-
-        > **NOTE:** The `horizontal_pod_autoscaler_controller_config` requires a Provisioned Control Plane scaling tier (e.g., `tier-xl` or higher). It cannot be configured on clusters using the `standard` tier.
         """
         return pulumi.get(self, "horizontal_pod_autoscaler_controller_config")
 
     @horizontal_pod_autoscaler_controller_config.setter
     def horizontal_pod_autoscaler_controller_config(self, value: pulumi.Input[Optional['ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgs']]):
         pulumi.set(self, "horizontal_pod_autoscaler_controller_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="podGcControllerConfig")
+    def pod_gc_controller_config(self) -> pulumi.Input[Optional['ClusterKubeControllerManagerConfigPodGcControllerConfigArgs']]:
+        """
+        Configuration block for the pod garbage collection controller. Detailed below.
+
+        > **NOTE:** The `horizontal_pod_autoscaler_controller_config` requires a Provisioned Control Plane scaling tier (e.g., `tier-xl` or higher). It cannot be configured on clusters using the `standard` tier.
+        """
+        return pulumi.get(self, "pod_gc_controller_config")
+
+    @pod_gc_controller_config.setter
+    def pod_gc_controller_config(self, value: pulumi.Input[Optional['ClusterKubeControllerManagerConfigPodGcControllerConfigArgs']]):
+        pulumi.set(self, "pod_gc_controller_config", value)
 
 
 class ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigArgsDict(TypedDict):
@@ -1102,6 +1124,35 @@ class ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigA
     @horizontal_pod_autoscaler_sync_period.setter
     def horizontal_pod_autoscaler_sync_period(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "horizontal_pod_autoscaler_sync_period", value)
+
+
+class ClusterKubeControllerManagerConfigPodGcControllerConfigArgsDict(TypedDict):
+    terminated_pod_gc_threshold: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The number of terminated pods that can exist before the pod garbage collector starts deleting them. Valid range: `0` to `12500`. Refer to the `eks_get_cluster_versions` data source for any version-specific constraints.
+    """
+
+@pulumi.input_type
+class ClusterKubeControllerManagerConfigPodGcControllerConfigArgs:
+    def __init__(__self__, *,
+                 terminated_pod_gc_threshold: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] terminated_pod_gc_threshold: The number of terminated pods that can exist before the pod garbage collector starts deleting them. Valid range: `0` to `12500`. Refer to the `eks_get_cluster_versions` data source for any version-specific constraints.
+        """
+        if terminated_pod_gc_threshold is not None:
+            pulumi.set(__self__, "terminated_pod_gc_threshold", terminated_pod_gc_threshold)
+
+    @_builtins.property
+    @pulumi.getter(name="terminatedPodGcThreshold")
+    def terminated_pod_gc_threshold(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The number of terminated pods that can exist before the pod garbage collector starts deleting them. Valid range: `0` to `12500`. Refer to the `eks_get_cluster_versions` data source for any version-specific constraints.
+        """
+        return pulumi.get(self, "terminated_pod_gc_threshold")
+
+    @terminated_pod_gc_threshold.setter
+    def terminated_pod_gc_threshold(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "terminated_pod_gc_threshold", value)
 
 
 class ClusterKubeSchedulerConfigArgsDict(TypedDict):

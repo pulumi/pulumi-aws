@@ -76,6 +76,8 @@ type Canary struct {
 	FailureRetentionPeriod pulumi.IntPtrOutput `pulumi:"failureRetentionPeriod"`
 	// Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
 	Handler pulumi.StringOutput `pulumi:"handler"`
+	// ARN of the customer-managed KMS key used to encrypt the environment variables of the canary's Lambda function at rest. If omitted, an AWS owned key is used. Note that this is distinct from `artifact_config.s3_encryption.kms_key_arn`, which encrypts the artifacts the canary uploads to Amazon S3.
+	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -175,6 +177,8 @@ type canaryState struct {
 	FailureRetentionPeriod *int `pulumi:"failureRetentionPeriod"`
 	// Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
 	Handler *string `pulumi:"handler"`
+	// ARN of the customer-managed KMS key used to encrypt the environment variables of the canary's Lambda function at rest. If omitted, an AWS owned key is used. Note that this is distinct from `artifact_config.s3_encryption.kms_key_arn`, which encrypts the artifacts the canary uploads to Amazon S3.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -230,6 +234,8 @@ type CanaryState struct {
 	FailureRetentionPeriod pulumi.IntPtrInput
 	// Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
 	Handler pulumi.StringPtrInput
+	// ARN of the customer-managed KMS key used to encrypt the environment variables of the canary's Lambda function at rest. If omitted, an AWS owned key is used. Note that this is distinct from `artifact_config.s3_encryption.kms_key_arn`, which encrypts the artifacts the canary uploads to Amazon S3.
+	KmsKeyArn pulumi.StringPtrInput
 	// Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -285,6 +291,8 @@ type canaryArgs struct {
 	FailureRetentionPeriod *int `pulumi:"failureRetentionPeriod"`
 	// Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
 	Handler string `pulumi:"handler"`
+	// ARN of the customer-managed KMS key used to encrypt the environment variables of the canary's Lambda function at rest. If omitted, an AWS owned key is used. Note that this is distinct from `artifact_config.s3_encryption.kms_key_arn`, which encrypts the artifacts the canary uploads to Amazon S3.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -329,6 +337,8 @@ type CanaryArgs struct {
 	FailureRetentionPeriod pulumi.IntPtrInput
 	// Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
 	Handler pulumi.StringInput
+	// ARN of the customer-managed KMS key used to encrypt the environment variables of the canary's Lambda function at rest. If omitted, an AWS owned key is used. Note that this is distinct from `artifact_config.s3_encryption.kms_key_arn`, which encrypts the artifacts the canary uploads to Amazon S3.
+	KmsKeyArn pulumi.StringPtrInput
 	// Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -484,6 +494,11 @@ func (o CanaryOutput) FailureRetentionPeriod() pulumi.IntPtrOutput {
 // Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
 func (o CanaryOutput) Handler() pulumi.StringOutput {
 	return o.ApplyT(func(v *Canary) pulumi.StringOutput { return v.Handler }).(pulumi.StringOutput)
+}
+
+// ARN of the customer-managed KMS key used to encrypt the environment variables of the canary's Lambda function at rest. If omitted, an AWS owned key is used. Note that this is distinct from `artifact_config.s3_encryption.kms_key_arn`, which encrypts the artifacts the canary uploads to Amazon S3.
+func (o CanaryOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Canary) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 // Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.

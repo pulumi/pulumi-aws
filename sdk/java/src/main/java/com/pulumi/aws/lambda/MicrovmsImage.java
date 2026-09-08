@@ -44,9 +44,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.RolePolicyArgs;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
- * import com.pulumi.aws.lambda.MicrovmsImage;
- * import com.pulumi.aws.lambda.MicrovmsImageArgs;
- * import com.pulumi.aws.lambda.inputs.MicrovmsImageCodeArtifactArgs;
+ * import com.pulumi.aws.lambdamicrovms.Image;
+ * import com.pulumi.aws.lambdamicrovms.ImageArgs;
+ * import com.pulumi.aws.lambdamicrovms.inputs.ImageCodeArtifactArgs;
  * import com.pulumi.asset.FileAsset;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.ArrayList;
@@ -107,8 +107,8 @@ import javax.annotation.Nullable;
  *             .source(new FileAsset("code.zip"))
  *             .build());
  * 
- *         var exampleMicrovmsImage = new MicrovmsImage("exampleMicrovmsImage", MicrovmsImageArgs.builder()
- *             .codeArtifact(MicrovmsImageCodeArtifactArgs.builder()
+ *         var exampleImage = new Image("exampleImage", ImageArgs.builder()
+ *             .codeArtifact(ImageCodeArtifactArgs.builder()
  *                 .uri(Output.tuple(exampleBucket.bucket(), exampleBucketObjectv2.key()).applyValue(values -> {
  *                     var bucket = values.t1;
  *                     var key = values.t2;
@@ -139,7 +139,11 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:lambda/microvmsImage:MicrovmsImage example arn:aws:lambda:us-east-1:123456789012:microvm-image:example
  * ```
  * 
+ * @deprecated
+ * aws.lambda/microvmsimage.MicrovmsImage has been deprecated in favor of aws.lambdamicrovms/image.Image
+ * 
  */
+@Deprecated /* aws.lambda/microvmsimage.MicrovmsImage has been deprecated in favor of aws.lambdamicrovms/image.Image */
 @ResourceType(type="aws:lambda/microvmsImage:MicrovmsImage")
 public class MicrovmsImage extends com.pulumi.resources.CustomResource {
     /**

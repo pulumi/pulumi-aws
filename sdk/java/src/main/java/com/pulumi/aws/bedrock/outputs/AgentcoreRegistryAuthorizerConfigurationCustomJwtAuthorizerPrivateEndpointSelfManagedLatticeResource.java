@@ -4,17 +4,18 @@
 package com.pulumi.aws.bedrock.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
-    private String resourceConfigurationIdentifier;
+    private @Nullable String resourceConfigurationIdentifier;
 
     private AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource() {}
-    public String resourceConfigurationIdentifier() {
-        return this.resourceConfigurationIdentifier;
+    public Optional<String> resourceConfigurationIdentifier() {
+        return Optional.ofNullable(this.resourceConfigurationIdentifier);
     }
 
     public static Builder builder() {
@@ -26,7 +27,7 @@ public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPr
     }
     @CustomType.Builder
     public static final class Builder {
-        private String resourceConfigurationIdentifier;
+        private @Nullable String resourceConfigurationIdentifier;
         public Builder() {}
         public Builder(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource defaults) {
     	      Objects.requireNonNull(defaults);
@@ -34,10 +35,8 @@ public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPr
         }
 
         @CustomType.Setter
-        public Builder resourceConfigurationIdentifier(String resourceConfigurationIdentifier) {
-            if (resourceConfigurationIdentifier == null) {
-              throw new MissingRequiredPropertyException("AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource", "resourceConfigurationIdentifier");
-            }
+        public Builder resourceConfigurationIdentifier(@Nullable String resourceConfigurationIdentifier) {
+
             this.resourceConfigurationIdentifier = resourceConfigurationIdentifier;
             return this;
         }

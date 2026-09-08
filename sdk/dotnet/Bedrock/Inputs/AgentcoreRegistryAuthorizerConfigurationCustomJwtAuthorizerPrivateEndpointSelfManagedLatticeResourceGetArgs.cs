@@ -12,8 +12,8 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("resourceConfigurationIdentifier", required: true)]
-        public Input<string> ResourceConfigurationIdentifier { get; set; } = null!;
+        [Input("resourceConfigurationIdentifier")]
+        public Input<string>? ResourceConfigurationIdentifier { get; set; }
 
         public AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceGetArgs()
         {

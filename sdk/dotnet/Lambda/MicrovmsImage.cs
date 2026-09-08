@@ -84,9 +84,9 @@ namespace Pulumi.Aws.Lambda
     ///         Source = new FileAsset("code.zip"),
     ///     });
     /// 
-    ///     var exampleMicrovmsImage = new Aws.Lambda.MicrovmsImage("example", new()
+    ///     var exampleImage = new Aws.LambdaMicroVMs.Image("example", new()
     ///     {
-    ///         CodeArtifact = new Aws.Lambda.Inputs.MicrovmsImageCodeArtifactArgs
+    ///         CodeArtifact = new Aws.LambdaMicroVMs.Inputs.ImageCodeArtifactArgs
     ///         {
     ///             Uri = Output.Tuple(exampleBucket.BucketName, exampleBucketObjectv2.Key).Apply(values =&gt;
     ///             {
@@ -122,6 +122,7 @@ namespace Pulumi.Aws.Lambda
     /// $ pulumi import aws:lambda/microvmsImage:MicrovmsImage example arn:aws:lambda:us-east-1:123456789012:microvm-image:example
     /// ```
     /// </summary>
+    [Obsolete(@"aws.lambda/microvmsimage.MicrovmsImage has been deprecated in favor of aws.lambdamicrovms/image.Image")]
     [AwsResourceType("aws:lambda/microvmsImage:MicrovmsImage")]
     public partial class MicrovmsImage : global::Pulumi.CustomResource
     {

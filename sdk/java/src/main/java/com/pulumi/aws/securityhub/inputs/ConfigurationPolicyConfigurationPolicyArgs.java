@@ -35,14 +35,14 @@ public final class ConfigurationPolicyConfigurationPolicyArgs extends com.pulumi
     }
 
     /**
-     * Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
+     * Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. It must be defined if `serviceEnabled` is set to true. See below.
      * 
      */
     @Import(name="securityControlsConfiguration")
     private @Nullable Output<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs> securityControlsConfiguration;
 
     /**
-     * @return Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
+     * @return Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. It must be defined if `serviceEnabled` is set to true. See below.
      * 
      */
     public Optional<Output<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs>> securityControlsConfiguration() {
@@ -122,7 +122,7 @@ public final class ConfigurationPolicyConfigurationPolicyArgs extends com.pulumi
         }
 
         /**
-         * @param securityControlsConfiguration Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
+         * @param securityControlsConfiguration Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. It must be defined if `serviceEnabled` is set to true. See below.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class ConfigurationPolicyConfigurationPolicyArgs extends com.pulumi
         }
 
         /**
-         * @param securityControlsConfiguration Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
+         * @param securityControlsConfiguration Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. It must be defined if `serviceEnabled` is set to true. See below.
          * 
          * @return builder
          * 

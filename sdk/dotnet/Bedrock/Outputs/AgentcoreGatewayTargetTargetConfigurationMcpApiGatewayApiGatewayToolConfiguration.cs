@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfiguration
     {
         /// <summary>
-        /// Repeatable block of path and method patterns to expose as tools. See `ToolFilter` below.
+        /// Repeatable block of path and method patterns to expose as tools. See `ToolFilter` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilter> ToolFilters;
         /// <summary>
-        /// Repeatable block of explicit tool definitions with optional custom names and descriptions. See `ToolOverride` below.
+        /// Repeatable block of explicit tool definitions with optional custom names and descriptions. See `ToolOverride` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverride> ToolOverrides;
 

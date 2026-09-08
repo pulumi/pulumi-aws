@@ -14,11 +14,15 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreGatewayTargetTargetConfiguration
     {
         /// <summary>
-        /// HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `Http` below.
+        /// HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `Http` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationHttp? Http;
         /// <summary>
-        /// Model Context Protocol (MCP) configuration. See `Mcp` below.
+        /// Inference target configuration for routing requests to a large language model (LLM) provider, either through a built-in connector or an explicitly configured provider. See `Inference` Block below.
+        /// </summary>
+        public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationInference? Inference;
+        /// <summary>
+        /// Model Context Protocol (MCP) configuration. See `Mcp` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcp? Mcp;
 
@@ -26,9 +30,12 @@ namespace Pulumi.Aws.Bedrock.Outputs
         private AgentcoreGatewayTargetTargetConfiguration(
             Outputs.AgentcoreGatewayTargetTargetConfigurationHttp? http,
 
+            Outputs.AgentcoreGatewayTargetTargetConfigurationInference? inference,
+
             Outputs.AgentcoreGatewayTargetTargetConfigurationMcp? mcp)
         {
             Http = http;
+            Inference = inference;
             Mcp = mcp;
         }
     }

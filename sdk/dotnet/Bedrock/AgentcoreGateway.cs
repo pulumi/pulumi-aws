@@ -206,7 +206,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<Outputs.AgentcoreGatewayAuthorizerConfiguration?> AuthorizerConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `AuthorizerConfiguration` block is required.
+        /// Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`, `NONE`, `AUTHENTICATE_ONLY`. When set to `CUSTOM_JWT`, `AuthorizerConfiguration` block is required.
         /// </summary>
         [Output("authorizerType")]
         public Output<string> AuthorizerType { get; private set; } = null!;
@@ -365,7 +365,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<Inputs.AgentcoreGatewayAuthorizerConfigurationArgs>? AuthorizerConfiguration { get; set; }
 
         /// <summary>
-        /// Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `AuthorizerConfiguration` block is required.
+        /// Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`, `NONE`, `AUTHENTICATE_ONLY`. When set to `CUSTOM_JWT`, `AuthorizerConfiguration` block is required.
         /// </summary>
         [Input("authorizerType", required: true)]
         public Input<string> AuthorizerType { get; set; } = null!;
@@ -468,7 +468,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<Inputs.AgentcoreGatewayAuthorizerConfigurationGetArgs>? AuthorizerConfiguration { get; set; }
 
         /// <summary>
-        /// Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `AuthorizerConfiguration` block is required.
+        /// Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`, `NONE`, `AUTHENTICATE_ONLY`. When set to `CUSTOM_JWT`, `AuthorizerConfiguration` block is required.
         /// </summary>
         [Input("authorizerType")]
         public Input<string>? AuthorizerType { get; set; }

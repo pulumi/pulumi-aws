@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentials {
     /**
-     * @return The AWS region for the credentials.
+     * @return AWS region for the credentials.
      * 
      */
     private @Nullable String region;
     /**
-     * @return The service name for the credentials.
+     * @return Service name for the credentials.
      * 
      */
     private String service;
 
     private AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentials() {}
     /**
-     * @return The AWS region for the credentials.
+     * @return AWS region for the credentials.
      * 
      */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
     /**
-     * @return The service name for the credentials.
+     * @return Service name for the credentials.
      * 
      */
     public String service() {

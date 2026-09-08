@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration for API Gateway tools. See `ApiGatewayToolConfiguration` below.
+        /// Configuration for API Gateway tools. See `ApiGatewayToolConfiguration` Block below.
         /// </summary>
         [Input("apiGatewayToolConfiguration")]
         public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgs>? ApiGatewayToolConfiguration { get; set; }

@@ -167,7 +167,7 @@ export class AgentcoreGateway extends pulumi.CustomResource {
      */
     declare public readonly authorizerConfiguration: pulumi.Output<outputs.bedrock.AgentcoreGatewayAuthorizerConfiguration | undefined>;
     /**
-     * Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
+     * Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`, `NONE`, `AUTHENTICATE_ONLY`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
      */
     declare public readonly authorizerType: pulumi.Output<string>;
     /**
@@ -312,7 +312,7 @@ export interface AgentcoreGatewayState {
      */
     authorizerConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayAuthorizerConfiguration | undefined>;
     /**
-     * Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
+     * Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`, `NONE`, `AUTHENTICATE_ONLY`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
      */
     authorizerType?: pulumi.Input<string | undefined>;
     /**
@@ -393,7 +393,7 @@ export interface AgentcoreGatewayArgs {
      */
     authorizerConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayAuthorizerConfiguration | undefined>;
     /**
-     * Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
+     * Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`, `NONE`, `AUTHENTICATE_ONLY`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
      */
     authorizerType: pulumi.Input<string>;
     /**

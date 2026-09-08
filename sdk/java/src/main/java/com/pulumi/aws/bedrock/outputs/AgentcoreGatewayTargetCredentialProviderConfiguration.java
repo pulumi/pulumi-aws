@@ -16,17 +16,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreGatewayTargetCredentialProviderConfiguration {
     /**
-     * @return API key-based authentication configuration. See `apiKey` below.
+     * @return API key-based authentication configuration. See `apiKey` Block below.
      * 
      */
     private @Nullable AgentcoreGatewayTargetCredentialProviderConfigurationApiKey apiKey;
     /**
-     * @return Caller IAM credentials-based authentication configuration. See `callerIamCredentials` below.
+     * @return Caller IAM credentials-based authentication configuration. See `callerIamCredentials` Block below.
      * 
      */
     private @Nullable AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentials callerIamCredentials;
     /**
-     * @return Use the gateway&#39;s IAM role for authentication. See `gatewayIamRole` below.
+     * @return Use the gateway&#39;s IAM role for authentication. See `gatewayIamRole` Block below.
      * 
      */
     private @Nullable AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole gatewayIamRole;
@@ -36,28 +36,28 @@ public final class AgentcoreGatewayTargetCredentialProviderConfiguration {
      */
     private @Nullable AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthrough jwtPassthrough;
     /**
-     * @return OAuth-based authentication configuration. See `oauth` below.
+     * @return OAuth-based authentication configuration. See `oauth` Block below.
      * 
      */
     private @Nullable AgentcoreGatewayTargetCredentialProviderConfigurationOauth oauth;
 
     private AgentcoreGatewayTargetCredentialProviderConfiguration() {}
     /**
-     * @return API key-based authentication configuration. See `apiKey` below.
+     * @return API key-based authentication configuration. See `apiKey` Block below.
      * 
      */
     public Optional<AgentcoreGatewayTargetCredentialProviderConfigurationApiKey> apiKey() {
         return Optional.ofNullable(this.apiKey);
     }
     /**
-     * @return Caller IAM credentials-based authentication configuration. See `callerIamCredentials` below.
+     * @return Caller IAM credentials-based authentication configuration. See `callerIamCredentials` Block below.
      * 
      */
     public Optional<AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentials> callerIamCredentials() {
         return Optional.ofNullable(this.callerIamCredentials);
     }
     /**
-     * @return Use the gateway&#39;s IAM role for authentication. See `gatewayIamRole` below.
+     * @return Use the gateway&#39;s IAM role for authentication. See `gatewayIamRole` Block below.
      * 
      */
     public Optional<AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole> gatewayIamRole() {
@@ -71,7 +71,7 @@ public final class AgentcoreGatewayTargetCredentialProviderConfiguration {
         return Optional.ofNullable(this.jwtPassthrough);
     }
     /**
-     * @return OAuth-based authentication configuration. See `oauth` below.
+     * @return OAuth-based authentication configuration. See `oauth` Block below.
      * 
      */
     public Optional<AgentcoreGatewayTargetCredentialProviderConfigurationOauth> oauth() {

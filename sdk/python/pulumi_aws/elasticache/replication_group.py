@@ -80,7 +80,7 @@ class ReplicationGroupArgs:
         :param pulumi.Input[_builtins.int] auth_token_wo_version: Integer that, when changed, triggers a re-send of `auth_token_wo` to the replication group. Requires `auth_token_wo`.
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
                Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
-               Defaults to `true`.
+               If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
         :param pulumi.Input[_builtins.bool] automatic_failover_enabled: Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
         :param pulumi.Input[_builtins.str] cluster_mode: Specifies whether cluster mode is enabled or disabled. Valid values are `enabled` or `disabled` or `compatible`
         :param pulumi.Input[_builtins.bool] data_tiering_enabled: Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
@@ -328,7 +328,7 @@ class ReplicationGroupArgs:
         """
         Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
         Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
-        Defaults to `true`.
+        If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
         """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
@@ -868,7 +868,7 @@ class _ReplicationGroupState:
         :param pulumi.Input[_builtins.int] auth_token_wo_version: Integer that, when changed, triggers a re-send of `auth_token_wo` to the replication group. Requires `auth_token_wo`.
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
                Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
-               Defaults to `true`.
+               If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
         :param pulumi.Input[_builtins.bool] automatic_failover_enabled: Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] cluster_enabled: Indicates if cluster mode is enabled.
         :param pulumi.Input[_builtins.str] cluster_mode: Specifies whether cluster mode is enabled or disabled. Valid values are `enabled` or `disabled` or `compatible`
@@ -1141,7 +1141,7 @@ class _ReplicationGroupState:
         """
         Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
         Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
-        Defaults to `true`.
+        If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
         """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
@@ -1994,7 +1994,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] auth_token_wo_version: Integer that, when changed, triggers a re-send of `auth_token_wo` to the replication group. Requires `auth_token_wo`.
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
                Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
-               Defaults to `true`.
+               If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
         :param pulumi.Input[_builtins.bool] automatic_failover_enabled: Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
         :param pulumi.Input[_builtins.str] cluster_mode: Specifies whether cluster mode is enabled or disabled. Valid values are `enabled` or `disabled` or `compatible`
         :param pulumi.Input[_builtins.bool] data_tiering_enabled: Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
@@ -2496,7 +2496,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] auth_token_wo_version: Integer that, when changed, triggers a re-send of `auth_token_wo` to the replication group. Requires `auth_token_wo`.
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
                Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
-               Defaults to `true`.
+               If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
         :param pulumi.Input[_builtins.bool] automatic_failover_enabled: Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] cluster_enabled: Indicates if cluster mode is enabled.
         :param pulumi.Input[_builtins.str] cluster_mode: Specifies whether cluster mode is enabled or disabled. Valid values are `enabled` or `disabled` or `compatible`
@@ -2694,7 +2694,7 @@ class ReplicationGroup(pulumi.CustomResource):
         """
         Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
         Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
-        Defaults to `true`.
+        If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
         """
         return pulumi.get(self, "auto_minor_version_upgrade")
 

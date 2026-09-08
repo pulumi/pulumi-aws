@@ -13,12 +13,18 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreGatewayTargetTargetConfigurationHttpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// AgentCore Runtime target configuration. See `AgentcoreRuntime` below.
-        /// 
-        /// &gt; **Note:** HTTP targets can only be attached to gateways that do not have a `ProtocolType` set. They are not supported on MCP-protocol gateways.
+        /// AgentCore Runtime target configuration. See `AgentcoreRuntime` Block below.
         /// </summary>
         [Input("agentcoreRuntime")]
         public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgs>? AgentcoreRuntime { get; set; }
+
+        /// <summary>
+        /// Passthrough target configuration that forwards requests to an external HTTPS endpoint. See `Passthrough` Block below.
+        /// 
+        /// &gt; **Note:** HTTP targets can only be attached to gateways that do not have a `ProtocolType` set. They are not supported on MCP-protocol gateways.
+        /// </summary>
+        [Input("passthrough")]
+        public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughArgs>? Passthrough { get; set; }
 
         public AgentcoreGatewayTargetTargetConfigurationHttpArgs()
         {

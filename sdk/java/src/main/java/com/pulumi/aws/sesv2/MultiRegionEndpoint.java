@@ -142,14 +142,14 @@ public class MultiRegionEndpoint extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * List of active routes. See `routes` below.
+     * List of active routes. See `routes` Block below.
      * 
      */
     @Export(name="routes", refs={List.class,MultiRegionEndpointRoute.class}, tree="[0,1]")
     private Output<List<MultiRegionEndpointRoute>> routes;
 
     /**
-     * @return List of active routes. See `routes` below.
+     * @return List of active routes. See `routes` Block below.
      * 
      */
     public Output<List<MultiRegionEndpointRoute>> routes() {

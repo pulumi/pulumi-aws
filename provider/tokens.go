@@ -22,6 +22,7 @@ const (
 	acmMod                      = "Acm"                      // AWS Certificate Manager
 	acmpcaMod                   = "Acmpca"                   // AWS Private Certificate Authority
 	accountMod                  = "Account"                  // Account
+	accountAccessMod            = "AccountAccess"            // Account Access
 	accessAnalyzerMod           = "AccessAnalyzer"           // Access Analyzer
 	ampMod                      = "Amp"                      // Amp
 	amplifyMod                  = "Amplify"                  // Amplify
@@ -141,6 +142,7 @@ const (
 	kmsMod                      = "Kms"                      // Key Management Service (KMS)
 	lakeFormationMod            = "LakeFormation"            // LakeFormation
 	lambdaMod                   = "Lambda"                   // Lambda
+	lambdaMicrovmsMod           = "LambdaMicroVMs"           // Lambda MicroVMs
 	lexMod                      = "Lex"                      // Lex
 	licensemanagerMod           = "LicenseManager"           // License Manager
 	lightsailMod                = "LightSail"                // LightSail
@@ -258,6 +260,7 @@ var moduleMap = map[string]string{
 
 	"accessanalyzer":                  accessAnalyzerMod,
 	"account":                         accountMod,
+	"accountaccess":                   accountAccessMod,
 	"acm":                             acmMod,
 	"acmpca":                          acmpcaMod,
 	"alb":                             albMod,
@@ -382,6 +385,7 @@ var moduleMap = map[string]string{
 	"kms":                             kmsMod,
 	"lakeformation":                   lakeFormationMod,
 	"lambda":                          lambdaMod,
+	"lambdamicrovms":                  lambdaMicrovmsMod,
 	"lb":                              lbMod,
 	"lex":                             lexMod,
 	"licensemanager":                  licensemanagerMod,

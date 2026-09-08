@@ -17,14 +17,14 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationCallerIa
     public static final AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentialsArgs Empty = new AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentialsArgs();
 
     /**
-     * The AWS region for the credentials.
+     * AWS region for the credentials.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The AWS region for the credentials.
+     * @return AWS region for the credentials.
      * 
      */
     public Optional<Output<String>> region() {
@@ -32,14 +32,14 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationCallerIa
     }
 
     /**
-     * The service name for the credentials.
+     * Service name for the credentials.
      * 
      */
     @Import(name="service", required=true)
     private Output<String> service;
 
     /**
-     * @return The service name for the credentials.
+     * @return Service name for the credentials.
      * 
      */
     public Output<String> service() {
@@ -72,7 +72,7 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationCallerIa
         }
 
         /**
-         * @param region The AWS region for the credentials.
+         * @param region AWS region for the credentials.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationCallerIa
         }
 
         /**
-         * @param region The AWS region for the credentials.
+         * @param region AWS region for the credentials.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationCallerIa
         }
 
         /**
-         * @param service The service name for the credentials.
+         * @param service Service name for the credentials.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationCallerIa
         }
 
         /**
-         * @param service The service name for the credentials.
+         * @param service Service name for the credentials.
          * 
          * @return builder
          * 

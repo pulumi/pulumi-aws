@@ -4,6 +4,7 @@
 package com.pulumi.aws.eks.outputs;
 
 import com.pulumi.aws.eks.outputs.ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig;
+import com.pulumi.aws.eks.outputs.ClusterKubeControllerManagerConfigPodGcControllerConfig;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
 import java.util.Optional;
@@ -14,20 +15,32 @@ public final class ClusterKubeControllerManagerConfig {
     /**
      * @return Configuration block for the horizontal pod autoscaler controller. Detailed below.
      * 
+     */
+    private @Nullable ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig horizontalPodAutoscalerControllerConfig;
+    /**
+     * @return Configuration block for the pod garbage collection controller. Detailed below.
+     * 
      * &gt; **NOTE:** The `horizontalPodAutoscalerControllerConfig` requires a Provisioned Control Plane scaling tier (e.g., `tier-xl` or higher). It cannot be configured on clusters using the `standard` tier.
      * 
      */
-    private @Nullable ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig horizontalPodAutoscalerControllerConfig;
+    private @Nullable ClusterKubeControllerManagerConfigPodGcControllerConfig podGcControllerConfig;
 
     private ClusterKubeControllerManagerConfig() {}
     /**
      * @return Configuration block for the horizontal pod autoscaler controller. Detailed below.
      * 
-     * &gt; **NOTE:** The `horizontalPodAutoscalerControllerConfig` requires a Provisioned Control Plane scaling tier (e.g., `tier-xl` or higher). It cannot be configured on clusters using the `standard` tier.
-     * 
      */
     public Optional<ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig> horizontalPodAutoscalerControllerConfig() {
         return Optional.ofNullable(this.horizontalPodAutoscalerControllerConfig);
+    }
+    /**
+     * @return Configuration block for the pod garbage collection controller. Detailed below.
+     * 
+     * &gt; **NOTE:** The `horizontalPodAutoscalerControllerConfig` requires a Provisioned Control Plane scaling tier (e.g., `tier-xl` or higher). It cannot be configured on clusters using the `standard` tier.
+     * 
+     */
+    public Optional<ClusterKubeControllerManagerConfigPodGcControllerConfig> podGcControllerConfig() {
+        return Optional.ofNullable(this.podGcControllerConfig);
     }
 
     public static Builder builder() {
@@ -40,10 +53,12 @@ public final class ClusterKubeControllerManagerConfig {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig horizontalPodAutoscalerControllerConfig;
+        private @Nullable ClusterKubeControllerManagerConfigPodGcControllerConfig podGcControllerConfig;
         public Builder() {}
         public Builder(ClusterKubeControllerManagerConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.horizontalPodAutoscalerControllerConfig = defaults.horizontalPodAutoscalerControllerConfig;
+    	      this.podGcControllerConfig = defaults.podGcControllerConfig;
         }
 
         @CustomType.Setter
@@ -52,9 +67,16 @@ public final class ClusterKubeControllerManagerConfig {
             this.horizontalPodAutoscalerControllerConfig = horizontalPodAutoscalerControllerConfig;
             return this;
         }
+        @CustomType.Setter
+        public Builder podGcControllerConfig(@Nullable ClusterKubeControllerManagerConfigPodGcControllerConfig podGcControllerConfig) {
+
+            this.podGcControllerConfig = podGcControllerConfig;
+            return this;
+        }
         public ClusterKubeControllerManagerConfig build() {
             final var _resultValue = new ClusterKubeControllerManagerConfig();
             _resultValue.horizontalPodAutoscalerControllerConfig = horizontalPodAutoscalerControllerConfig;
+            _resultValue.podGcControllerConfig = podGcControllerConfig;
             return _resultValue;
         }
     }

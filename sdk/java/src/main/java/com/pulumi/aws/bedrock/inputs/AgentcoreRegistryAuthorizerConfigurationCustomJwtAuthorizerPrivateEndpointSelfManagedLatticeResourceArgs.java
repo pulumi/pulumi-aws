@@ -5,20 +5,21 @@ package com.pulumi.aws.bedrock.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs Empty = new AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs();
 
-    @Import(name="resourceConfigurationIdentifier", required=true)
-    private Output<String> resourceConfigurationIdentifier;
+    @Import(name="resourceConfigurationIdentifier")
+    private @Nullable Output<String> resourceConfigurationIdentifier;
 
-    public Output<String> resourceConfigurationIdentifier() {
-        return this.resourceConfigurationIdentifier;
+    public Optional<Output<String>> resourceConfigurationIdentifier() {
+        return Optional.ofNullable(this.resourceConfigurationIdentifier);
     }
 
     private AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs() {}
@@ -45,7 +46,7 @@ public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPr
             $ = new AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder resourceConfigurationIdentifier(Output<String> resourceConfigurationIdentifier) {
+        public Builder resourceConfigurationIdentifier(@Nullable Output<String> resourceConfigurationIdentifier) {
             $.resourceConfigurationIdentifier = resourceConfigurationIdentifier;
             return this;
         }
@@ -55,9 +56,6 @@ public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPr
         }
 
         public AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs build() {
-            if ($.resourceConfigurationIdentifier == null) {
-                throw new MissingRequiredPropertyException("AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs", "resourceConfigurationIdentifier");
-            }
             return $;
         }
     }

@@ -336,11 +336,33 @@ __all__ = [
     'AgentcoreGatewayTargetTargetConfiguration',
     'AgentcoreGatewayTargetTargetConfigurationHttp',
     'AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime',
+    'AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchema',
+    'AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSource',
+    'AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceInlinePayload',
+    'AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceS3',
+    'AgentcoreGatewayTargetTargetConfigurationHttpPassthrough',
+    'AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema',
+    'AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSource',
+    'AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceInlinePayload',
+    'AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceS3',
+    'AgentcoreGatewayTargetTargetConfigurationHttpPassthroughStickinessConfiguration',
+    'AgentcoreGatewayTargetTargetConfigurationInference',
+    'AgentcoreGatewayTargetTargetConfigurationInferenceConnector',
+    'AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSource',
+    'AgentcoreGatewayTargetTargetConfigurationInferenceProvider',
+    'AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMapping',
+    'AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMappingProviderPrefix',
+    'AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperation',
+    'AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperationModel',
     'AgentcoreGatewayTargetTargetConfigurationMcp',
     'AgentcoreGatewayTargetTargetConfigurationMcpApiGateway',
     'AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfiguration',
     'AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilter',
     'AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverride',
+    'AgentcoreGatewayTargetTargetConfigurationMcpConnector',
+    'AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfiguration',
+    'AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigurationParameterOverride',
+    'AgentcoreGatewayTargetTargetConfigurationMcpConnectorSource',
     'AgentcoreGatewayTargetTargetConfigurationMcpLambda',
     'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema',
     'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload',
@@ -10942,15 +10964,16 @@ class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndp
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 resource_configuration_identifier: _builtins.str):
+                 resource_configuration_identifier: Optional[_builtins.str] = None):
         """
         :param _builtins.str resource_configuration_identifier: Identifier of the VPC Lattice resource configuration.
         """
-        pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
+        if resource_configuration_identifier is not None:
+            pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
 
     @_builtins.property
     @pulumi.getter(name="resourceConfigurationIdentifier")
-    def resource_configuration_identifier(self) -> _builtins.str:
+    def resource_configuration_identifier(self) -> Optional[_builtins.str]:
         """
         Identifier of the VPC Lattice resource configuration.
         """
@@ -10977,15 +11000,16 @@ class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndp
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 resource_configuration_identifier: _builtins.str):
+                 resource_configuration_identifier: Optional[_builtins.str] = None):
         """
         :param _builtins.str resource_configuration_identifier: Identifier of the VPC Lattice resource configuration.
         """
-        pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
+        if resource_configuration_identifier is not None:
+            pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
 
     @_builtins.property
     @pulumi.getter(name="resourceConfigurationIdentifier")
-    def resource_configuration_identifier(self) -> _builtins.str:
+    def resource_configuration_identifier(self) -> Optional[_builtins.str]:
         """
         Identifier of the VPC Lattice resource configuration.
         """
@@ -13511,15 +13535,16 @@ class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointO
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 resource_configuration_identifier: _builtins.str):
+                 resource_configuration_identifier: Optional[_builtins.str] = None):
         """
         :param _builtins.str resource_configuration_identifier: Identifier of the VPC Lattice resource configuration.
         """
-        pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
+        if resource_configuration_identifier is not None:
+            pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
 
     @_builtins.property
     @pulumi.getter(name="resourceConfigurationIdentifier")
-    def resource_configuration_identifier(self) -> _builtins.str:
+    def resource_configuration_identifier(self) -> Optional[_builtins.str]:
         """
         Identifier of the VPC Lattice resource configuration.
         """
@@ -13546,15 +13571,16 @@ class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointS
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 resource_configuration_identifier: _builtins.str):
+                 resource_configuration_identifier: Optional[_builtins.str] = None):
         """
         :param _builtins.str resource_configuration_identifier: Identifier of the VPC Lattice resource configuration.
         """
-        pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
+        if resource_configuration_identifier is not None:
+            pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
 
     @_builtins.property
     @pulumi.getter(name="resourceConfigurationIdentifier")
-    def resource_configuration_identifier(self) -> _builtins.str:
+    def resource_configuration_identifier(self) -> Optional[_builtins.str]:
         """
         Identifier of the VPC Lattice resource configuration.
         """
@@ -14733,11 +14759,11 @@ class AgentcoreGatewayTargetCredentialProviderConfiguration(dict):
                  jwt_passthrough: Optional['outputs.AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthrough'] = None,
                  oauth: Optional['outputs.AgentcoreGatewayTargetCredentialProviderConfigurationOauth'] = None):
         """
-        :param 'AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs' api_key: API key-based authentication configuration. See `api_key` below.
-        :param 'AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentialsArgs' caller_iam_credentials: Caller IAM credentials-based authentication configuration. See `caller_iam_credentials` below.
-        :param 'AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs' gateway_iam_role: Use the gateway's IAM role for authentication. See `gateway_iam_role` below.
+        :param 'AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs' api_key: API key-based authentication configuration. See `api_key` Block below.
+        :param 'AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentialsArgs' caller_iam_credentials: Caller IAM credentials-based authentication configuration. See `caller_iam_credentials` Block below.
+        :param 'AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs' gateway_iam_role: Use the gateway's IAM role for authentication. See `gateway_iam_role` Block below.
         :param 'AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthroughArgs' jwt_passthrough: JWT passthrough-based authentication configuration. This is an empty configuration block.
-        :param 'AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs' oauth: OAuth-based authentication configuration. See `oauth` below.
+        :param 'AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs' oauth: OAuth-based authentication configuration. See `oauth` Block below.
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
@@ -14754,7 +14780,7 @@ class AgentcoreGatewayTargetCredentialProviderConfiguration(dict):
     @pulumi.getter(name="apiKey")
     def api_key(self) -> Optional['outputs.AgentcoreGatewayTargetCredentialProviderConfigurationApiKey']:
         """
-        API key-based authentication configuration. See `api_key` below.
+        API key-based authentication configuration. See `api_key` Block below.
         """
         return pulumi.get(self, "api_key")
 
@@ -14762,7 +14788,7 @@ class AgentcoreGatewayTargetCredentialProviderConfiguration(dict):
     @pulumi.getter(name="callerIamCredentials")
     def caller_iam_credentials(self) -> Optional['outputs.AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentials']:
         """
-        Caller IAM credentials-based authentication configuration. See `caller_iam_credentials` below.
+        Caller IAM credentials-based authentication configuration. See `caller_iam_credentials` Block below.
         """
         return pulumi.get(self, "caller_iam_credentials")
 
@@ -14770,7 +14796,7 @@ class AgentcoreGatewayTargetCredentialProviderConfiguration(dict):
     @pulumi.getter(name="gatewayIamRole")
     def gateway_iam_role(self) -> Optional['outputs.AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole']:
         """
-        Use the gateway's IAM role for authentication. See `gateway_iam_role` below.
+        Use the gateway's IAM role for authentication. See `gateway_iam_role` Block below.
         """
         return pulumi.get(self, "gateway_iam_role")
 
@@ -14786,7 +14812,7 @@ class AgentcoreGatewayTargetCredentialProviderConfiguration(dict):
     @pulumi.getter
     def oauth(self) -> Optional['outputs.AgentcoreGatewayTargetCredentialProviderConfigurationOauth']:
         """
-        OAuth-based authentication configuration. See `oauth` below.
+        OAuth-based authentication configuration. See `oauth` Block below.
         """
         return pulumi.get(self, "oauth")
 
@@ -14874,8 +14900,8 @@ class AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentials(
                  service: _builtins.str,
                  region: Optional[_builtins.str] = None):
         """
-        :param _builtins.str service: The service name for the credentials.
-        :param _builtins.str region: The AWS region for the credentials.
+        :param _builtins.str service: Service name for the credentials.
+        :param _builtins.str region: AWS region for the credentials.
         """
         pulumi.set(__self__, "service", service)
         if region is not None:
@@ -14885,7 +14911,7 @@ class AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentials(
     @pulumi.getter
     def service(self) -> _builtins.str:
         """
-        The service name for the credentials.
+        Service name for the credentials.
         """
         return pulumi.get(self, "service")
 
@@ -14893,7 +14919,7 @@ class AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentials(
     @pulumi.getter
     def region(self) -> Optional[_builtins.str]:
         """
-        The AWS region for the credentials.
+        AWS region for the credentials.
         """
         return pulumi.get(self, "region")
 
@@ -14905,7 +14931,7 @@ class AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole(dict):
                  service: Optional[_builtins.str] = None):
         """
         :param _builtins.str region: AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway's Region when omitted. Only meaningful when `service` is set.
-        :param _builtins.str service: The target AWS service name used for SigV4 signing of upstream requests. Required when calling SigV4-protected endpoints such as another Bedrock AgentCore Runtime (use `bedrock-agentcore`). Omit for non-SigV4 IAM-role-based authentication, in which case the block can be empty (`gateway_iam_role {}`).
+        :param _builtins.str service: Target AWS service name used for SigV4 signing of upstream requests. Required when calling SigV4-protected endpoints such as another Bedrock AgentCore Runtime (use `bedrock-agentcore`). Omit for non-SigV4 IAM-role-based authentication, in which case the block can be empty (`gateway_iam_role {}`).
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -14924,7 +14950,7 @@ class AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole(dict):
     @pulumi.getter
     def service(self) -> Optional[_builtins.str]:
         """
-        The target AWS service name used for SigV4 signing of upstream requests. Required when calling SigV4-protected endpoints such as another Bedrock AgentCore Runtime (use `bedrock-agentcore`). Omit for non-SigV4 IAM-role-based authentication, in which case the block can be empty (`gateway_iam_role {}`).
+        Target AWS service name used for SigV4 signing of upstream requests. Required when calling SigV4-protected endpoints such as another Bedrock AgentCore Runtime (use `bedrock-agentcore`). Omit for non-SigV4 IAM-role-based authentication, in which case the block can be empty (`gateway_iam_role {}`).
         """
         return pulumi.get(self, "service")
 
@@ -14970,8 +14996,8 @@ class AgentcoreGatewayTargetCredentialProviderConfigurationOauth(dict):
         :param _builtins.str provider_arn: ARN of the Oauth credential provider for OAuth authentication.
         :param Sequence[_builtins.str] scopes: Set of OAuth scopes to request.
         :param Mapping[str, _builtins.str] custom_parameters: Map of custom parameters to include in OAuth requests.
-        :param _builtins.str default_return_url: The URL where the end user's browser is redirected after obtaining the authorization code. Required when `grant_type` is `AUTHORIZATION_CODE`.
-        :param _builtins.str grant_type: The OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+        :param _builtins.str default_return_url: URL where the end user's browser is redirected after obtaining the authorization code. Required when `grant_type` is `AUTHORIZATION_CODE`.
+        :param _builtins.str grant_type: OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
         """
         pulumi.set(__self__, "provider_arn", provider_arn)
         pulumi.set(__self__, "scopes", scopes)
@@ -15010,7 +15036,7 @@ class AgentcoreGatewayTargetCredentialProviderConfigurationOauth(dict):
     @pulumi.getter(name="defaultReturnUrl")
     def default_return_url(self) -> Optional[_builtins.str]:
         """
-        The URL where the end user's browser is redirected after obtaining the authorization code. Required when `grant_type` is `AUTHORIZATION_CODE`.
+        URL where the end user's browser is redirected after obtaining the authorization code. Required when `grant_type` is `AUTHORIZATION_CODE`.
         """
         return pulumi.get(self, "default_return_url")
 
@@ -15018,7 +15044,7 @@ class AgentcoreGatewayTargetCredentialProviderConfigurationOauth(dict):
     @pulumi.getter(name="grantType")
     def grant_type(self) -> Optional[_builtins.str]:
         """
-        The OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+        OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
         """
         return pulumi.get(self, "grant_type")
 
@@ -15051,9 +15077,9 @@ class AgentcoreGatewayTargetMetadataConfiguration(dict):
                  allowed_request_headers: Optional[Sequence[_builtins.str]] = None,
                  allowed_response_headers: Optional[Sequence[_builtins.str]] = None):
         """
-        :param Sequence[_builtins.str] allowed_query_parameters: A set of URL query parameters that are allowed to be propagated from incoming gateway URL to the target. Maximum of 10 parameters.
-        :param Sequence[_builtins.str] allowed_request_headers: A set of HTTP headers that are allowed to be propagated from incoming client requests to the target. Maximum of 10 headers.
-        :param Sequence[_builtins.str] allowed_response_headers: A set of HTTP headers that are allowed to be propagated from the target response back to the client. Maximum of 10 headers.
+        :param Sequence[_builtins.str] allowed_query_parameters: Set of URL query parameters that are allowed to be propagated from incoming gateway URL to the target. Maximum of 10 parameters.
+        :param Sequence[_builtins.str] allowed_request_headers: Set of HTTP headers that are allowed to be propagated from incoming client requests to the target. Maximum of 10 headers.
+        :param Sequence[_builtins.str] allowed_response_headers: Set of HTTP headers that are allowed to be propagated from the target response back to the client. Maximum of 10 headers.
                
                > **Note:** Header names must contain only alphanumeric characters, hyphens, and underscores. A large number of standard HTTP headers are restricted and cannot be configured for propagation, including authentication, content negotiation, caching, security, CORS, and connection management headers. Headers starting with `X-Amzn-` are prohibited except for `X-Amzn-Bedrock-AgentCore-Runtime-Custom-*` headers. These restrictions are enforced by schema validation. For the full list of restricted headers, see the [AWS documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-headers.html).
         """
@@ -15068,7 +15094,7 @@ class AgentcoreGatewayTargetMetadataConfiguration(dict):
     @pulumi.getter(name="allowedQueryParameters")
     def allowed_query_parameters(self) -> Optional[Sequence[_builtins.str]]:
         """
-        A set of URL query parameters that are allowed to be propagated from incoming gateway URL to the target. Maximum of 10 parameters.
+        Set of URL query parameters that are allowed to be propagated from incoming gateway URL to the target. Maximum of 10 parameters.
         """
         return pulumi.get(self, "allowed_query_parameters")
 
@@ -15076,7 +15102,7 @@ class AgentcoreGatewayTargetMetadataConfiguration(dict):
     @pulumi.getter(name="allowedRequestHeaders")
     def allowed_request_headers(self) -> Optional[Sequence[_builtins.str]]:
         """
-        A set of HTTP headers that are allowed to be propagated from incoming client requests to the target. Maximum of 10 headers.
+        Set of HTTP headers that are allowed to be propagated from incoming client requests to the target. Maximum of 10 headers.
         """
         return pulumi.get(self, "allowed_request_headers")
 
@@ -15084,7 +15110,7 @@ class AgentcoreGatewayTargetMetadataConfiguration(dict):
     @pulumi.getter(name="allowedResponseHeaders")
     def allowed_response_headers(self) -> Optional[Sequence[_builtins.str]]:
         """
-        A set of HTTP headers that are allowed to be propagated from the target response back to the client. Maximum of 10 headers.
+        Set of HTTP headers that are allowed to be propagated from the target response back to the client. Maximum of 10 headers.
 
         > **Note:** Header names must contain only alphanumeric characters, hyphens, and underscores. A large number of standard HTTP headers are restricted and cannot be configured for propagation, including authentication, content negotiation, caching, security, CORS, and connection management headers. Headers starting with `X-Amzn-` are prohibited except for `X-Amzn-Bedrock-AgentCore-Runtime-Custom-*` headers. These restrictions are enforced by schema validation. For the full list of restricted headers, see the [AWS documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-headers.html).
         """
@@ -15116,8 +15142,8 @@ class AgentcoreGatewayTargetPrivateEndpoint(dict):
                  managed_vpc_resource: Optional['outputs.AgentcoreGatewayTargetPrivateEndpointManagedVpcResource'] = None,
                  self_managed_lattice_resource: Optional['outputs.AgentcoreGatewayTargetPrivateEndpointSelfManagedLatticeResource'] = None):
         """
-        :param 'AgentcoreGatewayTargetPrivateEndpointManagedVpcResourceArgs' managed_vpc_resource: AWS creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role. See `managed_vpc_resource` below.
-        :param 'AgentcoreGatewayTargetPrivateEndpointSelfManagedLatticeResourceArgs' self_managed_lattice_resource: Use an existing VPC Lattice resource configuration that you manage yourself. Useful for cross-account setups or advanced Lattice configurations. See `self_managed_lattice_resource` below.
+        :param 'AgentcoreGatewayTargetPrivateEndpointManagedVpcResourceArgs' managed_vpc_resource: AWS creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role. See `managed_vpc_resource` Block below.
+        :param 'AgentcoreGatewayTargetPrivateEndpointSelfManagedLatticeResourceArgs' self_managed_lattice_resource: Use an existing VPC Lattice resource configuration that you manage yourself. Useful for cross-account setups or advanced Lattice configurations. See `self_managed_lattice_resource` Block below.
         """
         if managed_vpc_resource is not None:
             pulumi.set(__self__, "managed_vpc_resource", managed_vpc_resource)
@@ -15128,7 +15154,7 @@ class AgentcoreGatewayTargetPrivateEndpoint(dict):
     @pulumi.getter(name="managedVpcResource")
     def managed_vpc_resource(self) -> Optional['outputs.AgentcoreGatewayTargetPrivateEndpointManagedVpcResource']:
         """
-        AWS creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role. See `managed_vpc_resource` below.
+        AWS creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role. See `managed_vpc_resource` Block below.
         """
         return pulumi.get(self, "managed_vpc_resource")
 
@@ -15136,7 +15162,7 @@ class AgentcoreGatewayTargetPrivateEndpoint(dict):
     @pulumi.getter(name="selfManagedLatticeResource")
     def self_managed_lattice_resource(self) -> Optional['outputs.AgentcoreGatewayTargetPrivateEndpointSelfManagedLatticeResource']:
         """
-        Use an existing VPC Lattice resource configuration that you manage yourself. Useful for cross-account setups or advanced Lattice configurations. See `self_managed_lattice_resource` below.
+        Use an existing VPC Lattice resource configuration that you manage yourself. Useful for cross-account setups or advanced Lattice configurations. See `self_managed_lattice_resource` Block below.
         """
         return pulumi.get(self, "self_managed_lattice_resource")
 
@@ -15262,15 +15288,16 @@ class AgentcoreGatewayTargetPrivateEndpointSelfManagedLatticeResource(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 resource_configuration_identifier: _builtins.str):
+                 resource_configuration_identifier: Optional[_builtins.str] = None):
         """
         :param _builtins.str resource_configuration_identifier: ARN or ID of the VPC Lattice resource configuration.
         """
-        pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
+        if resource_configuration_identifier is not None:
+            pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
 
     @_builtins.property
     @pulumi.getter(name="resourceConfigurationIdentifier")
-    def resource_configuration_identifier(self) -> _builtins.str:
+    def resource_configuration_identifier(self) -> Optional[_builtins.str]:
         """
         ARN or ID of the VPC Lattice resource configuration.
         """
@@ -15281,13 +15308,17 @@ class AgentcoreGatewayTargetPrivateEndpointSelfManagedLatticeResource(dict):
 class AgentcoreGatewayTargetTargetConfiguration(dict):
     def __init__(__self__, *,
                  http: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationHttp'] = None,
+                 inference: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationInference'] = None,
                  mcp: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcp'] = None):
         """
-        :param 'AgentcoreGatewayTargetTargetConfigurationHttpArgs' http: HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` below.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpArgs' mcp: Model Context Protocol (MCP) configuration. See `mcp` below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationHttpArgs' http: HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` Block below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationInferenceArgs' inference: Inference target configuration for routing requests to a large language model (LLM) provider, either through a built-in connector or an explicitly configured provider. See `inference` Block below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpArgs' mcp: Model Context Protocol (MCP) configuration. See `mcp` Block below.
         """
         if http is not None:
             pulumi.set(__self__, "http", http)
+        if inference is not None:
+            pulumi.set(__self__, "inference", inference)
         if mcp is not None:
             pulumi.set(__self__, "mcp", mcp)
 
@@ -15295,15 +15326,23 @@ class AgentcoreGatewayTargetTargetConfiguration(dict):
     @pulumi.getter
     def http(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationHttp']:
         """
-        HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` below.
+        HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` Block below.
         """
         return pulumi.get(self, "http")
 
     @_builtins.property
     @pulumi.getter
+    def inference(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationInference']:
+        """
+        Inference target configuration for routing requests to a large language model (LLM) provider, either through a built-in connector or an explicitly configured provider. See `inference` Block below.
+        """
+        return pulumi.get(self, "inference")
+
+    @_builtins.property
+    @pulumi.getter
     def mcp(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcp']:
         """
-        Model Context Protocol (MCP) configuration. See `mcp` below.
+        Model Context Protocol (MCP) configuration. See `mcp` Block below.
         """
         return pulumi.get(self, "mcp")
 
@@ -15328,38 +15367,54 @@ class AgentcoreGatewayTargetTargetConfigurationHttp(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 agentcore_runtime: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime'] = None):
+                 agentcore_runtime: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime'] = None,
+                 passthrough: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationHttpPassthrough'] = None):
         """
-        :param 'AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgs' agentcore_runtime: AgentCore Runtime target configuration. See `agentcore_runtime` below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgs' agentcore_runtime: AgentCore Runtime target configuration. See `agentcore_runtime` Block below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationHttpPassthroughArgs' passthrough: Passthrough target configuration that forwards requests to an external HTTPS endpoint. See `passthrough` Block below.
                
                > **Note:** HTTP targets can only be attached to gateways that do not have a `protocol_type` set. They are not supported on MCP-protocol gateways.
         """
         if agentcore_runtime is not None:
             pulumi.set(__self__, "agentcore_runtime", agentcore_runtime)
+        if passthrough is not None:
+            pulumi.set(__self__, "passthrough", passthrough)
 
     @_builtins.property
     @pulumi.getter(name="agentcoreRuntime")
     def agentcore_runtime(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime']:
         """
-        AgentCore Runtime target configuration. See `agentcore_runtime` below.
+        AgentCore Runtime target configuration. See `agentcore_runtime` Block below.
+        """
+        return pulumi.get(self, "agentcore_runtime")
+
+    @_builtins.property
+    @pulumi.getter
+    def passthrough(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationHttpPassthrough']:
+        """
+        Passthrough target configuration that forwards requests to an external HTTPS endpoint. See `passthrough` Block below.
 
         > **Note:** HTTP targets can only be attached to gateways that do not have a `protocol_type` set. They are not supported on MCP-protocol gateways.
         """
-        return pulumi.get(self, "agentcore_runtime")
+        return pulumi.get(self, "passthrough")
 
 
 @pulumi.output_type
 class AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime(dict):
     def __init__(__self__, *,
                  arn: _builtins.str,
-                 qualifier: Optional[_builtins.str] = None):
+                 qualifier: Optional[_builtins.str] = None,
+                 schema: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchema'] = None):
         """
         :param _builtins.str arn: ARN of the AgentCore Runtime agent that the gateway routes requests to.
         :param _builtins.str qualifier: Runtime qualifier identifying a specific endpoint version. Defaults to `DEFAULT` when not set.
+        :param 'AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaArgs' schema: API schema configuration that defines the structure of the runtime target's API. See `schema` Block below.
         """
         pulumi.set(__self__, "arn", arn)
         if qualifier is not None:
             pulumi.set(__self__, "qualifier", qualifier)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
 
     @_builtins.property
     @pulumi.getter
@@ -15376,6 +15431,698 @@ class AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime(dict):
         Runtime qualifier identifying a specific endpoint version. Defaults to `DEFAULT` when not set.
         """
         return pulumi.get(self, "qualifier")
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchema']:
+        """
+        API schema configuration that defines the structure of the runtime target's API. See `schema` Block below.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchema(dict):
+    def __init__(__self__, *,
+                 source: 'outputs.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSource'):
+        """
+        :param 'AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceArgs' source: Configuration for API schema. See `api_schema_configuration` Block below.
+        """
+        pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> 'outputs.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSource':
+        """
+        Configuration for API schema. See `api_schema_configuration` Block below.
+        """
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inlinePayload":
+            suggest = "inline_payload"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 inline_payload: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceInlinePayload'] = None,
+                 s3: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceS3'] = None):
+        if inline_payload is not None:
+            pulumi.set(__self__, "inline_payload", inline_payload)
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter(name="inlinePayload")
+    def inline_payload(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceInlinePayload']:
+        return pulumi.get(self, "inline_payload")
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceS3']:
+        return pulumi.get(self, "s3")
+
+
+@pulumi.output_type
+class AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceInlinePayload(dict):
+    def __init__(__self__, *,
+                 payload: _builtins.str):
+        """
+        :param _builtins.str payload: Inline schema payload content.
+        """
+        pulumi.set(__self__, "payload", payload)
+
+    @_builtins.property
+    @pulumi.getter
+    def payload(self) -> _builtins.str:
+        """
+        Inline schema payload content.
+        """
+        return pulumi.get(self, "payload")
+
+
+@pulumi.output_type
+class AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceS3(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketOwnerAccountId":
+            suggest = "bucket_owner_account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceS3. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceS3.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceS3.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_owner_account_id: Optional[_builtins.str] = None,
+                 uri: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str bucket_owner_account_id: Account ID of the S3 bucket owner.
+        :param _builtins.str uri: S3 URI where the schema is stored.
+        """
+        if bucket_owner_account_id is not None:
+            pulumi.set(__self__, "bucket_owner_account_id", bucket_owner_account_id)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketOwnerAccountId")
+    def bucket_owner_account_id(self) -> Optional[_builtins.str]:
+        """
+        Account ID of the S3 bucket owner.
+        """
+        return pulumi.get(self, "bucket_owner_account_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def uri(self) -> Optional[_builtins.str]:
+        """
+        S3 URI where the schema is stored.
+        """
+        return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
+class AgentcoreGatewayTargetTargetConfigurationHttpPassthrough(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "protocolType":
+            suggest = "protocol_type"
+        elif key == "staticQueryParameterConflictResolution":
+            suggest = "static_query_parameter_conflict_resolution"
+        elif key == "staticQueryParameters":
+            suggest = "static_query_parameters"
+        elif key == "stickinessConfiguration":
+            suggest = "stickiness_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayTargetTargetConfigurationHttpPassthrough. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayTargetTargetConfigurationHttpPassthrough.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayTargetTargetConfigurationHttpPassthrough.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint: _builtins.str,
+                 protocol_type: _builtins.str,
+                 schema: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema'] = None,
+                 static_query_parameter_conflict_resolution: Optional[_builtins.str] = None,
+                 static_query_parameters: Optional[Mapping[str, _builtins.str]] = None,
+                 stickiness_configuration: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughStickinessConfiguration'] = None):
+        """
+        :param _builtins.str endpoint: HTTPS endpoint that the gateway forwards requests to for this passthrough target. Must start with `https://`.
+        :param _builtins.str protocol_type: Application protocol the passthrough target implements. Valid values: `MCP`, `A2A`, `INFERENCE`, `CUSTOM`.
+        :param 'AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaArgs' schema: API schema configuration that defines the structure of the passthrough target's API. Supports the same `inline_payload` and `s3` blocks as `api_schema_configuration`.
+        :param _builtins.str static_query_parameter_conflict_resolution: Controls precedence when a client request supplies a query parameter whose name matches a configured static query parameter. Valid values: `CLIENT_OVERRIDE`, `STATIC_OVERRIDE`.
+        :param Mapping[str, _builtins.str] static_query_parameters: Map of static query parameters that the gateway always appends to the outbound URL when forwarding requests to the target.
+        :param 'AgentcoreGatewayTargetTargetConfigurationHttpPassthroughStickinessConfigurationArgs' stickiness_configuration: Session stickiness configuration routing requests within the same session to the same target. See `stickiness_configuration` below.
+        """
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "protocol_type", protocol_type)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+        if static_query_parameter_conflict_resolution is not None:
+            pulumi.set(__self__, "static_query_parameter_conflict_resolution", static_query_parameter_conflict_resolution)
+        if static_query_parameters is not None:
+            pulumi.set(__self__, "static_query_parameters", static_query_parameters)
+        if stickiness_configuration is not None:
+            pulumi.set(__self__, "stickiness_configuration", stickiness_configuration)
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> _builtins.str:
+        """
+        HTTPS endpoint that the gateway forwards requests to for this passthrough target. Must start with `https://`.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="protocolType")
+    def protocol_type(self) -> _builtins.str:
+        """
+        Application protocol the passthrough target implements. Valid values: `MCP`, `A2A`, `INFERENCE`, `CUSTOM`.
+        """
+        return pulumi.get(self, "protocol_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema']:
+        """
+        API schema configuration that defines the structure of the passthrough target's API. Supports the same `inline_payload` and `s3` blocks as `api_schema_configuration`.
+        """
+        return pulumi.get(self, "schema")
+
+    @_builtins.property
+    @pulumi.getter(name="staticQueryParameterConflictResolution")
+    def static_query_parameter_conflict_resolution(self) -> Optional[_builtins.str]:
+        """
+        Controls precedence when a client request supplies a query parameter whose name matches a configured static query parameter. Valid values: `CLIENT_OVERRIDE`, `STATIC_OVERRIDE`.
+        """
+        return pulumi.get(self, "static_query_parameter_conflict_resolution")
+
+    @_builtins.property
+    @pulumi.getter(name="staticQueryParameters")
+    def static_query_parameters(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Map of static query parameters that the gateway always appends to the outbound URL when forwarding requests to the target.
+        """
+        return pulumi.get(self, "static_query_parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="stickinessConfiguration")
+    def stickiness_configuration(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughStickinessConfiguration']:
+        """
+        Session stickiness configuration routing requests within the same session to the same target. See `stickiness_configuration` below.
+        """
+        return pulumi.get(self, "stickiness_configuration")
+
+
+@pulumi.output_type
+class AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema(dict):
+    def __init__(__self__, *,
+                 source: 'outputs.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSource'):
+        """
+        :param 'AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceArgs' source: Configuration for API schema. See `api_schema_configuration` Block below.
+        """
+        pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> 'outputs.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSource':
+        """
+        Configuration for API schema. See `api_schema_configuration` Block below.
+        """
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inlinePayload":
+            suggest = "inline_payload"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 inline_payload: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceInlinePayload'] = None,
+                 s3: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceS3'] = None):
+        if inline_payload is not None:
+            pulumi.set(__self__, "inline_payload", inline_payload)
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter(name="inlinePayload")
+    def inline_payload(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceInlinePayload']:
+        return pulumi.get(self, "inline_payload")
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceS3']:
+        return pulumi.get(self, "s3")
+
+
+@pulumi.output_type
+class AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceInlinePayload(dict):
+    def __init__(__self__, *,
+                 payload: _builtins.str):
+        """
+        :param _builtins.str payload: Inline schema payload content.
+        """
+        pulumi.set(__self__, "payload", payload)
+
+    @_builtins.property
+    @pulumi.getter
+    def payload(self) -> _builtins.str:
+        """
+        Inline schema payload content.
+        """
+        return pulumi.get(self, "payload")
+
+
+@pulumi.output_type
+class AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceS3(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketOwnerAccountId":
+            suggest = "bucket_owner_account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceS3. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceS3.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceS3.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_owner_account_id: Optional[_builtins.str] = None,
+                 uri: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str bucket_owner_account_id: Account ID of the S3 bucket owner.
+        :param _builtins.str uri: S3 URI where the schema is stored.
+        """
+        if bucket_owner_account_id is not None:
+            pulumi.set(__self__, "bucket_owner_account_id", bucket_owner_account_id)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketOwnerAccountId")
+    def bucket_owner_account_id(self) -> Optional[_builtins.str]:
+        """
+        Account ID of the S3 bucket owner.
+        """
+        return pulumi.get(self, "bucket_owner_account_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def uri(self) -> Optional[_builtins.str]:
+        """
+        S3 URI where the schema is stored.
+        """
+        return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
+class AgentcoreGatewayTargetTargetConfigurationHttpPassthroughStickinessConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "compositeIdentifiers":
+            suggest = "composite_identifiers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayTargetTargetConfigurationHttpPassthroughStickinessConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayTargetTargetConfigurationHttpPassthroughStickinessConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayTargetTargetConfigurationHttpPassthroughStickinessConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identifier: _builtins.str,
+                 composite_identifiers: Optional[Sequence[_builtins.str]] = None,
+                 timeout: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str identifier: Expression identifying where to extract the session identifier from the request (for example, `$context.header.x-session-id`).
+        :param Sequence[_builtins.str] composite_identifiers: Additional headers to include in session affinity routing.
+        :param _builtins.int timeout: Session stickiness timeout, in seconds. Valid values range from 1 to 86400.
+        """
+        pulumi.set(__self__, "identifier", identifier)
+        if composite_identifiers is not None:
+            pulumi.set(__self__, "composite_identifiers", composite_identifiers)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @_builtins.property
+    @pulumi.getter
+    def identifier(self) -> _builtins.str:
+        """
+        Expression identifying where to extract the session identifier from the request (for example, `$context.header.x-session-id`).
+        """
+        return pulumi.get(self, "identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="compositeIdentifiers")
+    def composite_identifiers(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Additional headers to include in session affinity routing.
+        """
+        return pulumi.get(self, "composite_identifiers")
+
+    @_builtins.property
+    @pulumi.getter
+    def timeout(self) -> Optional[_builtins.int]:
+        """
+        Session stickiness timeout, in seconds. Valid values range from 1 to 86400.
+        """
+        return pulumi.get(self, "timeout")
+
+
+@pulumi.output_type
+class AgentcoreGatewayTargetTargetConfigurationInference(dict):
+    def __init__(__self__, *,
+                 connector: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationInferenceConnector'] = None,
+                 provider: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationInferenceProvider'] = None):
+        """
+        :param 'AgentcoreGatewayTargetTargetConfigurationInferenceConnectorArgs' connector: Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `connector` Block below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationInferenceProviderArgs' provider: Provider-based inference configuration that explicitly defines the endpoint, model mapping, and operations used to route requests to an LLM provider. See `provider` Block below.
+        """
+        if connector is not None:
+            pulumi.set(__self__, "connector", connector)
+        if provider is not None:
+            pulumi.set(__self__, "provider", provider)
+
+    @_builtins.property
+    @pulumi.getter
+    def connector(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationInferenceConnector']:
+        """
+        Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `connector` Block below.
+        """
+        return pulumi.get(self, "connector")
+
+    @_builtins.property
+    @pulumi.getter
+    def provider(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationInferenceProvider']:
+        """
+        Provider-based inference configuration that explicitly defines the endpoint, model mapping, and operations used to route requests to an LLM provider. See `provider` Block below.
+        """
+        return pulumi.get(self, "provider")
+
+
+@pulumi.output_type
+class AgentcoreGatewayTargetTargetConfigurationInferenceConnector(dict):
+    def __init__(__self__, *,
+                 source: 'outputs.AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSource'):
+        """
+        :param 'AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSourceArgs' source: Source configuration identifying which connector to use. See `source` Block below.
+        """
+        pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> 'outputs.AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSource':
+        """
+        Source configuration identifying which connector to use. See `source` Block below.
+        """
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectorId":
+            suggest = "connector_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connector_id: _builtins.str):
+        """
+        :param _builtins.str connector_id: Identifier for the connector integration (for example, `bedrock-knowledge-bases`).
+        """
+        pulumi.set(__self__, "connector_id", connector_id)
+
+    @_builtins.property
+    @pulumi.getter(name="connectorId")
+    def connector_id(self) -> _builtins.str:
+        """
+        Identifier for the connector integration (for example, `bedrock-knowledge-bases`).
+        """
+        return pulumi.get(self, "connector_id")
+
+
+@pulumi.output_type
+class AgentcoreGatewayTargetTargetConfigurationInferenceProvider(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modelMapping":
+            suggest = "model_mapping"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayTargetTargetConfigurationInferenceProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayTargetTargetConfigurationInferenceProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayTargetTargetConfigurationInferenceProvider.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint: _builtins.str,
+                 model_mapping: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMapping'] = None,
+                 operations: Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperation']] = None):
+        """
+        :param _builtins.str endpoint: HTTPS endpoint of the inference provider that the gateway forwards requests to.
+        :param 'AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMappingArgs' model_mapping: Configuration that translates client-facing model IDs to the model IDs expected by the provider. See `model_mapping` Block below.
+        :param Sequence['AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperationArgs'] operations: List of per-operation configurations that map request paths to the models supported for each operation. See `operation` below.
+        """
+        pulumi.set(__self__, "endpoint", endpoint)
+        if model_mapping is not None:
+            pulumi.set(__self__, "model_mapping", model_mapping)
+        if operations is not None:
+            pulumi.set(__self__, "operations", operations)
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> _builtins.str:
+        """
+        HTTPS endpoint of the inference provider that the gateway forwards requests to.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="modelMapping")
+    def model_mapping(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMapping']:
+        """
+        Configuration that translates client-facing model IDs to the model IDs expected by the provider. See `model_mapping` Block below.
+        """
+        return pulumi.get(self, "model_mapping")
+
+    @_builtins.property
+    @pulumi.getter
+    def operations(self) -> Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperation']]:
+        """
+        List of per-operation configurations that map request paths to the models supported for each operation. See `operation` below.
+        """
+        return pulumi.get(self, "operations")
+
+
+@pulumi.output_type
+class AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "providerPrefix":
+            suggest = "provider_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provider_prefix: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMappingProviderPrefix'] = None):
+        """
+        :param 'AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMappingProviderPrefixArgs' provider_prefix: Provider prefix configuration used for model ID translation. See `provider_prefix` Block below.
+        """
+        if provider_prefix is not None:
+            pulumi.set(__self__, "provider_prefix", provider_prefix)
+
+    @_builtins.property
+    @pulumi.getter(name="providerPrefix")
+    def provider_prefix(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMappingProviderPrefix']:
+        """
+        Provider prefix configuration used for model ID translation. See `provider_prefix` Block below.
+        """
+        return pulumi.get(self, "provider_prefix")
+
+
+@pulumi.output_type
+class AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMappingProviderPrefix(dict):
+    def __init__(__self__, *,
+                 separator: Optional[_builtins.str] = None,
+                 strip: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.str separator: Single character that separates the provider prefix from the model name (for example, `.`). Defaults to `.`.
+        :param _builtins.bool strip: Whether clients can omit the provider prefix from model IDs. If `true`, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. Defaults to `false`.
+        """
+        if separator is not None:
+            pulumi.set(__self__, "separator", separator)
+        if strip is not None:
+            pulumi.set(__self__, "strip", strip)
+
+    @_builtins.property
+    @pulumi.getter
+    def separator(self) -> Optional[_builtins.str]:
+        """
+        Single character that separates the provider prefix from the model name (for example, `.`). Defaults to `.`.
+        """
+        return pulumi.get(self, "separator")
+
+    @_builtins.property
+    @pulumi.getter
+    def strip(self) -> Optional[_builtins.bool]:
+        """
+        Whether clients can omit the provider prefix from model IDs. If `true`, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. Defaults to `false`.
+        """
+        return pulumi.get(self, "strip")
+
+
+@pulumi.output_type
+class AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "providerPath":
+            suggest = "provider_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 path: _builtins.str,
+                 models: Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperationModel']] = None,
+                 provider_path: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str path: Request path for this operation (for example, `/v1/messages` or `/v1/responses`).
+        :param Sequence['AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperationModelArgs'] models: List of models supported for this operation. See `model` Block below.
+        :param _builtins.str provider_path: Provider path to forward requests to, if it differs from the request path. For example, `/anthropic/v1/messages` when the provider expects a different path than the client-facing `/v1/messages`.
+        """
+        pulumi.set(__self__, "path", path)
+        if models is not None:
+            pulumi.set(__self__, "models", models)
+        if provider_path is not None:
+            pulumi.set(__self__, "provider_path", provider_path)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> _builtins.str:
+        """
+        Request path for this operation (for example, `/v1/messages` or `/v1/responses`).
+        """
+        return pulumi.get(self, "path")
+
+    @_builtins.property
+    @pulumi.getter
+    def models(self) -> Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperationModel']]:
+        """
+        List of models supported for this operation. See `model` Block below.
+        """
+        return pulumi.get(self, "models")
+
+    @_builtins.property
+    @pulumi.getter(name="providerPath")
+    def provider_path(self) -> Optional[_builtins.str]:
+        """
+        Provider path to forward requests to, if it differs from the request path. For example, `/anthropic/v1/messages` when the provider expects a different path than the client-facing `/v1/messages`.
+        """
+        return pulumi.get(self, "provider_path")
+
+
+@pulumi.output_type
+class AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperationModel(dict):
+    def __init__(__self__, *,
+                 model: _builtins.str):
+        pulumi.set(__self__, "model", model)
+
+    @_builtins.property
+    @pulumi.getter
+    def model(self) -> _builtins.str:
+        return pulumi.get(self, "model")
 
 
 @pulumi.output_type
@@ -15407,19 +16154,23 @@ class AgentcoreGatewayTargetTargetConfigurationMcp(dict):
 
     def __init__(__self__, *,
                  api_gateway: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpApiGateway'] = None,
+                 connector: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpConnector'] = None,
                  lambda_: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambda'] = None,
                  mcp_server: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServer'] = None,
                  open_api_schema: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema'] = None,
                  smithy_model: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel'] = None):
         """
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs' api_gateway: API Gateway target configuration. See `api_gateway` below.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs' lambda_: Lambda function target configuration. See `lambda` below.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs' mcp_server: MCP server target configuration. See `mcp_server` below.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs' open_api_schema: OpenAPI schema-based target configuration. See `api_schema_configuration` below.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs' smithy_model: Smithy model-based target configuration. See `api_schema_configuration` below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs' api_gateway: API Gateway target configuration. See `api_gateway` Block below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpConnectorArgs' connector: Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `connector` Block below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs' lambda_: Lambda function target configuration. See `lambda` Block below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs' mcp_server: MCP server target configuration. See `mcp_server` Block below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs' open_api_schema: OpenAPI schema-based target configuration. See `api_schema_configuration` Block below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs' smithy_model: Smithy model-based target configuration. See `api_schema_configuration` Block below.
         """
         if api_gateway is not None:
             pulumi.set(__self__, "api_gateway", api_gateway)
+        if connector is not None:
+            pulumi.set(__self__, "connector", connector)
         if lambda_ is not None:
             pulumi.set(__self__, "lambda_", lambda_)
         if mcp_server is not None:
@@ -15433,15 +16184,23 @@ class AgentcoreGatewayTargetTargetConfigurationMcp(dict):
     @pulumi.getter(name="apiGateway")
     def api_gateway(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpApiGateway']:
         """
-        API Gateway target configuration. See `api_gateway` below.
+        API Gateway target configuration. See `api_gateway` Block below.
         """
         return pulumi.get(self, "api_gateway")
+
+    @_builtins.property
+    @pulumi.getter
+    def connector(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpConnector']:
+        """
+        Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `connector` Block below.
+        """
+        return pulumi.get(self, "connector")
 
     @_builtins.property
     @pulumi.getter(name="lambda")
     def lambda_(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambda']:
         """
-        Lambda function target configuration. See `lambda` below.
+        Lambda function target configuration. See `lambda` Block below.
         """
         return pulumi.get(self, "lambda_")
 
@@ -15449,7 +16208,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcp(dict):
     @pulumi.getter(name="mcpServer")
     def mcp_server(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServer']:
         """
-        MCP server target configuration. See `mcp_server` below.
+        MCP server target configuration. See `mcp_server` Block below.
         """
         return pulumi.get(self, "mcp_server")
 
@@ -15457,7 +16216,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcp(dict):
     @pulumi.getter(name="openApiSchema")
     def open_api_schema(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema']:
         """
-        OpenAPI schema-based target configuration. See `api_schema_configuration` below.
+        OpenAPI schema-based target configuration. See `api_schema_configuration` Block below.
         """
         return pulumi.get(self, "open_api_schema")
 
@@ -15465,7 +16224,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcp(dict):
     @pulumi.getter(name="smithyModel")
     def smithy_model(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel']:
         """
-        Smithy model-based target configuration. See `api_schema_configuration` below.
+        Smithy model-based target configuration. See `api_schema_configuration` Block below.
         """
         return pulumi.get(self, "smithy_model")
 
@@ -15498,7 +16257,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpApiGateway(dict):
         """
         :param _builtins.str rest_api_id: ID of the API Gateway REST API to invoke.
         :param _builtins.str stage: Stage name of the REST API to add as a target.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgs' api_gateway_tool_configuration: Configuration for API Gateway tools. See `api_gateway_tool_configuration` below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgs' api_gateway_tool_configuration: Configuration for API Gateway tools. See `api_gateway_tool_configuration` Block below.
         """
         pulumi.set(__self__, "rest_api_id", rest_api_id)
         pulumi.set(__self__, "stage", stage)
@@ -15525,7 +16284,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpApiGateway(dict):
     @pulumi.getter(name="apiGatewayToolConfiguration")
     def api_gateway_tool_configuration(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfiguration']:
         """
-        Configuration for API Gateway tools. See `api_gateway_tool_configuration` below.
+        Configuration for API Gateway tools. See `api_gateway_tool_configuration` Block below.
         """
         return pulumi.get(self, "api_gateway_tool_configuration")
 
@@ -15555,8 +16314,8 @@ class AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfig
                  tool_filters: Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilter']] = None,
                  tool_overrides: Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverride']] = None):
         """
-        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArgs'] tool_filters: Repeatable block of path and method patterns to expose as tools. See `tool_filter` below.
-        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArgs'] tool_overrides: Repeatable block of explicit tool definitions with optional custom names and descriptions. See `tool_override` below.
+        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArgs'] tool_filters: Repeatable block of path and method patterns to expose as tools. See `tool_filter` Block below.
+        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArgs'] tool_overrides: Repeatable block of explicit tool definitions with optional custom names and descriptions. See `tool_override` Block below.
         """
         if tool_filters is not None:
             pulumi.set(__self__, "tool_filters", tool_filters)
@@ -15567,7 +16326,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfig
     @pulumi.getter(name="toolFilters")
     def tool_filters(self) -> Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilter']]:
         """
-        Repeatable block of path and method patterns to expose as tools. See `tool_filter` below.
+        Repeatable block of path and method patterns to expose as tools. See `tool_filter` Block below.
         """
         return pulumi.get(self, "tool_filters")
 
@@ -15575,7 +16334,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfig
     @pulumi.getter(name="toolOverrides")
     def tool_overrides(self) -> Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverride']]:
         """
-        Repeatable block of explicit tool definitions with optional custom names and descriptions. See `tool_override` below.
+        Repeatable block of explicit tool definitions with optional custom names and descriptions. See `tool_override` Block below.
         """
         return pulumi.get(self, "tool_overrides")
 
@@ -15679,6 +16438,205 @@ class AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfig
 
 
 @pulumi.output_type
+class AgentcoreGatewayTargetTargetConfigurationMcpConnector(dict):
+    def __init__(__self__, *,
+                 configurations: Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfiguration'],
+                 source: 'outputs.AgentcoreGatewayTargetTargetConfigurationMcpConnectorSource',
+                 enableds: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigurationArgs'] configurations: Per-tool configurations for the connector. See `configuration` Block below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpConnectorSourceArgs' source: Source configuration identifying which connector to use. See `source` Block below.
+        :param Sequence[_builtins.str] enableds: List of tool names to enable from this connector. If omitted, all tools provided by the connector are enabled.
+        """
+        pulumi.set(__self__, "configurations", configurations)
+        pulumi.set(__self__, "source", source)
+        if enableds is not None:
+            pulumi.set(__self__, "enableds", enableds)
+
+    @_builtins.property
+    @pulumi.getter
+    def configurations(self) -> Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfiguration']:
+        """
+        Per-tool configurations for the connector. See `configuration` Block below.
+        """
+        return pulumi.get(self, "configurations")
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> 'outputs.AgentcoreGatewayTargetTargetConfigurationMcpConnectorSource':
+        """
+        Source configuration identifying which connector to use. See `source` Block below.
+        """
+        return pulumi.get(self, "source")
+
+    @_builtins.property
+    @pulumi.getter
+    def enableds(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of tool names to enable from this connector. If omitted, all tools provided by the connector are enabled.
+        """
+        return pulumi.get(self, "enableds")
+
+
+@pulumi.output_type
+class AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "parameterOverrides":
+            suggest = "parameter_overrides"
+        elif key == "parameterValues":
+            suggest = "parameter_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 description: Optional[_builtins.str] = None,
+                 parameter_overrides: Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigurationParameterOverride']] = None,
+                 parameter_values: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str name: Tool or operation name (for example, `retrieve` or `webSearch`).
+        :param _builtins.str description: Agent-facing description override for this tool.
+        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigurationParameterOverrideArgs'] parameter_overrides: Parameter overrides to control parameter visibility and descriptions. See `parameter_override` Block below.
+        :param _builtins.str parameter_values: JSON-encoded parameters to set as fixed or default values when provisioning this tool. Free-form JSON whose schema is defined by the connector.
+        """
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if parameter_overrides is not None:
+            pulumi.set(__self__, "parameter_overrides", parameter_overrides)
+        if parameter_values is not None:
+            pulumi.set(__self__, "parameter_values", parameter_values)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Tool or operation name (for example, `retrieve` or `webSearch`).
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        Agent-facing description override for this tool.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="parameterOverrides")
+    def parameter_overrides(self) -> Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigurationParameterOverride']]:
+        """
+        Parameter overrides to control parameter visibility and descriptions. See `parameter_override` Block below.
+        """
+        return pulumi.get(self, "parameter_overrides")
+
+    @_builtins.property
+    @pulumi.getter(name="parameterValues")
+    def parameter_values(self) -> Optional[_builtins.str]:
+        """
+        JSON-encoded parameters to set as fixed or default values when provisioning this tool. Free-form JSON whose schema is defined by the connector.
+        """
+        return pulumi.get(self, "parameter_values")
+
+
+@pulumi.output_type
+class AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigurationParameterOverride(dict):
+    def __init__(__self__, *,
+                 path: _builtins.str,
+                 description: Optional[_builtins.str] = None,
+                 visible: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.str description: Description of the gateway target.
+        :param _builtins.bool visible: Whether this parameter is visible to the agent. If not specified, uses the service default.
+        """
+        pulumi.set(__self__, "path", path)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if visible is not None:
+            pulumi.set(__self__, "visible", visible)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> _builtins.str:
+        return pulumi.get(self, "path")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        Description of the gateway target.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def visible(self) -> Optional[_builtins.bool]:
+        """
+        Whether this parameter is visible to the agent. If not specified, uses the service default.
+        """
+        return pulumi.get(self, "visible")
+
+
+@pulumi.output_type
+class AgentcoreGatewayTargetTargetConfigurationMcpConnectorSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectorId":
+            suggest = "connector_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayTargetTargetConfigurationMcpConnectorSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayTargetTargetConfigurationMcpConnectorSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayTargetTargetConfigurationMcpConnectorSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connector_id: _builtins.str,
+                 version: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str connector_id: Identifier for the connector integration (for example, `bedrock-knowledge-bases`).
+        :param _builtins.str version: Version of the connector to use (for example, `1.2.0`).
+        """
+        pulumi.set(__self__, "connector_id", connector_id)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter(name="connectorId")
+    def connector_id(self) -> _builtins.str:
+        """
+        Identifier for the connector integration (for example, `bedrock-knowledge-bases`).
+        """
+        return pulumi.get(self, "connector_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> Optional[_builtins.str]:
+        """
+        Version of the connector to use (for example, `1.2.0`).
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
 class AgentcoreGatewayTargetTargetConfigurationMcpLambda(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -15704,7 +16662,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambda(dict):
                  tool_schema: 'outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema'):
         """
         :param _builtins.str lambda_arn: ARN of the Lambda function to invoke.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs' tool_schema: Schema definition for the tool. See `tool_schema` below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs' tool_schema: Schema definition for the tool. See `tool_schema` Block below.
         """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
         pulumi.set(__self__, "tool_schema", tool_schema)
@@ -15721,7 +16679,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambda(dict):
     @pulumi.getter(name="toolSchema")
     def tool_schema(self) -> 'outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema':
         """
-        Schema definition for the tool. See `tool_schema` below.
+        Schema definition for the tool. See `tool_schema` Block below.
         """
         return pulumi.get(self, "tool_schema")
 
@@ -15749,8 +16707,8 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema(dict):
                  inline_payloads: Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload']] = None,
                  s3: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3'] = None):
         """
-        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs'] inline_payloads: Inline tool definition. See `inline_payload` below.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args' s3: S3-based tool definition. See `s3` below.
+        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs'] inline_payloads: Inline tool definition. See `inline_payload` Block below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args' s3: S3-based tool definition. See `s3` Block below.
         """
         if inline_payloads is not None:
             pulumi.set(__self__, "inline_payloads", inline_payloads)
@@ -15761,7 +16719,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema(dict):
     @pulumi.getter(name="inlinePayloads")
     def inline_payloads(self) -> Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload']]:
         """
-        Inline tool definition. See `inline_payload` below.
+        Inline tool definition. See `inline_payload` Block below.
         """
         return pulumi.get(self, "inline_payloads")
 
@@ -15769,7 +16727,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema(dict):
     @pulumi.getter
     def s3(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3']:
         """
-        S3-based tool definition. See `s3` below.
+        S3-based tool definition. See `s3` Block below.
         """
         return pulumi.get(self, "s3")
 
@@ -15802,9 +16760,9 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload(
                  output_schema: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema'] = None):
         """
         :param _builtins.str description: Description of what the tool does.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs' input_schema: Schema for the tool's input. See `schema_definition` below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs' input_schema: Schema for the tool's input. See `schema_definition` Block below.
         :param _builtins.str name: Name of the tool.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs' output_schema: Schema for the tool's output. See `schema_definition` below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs' output_schema: Schema for the tool's output. See `schema_definition` Block below.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "input_schema", input_schema)
@@ -15824,7 +16782,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload(
     @pulumi.getter(name="inputSchema")
     def input_schema(self) -> 'outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema':
         """
-        Schema for the tool's input. See `schema_definition` below.
+        Schema for the tool's input. See `schema_definition` Block below.
         """
         return pulumi.get(self, "input_schema")
 
@@ -15840,7 +16798,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload(
     @pulumi.getter(name="outputSchema")
     def output_schema(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema']:
         """
-        Schema for the tool's output. See `schema_definition` below.
+        Schema for the tool's output. See `schema_definition` Block below.
         """
         return pulumi.get(self, "output_schema")
 
@@ -15898,7 +16856,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
         :param _builtins.str type: Data type of the array items.
         :param _builtins.str description: Description of the array items.
         :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsArgs' items: Nested items definition for arrays of arrays.
-        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgs'] properties: Set of property definitions for arrays of objects. See `property` below.
+        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgs'] properties: Set of property definitions for arrays of objects. See `property` Block below.
         """
         pulumi.set(__self__, "type", type)
         if description is not None:
@@ -15936,7 +16894,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
     @pulumi.getter
     def properties(self) -> Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsProperty']]:
         """
-        Set of property definitions for arrays of objects. See `property` below.
+        Set of property definitions for arrays of objects. See `property` Block below.
         """
         return pulumi.get(self, "properties")
 
@@ -16123,7 +17081,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
         :param _builtins.str name: Name of the property.
         :param _builtins.str type: Data type of the property.
         :param _builtins.str description: Description of the property.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs' items: Items definition for array properties. See `items` above.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs' items: Items definition for array properties. See `items` Block above.
         :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs'] properties: Set of nested property definitions for object properties.
         :param _builtins.bool required: Whether this property is required. Defaults to `false`.
         """
@@ -16166,7 +17124,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
     @pulumi.getter
     def items(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems']:
         """
-        Items definition for array properties. See `items` above.
+        Items definition for array properties. See `items` Block above.
         """
         return pulumi.get(self, "items")
 
@@ -16198,7 +17156,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
         :param _builtins.str type: Data type of the array items.
         :param _builtins.str description: Description of the array items.
         :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgs' items: Nested items definition for arrays of arrays.
-        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgs'] properties: Set of property definitions for arrays of objects. See `property` below.
+        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgs'] properties: Set of property definitions for arrays of objects. See `property` Block below.
         """
         pulumi.set(__self__, "type", type)
         if description is not None:
@@ -16236,7 +17194,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
     @pulumi.getter
     def properties(self) -> Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty']]:
         """
-        Set of property definitions for arrays of objects. See `property` below.
+        Set of property definitions for arrays of objects. See `property` Block below.
         """
         return pulumi.get(self, "properties")
 
@@ -16559,7 +17517,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
         :param _builtins.str type: Data type of the array items.
         :param _builtins.str description: Description of the array items.
         :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgs' items: Nested items definition for arrays of arrays.
-        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArgs'] properties: Set of property definitions for arrays of objects. See `property` below.
+        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArgs'] properties: Set of property definitions for arrays of objects. See `property` Block below.
         """
         pulumi.set(__self__, "type", type)
         if description is not None:
@@ -16597,7 +17555,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
     @pulumi.getter
     def properties(self) -> Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsProperty']]:
         """
-        Set of property definitions for arrays of objects. See `property` below.
+        Set of property definitions for arrays of objects. See `property` Block below.
         """
         return pulumi.get(self, "properties")
 
@@ -16784,7 +17742,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
         :param _builtins.str name: Name of the property.
         :param _builtins.str type: Data type of the property.
         :param _builtins.str description: Description of the property.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgs' items: Items definition for array properties. See `items` above.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgs' items: Items definition for array properties. See `items` Block above.
         :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArgs'] properties: Set of nested property definitions for object properties.
         :param _builtins.bool required: Whether this property is required. Defaults to `false`.
         """
@@ -16827,7 +17785,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
     @pulumi.getter
     def items(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems']:
         """
-        Items definition for array properties. See `items` above.
+        Items definition for array properties. See `items` Block above.
         """
         return pulumi.get(self, "items")
 
@@ -16859,7 +17817,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
         :param _builtins.str type: Data type of the array items.
         :param _builtins.str description: Description of the array items.
         :param 'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgs' items: Nested items definition for arrays of arrays.
-        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArgs'] properties: Set of property definitions for arrays of objects. See `property` below.
+        :param Sequence['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArgs'] properties: Set of property definitions for arrays of objects. See `property` Block below.
         """
         pulumi.set(__self__, "type", type)
         if description is not None:
@@ -16897,7 +17855,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
     @pulumi.getter
     def properties(self) -> Optional[Sequence['outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty']]:
         """
-        Set of property definitions for arrays of objects. See `property` below.
+        Set of property definitions for arrays of objects. See `property` Block below.
         """
         return pulumi.get(self, "properties")
 
@@ -17246,7 +18204,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpMcpServer(dict):
         """
         :param _builtins.str endpoint: Endpoint for the MCP server target configuration.
         :param _builtins.str listing_mode: Listing mode for the MCP server target. Valid values are `DEFAULT` and `DYNAMIC`. MCP resources for `DEFAULT` targets are cached at the control plane for faster access, while resources for `DYNAMIC` targets are retrieved dynamically when listing tools.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaArgs' mcp_tool_schema: Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcp_tool_schema` below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaArgs' mcp_tool_schema: Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcp_tool_schema` Block below.
         :param _builtins.int resource_priority: Priority for resolving MCP server targets with shared resource URIs. Lower values take precedence. Defaults to `1000` when not set.
         """
         pulumi.set(__self__, "endpoint", endpoint)
@@ -17277,7 +18235,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpMcpServer(dict):
     @pulumi.getter(name="mcpToolSchema")
     def mcp_tool_schema(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchema']:
         """
-        Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcp_tool_schema` below.
+        Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcp_tool_schema` Block below.
         """
         return pulumi.get(self, "mcp_tool_schema")
 
@@ -17314,7 +18272,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchema(dict):
                  s3: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3'] = None):
         """
         :param 'AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayloadArgs' inline_payload: Inline tool schema payload. The `inline_payload` block requires a `payload` (string) containing the MCP tool schema definition.
-        :param 'AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3Args' s3: S3 location of the tool schema. See `s3` below.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3Args' s3: S3 location of the tool schema. See `s3` Block below.
         """
         if inline_payload is not None:
             pulumi.set(__self__, "inline_payload", inline_payload)
@@ -17333,7 +18291,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchema(dict):
     @pulumi.getter
     def s3(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3']:
         """
-        S3 location of the tool schema. See `s3` below.
+        S3 location of the tool schema. See `s3` Block below.
         """
         return pulumi.get(self, "s3")
 
@@ -17343,7 +18301,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePa
     def __init__(__self__, *,
                  payload: _builtins.str):
         """
-        :param _builtins.str payload: The inline schema payload content.
+        :param _builtins.str payload: Inline schema payload content.
         """
         pulumi.set(__self__, "payload", payload)
 
@@ -17351,7 +18309,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePa
     @pulumi.getter
     def payload(self) -> _builtins.str:
         """
-        The inline schema payload content.
+        Inline schema payload content.
         """
         return pulumi.get(self, "payload")
 
@@ -17446,7 +18404,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayload(dic
     def __init__(__self__, *,
                  payload: _builtins.str):
         """
-        :param _builtins.str payload: The inline schema payload content.
+        :param _builtins.str payload: Inline schema payload content.
         """
         pulumi.set(__self__, "payload", payload)
 
@@ -17454,7 +18412,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayload(dic
     @pulumi.getter
     def payload(self) -> _builtins.str:
         """
-        The inline schema payload content.
+        Inline schema payload content.
         """
         return pulumi.get(self, "payload")
 
@@ -17550,7 +18508,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayload(dict)
     def __init__(__self__, *,
                  payload: _builtins.str):
         """
-        :param _builtins.str payload: The inline schema payload content.
+        :param _builtins.str payload: Inline schema payload content.
         """
         pulumi.set(__self__, "payload", payload)
 
@@ -17558,7 +18516,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayload(dict)
     @pulumi.getter
     def payload(self) -> _builtins.str:
         """
-        The inline schema payload content.
+        Inline schema payload content.
         """
         return pulumi.get(self, "payload")
 
@@ -18496,15 +19454,16 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointO
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 resource_configuration_identifier: _builtins.str):
+                 resource_configuration_identifier: Optional[_builtins.str] = None):
         """
         :param _builtins.str resource_configuration_identifier: Identifier of the VPC Lattice resource configuration.
         """
-        pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
+        if resource_configuration_identifier is not None:
+            pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
 
     @_builtins.property
     @pulumi.getter(name="resourceConfigurationIdentifier")
-    def resource_configuration_identifier(self) -> _builtins.str:
+    def resource_configuration_identifier(self) -> Optional[_builtins.str]:
         """
         Identifier of the VPC Lattice resource configuration.
         """
@@ -18531,15 +19490,16 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointS
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 resource_configuration_identifier: _builtins.str):
+                 resource_configuration_identifier: Optional[_builtins.str] = None):
         """
         :param _builtins.str resource_configuration_identifier: Identifier of the VPC Lattice resource configuration.
         """
-        pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
+        if resource_configuration_identifier is not None:
+            pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
 
     @_builtins.property
     @pulumi.getter(name="resourceConfigurationIdentifier")
-    def resource_configuration_identifier(self) -> _builtins.str:
+    def resource_configuration_identifier(self) -> Optional[_builtins.str]:
         """
         Identifier of the VPC Lattice resource configuration.
         """
@@ -25273,12 +26233,13 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 resource_configuration_identifier: _builtins.str):
-        pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
+                 resource_configuration_identifier: Optional[_builtins.str] = None):
+        if resource_configuration_identifier is not None:
+            pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
 
     @_builtins.property
     @pulumi.getter(name="resourceConfigurationIdentifier")
-    def resource_configuration_identifier(self) -> _builtins.str:
+    def resource_configuration_identifier(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "resource_configuration_identifier")
 
 
@@ -25302,12 +26263,13 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 resource_configuration_identifier: _builtins.str):
-        pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
+                 resource_configuration_identifier: Optional[_builtins.str] = None):
+        if resource_configuration_identifier is not None:
+            pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
 
     @_builtins.property
     @pulumi.getter(name="resourceConfigurationIdentifier")
-    def resource_configuration_identifier(self) -> _builtins.str:
+    def resource_configuration_identifier(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "resource_configuration_identifier")
 
 

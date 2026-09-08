@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  *     key: "code.zip",
  *     source: new pulumi.asset.FileAsset("code.zip"),
  * });
- * const exampleMicrovmsImage = new aws.lambda.MicrovmsImage("example", {
+ * const exampleImage = new aws.lambdamicrovms.Image("example", {
  *     codeArtifact: {
  *         uri: pulumi.interpolate`s3://${exampleBucket.bucket}/${exampleBucketObjectv2.key}`,
  *     },
@@ -74,6 +74,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:lambda/microvmsImage:MicrovmsImage example arn:aws:lambda:us-east-1:123456789012:microvm-image:example
  * ```
+ *
+ * @deprecated aws.lambda/microvmsimage.MicrovmsImage has been deprecated in favor of aws.lambdamicrovms/image.Image
  */
 export class MicrovmsImage extends pulumi.CustomResource {
     /**
@@ -86,6 +88,7 @@ export class MicrovmsImage extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MicrovmsImageState, opts?: pulumi.CustomResourceOptions): MicrovmsImage {
+        pulumi.log.warn("MicrovmsImage is deprecated: aws.lambda/microvmsimage.MicrovmsImage has been deprecated in favor of aws.lambdamicrovms/image.Image")
         return new MicrovmsImage(name, <any>state, { ...opts, id: id });
     }
 
@@ -194,8 +197,11 @@ export class MicrovmsImage extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated aws.lambda/microvmsimage.MicrovmsImage has been deprecated in favor of aws.lambdamicrovms/image.Image */
     constructor(name: string, args: MicrovmsImageArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated aws.lambda/microvmsimage.MicrovmsImage has been deprecated in favor of aws.lambdamicrovms/image.Image */
     constructor(name: string, argsOrState?: MicrovmsImageArgs | MicrovmsImageState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("MicrovmsImage is deprecated: aws.lambda/microvmsimage.MicrovmsImage has been deprecated in favor of aws.lambdamicrovms/image.Image")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {

@@ -33,6 +33,8 @@ if typing.TYPE_CHECKING:
     accessanalyzer = __accessanalyzer
     import pulumi_aws.account as __account
     account = __account
+    import pulumi_aws.accountaccess as __accountaccess
+    accountaccess = __accountaccess
     import pulumi_aws.acm as __acm
     acm = __acm
     import pulumi_aws.acmpca as __acmpca
@@ -285,6 +287,8 @@ if typing.TYPE_CHECKING:
     lakeformation = __lakeformation
     import pulumi_aws.lambda_ as __lambda_
     lambda_ = __lambda_
+    import pulumi_aws.lambdamicrovms as __lambdamicrovms
+    lambdamicrovms = __lambdamicrovms
     import pulumi_aws.lb as __lb
     lb = __lb
     import pulumi_aws.lex as __lex
@@ -498,6 +502,7 @@ if typing.TYPE_CHECKING:
 else:
     accessanalyzer = _utilities.lazy_import('pulumi_aws.accessanalyzer')
     account = _utilities.lazy_import('pulumi_aws.account')
+    accountaccess = _utilities.lazy_import('pulumi_aws.accountaccess')
     acm = _utilities.lazy_import('pulumi_aws.acm')
     acmpca = _utilities.lazy_import('pulumi_aws.acmpca')
     alb = _utilities.lazy_import('pulumi_aws.alb')
@@ -624,6 +629,7 @@ else:
     kms = _utilities.lazy_import('pulumi_aws.kms')
     lakeformation = _utilities.lazy_import('pulumi_aws.lakeformation')
     lambda_ = _utilities.lazy_import('pulumi_aws.lambda_')
+    lambdamicrovms = _utilities.lazy_import('pulumi_aws.lambdamicrovms')
     lb = _utilities.lazy_import('pulumi_aws.lb')
     lex = _utilities.lazy_import('pulumi_aws.lex')
     licensemanager = _utilities.lazy_import('pulumi_aws.licensemanager')
@@ -771,6 +777,14 @@ _utilities.register(
   "fqn": "pulumi_aws.account",
   "classes": {
    "aws:account/region:Region": "Region"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "accountaccess/application",
+  "fqn": "pulumi_aws.accountaccess",
+  "classes": {
+   "aws:accountaccess/application:Application": "Application"
   }
  },
  {
@@ -4131,6 +4145,14 @@ _utilities.register(
   "fqn": "pulumi_aws.datazone",
   "classes": {
    "aws:datazone/glossaryTerm:GlossaryTerm": "GlossaryTerm"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "datazone/policyGrant",
+  "fqn": "pulumi_aws.datazone",
+  "classes": {
+   "aws:datazone/policyGrant:PolicyGrant": "PolicyGrant"
   }
  },
  {
@@ -8295,6 +8317,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "lambdamicrovms/image",
+  "fqn": "pulumi_aws.lambdamicrovms",
+  "classes": {
+   "aws:lambdamicrovms/image:Image": "Image"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lambdamicrovms/microvm",
+  "fqn": "pulumi_aws.lambdamicrovms",
+  "classes": {
+   "aws:lambdamicrovms/microvm:Microvm": "Microvm"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "lb/listener",
   "fqn": "pulumi_aws.lb",
   "classes": {
@@ -8795,6 +8833,14 @@ _utilities.register(
   "fqn": "pulumi_aws.macie2",
   "classes": {
    "aws:macie2/organizationConfiguration:OrganizationConfiguration": "OrganizationConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "mailmanager/archive",
+  "fqn": "pulumi_aws.mailmanager",
+  "classes": {
+   "aws:mailmanager/archive:Archive": "Archive"
   }
  },
  {

@@ -75,9 +75,19 @@ type LookupConnectionResult struct {
 	OwnerAccountId string `pulumi:"ownerAccountId"`
 	// The name of the AWS Direct Connect service provider associated with the connection.
 	PartnerName string `pulumi:"partnerName"`
+	// The total number of inbound IPv4 route prefixes that can be allocated across the virtual interfaces on the connection.
+	PrefixPoolSizeIpv4 int `pulumi:"prefixPoolSizeIpv4"`
+	// The total number of inbound IPv6 route prefixes that can be allocated across the virtual interfaces on the connection.
+	PrefixPoolSizeIpv6 int `pulumi:"prefixPoolSizeIpv6"`
+	// The number of inbound IPv4 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+	PrefixPoolUnallocatedCountIpv4 int `pulumi:"prefixPoolUnallocatedCountIpv4"`
+	// The number of inbound IPv6 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+	PrefixPoolUnallocatedCountIpv6 int `pulumi:"prefixPoolUnallocatedCountIpv6"`
 	// Name of the service provider associated with the connection.
 	ProviderName string `pulumi:"providerName"`
-	Region       string `pulumi:"region"`
+	// Rate limiter status for the connection. See `rateLimiterStatus` Block below.
+	RateLimiterStatuses []GetConnectionRateLimiterStatus `pulumi:"rateLimiterStatuses"`
+	Region              string                           `pulumi:"region"`
 	// State of the connection.
 	State string `pulumi:"state"`
 	// Map of tags for the resource.
@@ -159,9 +169,34 @@ func (o LookupConnectionResultOutput) PartnerName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.PartnerName }).(pulumi.StringOutput)
 }
 
+// The total number of inbound IPv4 route prefixes that can be allocated across the virtual interfaces on the connection.
+func (o LookupConnectionResultOutput) PrefixPoolSizeIpv4() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupConnectionResult) int { return v.PrefixPoolSizeIpv4 }).(pulumi.IntOutput)
+}
+
+// The total number of inbound IPv6 route prefixes that can be allocated across the virtual interfaces on the connection.
+func (o LookupConnectionResultOutput) PrefixPoolSizeIpv6() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupConnectionResult) int { return v.PrefixPoolSizeIpv6 }).(pulumi.IntOutput)
+}
+
+// The number of inbound IPv4 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+func (o LookupConnectionResultOutput) PrefixPoolUnallocatedCountIpv4() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupConnectionResult) int { return v.PrefixPoolUnallocatedCountIpv4 }).(pulumi.IntOutput)
+}
+
+// The number of inbound IPv6 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+func (o LookupConnectionResultOutput) PrefixPoolUnallocatedCountIpv6() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupConnectionResult) int { return v.PrefixPoolUnallocatedCountIpv6 }).(pulumi.IntOutput)
+}
+
 // Name of the service provider associated with the connection.
 func (o LookupConnectionResultOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.ProviderName }).(pulumi.StringOutput)
+}
+
+// Rate limiter status for the connection. See `rateLimiterStatus` Block below.
+func (o LookupConnectionResultOutput) RateLimiterStatuses() GetConnectionRateLimiterStatusArrayOutput {
+	return o.ApplyT(func(v LookupConnectionResult) []GetConnectionRateLimiterStatus { return v.RateLimiterStatuses }).(GetConnectionRateLimiterStatusArrayOutput)
 }
 
 func (o LookupConnectionResultOutput) Region() pulumi.StringOutput {

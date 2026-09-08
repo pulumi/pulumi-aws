@@ -21,7 +21,7 @@ public final class ConfigurationPolicyConfigurationPolicy {
      */
     private @Nullable List<String> enabledStandardArns;
     /**
-     * @return Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
+     * @return Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. It must be defined if `serviceEnabled` is set to true. See below.
      * 
      */
     private @Nullable ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration securityControlsConfiguration;
@@ -40,7 +40,7 @@ public final class ConfigurationPolicyConfigurationPolicy {
         return this.enabledStandardArns == null ? List.of() : this.enabledStandardArns;
     }
     /**
-     * @return Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
+     * @return Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. It must be defined if `serviceEnabled` is set to true. See below.
      * 
      */
     public Optional<ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration> securityControlsConfiguration() {

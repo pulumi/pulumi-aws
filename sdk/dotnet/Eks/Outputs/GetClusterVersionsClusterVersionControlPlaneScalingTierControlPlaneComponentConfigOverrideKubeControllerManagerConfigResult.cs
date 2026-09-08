@@ -17,11 +17,19 @@ namespace Pulumi.Aws.Eks.Outputs
         /// HPA controller configuration defaults and constraints.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigResult> HorizontalPodAutoscalerControllerConfigs;
+        /// <summary>
+        /// Pod garbage collection controller configuration defaults and constraints.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigResult> PodGcControllerConfigs;
 
         [OutputConstructor]
-        private GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigResult(ImmutableArray<Outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigResult> horizontalPodAutoscalerControllerConfigs)
+        private GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigResult(
+            ImmutableArray<Outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigResult> horizontalPodAutoscalerControllerConfigs,
+
+            ImmutableArray<Outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigResult> podGcControllerConfigs)
         {
             HorizontalPodAutoscalerControllerConfigs = horizontalPodAutoscalerControllerConfigs;
+            PodGcControllerConfigs = podGcControllerConfigs;
         }
     }
 }
