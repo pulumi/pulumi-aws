@@ -62,6 +62,18 @@ func TestExplicitTokenMappingsAreNecessary(t *testing.T) {
 	}
 }
 
+func TestUpstreamModuleMap(t *testing.T) {
+	t.Parallel()
+
+	modules, err := upstreamModuleMap()
+	require.NoError(t, err)
+
+	assert.Equal(t, "AccountAccess", modules["accountaccess"])
+	assert.Equal(t, "LambdaMicroVMs", modules["lambdamicrovms"])
+	assert.Equal(t, ampMod, modules["prometheus"], "Pulumi compatibility overrides take precedence")
+	assert.NotContains(t, modules, "bedrockagent", "more-specific upstream prefixes can be excluded")
+}
+
 func TestAutomaticTokenMappings(t *testing.T) {
 	t.Parallel()
 
