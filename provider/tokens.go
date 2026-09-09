@@ -2,10 +2,12 @@ package provider
 
 import (
 	"fmt"
+	"regexp"
 	"strings"
 	"sync"
 	"unicode"
 
+	awsnames "github.com/hashicorp/terraform-provider-aws/names/data"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	tks "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens/fallbackstrat"
@@ -22,7 +24,6 @@ const (
 	acmMod                      = "Acm"                      // AWS Certificate Manager
 	acmpcaMod                   = "Acmpca"                   // AWS Private Certificate Authority
 	accountMod                  = "Account"                  // Account
-	accountAccessMod            = "AccountAccess"            // Account Access
 	accessAnalyzerMod           = "AccessAnalyzer"           // Access Analyzer
 	ampMod                      = "Amp"                      // Amp
 	amplifyMod                  = "Amplify"                  // Amplify
@@ -142,7 +143,6 @@ const (
 	kmsMod                      = "Kms"                      // Key Management Service (KMS)
 	lakeFormationMod            = "LakeFormation"            // LakeFormation
 	lambdaMod                   = "Lambda"                   // Lambda
-	lambdaMicrovmsMod           = "LambdaMicroVMs"           // Lambda MicroVMs
 	lexMod                      = "Lex"                      // Lex
 	licensemanagerMod           = "LicenseManager"           // License Manager
 	lightsailMod                = "LightSail"                // LightSail
@@ -248,7 +248,9 @@ const (
 	legacyElbv2Mod = "ElasticLoadBalancingV2"
 )
 
-var moduleMap = map[string]string{
+// moduleOverrides contains published Pulumi module names that intentionally differ
+// from the canonical service names in the upstream AWS provider metadata.
+var moduleOverrides = map[string]string{
 	// Ignored: ec2Mod. The ec2Mod includes tokens from:
 	// - "aws_eip"
 	// - "aws_flow_log"
@@ -260,7 +262,6 @@ var moduleMap = map[string]string{
 
 	"accessanalyzer":                  accessAnalyzerMod,
 	"account":                         accountMod,
-	"accountaccess":                   accountAccessMod,
 	"acm":                             acmMod,
 	"acmpca":                          acmpcaMod,
 	"alb":                             albMod,
@@ -385,7 +386,6 @@ var moduleMap = map[string]string{
 	"kms":                             kmsMod,
 	"lakeformation":                   lakeFormationMod,
 	"lambda":                          lambdaMod,
-	"lambdamicrovms":                  lambdaMicrovmsMod,
 	"lb":                              lbMod,
 	"lex":                             lexMod,
 	"licensemanager":                  licensemanagerMod,
@@ -535,6 +535,69 @@ func awsResource(mod string, res string) tokens.Type {
 	return awsTypeDefaultFile(mod, res)
 }
 
+// upstreamModuleExclusions contains upstream service prefixes that would change
+// published Pulumi module or member names. The older, shorter moduleOverrides
+// prefix remains available after these more-specific prefixes are removed.
+var upstreamModuleExclusions = map[string]struct{}{
+	"bedrockagent":              {},
+	"bedrockagentcore":          {},
+	"caller_identity":           {},
+	"chimesdkvoice":             {},
+	"cloudfrontkeyvaluestore":   {},
+	"cloudwatch_event":          {},
+	"docdbelastic":              {},
+	"kinesis_analytics":         {},
+	"kinesis_firehose":          {},
+	"kinesis_stream":            {},
+	"lambdacore":                {},
+	"lexv2models":               {},
+	"notificationscontacts":     {},
+	"opensearchserverless":      {},
+	"pinpointsmsvoicev2":        {},
+	"resiliencehubv2":           {},
+	"route53_resolver":          {},
+	"route53profiles":           {},
+	"s3files":                   {},
+	"s3vectors":                 {},
+	"servicecatalogappregistry": {},
+	"ssmcontacts":               {},
+	"ssmquicksetup":             {},
+}
+
+func upstreamResourcePrefix(service awsnames.ServiceRecord) string {
+	prefix := service.ResourcePrefixActual()
+	if prefix == "" || regexp.QuoteMeta(prefix) != prefix {
+		prefix = service.ResourcePrefixCorrect()
+	}
+	return strings.TrimSuffix(strings.TrimPrefix(prefix, "aws_"), "_")
+}
+
+func upstreamModuleMap() (map[string]string, error) {
+	services, err := awsnames.ReadAllServiceData()
+	if err != nil {
+		return nil, fmt.Errorf("read upstream AWS service names: %w", err)
+	}
+
+	modules := make(map[string]string, len(services)+len(moduleOverrides))
+	for _, service := range services {
+		if service.Exclude() || service.NotImplemented() && !service.EndpointOnly() {
+			continue
+		}
+
+		prefix := upstreamResourcePrefix(service)
+		if prefix == "" || service.ProviderNameUpper() == "" {
+			continue
+		}
+		if _, excluded := upstreamModuleExclusions[prefix]; !excluded {
+			modules[prefix] = service.ProviderNameUpper()
+		}
+	}
+	for prefix, module := range moduleOverrides {
+		modules[prefix] = module
+	}
+	return modules, nil
+}
+
 func awsTokenStrategy(prov *tfbridge.ProviderInfo) tks.Strategy {
 	finalize := func(mod, name string) (string, error) {
 		if name == "" {
@@ -542,6 +605,9 @@ func awsTokenStrategy(prov *tfbridge.ProviderInfo) tks.Strategy {
 		}
 		return awsResource(mod, name).String(), nil
 	}
+
+	moduleMap, err := upstreamModuleMap()
+	contract.AssertNoErrorf(err, "failed to load upstream AWS service names")
 
 	strategy, err := fallbackstrat.MappedModulesWithInferredFallback(
 		prov, "aws_", "", moduleMap, finalize)

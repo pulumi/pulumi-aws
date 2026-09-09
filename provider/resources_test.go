@@ -7,6 +7,7 @@ import (
 	"strings"
 	"testing"
 
+	awsnames "github.com/hashicorp/terraform-provider-aws/names/data"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/info"
 	"github.com/stretchr/testify/assert"
@@ -60,6 +61,40 @@ func TestExplicitTokenMappingsAreNecessary(t *testing.T) {
 	for _, terraformToken := range redundant {
 		t.Errorf("redundant explicit token mapping: %s", terraformToken)
 	}
+}
+
+func TestUpstreamModuleMap(t *testing.T) {
+	t.Parallel()
+
+	modules, err := upstreamModuleMap()
+	require.NoError(t, err)
+
+	assert.Equal(t, "AccountAccess", modules["accountaccess"])
+	assert.Equal(t, "LambdaMicroVMs", modules["lambdamicrovms"])
+	assert.Equal(t, ampMod, modules["prometheus"], "Pulumi compatibility overrides take precedence")
+	assert.Equal(t, "SSO", modules["sso"], "not-implemented endpoint-only services are included")
+
+	services, err := awsnames.ReadAllServiceData()
+	require.NoError(t, err)
+	upstreamPrefixes := map[string]struct{}{}
+	for _, service := range services {
+		prefix := upstreamResourcePrefix(service)
+		if prefix != "" {
+			upstreamPrefixes[prefix] = struct{}{}
+		}
+	}
+	for prefix := range upstreamModuleExclusions {
+		assert.Contains(t, upstreamPrefixes, prefix, "exclusion must match an upstream service prefix")
+		assert.NotContains(t, modules, prefix, "excluded upstream prefix")
+	}
+
+	for _, service := range services {
+		if service.ProviderPackage() == "ec2" {
+			assert.Equal(t, "ec2", upstreamResourcePrefix(service), "regex prefix uses its canonical form")
+			return
+		}
+	}
+	t.Fatal("EC2 service metadata not found")
 }
 
 func TestAutomaticTokenMappings(t *testing.T) {
