@@ -148,7 +148,7 @@ type Parameter struct {
 	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
 	Value pulumi.StringOutput `pulumi:"value"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `valueWoVersion`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.
+	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `valueWoVersion`.
 	ValueWo pulumi.StringPtrOutput `pulumi:"valueWo"`
 	// Required when `valueWo` is set. Changing this value triggers an update to `valueWo`.
 	//
@@ -235,7 +235,7 @@ type parameterState struct {
 	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
 	Value *string `pulumi:"value"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `valueWoVersion`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.
+	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `valueWoVersion`.
 	ValueWo *string `pulumi:"valueWo"`
 	// Required when `valueWo` is set. Changing this value triggers an update to `valueWo`.
 	//
@@ -279,7 +279,7 @@ type ParameterState struct {
 	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
 	Value pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `valueWoVersion`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.
+	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `valueWoVersion`.
 	ValueWo pulumi.StringPtrInput
 	// Required when `valueWo` is set. Changing this value triggers an update to `valueWo`.
 	//
@@ -323,7 +323,7 @@ type parameterArgs struct {
 	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
 	Value *string `pulumi:"value"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `valueWoVersion`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.
+	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `valueWoVersion`.
 	ValueWo *string `pulumi:"valueWo"`
 	// Required when `valueWo` is set. Changing this value triggers an update to `valueWo`.
 	//
@@ -362,7 +362,7 @@ type ParameterArgs struct {
 	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
 	Value pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `valueWoVersion`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.
+	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `valueWoVersion`.
 	ValueWo pulumi.StringPtrInput
 	// Required when `valueWo` is set. Changing this value triggers an update to `valueWo`.
 	//
@@ -535,7 +535,7 @@ func (o ParameterOutput) Value() pulumi.StringOutput {
 }
 
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `valueWoVersion`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.
+// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `valueWoVersion`.
 func (o ParameterOutput) ValueWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.ValueWo }).(pulumi.StringPtrOutput)
 }

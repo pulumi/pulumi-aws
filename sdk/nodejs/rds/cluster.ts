@@ -406,7 +406,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly caCertificateValidTill: pulumi.Output<string>;
     /**
-     * Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+     * Cluster identifier. If omitted, this provider will assign a random, unique identifier.
      */
     declare public readonly clusterIdentifier: pulumi.Output<string>;
     /**
@@ -644,7 +644,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly sourceRegion: pulumi.Output<string | undefined>;
     /**
-     * Whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. Terraform will only perform drift detection if a configuration value is provided.
+     * Whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
      */
     declare public readonly storageEncrypted: pulumi.Output<boolean>;
     /**
@@ -897,7 +897,7 @@ export interface ClusterState {
      */
     caCertificateValidTill?: pulumi.Input<string | undefined>;
     /**
-     * Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+     * Cluster identifier. If omitted, this provider will assign a random, unique identifier.
      */
     clusterIdentifier?: pulumi.Input<string | undefined>;
     /**
@@ -1135,7 +1135,7 @@ export interface ClusterState {
      */
     sourceRegion?: pulumi.Input<string | undefined>;
     /**
-     * Whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. Terraform will only perform drift detection if a configuration value is provided.
+     * Whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
      */
     storageEncrypted?: pulumi.Input<boolean | undefined>;
     /**
@@ -1201,7 +1201,7 @@ export interface ClusterArgs {
      */
     caCertificateIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+     * Cluster identifier. If omitted, this provider will assign a random, unique identifier.
      */
     clusterIdentifier?: pulumi.Input<string | undefined>;
     /**
@@ -1415,7 +1415,7 @@ export interface ClusterArgs {
      */
     sourceRegion?: pulumi.Input<string | undefined>;
     /**
-     * Whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. Terraform will only perform drift detection if a configuration value is provided.
+     * Whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
      */
     storageEncrypted?: pulumi.Input<boolean | undefined>;
     /**
