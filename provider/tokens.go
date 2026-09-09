@@ -2,6 +2,7 @@ package provider
 
 import (
 	"fmt"
+	"regexp"
 	"strings"
 	"sync"
 	"unicode"
@@ -563,6 +564,14 @@ var upstreamModuleExclusions = map[string]struct{}{
 	"ssmquicksetup":             {},
 }
 
+func upstreamResourcePrefix(service awsnames.ServiceRecord) string {
+	prefix := service.ResourcePrefixActual()
+	if prefix == "" || regexp.QuoteMeta(prefix) != prefix {
+		prefix = service.ResourcePrefixCorrect()
+	}
+	return strings.TrimSuffix(strings.TrimPrefix(prefix, "aws_"), "_")
+}
+
 func upstreamModuleMap() (map[string]string, error) {
 	services, err := awsnames.ReadAllServiceData()
 	if err != nil {
@@ -575,7 +584,7 @@ func upstreamModuleMap() (map[string]string, error) {
 			continue
 		}
 
-		prefix := strings.TrimSuffix(strings.TrimPrefix(service.ResourcePrefix(), "aws_"), "_")
+		prefix := upstreamResourcePrefix(service)
 		if prefix == "" || service.ProviderNameUpper() == "" {
 			continue
 		}
