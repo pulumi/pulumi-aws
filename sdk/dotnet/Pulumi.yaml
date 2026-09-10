@@ -1,3 +1,0 @@
-name: aws
-description: A Pulumi resource provider for aws.
-language: dotnet

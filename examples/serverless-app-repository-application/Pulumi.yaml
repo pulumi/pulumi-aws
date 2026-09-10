@@ -1,3 +1,0 @@
-name: serverless-app-repository-application
-runtime: nodejs
-description: Basic example of deploying an application from the serverless app repository.

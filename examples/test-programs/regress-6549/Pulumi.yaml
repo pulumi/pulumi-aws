@@ -1,7 +1,0 @@
-name: regress-6549
-runtime: nodejs
-description: Regress aws_route update failing when only customTimeouts changes
-config:
-  pulumi:tags:
-    value:
-      pulumi:template: aws-typescript

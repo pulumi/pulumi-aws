@@ -1,7 +1,0 @@
-name: changing-region
-runtime: nodejs
-description: A test program to try changing AWS region
-config:
-  pulumi:tags:
-    value:
-      pulumi:template: aws-typescript
