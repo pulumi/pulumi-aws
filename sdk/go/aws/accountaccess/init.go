@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:accountaccess/application:Application":
 		r = &Application{}
+	case "aws:accountaccess/entitlement:Entitlement":
+		r = &Entitlement{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"accountaccess/application",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"accountaccess/entitlement",
 		&module{version},
 	)
 }

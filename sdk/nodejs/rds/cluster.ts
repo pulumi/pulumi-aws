@@ -606,6 +606,10 @@ export class Cluster extends pulumi.CustomResource {
     declare public /*out*/ readonly upgradeRolloutOrder: pulumi.Output<string>;
     /**
      * List of VPC security groups to associate with the Cluster
+     */
+    declare public readonly vpcSecurityGroupIds: pulumi.Output<string[]>;
+    /**
+     * Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, Terraform describes RDS events reported for this cluster during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
      *
      * For more detailed documentation about each argument, refer to
      * the AWS official documentation:
@@ -613,7 +617,7 @@ export class Cluster extends pulumi.CustomResource {
      * * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
      * * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
      */
-    declare public readonly vpcSecurityGroupIds: pulumi.Output<string[]>;
+    declare public readonly warningEventCategories: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -704,6 +708,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state?.tagsAll;
             resourceInputs["upgradeRolloutOrder"] = state?.upgradeRolloutOrder;
             resourceInputs["vpcSecurityGroupIds"] = state?.vpcSecurityGroupIds;
+            resourceInputs["warningEventCategories"] = state?.warningEventCategories;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
             if (args?.engine === undefined && !opts.urn) {
@@ -775,6 +780,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["storageType"] = args?.storageType;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["vpcSecurityGroupIds"] = args?.vpcSecurityGroupIds;
+            resourceInputs["warningEventCategories"] = args?.warningEventCategories;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["caCertificateValidTill"] = undefined /*out*/;
             resourceInputs["clusterResourceId"] = undefined /*out*/;
@@ -1105,6 +1111,10 @@ export interface ClusterState {
     upgradeRolloutOrder?: pulumi.Input<string | undefined>;
     /**
      * List of VPC security groups to associate with the Cluster
+     */
+    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, Terraform describes RDS events reported for this cluster during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
      *
      * For more detailed documentation about each argument, refer to
      * the AWS official documentation:
@@ -1112,7 +1122,7 @@ export interface ClusterState {
      * * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
      * * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
      */
-    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    warningEventCategories?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -1386,6 +1396,10 @@ export interface ClusterArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of VPC security groups to associate with the Cluster
+     */
+    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, Terraform describes RDS events reported for this cluster during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
      *
      * For more detailed documentation about each argument, refer to
      * the AWS official documentation:
@@ -1393,5 +1407,5 @@ export interface ClusterArgs {
      * * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
      * * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
      */
-    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    warningEventCategories?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

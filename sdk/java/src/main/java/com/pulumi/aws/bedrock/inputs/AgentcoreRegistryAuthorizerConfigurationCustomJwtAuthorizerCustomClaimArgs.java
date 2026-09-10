@@ -15,23 +15,47 @@ public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCu
 
     public static final AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs Empty = new AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs();
 
+    /**
+     * Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` below.
+     * 
+     */
     @Import(name="authorizingClaimMatchValue", required=true)
     private Output<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs> authorizingClaimMatchValue;
 
+    /**
+     * @return Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` below.
+     * 
+     */
     public Output<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs> authorizingClaimMatchValue() {
         return this.authorizingClaimMatchValue;
     }
 
+    /**
+     * Name of the custom claim field to check.
+     * 
+     */
     @Import(name="inboundTokenClaimName", required=true)
     private Output<String> inboundTokenClaimName;
 
+    /**
+     * @return Name of the custom claim field to check.
+     * 
+     */
     public Output<String> inboundTokenClaimName() {
         return this.inboundTokenClaimName;
     }
 
+    /**
+     * Data type of the claim value to check for. Valid values are `STRING` and `STRING_ARRAY`.
+     * 
+     */
     @Import(name="inboundTokenClaimValueType", required=true)
     private Output<String> inboundTokenClaimValueType;
 
+    /**
+     * @return Data type of the claim value to check for. Valid values are `STRING` and `STRING_ARRAY`.
+     * 
+     */
     public Output<String> inboundTokenClaimValueType() {
         return this.inboundTokenClaimValueType;
     }
@@ -62,29 +86,65 @@ public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCu
             $ = new AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param authorizingClaimMatchValue Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authorizingClaimMatchValue(Output<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs> authorizingClaimMatchValue) {
             $.authorizingClaimMatchValue = authorizingClaimMatchValue;
             return this;
         }
 
+        /**
+         * @param authorizingClaimMatchValue Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authorizingClaimMatchValue(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs authorizingClaimMatchValue) {
             return authorizingClaimMatchValue(Output.of(authorizingClaimMatchValue));
         }
 
+        /**
+         * @param inboundTokenClaimName Name of the custom claim field to check.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inboundTokenClaimName(Output<String> inboundTokenClaimName) {
             $.inboundTokenClaimName = inboundTokenClaimName;
             return this;
         }
 
+        /**
+         * @param inboundTokenClaimName Name of the custom claim field to check.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inboundTokenClaimName(String inboundTokenClaimName) {
             return inboundTokenClaimName(Output.of(inboundTokenClaimName));
         }
 
+        /**
+         * @param inboundTokenClaimValueType Data type of the claim value to check for. Valid values are `STRING` and `STRING_ARRAY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inboundTokenClaimValueType(Output<String> inboundTokenClaimValueType) {
             $.inboundTokenClaimValueType = inboundTokenClaimValueType;
             return this;
         }
 
+        /**
+         * @param inboundTokenClaimValueType Data type of the claim value to check for. Valid values are `STRING` and `STRING_ARRAY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inboundTokenClaimValueType(String inboundTokenClaimValueType) {
             return inboundTokenClaimValueType(Output.of(inboundTokenClaimValueType));
         }

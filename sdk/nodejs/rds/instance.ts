@@ -769,6 +769,10 @@ export class Instance extends pulumi.CustomResource {
      * associate.
      */
     declare public readonly vpcSecurityGroupIds: pulumi.Output<string[]>;
+    /**
+     * Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, Terraform describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+     */
+    declare public readonly warningEventCategories: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Instance resource with the given unique name, arguments, and options.
@@ -868,6 +872,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["upgradeStorageConfig"] = state?.upgradeStorageConfig;
             resourceInputs["username"] = state?.username;
             resourceInputs["vpcSecurityGroupIds"] = state?.vpcSecurityGroupIds;
+            resourceInputs["warningEventCategories"] = state?.warningEventCategories;
         } else {
             const args = argsOrState as InstanceArgs | undefined;
             if (args?.instanceClass === undefined && !opts.urn) {
@@ -945,6 +950,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["upgradeStorageConfig"] = args?.upgradeStorageConfig;
             resourceInputs["username"] = args?.username;
             resourceInputs["vpcSecurityGroupIds"] = args?.vpcSecurityGroupIds;
+            resourceInputs["warningEventCategories"] = args?.warningEventCategories;
             resourceInputs["address"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
@@ -1389,6 +1395,10 @@ export interface InstanceState {
      * associate.
      */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, Terraform describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+     */
+    warningEventCategories?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -1765,4 +1775,8 @@ export interface InstanceArgs {
      * associate.
      */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, Terraform describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+     */
+    warningEventCategories?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

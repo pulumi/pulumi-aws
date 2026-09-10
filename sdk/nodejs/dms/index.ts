@@ -10,6 +10,11 @@ export type Certificate = import("./certificate").Certificate;
 export const Certificate: typeof import("./certificate").Certificate = null as any;
 utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
 
+export { DataProviderArgs, DataProviderState } from "./dataProvider";
+export type DataProvider = import("./dataProvider").DataProvider;
+export const DataProvider: typeof import("./dataProvider").DataProvider = null as any;
+utilities.lazyLoad(exports, ["DataProvider"], () => require("./dataProvider"));
+
 export { EndpointArgs, EndpointState } from "./endpoint";
 export type Endpoint = import("./endpoint").Endpoint;
 export const Endpoint: typeof import("./endpoint").Endpoint = null as any;
@@ -45,6 +50,11 @@ export const getReplicationTask: typeof import("./getReplicationTask").getReplic
 export const getReplicationTaskOutput: typeof import("./getReplicationTask").getReplicationTaskOutput = null as any;
 utilities.lazyLoad(exports, ["getReplicationTask","getReplicationTaskOutput"], () => require("./getReplicationTask"));
 
+export { InstanceProfileArgs, InstanceProfileState } from "./instanceProfile";
+export type InstanceProfile = import("./instanceProfile").InstanceProfile;
+export const InstanceProfile: typeof import("./instanceProfile").InstanceProfile = null as any;
+utilities.lazyLoad(exports, ["InstanceProfile"], () => require("./instanceProfile"));
+
 export { ReplicationConfigArgs, ReplicationConfigState } from "./replicationConfig";
 export type ReplicationConfig = import("./replicationConfig").ReplicationConfig;
 export const ReplicationConfig: typeof import("./replicationConfig").ReplicationConfig = null as any;
@@ -77,10 +87,14 @@ const _module = {
         switch (type) {
             case "aws:dms/certificate:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
+            case "aws:dms/dataProvider:DataProvider":
+                return new DataProvider(name, <any>undefined, { urn })
             case "aws:dms/endpoint:Endpoint":
                 return new Endpoint(name, <any>undefined, { urn })
             case "aws:dms/eventSubscription:EventSubscription":
                 return new EventSubscription(name, <any>undefined, { urn })
+            case "aws:dms/instanceProfile:InstanceProfile":
+                return new InstanceProfile(name, <any>undefined, { urn })
             case "aws:dms/replicationConfig:ReplicationConfig":
                 return new ReplicationConfig(name, <any>undefined, { urn })
             case "aws:dms/replicationInstance:ReplicationInstance":
@@ -97,8 +111,10 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "dms/certificate", _module)
+pulumi.runtime.registerResourceModule("aws", "dms/dataProvider", _module)
 pulumi.runtime.registerResourceModule("aws", "dms/endpoint", _module)
 pulumi.runtime.registerResourceModule("aws", "dms/eventSubscription", _module)
+pulumi.runtime.registerResourceModule("aws", "dms/instanceProfile", _module)
 pulumi.runtime.registerResourceModule("aws", "dms/replicationConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "dms/replicationInstance", _module)
 pulumi.runtime.registerResourceModule("aws", "dms/replicationSubnetGroup", _module)

@@ -431,6 +431,8 @@ func (o CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput) TargetC
 }
 
 type CapacityProviderManagedInstancesProvider struct {
+	// Configuration block for the auto repair configuration. Detailed below.
+	AutoRepairConfiguration *CapacityProviderManagedInstancesProviderAutoRepairConfiguration `pulumi:"autoRepairConfiguration"`
 	// Configuration block for how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider, including whether to turn optimization on or off and how long to delay optimizing idle EC2 instances. Detailed below.
 	InfrastructureOptimization *CapacityProviderManagedInstancesProviderInfrastructureOptimization `pulumi:"infrastructureOptimization"`
 	// ARN of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
@@ -453,6 +455,8 @@ type CapacityProviderManagedInstancesProviderInput interface {
 }
 
 type CapacityProviderManagedInstancesProviderArgs struct {
+	// Configuration block for the auto repair configuration. Detailed below.
+	AutoRepairConfiguration CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrInput `pulumi:"autoRepairConfiguration"`
 	// Configuration block for how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider, including whether to turn optimization on or off and how long to delay optimizing idle EC2 instances. Detailed below.
 	InfrastructureOptimization CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrInput `pulumi:"infrastructureOptimization"`
 	// ARN of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
@@ -540,6 +544,13 @@ func (o CapacityProviderManagedInstancesProviderOutput) ToCapacityProviderManage
 	}).(CapacityProviderManagedInstancesProviderPtrOutput)
 }
 
+// Configuration block for the auto repair configuration. Detailed below.
+func (o CapacityProviderManagedInstancesProviderOutput) AutoRepairConfiguration() CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProvider) *CapacityProviderManagedInstancesProviderAutoRepairConfiguration {
+		return v.AutoRepairConfiguration
+	}).(CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutput)
+}
+
 // Configuration block for how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider, including whether to turn optimization on or off and how long to delay optimizing idle EC2 instances. Detailed below.
 func (o CapacityProviderManagedInstancesProviderOutput) InfrastructureOptimization() CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProvider) *CapacityProviderManagedInstancesProviderInfrastructureOptimization {
@@ -588,6 +599,16 @@ func (o CapacityProviderManagedInstancesProviderPtrOutput) Elem() CapacityProvid
 	}).(CapacityProviderManagedInstancesProviderOutput)
 }
 
+// Configuration block for the auto repair configuration. Detailed below.
+func (o CapacityProviderManagedInstancesProviderPtrOutput) AutoRepairConfiguration() CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProvider) *CapacityProviderManagedInstancesProviderAutoRepairConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AutoRepairConfiguration
+	}).(CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutput)
+}
+
 // Configuration block for how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider, including whether to turn optimization on or off and how long to delay optimizing idle EC2 instances. Detailed below.
 func (o CapacityProviderManagedInstancesProviderPtrOutput) InfrastructureOptimization() CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProvider) *CapacityProviderManagedInstancesProviderInfrastructureOptimization {
@@ -625,6 +646,145 @@ func (o CapacityProviderManagedInstancesProviderPtrOutput) PropagateTags() pulum
 			return nil
 		}
 		return v.PropagateTags
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderAutoRepairConfiguration struct {
+	// Whether to use Amazon ECS managed auto repair. Valid values are `ENABLED` and `DISABLED`.
+	ActionsStatus *string `pulumi:"actionsStatus"`
+}
+
+// CapacityProviderManagedInstancesProviderAutoRepairConfigurationInput is an input type that accepts CapacityProviderManagedInstancesProviderAutoRepairConfigurationArgs and CapacityProviderManagedInstancesProviderAutoRepairConfigurationOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderAutoRepairConfigurationInput` via:
+//
+//	CapacityProviderManagedInstancesProviderAutoRepairConfigurationArgs{...}
+type CapacityProviderManagedInstancesProviderAutoRepairConfigurationInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderAutoRepairConfigurationOutput() CapacityProviderManagedInstancesProviderAutoRepairConfigurationOutput
+	ToCapacityProviderManagedInstancesProviderAutoRepairConfigurationOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderAutoRepairConfigurationOutput
+}
+
+type CapacityProviderManagedInstancesProviderAutoRepairConfigurationArgs struct {
+	// Whether to use Amazon ECS managed auto repair. Valid values are `ENABLED` and `DISABLED`.
+	ActionsStatus pulumi.StringPtrInput `pulumi:"actionsStatus"`
+}
+
+func (CapacityProviderManagedInstancesProviderAutoRepairConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderAutoRepairConfiguration)(nil)).Elem()
+}
+
+func (i CapacityProviderManagedInstancesProviderAutoRepairConfigurationArgs) ToCapacityProviderManagedInstancesProviderAutoRepairConfigurationOutput() CapacityProviderManagedInstancesProviderAutoRepairConfigurationOutput {
+	return i.ToCapacityProviderManagedInstancesProviderAutoRepairConfigurationOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderAutoRepairConfigurationArgs) ToCapacityProviderManagedInstancesProviderAutoRepairConfigurationOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderAutoRepairConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderAutoRepairConfigurationOutput)
+}
+
+func (i CapacityProviderManagedInstancesProviderAutoRepairConfigurationArgs) ToCapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutput() CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderAutoRepairConfigurationArgs) ToCapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderAutoRepairConfigurationOutput).ToCapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrInput is an input type that accepts CapacityProviderManagedInstancesProviderAutoRepairConfigurationArgs, CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtr and CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrInput` via:
+//
+//	        CapacityProviderManagedInstancesProviderAutoRepairConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutput() CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutput
+	ToCapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutput
+}
+
+type capacityProviderManagedInstancesProviderAutoRepairConfigurationPtrType CapacityProviderManagedInstancesProviderAutoRepairConfigurationArgs
+
+func CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtr(v *CapacityProviderManagedInstancesProviderAutoRepairConfigurationArgs) CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrInput {
+	return (*capacityProviderManagedInstancesProviderAutoRepairConfigurationPtrType)(v)
+}
+
+func (*capacityProviderManagedInstancesProviderAutoRepairConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderAutoRepairConfiguration)(nil)).Elem()
+}
+
+func (i *capacityProviderManagedInstancesProviderAutoRepairConfigurationPtrType) ToCapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutput() CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderManagedInstancesProviderAutoRepairConfigurationPtrType) ToCapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderAutoRepairConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderAutoRepairConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderAutoRepairConfiguration)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderAutoRepairConfigurationOutput) ToCapacityProviderManagedInstancesProviderAutoRepairConfigurationOutput() CapacityProviderManagedInstancesProviderAutoRepairConfigurationOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderAutoRepairConfigurationOutput) ToCapacityProviderManagedInstancesProviderAutoRepairConfigurationOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderAutoRepairConfigurationOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderAutoRepairConfigurationOutput) ToCapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutput() CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutput {
+	return o.ToCapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderManagedInstancesProviderAutoRepairConfigurationOutput) ToCapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderManagedInstancesProviderAutoRepairConfiguration) *CapacityProviderManagedInstancesProviderAutoRepairConfiguration {
+		return &v
+	}).(CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutput)
+}
+
+// Whether to use Amazon ECS managed auto repair. Valid values are `ENABLED` and `DISABLED`.
+func (o CapacityProviderManagedInstancesProviderAutoRepairConfigurationOutput) ActionsStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderAutoRepairConfiguration) *string {
+		return v.ActionsStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderAutoRepairConfiguration)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutput) ToCapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutput() CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutput) ToCapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutput) Elem() CapacityProviderManagedInstancesProviderAutoRepairConfigurationOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderAutoRepairConfiguration) CapacityProviderManagedInstancesProviderAutoRepairConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderManagedInstancesProviderAutoRepairConfiguration
+		return ret
+	}).(CapacityProviderManagedInstancesProviderAutoRepairConfigurationOutput)
+}
+
+// Whether to use Amazon ECS managed auto repair. Valid values are `ENABLED` and `DISABLED`.
+func (o CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutput) ActionsStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderAutoRepairConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActionsStatus
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -21393,6 +21553,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderManagedScalingPtrInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderManagedScalingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderAutoRepairConfigurationInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderAutoRepairConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderAutoRepairConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInfrastructureOptimizationInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs{})
@@ -21677,6 +21839,8 @@ func init() {
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderAutoRepairConfigurationOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderAutoRepairConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInfrastructureOptimizationOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput{})

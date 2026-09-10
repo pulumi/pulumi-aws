@@ -15,16 +15,32 @@ public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPr
 
     public static final AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs Empty = new AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs();
 
+    /**
+     * Domain the override applies to.
+     * 
+     */
     @Import(name="domain", required=true)
     private Output<String> domain;
 
+    /**
+     * @return Domain the override applies to.
+     * 
+     */
     public Output<String> domain() {
         return this.domain;
     }
 
+    /**
+     * Private endpoint configuration. See `privateEndpoint` below.
+     * 
+     */
     @Import(name="privateEndpoint", required=true)
     private Output<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs> privateEndpoint;
 
+    /**
+     * @return Private endpoint configuration. See `privateEndpoint` below.
+     * 
+     */
     public Output<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs> privateEndpoint() {
         return this.privateEndpoint;
     }
@@ -54,20 +70,44 @@ public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPr
             $ = new AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param domain Domain the override applies to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domain(Output<String> domain) {
             $.domain = domain;
             return this;
         }
 
+        /**
+         * @param domain Domain the override applies to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
         }
 
+        /**
+         * @param privateEndpoint Private endpoint configuration. See `privateEndpoint` below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateEndpoint(Output<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs> privateEndpoint) {
             $.privateEndpoint = privateEndpoint;
             return this;
         }
 
+        /**
+         * @param privateEndpoint Private endpoint configuration. See `privateEndpoint` below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateEndpoint(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs privateEndpoint) {
             return privateEndpoint(Output.of(privateEndpoint));
         }

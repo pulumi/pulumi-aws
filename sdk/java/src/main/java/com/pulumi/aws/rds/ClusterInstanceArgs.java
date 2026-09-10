@@ -12,6 +12,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -402,9 +403,6 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
-     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
@@ -412,12 +410,30 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     /**
      * @return Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
+     */
+    public Optional<Output<Map<String,String>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
+    /**
+     * Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, Terraform describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+     * 
      * For more detailed documentation about each argument, refer to
      * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
      * 
      */
-    public Optional<Output<Map<String,String>>> tags() {
-        return Optional.ofNullable(this.tags);
+    @Import(name="warningEventCategories")
+    private @Nullable Output<List<String>> warningEventCategories;
+
+    /**
+     * @return Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, Terraform describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+     * 
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
+     * 
+     */
+    public Optional<Output<List<String>>> warningEventCategories() {
+        return Optional.ofNullable(this.warningEventCategories);
     }
 
     private ClusterInstanceArgs() {}
@@ -449,6 +465,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         this.publiclyAccessible = $.publiclyAccessible;
         this.region = $.region;
         this.tags = $.tags;
+        this.warningEventCategories = $.warningEventCategories;
     }
 
     public static Builder builder() {
@@ -1019,9 +1036,6 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param tags Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
-         * For more detailed documentation about each argument, refer to
-         * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
-         * 
          * @return builder
          * 
          */
@@ -1033,14 +1047,51 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param tags Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
+         * @return builder
+         * 
+         */
+        public Builder tags(Map<String,String> tags) {
+            return tags(Output.of(tags));
+        }
+
+        /**
+         * @param warningEventCategories Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, Terraform describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+         * 
          * For more detailed documentation about each argument, refer to
          * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
          * 
          * @return builder
          * 
          */
-        public Builder tags(Map<String,String> tags) {
-            return tags(Output.of(tags));
+        public Builder warningEventCategories(@Nullable Output<List<String>> warningEventCategories) {
+            $.warningEventCategories = warningEventCategories;
+            return this;
+        }
+
+        /**
+         * @param warningEventCategories Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, Terraform describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+         * 
+         * For more detailed documentation about each argument, refer to
+         * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder warningEventCategories(List<String> warningEventCategories) {
+            return warningEventCategories(Output.of(warningEventCategories));
+        }
+
+        /**
+         * @param warningEventCategories Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, Terraform describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+         * 
+         * For more detailed documentation about each argument, refer to
+         * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder warningEventCategories(String... warningEventCategories) {
+            return warningEventCategories(List.of(warningEventCategories));
         }
 
         public ClusterInstanceArgs build() {

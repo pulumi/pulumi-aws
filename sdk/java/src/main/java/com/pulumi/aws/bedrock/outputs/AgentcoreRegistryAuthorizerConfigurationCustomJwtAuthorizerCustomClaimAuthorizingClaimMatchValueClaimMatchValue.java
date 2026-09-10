@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue {
+    /**
+     * @return String value to match for. Must be specified when `claimMatchOperator` is `EQUALS` or `CONTAINS`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+     * 
+     */
     private @Nullable String matchValueString;
+    /**
+     * @return List of strings to check for a match. Must be specified when `claimMatchOperator` is `CONTAINS_ANY`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+     * 
+     */
     private @Nullable List<String> matchValueStringLists;
 
     private AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue() {}
+    /**
+     * @return String value to match for. Must be specified when `claimMatchOperator` is `EQUALS` or `CONTAINS`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+     * 
+     */
     public Optional<String> matchValueString() {
         return Optional.ofNullable(this.matchValueString);
     }
+    /**
+     * @return List of strings to check for a match. Must be specified when `claimMatchOperator` is `CONTAINS_ANY`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+     * 
+     */
     public List<String> matchValueStringLists() {
         return this.matchValueStringLists == null ? List.of() : this.matchValueStringLists;
     }

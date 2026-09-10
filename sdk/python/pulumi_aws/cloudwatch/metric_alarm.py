@@ -45,7 +45,8 @@ class MetricAlarmArgs:
                  threshold: pulumi.Input[Optional[_builtins.float]] = None,
                  threshold_metric_id: pulumi.Input[Optional[_builtins.str]] = None,
                  treat_missing_data: pulumi.Input[Optional[_builtins.str]] = None,
-                 unit: pulumi.Input[Optional[_builtins.str]] = None):
+                 unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 warm_up_configuration: pulumi.Input[Optional['MetricAlarmWarmUpConfigurationArgs']] = None):
         """
         The set of arguments for constructing a MetricAlarm resource.
 
@@ -86,6 +87,7 @@ class MetricAlarmArgs:
         :param pulumi.Input[_builtins.str] threshold_metric_id: If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
         :param pulumi.Input[_builtins.str] treat_missing_data: Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
         :param pulumi.Input[_builtins.str] unit: The unit for the alarm's associated metric.
+        :param pulumi.Input['MetricAlarmWarmUpConfigurationArgs'] warm_up_configuration: Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warm_up_configuration` below.
         """
         if actions_enabled is not None:
             pulumi.set(__self__, "actions_enabled", actions_enabled)
@@ -137,6 +139,8 @@ class MetricAlarmArgs:
             pulumi.set(__self__, "treat_missing_data", treat_missing_data)
         if unit is not None:
             pulumi.set(__self__, "unit", unit)
+        if warm_up_configuration is not None:
+            pulumi.set(__self__, "warm_up_configuration", warm_up_configuration)
 
     @_builtins.property
     @pulumi.getter(name="actionsEnabled")
@@ -450,6 +454,18 @@ class MetricAlarmArgs:
     def unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unit", value)
 
+    @_builtins.property
+    @pulumi.getter(name="warmUpConfiguration")
+    def warm_up_configuration(self) -> pulumi.Input[Optional['MetricAlarmWarmUpConfigurationArgs']]:
+        """
+        Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warm_up_configuration` below.
+        """
+        return pulumi.get(self, "warm_up_configuration")
+
+    @warm_up_configuration.setter
+    def warm_up_configuration(self, value: pulumi.Input[Optional['MetricAlarmWarmUpConfigurationArgs']]):
+        pulumi.set(self, "warm_up_configuration", value)
+
 
 @pulumi.input_type
 class _MetricAlarmState:
@@ -480,7 +496,8 @@ class _MetricAlarmState:
                  threshold: pulumi.Input[Optional[_builtins.float]] = None,
                  threshold_metric_id: pulumi.Input[Optional[_builtins.str]] = None,
                  treat_missing_data: pulumi.Input[Optional[_builtins.str]] = None,
-                 unit: pulumi.Input[Optional[_builtins.str]] = None):
+                 unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 warm_up_configuration: pulumi.Input[Optional['MetricAlarmWarmUpConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering MetricAlarm resources.
 
@@ -523,6 +540,7 @@ class _MetricAlarmState:
         :param pulumi.Input[_builtins.str] threshold_metric_id: If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
         :param pulumi.Input[_builtins.str] treat_missing_data: Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
         :param pulumi.Input[_builtins.str] unit: The unit for the alarm's associated metric.
+        :param pulumi.Input['MetricAlarmWarmUpConfigurationArgs'] warm_up_configuration: Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warm_up_configuration` below.
         """
         if actions_enabled is not None:
             pulumi.set(__self__, "actions_enabled", actions_enabled)
@@ -578,6 +596,8 @@ class _MetricAlarmState:
             pulumi.set(__self__, "treat_missing_data", treat_missing_data)
         if unit is not None:
             pulumi.set(__self__, "unit", unit)
+        if warm_up_configuration is not None:
+            pulumi.set(__self__, "warm_up_configuration", warm_up_configuration)
 
     @_builtins.property
     @pulumi.getter(name="actionsEnabled")
@@ -915,6 +935,18 @@ class _MetricAlarmState:
     def unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unit", value)
 
+    @_builtins.property
+    @pulumi.getter(name="warmUpConfiguration")
+    def warm_up_configuration(self) -> pulumi.Input[Optional['MetricAlarmWarmUpConfigurationArgs']]:
+        """
+        Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warm_up_configuration` below.
+        """
+        return pulumi.get(self, "warm_up_configuration")
+
+    @warm_up_configuration.setter
+    def warm_up_configuration(self, value: pulumi.Input[Optional['MetricAlarmWarmUpConfigurationArgs']]):
+        pulumi.set(self, "warm_up_configuration", value)
+
 
 @pulumi.type_token("aws:cloudwatch/metricAlarm:MetricAlarm")
 class MetricAlarm(pulumi.CustomResource):
@@ -947,6 +979,7 @@ class MetricAlarm(pulumi.CustomResource):
                  threshold_metric_id: pulumi.Input[Optional[_builtins.str]] = None,
                  treat_missing_data: pulumi.Input[Optional[_builtins.str]] = None,
                  unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 warm_up_configuration: pulumi.Input[Optional[Union['MetricAlarmWarmUpConfigurationArgs', 'MetricAlarmWarmUpConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Provides a CloudWatch Metric Alarm resource.
@@ -1158,6 +1191,28 @@ class MetricAlarm(pulumi.CustomResource):
             })
         ```
 
+        ### With a Warm-Up Period
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudwatch.MetricAlarm("example",
+            warm_up_configuration={
+                "warm_up_period_duration_in_minutes": 30,
+            },
+            name="example-service-errors",
+            comparison_operator="GreaterThanThreshold",
+            evaluation_periods=3,
+            metric_name="Errors",
+            namespace="ExampleApp",
+            period=60,
+            statistic="Sum",
+            threshold=float(0),
+            treat_missing_data="breaching",
+            alarm_actions=[example_aws_sns_topic["arn"]])
+        ```
+
         > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extended_statistic` parameters.
         You must choose one or the other.
 
@@ -1220,6 +1275,7 @@ class MetricAlarm(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] threshold_metric_id: If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
         :param pulumi.Input[_builtins.str] treat_missing_data: Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
         :param pulumi.Input[_builtins.str] unit: The unit for the alarm's associated metric.
+        :param pulumi.Input[Union['MetricAlarmWarmUpConfigurationArgs', 'MetricAlarmWarmUpConfigurationArgsDict']] warm_up_configuration: Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warm_up_configuration` below.
         """
         ...
     @overload
@@ -1437,6 +1493,28 @@ class MetricAlarm(pulumi.CustomResource):
             })
         ```
 
+        ### With a Warm-Up Period
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudwatch.MetricAlarm("example",
+            warm_up_configuration={
+                "warm_up_period_duration_in_minutes": 30,
+            },
+            name="example-service-errors",
+            comparison_operator="GreaterThanThreshold",
+            evaluation_periods=3,
+            metric_name="Errors",
+            namespace="ExampleApp",
+            period=60,
+            statistic="Sum",
+            threshold=float(0),
+            treat_missing_data="breaching",
+            alarm_actions=[example_aws_sns_topic["arn"]])
+        ```
+
         > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extended_statistic` parameters.
         You must choose one or the other.
 
@@ -1500,6 +1578,7 @@ class MetricAlarm(pulumi.CustomResource):
                  threshold_metric_id: pulumi.Input[Optional[_builtins.str]] = None,
                  treat_missing_data: pulumi.Input[Optional[_builtins.str]] = None,
                  unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 warm_up_configuration: pulumi.Input[Optional[Union['MetricAlarmWarmUpConfigurationArgs', 'MetricAlarmWarmUpConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1534,6 +1613,7 @@ class MetricAlarm(pulumi.CustomResource):
             __props__.__dict__["threshold_metric_id"] = threshold_metric_id
             __props__.__dict__["treat_missing_data"] = treat_missing_data
             __props__.__dict__["unit"] = unit
+            __props__.__dict__["warm_up_configuration"] = warm_up_configuration
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
         super(MetricAlarm, __self__).__init__(
@@ -1572,7 +1652,8 @@ class MetricAlarm(pulumi.CustomResource):
             threshold: pulumi.Input[Optional[_builtins.float]] = None,
             threshold_metric_id: pulumi.Input[Optional[_builtins.str]] = None,
             treat_missing_data: pulumi.Input[Optional[_builtins.str]] = None,
-            unit: pulumi.Input[Optional[_builtins.str]] = None) -> 'MetricAlarm':
+            unit: pulumi.Input[Optional[_builtins.str]] = None,
+            warm_up_configuration: pulumi.Input[Optional[Union['MetricAlarmWarmUpConfigurationArgs', 'MetricAlarmWarmUpConfigurationArgsDict']]] = None) -> 'MetricAlarm':
         """
         Get an existing MetricAlarm resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1619,6 +1700,7 @@ class MetricAlarm(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] threshold_metric_id: If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
         :param pulumi.Input[_builtins.str] treat_missing_data: Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
         :param pulumi.Input[_builtins.str] unit: The unit for the alarm's associated metric.
+        :param pulumi.Input[Union['MetricAlarmWarmUpConfigurationArgs', 'MetricAlarmWarmUpConfigurationArgsDict']] warm_up_configuration: Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warm_up_configuration` below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1651,6 +1733,7 @@ class MetricAlarm(pulumi.CustomResource):
         __props__.__dict__["threshold_metric_id"] = threshold_metric_id
         __props__.__dict__["treat_missing_data"] = treat_missing_data
         __props__.__dict__["unit"] = unit
+        __props__.__dict__["warm_up_configuration"] = warm_up_configuration
         return MetricAlarm(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -1880,4 +1963,12 @@ class MetricAlarm(pulumi.CustomResource):
         The unit for the alarm's associated metric.
         """
         return pulumi.get(self, "unit")
+
+    @_builtins.property
+    @pulumi.getter(name="warmUpConfiguration")
+    def warm_up_configuration(self) -> pulumi.Output[Optional['outputs.MetricAlarmWarmUpConfiguration']]:
+        """
+        Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warm_up_configuration` below.
+        """
+        return pulumi.get(self, "warm_up_configuration")
 

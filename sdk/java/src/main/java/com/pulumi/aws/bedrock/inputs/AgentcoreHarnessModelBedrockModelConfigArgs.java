@@ -19,6 +19,36 @@ public final class AgentcoreHarnessModelBedrockModelConfigArgs extends com.pulum
     public static final AgentcoreHarnessModelBedrockModelConfigArgs Empty = new AgentcoreHarnessModelBedrockModelConfigArgs();
 
     /**
+     * JSON string containing provider-specific parameters to pass through to the Bedrock model provider unchanged.
+     * 
+     */
+    @Import(name="additionalParams")
+    private @Nullable Output<String> additionalParams;
+
+    /**
+     * @return JSON string containing provider-specific parameters to pass through to the Bedrock model provider unchanged.
+     * 
+     */
+    public Optional<Output<String>> additionalParams() {
+        return Optional.ofNullable(this.additionalParams);
+    }
+
+    /**
+     * API format for the model. Valid values are `converseStream`, `responses`, and `chatCompletions`.
+     * 
+     */
+    @Import(name="apiFormat")
+    private @Nullable Output<String> apiFormat;
+
+    /**
+     * @return API format for the model. Valid values are `converseStream`, `responses`, and `chatCompletions`.
+     * 
+     */
+    public Optional<Output<String>> apiFormat() {
+        return Optional.ofNullable(this.apiFormat);
+    }
+
+    /**
      * Maximum number of tokens to generate.
      * 
      */
@@ -81,6 +111,8 @@ public final class AgentcoreHarnessModelBedrockModelConfigArgs extends com.pulum
     private AgentcoreHarnessModelBedrockModelConfigArgs() {}
 
     private AgentcoreHarnessModelBedrockModelConfigArgs(AgentcoreHarnessModelBedrockModelConfigArgs $) {
+        this.additionalParams = $.additionalParams;
+        this.apiFormat = $.apiFormat;
         this.maxTokens = $.maxTokens;
         this.modelId = $.modelId;
         this.temperature = $.temperature;
@@ -103,6 +135,48 @@ public final class AgentcoreHarnessModelBedrockModelConfigArgs extends com.pulum
 
         public Builder(AgentcoreHarnessModelBedrockModelConfigArgs defaults) {
             $ = new AgentcoreHarnessModelBedrockModelConfigArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param additionalParams JSON string containing provider-specific parameters to pass through to the Bedrock model provider unchanged.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder additionalParams(@Nullable Output<String> additionalParams) {
+            $.additionalParams = additionalParams;
+            return this;
+        }
+
+        /**
+         * @param additionalParams JSON string containing provider-specific parameters to pass through to the Bedrock model provider unchanged.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder additionalParams(String additionalParams) {
+            return additionalParams(Output.of(additionalParams));
+        }
+
+        /**
+         * @param apiFormat API format for the model. Valid values are `converseStream`, `responses`, and `chatCompletions`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiFormat(@Nullable Output<String> apiFormat) {
+            $.apiFormat = apiFormat;
+            return this;
+        }
+
+        /**
+         * @param apiFormat API format for the model. Valid values are `converseStream`, `responses`, and `chatCompletions`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiFormat(String apiFormat) {
+            return apiFormat(Output.of(apiFormat));
         }
 
         /**

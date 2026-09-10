@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudwatch;
 
 import com.pulumi.aws.cloudwatch.inputs.MetricAlarmEvaluationCriteriaArgs;
 import com.pulumi.aws.cloudwatch.inputs.MetricAlarmMetricQueryArgs;
+import com.pulumi.aws.cloudwatch.inputs.MetricAlarmWarmUpConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -421,6 +422,21 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.unit);
     }
 
+    /**
+     * Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warmUpConfiguration` below.
+     * 
+     */
+    @Import(name="warmUpConfiguration")
+    private @Nullable Output<MetricAlarmWarmUpConfigurationArgs> warmUpConfiguration;
+
+    /**
+     * @return Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warmUpConfiguration` below.
+     * 
+     */
+    public Optional<Output<MetricAlarmWarmUpConfigurationArgs>> warmUpConfiguration() {
+        return Optional.ofNullable(this.warmUpConfiguration);
+    }
+
     private MetricAlarmArgs() {}
 
     private MetricAlarmArgs(MetricAlarmArgs $) {
@@ -449,6 +465,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         this.thresholdMetricId = $.thresholdMetricId;
         this.treatMissingData = $.treatMissingData;
         this.unit = $.unit;
+        this.warmUpConfiguration = $.warmUpConfiguration;
     }
 
     public static Builder builder() {
@@ -1056,6 +1073,27 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder unit(String unit) {
             return unit(Output.of(unit));
+        }
+
+        /**
+         * @param warmUpConfiguration Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warmUpConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder warmUpConfiguration(@Nullable Output<MetricAlarmWarmUpConfigurationArgs> warmUpConfiguration) {
+            $.warmUpConfiguration = warmUpConfiguration;
+            return this;
+        }
+
+        /**
+         * @param warmUpConfiguration Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warmUpConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder warmUpConfiguration(MetricAlarmWarmUpConfigurationArgs warmUpConfiguration) {
+            return warmUpConfiguration(Output.of(warmUpConfiguration));
         }
 
         public MetricAlarmArgs build() {

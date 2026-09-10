@@ -436,14 +436,14 @@ public class AgentcoreHarness extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="maxTokens", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> maxTokens;
+    private Output<Integer> maxTokens;
 
     /**
      * @return Maximum number of tokens in the model response.
      * 
      */
-    public Output<Optional<Integer>> maxTokens() {
-        return Codegen.optional(this.maxTokens);
+    public Output<Integer> maxTokens() {
+        return this.maxTokens;
     }
     /**
      * Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
@@ -476,16 +476,12 @@ public class AgentcoreHarness extends com.pulumi.resources.CustomResource {
     /**
      * Model configuration for the harness. See `model` Block below.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="model", refs={AgentcoreHarnessModel.class}, tree="[0]")
     private Output<AgentcoreHarnessModel> model;
 
     /**
      * @return Model configuration for the harness. See `model` Block below.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<AgentcoreHarnessModel> model() {
@@ -522,16 +518,20 @@ public class AgentcoreHarness extends com.pulumi.resources.CustomResource {
     /**
      * System prompt blocks for the harness. See `systemPrompt` Block below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="systemPrompts", refs={List.class,AgentcoreHarnessSystemPrompt.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<AgentcoreHarnessSystemPrompt>> systemPrompts;
+    private Output<List<AgentcoreHarnessSystemPrompt>> systemPrompts;
 
     /**
      * @return System prompt blocks for the harness. See `systemPrompt` Block below.
      * 
+     * The following arguments are optional:
+     * 
      */
-    public Output<Optional<List<AgentcoreHarnessSystemPrompt>>> systemPrompts() {
-        return Codegen.optional(this.systemPrompts);
+    public Output<List<AgentcoreHarnessSystemPrompt>> systemPrompts() {
+        return this.systemPrompts;
     }
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

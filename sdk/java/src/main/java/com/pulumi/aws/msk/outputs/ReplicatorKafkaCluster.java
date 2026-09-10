@@ -4,38 +4,78 @@
 package com.pulumi.aws.msk.outputs;
 
 import com.pulumi.aws.msk.outputs.ReplicatorKafkaClusterAmazonMskCluster;
+import com.pulumi.aws.msk.outputs.ReplicatorKafkaClusterApacheKafkaCluster;
+import com.pulumi.aws.msk.outputs.ReplicatorKafkaClusterClientAuthentication;
+import com.pulumi.aws.msk.outputs.ReplicatorKafkaClusterEncryptionInTransit;
 import com.pulumi.aws.msk.outputs.ReplicatorKafkaClusterVpcConfig;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ReplicatorKafkaCluster {
     /**
-     * @return Details of an Amazon MSK cluster.
+     * @return Details of an Amazon MSK cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
      * 
      */
-    private ReplicatorKafkaClusterAmazonMskCluster amazonMskCluster;
+    private @Nullable ReplicatorKafkaClusterAmazonMskCluster amazonMskCluster;
     /**
-     * @return Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+     * @return Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
      * 
      */
-    private ReplicatorKafkaClusterVpcConfig vpcConfig;
+    private @Nullable ReplicatorKafkaClusterApacheKafkaCluster apacheKafkaCluster;
+    /**
+     * @return Details of the client authentication used by the Kafka cluster. Only valid for an `apacheKafkaCluster`. Detailed below.
+     * 
+     */
+    private @Nullable ReplicatorKafkaClusterClientAuthentication clientAuthentication;
+    /**
+     * @return Details of encryption in transit to the Kafka cluster. Only valid for an `apacheKafkaCluster`. TLS encryption in transit is always applied to an `apacheKafkaCluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). Detailed below.
+     * 
+     */
+    private @Nullable ReplicatorKafkaClusterEncryptionInTransit encryptionInTransit;
+    /**
+     * @return Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazonMskCluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC.
+     * 
+     */
+    private @Nullable ReplicatorKafkaClusterVpcConfig vpcConfig;
 
     private ReplicatorKafkaCluster() {}
     /**
-     * @return Details of an Amazon MSK cluster.
+     * @return Details of an Amazon MSK cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
      * 
      */
-    public ReplicatorKafkaClusterAmazonMskCluster amazonMskCluster() {
-        return this.amazonMskCluster;
+    public Optional<ReplicatorKafkaClusterAmazonMskCluster> amazonMskCluster() {
+        return Optional.ofNullable(this.amazonMskCluster);
     }
     /**
-     * @return Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+     * @return Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
      * 
      */
-    public ReplicatorKafkaClusterVpcConfig vpcConfig() {
-        return this.vpcConfig;
+    public Optional<ReplicatorKafkaClusterApacheKafkaCluster> apacheKafkaCluster() {
+        return Optional.ofNullable(this.apacheKafkaCluster);
+    }
+    /**
+     * @return Details of the client authentication used by the Kafka cluster. Only valid for an `apacheKafkaCluster`. Detailed below.
+     * 
+     */
+    public Optional<ReplicatorKafkaClusterClientAuthentication> clientAuthentication() {
+        return Optional.ofNullable(this.clientAuthentication);
+    }
+    /**
+     * @return Details of encryption in transit to the Kafka cluster. Only valid for an `apacheKafkaCluster`. TLS encryption in transit is always applied to an `apacheKafkaCluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). Detailed below.
+     * 
+     */
+    public Optional<ReplicatorKafkaClusterEncryptionInTransit> encryptionInTransit() {
+        return Optional.ofNullable(this.encryptionInTransit);
+    }
+    /**
+     * @return Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazonMskCluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC.
+     * 
+     */
+    public Optional<ReplicatorKafkaClusterVpcConfig> vpcConfig() {
+        return Optional.ofNullable(this.vpcConfig);
     }
 
     public static Builder builder() {
@@ -47,34 +87,57 @@ public final class ReplicatorKafkaCluster {
     }
     @CustomType.Builder
     public static final class Builder {
-        private ReplicatorKafkaClusterAmazonMskCluster amazonMskCluster;
-        private ReplicatorKafkaClusterVpcConfig vpcConfig;
+        private @Nullable ReplicatorKafkaClusterAmazonMskCluster amazonMskCluster;
+        private @Nullable ReplicatorKafkaClusterApacheKafkaCluster apacheKafkaCluster;
+        private @Nullable ReplicatorKafkaClusterClientAuthentication clientAuthentication;
+        private @Nullable ReplicatorKafkaClusterEncryptionInTransit encryptionInTransit;
+        private @Nullable ReplicatorKafkaClusterVpcConfig vpcConfig;
         public Builder() {}
         public Builder(ReplicatorKafkaCluster defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.amazonMskCluster = defaults.amazonMskCluster;
+    	      this.apacheKafkaCluster = defaults.apacheKafkaCluster;
+    	      this.clientAuthentication = defaults.clientAuthentication;
+    	      this.encryptionInTransit = defaults.encryptionInTransit;
     	      this.vpcConfig = defaults.vpcConfig;
         }
 
         @CustomType.Setter
-        public Builder amazonMskCluster(ReplicatorKafkaClusterAmazonMskCluster amazonMskCluster) {
-            if (amazonMskCluster == null) {
-              throw new MissingRequiredPropertyException("ReplicatorKafkaCluster", "amazonMskCluster");
-            }
+        public Builder amazonMskCluster(@Nullable ReplicatorKafkaClusterAmazonMskCluster amazonMskCluster) {
+
             this.amazonMskCluster = amazonMskCluster;
             return this;
         }
         @CustomType.Setter
-        public Builder vpcConfig(ReplicatorKafkaClusterVpcConfig vpcConfig) {
-            if (vpcConfig == null) {
-              throw new MissingRequiredPropertyException("ReplicatorKafkaCluster", "vpcConfig");
-            }
+        public Builder apacheKafkaCluster(@Nullable ReplicatorKafkaClusterApacheKafkaCluster apacheKafkaCluster) {
+
+            this.apacheKafkaCluster = apacheKafkaCluster;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder clientAuthentication(@Nullable ReplicatorKafkaClusterClientAuthentication clientAuthentication) {
+
+            this.clientAuthentication = clientAuthentication;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder encryptionInTransit(@Nullable ReplicatorKafkaClusterEncryptionInTransit encryptionInTransit) {
+
+            this.encryptionInTransit = encryptionInTransit;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder vpcConfig(@Nullable ReplicatorKafkaClusterVpcConfig vpcConfig) {
+
             this.vpcConfig = vpcConfig;
             return this;
         }
         public ReplicatorKafkaCluster build() {
             final var _resultValue = new ReplicatorKafkaCluster();
             _resultValue.amazonMskCluster = amazonMskCluster;
+            _resultValue.apacheKafkaCluster = apacheKafkaCluster;
+            _resultValue.clientAuthentication = clientAuthentication;
+            _resultValue.encryptionInTransit = encryptionInTransit;
             _resultValue.vpcConfig = vpcConfig;
             return _resultValue;
         }

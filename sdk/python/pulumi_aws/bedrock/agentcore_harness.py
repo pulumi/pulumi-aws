@@ -24,6 +24,7 @@ class AgentcoreHarnessArgs:
                  execution_role_arn: pulumi.Input[_builtins.str],
                  harness_name: pulumi.Input[_builtins.str],
                  model: pulumi.Input['AgentcoreHarnessModelArgs'],
+                 system_prompts: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessSystemPromptArgs']]],
                  allowed_tools: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  authorizer_configuration: pulumi.Input[Optional['AgentcoreHarnessAuthorizerConfigurationArgs']] = None,
                  environment_artifact: pulumi.Input[Optional['AgentcoreHarnessEnvironmentArtifactArgs']] = None,
@@ -34,7 +35,6 @@ class AgentcoreHarnessArgs:
                  memory: pulumi.Input[Optional['AgentcoreHarnessMemoryArgs']] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  skills: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessSkillArgs']]]] = None,
-                 system_prompts: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessSystemPromptArgs']]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  timeouts: pulumi.Input[Optional['AgentcoreHarnessTimeoutsArgs']] = None,
@@ -46,6 +46,7 @@ class AgentcoreHarnessArgs:
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the harness assumes to access AWS services.
         :param pulumi.Input[_builtins.str] harness_name: Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
         :param pulumi.Input['AgentcoreHarnessModelArgs'] model: Model configuration for the harness. See `model` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessSystemPromptArgs']]] system_prompts: System prompt blocks for the harness. See `system_prompt` Block below.
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_tools: List of tool names allowed for the harness. Use `["*"]` to allow all tools.
@@ -58,7 +59,6 @@ class AgentcoreHarnessArgs:
         :param pulumi.Input['AgentcoreHarnessMemoryArgs'] memory: Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memory_actual`. Clearing this value will reset the memory configuration to default values.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessSkillArgs']]] skills: Skill configurations. See `skill` Block below.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessSystemPromptArgs']]] system_prompts: System prompt blocks for the harness. See `system_prompt` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.int] timeout_seconds: Timeout in seconds for the harness execution.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessToolArgs']]] tools: Tool configurations. See `tool` Block below.
@@ -67,6 +67,7 @@ class AgentcoreHarnessArgs:
         pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         pulumi.set(__self__, "harness_name", harness_name)
         pulumi.set(__self__, "model", model)
+        pulumi.set(__self__, "system_prompts", system_prompts)
         if allowed_tools is not None:
             pulumi.set(__self__, "allowed_tools", allowed_tools)
         if authorizer_configuration is not None:
@@ -87,8 +88,6 @@ class AgentcoreHarnessArgs:
             pulumi.set(__self__, "region", region)
         if skills is not None:
             pulumi.set(__self__, "skills", skills)
-        if system_prompts is not None:
-            pulumi.set(__self__, "system_prompts", system_prompts)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeout_seconds is not None:
@@ -129,14 +128,26 @@ class AgentcoreHarnessArgs:
     def model(self) -> pulumi.Input['AgentcoreHarnessModelArgs']:
         """
         Model configuration for the harness. See `model` Block below.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "model")
 
     @model.setter
     def model(self, value: pulumi.Input['AgentcoreHarnessModelArgs']):
         pulumi.set(self, "model", value)
+
+    @_builtins.property
+    @pulumi.getter(name="systemPrompts")
+    def system_prompts(self) -> pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessSystemPromptArgs']]]:
+        """
+        System prompt blocks for the harness. See `system_prompt` Block below.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "system_prompts")
+
+    @system_prompts.setter
+    def system_prompts(self, value: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessSystemPromptArgs']]]):
+        pulumi.set(self, "system_prompts", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedTools")
@@ -259,18 +270,6 @@ class AgentcoreHarnessArgs:
         pulumi.set(self, "skills", value)
 
     @_builtins.property
-    @pulumi.getter(name="systemPrompts")
-    def system_prompts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessSystemPromptArgs']]]]:
-        """
-        System prompt blocks for the harness. See `system_prompt` Block below.
-        """
-        return pulumi.get(self, "system_prompts")
-
-    @system_prompts.setter
-    def system_prompts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessSystemPromptArgs']]]]):
-        pulumi.set(self, "system_prompts", value)
-
-    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -373,11 +372,11 @@ class _AgentcoreHarnessState:
         :param pulumi.Input['AgentcoreHarnessMemoryArgs'] memory: Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memory_actual`. Clearing this value will reset the memory configuration to default values.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessMemoryActualArgs']]] memory_actuals: Actual deployed memory configuration.
         :param pulumi.Input['AgentcoreHarnessModelArgs'] model: Model configuration for the harness. See `model` Block below.
-               
-               The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessSkillArgs']]] skills: Skill configurations. See `skill` Block below.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessSystemPromptArgs']]] system_prompts: System prompt blocks for the harness. See `system_prompt` Block below.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.int] timeout_seconds: Timeout in seconds for the harness execution.
@@ -606,8 +605,6 @@ class _AgentcoreHarnessState:
     def model(self) -> pulumi.Input[Optional['AgentcoreHarnessModelArgs']]:
         """
         Model configuration for the harness. See `model` Block below.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "model")
 
@@ -644,6 +641,8 @@ class _AgentcoreHarnessState:
     def system_prompts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessSystemPromptArgs']]]]:
         """
         System prompt blocks for the harness. See `system_prompt` Block below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "system_prompts")
 
@@ -910,11 +909,11 @@ class AgentcoreHarness(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] max_tokens: Maximum number of tokens in the model response.
         :param pulumi.Input[Union['AgentcoreHarnessMemoryArgs', 'AgentcoreHarnessMemoryArgsDict']] memory: Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memory_actual`. Clearing this value will reset the memory configuration to default values.
         :param pulumi.Input[Union['AgentcoreHarnessModelArgs', 'AgentcoreHarnessModelArgsDict']] model: Model configuration for the harness. See `model` Block below.
-               
-               The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessSkillArgs', 'AgentcoreHarnessSkillArgsDict']]]] skills: Skill configurations. See `skill` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessSystemPromptArgs', 'AgentcoreHarnessSystemPromptArgsDict']]]] system_prompts: System prompt blocks for the harness. See `system_prompt` Block below.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.int] timeout_seconds: Timeout in seconds for the harness execution.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessToolArgs', 'AgentcoreHarnessToolArgsDict']]]] tools: Tool configurations. See `tool` Block below.
@@ -1138,6 +1137,8 @@ class AgentcoreHarness(pulumi.CustomResource):
             __props__.__dict__["model"] = model
             __props__.__dict__["region"] = region
             __props__.__dict__["skills"] = skills
+            if system_prompts is None and not opts.urn:
+                raise TypeError("Missing required property 'system_prompts'")
             __props__.__dict__["system_prompts"] = system_prompts
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeout_seconds"] = timeout_seconds
@@ -1207,11 +1208,11 @@ class AgentcoreHarness(pulumi.CustomResource):
         :param pulumi.Input[Union['AgentcoreHarnessMemoryArgs', 'AgentcoreHarnessMemoryArgsDict']] memory: Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memory_actual`. Clearing this value will reset the memory configuration to default values.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessMemoryActualArgs', 'AgentcoreHarnessMemoryActualArgsDict']]]] memory_actuals: Actual deployed memory configuration.
         :param pulumi.Input[Union['AgentcoreHarnessModelArgs', 'AgentcoreHarnessModelArgsDict']] model: Model configuration for the harness. See `model` Block below.
-               
-               The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessSkillArgs', 'AgentcoreHarnessSkillArgsDict']]]] skills: Skill configurations. See `skill` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessSystemPromptArgs', 'AgentcoreHarnessSystemPromptArgsDict']]]] system_prompts: System prompt blocks for the harness. See `system_prompt` Block below.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.int] timeout_seconds: Timeout in seconds for the harness execution.
@@ -1338,7 +1339,7 @@ class AgentcoreHarness(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="maxTokens")
-    def max_tokens(self) -> pulumi.Output[Optional[_builtins.int]]:
+    def max_tokens(self) -> pulumi.Output[_builtins.int]:
         """
         Maximum number of tokens in the model response.
         """
@@ -1365,8 +1366,6 @@ class AgentcoreHarness(pulumi.CustomResource):
     def model(self) -> pulumi.Output['outputs.AgentcoreHarnessModel']:
         """
         Model configuration for the harness. See `model` Block below.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "model")
 
@@ -1388,9 +1387,11 @@ class AgentcoreHarness(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemPrompts")
-    def system_prompts(self) -> pulumi.Output[Optional[Sequence['outputs.AgentcoreHarnessSystemPrompt']]]:
+    def system_prompts(self) -> pulumi.Output[Sequence['outputs.AgentcoreHarnessSystemPrompt']]:
         """
         System prompt blocks for the harness. See `system_prompt` Block below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "system_prompts")
 

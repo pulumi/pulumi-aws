@@ -13,16 +13,34 @@ namespace Pulumi.Aws.Msk.Inputs
     public sealed class ReplicatorKafkaClusterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Details of an Amazon MSK cluster.
+        /// Details of an Amazon MSK cluster. Exactly one of `AmazonMskCluster` or `ApacheKafkaCluster` must be specified. Detailed below.
         /// </summary>
-        [Input("amazonMskCluster", required: true)]
-        public Input<Inputs.ReplicatorKafkaClusterAmazonMskClusterGetArgs> AmazonMskCluster { get; set; } = null!;
+        [Input("amazonMskCluster")]
+        public Input<Inputs.ReplicatorKafkaClusterAmazonMskClusterGetArgs>? AmazonMskCluster { get; set; }
 
         /// <summary>
-        /// Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+        /// Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `AmazonMskCluster` or `ApacheKafkaCluster` must be specified. Detailed below.
         /// </summary>
-        [Input("vpcConfig", required: true)]
-        public Input<Inputs.ReplicatorKafkaClusterVpcConfigGetArgs> VpcConfig { get; set; } = null!;
+        [Input("apacheKafkaCluster")]
+        public Input<Inputs.ReplicatorKafkaClusterApacheKafkaClusterGetArgs>? ApacheKafkaCluster { get; set; }
+
+        /// <summary>
+        /// Details of the client authentication used by the Kafka cluster. Only valid for an `ApacheKafkaCluster`. Detailed below.
+        /// </summary>
+        [Input("clientAuthentication")]
+        public Input<Inputs.ReplicatorKafkaClusterClientAuthenticationGetArgs>? ClientAuthentication { get; set; }
+
+        /// <summary>
+        /// Details of encryption in transit to the Kafka cluster. Only valid for an `ApacheKafkaCluster`. TLS encryption in transit is always applied to an `ApacheKafkaCluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). Detailed below.
+        /// </summary>
+        [Input("encryptionInTransit")]
+        public Input<Inputs.ReplicatorKafkaClusterEncryptionInTransitGetArgs>? EncryptionInTransit { get; set; }
+
+        /// <summary>
+        /// Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `AmazonMskCluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC.
+        /// </summary>
+        [Input("vpcConfig")]
+        public Input<Inputs.ReplicatorKafkaClusterVpcConfigGetArgs>? VpcConfig { get; set; }
 
         public ReplicatorKafkaClusterGetArgs()
         {

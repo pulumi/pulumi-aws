@@ -8,6 +8,7 @@ import com.pulumi.aws.cloudwatch.MetricAlarmArgs;
 import com.pulumi.aws.cloudwatch.inputs.MetricAlarmState;
 import com.pulumi.aws.cloudwatch.outputs.MetricAlarmEvaluationCriteria;
 import com.pulumi.aws.cloudwatch.outputs.MetricAlarmMetricQuery;
+import com.pulumi.aws.cloudwatch.outputs.MetricAlarmWarmUpConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -387,6 +388,52 @@ import javax.annotation.Nullable;
  *                 Map.entry("TargetGroup", lb_tg.arnSuffix()),
  *                 Map.entry("LoadBalancer", lb.arnSuffix())
  *             ))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### With a Warm-Up Period
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.MetricAlarm;
+ * import com.pulumi.aws.cloudwatch.MetricAlarmArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.MetricAlarmWarmUpConfigurationArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new MetricAlarm("example", MetricAlarmArgs.builder()
+ *             .warmUpConfiguration(MetricAlarmWarmUpConfigurationArgs.builder()
+ *                 .warmUpPeriodDurationInMinutes(30)
+ *                 .build())
+ *             .name("example-service-errors")
+ *             .comparisonOperator("GreaterThanThreshold")
+ *             .evaluationPeriods(3)
+ *             .metricName("Errors")
+ *             .namespace("ExampleApp")
+ *             .period(60)
+ *             .statistic("Sum")
+ *             .threshold(0.0)
+ *             .treatMissingData("breaching")
+ *             .alarmActions(exampleAwsSnsTopic.arn())
  *             .build());
  * 
  *     }
@@ -820,6 +867,20 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> unit() {
         return Codegen.optional(this.unit);
+    }
+    /**
+     * Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warmUpConfiguration` below.
+     * 
+     */
+    @Export(name="warmUpConfiguration", refs={MetricAlarmWarmUpConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ MetricAlarmWarmUpConfiguration> warmUpConfiguration;
+
+    /**
+     * @return Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warmUpConfiguration` below.
+     * 
+     */
+    public Output<Optional<MetricAlarmWarmUpConfiguration>> warmUpConfiguration() {
+        return Codegen.optional(this.warmUpConfiguration);
     }
 
     /**

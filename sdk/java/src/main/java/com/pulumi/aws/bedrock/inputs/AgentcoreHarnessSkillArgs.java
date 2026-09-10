@@ -3,11 +3,15 @@
 
 package com.pulumi.aws.bedrock.inputs;
 
+import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessSkillAwsSkillsArgs;
+import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessSkillGitArgs;
+import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessSkillS3Args;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class AgentcoreHarnessSkillArgs extends com.pulumi.resources.ResourceArgs {
@@ -15,24 +19,72 @@ public final class AgentcoreHarnessSkillArgs extends com.pulumi.resources.Resour
     public static final AgentcoreHarnessSkillArgs Empty = new AgentcoreHarnessSkillArgs();
 
     /**
+     * AWS Skills baked into the harness&#39;s underlying runtime. See `awsSkills` Block below.
+     * 
+     */
+    @Import(name="awsSkills")
+    private @Nullable Output<AgentcoreHarnessSkillAwsSkillsArgs> awsSkills;
+
+    /**
+     * @return AWS Skills baked into the harness&#39;s underlying runtime. See `awsSkills` Block below.
+     * 
+     */
+    public Optional<Output<AgentcoreHarnessSkillAwsSkillsArgs>> awsSkills() {
+        return Optional.ofNullable(this.awsSkills);
+    }
+
+    /**
+     * Git repository source for the skill. See `git` Block below.
+     * 
+     */
+    @Import(name="git")
+    private @Nullable Output<AgentcoreHarnessSkillGitArgs> git;
+
+    /**
+     * @return Git repository source for the skill. See `git` Block below.
+     * 
+     */
+    public Optional<Output<AgentcoreHarnessSkillGitArgs>> git() {
+        return Optional.ofNullable(this.git);
+    }
+
+    /**
      * Path to the skill.
      * 
      */
-    @Import(name="path", required=true)
-    private Output<String> path;
+    @Import(name="path")
+    private @Nullable Output<String> path;
 
     /**
      * @return Path to the skill.
      * 
      */
-    public Output<String> path() {
-        return this.path;
+    public Optional<Output<String>> path() {
+        return Optional.ofNullable(this.path);
+    }
+
+    /**
+     * S3 source for the skill. See `s3` Block below.
+     * 
+     */
+    @Import(name="s3")
+    private @Nullable Output<AgentcoreHarnessSkillS3Args> s3;
+
+    /**
+     * @return S3 source for the skill. See `s3` Block below.
+     * 
+     */
+    public Optional<Output<AgentcoreHarnessSkillS3Args>> s3() {
+        return Optional.ofNullable(this.s3);
     }
 
     private AgentcoreHarnessSkillArgs() {}
 
     private AgentcoreHarnessSkillArgs(AgentcoreHarnessSkillArgs $) {
+        this.awsSkills = $.awsSkills;
+        this.git = $.git;
         this.path = $.path;
+        this.s3 = $.s3;
     }
 
     public static Builder builder() {
@@ -54,12 +106,54 @@ public final class AgentcoreHarnessSkillArgs extends com.pulumi.resources.Resour
         }
 
         /**
+         * @param awsSkills AWS Skills baked into the harness&#39;s underlying runtime. See `awsSkills` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsSkills(@Nullable Output<AgentcoreHarnessSkillAwsSkillsArgs> awsSkills) {
+            $.awsSkills = awsSkills;
+            return this;
+        }
+
+        /**
+         * @param awsSkills AWS Skills baked into the harness&#39;s underlying runtime. See `awsSkills` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsSkills(AgentcoreHarnessSkillAwsSkillsArgs awsSkills) {
+            return awsSkills(Output.of(awsSkills));
+        }
+
+        /**
+         * @param git Git repository source for the skill. See `git` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder git(@Nullable Output<AgentcoreHarnessSkillGitArgs> git) {
+            $.git = git;
+            return this;
+        }
+
+        /**
+         * @param git Git repository source for the skill. See `git` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder git(AgentcoreHarnessSkillGitArgs git) {
+            return git(Output.of(git));
+        }
+
+        /**
          * @param path Path to the skill.
          * 
          * @return builder
          * 
          */
-        public Builder path(Output<String> path) {
+        public Builder path(@Nullable Output<String> path) {
             $.path = path;
             return this;
         }
@@ -74,10 +168,28 @@ public final class AgentcoreHarnessSkillArgs extends com.pulumi.resources.Resour
             return path(Output.of(path));
         }
 
+        /**
+         * @param s3 S3 source for the skill. See `s3` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder s3(@Nullable Output<AgentcoreHarnessSkillS3Args> s3) {
+            $.s3 = s3;
+            return this;
+        }
+
+        /**
+         * @param s3 S3 source for the skill. See `s3` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder s3(AgentcoreHarnessSkillS3Args s3) {
+            return s3(Output.of(s3));
+        }
+
         public AgentcoreHarnessSkillArgs build() {
-            if ($.path == null) {
-                throw new MissingRequiredPropertyException("AgentcoreHarnessSkillArgs", "path");
-            }
             return $;
         }
     }

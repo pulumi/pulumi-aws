@@ -25,7 +25,8 @@ class AgentcoreOauth2CredentialProviderArgs:
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  oauth2_provider_config: pulumi.Input[Optional['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs']] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['AgentcoreOauth2CredentialProviderTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentcoreOauth2CredentialProvider resource.
 
@@ -46,6 +47,8 @@ class AgentcoreOauth2CredentialProviderArgs:
             pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if timeouts is not None:
+            pulumi.set(__self__, "timeouts", timeouts)
 
     @_builtins.property
     @pulumi.getter(name="credentialProviderVendor")
@@ -109,6 +112,15 @@ class AgentcoreOauth2CredentialProviderArgs:
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def timeouts(self) -> pulumi.Input[Optional['AgentcoreOauth2CredentialProviderTimeoutsArgs']]:
+        return pulumi.get(self, "timeouts")
+
+    @timeouts.setter
+    def timeouts(self, value: pulumi.Input[Optional['AgentcoreOauth2CredentialProviderTimeoutsArgs']]):
+        pulumi.set(self, "timeouts", value)
+
 
 @pulumi.input_type
 class _AgentcoreOauth2CredentialProviderState:
@@ -120,7 +132,8 @@ class _AgentcoreOauth2CredentialProviderState:
                  oauth2_provider_config: pulumi.Input[Optional['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs']] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['AgentcoreOauth2CredentialProviderTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AgentcoreOauth2CredentialProvider resources.
 
@@ -151,6 +164,8 @@ class _AgentcoreOauth2CredentialProviderState:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if timeouts is not None:
+            pulumi.set(__self__, "timeouts", timeouts)
 
     @_builtins.property
     @pulumi.getter(name="clientSecretArns")
@@ -250,6 +265,15 @@ class _AgentcoreOauth2CredentialProviderState:
     def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def timeouts(self) -> pulumi.Input[Optional['AgentcoreOauth2CredentialProviderTimeoutsArgs']]:
+        return pulumi.get(self, "timeouts")
+
+    @timeouts.setter
+    def timeouts(self, value: pulumi.Input[Optional['AgentcoreOauth2CredentialProviderTimeoutsArgs']]):
+        pulumi.set(self, "timeouts", value)
+
 
 @pulumi.type_token("aws:bedrock/agentcoreOauth2CredentialProvider:AgentcoreOauth2CredentialProvider")
 class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
@@ -262,6 +286,7 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
                  oauth2_provider_config: pulumi.Input[Optional[Union['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs', 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgsDict']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentcoreOauth2CredentialProviderTimeoutsArgs', 'AgentcoreOauth2CredentialProviderTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Manages an AWS Bedrock AgentCore OAuth2 Credential Provider. OAuth2 credential providers enable secure authentication with external OAuth2/OpenID Connect identity providers for agent runtimes.
@@ -339,10 +364,21 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Bedrock AgentCore OAuth2 Credential Provider using the provider name. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) OAuth2 credential provider name.
+
+        #### Optional
+
+        * `account_id` (String) Account ID where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Bedrock AgentCore OAuth2 Credential Provider using `name`. For example:
 
         ```sh
-        $ pulumi import aws:bedrock/agentcoreOauth2CredentialProvider:AgentcoreOauth2CredentialProvider example oauth2-provider-name
+        $ pulumi import aws:bedrock/agentcoreOauth2CredentialProvider:AgentcoreOauth2CredentialProvider example example-oauth2-provider
         ```
 
 
@@ -438,10 +474,21 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Bedrock AgentCore OAuth2 Credential Provider using the provider name. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) OAuth2 credential provider name.
+
+        #### Optional
+
+        * `account_id` (String) Account ID where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Bedrock AgentCore OAuth2 Credential Provider using `name`. For example:
 
         ```sh
-        $ pulumi import aws:bedrock/agentcoreOauth2CredentialProvider:AgentcoreOauth2CredentialProvider example oauth2-provider-name
+        $ pulumi import aws:bedrock/agentcoreOauth2CredentialProvider:AgentcoreOauth2CredentialProvider example example-oauth2-provider
         ```
 
 
@@ -465,6 +512,7 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
                  oauth2_provider_config: pulumi.Input[Optional[Union['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs', 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgsDict']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentcoreOauth2CredentialProviderTimeoutsArgs', 'AgentcoreOauth2CredentialProviderTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -481,6 +529,7 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
             __props__.__dict__["oauth2_provider_config"] = oauth2_provider_config
             __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["client_secret_arns"] = None
             __props__.__dict__["credential_provider_arn"] = None
             __props__.__dict__["tags_all"] = None
@@ -501,7 +550,8 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
             oauth2_provider_config: pulumi.Input[Optional[Union['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs', 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgsDict']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'AgentcoreOauth2CredentialProvider':
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentcoreOauth2CredentialProviderTimeoutsArgs', 'AgentcoreOauth2CredentialProviderTimeoutsArgsDict']]] = None) -> 'AgentcoreOauth2CredentialProvider':
         """
         Get an existing AgentcoreOauth2CredentialProvider resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -532,6 +582,7 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["timeouts"] = timeouts
         return AgentcoreOauth2CredentialProvider(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -599,4 +650,9 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
+
+    @_builtins.property
+    @pulumi.getter
+    def timeouts(self) -> pulumi.Output[Optional['outputs.AgentcoreOauth2CredentialProviderTimeouts']]:
+        return pulumi.get(self, "timeouts")
 

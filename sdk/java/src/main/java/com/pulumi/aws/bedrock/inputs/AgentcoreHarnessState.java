@@ -243,16 +243,12 @@ public final class AgentcoreHarnessState extends com.pulumi.resources.ResourceAr
     /**
      * Model configuration for the harness. See `model` Block below.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="model")
     private @Nullable Output<AgentcoreHarnessModelArgs> model;
 
     /**
      * @return Model configuration for the harness. See `model` Block below.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<AgentcoreHarnessModelArgs>> model() {
@@ -292,12 +288,16 @@ public final class AgentcoreHarnessState extends com.pulumi.resources.ResourceAr
     /**
      * System prompt blocks for the harness. See `systemPrompt` Block below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="systemPrompts")
     private @Nullable Output<List<AgentcoreHarnessSystemPromptArgs>> systemPrompts;
 
     /**
      * @return System prompt blocks for the harness. See `systemPrompt` Block below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<List<AgentcoreHarnessSystemPromptArgs>>> systemPrompts() {
@@ -770,8 +770,6 @@ public final class AgentcoreHarnessState extends com.pulumi.resources.ResourceAr
         /**
          * @param model Model configuration for the harness. See `model` Block below.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -782,8 +780,6 @@ public final class AgentcoreHarnessState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param model Model configuration for the harness. See `model` Block below.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -847,6 +843,8 @@ public final class AgentcoreHarnessState extends com.pulumi.resources.ResourceAr
         /**
          * @param systemPrompts System prompt blocks for the harness. See `systemPrompt` Block below.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -858,6 +856,8 @@ public final class AgentcoreHarnessState extends com.pulumi.resources.ResourceAr
         /**
          * @param systemPrompts System prompt blocks for the harness. See `systemPrompt` Block below.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -867,6 +867,8 @@ public final class AgentcoreHarnessState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param systemPrompts System prompt blocks for the harness. See `systemPrompt` Block below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -21,15 +21,120 @@ import javax.annotation.Nullable;
 /**
  * Manages an AWS Bedrock AgentCore Registry. A registry serves as a centralized catalog for organizing and managing registry records, including MCP servers, A2A agents, agent skills, and custom resource types.
  * 
- * &gt; **Warning:** This resource is deprecated. AWS Agent Registry is currently available in public preview. On August 6, 2026) functionality will move from the `bedrock-agentcore` namespace to the `agent-registry` namespace. This resource will continue to work until September 17, 2026 Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+ * &gt; **Warning:** This resource is deprecated. AWS Agent Registry is currently available in public preview. [On August 6, 2026](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry-faq.html#registry-faq-what-is-changing) functionality will move from the `bedrock-agentcore` namespace to the `agent-registry` namespace. This resource will continue to work until [September 17, 2026](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry-faq.html). Use the `aws.agentregistry.Registry` resource for all new registries.
  * 
- * The following arguments are optional:
+ * ## Example Usage
  * 
- * * `approvalConfiguration` - (Optional)  Approval configuration for registry records. See below.
- * * `authorizerConfiguration` - (Optional) Authorizer configuration for the registry. Required when `authorizerType` is `CUSTOM_JWT`. See below.
- * * `authorizerType` - (Optional, Forces new resource) Type of authorizer to use for the registry. Valid values are `AWS_IAM` (default) and `CUSTOM_JWT`. This controls the authorization method for the Search and Invoke APIs used by consumers.
- * * `description` - (Optional) Description of the registry.
- * * `region` - (Optional) Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+ * ### Basic Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.bedrock.AgentcoreRegistry;
+ * import com.pulumi.aws.bedrock.AgentcoreRegistryArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AgentcoreRegistry("example", AgentcoreRegistryArgs.builder()
+ *             .name("example_registry")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### With Description and Auto Approval
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.bedrock.AgentcoreRegistry;
+ * import com.pulumi.aws.bedrock.AgentcoreRegistryArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AgentcoreRegistry("example", AgentcoreRegistryArgs.builder()
+ *             .name("example_registry")
+ *             .description("MCP servers and tools for the platform team")
+ *             .autoApproval(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### With Custom JWT Authorizer
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.bedrock.AgentcoreRegistry;
+ * import com.pulumi.aws.bedrock.AgentcoreRegistryArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreRegistryAuthorizerConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AgentcoreRegistry("example", AgentcoreRegistryArgs.builder()
+ *             .authorizerConfiguration(AgentcoreRegistryAuthorizerConfigurationArgs.builder()
+ *                 .customJwtAuthorizer(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs.builder()
+ *                     .discoveryUrl("https://example.okta.com/.well-known/openid-configuration")
+ *                     .allowedAudiences("audience-id")
+ *                     .allowedClients("client-id")
+ *                     .build())
+ *                 .build())
+ *             .name("example_registry")
+ *             .authorizerType("CUSTOM_JWT")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * 
  * ## Import
  * 
@@ -53,45 +158,89 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:bedrock/agentcoreRegistry:AgentcoreRegistry")
 public class AgentcoreRegistry extends com.pulumi.resources.CustomResource {
+    /**
+     * Approval configuration for registry records. See below.
+     * 
+     */
     @Export(name="approvalConfigurations", refs={List.class,AgentcoreRegistryApprovalConfiguration.class}, tree="[0,1]")
     private Output<List<AgentcoreRegistryApprovalConfiguration>> approvalConfigurations;
 
+    /**
+     * @return Approval configuration for registry records. See below.
+     * 
+     */
     public Output<List<AgentcoreRegistryApprovalConfiguration>> approvalConfigurations() {
         return this.approvalConfigurations;
     }
+    /**
+     * Authorizer configuration for the registry. Required when `authorizerType` is `CUSTOM_JWT`. See below.
+     * 
+     */
     @Export(name="authorizerConfiguration", refs={AgentcoreRegistryAuthorizerConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ AgentcoreRegistryAuthorizerConfiguration> authorizerConfiguration;
 
+    /**
+     * @return Authorizer configuration for the registry. Required when `authorizerType` is `CUSTOM_JWT`. See below.
+     * 
+     */
     public Output<Optional<AgentcoreRegistryAuthorizerConfiguration>> authorizerConfiguration() {
         return Codegen.optional(this.authorizerConfiguration);
     }
+    /**
+     * Type of authorizer to use for the registry. Valid values are `AWS_IAM` (default) and `CUSTOM_JWT`. This controls the authorization method for the Search and Invoke APIs used by consumers.
+     * 
+     */
     @Export(name="authorizerType", refs={String.class}, tree="[0]")
     private Output<String> authorizerType;
 
+    /**
+     * @return Type of authorizer to use for the registry. Valid values are `AWS_IAM` (default) and `CUSTOM_JWT`. This controls the authorization method for the Search and Invoke APIs used by consumers.
+     * 
+     */
     public Output<String> authorizerType() {
         return this.authorizerType;
     }
+    /**
+     * Description of the registry.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Description of the registry.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {

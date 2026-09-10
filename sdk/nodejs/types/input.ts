@@ -1564,6 +1564,130 @@ export namespace accountaccess {
          */
         delete?: pulumi.Input<string | undefined>;
     }
+
+    export interface EntitlementEntitlement {
+        /**
+         * Principal role entitlement configuration. See `entitlement.principal_role` Block below.
+         */
+        principalRole?: pulumi.Input<inputs.accountaccess.EntitlementEntitlementPrincipalRole | undefined>;
+    }
+
+    export interface EntitlementEntitlementPrincipalRole {
+        /**
+         * Target AWS account ID.
+         */
+        accountId?: pulumi.Input<string | undefined>;
+        /**
+         * Target AWS account name.
+         */
+        accountName?: pulumi.Input<string | undefined>;
+        /**
+         * Principal configuration. See `entitlement.principal_role.principal` Block below.
+         */
+        principal: pulumi.Input<inputs.accountaccess.EntitlementEntitlementPrincipalRolePrincipal>;
+        /**
+         * ARN of the IAM role in the target AWS account that the principal is granted access to.
+         */
+        roleArn: pulumi.Input<string>;
+    }
+
+    export interface EntitlementEntitlementPrincipalRolePrincipal {
+        /**
+         * IAM Identity Center principal configuration. See `entitlement.principal_role.principal.identity_center` Block below.
+         */
+        identityCenter?: pulumi.Input<inputs.accountaccess.EntitlementEntitlementPrincipalRolePrincipalIdentityCenter | undefined>;
+    }
+
+    export interface EntitlementEntitlementPrincipalRolePrincipalIdentityCenter {
+        /**
+         * IAM Identity Center group ID.
+         */
+        groupId?: pulumi.Input<string | undefined>;
+        /**
+         * IAM Identity Center user ID.
+         */
+        userId?: pulumi.Input<string | undefined>;
+    }
+
+    export interface GetEntitlementsFilter {
+        /**
+         * principal-to-role filter criteria for narrowing entitlement results. See `filter.principal_role` Block below.
+         */
+        principalRole?: inputs.accountaccess.GetEntitlementsFilterPrincipalRole;
+    }
+
+    export interface GetEntitlementsFilterArgs {
+        /**
+         * principal-to-role filter criteria for narrowing entitlement results. See `filter.principal_role` Block below.
+         */
+        principalRole?: pulumi.Input<inputs.accountaccess.GetEntitlementsFilterPrincipalRoleArgs | undefined>;
+    }
+
+    export interface GetEntitlementsFilterPrincipalRole {
+        /**
+         * AWS account ID to filter entitlements by.
+         */
+        accountId?: string;
+        /**
+         * principal to filter entitlements by. See `filter.principal_role.principal` Block below.
+         */
+        principal?: inputs.accountaccess.GetEntitlementsFilterPrincipalRolePrincipal;
+        /**
+         * IAM role ARN to filter entitlements by.
+         */
+        roleArn?: string;
+    }
+
+    export interface GetEntitlementsFilterPrincipalRoleArgs {
+        /**
+         * AWS account ID to filter entitlements by.
+         */
+        accountId?: pulumi.Input<string | undefined>;
+        /**
+         * principal to filter entitlements by. See `filter.principal_role.principal` Block below.
+         */
+        principal?: pulumi.Input<inputs.accountaccess.GetEntitlementsFilterPrincipalRolePrincipalArgs | undefined>;
+        /**
+         * IAM role ARN to filter entitlements by.
+         */
+        roleArn?: pulumi.Input<string | undefined>;
+    }
+
+    export interface GetEntitlementsFilterPrincipalRolePrincipal {
+        /**
+         * IAM Identity Center principal filter criteria. See `filter.principal_role.principal.identity_center` Block below.
+         */
+        identityCenter?: inputs.accountaccess.GetEntitlementsFilterPrincipalRolePrincipalIdentityCenter;
+    }
+
+    export interface GetEntitlementsFilterPrincipalRolePrincipalArgs {
+        /**
+         * IAM Identity Center principal filter criteria. See `filter.principal_role.principal.identity_center` Block below.
+         */
+        identityCenter?: pulumi.Input<inputs.accountaccess.GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterArgs | undefined>;
+    }
+
+    export interface GetEntitlementsFilterPrincipalRolePrincipalIdentityCenter {
+        /**
+         * IAM Identity Center group ID.
+         */
+        groupId?: string;
+        /**
+         * IAM Identity Center user ID.
+         */
+        userId?: string;
+    }
+
+    export interface GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterArgs {
+        /**
+         * IAM Identity Center group ID.
+         */
+        groupId?: pulumi.Input<string | undefined>;
+        /**
+         * IAM Identity Center user ID.
+         */
+        userId?: pulumi.Input<string | undefined>;
+    }
 }
 
 export namespace acm {
@@ -1753,6 +1877,108 @@ export namespace acmpca {
         value: pulumi.Input<string>;
     }
 
+}
+
+export namespace agentregistry {
+    export interface RegistryApprovalConfiguration {
+        /**
+         * Set of rules that determine which registry records are automatically approved on submission. Valid values: `APPROVE_ALL`. When omitted or empty, submitted records require manual review.
+         */
+        autoApprovalRules?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface RegistryDiscoveryConfiguration {
+        /**
+         * Authorizer configuration for the registry. Required when `authorizerType` is `CUSTOM_JWT`. See below.
+         */
+        authorizerConfiguration?: pulumi.Input<inputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfiguration | undefined>;
+        /**
+         * Type of authorizer that controls how consumers access the registry's search and MCP invoke operations. Valid values: `AWS_IAM`, `CUSTOM_JWT`.
+         */
+        authorizerType: pulumi.Input<string>;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfiguration {
+        /**
+         * Configuration for a custom JWT authorizer.
+         */
+        customJwtAuthorizer?: pulumi.Input<inputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer | undefined>;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer {
+        /**
+         * Audience values accepted during JWT validation. A token is rejected if none of its audience claims match.
+         */
+        allowedAudiences?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Client identifiers accepted during JWT validation. A token is rejected if it was not issued to one of these clients.
+         */
+        allowedClients?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Scopes accepted during JWT validation. A token is rejected if it does not carry one of these scopes.
+         */
+        allowedScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Custom claims for additional JWT validation beyond standard OIDC claims. See below.
+         */
+        customClaims?: pulumi.Input<pulumi.Input<inputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaim>[] | undefined>;
+        /**
+         * OpenID Connect discovery URL used to retrieve the identity provider's metadata and signing keys.
+         */
+        discoveryUrl: pulumi.Input<string>;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaim {
+        /**
+         * Claim match criteria. See below.
+         */
+        authorizingClaimMatchValue: pulumi.Input<inputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue>;
+        /**
+         * Name of the claim to validate in the inbound JWT token. Must contain only letters, numbers, and the characters `_`, `.`, `-`, `:`.
+         */
+        inboundTokenClaimName: pulumi.Input<string>;
+        /**
+         * Type of the claim value. Valid values: `STRING`, `STRING_ARRAY`.
+         */
+        inboundTokenClaimValueType: pulumi.Input<string>;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue {
+        /**
+         * Operator used to match claim values. Valid values: `EQUALS`, `CONTAINS`, `CONTAINS_ANY`.
+         */
+        claimMatchOperator: pulumi.Input<string>;
+        /**
+         * Value to match against. See below.
+         */
+        claimMatchValue: pulumi.Input<inputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue>;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue {
+        /**
+         * Single string value to match. Must contain only letters, numbers, and the characters `_`, `.`, `-`, `:`.
+         */
+        matchValueString?: pulumi.Input<string | undefined>;
+        /**
+         * Set of string values to match. Each value must contain only letters, numbers, and the characters `_`, `.`, `-`, `:`.
+         */
+        matchValueStringLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface RegistryTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string | undefined>;
+    }
 }
 
 export namespace alb {
@@ -17943,8 +18169,6 @@ export namespace bedrock {
         agentRuntimeName: pulumi.Input<string>;
         /**
          * Filesystem configurations. See `filesystemConfiguration` Block below.
-         *
-         * The following attributes are exported under `agentcoreRuntimeEnvironment`:
          */
         filesystemConfigurations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration>[]>;
         /**
@@ -17953,6 +18177,8 @@ export namespace bedrock {
         lifecycleConfigurations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration>[]>;
         /**
          * Network configuration. See `networkConfiguration` Block below.
+         *
+         * The following attributes are exported under `agentcoreRuntimeEnvironment`:
          */
         networkConfigurations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration>[]>;
     }
@@ -18053,8 +18279,6 @@ export namespace bedrock {
         agentRuntimeName?: pulumi.Input<string | undefined>;
         /**
          * Filesystem configurations. See `filesystemConfiguration` Block below.
-         *
-         * The following attributes are exported under `agentcoreRuntimeEnvironment`:
          */
         filesystemConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration>[] | undefined>;
         /**
@@ -18063,6 +18287,8 @@ export namespace bedrock {
         lifecycleConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfiguration>[] | undefined>;
         /**
          * Network configuration. See `networkConfiguration` Block below.
+         *
+         * The following attributes are exported under `agentcoreRuntimeEnvironment`:
          */
         networkConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration>[] | undefined>;
     }
@@ -18326,12 +18552,24 @@ export namespace bedrock {
          */
         geminiModelConfig?: pulumi.Input<inputs.bedrock.AgentcoreHarnessModelGeminiModelConfig | undefined>;
         /**
+         * LiteLLM model configuration. See `litellmModelConfig` Block below.
+         */
+        litellmModelConfig?: pulumi.Input<inputs.bedrock.AgentcoreHarnessModelLitellmModelConfig | undefined>;
+        /**
          * OpenAI model configuration. See `openaiModelConfig` Block below.
          */
         openaiModelConfig?: pulumi.Input<inputs.bedrock.AgentcoreHarnessModelOpenaiModelConfig | undefined>;
     }
 
     export interface AgentcoreHarnessModelBedrockModelConfig {
+        /**
+         * JSON string containing provider-specific parameters to pass through to the Bedrock model provider unchanged.
+         */
+        additionalParams?: pulumi.Input<string | undefined>;
+        /**
+         * API format for the model. Valid values are `converseStream`, `responses`, and `chatCompletions`.
+         */
+        apiFormat?: pulumi.Input<string | undefined>;
         /**
          * Maximum number of tokens to generate.
          */
@@ -18351,6 +18589,10 @@ export namespace bedrock {
     }
 
     export interface AgentcoreHarnessModelGeminiModelConfig {
+        /**
+         * JSON string containing provider-specific parameters to pass through to the Gemini model provider unchanged.
+         */
+        additionalParams?: pulumi.Input<string | undefined>;
         /**
          * ARN of the secret containing the API key.
          */
@@ -18377,7 +18619,46 @@ export namespace bedrock {
         topP?: pulumi.Input<number | undefined>;
     }
 
+    export interface AgentcoreHarnessModelLitellmModelConfig {
+        /**
+         * JSON string containing provider-specific parameters to pass through to the LiteLLM model provider unchanged.
+         */
+        additionalParams?: pulumi.Input<string | undefined>;
+        /**
+         * Base URL of the LiteLLM-compatible API endpoint.
+         */
+        apiBase?: pulumi.Input<string | undefined>;
+        /**
+         * ARN of the secret containing the API key.
+         */
+        apiKeyArn?: pulumi.Input<string | undefined>;
+        /**
+         * Maximum number of tokens to generate.
+         */
+        maxTokens?: pulumi.Input<number | undefined>;
+        /**
+         * LiteLLM model ID.
+         */
+        modelId: pulumi.Input<string>;
+        /**
+         * Temperature for sampling. Must be between 0 and 2.
+         */
+        temperature?: pulumi.Input<number | undefined>;
+        /**
+         * Top-p sampling parameter. Must be between 0 and 1.
+         */
+        topP?: pulumi.Input<number | undefined>;
+    }
+
     export interface AgentcoreHarnessModelOpenaiModelConfig {
+        /**
+         * JSON string containing provider-specific parameters to pass through to the OpenAI model provider unchanged.
+         */
+        additionalParams?: pulumi.Input<string | undefined>;
+        /**
+         * API format for the model. Valid values are `responses` and `chatCompletions`.
+         */
+        apiFormat?: pulumi.Input<string | undefined>;
         /**
          * ARN of the secret containing the API key.
          */
@@ -18402,16 +18683,68 @@ export namespace bedrock {
 
     export interface AgentcoreHarnessSkill {
         /**
+         * AWS Skills baked into the harness's underlying runtime. See `awsSkills` Block below.
+         */
+        awsSkills?: pulumi.Input<inputs.bedrock.AgentcoreHarnessSkillAwsSkills | undefined>;
+        /**
+         * Git repository source for the skill. See `git` Block below.
+         */
+        git?: pulumi.Input<inputs.bedrock.AgentcoreHarnessSkillGit | undefined>;
+        /**
          * Path to the skill.
          */
-        path: pulumi.Input<string>;
+        path?: pulumi.Input<string | undefined>;
+        /**
+         * S3 source for the skill. See `s3` Block below.
+         */
+        s3?: pulumi.Input<inputs.bedrock.AgentcoreHarnessSkillS3 | undefined>;
+    }
+
+    export interface AgentcoreHarnessSkillAwsSkills {
+        /**
+         * List of glob patterns to filter allowed skills (e.g., `["core-skills/*"]`).
+         */
+        paths?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface AgentcoreHarnessSkillGit {
+        /**
+         * Authentication configuration for private repositories. See `auth` Block below.
+         */
+        auth?: pulumi.Input<inputs.bedrock.AgentcoreHarnessSkillGitAuth | undefined>;
+        /**
+         * Subdirectory within the repository containing the skill.
+         */
+        path?: pulumi.Input<string | undefined>;
+        /**
+         * HTTPS URL of the git repository.
+         */
+        url: pulumi.Input<string>;
+    }
+
+    export interface AgentcoreHarnessSkillGitAuth {
+        /**
+         * ARN of the credential in AgentCore Identity containing the password or personal access token.
+         */
+        credentialArn: pulumi.Input<string>;
+        /**
+         * Username for authentication. Defaults to `oauth2` if not specified.
+         */
+        username?: pulumi.Input<string | undefined>;
+    }
+
+    export interface AgentcoreHarnessSkillS3 {
+        /**
+         * S3 URI of the skill source. Must begin with `s3://`.
+         */
+        uri: pulumi.Input<string>;
     }
 
     export interface AgentcoreHarnessSystemPrompt {
         /**
          * Text content of the system prompt.
          */
-        text: pulumi.Input<string>;
+        text?: pulumi.Input<string | undefined>;
     }
 
     export interface AgentcoreHarnessTimeouts {
@@ -19271,6 +19604,21 @@ export namespace bedrock {
         tokenEndpoint: pulumi.Input<string>;
     }
 
+    export interface AgentcoreOauth2CredentialProviderTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string | undefined>;
+    }
+
     export interface AgentcoreOnlineEvaluationConfigDataSourceConfig {
         /**
          * CloudWatch logs configuration for reading agent traces. See `cloudwatchLogs` Block below.
@@ -19429,87 +19777,207 @@ export namespace bedrock {
     }
 
     export interface AgentcoreRegistryApprovalConfiguration {
+        /**
+         * Whether registry records are auto-approved. When set to `true`, records are automatically approved upon creation. When set to `false` (the default), records require explicit approval.
+         */
         autoApproval: pulumi.Input<boolean>;
     }
 
     export interface AgentcoreRegistryAuthorizerConfiguration {
+        /**
+         * JWT-based authorization configuration block. See `customJwtAuthorizer` below.
+         */
         customJwtAuthorizer?: pulumi.Input<inputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer | undefined>;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer {
+        /**
+         * Set of allowed audience values for JWT token validation.
+         */
         allowedAudiences?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Set of allowed client IDs for JWT token validation.
+         */
         allowedClients?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Set of scopes that are allowed to access the token.
+         */
         allowedScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Configuration restricting which workloads may use this authorizer. See `allowedWorkloadConfiguration` below.
+         */
         allowedWorkloadConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration | undefined>;
+        /**
+         * Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+         */
         customClaims?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim>[] | undefined>;
+        /**
+         * URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
+         */
         discoveryUrl: pulumi.Input<string>;
+        /**
+         * Private endpoint used to reach the authorization server. See `privateEndpoint` below.
+         */
         privateEndpoint?: pulumi.Input<inputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint | undefined>;
+        /**
+         * Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` below.
+         */
         privateEndpointOverrides?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride>[] | undefined>;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration {
+        /**
+         * Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hostingEnvironment` below.
+         */
         hostingEnvironments?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment>[] | undefined>;
+        /**
+         * List of workload identity names allowed to use the authorizer. Between 1 and 10 entries.
+         */
         workloadIdentities?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment {
+        /**
+         * ARN of the hosting environment.
+         */
         arn: pulumi.Input<string>;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim {
+        /**
+         * Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` below.
+         */
         authorizingClaimMatchValue: pulumi.Input<inputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue>;
+        /**
+         * Name of the custom claim field to check.
+         */
         inboundTokenClaimName: pulumi.Input<string>;
+        /**
+         * Data type of the claim value to check for. Valid values are `STRING` and `STRING_ARRAY`.
+         */
         inboundTokenClaimValueType: pulumi.Input<string>;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue {
+        /**
+         * Relationship between the claim field value and the value or values to match for. Valid values are `EQUALS`, `CONTAINS`, and `CONTAINS_ANY`. `EQUALS` can be used only when `inboundTokenClaimValueType` is `STRING`. `CONTAINS` or `CONTAINS_ANY` can be used only when `inboundTokenClaimValueType` is `STRING_ARRAY`.
+         */
         claimMatchOperator: pulumi.Input<string>;
+        /**
+         * Value or values to match for. See `claimMatchValue` below.
+         */
         claimMatchValue: pulumi.Input<inputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue>;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue {
+        /**
+         * String value to match for. Must be specified when `claimMatchOperator` is `EQUALS` or `CONTAINS`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+         */
         matchValueString?: pulumi.Input<string | undefined>;
+        /**
+         * List of strings to check for a match. Must be specified when `claimMatchOperator` is `CONTAINS_ANY`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+         */
         matchValueStringLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint {
+        /**
+         * Managed VPC resource configuration. See `managedVpcResource` below.
+         */
         managedVpcResource?: pulumi.Input<inputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource | undefined>;
+        /**
+         * Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+         */
         selfManagedLatticeResource?: pulumi.Input<inputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource | undefined>;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource {
+        /**
+         * IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+         */
         endpointIpAddressType: pulumi.Input<string>;
+        /**
+         * Routing domain for the endpoint.
+         */
         routingDomain?: pulumi.Input<string | undefined>;
+        /**
+         * IDs of the security groups for the endpoint.
+         */
         securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * IDs of the subnets for the endpoint.
+         */
         subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Tags to assign to the managed VPC resource.
+         */
         tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * Identifier of the VPC for the endpoint.
+         */
         vpcIdentifier: pulumi.Input<string>;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride {
+        /**
+         * Domain the override applies to.
+         */
         domain: pulumi.Input<string>;
+        /**
+         * Private endpoint configuration. See `privateEndpoint` below.
+         */
         privateEndpoint: pulumi.Input<inputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint>;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint {
+        /**
+         * Managed VPC resource configuration. See `managedVpcResource` below.
+         */
         managedVpcResource?: pulumi.Input<inputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource | undefined>;
+        /**
+         * Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+         */
         selfManagedLatticeResource?: pulumi.Input<inputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource | undefined>;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource {
+        /**
+         * IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+         */
         endpointIpAddressType: pulumi.Input<string>;
+        /**
+         * Routing domain for the endpoint.
+         */
         routingDomain?: pulumi.Input<string | undefined>;
+        /**
+         * IDs of the security groups for the endpoint.
+         */
         securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * IDs of the subnets for the endpoint.
+         */
         subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Tags to assign to the managed VPC resource.
+         */
         tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * Identifier of the VPC for the endpoint.
+         */
         vpcIdentifier: pulumi.Input<string>;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource {
+        /**
+         * Identifier of the VPC Lattice resource configuration.
+         */
         resourceConfigurationIdentifier?: pulumi.Input<string | undefined>;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
+        /**
+         * Identifier of the VPC Lattice resource configuration.
+         */
         resourceConfigurationIdentifier?: pulumi.Input<string | undefined>;
     }
 
@@ -20396,6 +20864,72 @@ export namespace bedrockfoundation {
 }
 
 export namespace bedrockmodel {
+    export interface InvocationJobInputDataConfig {
+        /**
+         * Location of the S3 input data. See `s3InputDataConfig` Block below.
+         */
+        s3InputDataConfig: pulumi.Input<inputs.bedrockmodel.InvocationJobInputDataConfigS3InputDataConfig>;
+    }
+
+    export interface InvocationJobInputDataConfigS3InputDataConfig {
+        /**
+         * ID of the AWS account that owns the S3 bucket containing the input data.
+         */
+        s3BucketOwner?: pulumi.Input<string | undefined>;
+        /**
+         * Format of the input data. Valid values: `JSONL`.
+         */
+        s3InputFormat?: pulumi.Input<string | undefined>;
+        /**
+         * S3 location of the input data.
+         */
+        s3Uri: pulumi.Input<string>;
+    }
+
+    export interface InvocationJobOutputDataConfig {
+        /**
+         * Location of the S3 output data. See `s3OutputDataConfig` Block below.
+         */
+        s3OutputDataConfig: pulumi.Input<inputs.bedrockmodel.InvocationJobOutputDataConfigS3OutputDataConfig>;
+    }
+
+    export interface InvocationJobOutputDataConfigS3OutputDataConfig {
+        /**
+         * ID of the AWS account that owns the S3 bucket containing the output data.
+         */
+        s3BucketOwner?: pulumi.Input<string | undefined>;
+        /**
+         * ARN of the KMS key that encrypts the S3 location of the output data.
+         */
+        s3EncryptionKeyId?: pulumi.Input<string | undefined>;
+        /**
+         * S3 location where the results of the batch inference job are stored.
+         */
+        s3Uri: pulumi.Input<string>;
+    }
+
+    export interface InvocationJobTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string | undefined>;
+    }
+
+    export interface InvocationJobVpcConfig {
+        /**
+         * IDs of the security groups in the VPC to use.
+         */
+        securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * IDs of the subnets in the VPC to use.
+         */
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface InvocationLoggingConfigurationLoggingConfig {
         /**
          * CloudWatch logging configuration. See `cloudwatchConfig` Block for details.
@@ -25917,6 +26451,19 @@ export namespace cloudwatch {
          * The unit for this metric.
          */
         unit?: pulumi.Input<string | undefined>;
+    }
+
+    export interface MetricAlarmWarmUpConfiguration {
+        /**
+         * Whether to wait for the full warm-up period before evaluation begins, even if metric data arrives earlier. When `false`, the warm-up period ends early as soon as the alarm has enough data to fill its evaluation window. Defaults to `false`.
+         *
+         * > **Note:** The warm-up period applies once, when the alarm is created. Changing the warm-up configuration after the warm-up period ends does not start a new warm-up period. See [Alarm warm-up periods](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-warm-up.html) in the Amazon CloudWatch User Guide.
+         */
+        onlyStartEvaluatingAfterWarmUpPeriodEnds?: pulumi.Input<boolean | undefined>;
+        /**
+         * Length of the warm-up period, in minutes. Valid values are `1` to `2880`.
+         */
+        warmUpPeriodDurationInMinutes: pulumi.Input<number>;
     }
 
     export interface MetricStreamExcludeFilter {
@@ -33056,6 +33603,398 @@ export namespace dlm {
 }
 
 export namespace dms {
+    export interface DataProviderSettings {
+        /**
+         * Settings for the `docdb` engine. See `docDbSettings` Block below.
+         */
+        docDbSettings?: pulumi.Input<inputs.dms.DataProviderSettingsDocDbSettings | undefined>;
+        /**
+         * Settings for the `db2` engine. See `ibmDb2LuwSettings` Block below.
+         */
+        ibmDb2LuwSettings?: pulumi.Input<inputs.dms.DataProviderSettingsIbmDb2LuwSettings | undefined>;
+        /**
+         * Settings for the `db2-zos` engine. See `ibmDb2ZosSettings` Block below.
+         */
+        ibmDb2ZosSettings?: pulumi.Input<inputs.dms.DataProviderSettingsIbmDb2ZosSettings | undefined>;
+        /**
+         * Settings for the `mariadb` engine. See `mariaDbSettings` Block below.
+         */
+        mariaDbSettings?: pulumi.Input<inputs.dms.DataProviderSettingsMariaDbSettings | undefined>;
+        /**
+         * Settings for the `sqlserver` engine. See `microsoftSqlServerSettings` Block below.
+         */
+        microsoftSqlServerSettings?: pulumi.Input<inputs.dms.DataProviderSettingsMicrosoftSqlServerSettings | undefined>;
+        /**
+         * Settings for the `mongodb` engine. See `mongoDbSettings` Block below.
+         */
+        mongoDbSettings?: pulumi.Input<inputs.dms.DataProviderSettingsMongoDbSettings | undefined>;
+        /**
+         * Settings for the `mysql` and `aurora` engines. See `mysqlSettings` Block below.
+         */
+        mysqlSettings?: pulumi.Input<inputs.dms.DataProviderSettingsMysqlSettings | undefined>;
+        /**
+         * Settings for the `oracle` engine. See `oracleSettings` Block below.
+         */
+        oracleSettings?: pulumi.Input<inputs.dms.DataProviderSettingsOracleSettings | undefined>;
+        /**
+         * Settings for the `postgres` and `aurora-postgresql` engines. See `postgresqlSettings` Block below.
+         */
+        postgresqlSettings?: pulumi.Input<inputs.dms.DataProviderSettingsPostgresqlSettings | undefined>;
+        /**
+         * Settings for the `redshift` engine. See `redshiftSettings` Block below.
+         */
+        redshiftSettings?: pulumi.Input<inputs.dms.DataProviderSettingsRedshiftSettings | undefined>;
+        /**
+         * Settings for the `sybase` engine. See `sybaseAseSettings` Block below.
+         */
+        sybaseAseSettings?: pulumi.Input<inputs.dms.DataProviderSettingsSybaseAseSettings | undefined>;
+    }
+
+    export interface DataProviderSettingsDocDbSettings {
+        /**
+         * ARN of the DMS certificate used for the SSL connection.
+         */
+        certificateArn?: pulumi.Input<string | undefined>;
+        /**
+         * Database name on the DocumentDB data provider.
+         */
+        databaseName?: pulumi.Input<string | undefined>;
+        /**
+         * Port of the DocumentDB server. Valid values are between `1` and `65535`.
+         */
+        port?: pulumi.Input<number | undefined>;
+        /**
+         * Hostname of the DocumentDB server.
+         */
+        serverName?: pulumi.Input<string | undefined>;
+        /**
+         * SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+         */
+        sslMode?: pulumi.Input<string | undefined>;
+    }
+
+    export interface DataProviderSettingsIbmDb2LuwSettings {
+        /**
+         * ARN of the DMS certificate used for the SSL connection.
+         */
+        certificateArn?: pulumi.Input<string | undefined>;
+        /**
+         * Database name on the IBM DB2 LUW data provider.
+         */
+        databaseName?: pulumi.Input<string | undefined>;
+        /**
+         * Integer identifying the encryption algorithm for the connection. When omitted, AWS uses its default behavior.
+         */
+        encryptionAlgorithm?: pulumi.Input<number | undefined>;
+        /**
+         * Port of the IBM DB2 LUW server. Valid values are between `1` and `65535`.
+         */
+        port?: pulumi.Input<number | undefined>;
+        /**
+         * ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+         */
+        s3AccessRoleArn?: pulumi.Input<string | undefined>;
+        /**
+         * S3 path containing the user-defined schema.
+         */
+        s3Path?: pulumi.Input<string | undefined>;
+        /**
+         * Integer identifying the authentication mechanism for the connection. When omitted, AWS uses its default behavior.
+         */
+        securityMechanism?: pulumi.Input<number | undefined>;
+        /**
+         * Hostname of the IBM DB2 LUW server.
+         */
+        serverName?: pulumi.Input<string | undefined>;
+        /**
+         * SSL mode for the connection. Valid values: `none` and `verify-ca`. Defaults to `none`.
+         */
+        sslMode?: pulumi.Input<string | undefined>;
+    }
+
+    export interface DataProviderSettingsIbmDb2ZosSettings {
+        /**
+         * ARN of the DMS certificate used for the SSL connection.
+         */
+        certificateArn?: pulumi.Input<string | undefined>;
+        /**
+         * Database name on the IBM DB2 for z/OS data provider.
+         */
+        databaseName?: pulumi.Input<string | undefined>;
+        /**
+         * Port of the IBM DB2 for z/OS server. Valid values are between `1` and `65535`.
+         */
+        port?: pulumi.Input<number | undefined>;
+        /**
+         * ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+         */
+        s3AccessRoleArn?: pulumi.Input<string | undefined>;
+        /**
+         * S3 path containing the user-defined schema.
+         */
+        s3Path?: pulumi.Input<string | undefined>;
+        /**
+         * Hostname of the IBM DB2 for z/OS server.
+         */
+        serverName?: pulumi.Input<string | undefined>;
+        /**
+         * SSL mode for the connection. Valid values: `none` and `verify-ca`. Defaults to `none`.
+         */
+        sslMode?: pulumi.Input<string | undefined>;
+    }
+
+    export interface DataProviderSettingsMariaDbSettings {
+        /**
+         * ARN of the DMS certificate used for the SSL connection.
+         */
+        certificateArn?: pulumi.Input<string | undefined>;
+        /**
+         * Port of the MariaDB server. Valid values are between `1` and `65535`.
+         */
+        port?: pulumi.Input<number | undefined>;
+        /**
+         * ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+         */
+        s3AccessRoleArn?: pulumi.Input<string | undefined>;
+        /**
+         * S3 path containing the user-defined schema.
+         */
+        s3Path?: pulumi.Input<string | undefined>;
+        /**
+         * Hostname of the MariaDB server.
+         */
+        serverName?: pulumi.Input<string | undefined>;
+        /**
+         * SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+         */
+        sslMode?: pulumi.Input<string | undefined>;
+    }
+
+    export interface DataProviderSettingsMicrosoftSqlServerSettings {
+        /**
+         * ARN of the DMS certificate used for the SSL connection.
+         */
+        certificateArn?: pulumi.Input<string | undefined>;
+        /**
+         * Database name on the Microsoft SQL Server data provider.
+         */
+        databaseName?: pulumi.Input<string | undefined>;
+        /**
+         * Port of the Microsoft SQL Server instance. Valid values are between `1` and `65535`.
+         */
+        port?: pulumi.Input<number | undefined>;
+        /**
+         * ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+         */
+        s3AccessRoleArn?: pulumi.Input<string | undefined>;
+        /**
+         * S3 path containing the user-defined schema.
+         */
+        s3Path?: pulumi.Input<string | undefined>;
+        /**
+         * Hostname of the Microsoft SQL Server instance.
+         */
+        serverName?: pulumi.Input<string | undefined>;
+        /**
+         * SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+         */
+        sslMode?: pulumi.Input<string | undefined>;
+    }
+
+    export interface DataProviderSettingsMongoDbSettings {
+        /**
+         * Authentication mechanism for the connection. Valid values: `default`, `mongodbCr`, and `scramSha1`.
+         */
+        authMechanism?: pulumi.Input<string | undefined>;
+        /**
+         * Database used to verify credentials. Defaults to `admin`. Not used when `authType` is `no`.
+         */
+        authSource?: pulumi.Input<string | undefined>;
+        /**
+         * Authentication type for the connection. Valid values: `no` and `password`.
+         */
+        authType?: pulumi.Input<string | undefined>;
+        /**
+         * ARN of the DMS certificate used for the SSL connection.
+         */
+        certificateArn?: pulumi.Input<string | undefined>;
+        /**
+         * Database name on the MongoDB data provider.
+         */
+        databaseName?: pulumi.Input<string | undefined>;
+        /**
+         * Port of the MongoDB server. Valid values are between `1` and `65535`.
+         */
+        port?: pulumi.Input<number | undefined>;
+        /**
+         * Hostname of the MongoDB server.
+         */
+        serverName?: pulumi.Input<string | undefined>;
+        /**
+         * SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+         */
+        sslMode?: pulumi.Input<string | undefined>;
+    }
+
+    export interface DataProviderSettingsMysqlSettings {
+        /**
+         * ARN of the DMS certificate used for the SSL connection.
+         */
+        certificateArn?: pulumi.Input<string | undefined>;
+        /**
+         * Port of the MySQL server. Valid values are between `1` and `65535`.
+         */
+        port?: pulumi.Input<number | undefined>;
+        /**
+         * ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+         */
+        s3AccessRoleArn?: pulumi.Input<string | undefined>;
+        /**
+         * S3 path containing the user-defined schema.
+         */
+        s3Path?: pulumi.Input<string | undefined>;
+        /**
+         * Hostname of the MySQL server.
+         */
+        serverName?: pulumi.Input<string | undefined>;
+        /**
+         * SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+         */
+        sslMode?: pulumi.Input<string | undefined>;
+    }
+
+    export interface DataProviderSettingsOracleSettings {
+        /**
+         * Address of the Oracle Automatic Storage Management (ASM) server used with Binary Reader. See [Oracle change data capture configuration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration).
+         */
+        asmServer?: pulumi.Input<string | undefined>;
+        /**
+         * ARN of the DMS certificate used for the SSL connection.
+         */
+        certificateArn?: pulumi.Input<string | undefined>;
+        /**
+         * Database name on the Oracle data provider.
+         */
+        databaseName?: pulumi.Input<string | undefined>;
+        /**
+         * Port of the Oracle server. Valid values are between `1` and `65535`.
+         */
+        port?: pulumi.Input<number | undefined>;
+        /**
+         * ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+         */
+        s3AccessRoleArn?: pulumi.Input<string | undefined>;
+        /**
+         * S3 path containing the user-defined schema.
+         */
+        s3Path?: pulumi.Input<string | undefined>;
+        /**
+         * ARN of the IAM role that grants access to the Secrets Manager secret containing Oracle ASM connection details.
+         */
+        secretsManagerOracleAsmAccessRoleArn?: pulumi.Input<string | undefined>;
+        /**
+         * Identifier of the Secrets Manager secret containing Oracle ASM connection details. Required when the data provider uses an Oracle ASM server.
+         */
+        secretsManagerOracleAsmSecretId?: pulumi.Input<string | undefined>;
+        /**
+         * ARN of the IAM role that grants access to the Secrets Manager secret containing the transparent data encryption (TDE) password.
+         */
+        secretsManagerSecurityDbEncryptionAccessRoleArn?: pulumi.Input<string | undefined>;
+        /**
+         * Identifier of the Secrets Manager secret containing the TDE password used by Binary Reader to access encrypted Oracle redo logs.
+         */
+        secretsManagerSecurityDbEncryptionSecretId?: pulumi.Input<string | undefined>;
+        /**
+         * Hostname of the Oracle server.
+         */
+        serverName?: pulumi.Input<string | undefined>;
+        /**
+         * SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+         */
+        sslMode?: pulumi.Input<string | undefined>;
+    }
+
+    export interface DataProviderSettingsPostgresqlSettings {
+        /**
+         * ARN of the DMS certificate used for the SSL connection.
+         */
+        certificateArn?: pulumi.Input<string | undefined>;
+        /**
+         * Database name on the PostgreSQL data provider.
+         */
+        databaseName?: pulumi.Input<string | undefined>;
+        /**
+         * Port of the PostgreSQL server. Valid values are between `1` and `65535`.
+         */
+        port?: pulumi.Input<number | undefined>;
+        /**
+         * ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+         */
+        s3AccessRoleArn?: pulumi.Input<string | undefined>;
+        /**
+         * S3 path containing the user-defined schema.
+         */
+        s3Path?: pulumi.Input<string | undefined>;
+        /**
+         * Hostname of the PostgreSQL server.
+         */
+        serverName?: pulumi.Input<string | undefined>;
+        /**
+         * SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+         */
+        sslMode?: pulumi.Input<string | undefined>;
+    }
+
+    export interface DataProviderSettingsRedshiftSettings {
+        /**
+         * Database name on the Amazon Redshift data provider.
+         */
+        databaseName?: pulumi.Input<string | undefined>;
+        /**
+         * Port of the Amazon Redshift server. Valid values are between `1` and `65535`.
+         */
+        port?: pulumi.Input<number | undefined>;
+        /**
+         * ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+         */
+        s3AccessRoleArn?: pulumi.Input<string | undefined>;
+        /**
+         * S3 path containing the user-defined schema.
+         */
+        s3Path?: pulumi.Input<string | undefined>;
+        /**
+         * Hostname of the Amazon Redshift server.
+         */
+        serverName?: pulumi.Input<string | undefined>;
+    }
+
+    export interface DataProviderSettingsSybaseAseSettings {
+        /**
+         * ARN of the DMS certificate used for the SSL connection.
+         */
+        certificateArn?: pulumi.Input<string | undefined>;
+        /**
+         * Database name on the SAP ASE data provider.
+         */
+        databaseName?: pulumi.Input<string | undefined>;
+        /**
+         * Whether to encrypt the connection password during transmission. Defaults to `true`.
+         */
+        encryptPassword?: pulumi.Input<boolean | undefined>;
+        /**
+         * Port of the SAP ASE server. Valid values are between `1` and `65535`.
+         */
+        port?: pulumi.Input<number | undefined>;
+        /**
+         * Hostname of the SAP ASE server.
+         */
+        serverName?: pulumi.Input<string | undefined>;
+        /**
+         * SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+         */
+        sslMode?: pulumi.Input<string | undefined>;
+    }
+
     export interface EndpointElasticsearchSettings {
         /**
          * Endpoint for the OpenSearch cluster.
@@ -41622,6 +42561,10 @@ export namespace ecs {
 
     export interface CapacityProviderManagedInstancesProvider {
         /**
+         * Configuration block for the auto repair configuration. Detailed below.
+         */
+        autoRepairConfiguration?: pulumi.Input<inputs.ecs.CapacityProviderManagedInstancesProviderAutoRepairConfiguration | undefined>;
+        /**
          * Configuration block for how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider, including whether to turn optimization on or off and how long to delay optimizing idle EC2 instances. Detailed below.
          */
         infrastructureOptimization?: pulumi.Input<inputs.ecs.CapacityProviderManagedInstancesProviderInfrastructureOptimization | undefined>;
@@ -41637,6 +42580,13 @@ export namespace ecs {
          * Whether to propagate tags from the capacity provider to the Amazon ECS Managed Instances. When enabled, tags applied to the capacity provider are automatically applied to all instances launched by this provider. Valid values are `CAPACITY_PROVIDER` and `NONE`.
          */
         propagateTags?: pulumi.Input<string | undefined>;
+    }
+
+    export interface CapacityProviderManagedInstancesProviderAutoRepairConfiguration {
+        /**
+         * Whether to use Amazon ECS managed auto repair. Valid values are `ENABLED` and `DISABLED`.
+         */
+        actionsStatus?: pulumi.Input<string | undefined>;
     }
 
     export interface CapacityProviderManagedInstancesProviderInfrastructureOptimization {
@@ -46899,6 +47849,28 @@ export namespace fis {
          * Tag value.
          */
         value: pulumi.Input<string>;
+    }
+
+    export interface SafetyLeverStateState {
+        /**
+         * Reason for the current status of the safety lever.
+         */
+        reason: pulumi.Input<string>;
+        /**
+         * Status of the safety lever. Valid values: `engaged`, `disengaged`. Engaging the lever immediately stops all running experiments in the account and Region, and prevents new ones from starting.
+         */
+        status: pulumi.Input<string>;
+    }
+
+    export interface SafetyLeverStateTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string | undefined>;
     }
 }
 
@@ -78235,13 +79207,25 @@ export namespace msk {
 
     export interface ReplicatorKafkaCluster {
         /**
-         * Details of an Amazon MSK cluster.
+         * Details of an Amazon MSK cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
          */
-        amazonMskCluster: pulumi.Input<inputs.msk.ReplicatorKafkaClusterAmazonMskCluster>;
+        amazonMskCluster?: pulumi.Input<inputs.msk.ReplicatorKafkaClusterAmazonMskCluster | undefined>;
         /**
-         * Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+         * Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
          */
-        vpcConfig: pulumi.Input<inputs.msk.ReplicatorKafkaClusterVpcConfig>;
+        apacheKafkaCluster?: pulumi.Input<inputs.msk.ReplicatorKafkaClusterApacheKafkaCluster | undefined>;
+        /**
+         * Details of the client authentication used by the Kafka cluster. Only valid for an `apacheKafkaCluster`. Detailed below.
+         */
+        clientAuthentication?: pulumi.Input<inputs.msk.ReplicatorKafkaClusterClientAuthentication | undefined>;
+        /**
+         * Details of encryption in transit to the Kafka cluster. Only valid for an `apacheKafkaCluster`. TLS encryption in transit is always applied to an `apacheKafkaCluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). Detailed below.
+         */
+        encryptionInTransit?: pulumi.Input<inputs.msk.ReplicatorKafkaClusterEncryptionInTransit | undefined>;
+        /**
+         * Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazonMskCluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC.
+         */
+        vpcConfig?: pulumi.Input<inputs.msk.ReplicatorKafkaClusterVpcConfig | undefined>;
     }
 
     export interface ReplicatorKafkaClusterAmazonMskCluster {
@@ -78251,9 +79235,58 @@ export namespace msk {
         mskClusterArn: pulumi.Input<string>;
     }
 
+    export interface ReplicatorKafkaClusterApacheKafkaCluster {
+        /**
+         * The Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
+         */
+        apacheKafkaClusterId: pulumi.Input<string>;
+        /**
+         * The bootstrap broker connection string used to connect to the Apache Kafka cluster.
+         */
+        bootstrapBrokerString: pulumi.Input<string>;
+    }
+
+    export interface ReplicatorKafkaClusterClientAuthentication {
+        /**
+         * Details of the mTLS client authentication used by the Kafka cluster. Detailed below.
+         */
+        mtls?: pulumi.Input<inputs.msk.ReplicatorKafkaClusterClientAuthenticationMtls | undefined>;
+        /**
+         * Details of the SASL/SCRAM client authentication used by the Kafka cluster. Detailed below.
+         */
+        saslScram?: pulumi.Input<inputs.msk.ReplicatorKafkaClusterClientAuthenticationSaslScram | undefined>;
+    }
+
+    export interface ReplicatorKafkaClusterClientAuthenticationMtls {
+        /**
+         * The ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+         */
+        secretArn: pulumi.Input<string>;
+    }
+
+    export interface ReplicatorKafkaClusterClientAuthenticationSaslScram {
+        /**
+         * The SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
+         */
+        mechanism: pulumi.Input<string>;
+        /**
+         * The ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+         */
+        secretArn: pulumi.Input<string>;
+    }
+
+    export interface ReplicatorKafkaClusterEncryptionInTransit {
+        /**
+         * The ARN of the AWS Secrets Manager secret that stores the custom root CA certificate chain used to trust the certificate authority of the Apache Kafka cluster. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+         */
+        rootCaCertificate: pulumi.Input<string>;
+    }
+
     export interface ReplicatorKafkaClusterVpcConfig {
         /**
          * The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
+         *
+         * > **Note:** When an `apacheKafkaCluster` uses `clientAuthentication`, the replicator's network interfaces (created in these subnets, with private IPs only) must be able to reach AWS Secrets Manager and AWS KMS to retrieve and decrypt the credentials. Ensure the subnets have egress to those services via a NAT gateway or Secrets Manager and KMS interface VPC endpoints; otherwise the replicator times out connecting to the source cluster.
          */
         securityGroupsIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
@@ -78328,18 +79361,26 @@ export namespace msk {
         consumerGroupReplications: pulumi.Input<pulumi.Input<inputs.msk.ReplicatorReplicationInfoListConsumerGroupReplication>[]>;
         sourceKafkaClusterAlias?: pulumi.Input<string | undefined>;
         /**
-         * The ARN of the source Kafka cluster.
+         * The ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
          */
-        sourceKafkaClusterArn: pulumi.Input<string>;
+        sourceKafkaClusterArn?: pulumi.Input<string | undefined>;
+        /**
+         * The identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apacheKafkaClusterId`). Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+         */
+        sourceKafkaClusterId?: pulumi.Input<string | undefined>;
         /**
          * The type of compression to use writing records to target Kafka cluster.
          */
         targetCompressionType: pulumi.Input<string>;
         targetKafkaClusterAlias?: pulumi.Input<string | undefined>;
         /**
-         * The ARN of the target Kafka cluster.
+         * The ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
          */
-        targetKafkaClusterArn: pulumi.Input<string>;
+        targetKafkaClusterArn?: pulumi.Input<string | undefined>;
+        /**
+         * The identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apacheKafkaClusterId`). Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+         */
+        targetKafkaClusterId?: pulumi.Input<string | undefined>;
         /**
          * Configuration relating to topic replication.
          */

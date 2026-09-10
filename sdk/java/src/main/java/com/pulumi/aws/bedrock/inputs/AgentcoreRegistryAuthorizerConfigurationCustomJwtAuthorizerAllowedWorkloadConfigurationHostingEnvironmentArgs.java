@@ -14,9 +14,17 @@ public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAl
 
     public static final AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs Empty = new AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs();
 
+    /**
+     * ARN of the hosting environment.
+     * 
+     */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
+    /**
+     * @return ARN of the hosting environment.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -45,11 +53,23 @@ public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAl
             $ = new AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn ARN of the hosting environment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn ARN of the hosting environment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }

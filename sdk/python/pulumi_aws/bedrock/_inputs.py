@@ -873,10 +873,20 @@ __all__ = [
     'AgentcoreHarnessModelBedrockModelConfigArgsDict',
     'AgentcoreHarnessModelGeminiModelConfigArgs',
     'AgentcoreHarnessModelGeminiModelConfigArgsDict',
+    'AgentcoreHarnessModelLitellmModelConfigArgs',
+    'AgentcoreHarnessModelLitellmModelConfigArgsDict',
     'AgentcoreHarnessModelOpenaiModelConfigArgs',
     'AgentcoreHarnessModelOpenaiModelConfigArgsDict',
     'AgentcoreHarnessSkillArgs',
     'AgentcoreHarnessSkillArgsDict',
+    'AgentcoreHarnessSkillAwsSkillsArgs',
+    'AgentcoreHarnessSkillAwsSkillsArgsDict',
+    'AgentcoreHarnessSkillGitArgs',
+    'AgentcoreHarnessSkillGitArgsDict',
+    'AgentcoreHarnessSkillGitAuthArgs',
+    'AgentcoreHarnessSkillGitAuthArgsDict',
+    'AgentcoreHarnessSkillS3Args',
+    'AgentcoreHarnessSkillS3ArgsDict',
     'AgentcoreHarnessSystemPromptArgs',
     'AgentcoreHarnessSystemPromptArgsDict',
     'AgentcoreHarnessTimeoutsArgs',
@@ -1007,6 +1017,8 @@ __all__ = [
     'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArgsDict',
     'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs',
     'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgsDict',
+    'AgentcoreOauth2CredentialProviderTimeoutsArgs',
+    'AgentcoreOauth2CredentialProviderTimeoutsArgsDict',
     'AgentcoreOnlineEvaluationConfigDataSourceConfigArgs',
     'AgentcoreOnlineEvaluationConfigDataSourceConfigArgsDict',
     'AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs',
@@ -23174,8 +23186,6 @@ class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArgsDict(Typed
     filesystem_configurations: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArgsDict']]]
     """
     Filesystem configurations. See `filesystem_configuration` Block below.
-
-    The following attributes are exported under `agentcore_runtime_environment`:
     """
     lifecycle_configurations: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArgsDict']]]
     """
@@ -23184,6 +23194,8 @@ class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArgsDict(Typed
     network_configurations: pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArgsDict']]]
     """
     Network configuration. See `network_configuration` Block below.
+
+    The following attributes are exported under `agentcore_runtime_environment`:
     """
 
 @pulumi.input_type
@@ -23200,10 +23212,10 @@ class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArgs:
         :param pulumi.Input[_builtins.str] agent_runtime_id: ID of the agent runtime the service provisions for the harness.
         :param pulumi.Input[_builtins.str] agent_runtime_name: Name of the agent runtime the service derives for the harness.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs']]] filesystem_configurations: Filesystem configurations. See `filesystem_configuration` Block below.
-               
-               The following attributes are exported under `agentcore_runtime_environment`:
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs']]] lifecycle_configurations: Lifecycle configuration. See `lifecycle_configuration` Block below.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArgs']]] network_configurations: Network configuration. See `network_configuration` Block below.
+               
+               The following attributes are exported under `agentcore_runtime_environment`:
         """
         pulumi.set(__self__, "agent_runtime_arn", agent_runtime_arn)
         pulumi.set(__self__, "agent_runtime_id", agent_runtime_id)
@@ -23253,8 +23265,6 @@ class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArgs:
     def filesystem_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs']]]:
         """
         Filesystem configurations. See `filesystem_configuration` Block below.
-
-        The following attributes are exported under `agentcore_runtime_environment`:
         """
         return pulumi.get(self, "filesystem_configurations")
 
@@ -23279,6 +23289,8 @@ class AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArgs:
     def network_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArgs']]]:
         """
         Network configuration. See `network_configuration` Block below.
+
+        The following attributes are exported under `agentcore_runtime_environment`:
         """
         return pulumi.get(self, "network_configurations")
 
@@ -23651,8 +23663,6 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgsDict(TypedDict):
     filesystem_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArgsDict']]]]]
     """
     Filesystem configurations. See `filesystem_configuration` Block below.
-
-    The following attributes are exported under `agentcore_runtime_environment`:
     """
     lifecycle_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfigurationArgsDict']]]]]
     """
@@ -23661,6 +23671,8 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgsDict(TypedDict):
     network_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArgsDict']]]]]
     """
     Network configuration. See `network_configuration` Block below.
+
+    The following attributes are exported under `agentcore_runtime_environment`:
     """
 
 @pulumi.input_type
@@ -23677,10 +23689,10 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs:
         :param pulumi.Input[_builtins.str] agent_runtime_id: ID of the agent runtime the service provisions for the harness.
         :param pulumi.Input[_builtins.str] agent_runtime_name: Name of the agent runtime the service derives for the harness.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs']]] filesystem_configurations: Filesystem configurations. See `filesystem_configuration` Block below.
-               
-               The following attributes are exported under `agentcore_runtime_environment`:
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs']]] lifecycle_configurations: Lifecycle configuration. See `lifecycle_configuration` Block below.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArgs']]] network_configurations: Network configuration. See `network_configuration` Block below.
+               
+               The following attributes are exported under `agentcore_runtime_environment`:
         """
         if agent_runtime_arn is not None:
             pulumi.set(__self__, "agent_runtime_arn", agent_runtime_arn)
@@ -23736,8 +23748,6 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs:
     def filesystem_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs']]]]:
         """
         Filesystem configurations. See `filesystem_configuration` Block below.
-
-        The following attributes are exported under `agentcore_runtime_environment`:
         """
         return pulumi.get(self, "filesystem_configurations")
 
@@ -23762,6 +23772,8 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs:
     def network_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArgs']]]]:
         """
         Network configuration. See `network_configuration` Block below.
+
+        The following attributes are exported under `agentcore_runtime_environment`:
         """
         return pulumi.get(self, "network_configurations")
 
@@ -24874,6 +24886,10 @@ class AgentcoreHarnessModelArgsDict(TypedDict):
     """
     Gemini model configuration. See `gemini_model_config` Block below.
     """
+    litellm_model_config: NotRequired[pulumi.Input[Optional['AgentcoreHarnessModelLitellmModelConfigArgsDict']]]
+    """
+    LiteLLM model configuration. See `litellm_model_config` Block below.
+    """
     openai_model_config: NotRequired[pulumi.Input[Optional['AgentcoreHarnessModelOpenaiModelConfigArgsDict']]]
     """
     OpenAI model configuration. See `openai_model_config` Block below.
@@ -24884,16 +24900,20 @@ class AgentcoreHarnessModelArgs:
     def __init__(__self__, *,
                  bedrock_model_config: pulumi.Input[Optional['AgentcoreHarnessModelBedrockModelConfigArgs']] = None,
                  gemini_model_config: pulumi.Input[Optional['AgentcoreHarnessModelGeminiModelConfigArgs']] = None,
+                 litellm_model_config: pulumi.Input[Optional['AgentcoreHarnessModelLitellmModelConfigArgs']] = None,
                  openai_model_config: pulumi.Input[Optional['AgentcoreHarnessModelOpenaiModelConfigArgs']] = None):
         """
         :param pulumi.Input['AgentcoreHarnessModelBedrockModelConfigArgs'] bedrock_model_config: Amazon Bedrock model configuration. See `bedrock_model_config` Block below.
         :param pulumi.Input['AgentcoreHarnessModelGeminiModelConfigArgs'] gemini_model_config: Gemini model configuration. See `gemini_model_config` Block below.
+        :param pulumi.Input['AgentcoreHarnessModelLitellmModelConfigArgs'] litellm_model_config: LiteLLM model configuration. See `litellm_model_config` Block below.
         :param pulumi.Input['AgentcoreHarnessModelOpenaiModelConfigArgs'] openai_model_config: OpenAI model configuration. See `openai_model_config` Block below.
         """
         if bedrock_model_config is not None:
             pulumi.set(__self__, "bedrock_model_config", bedrock_model_config)
         if gemini_model_config is not None:
             pulumi.set(__self__, "gemini_model_config", gemini_model_config)
+        if litellm_model_config is not None:
+            pulumi.set(__self__, "litellm_model_config", litellm_model_config)
         if openai_model_config is not None:
             pulumi.set(__self__, "openai_model_config", openai_model_config)
 
@@ -24922,6 +24942,18 @@ class AgentcoreHarnessModelArgs:
         pulumi.set(self, "gemini_model_config", value)
 
     @_builtins.property
+    @pulumi.getter(name="litellmModelConfig")
+    def litellm_model_config(self) -> pulumi.Input[Optional['AgentcoreHarnessModelLitellmModelConfigArgs']]:
+        """
+        LiteLLM model configuration. See `litellm_model_config` Block below.
+        """
+        return pulumi.get(self, "litellm_model_config")
+
+    @litellm_model_config.setter
+    def litellm_model_config(self, value: pulumi.Input[Optional['AgentcoreHarnessModelLitellmModelConfigArgs']]):
+        pulumi.set(self, "litellm_model_config", value)
+
+    @_builtins.property
     @pulumi.getter(name="openaiModelConfig")
     def openai_model_config(self) -> pulumi.Input[Optional['AgentcoreHarnessModelOpenaiModelConfigArgs']]:
         """
@@ -24938,6 +24970,14 @@ class AgentcoreHarnessModelBedrockModelConfigArgsDict(TypedDict):
     model_id: pulumi.Input[_builtins.str]
     """
     Bedrock model ID (e.g., `anthropic.claude-sonnet-4-20250514`).
+    """
+    additional_params: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    JSON string containing provider-specific parameters to pass through to the Bedrock model provider unchanged.
+    """
+    api_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    API format for the model. Valid values are `converse_stream`, `responses`, and `chat_completions`.
     """
     max_tokens: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -24956,16 +24996,24 @@ class AgentcoreHarnessModelBedrockModelConfigArgsDict(TypedDict):
 class AgentcoreHarnessModelBedrockModelConfigArgs:
     def __init__(__self__, *,
                  model_id: pulumi.Input[_builtins.str],
+                 additional_params: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_format: pulumi.Input[Optional[_builtins.str]] = None,
                  max_tokens: pulumi.Input[Optional[_builtins.int]] = None,
                  temperature: pulumi.Input[Optional[_builtins.float]] = None,
                  top_p: pulumi.Input[Optional[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.str] model_id: Bedrock model ID (e.g., `anthropic.claude-sonnet-4-20250514`).
+        :param pulumi.Input[_builtins.str] additional_params: JSON string containing provider-specific parameters to pass through to the Bedrock model provider unchanged.
+        :param pulumi.Input[_builtins.str] api_format: API format for the model. Valid values are `converse_stream`, `responses`, and `chat_completions`.
         :param pulumi.Input[_builtins.int] max_tokens: Maximum number of tokens to generate.
         :param pulumi.Input[_builtins.float] temperature: Temperature for sampling. Must be between 0 and 2.
         :param pulumi.Input[_builtins.float] top_p: Top-p (nucleus) sampling parameter. Must be between 0 and 1.
         """
         pulumi.set(__self__, "model_id", model_id)
+        if additional_params is not None:
+            pulumi.set(__self__, "additional_params", additional_params)
+        if api_format is not None:
+            pulumi.set(__self__, "api_format", api_format)
         if max_tokens is not None:
             pulumi.set(__self__, "max_tokens", max_tokens)
         if temperature is not None:
@@ -24984,6 +25032,30 @@ class AgentcoreHarnessModelBedrockModelConfigArgs:
     @model_id.setter
     def model_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "model_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalParams")
+    def additional_params(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        JSON string containing provider-specific parameters to pass through to the Bedrock model provider unchanged.
+        """
+        return pulumi.get(self, "additional_params")
+
+    @additional_params.setter
+    def additional_params(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "additional_params", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiFormat")
+    def api_format(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        API format for the model. Valid values are `converse_stream`, `responses`, and `chat_completions`.
+        """
+        return pulumi.get(self, "api_format")
+
+    @api_format.setter
+    def api_format(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "api_format", value)
 
     @_builtins.property
     @pulumi.getter(name="maxTokens")
@@ -25031,6 +25103,10 @@ class AgentcoreHarnessModelGeminiModelConfigArgsDict(TypedDict):
     """
     Gemini model ID.
     """
+    additional_params: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    JSON string containing provider-specific parameters to pass through to the Gemini model provider unchanged.
+    """
     max_tokens: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum number of tokens to generate.
@@ -25053,6 +25129,7 @@ class AgentcoreHarnessModelGeminiModelConfigArgs:
     def __init__(__self__, *,
                  api_key_arn: pulumi.Input[_builtins.str],
                  model_id: pulumi.Input[_builtins.str],
+                 additional_params: pulumi.Input[Optional[_builtins.str]] = None,
                  max_tokens: pulumi.Input[Optional[_builtins.int]] = None,
                  temperature: pulumi.Input[Optional[_builtins.float]] = None,
                  top_k: pulumi.Input[Optional[_builtins.int]] = None,
@@ -25060,6 +25137,7 @@ class AgentcoreHarnessModelGeminiModelConfigArgs:
         """
         :param pulumi.Input[_builtins.str] api_key_arn: ARN of the secret containing the API key.
         :param pulumi.Input[_builtins.str] model_id: Gemini model ID.
+        :param pulumi.Input[_builtins.str] additional_params: JSON string containing provider-specific parameters to pass through to the Gemini model provider unchanged.
         :param pulumi.Input[_builtins.int] max_tokens: Maximum number of tokens to generate.
         :param pulumi.Input[_builtins.float] temperature: Temperature for sampling.
         :param pulumi.Input[_builtins.int] top_k: Top-k sampling parameter.
@@ -25067,6 +25145,8 @@ class AgentcoreHarnessModelGeminiModelConfigArgs:
         """
         pulumi.set(__self__, "api_key_arn", api_key_arn)
         pulumi.set(__self__, "model_id", model_id)
+        if additional_params is not None:
+            pulumi.set(__self__, "additional_params", additional_params)
         if max_tokens is not None:
             pulumi.set(__self__, "max_tokens", max_tokens)
         if temperature is not None:
@@ -25099,6 +25179,18 @@ class AgentcoreHarnessModelGeminiModelConfigArgs:
     @model_id.setter
     def model_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "model_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalParams")
+    def additional_params(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        JSON string containing provider-specific parameters to pass through to the Gemini model provider unchanged.
+        """
+        return pulumi.get(self, "additional_params")
+
+    @additional_params.setter
+    def additional_params(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "additional_params", value)
 
     @_builtins.property
     @pulumi.getter(name="maxTokens")
@@ -25149,6 +25241,154 @@ class AgentcoreHarnessModelGeminiModelConfigArgs:
         pulumi.set(self, "top_p", value)
 
 
+class AgentcoreHarnessModelLitellmModelConfigArgsDict(TypedDict):
+    model_id: pulumi.Input[_builtins.str]
+    """
+    LiteLLM model ID.
+    """
+    additional_params: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    JSON string containing provider-specific parameters to pass through to the LiteLLM model provider unchanged.
+    """
+    api_base: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Base URL of the LiteLLM-compatible API endpoint.
+    """
+    api_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the secret containing the API key.
+    """
+    max_tokens: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum number of tokens to generate.
+    """
+    temperature: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    Temperature for sampling. Must be between 0 and 2.
+    """
+    top_p: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    Top-p sampling parameter. Must be between 0 and 1.
+    """
+
+@pulumi.input_type
+class AgentcoreHarnessModelLitellmModelConfigArgs:
+    def __init__(__self__, *,
+                 model_id: pulumi.Input[_builtins.str],
+                 additional_params: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_base: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_tokens: pulumi.Input[Optional[_builtins.int]] = None,
+                 temperature: pulumi.Input[Optional[_builtins.float]] = None,
+                 top_p: pulumi.Input[Optional[_builtins.float]] = None):
+        """
+        :param pulumi.Input[_builtins.str] model_id: LiteLLM model ID.
+        :param pulumi.Input[_builtins.str] additional_params: JSON string containing provider-specific parameters to pass through to the LiteLLM model provider unchanged.
+        :param pulumi.Input[_builtins.str] api_base: Base URL of the LiteLLM-compatible API endpoint.
+        :param pulumi.Input[_builtins.str] api_key_arn: ARN of the secret containing the API key.
+        :param pulumi.Input[_builtins.int] max_tokens: Maximum number of tokens to generate.
+        :param pulumi.Input[_builtins.float] temperature: Temperature for sampling. Must be between 0 and 2.
+        :param pulumi.Input[_builtins.float] top_p: Top-p sampling parameter. Must be between 0 and 1.
+        """
+        pulumi.set(__self__, "model_id", model_id)
+        if additional_params is not None:
+            pulumi.set(__self__, "additional_params", additional_params)
+        if api_base is not None:
+            pulumi.set(__self__, "api_base", api_base)
+        if api_key_arn is not None:
+            pulumi.set(__self__, "api_key_arn", api_key_arn)
+        if max_tokens is not None:
+            pulumi.set(__self__, "max_tokens", max_tokens)
+        if temperature is not None:
+            pulumi.set(__self__, "temperature", temperature)
+        if top_p is not None:
+            pulumi.set(__self__, "top_p", top_p)
+
+    @_builtins.property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        LiteLLM model ID.
+        """
+        return pulumi.get(self, "model_id")
+
+    @model_id.setter
+    def model_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "model_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalParams")
+    def additional_params(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        JSON string containing provider-specific parameters to pass through to the LiteLLM model provider unchanged.
+        """
+        return pulumi.get(self, "additional_params")
+
+    @additional_params.setter
+    def additional_params(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "additional_params", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiBase")
+    def api_base(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Base URL of the LiteLLM-compatible API endpoint.
+        """
+        return pulumi.get(self, "api_base")
+
+    @api_base.setter
+    def api_base(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "api_base", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyArn")
+    def api_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the secret containing the API key.
+        """
+        return pulumi.get(self, "api_key_arn")
+
+    @api_key_arn.setter
+    def api_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "api_key_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxTokens")
+    def max_tokens(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum number of tokens to generate.
+        """
+        return pulumi.get(self, "max_tokens")
+
+    @max_tokens.setter
+    def max_tokens(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_tokens", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def temperature(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        Temperature for sampling. Must be between 0 and 2.
+        """
+        return pulumi.get(self, "temperature")
+
+    @temperature.setter
+    def temperature(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "temperature", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topP")
+    def top_p(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        Top-p sampling parameter. Must be between 0 and 1.
+        """
+        return pulumi.get(self, "top_p")
+
+    @top_p.setter
+    def top_p(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "top_p", value)
+
+
 class AgentcoreHarnessModelOpenaiModelConfigArgsDict(TypedDict):
     api_key_arn: pulumi.Input[_builtins.str]
     """
@@ -25157,6 +25397,14 @@ class AgentcoreHarnessModelOpenaiModelConfigArgsDict(TypedDict):
     model_id: pulumi.Input[_builtins.str]
     """
     OpenAI model ID.
+    """
+    additional_params: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    JSON string containing provider-specific parameters to pass through to the OpenAI model provider unchanged.
+    """
+    api_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    API format for the model. Valid values are `responses` and `chat_completions`.
     """
     max_tokens: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -25176,18 +25424,26 @@ class AgentcoreHarnessModelOpenaiModelConfigArgs:
     def __init__(__self__, *,
                  api_key_arn: pulumi.Input[_builtins.str],
                  model_id: pulumi.Input[_builtins.str],
+                 additional_params: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_format: pulumi.Input[Optional[_builtins.str]] = None,
                  max_tokens: pulumi.Input[Optional[_builtins.int]] = None,
                  temperature: pulumi.Input[Optional[_builtins.float]] = None,
                  top_p: pulumi.Input[Optional[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.str] api_key_arn: ARN of the secret containing the API key.
         :param pulumi.Input[_builtins.str] model_id: OpenAI model ID.
+        :param pulumi.Input[_builtins.str] additional_params: JSON string containing provider-specific parameters to pass through to the OpenAI model provider unchanged.
+        :param pulumi.Input[_builtins.str] api_format: API format for the model. Valid values are `responses` and `chat_completions`.
         :param pulumi.Input[_builtins.int] max_tokens: Maximum number of tokens to generate.
         :param pulumi.Input[_builtins.float] temperature: Temperature for sampling.
         :param pulumi.Input[_builtins.float] top_p: Top-p sampling parameter.
         """
         pulumi.set(__self__, "api_key_arn", api_key_arn)
         pulumi.set(__self__, "model_id", model_id)
+        if additional_params is not None:
+            pulumi.set(__self__, "additional_params", additional_params)
+        if api_format is not None:
+            pulumi.set(__self__, "api_format", api_format)
         if max_tokens is not None:
             pulumi.set(__self__, "max_tokens", max_tokens)
         if temperature is not None:
@@ -25218,6 +25474,30 @@ class AgentcoreHarnessModelOpenaiModelConfigArgs:
     @model_id.setter
     def model_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "model_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalParams")
+    def additional_params(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        JSON string containing provider-specific parameters to pass through to the OpenAI model provider unchanged.
+        """
+        return pulumi.get(self, "additional_params")
+
+    @additional_params.setter
+    def additional_params(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "additional_params", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiFormat")
+    def api_format(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        API format for the model. Valid values are `responses` and `chat_completions`.
+        """
+        return pulumi.get(self, "api_format")
+
+    @api_format.setter
+    def api_format(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "api_format", value)
 
     @_builtins.property
     @pulumi.getter(name="maxTokens")
@@ -25257,35 +25537,269 @@ class AgentcoreHarnessModelOpenaiModelConfigArgs:
 
 
 class AgentcoreHarnessSkillArgsDict(TypedDict):
-    path: pulumi.Input[_builtins.str]
+    aws_skills: NotRequired[pulumi.Input[Optional['AgentcoreHarnessSkillAwsSkillsArgsDict']]]
+    """
+    AWS Skills baked into the harness's underlying runtime. See `aws_skills` Block below.
+    """
+    git: NotRequired[pulumi.Input[Optional['AgentcoreHarnessSkillGitArgsDict']]]
+    """
+    Git repository source for the skill. See `git` Block below.
+    """
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Path to the skill.
+    """
+    s3: NotRequired[pulumi.Input[Optional['AgentcoreHarnessSkillS3ArgsDict']]]
+    """
+    S3 source for the skill. See `s3` Block below.
     """
 
 @pulumi.input_type
 class AgentcoreHarnessSkillArgs:
     def __init__(__self__, *,
-                 path: pulumi.Input[_builtins.str]):
+                 aws_skills: pulumi.Input[Optional['AgentcoreHarnessSkillAwsSkillsArgs']] = None,
+                 git: pulumi.Input[Optional['AgentcoreHarnessSkillGitArgs']] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3: pulumi.Input[Optional['AgentcoreHarnessSkillS3Args']] = None):
         """
+        :param pulumi.Input['AgentcoreHarnessSkillAwsSkillsArgs'] aws_skills: AWS Skills baked into the harness's underlying runtime. See `aws_skills` Block below.
+        :param pulumi.Input['AgentcoreHarnessSkillGitArgs'] git: Git repository source for the skill. See `git` Block below.
         :param pulumi.Input[_builtins.str] path: Path to the skill.
+        :param pulumi.Input['AgentcoreHarnessSkillS3Args'] s3: S3 source for the skill. See `s3` Block below.
         """
-        pulumi.set(__self__, "path", path)
+        if aws_skills is not None:
+            pulumi.set(__self__, "aws_skills", aws_skills)
+        if git is not None:
+            pulumi.set(__self__, "git", git)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter(name="awsSkills")
+    def aws_skills(self) -> pulumi.Input[Optional['AgentcoreHarnessSkillAwsSkillsArgs']]:
+        """
+        AWS Skills baked into the harness's underlying runtime. See `aws_skills` Block below.
+        """
+        return pulumi.get(self, "aws_skills")
+
+    @aws_skills.setter
+    def aws_skills(self, value: pulumi.Input[Optional['AgentcoreHarnessSkillAwsSkillsArgs']]):
+        pulumi.set(self, "aws_skills", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> pulumi.Input[_builtins.str]:
+    def git(self) -> pulumi.Input[Optional['AgentcoreHarnessSkillGitArgs']]:
+        """
+        Git repository source for the skill. See `git` Block below.
+        """
+        return pulumi.get(self, "git")
+
+    @git.setter
+    def git(self, value: pulumi.Input[Optional['AgentcoreHarnessSkillGitArgs']]):
+        pulumi.set(self, "git", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path to the skill.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: pulumi.Input[_builtins.str]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "path", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> pulumi.Input[Optional['AgentcoreHarnessSkillS3Args']]:
+        """
+        S3 source for the skill. See `s3` Block below.
+        """
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: pulumi.Input[Optional['AgentcoreHarnessSkillS3Args']]):
+        pulumi.set(self, "s3", value)
+
+
+class AgentcoreHarnessSkillAwsSkillsArgsDict(TypedDict):
+    paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    List of glob patterns to filter allowed skills (e.g., `["core-skills/*"]`).
+    """
+
+@pulumi.input_type
+class AgentcoreHarnessSkillAwsSkillsArgs:
+    def __init__(__self__, *,
+                 paths: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] paths: List of glob patterns to filter allowed skills (e.g., `["core-skills/*"]`).
+        """
+        if paths is not None:
+            pulumi.set(__self__, "paths", paths)
+
+    @_builtins.property
+    @pulumi.getter
+    def paths(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of glob patterns to filter allowed skills (e.g., `["core-skills/*"]`).
+        """
+        return pulumi.get(self, "paths")
+
+    @paths.setter
+    def paths(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "paths", value)
+
+
+class AgentcoreHarnessSkillGitArgsDict(TypedDict):
+    url: pulumi.Input[_builtins.str]
+    """
+    HTTPS URL of the git repository.
+    """
+    auth: NotRequired[pulumi.Input[Optional['AgentcoreHarnessSkillGitAuthArgsDict']]]
+    """
+    Authentication configuration for private repositories. See `auth` Block below.
+    """
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Subdirectory within the repository containing the skill.
+    """
+
+@pulumi.input_type
+class AgentcoreHarnessSkillGitArgs:
+    def __init__(__self__, *,
+                 url: pulumi.Input[_builtins.str],
+                 auth: pulumi.Input[Optional['AgentcoreHarnessSkillGitAuthArgs']] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] url: HTTPS URL of the git repository.
+        :param pulumi.Input['AgentcoreHarnessSkillGitAuthArgs'] auth: Authentication configuration for private repositories. See `auth` Block below.
+        :param pulumi.Input[_builtins.str] path: Subdirectory within the repository containing the skill.
+        """
+        pulumi.set(__self__, "url", url)
+        if auth is not None:
+            pulumi.set(__self__, "auth", auth)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[_builtins.str]:
+        """
+        HTTPS URL of the git repository.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "url", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def auth(self) -> pulumi.Input[Optional['AgentcoreHarnessSkillGitAuthArgs']]:
+        """
+        Authentication configuration for private repositories. See `auth` Block below.
+        """
+        return pulumi.get(self, "auth")
+
+    @auth.setter
+    def auth(self, value: pulumi.Input[Optional['AgentcoreHarnessSkillGitAuthArgs']]):
+        pulumi.set(self, "auth", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Subdirectory within the repository containing the skill.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
 
+class AgentcoreHarnessSkillGitAuthArgsDict(TypedDict):
+    credential_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the credential in AgentCore Identity containing the password or personal access token.
+    """
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Username for authentication. Defaults to `oauth2` if not specified.
+    """
+
+@pulumi.input_type
+class AgentcoreHarnessSkillGitAuthArgs:
+    def __init__(__self__, *,
+                 credential_arn: pulumi.Input[_builtins.str],
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] credential_arn: ARN of the credential in AgentCore Identity containing the password or personal access token.
+        :param pulumi.Input[_builtins.str] username: Username for authentication. Defaults to `oauth2` if not specified.
+        """
+        pulumi.set(__self__, "credential_arn", credential_arn)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @_builtins.property
+    @pulumi.getter(name="credentialArn")
+    def credential_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the credential in AgentCore Identity containing the password or personal access token.
+        """
+        return pulumi.get(self, "credential_arn")
+
+    @credential_arn.setter
+    def credential_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "credential_arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Username for authentication. Defaults to `oauth2` if not specified.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "username", value)
+
+
+class AgentcoreHarnessSkillS3ArgsDict(TypedDict):
+    uri: pulumi.Input[_builtins.str]
+    """
+    S3 URI of the skill source. Must begin with `s3://`.
+    """
+
+@pulumi.input_type
+class AgentcoreHarnessSkillS3Args:
+    def __init__(__self__, *,
+                 uri: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] uri: S3 URI of the skill source. Must begin with `s3://`.
+        """
+        pulumi.set(__self__, "uri", uri)
+
+    @_builtins.property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[_builtins.str]:
+        """
+        S3 URI of the skill source. Must begin with `s3://`.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "uri", value)
+
+
 class AgentcoreHarnessSystemPromptArgsDict(TypedDict):
-    text: pulumi.Input[_builtins.str]
+    text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Text content of the system prompt.
     """
@@ -25293,22 +25807,23 @@ class AgentcoreHarnessSystemPromptArgsDict(TypedDict):
 @pulumi.input_type
 class AgentcoreHarnessSystemPromptArgs:
     def __init__(__self__, *,
-                 text: pulumi.Input[_builtins.str]):
+                 text: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] text: Text content of the system prompt.
         """
-        pulumi.set(__self__, "text", text)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
 
     @_builtins.property
     @pulumi.getter
-    def text(self) -> pulumi.Input[_builtins.str]:
+    def text(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Text content of the system prompt.
         """
         return pulumi.get(self, "text")
 
     @text.setter
-    def text(self, value: pulumi.Input[_builtins.str]):
+    def text(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "text", value)
 
 
@@ -29243,6 +29758,75 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCo
         pulumi.set(self, "token_endpoint", value)
 
 
+class AgentcoreOauth2CredentialProviderTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+
+@pulumi.input_type
+class AgentcoreOauth2CredentialProviderTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "update", value)
+
+
 class AgentcoreOnlineEvaluationConfigDataSourceConfigArgsDict(TypedDict):
     cloudwatch_logs: NotRequired[pulumi.Input[Optional['AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgsDict']]]
     """
@@ -29927,16 +30511,25 @@ class AgentcorePolicyTimeoutsArgs:
 
 class AgentcoreRegistryApprovalConfigurationArgsDict(TypedDict):
     auto_approval: pulumi.Input[_builtins.bool]
+    """
+    Whether registry records are auto-approved. When set to `true`, records are automatically approved upon creation. When set to `false` (the default), records require explicit approval.
+    """
 
 @pulumi.input_type
 class AgentcoreRegistryApprovalConfigurationArgs:
     def __init__(__self__, *,
                  auto_approval: pulumi.Input[_builtins.bool]):
+        """
+        :param pulumi.Input[_builtins.bool] auto_approval: Whether registry records are auto-approved. When set to `true`, records are automatically approved upon creation. When set to `false` (the default), records require explicit approval.
+        """
         pulumi.set(__self__, "auto_approval", auto_approval)
 
     @_builtins.property
     @pulumi.getter(name="autoApproval")
     def auto_approval(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether registry records are auto-approved. When set to `true`, records are automatically approved upon creation. When set to `false` (the default), records require explicit approval.
+        """
         return pulumi.get(self, "auto_approval")
 
     @auto_approval.setter
@@ -29946,17 +30539,26 @@ class AgentcoreRegistryApprovalConfigurationArgs:
 
 class AgentcoreRegistryAuthorizerConfigurationArgsDict(TypedDict):
     custom_jwt_authorizer: NotRequired[pulumi.Input[Optional['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgsDict']]]
+    """
+    JWT-based authorization configuration block. See `custom_jwt_authorizer` below.
+    """
 
 @pulumi.input_type
 class AgentcoreRegistryAuthorizerConfigurationArgs:
     def __init__(__self__, *,
                  custom_jwt_authorizer: pulumi.Input[Optional['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs']] = None):
+        """
+        :param pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs'] custom_jwt_authorizer: JWT-based authorization configuration block. See `custom_jwt_authorizer` below.
+        """
         if custom_jwt_authorizer is not None:
             pulumi.set(__self__, "custom_jwt_authorizer", custom_jwt_authorizer)
 
     @_builtins.property
     @pulumi.getter(name="customJwtAuthorizer")
     def custom_jwt_authorizer(self) -> pulumi.Input[Optional['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs']]:
+        """
+        JWT-based authorization configuration block. See `custom_jwt_authorizer` below.
+        """
         return pulumi.get(self, "custom_jwt_authorizer")
 
     @custom_jwt_authorizer.setter
@@ -29966,13 +30568,37 @@ class AgentcoreRegistryAuthorizerConfigurationArgs:
 
 class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgsDict(TypedDict):
     discovery_url: pulumi.Input[_builtins.str]
+    """
+    URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
+    """
     allowed_audiences: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Set of allowed audience values for JWT token validation.
+    """
     allowed_clients: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Set of allowed client IDs for JWT token validation.
+    """
     allowed_scopes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Set of scopes that are allowed to access the token.
+    """
     allowed_workload_configuration: NotRequired[pulumi.Input[Optional['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgsDict']]]
+    """
+    Configuration restricting which workloads may use this authorizer. See `allowed_workload_configuration` below.
+    """
     custom_claims: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgsDict']]]]]
+    """
+    Repeatable block to define a custom claim validation name, value, and operation. See `custom_claim` below.
+    """
     private_endpoint: NotRequired[pulumi.Input[Optional['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgsDict']]]
+    """
+    Private endpoint used to reach the authorization server. See `private_endpoint` below.
+    """
     private_endpoint_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgsDict']]]]]
+    """
+    Overrides for the private endpoints used to reach the authorization server. See `private_endpoint_overrides` below.
+    """
 
 @pulumi.input_type
 class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs:
@@ -29985,6 +30611,16 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs:
                  custom_claims: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs']]]] = None,
                  private_endpoint: pulumi.Input[Optional['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs']] = None,
                  private_endpoint_overrides: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] discovery_url: URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_audiences: Set of allowed audience values for JWT token validation.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_clients: Set of allowed client IDs for JWT token validation.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_scopes: Set of scopes that are allowed to access the token.
+        :param pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs'] allowed_workload_configuration: Configuration restricting which workloads may use this authorizer. See `allowed_workload_configuration` below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs']]] custom_claims: Repeatable block to define a custom claim validation name, value, and operation. See `custom_claim` below.
+        :param pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs'] private_endpoint: Private endpoint used to reach the authorization server. See `private_endpoint` below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs']]] private_endpoint_overrides: Overrides for the private endpoints used to reach the authorization server. See `private_endpoint_overrides` below.
+        """
         pulumi.set(__self__, "discovery_url", discovery_url)
         if allowed_audiences is not None:
             pulumi.set(__self__, "allowed_audiences", allowed_audiences)
@@ -30004,6 +30640,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs:
     @_builtins.property
     @pulumi.getter(name="discoveryUrl")
     def discovery_url(self) -> pulumi.Input[_builtins.str]:
+        """
+        URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
+        """
         return pulumi.get(self, "discovery_url")
 
     @discovery_url.setter
@@ -30013,6 +30652,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs:
     @_builtins.property
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of allowed audience values for JWT token validation.
+        """
         return pulumi.get(self, "allowed_audiences")
 
     @allowed_audiences.setter
@@ -30022,6 +30664,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs:
     @_builtins.property
     @pulumi.getter(name="allowedClients")
     def allowed_clients(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of allowed client IDs for JWT token validation.
+        """
         return pulumi.get(self, "allowed_clients")
 
     @allowed_clients.setter
@@ -30031,6 +30676,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs:
     @_builtins.property
     @pulumi.getter(name="allowedScopes")
     def allowed_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of scopes that are allowed to access the token.
+        """
         return pulumi.get(self, "allowed_scopes")
 
     @allowed_scopes.setter
@@ -30040,6 +30688,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs:
     @_builtins.property
     @pulumi.getter(name="allowedWorkloadConfiguration")
     def allowed_workload_configuration(self) -> pulumi.Input[Optional['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs']]:
+        """
+        Configuration restricting which workloads may use this authorizer. See `allowed_workload_configuration` below.
+        """
         return pulumi.get(self, "allowed_workload_configuration")
 
     @allowed_workload_configuration.setter
@@ -30049,6 +30700,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs:
     @_builtins.property
     @pulumi.getter(name="customClaims")
     def custom_claims(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs']]]]:
+        """
+        Repeatable block to define a custom claim validation name, value, and operation. See `custom_claim` below.
+        """
         return pulumi.get(self, "custom_claims")
 
     @custom_claims.setter
@@ -30058,6 +30712,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs:
     @_builtins.property
     @pulumi.getter(name="privateEndpoint")
     def private_endpoint(self) -> pulumi.Input[Optional['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs']]:
+        """
+        Private endpoint used to reach the authorization server. See `private_endpoint` below.
+        """
         return pulumi.get(self, "private_endpoint")
 
     @private_endpoint.setter
@@ -30067,6 +30724,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs:
     @_builtins.property
     @pulumi.getter(name="privateEndpointOverrides")
     def private_endpoint_overrides(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs']]]]:
+        """
+        Overrides for the private endpoints used to reach the authorization server. See `private_endpoint_overrides` below.
+        """
         return pulumi.get(self, "private_endpoint_overrides")
 
     @private_endpoint_overrides.setter
@@ -30076,13 +30736,23 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs:
 
 class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgsDict(TypedDict):
     hosting_environments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgsDict']]]]]
+    """
+    Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hosting_environment` below.
+    """
     workload_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    List of workload identity names allowed to use the authorizer. Between 1 and 10 entries.
+    """
 
 @pulumi.input_type
 class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs:
     def __init__(__self__, *,
                  hosting_environments: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs']]]] = None,
                  workload_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs']]] hosting_environments: Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hosting_environment` below.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] workload_identities: List of workload identity names allowed to use the authorizer. Between 1 and 10 entries.
+        """
         if hosting_environments is not None:
             pulumi.set(__self__, "hosting_environments", hosting_environments)
         if workload_identities is not None:
@@ -30091,6 +30761,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkload
     @_builtins.property
     @pulumi.getter(name="hostingEnvironments")
     def hosting_environments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs']]]]:
+        """
+        Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hosting_environment` below.
+        """
         return pulumi.get(self, "hosting_environments")
 
     @hosting_environments.setter
@@ -30100,6 +30773,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkload
     @_builtins.property
     @pulumi.getter(name="workloadIdentities")
     def workload_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of workload identity names allowed to use the authorizer. Between 1 and 10 entries.
+        """
         return pulumi.get(self, "workload_identities")
 
     @workload_identities.setter
@@ -30109,16 +30785,25 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkload
 
 class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgsDict(TypedDict):
     arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the hosting environment.
+    """
 
 @pulumi.input_type
 class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] arn: ARN of the hosting environment.
+        """
         pulumi.set(__self__, "arn", arn)
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the hosting environment.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -30128,8 +30813,17 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkload
 
 class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgsDict(TypedDict):
     authorizing_claim_match_value: pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgsDict']
+    """
+    Configuration block to define the value or values to match for and the relationship of the match. See `authorizing_claim_match_value` below.
+    """
     inbound_token_claim_name: pulumi.Input[_builtins.str]
+    """
+    Name of the custom claim field to check.
+    """
     inbound_token_claim_value_type: pulumi.Input[_builtins.str]
+    """
+    Data type of the claim value to check for. Valid values are `STRING` and `STRING_ARRAY`.
+    """
 
 @pulumi.input_type
 class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs:
@@ -30137,6 +30831,11 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs
                  authorizing_claim_match_value: pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs'],
                  inbound_token_claim_name: pulumi.Input[_builtins.str],
                  inbound_token_claim_value_type: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs'] authorizing_claim_match_value: Configuration block to define the value or values to match for and the relationship of the match. See `authorizing_claim_match_value` below.
+        :param pulumi.Input[_builtins.str] inbound_token_claim_name: Name of the custom claim field to check.
+        :param pulumi.Input[_builtins.str] inbound_token_claim_value_type: Data type of the claim value to check for. Valid values are `STRING` and `STRING_ARRAY`.
+        """
         pulumi.set(__self__, "authorizing_claim_match_value", authorizing_claim_match_value)
         pulumi.set(__self__, "inbound_token_claim_name", inbound_token_claim_name)
         pulumi.set(__self__, "inbound_token_claim_value_type", inbound_token_claim_value_type)
@@ -30144,6 +30843,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs
     @_builtins.property
     @pulumi.getter(name="authorizingClaimMatchValue")
     def authorizing_claim_match_value(self) -> pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs']:
+        """
+        Configuration block to define the value or values to match for and the relationship of the match. See `authorizing_claim_match_value` below.
+        """
         return pulumi.get(self, "authorizing_claim_match_value")
 
     @authorizing_claim_match_value.setter
@@ -30153,6 +30855,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs
     @_builtins.property
     @pulumi.getter(name="inboundTokenClaimName")
     def inbound_token_claim_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the custom claim field to check.
+        """
         return pulumi.get(self, "inbound_token_claim_name")
 
     @inbound_token_claim_name.setter
@@ -30162,6 +30867,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs
     @_builtins.property
     @pulumi.getter(name="inboundTokenClaimValueType")
     def inbound_token_claim_value_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Data type of the claim value to check for. Valid values are `STRING` and `STRING_ARRAY`.
+        """
         return pulumi.get(self, "inbound_token_claim_value_type")
 
     @inbound_token_claim_value_type.setter
@@ -30171,19 +30879,32 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs
 
 class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgsDict(TypedDict):
     claim_match_operator: pulumi.Input[_builtins.str]
+    """
+    Relationship between the claim field value and the value or values to match for. Valid values are `EQUALS`, `CONTAINS`, and `CONTAINS_ANY`. `EQUALS` can be used only when `inbound_token_claim_value_type` is `STRING`. `CONTAINS` or `CONTAINS_ANY` can be used only when `inbound_token_claim_value_type` is `STRING_ARRAY`.
+    """
     claim_match_value: pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgsDict']
+    """
+    Value or values to match for. See `claim_match_value` below.
+    """
 
 @pulumi.input_type
 class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs:
     def __init__(__self__, *,
                  claim_match_operator: pulumi.Input[_builtins.str],
                  claim_match_value: pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs']):
+        """
+        :param pulumi.Input[_builtins.str] claim_match_operator: Relationship between the claim field value and the value or values to match for. Valid values are `EQUALS`, `CONTAINS`, and `CONTAINS_ANY`. `EQUALS` can be used only when `inbound_token_claim_value_type` is `STRING`. `CONTAINS` or `CONTAINS_ANY` can be used only when `inbound_token_claim_value_type` is `STRING_ARRAY`.
+        :param pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs'] claim_match_value: Value or values to match for. See `claim_match_value` below.
+        """
         pulumi.set(__self__, "claim_match_operator", claim_match_operator)
         pulumi.set(__self__, "claim_match_value", claim_match_value)
 
     @_builtins.property
     @pulumi.getter(name="claimMatchOperator")
     def claim_match_operator(self) -> pulumi.Input[_builtins.str]:
+        """
+        Relationship between the claim field value and the value or values to match for. Valid values are `EQUALS`, `CONTAINS`, and `CONTAINS_ANY`. `EQUALS` can be used only when `inbound_token_claim_value_type` is `STRING`. `CONTAINS` or `CONTAINS_ANY` can be used only when `inbound_token_claim_value_type` is `STRING_ARRAY`.
+        """
         return pulumi.get(self, "claim_match_operator")
 
     @claim_match_operator.setter
@@ -30193,6 +30914,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuth
     @_builtins.property
     @pulumi.getter(name="claimMatchValue")
     def claim_match_value(self) -> pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs']:
+        """
+        Value or values to match for. See `claim_match_value` below.
+        """
         return pulumi.get(self, "claim_match_value")
 
     @claim_match_value.setter
@@ -30202,13 +30926,23 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuth
 
 class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgsDict(TypedDict):
     match_value_string: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    String value to match for. Must be specified when `claim_match_operator` is `EQUALS` or `CONTAINS`. Exactly one of `match_value_string` or `match_value_string_list` must be specified.
+    """
     match_value_string_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    List of strings to check for a match. Must be specified when `claim_match_operator` is `CONTAINS_ANY`. Exactly one of `match_value_string` or `match_value_string_list` must be specified.
+    """
 
 @pulumi.input_type
 class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs:
     def __init__(__self__, *,
                  match_value_string: pulumi.Input[Optional[_builtins.str]] = None,
                  match_value_string_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] match_value_string: String value to match for. Must be specified when `claim_match_operator` is `EQUALS` or `CONTAINS`. Exactly one of `match_value_string` or `match_value_string_list` must be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_value_string_lists: List of strings to check for a match. Must be specified when `claim_match_operator` is `CONTAINS_ANY`. Exactly one of `match_value_string` or `match_value_string_list` must be specified.
+        """
         if match_value_string is not None:
             pulumi.set(__self__, "match_value_string", match_value_string)
         if match_value_string_lists is not None:
@@ -30217,6 +30951,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuth
     @_builtins.property
     @pulumi.getter(name="matchValueString")
     def match_value_string(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        String value to match for. Must be specified when `claim_match_operator` is `EQUALS` or `CONTAINS`. Exactly one of `match_value_string` or `match_value_string_list` must be specified.
+        """
         return pulumi.get(self, "match_value_string")
 
     @match_value_string.setter
@@ -30226,6 +30963,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuth
     @_builtins.property
     @pulumi.getter(name="matchValueStringLists")
     def match_value_string_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of strings to check for a match. Must be specified when `claim_match_operator` is `CONTAINS_ANY`. Exactly one of `match_value_string` or `match_value_string_list` must be specified.
+        """
         return pulumi.get(self, "match_value_string_lists")
 
     @match_value_string_lists.setter
@@ -30235,13 +30975,23 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuth
 
 class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgsDict(TypedDict):
     managed_vpc_resource: NotRequired[pulumi.Input[Optional['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgsDict']]]
+    """
+    Managed VPC resource configuration. See `managed_vpc_resource` below.
+    """
     self_managed_lattice_resource: NotRequired[pulumi.Input[Optional['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgsDict']]]
+    """
+    Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+    """
 
 @pulumi.input_type
 class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs:
     def __init__(__self__, *,
                  managed_vpc_resource: pulumi.Input[Optional['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs']] = None,
                  self_managed_lattice_resource: pulumi.Input[Optional['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs']] = None):
+        """
+        :param pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs'] managed_vpc_resource: Managed VPC resource configuration. See `managed_vpc_resource` below.
+        :param pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs'] self_managed_lattice_resource: Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        """
         if managed_vpc_resource is not None:
             pulumi.set(__self__, "managed_vpc_resource", managed_vpc_resource)
         if self_managed_lattice_resource is not None:
@@ -30250,6 +31000,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint
     @_builtins.property
     @pulumi.getter(name="managedVpcResource")
     def managed_vpc_resource(self) -> pulumi.Input[Optional['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs']]:
+        """
+        Managed VPC resource configuration. See `managed_vpc_resource` below.
+        """
         return pulumi.get(self, "managed_vpc_resource")
 
     @managed_vpc_resource.setter
@@ -30259,6 +31012,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint
     @_builtins.property
     @pulumi.getter(name="selfManagedLatticeResource")
     def self_managed_lattice_resource(self) -> pulumi.Input[Optional['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs']]:
+        """
+        Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        """
         return pulumi.get(self, "self_managed_lattice_resource")
 
     @self_managed_lattice_resource.setter
@@ -30268,11 +31024,29 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint
 
 class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgsDict(TypedDict):
     endpoint_ip_address_type: pulumi.Input[_builtins.str]
+    """
+    IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+    """
     subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    IDs of the subnets for the endpoint.
+    """
     vpc_identifier: pulumi.Input[_builtins.str]
+    """
+    Identifier of the VPC for the endpoint.
+    """
     routing_domain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Routing domain for the endpoint.
+    """
     security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    IDs of the security groups for the endpoint.
+    """
     tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    Tags to assign to the managed VPC resource.
+    """
 
 @pulumi.input_type
 class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs:
@@ -30283,6 +31057,14 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint
                  routing_domain: pulumi.Input[Optional[_builtins.str]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] endpoint_ip_address_type: IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: IDs of the subnets for the endpoint.
+        :param pulumi.Input[_builtins.str] vpc_identifier: Identifier of the VPC for the endpoint.
+        :param pulumi.Input[_builtins.str] routing_domain: Routing domain for the endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: IDs of the security groups for the endpoint.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to assign to the managed VPC resource.
+        """
         pulumi.set(__self__, "endpoint_ip_address_type", endpoint_ip_address_type)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         pulumi.set(__self__, "vpc_identifier", vpc_identifier)
@@ -30296,6 +31078,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint
     @_builtins.property
     @pulumi.getter(name="endpointIpAddressType")
     def endpoint_ip_address_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+        """
         return pulumi.get(self, "endpoint_ip_address_type")
 
     @endpoint_ip_address_type.setter
@@ -30305,6 +31090,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        IDs of the subnets for the endpoint.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -30314,6 +31102,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint
     @_builtins.property
     @pulumi.getter(name="vpcIdentifier")
     def vpc_identifier(self) -> pulumi.Input[_builtins.str]:
+        """
+        Identifier of the VPC for the endpoint.
+        """
         return pulumi.get(self, "vpc_identifier")
 
     @vpc_identifier.setter
@@ -30323,6 +31114,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint
     @_builtins.property
     @pulumi.getter(name="routingDomain")
     def routing_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Routing domain for the endpoint.
+        """
         return pulumi.get(self, "routing_domain")
 
     @routing_domain.setter
@@ -30332,6 +31126,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        IDs of the security groups for the endpoint.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -30341,6 +31138,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Tags to assign to the managed VPC resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -30350,19 +31150,32 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint
 
 class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgsDict(TypedDict):
     domain: pulumi.Input[_builtins.str]
+    """
+    Domain the override applies to.
+    """
     private_endpoint: pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgsDict']
+    """
+    Private endpoint configuration. See `private_endpoint` below.
+    """
 
 @pulumi.input_type
 class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs:
     def __init__(__self__, *,
                  domain: pulumi.Input[_builtins.str],
                  private_endpoint: pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs']):
+        """
+        :param pulumi.Input[_builtins.str] domain: Domain the override applies to.
+        :param pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs'] private_endpoint: Private endpoint configuration. See `private_endpoint` below.
+        """
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "private_endpoint", private_endpoint)
 
     @_builtins.property
     @pulumi.getter
     def domain(self) -> pulumi.Input[_builtins.str]:
+        """
+        Domain the override applies to.
+        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -30372,6 +31185,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint
     @_builtins.property
     @pulumi.getter(name="privateEndpoint")
     def private_endpoint(self) -> pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs']:
+        """
+        Private endpoint configuration. See `private_endpoint` below.
+        """
         return pulumi.get(self, "private_endpoint")
 
     @private_endpoint.setter
@@ -30381,13 +31197,23 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint
 
 class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgsDict(TypedDict):
     managed_vpc_resource: NotRequired[pulumi.Input[Optional['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgsDict']]]
+    """
+    Managed VPC resource configuration. See `managed_vpc_resource` below.
+    """
     self_managed_lattice_resource: NotRequired[pulumi.Input[Optional['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgsDict']]]
+    """
+    Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+    """
 
 @pulumi.input_type
 class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs:
     def __init__(__self__, *,
                  managed_vpc_resource: pulumi.Input[Optional['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs']] = None,
                  self_managed_lattice_resource: pulumi.Input[Optional['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs']] = None):
+        """
+        :param pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs'] managed_vpc_resource: Managed VPC resource configuration. See `managed_vpc_resource` below.
+        :param pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs'] self_managed_lattice_resource: Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        """
         if managed_vpc_resource is not None:
             pulumi.set(__self__, "managed_vpc_resource", managed_vpc_resource)
         if self_managed_lattice_resource is not None:
@@ -30396,6 +31222,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint
     @_builtins.property
     @pulumi.getter(name="managedVpcResource")
     def managed_vpc_resource(self) -> pulumi.Input[Optional['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs']]:
+        """
+        Managed VPC resource configuration. See `managed_vpc_resource` below.
+        """
         return pulumi.get(self, "managed_vpc_resource")
 
     @managed_vpc_resource.setter
@@ -30405,6 +31234,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint
     @_builtins.property
     @pulumi.getter(name="selfManagedLatticeResource")
     def self_managed_lattice_resource(self) -> pulumi.Input[Optional['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs']]:
+        """
+        Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        """
         return pulumi.get(self, "self_managed_lattice_resource")
 
     @self_managed_lattice_resource.setter
@@ -30414,11 +31246,29 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint
 
 class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgsDict(TypedDict):
     endpoint_ip_address_type: pulumi.Input[_builtins.str]
+    """
+    IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+    """
     subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    IDs of the subnets for the endpoint.
+    """
     vpc_identifier: pulumi.Input[_builtins.str]
+    """
+    Identifier of the VPC for the endpoint.
+    """
     routing_domain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Routing domain for the endpoint.
+    """
     security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    IDs of the security groups for the endpoint.
+    """
     tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    Tags to assign to the managed VPC resource.
+    """
 
 @pulumi.input_type
 class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs:
@@ -30429,6 +31279,14 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint
                  routing_domain: pulumi.Input[Optional[_builtins.str]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] endpoint_ip_address_type: IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: IDs of the subnets for the endpoint.
+        :param pulumi.Input[_builtins.str] vpc_identifier: Identifier of the VPC for the endpoint.
+        :param pulumi.Input[_builtins.str] routing_domain: Routing domain for the endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: IDs of the security groups for the endpoint.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to assign to the managed VPC resource.
+        """
         pulumi.set(__self__, "endpoint_ip_address_type", endpoint_ip_address_type)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         pulumi.set(__self__, "vpc_identifier", vpc_identifier)
@@ -30442,6 +31300,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint
     @_builtins.property
     @pulumi.getter(name="endpointIpAddressType")
     def endpoint_ip_address_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+        """
         return pulumi.get(self, "endpoint_ip_address_type")
 
     @endpoint_ip_address_type.setter
@@ -30451,6 +31312,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        IDs of the subnets for the endpoint.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -30460,6 +31324,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint
     @_builtins.property
     @pulumi.getter(name="vpcIdentifier")
     def vpc_identifier(self) -> pulumi.Input[_builtins.str]:
+        """
+        Identifier of the VPC for the endpoint.
+        """
         return pulumi.get(self, "vpc_identifier")
 
     @vpc_identifier.setter
@@ -30469,6 +31336,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint
     @_builtins.property
     @pulumi.getter(name="routingDomain")
     def routing_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Routing domain for the endpoint.
+        """
         return pulumi.get(self, "routing_domain")
 
     @routing_domain.setter
@@ -30478,6 +31348,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        IDs of the security groups for the endpoint.
+        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -30487,6 +31360,9 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Tags to assign to the managed VPC resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -30496,17 +31372,26 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint
 
 class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgsDict(TypedDict):
     resource_configuration_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Identifier of the VPC Lattice resource configuration.
+    """
 
 @pulumi.input_type
 class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs:
     def __init__(__self__, *,
                  resource_configuration_identifier: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] resource_configuration_identifier: Identifier of the VPC Lattice resource configuration.
+        """
         if resource_configuration_identifier is not None:
             pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
 
     @_builtins.property
     @pulumi.getter(name="resourceConfigurationIdentifier")
     def resource_configuration_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Identifier of the VPC Lattice resource configuration.
+        """
         return pulumi.get(self, "resource_configuration_identifier")
 
     @resource_configuration_identifier.setter
@@ -30516,17 +31401,26 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint
 
 class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgsDict(TypedDict):
     resource_configuration_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Identifier of the VPC Lattice resource configuration.
+    """
 
 @pulumi.input_type
 class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs:
     def __init__(__self__, *,
                  resource_configuration_identifier: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] resource_configuration_identifier: Identifier of the VPC Lattice resource configuration.
+        """
         if resource_configuration_identifier is not None:
             pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
 
     @_builtins.property
     @pulumi.getter(name="resourceConfigurationIdentifier")
     def resource_configuration_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Identifier of the VPC Lattice resource configuration.
+        """
         return pulumi.get(self, "resource_configuration_identifier")
 
     @resource_configuration_identifier.setter

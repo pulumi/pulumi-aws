@@ -355,6 +355,47 @@ import (
 //
 // ```
 //
+// ### With a Warm-Up Period
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudwatch.NewMetricAlarm(ctx, "example", &cloudwatch.MetricAlarmArgs{
+//				WarmUpConfiguration: &cloudwatch.MetricAlarmWarmUpConfigurationArgs{
+//					WarmUpPeriodDurationInMinutes: pulumi.Int(30),
+//				},
+//				Name:               pulumi.String("example-service-errors"),
+//				ComparisonOperator: pulumi.String("GreaterThanThreshold"),
+//				EvaluationPeriods:  pulumi.Int(3),
+//				MetricName:         pulumi.String("Errors"),
+//				Namespace:          pulumi.String("ExampleApp"),
+//				Period:             pulumi.Int(60),
+//				Statistic:          pulumi.String("Sum"),
+//				Threshold:          pulumi.Float64(0),
+//				TreatMissingData:   pulumi.String("breaching"),
+//				AlarmActions: pulumi.Array{
+//					exampleAwsSnsTopic.Arn,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extendedStatistic` parameters.
 // You must choose one or the other.
 //
@@ -445,6 +486,8 @@ type MetricAlarm struct {
 	TreatMissingData pulumi.StringPtrOutput `pulumi:"treatMissingData"`
 	// The unit for the alarm's associated metric.
 	Unit pulumi.StringPtrOutput `pulumi:"unit"`
+	// Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warmUpConfiguration` below.
+	WarmUpConfiguration MetricAlarmWarmUpConfigurationPtrOutput `pulumi:"warmUpConfiguration"`
 }
 
 // NewMetricAlarm registers a new resource with the given unique name, arguments, and options.
@@ -543,6 +586,8 @@ type metricAlarmState struct {
 	TreatMissingData *string `pulumi:"treatMissingData"`
 	// The unit for the alarm's associated metric.
 	Unit *string `pulumi:"unit"`
+	// Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warmUpConfiguration` below.
+	WarmUpConfiguration *MetricAlarmWarmUpConfiguration `pulumi:"warmUpConfiguration"`
 }
 
 type MetricAlarmState struct {
@@ -612,6 +657,8 @@ type MetricAlarmState struct {
 	TreatMissingData pulumi.StringPtrInput
 	// The unit for the alarm's associated metric.
 	Unit pulumi.StringPtrInput
+	// Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warmUpConfiguration` below.
+	WarmUpConfiguration MetricAlarmWarmUpConfigurationPtrInput
 }
 
 func (MetricAlarmState) ElementType() reflect.Type {
@@ -681,6 +728,8 @@ type metricAlarmArgs struct {
 	TreatMissingData *string `pulumi:"treatMissingData"`
 	// The unit for the alarm's associated metric.
 	Unit *string `pulumi:"unit"`
+	// Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warmUpConfiguration` below.
+	WarmUpConfiguration *MetricAlarmWarmUpConfiguration `pulumi:"warmUpConfiguration"`
 }
 
 // The set of arguments for constructing a MetricAlarm resource.
@@ -747,6 +796,8 @@ type MetricAlarmArgs struct {
 	TreatMissingData pulumi.StringPtrInput
 	// The unit for the alarm's associated metric.
 	Unit pulumi.StringPtrInput
+	// Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warmUpConfiguration` below.
+	WarmUpConfiguration MetricAlarmWarmUpConfigurationPtrInput
 }
 
 func (MetricAlarmArgs) ElementType() reflect.Type {
@@ -981,6 +1032,11 @@ func (o MetricAlarmOutput) TreatMissingData() pulumi.StringPtrOutput {
 // The unit for the alarm's associated metric.
 func (o MetricAlarmOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetricAlarm) pulumi.StringPtrOutput { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+// Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warmUpConfiguration` below.
+func (o MetricAlarmOutput) WarmUpConfiguration() MetricAlarmWarmUpConfigurationPtrOutput {
+	return o.ApplyT(func(v *MetricAlarm) MetricAlarmWarmUpConfigurationPtrOutput { return v.WarmUpConfiguration }).(MetricAlarmWarmUpConfigurationPtrOutput)
 }
 
 type MetricAlarmArrayOutput struct{ *pulumi.OutputState }

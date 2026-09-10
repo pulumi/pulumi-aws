@@ -3901,10 +3901,16 @@ func (o ClusterRebalancingPtrOutput) Status() pulumi.StringPtrOutput {
 }
 
 type ReplicatorKafkaCluster struct {
-	// Details of an Amazon MSK cluster.
-	AmazonMskCluster ReplicatorKafkaClusterAmazonMskCluster `pulumi:"amazonMskCluster"`
-	// Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
-	VpcConfig ReplicatorKafkaClusterVpcConfig `pulumi:"vpcConfig"`
+	// Details of an Amazon MSK cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
+	AmazonMskCluster *ReplicatorKafkaClusterAmazonMskCluster `pulumi:"amazonMskCluster"`
+	// Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
+	ApacheKafkaCluster *ReplicatorKafkaClusterApacheKafkaCluster `pulumi:"apacheKafkaCluster"`
+	// Details of the client authentication used by the Kafka cluster. Only valid for an `apacheKafkaCluster`. Detailed below.
+	ClientAuthentication *ReplicatorKafkaClusterClientAuthentication `pulumi:"clientAuthentication"`
+	// Details of encryption in transit to the Kafka cluster. Only valid for an `apacheKafkaCluster`. TLS encryption in transit is always applied to an `apacheKafkaCluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). Detailed below.
+	EncryptionInTransit *ReplicatorKafkaClusterEncryptionInTransit `pulumi:"encryptionInTransit"`
+	// Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazonMskCluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC.
+	VpcConfig *ReplicatorKafkaClusterVpcConfig `pulumi:"vpcConfig"`
 }
 
 // ReplicatorKafkaClusterInput is an input type that accepts ReplicatorKafkaClusterArgs and ReplicatorKafkaClusterOutput values.
@@ -3919,10 +3925,16 @@ type ReplicatorKafkaClusterInput interface {
 }
 
 type ReplicatorKafkaClusterArgs struct {
-	// Details of an Amazon MSK cluster.
-	AmazonMskCluster ReplicatorKafkaClusterAmazonMskClusterInput `pulumi:"amazonMskCluster"`
-	// Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
-	VpcConfig ReplicatorKafkaClusterVpcConfigInput `pulumi:"vpcConfig"`
+	// Details of an Amazon MSK cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
+	AmazonMskCluster ReplicatorKafkaClusterAmazonMskClusterPtrInput `pulumi:"amazonMskCluster"`
+	// Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
+	ApacheKafkaCluster ReplicatorKafkaClusterApacheKafkaClusterPtrInput `pulumi:"apacheKafkaCluster"`
+	// Details of the client authentication used by the Kafka cluster. Only valid for an `apacheKafkaCluster`. Detailed below.
+	ClientAuthentication ReplicatorKafkaClusterClientAuthenticationPtrInput `pulumi:"clientAuthentication"`
+	// Details of encryption in transit to the Kafka cluster. Only valid for an `apacheKafkaCluster`. TLS encryption in transit is always applied to an `apacheKafkaCluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). Detailed below.
+	EncryptionInTransit ReplicatorKafkaClusterEncryptionInTransitPtrInput `pulumi:"encryptionInTransit"`
+	// Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazonMskCluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC.
+	VpcConfig ReplicatorKafkaClusterVpcConfigPtrInput `pulumi:"vpcConfig"`
 }
 
 func (ReplicatorKafkaClusterArgs) ElementType() reflect.Type {
@@ -3976,14 +3988,33 @@ func (o ReplicatorKafkaClusterOutput) ToReplicatorKafkaClusterOutputWithContext(
 	return o
 }
 
-// Details of an Amazon MSK cluster.
-func (o ReplicatorKafkaClusterOutput) AmazonMskCluster() ReplicatorKafkaClusterAmazonMskClusterOutput {
-	return o.ApplyT(func(v ReplicatorKafkaCluster) ReplicatorKafkaClusterAmazonMskCluster { return v.AmazonMskCluster }).(ReplicatorKafkaClusterAmazonMskClusterOutput)
+// Details of an Amazon MSK cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
+func (o ReplicatorKafkaClusterOutput) AmazonMskCluster() ReplicatorKafkaClusterAmazonMskClusterPtrOutput {
+	return o.ApplyT(func(v ReplicatorKafkaCluster) *ReplicatorKafkaClusterAmazonMskCluster { return v.AmazonMskCluster }).(ReplicatorKafkaClusterAmazonMskClusterPtrOutput)
 }
 
-// Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
-func (o ReplicatorKafkaClusterOutput) VpcConfig() ReplicatorKafkaClusterVpcConfigOutput {
-	return o.ApplyT(func(v ReplicatorKafkaCluster) ReplicatorKafkaClusterVpcConfig { return v.VpcConfig }).(ReplicatorKafkaClusterVpcConfigOutput)
+// Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
+func (o ReplicatorKafkaClusterOutput) ApacheKafkaCluster() ReplicatorKafkaClusterApacheKafkaClusterPtrOutput {
+	return o.ApplyT(func(v ReplicatorKafkaCluster) *ReplicatorKafkaClusterApacheKafkaCluster { return v.ApacheKafkaCluster }).(ReplicatorKafkaClusterApacheKafkaClusterPtrOutput)
+}
+
+// Details of the client authentication used by the Kafka cluster. Only valid for an `apacheKafkaCluster`. Detailed below.
+func (o ReplicatorKafkaClusterOutput) ClientAuthentication() ReplicatorKafkaClusterClientAuthenticationPtrOutput {
+	return o.ApplyT(func(v ReplicatorKafkaCluster) *ReplicatorKafkaClusterClientAuthentication {
+		return v.ClientAuthentication
+	}).(ReplicatorKafkaClusterClientAuthenticationPtrOutput)
+}
+
+// Details of encryption in transit to the Kafka cluster. Only valid for an `apacheKafkaCluster`. TLS encryption in transit is always applied to an `apacheKafkaCluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). Detailed below.
+func (o ReplicatorKafkaClusterOutput) EncryptionInTransit() ReplicatorKafkaClusterEncryptionInTransitPtrOutput {
+	return o.ApplyT(func(v ReplicatorKafkaCluster) *ReplicatorKafkaClusterEncryptionInTransit {
+		return v.EncryptionInTransit
+	}).(ReplicatorKafkaClusterEncryptionInTransitPtrOutput)
+}
+
+// Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazonMskCluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC.
+func (o ReplicatorKafkaClusterOutput) VpcConfig() ReplicatorKafkaClusterVpcConfigPtrOutput {
+	return o.ApplyT(func(v ReplicatorKafkaCluster) *ReplicatorKafkaClusterVpcConfig { return v.VpcConfig }).(ReplicatorKafkaClusterVpcConfigPtrOutput)
 }
 
 type ReplicatorKafkaClusterArrayOutput struct{ *pulumi.OutputState }
@@ -4039,6 +4070,47 @@ func (i ReplicatorKafkaClusterAmazonMskClusterArgs) ToReplicatorKafkaClusterAmaz
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterAmazonMskClusterOutput)
 }
 
+func (i ReplicatorKafkaClusterAmazonMskClusterArgs) ToReplicatorKafkaClusterAmazonMskClusterPtrOutput() ReplicatorKafkaClusterAmazonMskClusterPtrOutput {
+	return i.ToReplicatorKafkaClusterAmazonMskClusterPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterAmazonMskClusterArgs) ToReplicatorKafkaClusterAmazonMskClusterPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterAmazonMskClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterAmazonMskClusterOutput).ToReplicatorKafkaClusterAmazonMskClusterPtrOutputWithContext(ctx)
+}
+
+// ReplicatorKafkaClusterAmazonMskClusterPtrInput is an input type that accepts ReplicatorKafkaClusterAmazonMskClusterArgs, ReplicatorKafkaClusterAmazonMskClusterPtr and ReplicatorKafkaClusterAmazonMskClusterPtrOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterAmazonMskClusterPtrInput` via:
+//
+//	        ReplicatorKafkaClusterAmazonMskClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatorKafkaClusterAmazonMskClusterPtrInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterAmazonMskClusterPtrOutput() ReplicatorKafkaClusterAmazonMskClusterPtrOutput
+	ToReplicatorKafkaClusterAmazonMskClusterPtrOutputWithContext(context.Context) ReplicatorKafkaClusterAmazonMskClusterPtrOutput
+}
+
+type replicatorKafkaClusterAmazonMskClusterPtrType ReplicatorKafkaClusterAmazonMskClusterArgs
+
+func ReplicatorKafkaClusterAmazonMskClusterPtr(v *ReplicatorKafkaClusterAmazonMskClusterArgs) ReplicatorKafkaClusterAmazonMskClusterPtrInput {
+	return (*replicatorKafkaClusterAmazonMskClusterPtrType)(v)
+}
+
+func (*replicatorKafkaClusterAmazonMskClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterAmazonMskCluster)(nil)).Elem()
+}
+
+func (i *replicatorKafkaClusterAmazonMskClusterPtrType) ToReplicatorKafkaClusterAmazonMskClusterPtrOutput() ReplicatorKafkaClusterAmazonMskClusterPtrOutput {
+	return i.ToReplicatorKafkaClusterAmazonMskClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *replicatorKafkaClusterAmazonMskClusterPtrType) ToReplicatorKafkaClusterAmazonMskClusterPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterAmazonMskClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterAmazonMskClusterPtrOutput)
+}
+
 type ReplicatorKafkaClusterAmazonMskClusterOutput struct{ *pulumi.OutputState }
 
 func (ReplicatorKafkaClusterAmazonMskClusterOutput) ElementType() reflect.Type {
@@ -4053,13 +4125,805 @@ func (o ReplicatorKafkaClusterAmazonMskClusterOutput) ToReplicatorKafkaClusterAm
 	return o
 }
 
+func (o ReplicatorKafkaClusterAmazonMskClusterOutput) ToReplicatorKafkaClusterAmazonMskClusterPtrOutput() ReplicatorKafkaClusterAmazonMskClusterPtrOutput {
+	return o.ToReplicatorKafkaClusterAmazonMskClusterPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorKafkaClusterAmazonMskClusterOutput) ToReplicatorKafkaClusterAmazonMskClusterPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterAmazonMskClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorKafkaClusterAmazonMskCluster) *ReplicatorKafkaClusterAmazonMskCluster {
+		return &v
+	}).(ReplicatorKafkaClusterAmazonMskClusterPtrOutput)
+}
+
 // The ARN of an Amazon MSK cluster.
 func (o ReplicatorKafkaClusterAmazonMskClusterOutput) MskClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicatorKafkaClusterAmazonMskCluster) string { return v.MskClusterArn }).(pulumi.StringOutput)
 }
 
+type ReplicatorKafkaClusterAmazonMskClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterAmazonMskClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterAmazonMskCluster)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterAmazonMskClusterPtrOutput) ToReplicatorKafkaClusterAmazonMskClusterPtrOutput() ReplicatorKafkaClusterAmazonMskClusterPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterAmazonMskClusterPtrOutput) ToReplicatorKafkaClusterAmazonMskClusterPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterAmazonMskClusterPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterAmazonMskClusterPtrOutput) Elem() ReplicatorKafkaClusterAmazonMskClusterOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterAmazonMskCluster) ReplicatorKafkaClusterAmazonMskCluster {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorKafkaClusterAmazonMskCluster
+		return ret
+	}).(ReplicatorKafkaClusterAmazonMskClusterOutput)
+}
+
+// The ARN of an Amazon MSK cluster.
+func (o ReplicatorKafkaClusterAmazonMskClusterPtrOutput) MskClusterArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterAmazonMskCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MskClusterArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReplicatorKafkaClusterApacheKafkaCluster struct {
+	// The Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
+	ApacheKafkaClusterId string `pulumi:"apacheKafkaClusterId"`
+	// The bootstrap broker connection string used to connect to the Apache Kafka cluster.
+	BootstrapBrokerString string `pulumi:"bootstrapBrokerString"`
+}
+
+// ReplicatorKafkaClusterApacheKafkaClusterInput is an input type that accepts ReplicatorKafkaClusterApacheKafkaClusterArgs and ReplicatorKafkaClusterApacheKafkaClusterOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterApacheKafkaClusterInput` via:
+//
+//	ReplicatorKafkaClusterApacheKafkaClusterArgs{...}
+type ReplicatorKafkaClusterApacheKafkaClusterInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterApacheKafkaClusterOutput() ReplicatorKafkaClusterApacheKafkaClusterOutput
+	ToReplicatorKafkaClusterApacheKafkaClusterOutputWithContext(context.Context) ReplicatorKafkaClusterApacheKafkaClusterOutput
+}
+
+type ReplicatorKafkaClusterApacheKafkaClusterArgs struct {
+	// The Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
+	ApacheKafkaClusterId pulumi.StringInput `pulumi:"apacheKafkaClusterId"`
+	// The bootstrap broker connection string used to connect to the Apache Kafka cluster.
+	BootstrapBrokerString pulumi.StringInput `pulumi:"bootstrapBrokerString"`
+}
+
+func (ReplicatorKafkaClusterApacheKafkaClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterApacheKafkaCluster)(nil)).Elem()
+}
+
+func (i ReplicatorKafkaClusterApacheKafkaClusterArgs) ToReplicatorKafkaClusterApacheKafkaClusterOutput() ReplicatorKafkaClusterApacheKafkaClusterOutput {
+	return i.ToReplicatorKafkaClusterApacheKafkaClusterOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterApacheKafkaClusterArgs) ToReplicatorKafkaClusterApacheKafkaClusterOutputWithContext(ctx context.Context) ReplicatorKafkaClusterApacheKafkaClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterApacheKafkaClusterOutput)
+}
+
+func (i ReplicatorKafkaClusterApacheKafkaClusterArgs) ToReplicatorKafkaClusterApacheKafkaClusterPtrOutput() ReplicatorKafkaClusterApacheKafkaClusterPtrOutput {
+	return i.ToReplicatorKafkaClusterApacheKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterApacheKafkaClusterArgs) ToReplicatorKafkaClusterApacheKafkaClusterPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterApacheKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterApacheKafkaClusterOutput).ToReplicatorKafkaClusterApacheKafkaClusterPtrOutputWithContext(ctx)
+}
+
+// ReplicatorKafkaClusterApacheKafkaClusterPtrInput is an input type that accepts ReplicatorKafkaClusterApacheKafkaClusterArgs, ReplicatorKafkaClusterApacheKafkaClusterPtr and ReplicatorKafkaClusterApacheKafkaClusterPtrOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterApacheKafkaClusterPtrInput` via:
+//
+//	        ReplicatorKafkaClusterApacheKafkaClusterArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatorKafkaClusterApacheKafkaClusterPtrInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterApacheKafkaClusterPtrOutput() ReplicatorKafkaClusterApacheKafkaClusterPtrOutput
+	ToReplicatorKafkaClusterApacheKafkaClusterPtrOutputWithContext(context.Context) ReplicatorKafkaClusterApacheKafkaClusterPtrOutput
+}
+
+type replicatorKafkaClusterApacheKafkaClusterPtrType ReplicatorKafkaClusterApacheKafkaClusterArgs
+
+func ReplicatorKafkaClusterApacheKafkaClusterPtr(v *ReplicatorKafkaClusterApacheKafkaClusterArgs) ReplicatorKafkaClusterApacheKafkaClusterPtrInput {
+	return (*replicatorKafkaClusterApacheKafkaClusterPtrType)(v)
+}
+
+func (*replicatorKafkaClusterApacheKafkaClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterApacheKafkaCluster)(nil)).Elem()
+}
+
+func (i *replicatorKafkaClusterApacheKafkaClusterPtrType) ToReplicatorKafkaClusterApacheKafkaClusterPtrOutput() ReplicatorKafkaClusterApacheKafkaClusterPtrOutput {
+	return i.ToReplicatorKafkaClusterApacheKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *replicatorKafkaClusterApacheKafkaClusterPtrType) ToReplicatorKafkaClusterApacheKafkaClusterPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterApacheKafkaClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterApacheKafkaClusterPtrOutput)
+}
+
+type ReplicatorKafkaClusterApacheKafkaClusterOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterApacheKafkaClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterApacheKafkaCluster)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterApacheKafkaClusterOutput) ToReplicatorKafkaClusterApacheKafkaClusterOutput() ReplicatorKafkaClusterApacheKafkaClusterOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterApacheKafkaClusterOutput) ToReplicatorKafkaClusterApacheKafkaClusterOutputWithContext(ctx context.Context) ReplicatorKafkaClusterApacheKafkaClusterOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterApacheKafkaClusterOutput) ToReplicatorKafkaClusterApacheKafkaClusterPtrOutput() ReplicatorKafkaClusterApacheKafkaClusterPtrOutput {
+	return o.ToReplicatorKafkaClusterApacheKafkaClusterPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorKafkaClusterApacheKafkaClusterOutput) ToReplicatorKafkaClusterApacheKafkaClusterPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterApacheKafkaClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorKafkaClusterApacheKafkaCluster) *ReplicatorKafkaClusterApacheKafkaCluster {
+		return &v
+	}).(ReplicatorKafkaClusterApacheKafkaClusterPtrOutput)
+}
+
+// The Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
+func (o ReplicatorKafkaClusterApacheKafkaClusterOutput) ApacheKafkaClusterId() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterApacheKafkaCluster) string { return v.ApacheKafkaClusterId }).(pulumi.StringOutput)
+}
+
+// The bootstrap broker connection string used to connect to the Apache Kafka cluster.
+func (o ReplicatorKafkaClusterApacheKafkaClusterOutput) BootstrapBrokerString() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterApacheKafkaCluster) string { return v.BootstrapBrokerString }).(pulumi.StringOutput)
+}
+
+type ReplicatorKafkaClusterApacheKafkaClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterApacheKafkaClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterApacheKafkaCluster)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterApacheKafkaClusterPtrOutput) ToReplicatorKafkaClusterApacheKafkaClusterPtrOutput() ReplicatorKafkaClusterApacheKafkaClusterPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterApacheKafkaClusterPtrOutput) ToReplicatorKafkaClusterApacheKafkaClusterPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterApacheKafkaClusterPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterApacheKafkaClusterPtrOutput) Elem() ReplicatorKafkaClusterApacheKafkaClusterOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterApacheKafkaCluster) ReplicatorKafkaClusterApacheKafkaCluster {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorKafkaClusterApacheKafkaCluster
+		return ret
+	}).(ReplicatorKafkaClusterApacheKafkaClusterOutput)
+}
+
+// The Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
+func (o ReplicatorKafkaClusterApacheKafkaClusterPtrOutput) ApacheKafkaClusterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterApacheKafkaCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApacheKafkaClusterId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The bootstrap broker connection string used to connect to the Apache Kafka cluster.
+func (o ReplicatorKafkaClusterApacheKafkaClusterPtrOutput) BootstrapBrokerString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterApacheKafkaCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BootstrapBrokerString
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReplicatorKafkaClusterClientAuthentication struct {
+	// Details of the mTLS client authentication used by the Kafka cluster. Detailed below.
+	Mtls *ReplicatorKafkaClusterClientAuthenticationMtls `pulumi:"mtls"`
+	// Details of the SASL/SCRAM client authentication used by the Kafka cluster. Detailed below.
+	SaslScram *ReplicatorKafkaClusterClientAuthenticationSaslScram `pulumi:"saslScram"`
+}
+
+// ReplicatorKafkaClusterClientAuthenticationInput is an input type that accepts ReplicatorKafkaClusterClientAuthenticationArgs and ReplicatorKafkaClusterClientAuthenticationOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterClientAuthenticationInput` via:
+//
+//	ReplicatorKafkaClusterClientAuthenticationArgs{...}
+type ReplicatorKafkaClusterClientAuthenticationInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterClientAuthenticationOutput() ReplicatorKafkaClusterClientAuthenticationOutput
+	ToReplicatorKafkaClusterClientAuthenticationOutputWithContext(context.Context) ReplicatorKafkaClusterClientAuthenticationOutput
+}
+
+type ReplicatorKafkaClusterClientAuthenticationArgs struct {
+	// Details of the mTLS client authentication used by the Kafka cluster. Detailed below.
+	Mtls ReplicatorKafkaClusterClientAuthenticationMtlsPtrInput `pulumi:"mtls"`
+	// Details of the SASL/SCRAM client authentication used by the Kafka cluster. Detailed below.
+	SaslScram ReplicatorKafkaClusterClientAuthenticationSaslScramPtrInput `pulumi:"saslScram"`
+}
+
+func (ReplicatorKafkaClusterClientAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterClientAuthentication)(nil)).Elem()
+}
+
+func (i ReplicatorKafkaClusterClientAuthenticationArgs) ToReplicatorKafkaClusterClientAuthenticationOutput() ReplicatorKafkaClusterClientAuthenticationOutput {
+	return i.ToReplicatorKafkaClusterClientAuthenticationOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterClientAuthenticationArgs) ToReplicatorKafkaClusterClientAuthenticationOutputWithContext(ctx context.Context) ReplicatorKafkaClusterClientAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterClientAuthenticationOutput)
+}
+
+func (i ReplicatorKafkaClusterClientAuthenticationArgs) ToReplicatorKafkaClusterClientAuthenticationPtrOutput() ReplicatorKafkaClusterClientAuthenticationPtrOutput {
+	return i.ToReplicatorKafkaClusterClientAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterClientAuthenticationArgs) ToReplicatorKafkaClusterClientAuthenticationPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterClientAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterClientAuthenticationOutput).ToReplicatorKafkaClusterClientAuthenticationPtrOutputWithContext(ctx)
+}
+
+// ReplicatorKafkaClusterClientAuthenticationPtrInput is an input type that accepts ReplicatorKafkaClusterClientAuthenticationArgs, ReplicatorKafkaClusterClientAuthenticationPtr and ReplicatorKafkaClusterClientAuthenticationPtrOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterClientAuthenticationPtrInput` via:
+//
+//	        ReplicatorKafkaClusterClientAuthenticationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatorKafkaClusterClientAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterClientAuthenticationPtrOutput() ReplicatorKafkaClusterClientAuthenticationPtrOutput
+	ToReplicatorKafkaClusterClientAuthenticationPtrOutputWithContext(context.Context) ReplicatorKafkaClusterClientAuthenticationPtrOutput
+}
+
+type replicatorKafkaClusterClientAuthenticationPtrType ReplicatorKafkaClusterClientAuthenticationArgs
+
+func ReplicatorKafkaClusterClientAuthenticationPtr(v *ReplicatorKafkaClusterClientAuthenticationArgs) ReplicatorKafkaClusterClientAuthenticationPtrInput {
+	return (*replicatorKafkaClusterClientAuthenticationPtrType)(v)
+}
+
+func (*replicatorKafkaClusterClientAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterClientAuthentication)(nil)).Elem()
+}
+
+func (i *replicatorKafkaClusterClientAuthenticationPtrType) ToReplicatorKafkaClusterClientAuthenticationPtrOutput() ReplicatorKafkaClusterClientAuthenticationPtrOutput {
+	return i.ToReplicatorKafkaClusterClientAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *replicatorKafkaClusterClientAuthenticationPtrType) ToReplicatorKafkaClusterClientAuthenticationPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterClientAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterClientAuthenticationPtrOutput)
+}
+
+type ReplicatorKafkaClusterClientAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterClientAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterClientAuthentication)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterClientAuthenticationOutput) ToReplicatorKafkaClusterClientAuthenticationOutput() ReplicatorKafkaClusterClientAuthenticationOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterClientAuthenticationOutput) ToReplicatorKafkaClusterClientAuthenticationOutputWithContext(ctx context.Context) ReplicatorKafkaClusterClientAuthenticationOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterClientAuthenticationOutput) ToReplicatorKafkaClusterClientAuthenticationPtrOutput() ReplicatorKafkaClusterClientAuthenticationPtrOutput {
+	return o.ToReplicatorKafkaClusterClientAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorKafkaClusterClientAuthenticationOutput) ToReplicatorKafkaClusterClientAuthenticationPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterClientAuthenticationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorKafkaClusterClientAuthentication) *ReplicatorKafkaClusterClientAuthentication {
+		return &v
+	}).(ReplicatorKafkaClusterClientAuthenticationPtrOutput)
+}
+
+// Details of the mTLS client authentication used by the Kafka cluster. Detailed below.
+func (o ReplicatorKafkaClusterClientAuthenticationOutput) Mtls() ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterClientAuthentication) *ReplicatorKafkaClusterClientAuthenticationMtls {
+		return v.Mtls
+	}).(ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput)
+}
+
+// Details of the SASL/SCRAM client authentication used by the Kafka cluster. Detailed below.
+func (o ReplicatorKafkaClusterClientAuthenticationOutput) SaslScram() ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterClientAuthentication) *ReplicatorKafkaClusterClientAuthenticationSaslScram {
+		return v.SaslScram
+	}).(ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput)
+}
+
+type ReplicatorKafkaClusterClientAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterClientAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterClientAuthentication)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterClientAuthenticationPtrOutput) ToReplicatorKafkaClusterClientAuthenticationPtrOutput() ReplicatorKafkaClusterClientAuthenticationPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterClientAuthenticationPtrOutput) ToReplicatorKafkaClusterClientAuthenticationPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterClientAuthenticationPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterClientAuthenticationPtrOutput) Elem() ReplicatorKafkaClusterClientAuthenticationOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterClientAuthentication) ReplicatorKafkaClusterClientAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorKafkaClusterClientAuthentication
+		return ret
+	}).(ReplicatorKafkaClusterClientAuthenticationOutput)
+}
+
+// Details of the mTLS client authentication used by the Kafka cluster. Detailed below.
+func (o ReplicatorKafkaClusterClientAuthenticationPtrOutput) Mtls() ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterClientAuthentication) *ReplicatorKafkaClusterClientAuthenticationMtls {
+		if v == nil {
+			return nil
+		}
+		return v.Mtls
+	}).(ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput)
+}
+
+// Details of the SASL/SCRAM client authentication used by the Kafka cluster. Detailed below.
+func (o ReplicatorKafkaClusterClientAuthenticationPtrOutput) SaslScram() ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterClientAuthentication) *ReplicatorKafkaClusterClientAuthenticationSaslScram {
+		if v == nil {
+			return nil
+		}
+		return v.SaslScram
+	}).(ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput)
+}
+
+type ReplicatorKafkaClusterClientAuthenticationMtls struct {
+	// The ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+	SecretArn string `pulumi:"secretArn"`
+}
+
+// ReplicatorKafkaClusterClientAuthenticationMtlsInput is an input type that accepts ReplicatorKafkaClusterClientAuthenticationMtlsArgs and ReplicatorKafkaClusterClientAuthenticationMtlsOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterClientAuthenticationMtlsInput` via:
+//
+//	ReplicatorKafkaClusterClientAuthenticationMtlsArgs{...}
+type ReplicatorKafkaClusterClientAuthenticationMtlsInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterClientAuthenticationMtlsOutput() ReplicatorKafkaClusterClientAuthenticationMtlsOutput
+	ToReplicatorKafkaClusterClientAuthenticationMtlsOutputWithContext(context.Context) ReplicatorKafkaClusterClientAuthenticationMtlsOutput
+}
+
+type ReplicatorKafkaClusterClientAuthenticationMtlsArgs struct {
+	// The ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+}
+
+func (ReplicatorKafkaClusterClientAuthenticationMtlsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterClientAuthenticationMtls)(nil)).Elem()
+}
+
+func (i ReplicatorKafkaClusterClientAuthenticationMtlsArgs) ToReplicatorKafkaClusterClientAuthenticationMtlsOutput() ReplicatorKafkaClusterClientAuthenticationMtlsOutput {
+	return i.ToReplicatorKafkaClusterClientAuthenticationMtlsOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterClientAuthenticationMtlsArgs) ToReplicatorKafkaClusterClientAuthenticationMtlsOutputWithContext(ctx context.Context) ReplicatorKafkaClusterClientAuthenticationMtlsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterClientAuthenticationMtlsOutput)
+}
+
+func (i ReplicatorKafkaClusterClientAuthenticationMtlsArgs) ToReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput() ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput {
+	return i.ToReplicatorKafkaClusterClientAuthenticationMtlsPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterClientAuthenticationMtlsArgs) ToReplicatorKafkaClusterClientAuthenticationMtlsPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterClientAuthenticationMtlsOutput).ToReplicatorKafkaClusterClientAuthenticationMtlsPtrOutputWithContext(ctx)
+}
+
+// ReplicatorKafkaClusterClientAuthenticationMtlsPtrInput is an input type that accepts ReplicatorKafkaClusterClientAuthenticationMtlsArgs, ReplicatorKafkaClusterClientAuthenticationMtlsPtr and ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterClientAuthenticationMtlsPtrInput` via:
+//
+//	        ReplicatorKafkaClusterClientAuthenticationMtlsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatorKafkaClusterClientAuthenticationMtlsPtrInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput() ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput
+	ToReplicatorKafkaClusterClientAuthenticationMtlsPtrOutputWithContext(context.Context) ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput
+}
+
+type replicatorKafkaClusterClientAuthenticationMtlsPtrType ReplicatorKafkaClusterClientAuthenticationMtlsArgs
+
+func ReplicatorKafkaClusterClientAuthenticationMtlsPtr(v *ReplicatorKafkaClusterClientAuthenticationMtlsArgs) ReplicatorKafkaClusterClientAuthenticationMtlsPtrInput {
+	return (*replicatorKafkaClusterClientAuthenticationMtlsPtrType)(v)
+}
+
+func (*replicatorKafkaClusterClientAuthenticationMtlsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterClientAuthenticationMtls)(nil)).Elem()
+}
+
+func (i *replicatorKafkaClusterClientAuthenticationMtlsPtrType) ToReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput() ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput {
+	return i.ToReplicatorKafkaClusterClientAuthenticationMtlsPtrOutputWithContext(context.Background())
+}
+
+func (i *replicatorKafkaClusterClientAuthenticationMtlsPtrType) ToReplicatorKafkaClusterClientAuthenticationMtlsPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput)
+}
+
+type ReplicatorKafkaClusterClientAuthenticationMtlsOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterClientAuthenticationMtlsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterClientAuthenticationMtls)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterClientAuthenticationMtlsOutput) ToReplicatorKafkaClusterClientAuthenticationMtlsOutput() ReplicatorKafkaClusterClientAuthenticationMtlsOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterClientAuthenticationMtlsOutput) ToReplicatorKafkaClusterClientAuthenticationMtlsOutputWithContext(ctx context.Context) ReplicatorKafkaClusterClientAuthenticationMtlsOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterClientAuthenticationMtlsOutput) ToReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput() ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput {
+	return o.ToReplicatorKafkaClusterClientAuthenticationMtlsPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorKafkaClusterClientAuthenticationMtlsOutput) ToReplicatorKafkaClusterClientAuthenticationMtlsPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorKafkaClusterClientAuthenticationMtls) *ReplicatorKafkaClusterClientAuthenticationMtls {
+		return &v
+	}).(ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput)
+}
+
+// The ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+func (o ReplicatorKafkaClusterClientAuthenticationMtlsOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterClientAuthenticationMtls) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+type ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterClientAuthenticationMtls)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput) ToReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput() ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput) ToReplicatorKafkaClusterClientAuthenticationMtlsPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput) Elem() ReplicatorKafkaClusterClientAuthenticationMtlsOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterClientAuthenticationMtls) ReplicatorKafkaClusterClientAuthenticationMtls {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorKafkaClusterClientAuthenticationMtls
+		return ret
+	}).(ReplicatorKafkaClusterClientAuthenticationMtlsOutput)
+}
+
+// The ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+func (o ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterClientAuthenticationMtls) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReplicatorKafkaClusterClientAuthenticationSaslScram struct {
+	// The SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
+	Mechanism string `pulumi:"mechanism"`
+	// The ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+	SecretArn string `pulumi:"secretArn"`
+}
+
+// ReplicatorKafkaClusterClientAuthenticationSaslScramInput is an input type that accepts ReplicatorKafkaClusterClientAuthenticationSaslScramArgs and ReplicatorKafkaClusterClientAuthenticationSaslScramOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterClientAuthenticationSaslScramInput` via:
+//
+//	ReplicatorKafkaClusterClientAuthenticationSaslScramArgs{...}
+type ReplicatorKafkaClusterClientAuthenticationSaslScramInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterClientAuthenticationSaslScramOutput() ReplicatorKafkaClusterClientAuthenticationSaslScramOutput
+	ToReplicatorKafkaClusterClientAuthenticationSaslScramOutputWithContext(context.Context) ReplicatorKafkaClusterClientAuthenticationSaslScramOutput
+}
+
+type ReplicatorKafkaClusterClientAuthenticationSaslScramArgs struct {
+	// The SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
+	Mechanism pulumi.StringInput `pulumi:"mechanism"`
+	// The ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+}
+
+func (ReplicatorKafkaClusterClientAuthenticationSaslScramArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterClientAuthenticationSaslScram)(nil)).Elem()
+}
+
+func (i ReplicatorKafkaClusterClientAuthenticationSaslScramArgs) ToReplicatorKafkaClusterClientAuthenticationSaslScramOutput() ReplicatorKafkaClusterClientAuthenticationSaslScramOutput {
+	return i.ToReplicatorKafkaClusterClientAuthenticationSaslScramOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterClientAuthenticationSaslScramArgs) ToReplicatorKafkaClusterClientAuthenticationSaslScramOutputWithContext(ctx context.Context) ReplicatorKafkaClusterClientAuthenticationSaslScramOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterClientAuthenticationSaslScramOutput)
+}
+
+func (i ReplicatorKafkaClusterClientAuthenticationSaslScramArgs) ToReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput() ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput {
+	return i.ToReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterClientAuthenticationSaslScramArgs) ToReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterClientAuthenticationSaslScramOutput).ToReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutputWithContext(ctx)
+}
+
+// ReplicatorKafkaClusterClientAuthenticationSaslScramPtrInput is an input type that accepts ReplicatorKafkaClusterClientAuthenticationSaslScramArgs, ReplicatorKafkaClusterClientAuthenticationSaslScramPtr and ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterClientAuthenticationSaslScramPtrInput` via:
+//
+//	        ReplicatorKafkaClusterClientAuthenticationSaslScramArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatorKafkaClusterClientAuthenticationSaslScramPtrInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput() ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput
+	ToReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutputWithContext(context.Context) ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput
+}
+
+type replicatorKafkaClusterClientAuthenticationSaslScramPtrType ReplicatorKafkaClusterClientAuthenticationSaslScramArgs
+
+func ReplicatorKafkaClusterClientAuthenticationSaslScramPtr(v *ReplicatorKafkaClusterClientAuthenticationSaslScramArgs) ReplicatorKafkaClusterClientAuthenticationSaslScramPtrInput {
+	return (*replicatorKafkaClusterClientAuthenticationSaslScramPtrType)(v)
+}
+
+func (*replicatorKafkaClusterClientAuthenticationSaslScramPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterClientAuthenticationSaslScram)(nil)).Elem()
+}
+
+func (i *replicatorKafkaClusterClientAuthenticationSaslScramPtrType) ToReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput() ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput {
+	return i.ToReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutputWithContext(context.Background())
+}
+
+func (i *replicatorKafkaClusterClientAuthenticationSaslScramPtrType) ToReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput)
+}
+
+type ReplicatorKafkaClusterClientAuthenticationSaslScramOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterClientAuthenticationSaslScramOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterClientAuthenticationSaslScram)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterClientAuthenticationSaslScramOutput) ToReplicatorKafkaClusterClientAuthenticationSaslScramOutput() ReplicatorKafkaClusterClientAuthenticationSaslScramOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterClientAuthenticationSaslScramOutput) ToReplicatorKafkaClusterClientAuthenticationSaslScramOutputWithContext(ctx context.Context) ReplicatorKafkaClusterClientAuthenticationSaslScramOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterClientAuthenticationSaslScramOutput) ToReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput() ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput {
+	return o.ToReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorKafkaClusterClientAuthenticationSaslScramOutput) ToReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorKafkaClusterClientAuthenticationSaslScram) *ReplicatorKafkaClusterClientAuthenticationSaslScram {
+		return &v
+	}).(ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput)
+}
+
+// The SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
+func (o ReplicatorKafkaClusterClientAuthenticationSaslScramOutput) Mechanism() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterClientAuthenticationSaslScram) string { return v.Mechanism }).(pulumi.StringOutput)
+}
+
+// The ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+func (o ReplicatorKafkaClusterClientAuthenticationSaslScramOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterClientAuthenticationSaslScram) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+type ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterClientAuthenticationSaslScram)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput) ToReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput() ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput) ToReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput) Elem() ReplicatorKafkaClusterClientAuthenticationSaslScramOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterClientAuthenticationSaslScram) ReplicatorKafkaClusterClientAuthenticationSaslScram {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorKafkaClusterClientAuthenticationSaslScram
+		return ret
+	}).(ReplicatorKafkaClusterClientAuthenticationSaslScramOutput)
+}
+
+// The SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
+func (o ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput) Mechanism() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterClientAuthenticationSaslScram) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Mechanism
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+func (o ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterClientAuthenticationSaslScram) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReplicatorKafkaClusterEncryptionInTransit struct {
+	// The ARN of the AWS Secrets Manager secret that stores the custom root CA certificate chain used to trust the certificate authority of the Apache Kafka cluster. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+	RootCaCertificate string `pulumi:"rootCaCertificate"`
+}
+
+// ReplicatorKafkaClusterEncryptionInTransitInput is an input type that accepts ReplicatorKafkaClusterEncryptionInTransitArgs and ReplicatorKafkaClusterEncryptionInTransitOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterEncryptionInTransitInput` via:
+//
+//	ReplicatorKafkaClusterEncryptionInTransitArgs{...}
+type ReplicatorKafkaClusterEncryptionInTransitInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterEncryptionInTransitOutput() ReplicatorKafkaClusterEncryptionInTransitOutput
+	ToReplicatorKafkaClusterEncryptionInTransitOutputWithContext(context.Context) ReplicatorKafkaClusterEncryptionInTransitOutput
+}
+
+type ReplicatorKafkaClusterEncryptionInTransitArgs struct {
+	// The ARN of the AWS Secrets Manager secret that stores the custom root CA certificate chain used to trust the certificate authority of the Apache Kafka cluster. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+	RootCaCertificate pulumi.StringInput `pulumi:"rootCaCertificate"`
+}
+
+func (ReplicatorKafkaClusterEncryptionInTransitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterEncryptionInTransit)(nil)).Elem()
+}
+
+func (i ReplicatorKafkaClusterEncryptionInTransitArgs) ToReplicatorKafkaClusterEncryptionInTransitOutput() ReplicatorKafkaClusterEncryptionInTransitOutput {
+	return i.ToReplicatorKafkaClusterEncryptionInTransitOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterEncryptionInTransitArgs) ToReplicatorKafkaClusterEncryptionInTransitOutputWithContext(ctx context.Context) ReplicatorKafkaClusterEncryptionInTransitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterEncryptionInTransitOutput)
+}
+
+func (i ReplicatorKafkaClusterEncryptionInTransitArgs) ToReplicatorKafkaClusterEncryptionInTransitPtrOutput() ReplicatorKafkaClusterEncryptionInTransitPtrOutput {
+	return i.ToReplicatorKafkaClusterEncryptionInTransitPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterEncryptionInTransitArgs) ToReplicatorKafkaClusterEncryptionInTransitPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterEncryptionInTransitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterEncryptionInTransitOutput).ToReplicatorKafkaClusterEncryptionInTransitPtrOutputWithContext(ctx)
+}
+
+// ReplicatorKafkaClusterEncryptionInTransitPtrInput is an input type that accepts ReplicatorKafkaClusterEncryptionInTransitArgs, ReplicatorKafkaClusterEncryptionInTransitPtr and ReplicatorKafkaClusterEncryptionInTransitPtrOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterEncryptionInTransitPtrInput` via:
+//
+//	        ReplicatorKafkaClusterEncryptionInTransitArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatorKafkaClusterEncryptionInTransitPtrInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterEncryptionInTransitPtrOutput() ReplicatorKafkaClusterEncryptionInTransitPtrOutput
+	ToReplicatorKafkaClusterEncryptionInTransitPtrOutputWithContext(context.Context) ReplicatorKafkaClusterEncryptionInTransitPtrOutput
+}
+
+type replicatorKafkaClusterEncryptionInTransitPtrType ReplicatorKafkaClusterEncryptionInTransitArgs
+
+func ReplicatorKafkaClusterEncryptionInTransitPtr(v *ReplicatorKafkaClusterEncryptionInTransitArgs) ReplicatorKafkaClusterEncryptionInTransitPtrInput {
+	return (*replicatorKafkaClusterEncryptionInTransitPtrType)(v)
+}
+
+func (*replicatorKafkaClusterEncryptionInTransitPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterEncryptionInTransit)(nil)).Elem()
+}
+
+func (i *replicatorKafkaClusterEncryptionInTransitPtrType) ToReplicatorKafkaClusterEncryptionInTransitPtrOutput() ReplicatorKafkaClusterEncryptionInTransitPtrOutput {
+	return i.ToReplicatorKafkaClusterEncryptionInTransitPtrOutputWithContext(context.Background())
+}
+
+func (i *replicatorKafkaClusterEncryptionInTransitPtrType) ToReplicatorKafkaClusterEncryptionInTransitPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterEncryptionInTransitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterEncryptionInTransitPtrOutput)
+}
+
+type ReplicatorKafkaClusterEncryptionInTransitOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterEncryptionInTransitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterEncryptionInTransit)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterEncryptionInTransitOutput) ToReplicatorKafkaClusterEncryptionInTransitOutput() ReplicatorKafkaClusterEncryptionInTransitOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterEncryptionInTransitOutput) ToReplicatorKafkaClusterEncryptionInTransitOutputWithContext(ctx context.Context) ReplicatorKafkaClusterEncryptionInTransitOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterEncryptionInTransitOutput) ToReplicatorKafkaClusterEncryptionInTransitPtrOutput() ReplicatorKafkaClusterEncryptionInTransitPtrOutput {
+	return o.ToReplicatorKafkaClusterEncryptionInTransitPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorKafkaClusterEncryptionInTransitOutput) ToReplicatorKafkaClusterEncryptionInTransitPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterEncryptionInTransitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorKafkaClusterEncryptionInTransit) *ReplicatorKafkaClusterEncryptionInTransit {
+		return &v
+	}).(ReplicatorKafkaClusterEncryptionInTransitPtrOutput)
+}
+
+// The ARN of the AWS Secrets Manager secret that stores the custom root CA certificate chain used to trust the certificate authority of the Apache Kafka cluster. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+func (o ReplicatorKafkaClusterEncryptionInTransitOutput) RootCaCertificate() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterEncryptionInTransit) string { return v.RootCaCertificate }).(pulumi.StringOutput)
+}
+
+type ReplicatorKafkaClusterEncryptionInTransitPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterEncryptionInTransitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterEncryptionInTransit)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterEncryptionInTransitPtrOutput) ToReplicatorKafkaClusterEncryptionInTransitPtrOutput() ReplicatorKafkaClusterEncryptionInTransitPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterEncryptionInTransitPtrOutput) ToReplicatorKafkaClusterEncryptionInTransitPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterEncryptionInTransitPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterEncryptionInTransitPtrOutput) Elem() ReplicatorKafkaClusterEncryptionInTransitOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterEncryptionInTransit) ReplicatorKafkaClusterEncryptionInTransit {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorKafkaClusterEncryptionInTransit
+		return ret
+	}).(ReplicatorKafkaClusterEncryptionInTransitOutput)
+}
+
+// The ARN of the AWS Secrets Manager secret that stores the custom root CA certificate chain used to trust the certificate authority of the Apache Kafka cluster. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+func (o ReplicatorKafkaClusterEncryptionInTransitPtrOutput) RootCaCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterEncryptionInTransit) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RootCaCertificate
+	}).(pulumi.StringPtrOutput)
+}
+
 type ReplicatorKafkaClusterVpcConfig struct {
 	// The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
+	//
+	// > **Note:** When an `apacheKafkaCluster` uses `clientAuthentication`, the replicator's network interfaces (created in these subnets, with private IPs only) must be able to reach AWS Secrets Manager and AWS KMS to retrieve and decrypt the credentials. Ensure the subnets have egress to those services via a NAT gateway or Secrets Manager and KMS interface VPC endpoints; otherwise the replicator times out connecting to the source cluster.
 	SecurityGroupsIds []string `pulumi:"securityGroupsIds"`
 	// List of subnets to connect to in the VPC. AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
 	SubnetIds []string `pulumi:"subnetIds"`
@@ -4078,6 +4942,8 @@ type ReplicatorKafkaClusterVpcConfigInput interface {
 
 type ReplicatorKafkaClusterVpcConfigArgs struct {
 	// The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
+	//
+	// > **Note:** When an `apacheKafkaCluster` uses `clientAuthentication`, the replicator's network interfaces (created in these subnets, with private IPs only) must be able to reach AWS Secrets Manager and AWS KMS to retrieve and decrypt the credentials. Ensure the subnets have egress to those services via a NAT gateway or Secrets Manager and KMS interface VPC endpoints; otherwise the replicator times out connecting to the source cluster.
 	SecurityGroupsIds pulumi.StringArrayInput `pulumi:"securityGroupsIds"`
 	// List of subnets to connect to in the VPC. AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
@@ -4095,6 +4961,47 @@ func (i ReplicatorKafkaClusterVpcConfigArgs) ToReplicatorKafkaClusterVpcConfigOu
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterVpcConfigOutput)
 }
 
+func (i ReplicatorKafkaClusterVpcConfigArgs) ToReplicatorKafkaClusterVpcConfigPtrOutput() ReplicatorKafkaClusterVpcConfigPtrOutput {
+	return i.ToReplicatorKafkaClusterVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterVpcConfigArgs) ToReplicatorKafkaClusterVpcConfigPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterVpcConfigOutput).ToReplicatorKafkaClusterVpcConfigPtrOutputWithContext(ctx)
+}
+
+// ReplicatorKafkaClusterVpcConfigPtrInput is an input type that accepts ReplicatorKafkaClusterVpcConfigArgs, ReplicatorKafkaClusterVpcConfigPtr and ReplicatorKafkaClusterVpcConfigPtrOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterVpcConfigPtrInput` via:
+//
+//	        ReplicatorKafkaClusterVpcConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatorKafkaClusterVpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterVpcConfigPtrOutput() ReplicatorKafkaClusterVpcConfigPtrOutput
+	ToReplicatorKafkaClusterVpcConfigPtrOutputWithContext(context.Context) ReplicatorKafkaClusterVpcConfigPtrOutput
+}
+
+type replicatorKafkaClusterVpcConfigPtrType ReplicatorKafkaClusterVpcConfigArgs
+
+func ReplicatorKafkaClusterVpcConfigPtr(v *ReplicatorKafkaClusterVpcConfigArgs) ReplicatorKafkaClusterVpcConfigPtrInput {
+	return (*replicatorKafkaClusterVpcConfigPtrType)(v)
+}
+
+func (*replicatorKafkaClusterVpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterVpcConfig)(nil)).Elem()
+}
+
+func (i *replicatorKafkaClusterVpcConfigPtrType) ToReplicatorKafkaClusterVpcConfigPtrOutput() ReplicatorKafkaClusterVpcConfigPtrOutput {
+	return i.ToReplicatorKafkaClusterVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *replicatorKafkaClusterVpcConfigPtrType) ToReplicatorKafkaClusterVpcConfigPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterVpcConfigPtrOutput)
+}
+
 type ReplicatorKafkaClusterVpcConfigOutput struct{ *pulumi.OutputState }
 
 func (ReplicatorKafkaClusterVpcConfigOutput) ElementType() reflect.Type {
@@ -4109,7 +5016,19 @@ func (o ReplicatorKafkaClusterVpcConfigOutput) ToReplicatorKafkaClusterVpcConfig
 	return o
 }
 
+func (o ReplicatorKafkaClusterVpcConfigOutput) ToReplicatorKafkaClusterVpcConfigPtrOutput() ReplicatorKafkaClusterVpcConfigPtrOutput {
+	return o.ToReplicatorKafkaClusterVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorKafkaClusterVpcConfigOutput) ToReplicatorKafkaClusterVpcConfigPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterVpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorKafkaClusterVpcConfig) *ReplicatorKafkaClusterVpcConfig {
+		return &v
+	}).(ReplicatorKafkaClusterVpcConfigPtrOutput)
+}
+
 // The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
+//
+// > **Note:** When an `apacheKafkaCluster` uses `clientAuthentication`, the replicator's network interfaces (created in these subnets, with private IPs only) must be able to reach AWS Secrets Manager and AWS KMS to retrieve and decrypt the credentials. Ensure the subnets have egress to those services via a NAT gateway or Secrets Manager and KMS interface VPC endpoints; otherwise the replicator times out connecting to the source cluster.
 func (o ReplicatorKafkaClusterVpcConfigOutput) SecurityGroupsIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReplicatorKafkaClusterVpcConfig) []string { return v.SecurityGroupsIds }).(pulumi.StringArrayOutput)
 }
@@ -4117,6 +5036,52 @@ func (o ReplicatorKafkaClusterVpcConfigOutput) SecurityGroupsIds() pulumi.String
 // List of subnets to connect to in the VPC. AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
 func (o ReplicatorKafkaClusterVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReplicatorKafkaClusterVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+type ReplicatorKafkaClusterVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterVpcConfig)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterVpcConfigPtrOutput) ToReplicatorKafkaClusterVpcConfigPtrOutput() ReplicatorKafkaClusterVpcConfigPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterVpcConfigPtrOutput) ToReplicatorKafkaClusterVpcConfigPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterVpcConfigPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterVpcConfigPtrOutput) Elem() ReplicatorKafkaClusterVpcConfigOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterVpcConfig) ReplicatorKafkaClusterVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorKafkaClusterVpcConfig
+		return ret
+	}).(ReplicatorKafkaClusterVpcConfigOutput)
+}
+
+// The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
+//
+// > **Note:** When an `apacheKafkaCluster` uses `clientAuthentication`, the replicator's network interfaces (created in these subnets, with private IPs only) must be able to reach AWS Secrets Manager and AWS KMS to retrieve and decrypt the credentials. Ensure the subnets have egress to those services via a NAT gateway or Secrets Manager and KMS interface VPC endpoints; otherwise the replicator times out connecting to the source cluster.
+func (o ReplicatorKafkaClusterVpcConfigPtrOutput) SecurityGroupsIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupsIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of subnets to connect to in the VPC. AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
+func (o ReplicatorKafkaClusterVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
 }
 
 type ReplicatorLogDelivery struct {
@@ -4930,13 +5895,17 @@ type ReplicatorReplicationInfoList struct {
 	// Configuration relating to consumer group replication.
 	ConsumerGroupReplications []ReplicatorReplicationInfoListConsumerGroupReplication `pulumi:"consumerGroupReplications"`
 	SourceKafkaClusterAlias   *string                                                 `pulumi:"sourceKafkaClusterAlias"`
-	// The ARN of the source Kafka cluster.
-	SourceKafkaClusterArn string `pulumi:"sourceKafkaClusterArn"`
+	// The ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+	SourceKafkaClusterArn *string `pulumi:"sourceKafkaClusterArn"`
+	// The identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apacheKafkaClusterId`). Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+	SourceKafkaClusterId *string `pulumi:"sourceKafkaClusterId"`
 	// The type of compression to use writing records to target Kafka cluster.
 	TargetCompressionType   string  `pulumi:"targetCompressionType"`
 	TargetKafkaClusterAlias *string `pulumi:"targetKafkaClusterAlias"`
-	// The ARN of the target Kafka cluster.
-	TargetKafkaClusterArn string `pulumi:"targetKafkaClusterArn"`
+	// The ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+	TargetKafkaClusterArn *string `pulumi:"targetKafkaClusterArn"`
+	// The identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apacheKafkaClusterId`). Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+	TargetKafkaClusterId *string `pulumi:"targetKafkaClusterId"`
 	// Configuration relating to topic replication.
 	TopicReplications []ReplicatorReplicationInfoListTopicReplication `pulumi:"topicReplications"`
 }
@@ -4956,13 +5925,17 @@ type ReplicatorReplicationInfoListArgs struct {
 	// Configuration relating to consumer group replication.
 	ConsumerGroupReplications ReplicatorReplicationInfoListConsumerGroupReplicationArrayInput `pulumi:"consumerGroupReplications"`
 	SourceKafkaClusterAlias   pulumi.StringPtrInput                                           `pulumi:"sourceKafkaClusterAlias"`
-	// The ARN of the source Kafka cluster.
-	SourceKafkaClusterArn pulumi.StringInput `pulumi:"sourceKafkaClusterArn"`
+	// The ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+	SourceKafkaClusterArn pulumi.StringPtrInput `pulumi:"sourceKafkaClusterArn"`
+	// The identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apacheKafkaClusterId`). Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+	SourceKafkaClusterId pulumi.StringPtrInput `pulumi:"sourceKafkaClusterId"`
 	// The type of compression to use writing records to target Kafka cluster.
 	TargetCompressionType   pulumi.StringInput    `pulumi:"targetCompressionType"`
 	TargetKafkaClusterAlias pulumi.StringPtrInput `pulumi:"targetKafkaClusterAlias"`
-	// The ARN of the target Kafka cluster.
-	TargetKafkaClusterArn pulumi.StringInput `pulumi:"targetKafkaClusterArn"`
+	// The ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+	TargetKafkaClusterArn pulumi.StringPtrInput `pulumi:"targetKafkaClusterArn"`
+	// The identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apacheKafkaClusterId`). Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+	TargetKafkaClusterId pulumi.StringPtrInput `pulumi:"targetKafkaClusterId"`
 	// Configuration relating to topic replication.
 	TopicReplications ReplicatorReplicationInfoListTopicReplicationArrayInput `pulumi:"topicReplications"`
 }
@@ -5055,9 +6028,14 @@ func (o ReplicatorReplicationInfoListOutput) SourceKafkaClusterAlias() pulumi.St
 	return o.ApplyT(func(v ReplicatorReplicationInfoList) *string { return v.SourceKafkaClusterAlias }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the source Kafka cluster.
-func (o ReplicatorReplicationInfoListOutput) SourceKafkaClusterArn() pulumi.StringOutput {
-	return o.ApplyT(func(v ReplicatorReplicationInfoList) string { return v.SourceKafkaClusterArn }).(pulumi.StringOutput)
+// The ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+func (o ReplicatorReplicationInfoListOutput) SourceKafkaClusterArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatorReplicationInfoList) *string { return v.SourceKafkaClusterArn }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apacheKafkaClusterId`). Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+func (o ReplicatorReplicationInfoListOutput) SourceKafkaClusterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatorReplicationInfoList) *string { return v.SourceKafkaClusterId }).(pulumi.StringPtrOutput)
 }
 
 // The type of compression to use writing records to target Kafka cluster.
@@ -5069,9 +6047,14 @@ func (o ReplicatorReplicationInfoListOutput) TargetKafkaClusterAlias() pulumi.St
 	return o.ApplyT(func(v ReplicatorReplicationInfoList) *string { return v.TargetKafkaClusterAlias }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the target Kafka cluster.
-func (o ReplicatorReplicationInfoListOutput) TargetKafkaClusterArn() pulumi.StringOutput {
-	return o.ApplyT(func(v ReplicatorReplicationInfoList) string { return v.TargetKafkaClusterArn }).(pulumi.StringOutput)
+// The ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+func (o ReplicatorReplicationInfoListOutput) TargetKafkaClusterArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatorReplicationInfoList) *string { return v.TargetKafkaClusterArn }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apacheKafkaClusterId`). Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+func (o ReplicatorReplicationInfoListOutput) TargetKafkaClusterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatorReplicationInfoList) *string { return v.TargetKafkaClusterId }).(pulumi.StringPtrOutput)
 }
 
 // Configuration relating to topic replication.
@@ -5124,13 +6107,23 @@ func (o ReplicatorReplicationInfoListPtrOutput) SourceKafkaClusterAlias() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the source Kafka cluster.
+// The ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
 func (o ReplicatorReplicationInfoListPtrOutput) SourceKafkaClusterArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicatorReplicationInfoList) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.SourceKafkaClusterArn
+		return v.SourceKafkaClusterArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apacheKafkaClusterId`). Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+func (o ReplicatorReplicationInfoListPtrOutput) SourceKafkaClusterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorReplicationInfoList) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceKafkaClusterId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5153,13 +6146,23 @@ func (o ReplicatorReplicationInfoListPtrOutput) TargetKafkaClusterAlias() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the target Kafka cluster.
+// The ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
 func (o ReplicatorReplicationInfoListPtrOutput) TargetKafkaClusterArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicatorReplicationInfoList) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.TargetKafkaClusterArn
+		return v.TargetKafkaClusterArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apacheKafkaClusterId`). Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+func (o ReplicatorReplicationInfoListPtrOutput) TargetKafkaClusterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorReplicationInfoList) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetKafkaClusterId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7573,7 +8576,19 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterInput)(nil)).Elem(), ReplicatorKafkaClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterArrayInput)(nil)).Elem(), ReplicatorKafkaClusterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterAmazonMskClusterInput)(nil)).Elem(), ReplicatorKafkaClusterAmazonMskClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterAmazonMskClusterPtrInput)(nil)).Elem(), ReplicatorKafkaClusterAmazonMskClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterApacheKafkaClusterInput)(nil)).Elem(), ReplicatorKafkaClusterApacheKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterApacheKafkaClusterPtrInput)(nil)).Elem(), ReplicatorKafkaClusterApacheKafkaClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterClientAuthenticationInput)(nil)).Elem(), ReplicatorKafkaClusterClientAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterClientAuthenticationPtrInput)(nil)).Elem(), ReplicatorKafkaClusterClientAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterClientAuthenticationMtlsInput)(nil)).Elem(), ReplicatorKafkaClusterClientAuthenticationMtlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterClientAuthenticationMtlsPtrInput)(nil)).Elem(), ReplicatorKafkaClusterClientAuthenticationMtlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterClientAuthenticationSaslScramInput)(nil)).Elem(), ReplicatorKafkaClusterClientAuthenticationSaslScramArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterClientAuthenticationSaslScramPtrInput)(nil)).Elem(), ReplicatorKafkaClusterClientAuthenticationSaslScramArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterEncryptionInTransitInput)(nil)).Elem(), ReplicatorKafkaClusterEncryptionInTransitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterEncryptionInTransitPtrInput)(nil)).Elem(), ReplicatorKafkaClusterEncryptionInTransitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterVpcConfigInput)(nil)).Elem(), ReplicatorKafkaClusterVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterVpcConfigPtrInput)(nil)).Elem(), ReplicatorKafkaClusterVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorLogDeliveryInput)(nil)).Elem(), ReplicatorLogDeliveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorLogDeliveryPtrInput)(nil)).Elem(), ReplicatorLogDeliveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorLogDeliveryReplicatorLogDeliveryInput)(nil)).Elem(), ReplicatorLogDeliveryReplicatorLogDeliveryArgs{})
@@ -7677,7 +8692,19 @@ func init() {
 	pulumi.RegisterOutputType(ReplicatorKafkaClusterOutput{})
 	pulumi.RegisterOutputType(ReplicatorKafkaClusterArrayOutput{})
 	pulumi.RegisterOutputType(ReplicatorKafkaClusterAmazonMskClusterOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterAmazonMskClusterPtrOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterApacheKafkaClusterOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterApacheKafkaClusterPtrOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterClientAuthenticationOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterClientAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterClientAuthenticationMtlsOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterClientAuthenticationMtlsPtrOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterClientAuthenticationSaslScramOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterClientAuthenticationSaslScramPtrOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterEncryptionInTransitOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterEncryptionInTransitPtrOutput{})
 	pulumi.RegisterOutputType(ReplicatorKafkaClusterVpcConfigOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(ReplicatorLogDeliveryOutput{})
 	pulumi.RegisterOutputType(ReplicatorLogDeliveryPtrOutput{})
 	pulumi.RegisterOutputType(ReplicatorLogDeliveryReplicatorLogDeliveryOutput{})

@@ -40,6 +40,8 @@ __all__ = [
     'GetDirectorySamlPropertyResult',
     'GetDirectorySelfServicePermissionResult',
     'GetDirectoryWorkspaceAccessPropertyResult',
+    'GetDirectoryWorkspaceAccessPropertyAccessEndpointConfigResult',
+    'GetDirectoryWorkspaceAccessPropertyAccessEndpointConfigAccessEndpointResult',
     'GetDirectoryWorkspaceCreationPropertyResult',
     'GetWorkspaceWorkspacePropertyResult',
 ]
@@ -1236,6 +1238,7 @@ class GetDirectorySelfServicePermissionResult(dict):
 @pulumi.output_type
 class GetDirectoryWorkspaceAccessPropertyResult(dict):
     def __init__(__self__, *,
+                 access_endpoint_configs: Sequence['outputs.GetDirectoryWorkspaceAccessPropertyAccessEndpointConfigResult'],
                  device_type_android: _builtins.str,
                  device_type_chromeos: _builtins.str,
                  device_type_ios: _builtins.str,
@@ -1245,6 +1248,7 @@ class GetDirectoryWorkspaceAccessPropertyResult(dict):
                  device_type_windows: _builtins.str,
                  device_type_zeroclient: _builtins.str):
         """
+        :param Sequence['GetDirectoryWorkspaceAccessPropertyAccessEndpointConfigArgs'] access_endpoint_configs: Configuration for accessing WorkSpaces through VPC endpoints instead of the public internet.
         :param _builtins.str device_type_android: (Optional) Indicates whether users can use Android devices to access their WorkSpaces.
         :param _builtins.str device_type_chromeos: (Optional) Indicates whether users can use Chromebooks to access their WorkSpaces.
         :param _builtins.str device_type_ios: (Optional) Indicates whether users can use iOS devices to access their WorkSpaces.
@@ -1254,6 +1258,7 @@ class GetDirectoryWorkspaceAccessPropertyResult(dict):
         :param _builtins.str device_type_windows: (Optional) Indicates whether users can use Windows clients to access their WorkSpaces.
         :param _builtins.str device_type_zeroclient: (Optional) Indicates whether users can use zero client devices to access their WorkSpaces.
         """
+        pulumi.set(__self__, "access_endpoint_configs", access_endpoint_configs)
         pulumi.set(__self__, "device_type_android", device_type_android)
         pulumi.set(__self__, "device_type_chromeos", device_type_chromeos)
         pulumi.set(__self__, "device_type_ios", device_type_ios)
@@ -1262,6 +1267,14 @@ class GetDirectoryWorkspaceAccessPropertyResult(dict):
         pulumi.set(__self__, "device_type_web", device_type_web)
         pulumi.set(__self__, "device_type_windows", device_type_windows)
         pulumi.set(__self__, "device_type_zeroclient", device_type_zeroclient)
+
+    @_builtins.property
+    @pulumi.getter(name="accessEndpointConfigs")
+    def access_endpoint_configs(self) -> Sequence['outputs.GetDirectoryWorkspaceAccessPropertyAccessEndpointConfigResult']:
+        """
+        Configuration for accessing WorkSpaces through VPC endpoints instead of the public internet.
+        """
+        return pulumi.get(self, "access_endpoint_configs")
 
     @_builtins.property
     @pulumi.getter(name="deviceTypeAndroid")
@@ -1326,6 +1339,64 @@ class GetDirectoryWorkspaceAccessPropertyResult(dict):
         (Optional) Indicates whether users can use zero client devices to access their WorkSpaces.
         """
         return pulumi.get(self, "device_type_zeroclient")
+
+
+@pulumi.output_type
+class GetDirectoryWorkspaceAccessPropertyAccessEndpointConfigResult(dict):
+    def __init__(__self__, *,
+                 access_endpoints: Sequence['outputs.GetDirectoryWorkspaceAccessPropertyAccessEndpointConfigAccessEndpointResult'],
+                 internet_fallback_protocols: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetDirectoryWorkspaceAccessPropertyAccessEndpointConfigAccessEndpointArgs'] access_endpoints: Set of access endpoints used to control the network paths that users use to access their WorkSpaces.
+        :param Sequence[_builtins.str] internet_fallback_protocols: List of protocols that fall back to the public internet when streaming over a VPC endpoint is unavailable.
+        """
+        pulumi.set(__self__, "access_endpoints", access_endpoints)
+        pulumi.set(__self__, "internet_fallback_protocols", internet_fallback_protocols)
+
+    @_builtins.property
+    @pulumi.getter(name="accessEndpoints")
+    def access_endpoints(self) -> Sequence['outputs.GetDirectoryWorkspaceAccessPropertyAccessEndpointConfigAccessEndpointResult']:
+        """
+        Set of access endpoints used to control the network paths that users use to access their WorkSpaces.
+        """
+        return pulumi.get(self, "access_endpoints")
+
+    @_builtins.property
+    @pulumi.getter(name="internetFallbackProtocols")
+    def internet_fallback_protocols(self) -> Sequence[_builtins.str]:
+        """
+        List of protocols that fall back to the public internet when streaming over a VPC endpoint is unavailable.
+        """
+        return pulumi.get(self, "internet_fallback_protocols")
+
+
+@pulumi.output_type
+class GetDirectoryWorkspaceAccessPropertyAccessEndpointConfigAccessEndpointResult(dict):
+    def __init__(__self__, *,
+                 access_endpoint_type: _builtins.str,
+                 vpc_endpoint_id: _builtins.str):
+        """
+        :param _builtins.str access_endpoint_type: Type of access endpoint.
+        :param _builtins.str vpc_endpoint_id: Identifier of the VPC endpoint that the access endpoint uses.
+        """
+        pulumi.set(__self__, "access_endpoint_type", access_endpoint_type)
+        pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+
+    @_builtins.property
+    @pulumi.getter(name="accessEndpointType")
+    def access_endpoint_type(self) -> _builtins.str:
+        """
+        Type of access endpoint.
+        """
+        return pulumi.get(self, "access_endpoint_type")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> _builtins.str:
+        """
+        Identifier of the VPC endpoint that the access endpoint uses.
+        """
+        return pulumi.get(self, "vpc_endpoint_id")
 
 
 @pulumi.output_type

@@ -22,6 +22,10 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly Outputs.AgentcoreHarnessModelGeminiModelConfig? GeminiModelConfig;
         /// <summary>
+        /// LiteLLM model configuration. See `LitellmModelConfig` Block below.
+        /// </summary>
+        public readonly Outputs.AgentcoreHarnessModelLitellmModelConfig? LitellmModelConfig;
+        /// <summary>
         /// OpenAI model configuration. See `OpenaiModelConfig` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreHarnessModelOpenaiModelConfig? OpenaiModelConfig;
@@ -32,10 +36,13 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
             Outputs.AgentcoreHarnessModelGeminiModelConfig? geminiModelConfig,
 
+            Outputs.AgentcoreHarnessModelLitellmModelConfig? litellmModelConfig,
+
             Outputs.AgentcoreHarnessModelOpenaiModelConfig? openaiModelConfig)
         {
             BedrockModelConfig = bedrockModelConfig;
             GeminiModelConfig = geminiModelConfig;
+            LitellmModelConfig = litellmModelConfig;
             OpenaiModelConfig = openaiModelConfig;
         }
     }

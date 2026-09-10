@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreRegistryApprovalConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether registry records are auto-approved. When set to `True`, records are automatically approved upon creation. When set to `False` (the default), records require explicit approval.
+        /// </summary>
         [Input("autoApproval", required: true)]
         public Input<bool> AutoApproval { get; set; } = null!;
 

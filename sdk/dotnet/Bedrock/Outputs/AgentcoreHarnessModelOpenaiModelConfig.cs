@@ -14,6 +14,14 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreHarnessModelOpenaiModelConfig
     {
         /// <summary>
+        /// JSON string containing provider-specific parameters to pass through to the OpenAI model provider unchanged.
+        /// </summary>
+        public readonly string? AdditionalParams;
+        /// <summary>
+        /// API format for the model. Valid values are `Responses` and `ChatCompletions`.
+        /// </summary>
+        public readonly string? ApiFormat;
+        /// <summary>
         /// ARN of the secret containing the API key.
         /// </summary>
         public readonly string ApiKeyArn;
@@ -36,6 +44,10 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
         [OutputConstructor]
         private AgentcoreHarnessModelOpenaiModelConfig(
+            string? additionalParams,
+
+            string? apiFormat,
+
             string apiKeyArn,
 
             int? maxTokens,
@@ -46,6 +58,8 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
             double? topP)
         {
+            AdditionalParams = additionalParams;
+            ApiFormat = apiFormat;
             ApiKeyArn = apiKeyArn;
             MaxTokens = maxTokens;
             ModelId = modelId;

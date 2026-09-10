@@ -86,10 +86,21 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Bedrock AgentCore OAuth2 Credential Provider using the provider name. For example:
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `name` (String) OAuth2 credential provider name.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) Account ID where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
+ * Using `pulumi import`, import Bedrock AgentCore OAuth2 Credential Provider using `name`. For example:
  *
  * ```sh
- * $ pulumi import aws:bedrock/agentcoreOauth2CredentialProvider:AgentcoreOauth2CredentialProvider example oauth2-provider-name
+ * $ pulumi import aws:bedrock/agentcoreOauth2CredentialProvider:AgentcoreOauth2CredentialProvider example example-oauth2-provider
  * ```
  */
 export class AgentcoreOauth2CredentialProvider extends pulumi.CustomResource {
@@ -154,6 +165,7 @@ export class AgentcoreOauth2CredentialProvider extends pulumi.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    declare public readonly timeouts: pulumi.Output<outputs.bedrock.AgentcoreOauth2CredentialProviderTimeouts | undefined>;
 
     /**
      * Create a AgentcoreOauth2CredentialProvider resource with the given unique name, arguments, and options.
@@ -176,6 +188,7 @@ export class AgentcoreOauth2CredentialProvider extends pulumi.CustomResource {
             resourceInputs["region"] = state?.region;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as AgentcoreOauth2CredentialProviderArgs | undefined;
             if (args?.credentialProviderVendor === undefined && !opts.urn) {
@@ -186,6 +199,7 @@ export class AgentcoreOauth2CredentialProvider extends pulumi.CustomResource {
             resourceInputs["oauth2ProviderConfig"] = args?.oauth2ProviderConfig;
             resourceInputs["region"] = args?.region;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["clientSecretArns"] = undefined /*out*/;
             resourceInputs["credentialProviderArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -233,6 +247,7 @@ export interface AgentcoreOauth2CredentialProviderState {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderTimeouts | undefined>;
 }
 
 /**
@@ -261,4 +276,5 @@ export interface AgentcoreOauth2CredentialProviderArgs {
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderTimeouts | undefined>;
 }

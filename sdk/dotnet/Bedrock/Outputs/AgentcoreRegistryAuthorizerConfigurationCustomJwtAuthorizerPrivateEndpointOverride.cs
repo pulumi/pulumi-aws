@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride
     {
+        /// <summary>
+        /// Domain the override applies to.
+        /// </summary>
         public readonly string Domain;
+        /// <summary>
+        /// Private endpoint configuration. See `PrivateEndpoint` below.
+        /// </summary>
         public readonly Outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint PrivateEndpoint;
 
         [OutputConstructor]

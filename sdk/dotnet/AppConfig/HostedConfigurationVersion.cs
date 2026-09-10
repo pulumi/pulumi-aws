@@ -237,6 +237,12 @@ namespace Pulumi.Aws.AppConfig
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
+        /// User-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character.
+        /// </summary>
+        [Output("versionLabel")]
+        public Output<string?> VersionLabel { get; private set; } = null!;
+
+        /// <summary>
         /// Version number of the hosted configuration.
         /// </summary>
         [Output("versionNumber")]
@@ -338,6 +344,12 @@ namespace Pulumi.Aws.AppConfig
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        /// <summary>
+        /// User-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character.
+        /// </summary>
+        [Input("versionLabel")]
+        public Input<string>? VersionLabel { get; set; }
+
         public HostedConfigurationVersionArgs()
         {
         }
@@ -397,6 +409,12 @@ namespace Pulumi.Aws.AppConfig
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// User-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character.
+        /// </summary>
+        [Input("versionLabel")]
+        public Input<string>? VersionLabel { get; set; }
 
         /// <summary>
         /// Version number of the hosted configuration.

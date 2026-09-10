@@ -14,29 +14,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource {
+    /**
+     * @return IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+     * 
+     */
     private String endpointIpAddressType;
+    /**
+     * @return Routing domain for the endpoint.
+     * 
+     */
     private @Nullable String routingDomain;
+    /**
+     * @return IDs of the security groups for the endpoint.
+     * 
+     */
     private @Nullable List<String> securityGroupIds;
+    /**
+     * @return IDs of the subnets for the endpoint.
+     * 
+     */
     private List<String> subnetIds;
+    /**
+     * @return Tags to assign to the managed VPC resource.
+     * 
+     */
     private @Nullable Map<String,String> tags;
+    /**
+     * @return Identifier of the VPC for the endpoint.
+     * 
+     */
     private String vpcIdentifier;
 
     private AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource() {}
+    /**
+     * @return IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+     * 
+     */
     public String endpointIpAddressType() {
         return this.endpointIpAddressType;
     }
+    /**
+     * @return Routing domain for the endpoint.
+     * 
+     */
     public Optional<String> routingDomain() {
         return Optional.ofNullable(this.routingDomain);
     }
+    /**
+     * @return IDs of the security groups for the endpoint.
+     * 
+     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds == null ? List.of() : this.securityGroupIds;
     }
+    /**
+     * @return IDs of the subnets for the endpoint.
+     * 
+     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }
+    /**
+     * @return Tags to assign to the managed VPC resource.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }
+    /**
+     * @return Identifier of the VPC for the endpoint.
+     * 
+     */
     public String vpcIdentifier() {
         return this.vpcIdentifier;
     }

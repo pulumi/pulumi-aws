@@ -58,14 +58,14 @@ public final class ReplicatorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of Kafka clusters which are targets of the replicator.
+     * The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
      * 
      */
     @Import(name="kafkaClusters")
     private @Nullable Output<List<ReplicatorKafkaClusterArgs>> kafkaClusters;
 
     /**
-     * @return A list of Kafka clusters which are targets of the replicator.
+     * @return The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
      * 
      */
     public Optional<Output<List<ReplicatorKafkaClusterArgs>>> kafkaClusters() {
@@ -263,7 +263,7 @@ public final class ReplicatorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kafkaClusters A list of Kafka clusters which are targets of the replicator.
+         * @param kafkaClusters The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class ReplicatorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kafkaClusters A list of Kafka clusters which are targets of the replicator.
+         * @param kafkaClusters The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class ReplicatorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kafkaClusters A list of Kafka clusters which are targets of the replicator.
+         * @param kafkaClusters The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
          * 
          * @return builder
          * 

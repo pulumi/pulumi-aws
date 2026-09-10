@@ -12,14 +12,24 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+        /// </summary>
         [Input("endpointIpAddressType", required: true)]
         public Input<string> EndpointIpAddressType { get; set; } = null!;
 
+        /// <summary>
+        /// Routing domain for the endpoint.
+        /// </summary>
         [Input("routingDomain")]
         public Input<string>? RoutingDomain { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
+
+        /// <summary>
+        /// IDs of the security groups for the endpoint.
+        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
@@ -28,6 +38,10 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
+
+        /// <summary>
+        /// IDs of the subnets for the endpoint.
+        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
@@ -36,12 +50,19 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Tags to assign to the managed VPC resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Identifier of the VPC for the endpoint.
+        /// </summary>
         [Input("vpcIdentifier", required: true)]
         public Input<string> VpcIdentifier { get; set; } = null!;
 

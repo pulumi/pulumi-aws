@@ -8,6 +8,7 @@ import com.pulumi.aws.bedrock.AgentcoreOauth2CredentialProviderArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreOauth2CredentialProviderState;
 import com.pulumi.aws.bedrock.outputs.AgentcoreOauth2CredentialProviderClientSecretArn;
 import com.pulumi.aws.bedrock.outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfig;
+import com.pulumi.aws.bedrock.outputs.AgentcoreOauth2CredentialProviderTimeouts;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -164,10 +165,21 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Bedrock AgentCore OAuth2 Credential Provider using the provider name. For example:
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `name` (String) OAuth2 credential provider name.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) Account ID where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
+ * Using `pulumi import`, import Bedrock AgentCore OAuth2 Credential Provider using `name`. For example:
  * 
  * ```sh
- * $ pulumi import aws:bedrock/agentcoreOauth2CredentialProvider:AgentcoreOauth2CredentialProvider example oauth2-provider-name
+ * $ pulumi import aws:bedrock/agentcoreOauth2CredentialProvider:AgentcoreOauth2CredentialProvider example example-oauth2-provider
  * ```
  * 
  */
@@ -288,6 +300,12 @@ public class AgentcoreOauth2CredentialProvider extends com.pulumi.resources.Cust
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    @Export(name="timeouts", refs={AgentcoreOauth2CredentialProviderTimeouts.class}, tree="[0]")
+    private Output</* @Nullable */ AgentcoreOauth2CredentialProviderTimeouts> timeouts;
+
+    public Output<Optional<AgentcoreOauth2CredentialProviderTimeouts>> timeouts() {
+        return Codegen.optional(this.timeouts);
     }
 
     /**

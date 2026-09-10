@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Bedrock.Inputs
     {
         [Input("hostingEnvironments")]
         private InputList<Inputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentGetArgs>? _hostingEnvironments;
+
+        /// <summary>
+        /// Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `HostingEnvironment` below.
+        /// </summary>
         public InputList<Inputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentGetArgs> HostingEnvironments
         {
             get => _hostingEnvironments ?? (_hostingEnvironments = new InputList<Inputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentGetArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
         [Input("workloadIdentities")]
         private InputList<string>? _workloadIdentities;
+
+        /// <summary>
+        /// List of workload identity names allowed to use the authorizer. Between 1 and 10 entries.
+        /// </summary>
         public InputList<string> WorkloadIdentities
         {
             get => _workloadIdentities ?? (_workloadIdentities = new InputList<string>());

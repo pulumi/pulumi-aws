@@ -3995,6 +3995,148 @@ func (o GetEngineVersionFilterArrayOutput) Index(i pulumi.IntInput) GetEngineVer
 	}).(GetEngineVersionFilterOutput)
 }
 
+type GetEventsEvent struct {
+	// Date and time of the event, in RFC3339 format.
+	Date string `pulumi:"date"`
+	// Set of event categories to filter on, e.g. `failure`, `maintenance`, `configuration change`. Defaults to all categories.
+	EventCategories []string `pulumi:"eventCategories"`
+	// Text of the event.
+	Message string `pulumi:"message"`
+	// ARN of the event source.
+	SourceArn string `pulumi:"sourceArn"`
+	// Identifier of the source, such as a DB instance or DB cluster identifier. Requires `sourceType` to also be set.
+	SourceIdentifier string `pulumi:"sourceIdentifier"`
+	// Type of source. Valid values include `db-instance`, `db-cluster`, `db-snapshot`, `db-parameter-group`, `db-security-group`, `db-cluster-snapshot`, `custom-engine-version`, `db-proxy`, `blue-green-deployment`, `db-shard-group`, and `zero-etl`.
+	SourceType string `pulumi:"sourceType"`
+}
+
+// GetEventsEventInput is an input type that accepts GetEventsEventArgs and GetEventsEventOutput values.
+// You can construct a concrete instance of `GetEventsEventInput` via:
+//
+//	GetEventsEventArgs{...}
+type GetEventsEventInput interface {
+	pulumi.Input
+
+	ToGetEventsEventOutput() GetEventsEventOutput
+	ToGetEventsEventOutputWithContext(context.Context) GetEventsEventOutput
+}
+
+type GetEventsEventArgs struct {
+	// Date and time of the event, in RFC3339 format.
+	Date pulumi.StringInput `pulumi:"date"`
+	// Set of event categories to filter on, e.g. `failure`, `maintenance`, `configuration change`. Defaults to all categories.
+	EventCategories pulumi.StringArrayInput `pulumi:"eventCategories"`
+	// Text of the event.
+	Message pulumi.StringInput `pulumi:"message"`
+	// ARN of the event source.
+	SourceArn pulumi.StringInput `pulumi:"sourceArn"`
+	// Identifier of the source, such as a DB instance or DB cluster identifier. Requires `sourceType` to also be set.
+	SourceIdentifier pulumi.StringInput `pulumi:"sourceIdentifier"`
+	// Type of source. Valid values include `db-instance`, `db-cluster`, `db-snapshot`, `db-parameter-group`, `db-security-group`, `db-cluster-snapshot`, `custom-engine-version`, `db-proxy`, `blue-green-deployment`, `db-shard-group`, and `zero-etl`.
+	SourceType pulumi.StringInput `pulumi:"sourceType"`
+}
+
+func (GetEventsEventArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEventsEvent)(nil)).Elem()
+}
+
+func (i GetEventsEventArgs) ToGetEventsEventOutput() GetEventsEventOutput {
+	return i.ToGetEventsEventOutputWithContext(context.Background())
+}
+
+func (i GetEventsEventArgs) ToGetEventsEventOutputWithContext(ctx context.Context) GetEventsEventOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEventsEventOutput)
+}
+
+// GetEventsEventArrayInput is an input type that accepts GetEventsEventArray and GetEventsEventArrayOutput values.
+// You can construct a concrete instance of `GetEventsEventArrayInput` via:
+//
+//	GetEventsEventArray{ GetEventsEventArgs{...} }
+type GetEventsEventArrayInput interface {
+	pulumi.Input
+
+	ToGetEventsEventArrayOutput() GetEventsEventArrayOutput
+	ToGetEventsEventArrayOutputWithContext(context.Context) GetEventsEventArrayOutput
+}
+
+type GetEventsEventArray []GetEventsEventInput
+
+func (GetEventsEventArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEventsEvent)(nil)).Elem()
+}
+
+func (i GetEventsEventArray) ToGetEventsEventArrayOutput() GetEventsEventArrayOutput {
+	return i.ToGetEventsEventArrayOutputWithContext(context.Background())
+}
+
+func (i GetEventsEventArray) ToGetEventsEventArrayOutputWithContext(ctx context.Context) GetEventsEventArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEventsEventArrayOutput)
+}
+
+type GetEventsEventOutput struct{ *pulumi.OutputState }
+
+func (GetEventsEventOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEventsEvent)(nil)).Elem()
+}
+
+func (o GetEventsEventOutput) ToGetEventsEventOutput() GetEventsEventOutput {
+	return o
+}
+
+func (o GetEventsEventOutput) ToGetEventsEventOutputWithContext(ctx context.Context) GetEventsEventOutput {
+	return o
+}
+
+// Date and time of the event, in RFC3339 format.
+func (o GetEventsEventOutput) Date() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventsEvent) string { return v.Date }).(pulumi.StringOutput)
+}
+
+// Set of event categories to filter on, e.g. `failure`, `maintenance`, `configuration change`. Defaults to all categories.
+func (o GetEventsEventOutput) EventCategories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetEventsEvent) []string { return v.EventCategories }).(pulumi.StringArrayOutput)
+}
+
+// Text of the event.
+func (o GetEventsEventOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventsEvent) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// ARN of the event source.
+func (o GetEventsEventOutput) SourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventsEvent) string { return v.SourceArn }).(pulumi.StringOutput)
+}
+
+// Identifier of the source, such as a DB instance or DB cluster identifier. Requires `sourceType` to also be set.
+func (o GetEventsEventOutput) SourceIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventsEvent) string { return v.SourceIdentifier }).(pulumi.StringOutput)
+}
+
+// Type of source. Valid values include `db-instance`, `db-cluster`, `db-snapshot`, `db-parameter-group`, `db-security-group`, `db-cluster-snapshot`, `custom-engine-version`, `db-proxy`, `blue-green-deployment`, `db-shard-group`, and `zero-etl`.
+func (o GetEventsEventOutput) SourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventsEvent) string { return v.SourceType }).(pulumi.StringOutput)
+}
+
+type GetEventsEventArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEventsEventArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEventsEvent)(nil)).Elem()
+}
+
+func (o GetEventsEventArrayOutput) ToGetEventsEventArrayOutput() GetEventsEventArrayOutput {
+	return o
+}
+
+func (o GetEventsEventArrayOutput) ToGetEventsEventArrayOutputWithContext(ctx context.Context) GetEventsEventArrayOutput {
+	return o
+}
+
+func (o GetEventsEventArrayOutput) Index(i pulumi.IntInput) GetEventsEventOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEventsEvent {
+		return vs[0].([]GetEventsEvent)[vs[1].(int)]
+	}).(GetEventsEventOutput)
+}
+
 type GetGlobalClusterMember struct {
 	// ARN of member DB Cluster
 	DbClusterArn string `pulumi:"dbClusterArn"`
@@ -4997,6 +5139,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClustersFilterArrayInput)(nil)).Elem(), GetClustersFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEngineVersionFilterInput)(nil)).Elem(), GetEngineVersionFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEngineVersionFilterArrayInput)(nil)).Elem(), GetEngineVersionFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEventsEventInput)(nil)).Elem(), GetEventsEventArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEventsEventArrayInput)(nil)).Elem(), GetEventsEventArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGlobalClusterMemberInput)(nil)).Elem(), GetGlobalClusterMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGlobalClusterMemberArrayInput)(nil)).Elem(), GetGlobalClusterMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceMasterUserSecretInput)(nil)).Elem(), GetInstanceMasterUserSecretArgs{})
@@ -5063,6 +5207,8 @@ func init() {
 	pulumi.RegisterOutputType(GetClustersFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetEngineVersionFilterOutput{})
 	pulumi.RegisterOutputType(GetEngineVersionFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetEventsEventOutput{})
+	pulumi.RegisterOutputType(GetEventsEventArrayOutput{})
 	pulumi.RegisterOutputType(GetGlobalClusterMemberOutput{})
 	pulumi.RegisterOutputType(GetGlobalClusterMemberArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceMasterUserSecretOutput{})

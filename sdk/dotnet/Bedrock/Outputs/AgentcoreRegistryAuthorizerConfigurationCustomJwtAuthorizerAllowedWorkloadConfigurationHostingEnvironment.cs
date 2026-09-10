@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment
     {
+        /// <summary>
+        /// ARN of the hosting environment.
+        /// </summary>
         public readonly string Arn;
 
         [OutputConstructor]

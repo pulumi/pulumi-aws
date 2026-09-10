@@ -24,7 +24,8 @@ class HostedConfigurationVersionArgs:
                  content: pulumi.Input[_builtins.str],
                  content_type: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 region: pulumi.Input[Optional[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_label: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a HostedConfigurationVersion resource.
 
@@ -34,6 +35,7 @@ class HostedConfigurationVersionArgs:
         :param pulumi.Input[_builtins.str] content_type: Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
         :param pulumi.Input[_builtins.str] description: Description of the configuration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] version_label: User-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character.
         """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "configuration_profile_id", configuration_profile_id)
@@ -43,6 +45,8 @@ class HostedConfigurationVersionArgs:
             pulumi.set(__self__, "description", description)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if version_label is not None:
+            pulumi.set(__self__, "version_label", version_label)
 
     @_builtins.property
     @pulumi.getter(name="applicationId")
@@ -116,6 +120,18 @@ class HostedConfigurationVersionArgs:
     def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
+    @_builtins.property
+    @pulumi.getter(name="versionLabel")
+    def version_label(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        User-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character.
+        """
+        return pulumi.get(self, "version_label")
+
+    @version_label.setter
+    def version_label(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_label", value)
+
 
 @pulumi.input_type
 class _HostedConfigurationVersionState:
@@ -127,6 +143,7 @@ class _HostedConfigurationVersionState:
                  content_type: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_label: pulumi.Input[Optional[_builtins.str]] = None,
                  version_number: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering HostedConfigurationVersion resources.
@@ -138,6 +155,7 @@ class _HostedConfigurationVersionState:
         :param pulumi.Input[_builtins.str] content_type: Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
         :param pulumi.Input[_builtins.str] description: Description of the configuration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] version_label: User-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character.
         :param pulumi.Input[_builtins.int] version_number: Version number of the hosted configuration.
         """
         if application_id is not None:
@@ -154,6 +172,8 @@ class _HostedConfigurationVersionState:
             pulumi.set(__self__, "description", description)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if version_label is not None:
+            pulumi.set(__self__, "version_label", version_label)
         if version_number is not None:
             pulumi.set(__self__, "version_number", version_number)
 
@@ -242,6 +262,18 @@ class _HostedConfigurationVersionState:
         pulumi.set(self, "region", value)
 
     @_builtins.property
+    @pulumi.getter(name="versionLabel")
+    def version_label(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        User-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character.
+        """
+        return pulumi.get(self, "version_label")
+
+    @version_label.setter
+    def version_label(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_label", value)
+
+    @_builtins.property
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
@@ -266,6 +298,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
                  content_type: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_label: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an AppConfig Hosted Configuration Version resource.
@@ -402,6 +435,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] content_type: Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
         :param pulumi.Input[_builtins.str] description: Description of the configuration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] version_label: User-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character.
         """
         ...
     @overload
@@ -557,6 +591,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
                  content_type: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_label: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -580,6 +615,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
             __props__.__dict__["content_type"] = content_type
             __props__.__dict__["description"] = description
             __props__.__dict__["region"] = region
+            __props__.__dict__["version_label"] = version_label
             __props__.__dict__["arn"] = None
             __props__.__dict__["version_number"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["content"])
@@ -601,6 +637,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
             content_type: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
+            version_label: pulumi.Input[Optional[_builtins.str]] = None,
             version_number: pulumi.Input[Optional[_builtins.int]] = None) -> 'HostedConfigurationVersion':
         """
         Get an existing HostedConfigurationVersion resource's state with the given name, id, and optional extra
@@ -616,6 +653,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] content_type: Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
         :param pulumi.Input[_builtins.str] description: Description of the configuration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] version_label: User-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character.
         :param pulumi.Input[_builtins.int] version_number: Version number of the hosted configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -629,6 +667,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         __props__.__dict__["content_type"] = content_type
         __props__.__dict__["description"] = description
         __props__.__dict__["region"] = region
+        __props__.__dict__["version_label"] = version_label
         __props__.__dict__["version_number"] = version_number
         return HostedConfigurationVersion(resource_name, opts=opts, __props__=__props__)
 
@@ -687,6 +726,14 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="versionLabel")
+    def version_label(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        User-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character.
+        """
+        return pulumi.get(self, "version_label")
 
     @_builtins.property
     @pulumi.getter(name="versionNumber")

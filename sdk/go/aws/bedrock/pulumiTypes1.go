@@ -13,6 +13,804 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata struct {
+	// OAuth2 authorization endpoint URL.
+	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`
+	// OAuth2 authorization server issuer identifier.
+	Issuer string `pulumi:"issuer"`
+	// Set of OAuth2 response types supported by the authorization server.
+	ResponseTypes []string `pulumi:"responseTypes"`
+	// OAuth2 token endpoint URL.
+	TokenEndpoint string `pulumi:"tokenEndpoint"`
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs{...}
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs struct {
+	// OAuth2 authorization endpoint URL.
+	AuthorizationEndpoint pulumi.StringInput `pulumi:"authorizationEndpoint"`
+	// OAuth2 authorization server issuer identifier.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+	// Set of OAuth2 response types supported by the authorization server.
+	ResponseTypes pulumi.StringArrayInput `pulumi:"responseTypes"`
+	// OAuth2 token endpoint URL.
+	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
+}
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput)
+}
+
+// AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray and AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput` via:
+//
+//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray{ AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs{...} }
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput
+	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray []AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
+	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return o
+}
+
+// OAuth2 authorization endpoint URL.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) AuthorizationEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) string {
+		return v.AuthorizationEndpoint
+	}).(pulumi.StringOutput)
+}
+
+// OAuth2 authorization server issuer identifier.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) string {
+		return v.Issuer
+	}).(pulumi.StringOutput)
+}
+
+// Set of OAuth2 response types supported by the authorization server.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ResponseTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) []string {
+		return v.ResponseTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// OAuth2 token endpoint URL.
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) TokenEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) string {
+		return v.TokenEndpoint
+	}).(pulumi.StringOutput)
+}
+
+type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput) Index(i pulumi.IntInput) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
+		return vs[0].([]AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)[vs[1].(int)]
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput)
+}
+
+type AgentcoreOauth2CredentialProviderTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// AgentcoreOauth2CredentialProviderTimeoutsInput is an input type that accepts AgentcoreOauth2CredentialProviderTimeoutsArgs and AgentcoreOauth2CredentialProviderTimeoutsOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderTimeoutsInput` via:
+//
+//	AgentcoreOauth2CredentialProviderTimeoutsArgs{...}
+type AgentcoreOauth2CredentialProviderTimeoutsInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderTimeoutsOutput() AgentcoreOauth2CredentialProviderTimeoutsOutput
+	ToAgentcoreOauth2CredentialProviderTimeoutsOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderTimeoutsOutput
+}
+
+type AgentcoreOauth2CredentialProviderTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (AgentcoreOauth2CredentialProviderTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderTimeouts)(nil)).Elem()
+}
+
+func (i AgentcoreOauth2CredentialProviderTimeoutsArgs) ToAgentcoreOauth2CredentialProviderTimeoutsOutput() AgentcoreOauth2CredentialProviderTimeoutsOutput {
+	return i.ToAgentcoreOauth2CredentialProviderTimeoutsOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderTimeoutsArgs) ToAgentcoreOauth2CredentialProviderTimeoutsOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderTimeoutsOutput)
+}
+
+func (i AgentcoreOauth2CredentialProviderTimeoutsArgs) ToAgentcoreOauth2CredentialProviderTimeoutsPtrOutput() AgentcoreOauth2CredentialProviderTimeoutsPtrOutput {
+	return i.ToAgentcoreOauth2CredentialProviderTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOauth2CredentialProviderTimeoutsArgs) ToAgentcoreOauth2CredentialProviderTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderTimeoutsOutput).ToAgentcoreOauth2CredentialProviderTimeoutsPtrOutputWithContext(ctx)
+}
+
+// AgentcoreOauth2CredentialProviderTimeoutsPtrInput is an input type that accepts AgentcoreOauth2CredentialProviderTimeoutsArgs, AgentcoreOauth2CredentialProviderTimeoutsPtr and AgentcoreOauth2CredentialProviderTimeoutsPtrOutput values.
+// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderTimeoutsPtrInput` via:
+//
+//	        AgentcoreOauth2CredentialProviderTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreOauth2CredentialProviderTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreOauth2CredentialProviderTimeoutsPtrOutput() AgentcoreOauth2CredentialProviderTimeoutsPtrOutput
+	ToAgentcoreOauth2CredentialProviderTimeoutsPtrOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderTimeoutsPtrOutput
+}
+
+type agentcoreOauth2CredentialProviderTimeoutsPtrType AgentcoreOauth2CredentialProviderTimeoutsArgs
+
+func AgentcoreOauth2CredentialProviderTimeoutsPtr(v *AgentcoreOauth2CredentialProviderTimeoutsArgs) AgentcoreOauth2CredentialProviderTimeoutsPtrInput {
+	return (*agentcoreOauth2CredentialProviderTimeoutsPtrType)(v)
+}
+
+func (*agentcoreOauth2CredentialProviderTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderTimeouts)(nil)).Elem()
+}
+
+func (i *agentcoreOauth2CredentialProviderTimeoutsPtrType) ToAgentcoreOauth2CredentialProviderTimeoutsPtrOutput() AgentcoreOauth2CredentialProviderTimeoutsPtrOutput {
+	return i.ToAgentcoreOauth2CredentialProviderTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreOauth2CredentialProviderTimeoutsPtrType) ToAgentcoreOauth2CredentialProviderTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderTimeoutsPtrOutput)
+}
+
+type AgentcoreOauth2CredentialProviderTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderTimeouts)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderTimeoutsOutput) ToAgentcoreOauth2CredentialProviderTimeoutsOutput() AgentcoreOauth2CredentialProviderTimeoutsOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderTimeoutsOutput) ToAgentcoreOauth2CredentialProviderTimeoutsOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderTimeoutsOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderTimeoutsOutput) ToAgentcoreOauth2CredentialProviderTimeoutsPtrOutput() AgentcoreOauth2CredentialProviderTimeoutsPtrOutput {
+	return o.ToAgentcoreOauth2CredentialProviderTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreOauth2CredentialProviderTimeoutsOutput) ToAgentcoreOauth2CredentialProviderTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreOauth2CredentialProviderTimeouts) *AgentcoreOauth2CredentialProviderTimeouts {
+		return &v
+	}).(AgentcoreOauth2CredentialProviderTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreOauth2CredentialProviderTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentcoreOauth2CredentialProviderTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreOauth2CredentialProviderTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreOauth2CredentialProviderTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOauth2CredentialProviderTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOauth2CredentialProviderTimeouts)(nil)).Elem()
+}
+
+func (o AgentcoreOauth2CredentialProviderTimeoutsPtrOutput) ToAgentcoreOauth2CredentialProviderTimeoutsPtrOutput() AgentcoreOauth2CredentialProviderTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderTimeoutsPtrOutput) ToAgentcoreOauth2CredentialProviderTimeoutsPtrOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentcoreOauth2CredentialProviderTimeoutsPtrOutput) Elem() AgentcoreOauth2CredentialProviderTimeoutsOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderTimeouts) AgentcoreOauth2CredentialProviderTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreOauth2CredentialProviderTimeouts
+		return ret
+	}).(AgentcoreOauth2CredentialProviderTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreOauth2CredentialProviderTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AgentcoreOauth2CredentialProviderTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentcoreOauth2CredentialProviderTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProviderTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreOnlineEvaluationConfigDataSourceConfig struct {
+	// CloudWatch logs configuration for reading agent traces. See `cloudwatchLogs` Block below.
+	CloudwatchLogs *AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs `pulumi:"cloudwatchLogs"`
+}
+
+// AgentcoreOnlineEvaluationConfigDataSourceConfigInput is an input type that accepts AgentcoreOnlineEvaluationConfigDataSourceConfigArgs and AgentcoreOnlineEvaluationConfigDataSourceConfigOutput values.
+// You can construct a concrete instance of `AgentcoreOnlineEvaluationConfigDataSourceConfigInput` via:
+//
+//	AgentcoreOnlineEvaluationConfigDataSourceConfigArgs{...}
+type AgentcoreOnlineEvaluationConfigDataSourceConfigInput interface {
+	pulumi.Input
+
+	ToAgentcoreOnlineEvaluationConfigDataSourceConfigOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigOutput
+	ToAgentcoreOnlineEvaluationConfigDataSourceConfigOutputWithContext(context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigOutput
+}
+
+type AgentcoreOnlineEvaluationConfigDataSourceConfigArgs struct {
+	// CloudWatch logs configuration for reading agent traces. See `cloudwatchLogs` Block below.
+	CloudwatchLogs AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrInput `pulumi:"cloudwatchLogs"`
+}
+
+func (AgentcoreOnlineEvaluationConfigDataSourceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOnlineEvaluationConfigDataSourceConfig)(nil)).Elem()
+}
+
+func (i AgentcoreOnlineEvaluationConfigDataSourceConfigArgs) ToAgentcoreOnlineEvaluationConfigDataSourceConfigOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigOutput {
+	return i.ToAgentcoreOnlineEvaluationConfigDataSourceConfigOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOnlineEvaluationConfigDataSourceConfigArgs) ToAgentcoreOnlineEvaluationConfigDataSourceConfigOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigDataSourceConfigOutput)
+}
+
+func (i AgentcoreOnlineEvaluationConfigDataSourceConfigArgs) ToAgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput {
+	return i.ToAgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOnlineEvaluationConfigDataSourceConfigArgs) ToAgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigDataSourceConfigOutput).ToAgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutputWithContext(ctx)
+}
+
+// AgentcoreOnlineEvaluationConfigDataSourceConfigPtrInput is an input type that accepts AgentcoreOnlineEvaluationConfigDataSourceConfigArgs, AgentcoreOnlineEvaluationConfigDataSourceConfigPtr and AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput values.
+// You can construct a concrete instance of `AgentcoreOnlineEvaluationConfigDataSourceConfigPtrInput` via:
+//
+//	        AgentcoreOnlineEvaluationConfigDataSourceConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreOnlineEvaluationConfigDataSourceConfigPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput
+	ToAgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutputWithContext(context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput
+}
+
+type agentcoreOnlineEvaluationConfigDataSourceConfigPtrType AgentcoreOnlineEvaluationConfigDataSourceConfigArgs
+
+func AgentcoreOnlineEvaluationConfigDataSourceConfigPtr(v *AgentcoreOnlineEvaluationConfigDataSourceConfigArgs) AgentcoreOnlineEvaluationConfigDataSourceConfigPtrInput {
+	return (*agentcoreOnlineEvaluationConfigDataSourceConfigPtrType)(v)
+}
+
+func (*agentcoreOnlineEvaluationConfigDataSourceConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOnlineEvaluationConfigDataSourceConfig)(nil)).Elem()
+}
+
+func (i *agentcoreOnlineEvaluationConfigDataSourceConfigPtrType) ToAgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput {
+	return i.ToAgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreOnlineEvaluationConfigDataSourceConfigPtrType) ToAgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput)
+}
+
+type AgentcoreOnlineEvaluationConfigDataSourceConfigOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOnlineEvaluationConfigDataSourceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOnlineEvaluationConfigDataSourceConfig)(nil)).Elem()
+}
+
+func (o AgentcoreOnlineEvaluationConfigDataSourceConfigOutput) ToAgentcoreOnlineEvaluationConfigDataSourceConfigOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigDataSourceConfigOutput) ToAgentcoreOnlineEvaluationConfigDataSourceConfigOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigDataSourceConfigOutput) ToAgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput {
+	return o.ToAgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreOnlineEvaluationConfigDataSourceConfigOutput) ToAgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreOnlineEvaluationConfigDataSourceConfig) *AgentcoreOnlineEvaluationConfigDataSourceConfig {
+		return &v
+	}).(AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput)
+}
+
+// CloudWatch logs configuration for reading agent traces. See `cloudwatchLogs` Block below.
+func (o AgentcoreOnlineEvaluationConfigDataSourceConfigOutput) CloudwatchLogs() AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput {
+	return o.ApplyT(func(v AgentcoreOnlineEvaluationConfigDataSourceConfig) *AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs {
+		return v.CloudwatchLogs
+	}).(AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput)
+}
+
+type AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOnlineEvaluationConfigDataSourceConfig)(nil)).Elem()
+}
+
+func (o AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput) ToAgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput) ToAgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput) Elem() AgentcoreOnlineEvaluationConfigDataSourceConfigOutput {
+	return o.ApplyT(func(v *AgentcoreOnlineEvaluationConfigDataSourceConfig) AgentcoreOnlineEvaluationConfigDataSourceConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreOnlineEvaluationConfigDataSourceConfig
+		return ret
+	}).(AgentcoreOnlineEvaluationConfigDataSourceConfigOutput)
+}
+
+// CloudWatch logs configuration for reading agent traces. See `cloudwatchLogs` Block below.
+func (o AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput) CloudwatchLogs() AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOnlineEvaluationConfigDataSourceConfig) *AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLogs
+	}).(AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput)
+}
+
+type AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs struct {
+	// List of CloudWatch log group names to monitor for agent traces. Maximum 5.
+	LogGroupNames []string `pulumi:"logGroupNames"`
+	// List of service names to filter traces within the specified log groups.
+	ServiceNames []string `pulumi:"serviceNames"`
+}
+
+// AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsInput is an input type that accepts AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs and AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput values.
+// You can construct a concrete instance of `AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsInput` via:
+//
+//	AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs{...}
+type AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsInput interface {
+	pulumi.Input
+
+	ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput
+	ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutputWithContext(context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput
+}
+
+type AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs struct {
+	// List of CloudWatch log group names to monitor for agent traces. Maximum 5.
+	LogGroupNames pulumi.StringArrayInput `pulumi:"logGroupNames"`
+	// List of service names to filter traces within the specified log groups.
+	ServiceNames pulumi.StringArrayInput `pulumi:"serviceNames"`
+}
+
+func (AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs)(nil)).Elem()
+}
+
+func (i AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs) ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput {
+	return i.ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs) ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput)
+}
+
+func (i AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs) ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput {
+	return i.ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs) ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput).ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutputWithContext(ctx)
+}
+
+// AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrInput is an input type that accepts AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs, AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtr and AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput values.
+// You can construct a concrete instance of `AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrInput` via:
+//
+//	        AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput
+	ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutputWithContext(context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput
+}
+
+type agentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrType AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs
+
+func AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtr(v *AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs) AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrInput {
+	return (*agentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrType)(v)
+}
+
+func (*agentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs)(nil)).Elem()
+}
+
+func (i *agentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrType) ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput {
+	return i.ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrType) ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput)
+}
+
+type AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs)(nil)).Elem()
+}
+
+func (o AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput) ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput) ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput) ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput {
+	return o.ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput) ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs) *AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs {
+		return &v
+	}).(AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput)
+}
+
+// List of CloudWatch log group names to monitor for agent traces. Maximum 5.
+func (o AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput) LogGroupNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs) []string { return v.LogGroupNames }).(pulumi.StringArrayOutput)
+}
+
+// List of service names to filter traces within the specified log groups.
+func (o AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput) ServiceNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs) []string { return v.ServiceNames }).(pulumi.StringArrayOutput)
+}
+
+type AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs)(nil)).Elem()
+}
+
+func (o AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput) ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput) ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput) Elem() AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput {
+	return o.ApplyT(func(v *AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs) AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs
+		return ret
+	}).(AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput)
+}
+
+// List of CloudWatch log group names to monitor for agent traces. Maximum 5.
+func (o AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput) LogGroupNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of service names to filter traces within the specified log groups.
+func (o AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput) ServiceNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceNames
+	}).(pulumi.StringArrayOutput)
+}
+
+type AgentcoreOnlineEvaluationConfigEvaluator struct {
+	// Unique identifier of the evaluator. Can reference builtin evaluators (e.g., `Builtin.Helpfulness`, `Builtin.GoalSuccessRate`) or custom evaluator IDs.
+	EvaluatorId string `pulumi:"evaluatorId"`
+}
+
+// AgentcoreOnlineEvaluationConfigEvaluatorInput is an input type that accepts AgentcoreOnlineEvaluationConfigEvaluatorArgs and AgentcoreOnlineEvaluationConfigEvaluatorOutput values.
+// You can construct a concrete instance of `AgentcoreOnlineEvaluationConfigEvaluatorInput` via:
+//
+//	AgentcoreOnlineEvaluationConfigEvaluatorArgs{...}
+type AgentcoreOnlineEvaluationConfigEvaluatorInput interface {
+	pulumi.Input
+
+	ToAgentcoreOnlineEvaluationConfigEvaluatorOutput() AgentcoreOnlineEvaluationConfigEvaluatorOutput
+	ToAgentcoreOnlineEvaluationConfigEvaluatorOutputWithContext(context.Context) AgentcoreOnlineEvaluationConfigEvaluatorOutput
+}
+
+type AgentcoreOnlineEvaluationConfigEvaluatorArgs struct {
+	// Unique identifier of the evaluator. Can reference builtin evaluators (e.g., `Builtin.Helpfulness`, `Builtin.GoalSuccessRate`) or custom evaluator IDs.
+	EvaluatorId pulumi.StringInput `pulumi:"evaluatorId"`
+}
+
+func (AgentcoreOnlineEvaluationConfigEvaluatorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOnlineEvaluationConfigEvaluator)(nil)).Elem()
+}
+
+func (i AgentcoreOnlineEvaluationConfigEvaluatorArgs) ToAgentcoreOnlineEvaluationConfigEvaluatorOutput() AgentcoreOnlineEvaluationConfigEvaluatorOutput {
+	return i.ToAgentcoreOnlineEvaluationConfigEvaluatorOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOnlineEvaluationConfigEvaluatorArgs) ToAgentcoreOnlineEvaluationConfigEvaluatorOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigEvaluatorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigEvaluatorOutput)
+}
+
+// AgentcoreOnlineEvaluationConfigEvaluatorArrayInput is an input type that accepts AgentcoreOnlineEvaluationConfigEvaluatorArray and AgentcoreOnlineEvaluationConfigEvaluatorArrayOutput values.
+// You can construct a concrete instance of `AgentcoreOnlineEvaluationConfigEvaluatorArrayInput` via:
+//
+//	AgentcoreOnlineEvaluationConfigEvaluatorArray{ AgentcoreOnlineEvaluationConfigEvaluatorArgs{...} }
+type AgentcoreOnlineEvaluationConfigEvaluatorArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreOnlineEvaluationConfigEvaluatorArrayOutput() AgentcoreOnlineEvaluationConfigEvaluatorArrayOutput
+	ToAgentcoreOnlineEvaluationConfigEvaluatorArrayOutputWithContext(context.Context) AgentcoreOnlineEvaluationConfigEvaluatorArrayOutput
+}
+
+type AgentcoreOnlineEvaluationConfigEvaluatorArray []AgentcoreOnlineEvaluationConfigEvaluatorInput
+
+func (AgentcoreOnlineEvaluationConfigEvaluatorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOnlineEvaluationConfigEvaluator)(nil)).Elem()
+}
+
+func (i AgentcoreOnlineEvaluationConfigEvaluatorArray) ToAgentcoreOnlineEvaluationConfigEvaluatorArrayOutput() AgentcoreOnlineEvaluationConfigEvaluatorArrayOutput {
+	return i.ToAgentcoreOnlineEvaluationConfigEvaluatorArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOnlineEvaluationConfigEvaluatorArray) ToAgentcoreOnlineEvaluationConfigEvaluatorArrayOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigEvaluatorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigEvaluatorArrayOutput)
+}
+
+type AgentcoreOnlineEvaluationConfigEvaluatorOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOnlineEvaluationConfigEvaluatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOnlineEvaluationConfigEvaluator)(nil)).Elem()
+}
+
+func (o AgentcoreOnlineEvaluationConfigEvaluatorOutput) ToAgentcoreOnlineEvaluationConfigEvaluatorOutput() AgentcoreOnlineEvaluationConfigEvaluatorOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigEvaluatorOutput) ToAgentcoreOnlineEvaluationConfigEvaluatorOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigEvaluatorOutput {
+	return o
+}
+
+// Unique identifier of the evaluator. Can reference builtin evaluators (e.g., `Builtin.Helpfulness`, `Builtin.GoalSuccessRate`) or custom evaluator IDs.
+func (o AgentcoreOnlineEvaluationConfigEvaluatorOutput) EvaluatorId() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreOnlineEvaluationConfigEvaluator) string { return v.EvaluatorId }).(pulumi.StringOutput)
+}
+
+type AgentcoreOnlineEvaluationConfigEvaluatorArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOnlineEvaluationConfigEvaluatorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOnlineEvaluationConfigEvaluator)(nil)).Elem()
+}
+
+func (o AgentcoreOnlineEvaluationConfigEvaluatorArrayOutput) ToAgentcoreOnlineEvaluationConfigEvaluatorArrayOutput() AgentcoreOnlineEvaluationConfigEvaluatorArrayOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigEvaluatorArrayOutput) ToAgentcoreOnlineEvaluationConfigEvaluatorArrayOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigEvaluatorArrayOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigEvaluatorArrayOutput) Index(i pulumi.IntInput) AgentcoreOnlineEvaluationConfigEvaluatorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreOnlineEvaluationConfigEvaluator {
+		return vs[0].([]AgentcoreOnlineEvaluationConfigEvaluator)[vs[1].(int)]
+	}).(AgentcoreOnlineEvaluationConfigEvaluatorOutput)
+}
+
+type AgentcoreOnlineEvaluationConfigOutputConfig struct {
+	// CloudWatch configuration for evaluation results. See `cloudwatchConfig` Block below.
+	CloudwatchConfigs []AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfig `pulumi:"cloudwatchConfigs"`
+}
+
+// AgentcoreOnlineEvaluationConfigOutputConfigInput is an input type that accepts AgentcoreOnlineEvaluationConfigOutputConfigArgs and AgentcoreOnlineEvaluationConfigOutputConfigOutput values.
+// You can construct a concrete instance of `AgentcoreOnlineEvaluationConfigOutputConfigInput` via:
+//
+//	AgentcoreOnlineEvaluationConfigOutputConfigArgs{...}
+type AgentcoreOnlineEvaluationConfigOutputConfigInput interface {
+	pulumi.Input
+
+	ToAgentcoreOnlineEvaluationConfigOutputConfigOutput() AgentcoreOnlineEvaluationConfigOutputConfigOutput
+	ToAgentcoreOnlineEvaluationConfigOutputConfigOutputWithContext(context.Context) AgentcoreOnlineEvaluationConfigOutputConfigOutput
+}
+
+type AgentcoreOnlineEvaluationConfigOutputConfigArgs struct {
+	// CloudWatch configuration for evaluation results. See `cloudwatchConfig` Block below.
+	CloudwatchConfigs AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayInput `pulumi:"cloudwatchConfigs"`
+}
+
+func (AgentcoreOnlineEvaluationConfigOutputConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOnlineEvaluationConfigOutputConfig)(nil)).Elem()
+}
+
+func (i AgentcoreOnlineEvaluationConfigOutputConfigArgs) ToAgentcoreOnlineEvaluationConfigOutputConfigOutput() AgentcoreOnlineEvaluationConfigOutputConfigOutput {
+	return i.ToAgentcoreOnlineEvaluationConfigOutputConfigOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOnlineEvaluationConfigOutputConfigArgs) ToAgentcoreOnlineEvaluationConfigOutputConfigOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigOutputConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigOutputConfigOutput)
+}
+
+// AgentcoreOnlineEvaluationConfigOutputConfigArrayInput is an input type that accepts AgentcoreOnlineEvaluationConfigOutputConfigArray and AgentcoreOnlineEvaluationConfigOutputConfigArrayOutput values.
+// You can construct a concrete instance of `AgentcoreOnlineEvaluationConfigOutputConfigArrayInput` via:
+//
+//	AgentcoreOnlineEvaluationConfigOutputConfigArray{ AgentcoreOnlineEvaluationConfigOutputConfigArgs{...} }
+type AgentcoreOnlineEvaluationConfigOutputConfigArrayInput interface {
+	pulumi.Input
+
+	ToAgentcoreOnlineEvaluationConfigOutputConfigArrayOutput() AgentcoreOnlineEvaluationConfigOutputConfigArrayOutput
+	ToAgentcoreOnlineEvaluationConfigOutputConfigArrayOutputWithContext(context.Context) AgentcoreOnlineEvaluationConfigOutputConfigArrayOutput
+}
+
+type AgentcoreOnlineEvaluationConfigOutputConfigArray []AgentcoreOnlineEvaluationConfigOutputConfigInput
+
+func (AgentcoreOnlineEvaluationConfigOutputConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOnlineEvaluationConfigOutputConfig)(nil)).Elem()
+}
+
+func (i AgentcoreOnlineEvaluationConfigOutputConfigArray) ToAgentcoreOnlineEvaluationConfigOutputConfigArrayOutput() AgentcoreOnlineEvaluationConfigOutputConfigArrayOutput {
+	return i.ToAgentcoreOnlineEvaluationConfigOutputConfigArrayOutputWithContext(context.Background())
+}
+
+func (i AgentcoreOnlineEvaluationConfigOutputConfigArray) ToAgentcoreOnlineEvaluationConfigOutputConfigArrayOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigOutputConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigOutputConfigArrayOutput)
+}
+
+type AgentcoreOnlineEvaluationConfigOutputConfigOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOnlineEvaluationConfigOutputConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreOnlineEvaluationConfigOutputConfig)(nil)).Elem()
+}
+
+func (o AgentcoreOnlineEvaluationConfigOutputConfigOutput) ToAgentcoreOnlineEvaluationConfigOutputConfigOutput() AgentcoreOnlineEvaluationConfigOutputConfigOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigOutputConfigOutput) ToAgentcoreOnlineEvaluationConfigOutputConfigOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigOutputConfigOutput {
+	return o
+}
+
+// CloudWatch configuration for evaluation results. See `cloudwatchConfig` Block below.
+func (o AgentcoreOnlineEvaluationConfigOutputConfigOutput) CloudwatchConfigs() AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayOutput {
+	return o.ApplyT(func(v AgentcoreOnlineEvaluationConfigOutputConfig) []AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfig {
+		return v.CloudwatchConfigs
+	}).(AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayOutput)
+}
+
+type AgentcoreOnlineEvaluationConfigOutputConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreOnlineEvaluationConfigOutputConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentcoreOnlineEvaluationConfigOutputConfig)(nil)).Elem()
+}
+
+func (o AgentcoreOnlineEvaluationConfigOutputConfigArrayOutput) ToAgentcoreOnlineEvaluationConfigOutputConfigArrayOutput() AgentcoreOnlineEvaluationConfigOutputConfigArrayOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigOutputConfigArrayOutput) ToAgentcoreOnlineEvaluationConfigOutputConfigArrayOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigOutputConfigArrayOutput {
+	return o
+}
+
+func (o AgentcoreOnlineEvaluationConfigOutputConfigArrayOutput) Index(i pulumi.IntInput) AgentcoreOnlineEvaluationConfigOutputConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreOnlineEvaluationConfigOutputConfig {
+		return vs[0].([]AgentcoreOnlineEvaluationConfigOutputConfig)[vs[1].(int)]
+	}).(AgentcoreOnlineEvaluationConfigOutputConfigOutput)
+}
+
 type AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfig struct {
 	// Name of the CloudWatch log group where evaluation results are written.
 	LogGroupName string `pulumi:"logGroupName"`
@@ -1552,6 +2350,7 @@ func (o AgentcorePolicyTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type AgentcoreRegistryApprovalConfiguration struct {
+	// Whether registry records are auto-approved. When set to `true`, records are automatically approved upon creation. When set to `false` (the default), records require explicit approval.
 	AutoApproval bool `pulumi:"autoApproval"`
 }
 
@@ -1567,6 +2366,7 @@ type AgentcoreRegistryApprovalConfigurationInput interface {
 }
 
 type AgentcoreRegistryApprovalConfigurationArgs struct {
+	// Whether registry records are auto-approved. When set to `true`, records are automatically approved upon creation. When set to `false` (the default), records require explicit approval.
 	AutoApproval pulumi.BoolInput `pulumi:"autoApproval"`
 }
 
@@ -1621,6 +2421,7 @@ func (o AgentcoreRegistryApprovalConfigurationOutput) ToAgentcoreRegistryApprova
 	return o
 }
 
+// Whether registry records are auto-approved. When set to `true`, records are automatically approved upon creation. When set to `false` (the default), records require explicit approval.
 func (o AgentcoreRegistryApprovalConfigurationOutput) AutoApproval() pulumi.BoolOutput {
 	return o.ApplyT(func(v AgentcoreRegistryApprovalConfiguration) bool { return v.AutoApproval }).(pulumi.BoolOutput)
 }
@@ -1646,6 +2447,7 @@ func (o AgentcoreRegistryApprovalConfigurationArrayOutput) Index(i pulumi.IntInp
 }
 
 type AgentcoreRegistryAuthorizerConfiguration struct {
+	// JWT-based authorization configuration block. See `customJwtAuthorizer` below.
 	CustomJwtAuthorizer *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer `pulumi:"customJwtAuthorizer"`
 }
 
@@ -1661,6 +2463,7 @@ type AgentcoreRegistryAuthorizerConfigurationInput interface {
 }
 
 type AgentcoreRegistryAuthorizerConfigurationArgs struct {
+	// JWT-based authorization configuration block. See `customJwtAuthorizer` below.
 	CustomJwtAuthorizer AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrInput `pulumi:"customJwtAuthorizer"`
 }
 
@@ -1741,6 +2544,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationOutput) ToAgentcoreRegistryAutho
 	}).(AgentcoreRegistryAuthorizerConfigurationPtrOutput)
 }
 
+// JWT-based authorization configuration block. See `customJwtAuthorizer` below.
 func (o AgentcoreRegistryAuthorizerConfigurationOutput) CustomJwtAuthorizer() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfiguration) *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer {
 		return v.CustomJwtAuthorizer
@@ -1771,6 +2575,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationPtrOutput) Elem() AgentcoreRegis
 	}).(AgentcoreRegistryAuthorizerConfigurationOutput)
 }
 
+// JWT-based authorization configuration block. See `customJwtAuthorizer` below.
 func (o AgentcoreRegistryAuthorizerConfigurationPtrOutput) CustomJwtAuthorizer() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput {
 	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfiguration) *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer {
 		if v == nil {
@@ -1781,14 +2586,22 @@ func (o AgentcoreRegistryAuthorizerConfigurationPtrOutput) CustomJwtAuthorizer()
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer struct {
-	AllowedAudiences             []string                                                                                 `pulumi:"allowedAudiences"`
-	AllowedClients               []string                                                                                 `pulumi:"allowedClients"`
-	AllowedScopes                []string                                                                                 `pulumi:"allowedScopes"`
+	// Set of allowed audience values for JWT token validation.
+	AllowedAudiences []string `pulumi:"allowedAudiences"`
+	// Set of allowed client IDs for JWT token validation.
+	AllowedClients []string `pulumi:"allowedClients"`
+	// Set of scopes that are allowed to access the token.
+	AllowedScopes []string `pulumi:"allowedScopes"`
+	// Configuration restricting which workloads may use this authorizer. See `allowedWorkloadConfiguration` below.
 	AllowedWorkloadConfiguration *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration `pulumi:"allowedWorkloadConfiguration"`
-	CustomClaims                 []AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim                 `pulumi:"customClaims"`
-	DiscoveryUrl                 string                                                                                   `pulumi:"discoveryUrl"`
-	PrivateEndpoint              *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint              `pulumi:"privateEndpoint"`
-	PrivateEndpointOverrides     []AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride     `pulumi:"privateEndpointOverrides"`
+	// Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+	CustomClaims []AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim `pulumi:"customClaims"`
+	// URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
+	DiscoveryUrl string `pulumi:"discoveryUrl"`
+	// Private endpoint used to reach the authorization server. See `privateEndpoint` below.
+	PrivateEndpoint *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint `pulumi:"privateEndpoint"`
+	// Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` below.
+	PrivateEndpointOverrides []AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride `pulumi:"privateEndpointOverrides"`
 }
 
 // AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs and AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput values.
@@ -1803,14 +2616,22 @@ type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerInput interface 
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs struct {
-	AllowedAudiences             pulumi.StringArrayInput                                                                         `pulumi:"allowedAudiences"`
-	AllowedClients               pulumi.StringArrayInput                                                                         `pulumi:"allowedClients"`
-	AllowedScopes                pulumi.StringArrayInput                                                                         `pulumi:"allowedScopes"`
+	// Set of allowed audience values for JWT token validation.
+	AllowedAudiences pulumi.StringArrayInput `pulumi:"allowedAudiences"`
+	// Set of allowed client IDs for JWT token validation.
+	AllowedClients pulumi.StringArrayInput `pulumi:"allowedClients"`
+	// Set of scopes that are allowed to access the token.
+	AllowedScopes pulumi.StringArrayInput `pulumi:"allowedScopes"`
+	// Configuration restricting which workloads may use this authorizer. See `allowedWorkloadConfiguration` below.
 	AllowedWorkloadConfiguration AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrInput `pulumi:"allowedWorkloadConfiguration"`
-	CustomClaims                 AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayInput                `pulumi:"customClaims"`
-	DiscoveryUrl                 pulumi.StringInput                                                                              `pulumi:"discoveryUrl"`
-	PrivateEndpoint              AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrInput              `pulumi:"privateEndpoint"`
-	PrivateEndpointOverrides     AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayInput    `pulumi:"privateEndpointOverrides"`
+	// Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+	CustomClaims AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayInput `pulumi:"customClaims"`
+	// URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
+	DiscoveryUrl pulumi.StringInput `pulumi:"discoveryUrl"`
+	// Private endpoint used to reach the authorization server. See `privateEndpoint` below.
+	PrivateEndpoint AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrInput `pulumi:"privateEndpoint"`
+	// Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` below.
+	PrivateEndpointOverrides AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayInput `pulumi:"privateEndpointOverrides"`
 }
 
 func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs) ElementType() reflect.Type {
@@ -1890,42 +2711,50 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput) ToAge
 	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput)
 }
 
+// Set of allowed audience values for JWT token validation.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput) AllowedAudiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) []string {
 		return v.AllowedAudiences
 	}).(pulumi.StringArrayOutput)
 }
 
+// Set of allowed client IDs for JWT token validation.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput) AllowedClients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) []string { return v.AllowedClients }).(pulumi.StringArrayOutput)
 }
 
+// Set of scopes that are allowed to access the token.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput) AllowedScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) []string { return v.AllowedScopes }).(pulumi.StringArrayOutput)
 }
 
+// Configuration restricting which workloads may use this authorizer. See `allowedWorkloadConfiguration` below.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput) AllowedWorkloadConfiguration() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration {
 		return v.AllowedWorkloadConfiguration
 	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput)
 }
 
+// Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput) CustomClaims() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) []AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim {
 		return v.CustomClaims
 	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput)
 }
 
+// URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput) DiscoveryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) string { return v.DiscoveryUrl }).(pulumi.StringOutput)
 }
 
+// Private endpoint used to reach the authorization server. See `privateEndpoint` below.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput) PrivateEndpoint() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint {
 		return v.PrivateEndpoint
 	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput)
 }
 
+// Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` below.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput) PrivateEndpointOverrides() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) []AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride {
 		return v.PrivateEndpointOverrides
@@ -1956,6 +2785,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) El
 	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerOutput)
 }
 
+// Set of allowed audience values for JWT token validation.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) AllowedAudiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) []string {
 		if v == nil {
@@ -1965,6 +2795,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) Al
 	}).(pulumi.StringArrayOutput)
 }
 
+// Set of allowed client IDs for JWT token validation.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) AllowedClients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) []string {
 		if v == nil {
@@ -1974,6 +2805,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) Al
 	}).(pulumi.StringArrayOutput)
 }
 
+// Set of scopes that are allowed to access the token.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) AllowedScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) []string {
 		if v == nil {
@@ -1983,6 +2815,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) Al
 	}).(pulumi.StringArrayOutput)
 }
 
+// Configuration restricting which workloads may use this authorizer. See `allowedWorkloadConfiguration` below.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) AllowedWorkloadConfiguration() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration {
 		if v == nil {
@@ -1992,6 +2825,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) Al
 	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput)
 }
 
+// Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) CustomClaims() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput {
 	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) []AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim {
 		if v == nil {
@@ -2001,6 +2835,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) Cu
 	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput)
 }
 
+// URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) DiscoveryUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) *string {
 		if v == nil {
@@ -2010,6 +2845,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) Di
 	}).(pulumi.StringPtrOutput)
 }
 
+// Private endpoint used to reach the authorization server. See `privateEndpoint` below.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) PrivateEndpoint() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput {
 	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint {
 		if v == nil {
@@ -2019,6 +2855,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) Pr
 	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput)
 }
 
+// Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` below.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) PrivateEndpointOverrides() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput {
 	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer) []AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride {
 		if v == nil {
@@ -2029,8 +2866,10 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) Pr
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration struct {
+	// Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hostingEnvironment` below.
 	HostingEnvironments []AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment `pulumi:"hostingEnvironments"`
-	WorkloadIdentities  []string                                                                                                    `pulumi:"workloadIdentities"`
+	// List of workload identity names allowed to use the authorizer. Between 1 and 10 entries.
+	WorkloadIdentities []string `pulumi:"workloadIdentities"`
 }
 
 // AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs and AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationOutput values.
@@ -2045,8 +2884,10 @@ type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadC
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs struct {
+	// Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hostingEnvironment` below.
 	HostingEnvironments AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayInput `pulumi:"hostingEnvironments"`
-	WorkloadIdentities  pulumi.StringArrayInput                                                                                             `pulumi:"workloadIdentities"`
+	// List of workload identity names allowed to use the authorizer. Between 1 and 10 entries.
+	WorkloadIdentities pulumi.StringArrayInput `pulumi:"workloadIdentities"`
 }
 
 func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs) ElementType() reflect.Type {
@@ -2126,12 +2967,14 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorklo
 	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput)
 }
 
+// Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hostingEnvironment` below.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationOutput) HostingEnvironments() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration) []AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment {
 		return v.HostingEnvironments
 	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayOutput)
 }
 
+// List of workload identity names allowed to use the authorizer. Between 1 and 10 entries.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationOutput) WorkloadIdentities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration) []string {
 		return v.WorkloadIdentities
@@ -2162,6 +3005,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorklo
 	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationOutput)
 }
 
+// Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hostingEnvironment` below.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput) HostingEnvironments() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayOutput {
 	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration) []AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment {
 		if v == nil {
@@ -2171,6 +3015,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorklo
 	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArrayOutput)
 }
 
+// List of workload identity names allowed to use the authorizer. Between 1 and 10 entries.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationPtrOutput) WorkloadIdentities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration) []string {
 		if v == nil {
@@ -2181,6 +3026,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorklo
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment struct {
+	// ARN of the hosting environment.
 	Arn string `pulumi:"arn"`
 }
 
@@ -2196,6 +3042,7 @@ type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadC
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs struct {
+	// ARN of the hosting environment.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -2250,6 +3097,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorklo
 	return o
 }
 
+// ARN of the hosting environment.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment) string {
 		return v.Arn
@@ -2277,9 +3125,12 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorklo
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim struct {
+	// Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` below.
 	AuthorizingClaimMatchValue AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue `pulumi:"authorizingClaimMatchValue"`
-	InboundTokenClaimName      string                                                                                           `pulumi:"inboundTokenClaimName"`
-	InboundTokenClaimValueType string                                                                                           `pulumi:"inboundTokenClaimValueType"`
+	// Name of the custom claim field to check.
+	InboundTokenClaimName string `pulumi:"inboundTokenClaimName"`
+	// Data type of the claim value to check for. Valid values are `STRING` and `STRING_ARRAY`.
+	InboundTokenClaimValueType string `pulumi:"inboundTokenClaimValueType"`
 }
 
 // AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs and AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput values.
@@ -2294,9 +3145,12 @@ type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimInput
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs struct {
+	// Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` below.
 	AuthorizingClaimMatchValue AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueInput `pulumi:"authorizingClaimMatchValue"`
-	InboundTokenClaimName      pulumi.StringInput                                                                                    `pulumi:"inboundTokenClaimName"`
-	InboundTokenClaimValueType pulumi.StringInput                                                                                    `pulumi:"inboundTokenClaimValueType"`
+	// Name of the custom claim field to check.
+	InboundTokenClaimName pulumi.StringInput `pulumi:"inboundTokenClaimName"`
+	// Data type of the claim value to check for. Valid values are `STRING` and `STRING_ARRAY`.
+	InboundTokenClaimValueType pulumi.StringInput `pulumi:"inboundTokenClaimValueType"`
 }
 
 func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs) ElementType() reflect.Type {
@@ -2350,18 +3204,21 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOu
 	return o
 }
 
+// Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` below.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput) AuthorizingClaimMatchValue() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue {
 		return v.AuthorizingClaimMatchValue
 	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput)
 }
 
+// Name of the custom claim field to check.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput) InboundTokenClaimName() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim) string {
 		return v.InboundTokenClaimName
 	}).(pulumi.StringOutput)
 }
 
+// Data type of the claim value to check for. Valid values are `STRING` and `STRING_ARRAY`.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimOutput) InboundTokenClaimValueType() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim) string {
 		return v.InboundTokenClaimValueType
@@ -2389,8 +3246,10 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAr
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue struct {
-	ClaimMatchOperator string                                                                                                          `pulumi:"claimMatchOperator"`
-	ClaimMatchValue    AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue `pulumi:"claimMatchValue"`
+	// Relationship between the claim field value and the value or values to match for. Valid values are `EQUALS`, `CONTAINS`, and `CONTAINS_ANY`. `EQUALS` can be used only when `inboundTokenClaimValueType` is `STRING`. `CONTAINS` or `CONTAINS_ANY` can be used only when `inboundTokenClaimValueType` is `STRING_ARRAY`.
+	ClaimMatchOperator string `pulumi:"claimMatchOperator"`
+	// Value or values to match for. See `claimMatchValue` below.
+	ClaimMatchValue AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue `pulumi:"claimMatchValue"`
 }
 
 // AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs and AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput values.
@@ -2405,8 +3264,10 @@ type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAutho
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs struct {
-	ClaimMatchOperator pulumi.StringInput                                                                                                   `pulumi:"claimMatchOperator"`
-	ClaimMatchValue    AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueInput `pulumi:"claimMatchValue"`
+	// Relationship between the claim field value and the value or values to match for. Valid values are `EQUALS`, `CONTAINS`, and `CONTAINS_ANY`. `EQUALS` can be used only when `inboundTokenClaimValueType` is `STRING`. `CONTAINS` or `CONTAINS_ANY` can be used only when `inboundTokenClaimValueType` is `STRING_ARRAY`.
+	ClaimMatchOperator pulumi.StringInput `pulumi:"claimMatchOperator"`
+	// Value or values to match for. See `claimMatchValue` below.
+	ClaimMatchValue AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueInput `pulumi:"claimMatchValue"`
 }
 
 func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs) ElementType() reflect.Type {
@@ -2435,12 +3296,14 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAu
 	return o
 }
 
+// Relationship between the claim field value and the value or values to match for. Valid values are `EQUALS`, `CONTAINS`, and `CONTAINS_ANY`. `EQUALS` can be used only when `inboundTokenClaimValueType` is `STRING`. `CONTAINS` or `CONTAINS_ANY` can be used only when `inboundTokenClaimValueType` is `STRING_ARRAY`.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput) ClaimMatchOperator() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue) string {
 		return v.ClaimMatchOperator
 	}).(pulumi.StringOutput)
 }
 
+// Value or values to match for. See `claimMatchValue` below.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput) ClaimMatchValue() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue {
 		return v.ClaimMatchValue
@@ -2448,7 +3311,9 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAu
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue struct {
-	MatchValueString      *string  `pulumi:"matchValueString"`
+	// String value to match for. Must be specified when `claimMatchOperator` is `EQUALS` or `CONTAINS`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+	MatchValueString *string `pulumi:"matchValueString"`
+	// List of strings to check for a match. Must be specified when `claimMatchOperator` is `CONTAINS_ANY`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
 	MatchValueStringLists []string `pulumi:"matchValueStringLists"`
 }
 
@@ -2464,7 +3329,9 @@ type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAutho
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs struct {
-	MatchValueString      pulumi.StringPtrInput   `pulumi:"matchValueString"`
+	// String value to match for. Must be specified when `claimMatchOperator` is `EQUALS` or `CONTAINS`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+	MatchValueString pulumi.StringPtrInput `pulumi:"matchValueString"`
+	// List of strings to check for a match. Must be specified when `claimMatchOperator` is `CONTAINS_ANY`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
 	MatchValueStringLists pulumi.StringArrayInput `pulumi:"matchValueStringLists"`
 }
 
@@ -2494,12 +3361,14 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAu
 	return o
 }
 
+// String value to match for. Must be specified when `claimMatchOperator` is `EQUALS` or `CONTAINS`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput) MatchValueString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue) *string {
 		return v.MatchValueString
 	}).(pulumi.StringPtrOutput)
 }
 
+// List of strings to check for a match. Must be specified when `claimMatchOperator` is `CONTAINS_ANY`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput) MatchValueStringLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue) []string {
 		return v.MatchValueStringLists
@@ -2507,7 +3376,9 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAu
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint struct {
-	ManagedVpcResource         *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource         `pulumi:"managedVpcResource"`
+	// Managed VPC resource configuration. See `managedVpcResource` below.
+	ManagedVpcResource *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource `pulumi:"managedVpcResource"`
+	// Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
 	SelfManagedLatticeResource *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource `pulumi:"selfManagedLatticeResource"`
 }
 
@@ -2523,7 +3394,9 @@ type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointI
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs struct {
-	ManagedVpcResource         AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrInput         `pulumi:"managedVpcResource"`
+	// Managed VPC resource configuration. See `managedVpcResource` below.
+	ManagedVpcResource AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrInput `pulumi:"managedVpcResource"`
+	// Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
 	SelfManagedLatticeResource AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrInput `pulumi:"selfManagedLatticeResource"`
 }
 
@@ -2604,12 +3477,14 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput)
 }
 
+// Managed VPC resource configuration. See `managedVpcResource` below.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput) ManagedVpcResource() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint) *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource {
 		return v.ManagedVpcResource
 	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput)
 }
 
+// Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput) SelfManagedLatticeResource() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint) *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
 		return v.SelfManagedLatticeResource
@@ -2640,6 +3515,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput)
 }
 
+// Managed VPC resource configuration. See `managedVpcResource` below.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput) ManagedVpcResource() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput {
 	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint) *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource {
 		if v == nil {
@@ -2649,6 +3525,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput)
 }
 
+// Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput) SelfManagedLatticeResource() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput {
 	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint) *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
 		if v == nil {
@@ -2659,12 +3536,18 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource struct {
-	EndpointIpAddressType string            `pulumi:"endpointIpAddressType"`
-	RoutingDomain         *string           `pulumi:"routingDomain"`
-	SecurityGroupIds      []string          `pulumi:"securityGroupIds"`
-	SubnetIds             []string          `pulumi:"subnetIds"`
-	Tags                  map[string]string `pulumi:"tags"`
-	VpcIdentifier         string            `pulumi:"vpcIdentifier"`
+	// IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+	EndpointIpAddressType string `pulumi:"endpointIpAddressType"`
+	// Routing domain for the endpoint.
+	RoutingDomain *string `pulumi:"routingDomain"`
+	// IDs of the security groups for the endpoint.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// IDs of the subnets for the endpoint.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// Tags to assign to the managed VPC resource.
+	Tags map[string]string `pulumi:"tags"`
+	// Identifier of the VPC for the endpoint.
+	VpcIdentifier string `pulumi:"vpcIdentifier"`
 }
 
 // AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs and AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput values.
@@ -2679,12 +3562,18 @@ type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointM
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs struct {
-	EndpointIpAddressType pulumi.StringInput      `pulumi:"endpointIpAddressType"`
-	RoutingDomain         pulumi.StringPtrInput   `pulumi:"routingDomain"`
-	SecurityGroupIds      pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	SubnetIds             pulumi.StringArrayInput `pulumi:"subnetIds"`
-	Tags                  pulumi.StringMapInput   `pulumi:"tags"`
-	VpcIdentifier         pulumi.StringInput      `pulumi:"vpcIdentifier"`
+	// IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+	EndpointIpAddressType pulumi.StringInput `pulumi:"endpointIpAddressType"`
+	// Routing domain for the endpoint.
+	RoutingDomain pulumi.StringPtrInput `pulumi:"routingDomain"`
+	// IDs of the security groups for the endpoint.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// IDs of the subnets for the endpoint.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// Tags to assign to the managed VPC resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Identifier of the VPC for the endpoint.
+	VpcIdentifier pulumi.StringInput `pulumi:"vpcIdentifier"`
 }
 
 func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs) ElementType() reflect.Type {
@@ -2764,36 +3653,42 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput)
 }
 
+// IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) EndpointIpAddressType() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) string {
 		return v.EndpointIpAddressType
 	}).(pulumi.StringOutput)
 }
 
+// Routing domain for the endpoint.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) RoutingDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) *string {
 		return v.RoutingDomain
 	}).(pulumi.StringPtrOutput)
 }
 
+// IDs of the security groups for the endpoint.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) []string {
 		return v.SecurityGroupIds
 	}).(pulumi.StringArrayOutput)
 }
 
+// IDs of the subnets for the endpoint.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) []string {
 		return v.SubnetIds
 	}).(pulumi.StringArrayOutput)
 }
 
+// Tags to assign to the managed VPC resource.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) map[string]string {
 		return v.Tags
 	}).(pulumi.StringMapOutput)
 }
 
+// Identifier of the VPC for the endpoint.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) VpcIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) string {
 		return v.VpcIdentifier
@@ -2824,6 +3719,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput)
 }
 
+// IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput) EndpointIpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) *string {
 		if v == nil {
@@ -2833,6 +3729,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 	}).(pulumi.StringPtrOutput)
 }
 
+// Routing domain for the endpoint.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput) RoutingDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) *string {
 		if v == nil {
@@ -2842,6 +3739,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 	}).(pulumi.StringPtrOutput)
 }
 
+// IDs of the security groups for the endpoint.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) []string {
 		if v == nil {
@@ -2851,6 +3749,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 	}).(pulumi.StringArrayOutput)
 }
 
+// IDs of the subnets for the endpoint.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) []string {
 		if v == nil {
@@ -2860,6 +3759,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 	}).(pulumi.StringArrayOutput)
 }
 
+// Tags to assign to the managed VPC resource.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) map[string]string {
 		if v == nil {
@@ -2869,6 +3769,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 	}).(pulumi.StringMapOutput)
 }
 
+// Identifier of the VPC for the endpoint.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput) VpcIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) *string {
 		if v == nil {
@@ -2879,7 +3780,9 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride struct {
-	Domain          string                                                                                            `pulumi:"domain"`
+	// Domain the override applies to.
+	Domain string `pulumi:"domain"`
+	// Private endpoint configuration. See `privateEndpoint` below.
 	PrivateEndpoint AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint `pulumi:"privateEndpoint"`
 }
 
@@ -2895,7 +3798,9 @@ type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointO
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs struct {
-	Domain          pulumi.StringInput                                                                                     `pulumi:"domain"`
+	// Domain the override applies to.
+	Domain pulumi.StringInput `pulumi:"domain"`
+	// Private endpoint configuration. See `privateEndpoint` below.
 	PrivateEndpoint AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointInput `pulumi:"privateEndpoint"`
 }
 
@@ -2950,12 +3855,14 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 	return o
 }
 
+// Domain the override applies to.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride) string {
 		return v.Domain
 	}).(pulumi.StringOutput)
 }
 
+// Private endpoint configuration. See `privateEndpoint` below.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput) PrivateEndpoint() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride) AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint {
 		return v.PrivateEndpoint
@@ -2983,7 +3890,9 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint struct {
-	ManagedVpcResource         *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource         `pulumi:"managedVpcResource"`
+	// Managed VPC resource configuration. See `managedVpcResource` below.
+	ManagedVpcResource *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource `pulumi:"managedVpcResource"`
+	// Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
 	SelfManagedLatticeResource *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource `pulumi:"selfManagedLatticeResource"`
 }
 
@@ -2999,7 +3908,9 @@ type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointO
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs struct {
-	ManagedVpcResource         AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrInput         `pulumi:"managedVpcResource"`
+	// Managed VPC resource configuration. See `managedVpcResource` below.
+	ManagedVpcResource AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrInput `pulumi:"managedVpcResource"`
+	// Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
 	SelfManagedLatticeResource AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrInput `pulumi:"selfManagedLatticeResource"`
 }
 
@@ -3029,12 +3940,14 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 	return o
 }
 
+// Managed VPC resource configuration. See `managedVpcResource` below.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput) ManagedVpcResource() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint) *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource {
 		return v.ManagedVpcResource
 	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput)
 }
 
+// Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput) SelfManagedLatticeResource() AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint) *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource {
 		return v.SelfManagedLatticeResource
@@ -3042,12 +3955,18 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource struct {
-	EndpointIpAddressType string            `pulumi:"endpointIpAddressType"`
-	RoutingDomain         *string           `pulumi:"routingDomain"`
-	SecurityGroupIds      []string          `pulumi:"securityGroupIds"`
-	SubnetIds             []string          `pulumi:"subnetIds"`
-	Tags                  map[string]string `pulumi:"tags"`
-	VpcIdentifier         string            `pulumi:"vpcIdentifier"`
+	// IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+	EndpointIpAddressType string `pulumi:"endpointIpAddressType"`
+	// Routing domain for the endpoint.
+	RoutingDomain *string `pulumi:"routingDomain"`
+	// IDs of the security groups for the endpoint.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// IDs of the subnets for the endpoint.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// Tags to assign to the managed VPC resource.
+	Tags map[string]string `pulumi:"tags"`
+	// Identifier of the VPC for the endpoint.
+	VpcIdentifier string `pulumi:"vpcIdentifier"`
 }
 
 // AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceInput is an input type that accepts AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs and AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput values.
@@ -3062,12 +3981,18 @@ type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointO
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs struct {
-	EndpointIpAddressType pulumi.StringInput      `pulumi:"endpointIpAddressType"`
-	RoutingDomain         pulumi.StringPtrInput   `pulumi:"routingDomain"`
-	SecurityGroupIds      pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	SubnetIds             pulumi.StringArrayInput `pulumi:"subnetIds"`
-	Tags                  pulumi.StringMapInput   `pulumi:"tags"`
-	VpcIdentifier         pulumi.StringInput      `pulumi:"vpcIdentifier"`
+	// IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+	EndpointIpAddressType pulumi.StringInput `pulumi:"endpointIpAddressType"`
+	// Routing domain for the endpoint.
+	RoutingDomain pulumi.StringPtrInput `pulumi:"routingDomain"`
+	// IDs of the security groups for the endpoint.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// IDs of the subnets for the endpoint.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// Tags to assign to the managed VPC resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Identifier of the VPC for the endpoint.
+	VpcIdentifier pulumi.StringInput `pulumi:"vpcIdentifier"`
 }
 
 func (AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs) ElementType() reflect.Type {
@@ -3147,36 +4072,42 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput)
 }
 
+// IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) EndpointIpAddressType() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) string {
 		return v.EndpointIpAddressType
 	}).(pulumi.StringOutput)
 }
 
+// Routing domain for the endpoint.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) RoutingDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) *string {
 		return v.RoutingDomain
 	}).(pulumi.StringPtrOutput)
 }
 
+// IDs of the security groups for the endpoint.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) []string {
 		return v.SecurityGroupIds
 	}).(pulumi.StringArrayOutput)
 }
 
+// IDs of the subnets for the endpoint.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) []string {
 		return v.SubnetIds
 	}).(pulumi.StringArrayOutput)
 }
 
+// Tags to assign to the managed VPC resource.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) map[string]string {
 		return v.Tags
 	}).(pulumi.StringMapOutput)
 }
 
+// Identifier of the VPC for the endpoint.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) VpcIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) string {
 		return v.VpcIdentifier
@@ -3207,6 +4138,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput)
 }
 
+// IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) EndpointIpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) *string {
 		if v == nil {
@@ -3216,6 +4148,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 	}).(pulumi.StringPtrOutput)
 }
 
+// Routing domain for the endpoint.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) RoutingDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) *string {
 		if v == nil {
@@ -3225,6 +4158,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 	}).(pulumi.StringPtrOutput)
 }
 
+// IDs of the security groups for the endpoint.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) []string {
 		if v == nil {
@@ -3234,6 +4168,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 	}).(pulumi.StringArrayOutput)
 }
 
+// IDs of the subnets for the endpoint.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) []string {
 		if v == nil {
@@ -3243,6 +4178,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 	}).(pulumi.StringArrayOutput)
 }
 
+// Tags to assign to the managed VPC resource.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) map[string]string {
 		if v == nil {
@@ -3252,6 +4188,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 	}).(pulumi.StringMapOutput)
 }
 
+// Identifier of the VPC for the endpoint.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) VpcIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) *string {
 		if v == nil {
@@ -3262,6 +4199,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource struct {
+	// Identifier of the VPC Lattice resource configuration.
 	ResourceConfigurationIdentifier *string `pulumi:"resourceConfigurationIdentifier"`
 }
 
@@ -3277,6 +4215,7 @@ type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointO
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs struct {
+	// Identifier of the VPC Lattice resource configuration.
 	ResourceConfigurationIdentifier pulumi.StringPtrInput `pulumi:"resourceConfigurationIdentifier"`
 }
 
@@ -3357,6 +4296,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput)
 }
 
+// Identifier of the VPC Lattice resource configuration.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput) ResourceConfigurationIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource) *string {
 		return v.ResourceConfigurationIdentifier
@@ -3387,6 +4327,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput)
 }
 
+// Identifier of the VPC Lattice resource configuration.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput) ResourceConfigurationIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource) *string {
 		if v == nil {
@@ -3397,6 +4338,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource struct {
+	// Identifier of the VPC Lattice resource configuration.
 	ResourceConfigurationIdentifier *string `pulumi:"resourceConfigurationIdentifier"`
 }
 
@@ -3412,6 +4354,7 @@ type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointS
 }
 
 type AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs struct {
+	// Identifier of the VPC Lattice resource configuration.
 	ResourceConfigurationIdentifier pulumi.StringPtrInput `pulumi:"resourceConfigurationIdentifier"`
 }
 
@@ -3492,6 +4435,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput)
 }
 
+// Identifier of the VPC Lattice resource configuration.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput) ResourceConfigurationIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource) *string {
 		return v.ResourceConfigurationIdentifier
@@ -3522,6 +4466,7 @@ func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoi
 	}).(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput)
 }
 
+// Identifier of the VPC Lattice resource configuration.
 func (o AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput) ResourceConfigurationIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource) *string {
 		if v == nil {
@@ -14316,6 +15261,18 @@ func (o GetInferenceProfilesInferenceProfileSummaryModelArrayOutput) Index(i pul
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderTimeoutsInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderTimeoutsPtrInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigDataSourceConfigInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigDataSourceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigDataSourceConfigPtrInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigDataSourceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigEvaluatorInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigEvaluatorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigEvaluatorArrayInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigEvaluatorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigOutputConfigInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigOutputConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigOutputConfigArrayInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigOutputConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigRuleInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigRuleArgs{})
@@ -14522,6 +15479,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInferenceProfilesInferenceProfileSummaryArrayInput)(nil)).Elem(), GetInferenceProfilesInferenceProfileSummaryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInferenceProfilesInferenceProfileSummaryModelInput)(nil)).Elem(), GetInferenceProfilesInferenceProfileSummaryModelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInferenceProfilesInferenceProfileSummaryModelArrayInput)(nil)).Elem(), GetInferenceProfilesInferenceProfileSummaryModelArray{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderTimeoutsOutput{})
+	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigDataSourceConfigOutput{})
+	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput{})
+	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigEvaluatorOutput{})
+	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigEvaluatorArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigOutputConfigOutput{})
+	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigOutputConfigArrayOutput{})
 	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigOutput{})
 	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayOutput{})
 	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigRuleOutput{})

@@ -16,11 +16,292 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'InvocationJobInputDataConfig',
+    'InvocationJobInputDataConfigS3InputDataConfig',
+    'InvocationJobOutputDataConfig',
+    'InvocationJobOutputDataConfigS3OutputDataConfig',
+    'InvocationJobTimeouts',
+    'InvocationJobVpcConfig',
     'InvocationLoggingConfigurationLoggingConfig',
     'InvocationLoggingConfigurationLoggingConfigCloudwatchConfig',
     'InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config',
     'InvocationLoggingConfigurationLoggingConfigS3Config',
 ]
+
+@pulumi.output_type
+class InvocationJobInputDataConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3InputDataConfig":
+            suggest = "s3_input_data_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InvocationJobInputDataConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InvocationJobInputDataConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InvocationJobInputDataConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_input_data_config: 'outputs.InvocationJobInputDataConfigS3InputDataConfig'):
+        """
+        :param 'InvocationJobInputDataConfigS3InputDataConfigArgs' s3_input_data_config: Location of the S3 input data. See `s3_input_data_config` Block below.
+        """
+        pulumi.set(__self__, "s3_input_data_config", s3_input_data_config)
+
+    @_builtins.property
+    @pulumi.getter(name="s3InputDataConfig")
+    def s3_input_data_config(self) -> 'outputs.InvocationJobInputDataConfigS3InputDataConfig':
+        """
+        Location of the S3 input data. See `s3_input_data_config` Block below.
+        """
+        return pulumi.get(self, "s3_input_data_config")
+
+
+@pulumi.output_type
+class InvocationJobInputDataConfigS3InputDataConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Uri":
+            suggest = "s3_uri"
+        elif key == "s3BucketOwner":
+            suggest = "s3_bucket_owner"
+        elif key == "s3InputFormat":
+            suggest = "s3_input_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InvocationJobInputDataConfigS3InputDataConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InvocationJobInputDataConfigS3InputDataConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InvocationJobInputDataConfigS3InputDataConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_uri: _builtins.str,
+                 s3_bucket_owner: Optional[_builtins.str] = None,
+                 s3_input_format: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str s3_uri: S3 location of the input data.
+        :param _builtins.str s3_bucket_owner: ID of the AWS account that owns the S3 bucket containing the input data.
+        :param _builtins.str s3_input_format: Format of the input data. Valid values: `JSONL`.
+        """
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if s3_bucket_owner is not None:
+            pulumi.set(__self__, "s3_bucket_owner", s3_bucket_owner)
+        if s3_input_format is not None:
+            pulumi.set(__self__, "s3_input_format", s3_input_format)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> _builtins.str:
+        """
+        S3 location of the input data.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="s3BucketOwner")
+    def s3_bucket_owner(self) -> Optional[_builtins.str]:
+        """
+        ID of the AWS account that owns the S3 bucket containing the input data.
+        """
+        return pulumi.get(self, "s3_bucket_owner")
+
+    @_builtins.property
+    @pulumi.getter(name="s3InputFormat")
+    def s3_input_format(self) -> Optional[_builtins.str]:
+        """
+        Format of the input data. Valid values: `JSONL`.
+        """
+        return pulumi.get(self, "s3_input_format")
+
+
+@pulumi.output_type
+class InvocationJobOutputDataConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3OutputDataConfig":
+            suggest = "s3_output_data_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InvocationJobOutputDataConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InvocationJobOutputDataConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InvocationJobOutputDataConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_output_data_config: 'outputs.InvocationJobOutputDataConfigS3OutputDataConfig'):
+        """
+        :param 'InvocationJobOutputDataConfigS3OutputDataConfigArgs' s3_output_data_config: Location of the S3 output data. See `s3_output_data_config` Block below.
+        """
+        pulumi.set(__self__, "s3_output_data_config", s3_output_data_config)
+
+    @_builtins.property
+    @pulumi.getter(name="s3OutputDataConfig")
+    def s3_output_data_config(self) -> 'outputs.InvocationJobOutputDataConfigS3OutputDataConfig':
+        """
+        Location of the S3 output data. See `s3_output_data_config` Block below.
+        """
+        return pulumi.get(self, "s3_output_data_config")
+
+
+@pulumi.output_type
+class InvocationJobOutputDataConfigS3OutputDataConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Uri":
+            suggest = "s3_uri"
+        elif key == "s3BucketOwner":
+            suggest = "s3_bucket_owner"
+        elif key == "s3EncryptionKeyId":
+            suggest = "s3_encryption_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InvocationJobOutputDataConfigS3OutputDataConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InvocationJobOutputDataConfigS3OutputDataConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InvocationJobOutputDataConfigS3OutputDataConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_uri: _builtins.str,
+                 s3_bucket_owner: Optional[_builtins.str] = None,
+                 s3_encryption_key_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str s3_uri: S3 location where the results of the batch inference job are stored.
+        :param _builtins.str s3_bucket_owner: ID of the AWS account that owns the S3 bucket containing the output data.
+        :param _builtins.str s3_encryption_key_id: ARN of the KMS key that encrypts the S3 location of the output data.
+        """
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if s3_bucket_owner is not None:
+            pulumi.set(__self__, "s3_bucket_owner", s3_bucket_owner)
+        if s3_encryption_key_id is not None:
+            pulumi.set(__self__, "s3_encryption_key_id", s3_encryption_key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> _builtins.str:
+        """
+        S3 location where the results of the batch inference job are stored.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="s3BucketOwner")
+    def s3_bucket_owner(self) -> Optional[_builtins.str]:
+        """
+        ID of the AWS account that owns the S3 bucket containing the output data.
+        """
+        return pulumi.get(self, "s3_bucket_owner")
+
+    @_builtins.property
+    @pulumi.getter(name="s3EncryptionKeyId")
+    def s3_encryption_key_id(self) -> Optional[_builtins.str]:
+        """
+        ARN of the KMS key that encrypts the S3 location of the output data.
+        """
+        return pulumi.get(self, "s3_encryption_key_id")
+
+
+@pulumi.output_type
+class InvocationJobTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+
+@pulumi.output_type
+class InvocationJobVpcConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InvocationJobVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InvocationJobVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InvocationJobVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_group_ids: Sequence[_builtins.str],
+                 subnet_ids: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] security_group_ids: IDs of the security groups in the VPC to use.
+        :param Sequence[_builtins.str] subnet_ids: IDs of the subnets in the VPC to use.
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Sequence[_builtins.str]:
+        """
+        IDs of the security groups in the VPC to use.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[_builtins.str]:
+        """
+        IDs of the subnets in the VPC to use.
+        """
+        return pulumi.get(self, "subnet_ids")
+
 
 @pulumi.output_type
 class InvocationLoggingConfigurationLoggingConfig(dict):

@@ -10,6 +10,21 @@ export type Application = import("./application").Application;
 export const Application: typeof import("./application").Application = null as any;
 utilities.lazyLoad(exports, ["Application"], () => require("./application"));
 
+export { EntitlementArgs, EntitlementState } from "./entitlement";
+export type Entitlement = import("./entitlement").Entitlement;
+export const Entitlement: typeof import("./entitlement").Entitlement = null as any;
+utilities.lazyLoad(exports, ["Entitlement"], () => require("./entitlement"));
+
+export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
+export const getApplication: typeof import("./getApplication").getApplication = null as any;
+export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
+utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
+
+export { GetEntitlementsArgs, GetEntitlementsResult, GetEntitlementsOutputArgs } from "./getEntitlements";
+export const getEntitlements: typeof import("./getEntitlements").getEntitlements = null as any;
+export const getEntitlementsOutput: typeof import("./getEntitlements").getEntitlementsOutput = null as any;
+utilities.lazyLoad(exports, ["getEntitlements","getEntitlementsOutput"], () => require("./getEntitlements"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +32,12 @@ const _module = {
         switch (type) {
             case "aws:accountaccess/application:Application":
                 return new Application(name, <any>undefined, { urn })
+            case "aws:accountaccess/entitlement:Entitlement":
+                return new Entitlement(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "accountaccess/application", _module)
+pulumi.runtime.registerResourceModule("aws", "accountaccess/entitlement", _module)

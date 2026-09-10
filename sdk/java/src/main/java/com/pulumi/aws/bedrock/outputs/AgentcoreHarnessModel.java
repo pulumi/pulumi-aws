@@ -5,6 +5,7 @@ package com.pulumi.aws.bedrock.outputs;
 
 import com.pulumi.aws.bedrock.outputs.AgentcoreHarnessModelBedrockModelConfig;
 import com.pulumi.aws.bedrock.outputs.AgentcoreHarnessModelGeminiModelConfig;
+import com.pulumi.aws.bedrock.outputs.AgentcoreHarnessModelLitellmModelConfig;
 import com.pulumi.aws.bedrock.outputs.AgentcoreHarnessModelOpenaiModelConfig;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
@@ -23,6 +24,11 @@ public final class AgentcoreHarnessModel {
      * 
      */
     private @Nullable AgentcoreHarnessModelGeminiModelConfig geminiModelConfig;
+    /**
+     * @return LiteLLM model configuration. See `litellmModelConfig` Block below.
+     * 
+     */
+    private @Nullable AgentcoreHarnessModelLitellmModelConfig litellmModelConfig;
     /**
      * @return OpenAI model configuration. See `openaiModelConfig` Block below.
      * 
@@ -45,6 +51,13 @@ public final class AgentcoreHarnessModel {
         return Optional.ofNullable(this.geminiModelConfig);
     }
     /**
+     * @return LiteLLM model configuration. See `litellmModelConfig` Block below.
+     * 
+     */
+    public Optional<AgentcoreHarnessModelLitellmModelConfig> litellmModelConfig() {
+        return Optional.ofNullable(this.litellmModelConfig);
+    }
+    /**
      * @return OpenAI model configuration. See `openaiModelConfig` Block below.
      * 
      */
@@ -63,12 +76,14 @@ public final class AgentcoreHarnessModel {
     public static final class Builder {
         private @Nullable AgentcoreHarnessModelBedrockModelConfig bedrockModelConfig;
         private @Nullable AgentcoreHarnessModelGeminiModelConfig geminiModelConfig;
+        private @Nullable AgentcoreHarnessModelLitellmModelConfig litellmModelConfig;
         private @Nullable AgentcoreHarnessModelOpenaiModelConfig openaiModelConfig;
         public Builder() {}
         public Builder(AgentcoreHarnessModel defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bedrockModelConfig = defaults.bedrockModelConfig;
     	      this.geminiModelConfig = defaults.geminiModelConfig;
+    	      this.litellmModelConfig = defaults.litellmModelConfig;
     	      this.openaiModelConfig = defaults.openaiModelConfig;
         }
 
@@ -85,6 +100,12 @@ public final class AgentcoreHarnessModel {
             return this;
         }
         @CustomType.Setter
+        public Builder litellmModelConfig(@Nullable AgentcoreHarnessModelLitellmModelConfig litellmModelConfig) {
+
+            this.litellmModelConfig = litellmModelConfig;
+            return this;
+        }
+        @CustomType.Setter
         public Builder openaiModelConfig(@Nullable AgentcoreHarnessModelOpenaiModelConfig openaiModelConfig) {
 
             this.openaiModelConfig = openaiModelConfig;
@@ -94,6 +115,7 @@ public final class AgentcoreHarnessModel {
             final var _resultValue = new AgentcoreHarnessModel();
             _resultValue.bedrockModelConfig = bedrockModelConfig;
             _resultValue.geminiModelConfig = geminiModelConfig;
+            _resultValue.litellmModelConfig = litellmModelConfig;
             _resultValue.openaiModelConfig = openaiModelConfig;
             return _resultValue;
         }

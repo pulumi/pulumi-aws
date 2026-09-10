@@ -97,6 +97,7 @@ import * as account from "./account";
 import * as accountaccess from "./accountaccess";
 import * as acm from "./acm";
 import * as acmpca from "./acmpca";
+import * as agentregistry from "./agentregistry";
 import * as alb from "./alb";
 import * as amp from "./amp";
 import * as amplify from "./amplify";
@@ -335,6 +336,7 @@ export {
     accountaccess,
     acm,
     acmpca,
+    agentregistry,
     alb,
     amp,
     amplify,

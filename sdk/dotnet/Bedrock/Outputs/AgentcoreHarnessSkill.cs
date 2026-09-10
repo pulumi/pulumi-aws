@@ -14,14 +14,36 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreHarnessSkill
     {
         /// <summary>
+        /// AWS Skills baked into the harness's underlying runtime. See `AwsSkills` Block below.
+        /// </summary>
+        public readonly Outputs.AgentcoreHarnessSkillAwsSkills? AwsSkills;
+        /// <summary>
+        /// Git repository source for the skill. See `Git` Block below.
+        /// </summary>
+        public readonly Outputs.AgentcoreHarnessSkillGit? Git;
+        /// <summary>
         /// Path to the skill.
         /// </summary>
-        public readonly string Path;
+        public readonly string? Path;
+        /// <summary>
+        /// S3 source for the skill. See `S3` Block below.
+        /// </summary>
+        public readonly Outputs.AgentcoreHarnessSkillS3? S3;
 
         [OutputConstructor]
-        private AgentcoreHarnessSkill(string path)
+        private AgentcoreHarnessSkill(
+            Outputs.AgentcoreHarnessSkillAwsSkills? awsSkills,
+
+            Outputs.AgentcoreHarnessSkillGit? git,
+
+            string? path,
+
+            Outputs.AgentcoreHarnessSkillS3? s3)
         {
+            AwsSkills = awsSkills;
+            Git = git;
             Path = path;
+            S3 = s3;
         }
     }
 }

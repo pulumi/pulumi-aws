@@ -15,9 +15,17 @@ public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPr
 
     public static final AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs Empty = new AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs();
 
+    /**
+     * Identifier of the VPC Lattice resource configuration.
+     * 
+     */
     @Import(name="resourceConfigurationIdentifier")
     private @Nullable Output<String> resourceConfigurationIdentifier;
 
+    /**
+     * @return Identifier of the VPC Lattice resource configuration.
+     * 
+     */
     public Optional<Output<String>> resourceConfigurationIdentifier() {
         return Optional.ofNullable(this.resourceConfigurationIdentifier);
     }
@@ -46,11 +54,23 @@ public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPr
             $ = new AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param resourceConfigurationIdentifier Identifier of the VPC Lattice resource configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceConfigurationIdentifier(@Nullable Output<String> resourceConfigurationIdentifier) {
             $.resourceConfigurationIdentifier = resourceConfigurationIdentifier;
             return this;
         }
 
+        /**
+         * @param resourceConfigurationIdentifier Identifier of the VPC Lattice resource configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceConfigurationIdentifier(String resourceConfigurationIdentifier) {
             return resourceConfigurationIdentifier(Output.of(resourceConfigurationIdentifier));
         }

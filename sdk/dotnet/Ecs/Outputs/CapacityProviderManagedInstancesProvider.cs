@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Ecs.Outputs
     public sealed class CapacityProviderManagedInstancesProvider
     {
         /// <summary>
+        /// Configuration block for the auto repair configuration. Detailed below.
+        /// </summary>
+        public readonly Outputs.CapacityProviderManagedInstancesProviderAutoRepairConfiguration? AutoRepairConfiguration;
+        /// <summary>
         /// Configuration block for how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider, including whether to turn optimization on or off and how long to delay optimizing idle EC2 instances. Detailed below.
         /// </summary>
         public readonly Outputs.CapacityProviderManagedInstancesProviderInfrastructureOptimization? InfrastructureOptimization;
@@ -32,6 +36,8 @@ namespace Pulumi.Aws.Ecs.Outputs
 
         [OutputConstructor]
         private CapacityProviderManagedInstancesProvider(
+            Outputs.CapacityProviderManagedInstancesProviderAutoRepairConfiguration? autoRepairConfiguration,
+
             Outputs.CapacityProviderManagedInstancesProviderInfrastructureOptimization? infrastructureOptimization,
 
             string infrastructureRoleArn,
@@ -40,6 +46,7 @@ namespace Pulumi.Aws.Ecs.Outputs
 
             string? propagateTags)
         {
+            AutoRepairConfiguration = autoRepairConfiguration;
             InfrastructureOptimization = infrastructureOptimization;
             InfrastructureRoleArn = infrastructureRoleArn;
             InstanceLaunchTemplate = instanceLaunchTemplate;

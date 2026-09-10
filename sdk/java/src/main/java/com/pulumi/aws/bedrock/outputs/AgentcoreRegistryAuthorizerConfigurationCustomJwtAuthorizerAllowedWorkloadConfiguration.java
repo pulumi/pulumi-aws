@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration {
+    /**
+     * @return Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hostingEnvironment` below.
+     * 
+     */
     private @Nullable List<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment> hostingEnvironments;
+    /**
+     * @return List of workload identity names allowed to use the authorizer. Between 1 and 10 entries.
+     * 
+     */
     private @Nullable List<String> workloadIdentities;
 
     private AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration() {}
+    /**
+     * @return Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hostingEnvironment` below.
+     * 
+     */
     public List<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment> hostingEnvironments() {
         return this.hostingEnvironments == null ? List.of() : this.hostingEnvironments;
     }
+    /**
+     * @return List of workload identity names allowed to use the authorizer. Between 1 and 10 entries.
+     * 
+     */
     public List<String> workloadIdentities() {
         return this.workloadIdentities == null ? List.of() : this.workloadIdentities;
     }

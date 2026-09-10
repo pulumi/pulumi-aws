@@ -333,7 +333,7 @@ namespace Pulumi.Aws.Bedrock
         /// Maximum number of tokens in the model response.
         /// </summary>
         [Output("maxTokens")]
-        public Output<int?> MaxTokens { get; private set; } = null!;
+        public Output<int> MaxTokens { get; private set; } = null!;
 
         /// <summary>
         /// Memory configuration. See `Memory` Block below. If not specified, configured values can be found in `MemoryActual`. Clearing this value will reset the memory configuration to default values.
@@ -349,8 +349,6 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// Model configuration for the harness. See `Model` Block below.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("model")]
         public Output<Outputs.AgentcoreHarnessModel> Model { get; private set; } = null!;
@@ -369,6 +367,8 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// System prompt blocks for the harness. See `SystemPrompt` Block below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("systemPrompts")]
         public Output<ImmutableArray<Outputs.AgentcoreHarnessSystemPrompt>> SystemPrompts { get; private set; } = null!;
@@ -540,8 +540,6 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// Model configuration for the harness. See `Model` Block below.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("model", required: true)]
         public Input<Inputs.AgentcoreHarnessModelArgs> Model { get; set; } = null!;
@@ -564,11 +562,13 @@ namespace Pulumi.Aws.Bedrock
             set => _skills = value;
         }
 
-        [Input("systemPrompts")]
+        [Input("systemPrompts", required: true)]
         private InputList<Inputs.AgentcoreHarnessSystemPromptArgs>? _systemPrompts;
 
         /// <summary>
         /// System prompt blocks for the harness. See `SystemPrompt` Block below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessSystemPromptArgs> SystemPrompts
         {
@@ -749,8 +749,6 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// Model configuration for the harness. See `Model` Block below.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("model")]
         public Input<Inputs.AgentcoreHarnessModelGetArgs>? Model { get; set; }
@@ -778,6 +776,8 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// System prompt blocks for the harness. See `SystemPrompt` Block below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessSystemPromptGetArgs> SystemPrompts
         {

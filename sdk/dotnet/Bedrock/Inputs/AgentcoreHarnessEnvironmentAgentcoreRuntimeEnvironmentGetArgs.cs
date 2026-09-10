@@ -35,8 +35,6 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
         /// <summary>
         /// Filesystem configurations. See `FilesystemConfiguration` Block below.
-        /// 
-        /// The following attributes are exported under `AgentcoreRuntimeEnvironment`:
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationGetArgs> FilesystemConfigurations
         {
@@ -61,6 +59,8 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
         /// <summary>
         /// Network configuration. See `NetworkConfiguration` Block below.
+        /// 
+        /// The following attributes are exported under `AgentcoreRuntimeEnvironment`:
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationGetArgs> NetworkConfigurations
         {

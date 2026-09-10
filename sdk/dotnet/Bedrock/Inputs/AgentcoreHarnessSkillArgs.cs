@@ -13,10 +13,28 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreHarnessSkillArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// AWS Skills baked into the harness's underlying runtime. See `AwsSkills` Block below.
+        /// </summary>
+        [Input("awsSkills")]
+        public Input<Inputs.AgentcoreHarnessSkillAwsSkillsArgs>? AwsSkills { get; set; }
+
+        /// <summary>
+        /// Git repository source for the skill. See `Git` Block below.
+        /// </summary>
+        [Input("git")]
+        public Input<Inputs.AgentcoreHarnessSkillGitArgs>? Git { get; set; }
+
+        /// <summary>
         /// Path to the skill.
         /// </summary>
-        [Input("path", required: true)]
-        public Input<string> Path { get; set; } = null!;
+        [Input("path")]
+        public Input<string>? Path { get; set; }
+
+        /// <summary>
+        /// S3 source for the skill. See `S3` Block below.
+        /// </summary>
+        [Input("s3")]
+        public Input<Inputs.AgentcoreHarnessSkillS3Args>? S3 { get; set; }
 
         public AgentcoreHarnessSkillArgs()
         {

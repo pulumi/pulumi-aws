@@ -14,9 +14,17 @@ public final class AgentcoreRegistryApprovalConfigurationArgs extends com.pulumi
 
     public static final AgentcoreRegistryApprovalConfigurationArgs Empty = new AgentcoreRegistryApprovalConfigurationArgs();
 
+    /**
+     * Whether registry records are auto-approved. When set to `true`, records are automatically approved upon creation. When set to `false` (the default), records require explicit approval.
+     * 
+     */
     @Import(name="autoApproval", required=true)
     private Output<Boolean> autoApproval;
 
+    /**
+     * @return Whether registry records are auto-approved. When set to `true`, records are automatically approved upon creation. When set to `false` (the default), records require explicit approval.
+     * 
+     */
     public Output<Boolean> autoApproval() {
         return this.autoApproval;
     }
@@ -45,11 +53,23 @@ public final class AgentcoreRegistryApprovalConfigurationArgs extends com.pulumi
             $ = new AgentcoreRegistryApprovalConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param autoApproval Whether registry records are auto-approved. When set to `true`, records are automatically approved upon creation. When set to `false` (the default), records require explicit approval.
+         * 
+         * @return builder
+         * 
+         */
         public Builder autoApproval(Output<Boolean> autoApproval) {
             $.autoApproval = autoApproval;
             return this;
         }
 
+        /**
+         * @param autoApproval Whether registry records are auto-approved. When set to `true`, records are automatically approved upon creation. When set to `false` (the default), records require explicit approval.
+         * 
+         * @return builder
+         * 
+         */
         public Builder autoApproval(Boolean autoApproval) {
             return autoApproval(Output.of(autoApproval));
         }

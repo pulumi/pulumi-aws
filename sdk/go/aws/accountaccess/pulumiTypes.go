@@ -462,6 +462,2430 @@ func (o ApplicationTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type EntitlementEntitlement struct {
+	// Principal role entitlement configuration. See `entitlement.principal_role` Block below.
+	PrincipalRole *EntitlementEntitlementPrincipalRole `pulumi:"principalRole"`
+}
+
+// EntitlementEntitlementInput is an input type that accepts EntitlementEntitlementArgs and EntitlementEntitlementOutput values.
+// You can construct a concrete instance of `EntitlementEntitlementInput` via:
+//
+//	EntitlementEntitlementArgs{...}
+type EntitlementEntitlementInput interface {
+	pulumi.Input
+
+	ToEntitlementEntitlementOutput() EntitlementEntitlementOutput
+	ToEntitlementEntitlementOutputWithContext(context.Context) EntitlementEntitlementOutput
+}
+
+type EntitlementEntitlementArgs struct {
+	// Principal role entitlement configuration. See `entitlement.principal_role` Block below.
+	PrincipalRole EntitlementEntitlementPrincipalRolePtrInput `pulumi:"principalRole"`
+}
+
+func (EntitlementEntitlementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntitlementEntitlement)(nil)).Elem()
+}
+
+func (i EntitlementEntitlementArgs) ToEntitlementEntitlementOutput() EntitlementEntitlementOutput {
+	return i.ToEntitlementEntitlementOutputWithContext(context.Background())
+}
+
+func (i EntitlementEntitlementArgs) ToEntitlementEntitlementOutputWithContext(ctx context.Context) EntitlementEntitlementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementEntitlementOutput)
+}
+
+func (i EntitlementEntitlementArgs) ToEntitlementEntitlementPtrOutput() EntitlementEntitlementPtrOutput {
+	return i.ToEntitlementEntitlementPtrOutputWithContext(context.Background())
+}
+
+func (i EntitlementEntitlementArgs) ToEntitlementEntitlementPtrOutputWithContext(ctx context.Context) EntitlementEntitlementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementEntitlementOutput).ToEntitlementEntitlementPtrOutputWithContext(ctx)
+}
+
+// EntitlementEntitlementPtrInput is an input type that accepts EntitlementEntitlementArgs, EntitlementEntitlementPtr and EntitlementEntitlementPtrOutput values.
+// You can construct a concrete instance of `EntitlementEntitlementPtrInput` via:
+//
+//	        EntitlementEntitlementArgs{...}
+//
+//	or:
+//
+//	        nil
+type EntitlementEntitlementPtrInput interface {
+	pulumi.Input
+
+	ToEntitlementEntitlementPtrOutput() EntitlementEntitlementPtrOutput
+	ToEntitlementEntitlementPtrOutputWithContext(context.Context) EntitlementEntitlementPtrOutput
+}
+
+type entitlementEntitlementPtrType EntitlementEntitlementArgs
+
+func EntitlementEntitlementPtr(v *EntitlementEntitlementArgs) EntitlementEntitlementPtrInput {
+	return (*entitlementEntitlementPtrType)(v)
+}
+
+func (*entitlementEntitlementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntitlementEntitlement)(nil)).Elem()
+}
+
+func (i *entitlementEntitlementPtrType) ToEntitlementEntitlementPtrOutput() EntitlementEntitlementPtrOutput {
+	return i.ToEntitlementEntitlementPtrOutputWithContext(context.Background())
+}
+
+func (i *entitlementEntitlementPtrType) ToEntitlementEntitlementPtrOutputWithContext(ctx context.Context) EntitlementEntitlementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementEntitlementPtrOutput)
+}
+
+type EntitlementEntitlementOutput struct{ *pulumi.OutputState }
+
+func (EntitlementEntitlementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntitlementEntitlement)(nil)).Elem()
+}
+
+func (o EntitlementEntitlementOutput) ToEntitlementEntitlementOutput() EntitlementEntitlementOutput {
+	return o
+}
+
+func (o EntitlementEntitlementOutput) ToEntitlementEntitlementOutputWithContext(ctx context.Context) EntitlementEntitlementOutput {
+	return o
+}
+
+func (o EntitlementEntitlementOutput) ToEntitlementEntitlementPtrOutput() EntitlementEntitlementPtrOutput {
+	return o.ToEntitlementEntitlementPtrOutputWithContext(context.Background())
+}
+
+func (o EntitlementEntitlementOutput) ToEntitlementEntitlementPtrOutputWithContext(ctx context.Context) EntitlementEntitlementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntitlementEntitlement) *EntitlementEntitlement {
+		return &v
+	}).(EntitlementEntitlementPtrOutput)
+}
+
+// Principal role entitlement configuration. See `entitlement.principal_role` Block below.
+func (o EntitlementEntitlementOutput) PrincipalRole() EntitlementEntitlementPrincipalRolePtrOutput {
+	return o.ApplyT(func(v EntitlementEntitlement) *EntitlementEntitlementPrincipalRole { return v.PrincipalRole }).(EntitlementEntitlementPrincipalRolePtrOutput)
+}
+
+type EntitlementEntitlementPtrOutput struct{ *pulumi.OutputState }
+
+func (EntitlementEntitlementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntitlementEntitlement)(nil)).Elem()
+}
+
+func (o EntitlementEntitlementPtrOutput) ToEntitlementEntitlementPtrOutput() EntitlementEntitlementPtrOutput {
+	return o
+}
+
+func (o EntitlementEntitlementPtrOutput) ToEntitlementEntitlementPtrOutputWithContext(ctx context.Context) EntitlementEntitlementPtrOutput {
+	return o
+}
+
+func (o EntitlementEntitlementPtrOutput) Elem() EntitlementEntitlementOutput {
+	return o.ApplyT(func(v *EntitlementEntitlement) EntitlementEntitlement {
+		if v != nil {
+			return *v
+		}
+		var ret EntitlementEntitlement
+		return ret
+	}).(EntitlementEntitlementOutput)
+}
+
+// Principal role entitlement configuration. See `entitlement.principal_role` Block below.
+func (o EntitlementEntitlementPtrOutput) PrincipalRole() EntitlementEntitlementPrincipalRolePtrOutput {
+	return o.ApplyT(func(v *EntitlementEntitlement) *EntitlementEntitlementPrincipalRole {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalRole
+	}).(EntitlementEntitlementPrincipalRolePtrOutput)
+}
+
+type EntitlementEntitlementPrincipalRole struct {
+	// Target AWS account ID.
+	AccountId *string `pulumi:"accountId"`
+	// Target AWS account name.
+	AccountName *string `pulumi:"accountName"`
+	// Principal configuration. See `entitlement.principal_role.principal` Block below.
+	Principal EntitlementEntitlementPrincipalRolePrincipal `pulumi:"principal"`
+	// ARN of the IAM role in the target AWS account that the principal is granted access to.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// EntitlementEntitlementPrincipalRoleInput is an input type that accepts EntitlementEntitlementPrincipalRoleArgs and EntitlementEntitlementPrincipalRoleOutput values.
+// You can construct a concrete instance of `EntitlementEntitlementPrincipalRoleInput` via:
+//
+//	EntitlementEntitlementPrincipalRoleArgs{...}
+type EntitlementEntitlementPrincipalRoleInput interface {
+	pulumi.Input
+
+	ToEntitlementEntitlementPrincipalRoleOutput() EntitlementEntitlementPrincipalRoleOutput
+	ToEntitlementEntitlementPrincipalRoleOutputWithContext(context.Context) EntitlementEntitlementPrincipalRoleOutput
+}
+
+type EntitlementEntitlementPrincipalRoleArgs struct {
+	// Target AWS account ID.
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
+	// Target AWS account name.
+	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
+	// Principal configuration. See `entitlement.principal_role.principal` Block below.
+	Principal EntitlementEntitlementPrincipalRolePrincipalInput `pulumi:"principal"`
+	// ARN of the IAM role in the target AWS account that the principal is granted access to.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (EntitlementEntitlementPrincipalRoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntitlementEntitlementPrincipalRole)(nil)).Elem()
+}
+
+func (i EntitlementEntitlementPrincipalRoleArgs) ToEntitlementEntitlementPrincipalRoleOutput() EntitlementEntitlementPrincipalRoleOutput {
+	return i.ToEntitlementEntitlementPrincipalRoleOutputWithContext(context.Background())
+}
+
+func (i EntitlementEntitlementPrincipalRoleArgs) ToEntitlementEntitlementPrincipalRoleOutputWithContext(ctx context.Context) EntitlementEntitlementPrincipalRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementEntitlementPrincipalRoleOutput)
+}
+
+func (i EntitlementEntitlementPrincipalRoleArgs) ToEntitlementEntitlementPrincipalRolePtrOutput() EntitlementEntitlementPrincipalRolePtrOutput {
+	return i.ToEntitlementEntitlementPrincipalRolePtrOutputWithContext(context.Background())
+}
+
+func (i EntitlementEntitlementPrincipalRoleArgs) ToEntitlementEntitlementPrincipalRolePtrOutputWithContext(ctx context.Context) EntitlementEntitlementPrincipalRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementEntitlementPrincipalRoleOutput).ToEntitlementEntitlementPrincipalRolePtrOutputWithContext(ctx)
+}
+
+// EntitlementEntitlementPrincipalRolePtrInput is an input type that accepts EntitlementEntitlementPrincipalRoleArgs, EntitlementEntitlementPrincipalRolePtr and EntitlementEntitlementPrincipalRolePtrOutput values.
+// You can construct a concrete instance of `EntitlementEntitlementPrincipalRolePtrInput` via:
+//
+//	        EntitlementEntitlementPrincipalRoleArgs{...}
+//
+//	or:
+//
+//	        nil
+type EntitlementEntitlementPrincipalRolePtrInput interface {
+	pulumi.Input
+
+	ToEntitlementEntitlementPrincipalRolePtrOutput() EntitlementEntitlementPrincipalRolePtrOutput
+	ToEntitlementEntitlementPrincipalRolePtrOutputWithContext(context.Context) EntitlementEntitlementPrincipalRolePtrOutput
+}
+
+type entitlementEntitlementPrincipalRolePtrType EntitlementEntitlementPrincipalRoleArgs
+
+func EntitlementEntitlementPrincipalRolePtr(v *EntitlementEntitlementPrincipalRoleArgs) EntitlementEntitlementPrincipalRolePtrInput {
+	return (*entitlementEntitlementPrincipalRolePtrType)(v)
+}
+
+func (*entitlementEntitlementPrincipalRolePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntitlementEntitlementPrincipalRole)(nil)).Elem()
+}
+
+func (i *entitlementEntitlementPrincipalRolePtrType) ToEntitlementEntitlementPrincipalRolePtrOutput() EntitlementEntitlementPrincipalRolePtrOutput {
+	return i.ToEntitlementEntitlementPrincipalRolePtrOutputWithContext(context.Background())
+}
+
+func (i *entitlementEntitlementPrincipalRolePtrType) ToEntitlementEntitlementPrincipalRolePtrOutputWithContext(ctx context.Context) EntitlementEntitlementPrincipalRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementEntitlementPrincipalRolePtrOutput)
+}
+
+type EntitlementEntitlementPrincipalRoleOutput struct{ *pulumi.OutputState }
+
+func (EntitlementEntitlementPrincipalRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntitlementEntitlementPrincipalRole)(nil)).Elem()
+}
+
+func (o EntitlementEntitlementPrincipalRoleOutput) ToEntitlementEntitlementPrincipalRoleOutput() EntitlementEntitlementPrincipalRoleOutput {
+	return o
+}
+
+func (o EntitlementEntitlementPrincipalRoleOutput) ToEntitlementEntitlementPrincipalRoleOutputWithContext(ctx context.Context) EntitlementEntitlementPrincipalRoleOutput {
+	return o
+}
+
+func (o EntitlementEntitlementPrincipalRoleOutput) ToEntitlementEntitlementPrincipalRolePtrOutput() EntitlementEntitlementPrincipalRolePtrOutput {
+	return o.ToEntitlementEntitlementPrincipalRolePtrOutputWithContext(context.Background())
+}
+
+func (o EntitlementEntitlementPrincipalRoleOutput) ToEntitlementEntitlementPrincipalRolePtrOutputWithContext(ctx context.Context) EntitlementEntitlementPrincipalRolePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntitlementEntitlementPrincipalRole) *EntitlementEntitlementPrincipalRole {
+		return &v
+	}).(EntitlementEntitlementPrincipalRolePtrOutput)
+}
+
+// Target AWS account ID.
+func (o EntitlementEntitlementPrincipalRoleOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EntitlementEntitlementPrincipalRole) *string { return v.AccountId }).(pulumi.StringPtrOutput)
+}
+
+// Target AWS account name.
+func (o EntitlementEntitlementPrincipalRoleOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EntitlementEntitlementPrincipalRole) *string { return v.AccountName }).(pulumi.StringPtrOutput)
+}
+
+// Principal configuration. See `entitlement.principal_role.principal` Block below.
+func (o EntitlementEntitlementPrincipalRoleOutput) Principal() EntitlementEntitlementPrincipalRolePrincipalOutput {
+	return o.ApplyT(func(v EntitlementEntitlementPrincipalRole) EntitlementEntitlementPrincipalRolePrincipal {
+		return v.Principal
+	}).(EntitlementEntitlementPrincipalRolePrincipalOutput)
+}
+
+// ARN of the IAM role in the target AWS account that the principal is granted access to.
+func (o EntitlementEntitlementPrincipalRoleOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v EntitlementEntitlementPrincipalRole) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type EntitlementEntitlementPrincipalRolePtrOutput struct{ *pulumi.OutputState }
+
+func (EntitlementEntitlementPrincipalRolePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntitlementEntitlementPrincipalRole)(nil)).Elem()
+}
+
+func (o EntitlementEntitlementPrincipalRolePtrOutput) ToEntitlementEntitlementPrincipalRolePtrOutput() EntitlementEntitlementPrincipalRolePtrOutput {
+	return o
+}
+
+func (o EntitlementEntitlementPrincipalRolePtrOutput) ToEntitlementEntitlementPrincipalRolePtrOutputWithContext(ctx context.Context) EntitlementEntitlementPrincipalRolePtrOutput {
+	return o
+}
+
+func (o EntitlementEntitlementPrincipalRolePtrOutput) Elem() EntitlementEntitlementPrincipalRoleOutput {
+	return o.ApplyT(func(v *EntitlementEntitlementPrincipalRole) EntitlementEntitlementPrincipalRole {
+		if v != nil {
+			return *v
+		}
+		var ret EntitlementEntitlementPrincipalRole
+		return ret
+	}).(EntitlementEntitlementPrincipalRoleOutput)
+}
+
+// Target AWS account ID.
+func (o EntitlementEntitlementPrincipalRolePtrOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EntitlementEntitlementPrincipalRole) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Target AWS account name.
+func (o EntitlementEntitlementPrincipalRolePtrOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EntitlementEntitlementPrincipalRole) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Principal configuration. See `entitlement.principal_role.principal` Block below.
+func (o EntitlementEntitlementPrincipalRolePtrOutput) Principal() EntitlementEntitlementPrincipalRolePrincipalPtrOutput {
+	return o.ApplyT(func(v *EntitlementEntitlementPrincipalRole) *EntitlementEntitlementPrincipalRolePrincipal {
+		if v == nil {
+			return nil
+		}
+		return &v.Principal
+	}).(EntitlementEntitlementPrincipalRolePrincipalPtrOutput)
+}
+
+// ARN of the IAM role in the target AWS account that the principal is granted access to.
+func (o EntitlementEntitlementPrincipalRolePtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EntitlementEntitlementPrincipalRole) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type EntitlementEntitlementPrincipalRolePrincipal struct {
+	// IAM Identity Center principal configuration. See `entitlement.principal_role.principal.identity_center` Block below.
+	IdentityCenter *EntitlementEntitlementPrincipalRolePrincipalIdentityCenter `pulumi:"identityCenter"`
+}
+
+// EntitlementEntitlementPrincipalRolePrincipalInput is an input type that accepts EntitlementEntitlementPrincipalRolePrincipalArgs and EntitlementEntitlementPrincipalRolePrincipalOutput values.
+// You can construct a concrete instance of `EntitlementEntitlementPrincipalRolePrincipalInput` via:
+//
+//	EntitlementEntitlementPrincipalRolePrincipalArgs{...}
+type EntitlementEntitlementPrincipalRolePrincipalInput interface {
+	pulumi.Input
+
+	ToEntitlementEntitlementPrincipalRolePrincipalOutput() EntitlementEntitlementPrincipalRolePrincipalOutput
+	ToEntitlementEntitlementPrincipalRolePrincipalOutputWithContext(context.Context) EntitlementEntitlementPrincipalRolePrincipalOutput
+}
+
+type EntitlementEntitlementPrincipalRolePrincipalArgs struct {
+	// IAM Identity Center principal configuration. See `entitlement.principal_role.principal.identity_center` Block below.
+	IdentityCenter EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrInput `pulumi:"identityCenter"`
+}
+
+func (EntitlementEntitlementPrincipalRolePrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntitlementEntitlementPrincipalRolePrincipal)(nil)).Elem()
+}
+
+func (i EntitlementEntitlementPrincipalRolePrincipalArgs) ToEntitlementEntitlementPrincipalRolePrincipalOutput() EntitlementEntitlementPrincipalRolePrincipalOutput {
+	return i.ToEntitlementEntitlementPrincipalRolePrincipalOutputWithContext(context.Background())
+}
+
+func (i EntitlementEntitlementPrincipalRolePrincipalArgs) ToEntitlementEntitlementPrincipalRolePrincipalOutputWithContext(ctx context.Context) EntitlementEntitlementPrincipalRolePrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementEntitlementPrincipalRolePrincipalOutput)
+}
+
+func (i EntitlementEntitlementPrincipalRolePrincipalArgs) ToEntitlementEntitlementPrincipalRolePrincipalPtrOutput() EntitlementEntitlementPrincipalRolePrincipalPtrOutput {
+	return i.ToEntitlementEntitlementPrincipalRolePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i EntitlementEntitlementPrincipalRolePrincipalArgs) ToEntitlementEntitlementPrincipalRolePrincipalPtrOutputWithContext(ctx context.Context) EntitlementEntitlementPrincipalRolePrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementEntitlementPrincipalRolePrincipalOutput).ToEntitlementEntitlementPrincipalRolePrincipalPtrOutputWithContext(ctx)
+}
+
+// EntitlementEntitlementPrincipalRolePrincipalPtrInput is an input type that accepts EntitlementEntitlementPrincipalRolePrincipalArgs, EntitlementEntitlementPrincipalRolePrincipalPtr and EntitlementEntitlementPrincipalRolePrincipalPtrOutput values.
+// You can construct a concrete instance of `EntitlementEntitlementPrincipalRolePrincipalPtrInput` via:
+//
+//	        EntitlementEntitlementPrincipalRolePrincipalArgs{...}
+//
+//	or:
+//
+//	        nil
+type EntitlementEntitlementPrincipalRolePrincipalPtrInput interface {
+	pulumi.Input
+
+	ToEntitlementEntitlementPrincipalRolePrincipalPtrOutput() EntitlementEntitlementPrincipalRolePrincipalPtrOutput
+	ToEntitlementEntitlementPrincipalRolePrincipalPtrOutputWithContext(context.Context) EntitlementEntitlementPrincipalRolePrincipalPtrOutput
+}
+
+type entitlementEntitlementPrincipalRolePrincipalPtrType EntitlementEntitlementPrincipalRolePrincipalArgs
+
+func EntitlementEntitlementPrincipalRolePrincipalPtr(v *EntitlementEntitlementPrincipalRolePrincipalArgs) EntitlementEntitlementPrincipalRolePrincipalPtrInput {
+	return (*entitlementEntitlementPrincipalRolePrincipalPtrType)(v)
+}
+
+func (*entitlementEntitlementPrincipalRolePrincipalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntitlementEntitlementPrincipalRolePrincipal)(nil)).Elem()
+}
+
+func (i *entitlementEntitlementPrincipalRolePrincipalPtrType) ToEntitlementEntitlementPrincipalRolePrincipalPtrOutput() EntitlementEntitlementPrincipalRolePrincipalPtrOutput {
+	return i.ToEntitlementEntitlementPrincipalRolePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i *entitlementEntitlementPrincipalRolePrincipalPtrType) ToEntitlementEntitlementPrincipalRolePrincipalPtrOutputWithContext(ctx context.Context) EntitlementEntitlementPrincipalRolePrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementEntitlementPrincipalRolePrincipalPtrOutput)
+}
+
+type EntitlementEntitlementPrincipalRolePrincipalOutput struct{ *pulumi.OutputState }
+
+func (EntitlementEntitlementPrincipalRolePrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntitlementEntitlementPrincipalRolePrincipal)(nil)).Elem()
+}
+
+func (o EntitlementEntitlementPrincipalRolePrincipalOutput) ToEntitlementEntitlementPrincipalRolePrincipalOutput() EntitlementEntitlementPrincipalRolePrincipalOutput {
+	return o
+}
+
+func (o EntitlementEntitlementPrincipalRolePrincipalOutput) ToEntitlementEntitlementPrincipalRolePrincipalOutputWithContext(ctx context.Context) EntitlementEntitlementPrincipalRolePrincipalOutput {
+	return o
+}
+
+func (o EntitlementEntitlementPrincipalRolePrincipalOutput) ToEntitlementEntitlementPrincipalRolePrincipalPtrOutput() EntitlementEntitlementPrincipalRolePrincipalPtrOutput {
+	return o.ToEntitlementEntitlementPrincipalRolePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (o EntitlementEntitlementPrincipalRolePrincipalOutput) ToEntitlementEntitlementPrincipalRolePrincipalPtrOutputWithContext(ctx context.Context) EntitlementEntitlementPrincipalRolePrincipalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntitlementEntitlementPrincipalRolePrincipal) *EntitlementEntitlementPrincipalRolePrincipal {
+		return &v
+	}).(EntitlementEntitlementPrincipalRolePrincipalPtrOutput)
+}
+
+// IAM Identity Center principal configuration. See `entitlement.principal_role.principal.identity_center` Block below.
+func (o EntitlementEntitlementPrincipalRolePrincipalOutput) IdentityCenter() EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutput {
+	return o.ApplyT(func(v EntitlementEntitlementPrincipalRolePrincipal) *EntitlementEntitlementPrincipalRolePrincipalIdentityCenter {
+		return v.IdentityCenter
+	}).(EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutput)
+}
+
+type EntitlementEntitlementPrincipalRolePrincipalPtrOutput struct{ *pulumi.OutputState }
+
+func (EntitlementEntitlementPrincipalRolePrincipalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntitlementEntitlementPrincipalRolePrincipal)(nil)).Elem()
+}
+
+func (o EntitlementEntitlementPrincipalRolePrincipalPtrOutput) ToEntitlementEntitlementPrincipalRolePrincipalPtrOutput() EntitlementEntitlementPrincipalRolePrincipalPtrOutput {
+	return o
+}
+
+func (o EntitlementEntitlementPrincipalRolePrincipalPtrOutput) ToEntitlementEntitlementPrincipalRolePrincipalPtrOutputWithContext(ctx context.Context) EntitlementEntitlementPrincipalRolePrincipalPtrOutput {
+	return o
+}
+
+func (o EntitlementEntitlementPrincipalRolePrincipalPtrOutput) Elem() EntitlementEntitlementPrincipalRolePrincipalOutput {
+	return o.ApplyT(func(v *EntitlementEntitlementPrincipalRolePrincipal) EntitlementEntitlementPrincipalRolePrincipal {
+		if v != nil {
+			return *v
+		}
+		var ret EntitlementEntitlementPrincipalRolePrincipal
+		return ret
+	}).(EntitlementEntitlementPrincipalRolePrincipalOutput)
+}
+
+// IAM Identity Center principal configuration. See `entitlement.principal_role.principal.identity_center` Block below.
+func (o EntitlementEntitlementPrincipalRolePrincipalPtrOutput) IdentityCenter() EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutput {
+	return o.ApplyT(func(v *EntitlementEntitlementPrincipalRolePrincipal) *EntitlementEntitlementPrincipalRolePrincipalIdentityCenter {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityCenter
+	}).(EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutput)
+}
+
+type EntitlementEntitlementPrincipalRolePrincipalIdentityCenter struct {
+	// IAM Identity Center group ID.
+	GroupId *string `pulumi:"groupId"`
+	// IAM Identity Center user ID.
+	UserId *string `pulumi:"userId"`
+}
+
+// EntitlementEntitlementPrincipalRolePrincipalIdentityCenterInput is an input type that accepts EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs and EntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput values.
+// You can construct a concrete instance of `EntitlementEntitlementPrincipalRolePrincipalIdentityCenterInput` via:
+//
+//	EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs{...}
+type EntitlementEntitlementPrincipalRolePrincipalIdentityCenterInput interface {
+	pulumi.Input
+
+	ToEntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput() EntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput
+	ToEntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutputWithContext(context.Context) EntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput
+}
+
+type EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs struct {
+	// IAM Identity Center group ID.
+	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
+	// IAM Identity Center user ID.
+	UserId pulumi.StringPtrInput `pulumi:"userId"`
+}
+
+func (EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntitlementEntitlementPrincipalRolePrincipalIdentityCenter)(nil)).Elem()
+}
+
+func (i EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs) ToEntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput() EntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput {
+	return i.ToEntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutputWithContext(context.Background())
+}
+
+func (i EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs) ToEntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutputWithContext(ctx context.Context) EntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput)
+}
+
+func (i EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs) ToEntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutput() EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutput {
+	return i.ToEntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutputWithContext(context.Background())
+}
+
+func (i EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs) ToEntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutputWithContext(ctx context.Context) EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput).ToEntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutputWithContext(ctx)
+}
+
+// EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrInput is an input type that accepts EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs, EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtr and EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutput values.
+// You can construct a concrete instance of `EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrInput` via:
+//
+//	        EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs{...}
+//
+//	or:
+//
+//	        nil
+type EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrInput interface {
+	pulumi.Input
+
+	ToEntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutput() EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutput
+	ToEntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutputWithContext(context.Context) EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutput
+}
+
+type entitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrType EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs
+
+func EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtr(v *EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs) EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrInput {
+	return (*entitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrType)(v)
+}
+
+func (*entitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntitlementEntitlementPrincipalRolePrincipalIdentityCenter)(nil)).Elem()
+}
+
+func (i *entitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrType) ToEntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutput() EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutput {
+	return i.ToEntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutputWithContext(context.Background())
+}
+
+func (i *entitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrType) ToEntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutputWithContext(ctx context.Context) EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutput)
+}
+
+type EntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput struct{ *pulumi.OutputState }
+
+func (EntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntitlementEntitlementPrincipalRolePrincipalIdentityCenter)(nil)).Elem()
+}
+
+func (o EntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput) ToEntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput() EntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput {
+	return o
+}
+
+func (o EntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput) ToEntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutputWithContext(ctx context.Context) EntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput {
+	return o
+}
+
+func (o EntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput) ToEntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutput() EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutput {
+	return o.ToEntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutputWithContext(context.Background())
+}
+
+func (o EntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput) ToEntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutputWithContext(ctx context.Context) EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntitlementEntitlementPrincipalRolePrincipalIdentityCenter) *EntitlementEntitlementPrincipalRolePrincipalIdentityCenter {
+		return &v
+	}).(EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutput)
+}
+
+// IAM Identity Center group ID.
+func (o EntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EntitlementEntitlementPrincipalRolePrincipalIdentityCenter) *string { return v.GroupId }).(pulumi.StringPtrOutput)
+}
+
+// IAM Identity Center user ID.
+func (o EntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EntitlementEntitlementPrincipalRolePrincipalIdentityCenter) *string { return v.UserId }).(pulumi.StringPtrOutput)
+}
+
+type EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutput struct{ *pulumi.OutputState }
+
+func (EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntitlementEntitlementPrincipalRolePrincipalIdentityCenter)(nil)).Elem()
+}
+
+func (o EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutput) ToEntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutput() EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutput {
+	return o
+}
+
+func (o EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutput) ToEntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutputWithContext(ctx context.Context) EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutput {
+	return o
+}
+
+func (o EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutput) Elem() EntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput {
+	return o.ApplyT(func(v *EntitlementEntitlementPrincipalRolePrincipalIdentityCenter) EntitlementEntitlementPrincipalRolePrincipalIdentityCenter {
+		if v != nil {
+			return *v
+		}
+		var ret EntitlementEntitlementPrincipalRolePrincipalIdentityCenter
+		return ret
+	}).(EntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput)
+}
+
+// IAM Identity Center group ID.
+func (o EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EntitlementEntitlementPrincipalRolePrincipalIdentityCenter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+// IAM Identity Center user ID.
+func (o EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EntitlementEntitlementPrincipalRolePrincipalIdentityCenter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserId
+	}).(pulumi.StringPtrOutput)
+}
+
+type EntitlementFilter struct {
+	// Principal role entitlement configuration. See `entitlement.principal_role` Block below.
+	PrincipalRole *EntitlementFilterPrincipalRole `pulumi:"principalRole"`
+}
+
+// EntitlementFilterInput is an input type that accepts EntitlementFilterArgs and EntitlementFilterOutput values.
+// You can construct a concrete instance of `EntitlementFilterInput` via:
+//
+//	EntitlementFilterArgs{...}
+type EntitlementFilterInput interface {
+	pulumi.Input
+
+	ToEntitlementFilterOutput() EntitlementFilterOutput
+	ToEntitlementFilterOutputWithContext(context.Context) EntitlementFilterOutput
+}
+
+type EntitlementFilterArgs struct {
+	// Principal role entitlement configuration. See `entitlement.principal_role` Block below.
+	PrincipalRole EntitlementFilterPrincipalRolePtrInput `pulumi:"principalRole"`
+}
+
+func (EntitlementFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntitlementFilter)(nil)).Elem()
+}
+
+func (i EntitlementFilterArgs) ToEntitlementFilterOutput() EntitlementFilterOutput {
+	return i.ToEntitlementFilterOutputWithContext(context.Background())
+}
+
+func (i EntitlementFilterArgs) ToEntitlementFilterOutputWithContext(ctx context.Context) EntitlementFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementFilterOutput)
+}
+
+type EntitlementFilterOutput struct{ *pulumi.OutputState }
+
+func (EntitlementFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntitlementFilter)(nil)).Elem()
+}
+
+func (o EntitlementFilterOutput) ToEntitlementFilterOutput() EntitlementFilterOutput {
+	return o
+}
+
+func (o EntitlementFilterOutput) ToEntitlementFilterOutputWithContext(ctx context.Context) EntitlementFilterOutput {
+	return o
+}
+
+// Principal role entitlement configuration. See `entitlement.principal_role` Block below.
+func (o EntitlementFilterOutput) PrincipalRole() EntitlementFilterPrincipalRolePtrOutput {
+	return o.ApplyT(func(v EntitlementFilter) *EntitlementFilterPrincipalRole { return v.PrincipalRole }).(EntitlementFilterPrincipalRolePtrOutput)
+}
+
+type EntitlementFilterPrincipalRole struct {
+	AccountId *string `pulumi:"accountId"`
+	// Principal configuration. See `entitlement.principal_role.principal` Block below.
+	Principal *EntitlementFilterPrincipalRolePrincipal `pulumi:"principal"`
+	// ARN of the IAM role in the target AWS account that the principal is granted access to.
+	RoleArn *string `pulumi:"roleArn"`
+}
+
+// EntitlementFilterPrincipalRoleInput is an input type that accepts EntitlementFilterPrincipalRoleArgs and EntitlementFilterPrincipalRoleOutput values.
+// You can construct a concrete instance of `EntitlementFilterPrincipalRoleInput` via:
+//
+//	EntitlementFilterPrincipalRoleArgs{...}
+type EntitlementFilterPrincipalRoleInput interface {
+	pulumi.Input
+
+	ToEntitlementFilterPrincipalRoleOutput() EntitlementFilterPrincipalRoleOutput
+	ToEntitlementFilterPrincipalRoleOutputWithContext(context.Context) EntitlementFilterPrincipalRoleOutput
+}
+
+type EntitlementFilterPrincipalRoleArgs struct {
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
+	// Principal configuration. See `entitlement.principal_role.principal` Block below.
+	Principal EntitlementFilterPrincipalRolePrincipalPtrInput `pulumi:"principal"`
+	// ARN of the IAM role in the target AWS account that the principal is granted access to.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+}
+
+func (EntitlementFilterPrincipalRoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntitlementFilterPrincipalRole)(nil)).Elem()
+}
+
+func (i EntitlementFilterPrincipalRoleArgs) ToEntitlementFilterPrincipalRoleOutput() EntitlementFilterPrincipalRoleOutput {
+	return i.ToEntitlementFilterPrincipalRoleOutputWithContext(context.Background())
+}
+
+func (i EntitlementFilterPrincipalRoleArgs) ToEntitlementFilterPrincipalRoleOutputWithContext(ctx context.Context) EntitlementFilterPrincipalRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementFilterPrincipalRoleOutput)
+}
+
+func (i EntitlementFilterPrincipalRoleArgs) ToEntitlementFilterPrincipalRolePtrOutput() EntitlementFilterPrincipalRolePtrOutput {
+	return i.ToEntitlementFilterPrincipalRolePtrOutputWithContext(context.Background())
+}
+
+func (i EntitlementFilterPrincipalRoleArgs) ToEntitlementFilterPrincipalRolePtrOutputWithContext(ctx context.Context) EntitlementFilterPrincipalRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementFilterPrincipalRoleOutput).ToEntitlementFilterPrincipalRolePtrOutputWithContext(ctx)
+}
+
+// EntitlementFilterPrincipalRolePtrInput is an input type that accepts EntitlementFilterPrincipalRoleArgs, EntitlementFilterPrincipalRolePtr and EntitlementFilterPrincipalRolePtrOutput values.
+// You can construct a concrete instance of `EntitlementFilterPrincipalRolePtrInput` via:
+//
+//	        EntitlementFilterPrincipalRoleArgs{...}
+//
+//	or:
+//
+//	        nil
+type EntitlementFilterPrincipalRolePtrInput interface {
+	pulumi.Input
+
+	ToEntitlementFilterPrincipalRolePtrOutput() EntitlementFilterPrincipalRolePtrOutput
+	ToEntitlementFilterPrincipalRolePtrOutputWithContext(context.Context) EntitlementFilterPrincipalRolePtrOutput
+}
+
+type entitlementFilterPrincipalRolePtrType EntitlementFilterPrincipalRoleArgs
+
+func EntitlementFilterPrincipalRolePtr(v *EntitlementFilterPrincipalRoleArgs) EntitlementFilterPrincipalRolePtrInput {
+	return (*entitlementFilterPrincipalRolePtrType)(v)
+}
+
+func (*entitlementFilterPrincipalRolePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntitlementFilterPrincipalRole)(nil)).Elem()
+}
+
+func (i *entitlementFilterPrincipalRolePtrType) ToEntitlementFilterPrincipalRolePtrOutput() EntitlementFilterPrincipalRolePtrOutput {
+	return i.ToEntitlementFilterPrincipalRolePtrOutputWithContext(context.Background())
+}
+
+func (i *entitlementFilterPrincipalRolePtrType) ToEntitlementFilterPrincipalRolePtrOutputWithContext(ctx context.Context) EntitlementFilterPrincipalRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementFilterPrincipalRolePtrOutput)
+}
+
+type EntitlementFilterPrincipalRoleOutput struct{ *pulumi.OutputState }
+
+func (EntitlementFilterPrincipalRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntitlementFilterPrincipalRole)(nil)).Elem()
+}
+
+func (o EntitlementFilterPrincipalRoleOutput) ToEntitlementFilterPrincipalRoleOutput() EntitlementFilterPrincipalRoleOutput {
+	return o
+}
+
+func (o EntitlementFilterPrincipalRoleOutput) ToEntitlementFilterPrincipalRoleOutputWithContext(ctx context.Context) EntitlementFilterPrincipalRoleOutput {
+	return o
+}
+
+func (o EntitlementFilterPrincipalRoleOutput) ToEntitlementFilterPrincipalRolePtrOutput() EntitlementFilterPrincipalRolePtrOutput {
+	return o.ToEntitlementFilterPrincipalRolePtrOutputWithContext(context.Background())
+}
+
+func (o EntitlementFilterPrincipalRoleOutput) ToEntitlementFilterPrincipalRolePtrOutputWithContext(ctx context.Context) EntitlementFilterPrincipalRolePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntitlementFilterPrincipalRole) *EntitlementFilterPrincipalRole {
+		return &v
+	}).(EntitlementFilterPrincipalRolePtrOutput)
+}
+
+func (o EntitlementFilterPrincipalRoleOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EntitlementFilterPrincipalRole) *string { return v.AccountId }).(pulumi.StringPtrOutput)
+}
+
+// Principal configuration. See `entitlement.principal_role.principal` Block below.
+func (o EntitlementFilterPrincipalRoleOutput) Principal() EntitlementFilterPrincipalRolePrincipalPtrOutput {
+	return o.ApplyT(func(v EntitlementFilterPrincipalRole) *EntitlementFilterPrincipalRolePrincipal { return v.Principal }).(EntitlementFilterPrincipalRolePrincipalPtrOutput)
+}
+
+// ARN of the IAM role in the target AWS account that the principal is granted access to.
+func (o EntitlementFilterPrincipalRoleOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EntitlementFilterPrincipalRole) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+type EntitlementFilterPrincipalRolePtrOutput struct{ *pulumi.OutputState }
+
+func (EntitlementFilterPrincipalRolePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntitlementFilterPrincipalRole)(nil)).Elem()
+}
+
+func (o EntitlementFilterPrincipalRolePtrOutput) ToEntitlementFilterPrincipalRolePtrOutput() EntitlementFilterPrincipalRolePtrOutput {
+	return o
+}
+
+func (o EntitlementFilterPrincipalRolePtrOutput) ToEntitlementFilterPrincipalRolePtrOutputWithContext(ctx context.Context) EntitlementFilterPrincipalRolePtrOutput {
+	return o
+}
+
+func (o EntitlementFilterPrincipalRolePtrOutput) Elem() EntitlementFilterPrincipalRoleOutput {
+	return o.ApplyT(func(v *EntitlementFilterPrincipalRole) EntitlementFilterPrincipalRole {
+		if v != nil {
+			return *v
+		}
+		var ret EntitlementFilterPrincipalRole
+		return ret
+	}).(EntitlementFilterPrincipalRoleOutput)
+}
+
+func (o EntitlementFilterPrincipalRolePtrOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EntitlementFilterPrincipalRole) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Principal configuration. See `entitlement.principal_role.principal` Block below.
+func (o EntitlementFilterPrincipalRolePtrOutput) Principal() EntitlementFilterPrincipalRolePrincipalPtrOutput {
+	return o.ApplyT(func(v *EntitlementFilterPrincipalRole) *EntitlementFilterPrincipalRolePrincipal {
+		if v == nil {
+			return nil
+		}
+		return v.Principal
+	}).(EntitlementFilterPrincipalRolePrincipalPtrOutput)
+}
+
+// ARN of the IAM role in the target AWS account that the principal is granted access to.
+func (o EntitlementFilterPrincipalRolePtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EntitlementFilterPrincipalRole) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type EntitlementFilterPrincipalRolePrincipal struct {
+	// IAM Identity Center principal configuration. See `entitlement.principal_role.principal.identity_center` Block below.
+	IdentityCenter *EntitlementFilterPrincipalRolePrincipalIdentityCenter `pulumi:"identityCenter"`
+}
+
+// EntitlementFilterPrincipalRolePrincipalInput is an input type that accepts EntitlementFilterPrincipalRolePrincipalArgs and EntitlementFilterPrincipalRolePrincipalOutput values.
+// You can construct a concrete instance of `EntitlementFilterPrincipalRolePrincipalInput` via:
+//
+//	EntitlementFilterPrincipalRolePrincipalArgs{...}
+type EntitlementFilterPrincipalRolePrincipalInput interface {
+	pulumi.Input
+
+	ToEntitlementFilterPrincipalRolePrincipalOutput() EntitlementFilterPrincipalRolePrincipalOutput
+	ToEntitlementFilterPrincipalRolePrincipalOutputWithContext(context.Context) EntitlementFilterPrincipalRolePrincipalOutput
+}
+
+type EntitlementFilterPrincipalRolePrincipalArgs struct {
+	// IAM Identity Center principal configuration. See `entitlement.principal_role.principal.identity_center` Block below.
+	IdentityCenter EntitlementFilterPrincipalRolePrincipalIdentityCenterPtrInput `pulumi:"identityCenter"`
+}
+
+func (EntitlementFilterPrincipalRolePrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntitlementFilterPrincipalRolePrincipal)(nil)).Elem()
+}
+
+func (i EntitlementFilterPrincipalRolePrincipalArgs) ToEntitlementFilterPrincipalRolePrincipalOutput() EntitlementFilterPrincipalRolePrincipalOutput {
+	return i.ToEntitlementFilterPrincipalRolePrincipalOutputWithContext(context.Background())
+}
+
+func (i EntitlementFilterPrincipalRolePrincipalArgs) ToEntitlementFilterPrincipalRolePrincipalOutputWithContext(ctx context.Context) EntitlementFilterPrincipalRolePrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementFilterPrincipalRolePrincipalOutput)
+}
+
+func (i EntitlementFilterPrincipalRolePrincipalArgs) ToEntitlementFilterPrincipalRolePrincipalPtrOutput() EntitlementFilterPrincipalRolePrincipalPtrOutput {
+	return i.ToEntitlementFilterPrincipalRolePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i EntitlementFilterPrincipalRolePrincipalArgs) ToEntitlementFilterPrincipalRolePrincipalPtrOutputWithContext(ctx context.Context) EntitlementFilterPrincipalRolePrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementFilterPrincipalRolePrincipalOutput).ToEntitlementFilterPrincipalRolePrincipalPtrOutputWithContext(ctx)
+}
+
+// EntitlementFilterPrincipalRolePrincipalPtrInput is an input type that accepts EntitlementFilterPrincipalRolePrincipalArgs, EntitlementFilterPrincipalRolePrincipalPtr and EntitlementFilterPrincipalRolePrincipalPtrOutput values.
+// You can construct a concrete instance of `EntitlementFilterPrincipalRolePrincipalPtrInput` via:
+//
+//	        EntitlementFilterPrincipalRolePrincipalArgs{...}
+//
+//	or:
+//
+//	        nil
+type EntitlementFilterPrincipalRolePrincipalPtrInput interface {
+	pulumi.Input
+
+	ToEntitlementFilterPrincipalRolePrincipalPtrOutput() EntitlementFilterPrincipalRolePrincipalPtrOutput
+	ToEntitlementFilterPrincipalRolePrincipalPtrOutputWithContext(context.Context) EntitlementFilterPrincipalRolePrincipalPtrOutput
+}
+
+type entitlementFilterPrincipalRolePrincipalPtrType EntitlementFilterPrincipalRolePrincipalArgs
+
+func EntitlementFilterPrincipalRolePrincipalPtr(v *EntitlementFilterPrincipalRolePrincipalArgs) EntitlementFilterPrincipalRolePrincipalPtrInput {
+	return (*entitlementFilterPrincipalRolePrincipalPtrType)(v)
+}
+
+func (*entitlementFilterPrincipalRolePrincipalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntitlementFilterPrincipalRolePrincipal)(nil)).Elem()
+}
+
+func (i *entitlementFilterPrincipalRolePrincipalPtrType) ToEntitlementFilterPrincipalRolePrincipalPtrOutput() EntitlementFilterPrincipalRolePrincipalPtrOutput {
+	return i.ToEntitlementFilterPrincipalRolePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i *entitlementFilterPrincipalRolePrincipalPtrType) ToEntitlementFilterPrincipalRolePrincipalPtrOutputWithContext(ctx context.Context) EntitlementFilterPrincipalRolePrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementFilterPrincipalRolePrincipalPtrOutput)
+}
+
+type EntitlementFilterPrincipalRolePrincipalOutput struct{ *pulumi.OutputState }
+
+func (EntitlementFilterPrincipalRolePrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntitlementFilterPrincipalRolePrincipal)(nil)).Elem()
+}
+
+func (o EntitlementFilterPrincipalRolePrincipalOutput) ToEntitlementFilterPrincipalRolePrincipalOutput() EntitlementFilterPrincipalRolePrincipalOutput {
+	return o
+}
+
+func (o EntitlementFilterPrincipalRolePrincipalOutput) ToEntitlementFilterPrincipalRolePrincipalOutputWithContext(ctx context.Context) EntitlementFilterPrincipalRolePrincipalOutput {
+	return o
+}
+
+func (o EntitlementFilterPrincipalRolePrincipalOutput) ToEntitlementFilterPrincipalRolePrincipalPtrOutput() EntitlementFilterPrincipalRolePrincipalPtrOutput {
+	return o.ToEntitlementFilterPrincipalRolePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (o EntitlementFilterPrincipalRolePrincipalOutput) ToEntitlementFilterPrincipalRolePrincipalPtrOutputWithContext(ctx context.Context) EntitlementFilterPrincipalRolePrincipalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntitlementFilterPrincipalRolePrincipal) *EntitlementFilterPrincipalRolePrincipal {
+		return &v
+	}).(EntitlementFilterPrincipalRolePrincipalPtrOutput)
+}
+
+// IAM Identity Center principal configuration. See `entitlement.principal_role.principal.identity_center` Block below.
+func (o EntitlementFilterPrincipalRolePrincipalOutput) IdentityCenter() EntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutput {
+	return o.ApplyT(func(v EntitlementFilterPrincipalRolePrincipal) *EntitlementFilterPrincipalRolePrincipalIdentityCenter {
+		return v.IdentityCenter
+	}).(EntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutput)
+}
+
+type EntitlementFilterPrincipalRolePrincipalPtrOutput struct{ *pulumi.OutputState }
+
+func (EntitlementFilterPrincipalRolePrincipalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntitlementFilterPrincipalRolePrincipal)(nil)).Elem()
+}
+
+func (o EntitlementFilterPrincipalRolePrincipalPtrOutput) ToEntitlementFilterPrincipalRolePrincipalPtrOutput() EntitlementFilterPrincipalRolePrincipalPtrOutput {
+	return o
+}
+
+func (o EntitlementFilterPrincipalRolePrincipalPtrOutput) ToEntitlementFilterPrincipalRolePrincipalPtrOutputWithContext(ctx context.Context) EntitlementFilterPrincipalRolePrincipalPtrOutput {
+	return o
+}
+
+func (o EntitlementFilterPrincipalRolePrincipalPtrOutput) Elem() EntitlementFilterPrincipalRolePrincipalOutput {
+	return o.ApplyT(func(v *EntitlementFilterPrincipalRolePrincipal) EntitlementFilterPrincipalRolePrincipal {
+		if v != nil {
+			return *v
+		}
+		var ret EntitlementFilterPrincipalRolePrincipal
+		return ret
+	}).(EntitlementFilterPrincipalRolePrincipalOutput)
+}
+
+// IAM Identity Center principal configuration. See `entitlement.principal_role.principal.identity_center` Block below.
+func (o EntitlementFilterPrincipalRolePrincipalPtrOutput) IdentityCenter() EntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutput {
+	return o.ApplyT(func(v *EntitlementFilterPrincipalRolePrincipal) *EntitlementFilterPrincipalRolePrincipalIdentityCenter {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityCenter
+	}).(EntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutput)
+}
+
+type EntitlementFilterPrincipalRolePrincipalIdentityCenter struct {
+	// IAM Identity Center group ID.
+	GroupId *string `pulumi:"groupId"`
+	// IAM Identity Center user ID.
+	UserId *string `pulumi:"userId"`
+}
+
+// EntitlementFilterPrincipalRolePrincipalIdentityCenterInput is an input type that accepts EntitlementFilterPrincipalRolePrincipalIdentityCenterArgs and EntitlementFilterPrincipalRolePrincipalIdentityCenterOutput values.
+// You can construct a concrete instance of `EntitlementFilterPrincipalRolePrincipalIdentityCenterInput` via:
+//
+//	EntitlementFilterPrincipalRolePrincipalIdentityCenterArgs{...}
+type EntitlementFilterPrincipalRolePrincipalIdentityCenterInput interface {
+	pulumi.Input
+
+	ToEntitlementFilterPrincipalRolePrincipalIdentityCenterOutput() EntitlementFilterPrincipalRolePrincipalIdentityCenterOutput
+	ToEntitlementFilterPrincipalRolePrincipalIdentityCenterOutputWithContext(context.Context) EntitlementFilterPrincipalRolePrincipalIdentityCenterOutput
+}
+
+type EntitlementFilterPrincipalRolePrincipalIdentityCenterArgs struct {
+	// IAM Identity Center group ID.
+	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
+	// IAM Identity Center user ID.
+	UserId pulumi.StringPtrInput `pulumi:"userId"`
+}
+
+func (EntitlementFilterPrincipalRolePrincipalIdentityCenterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntitlementFilterPrincipalRolePrincipalIdentityCenter)(nil)).Elem()
+}
+
+func (i EntitlementFilterPrincipalRolePrincipalIdentityCenterArgs) ToEntitlementFilterPrincipalRolePrincipalIdentityCenterOutput() EntitlementFilterPrincipalRolePrincipalIdentityCenterOutput {
+	return i.ToEntitlementFilterPrincipalRolePrincipalIdentityCenterOutputWithContext(context.Background())
+}
+
+func (i EntitlementFilterPrincipalRolePrincipalIdentityCenterArgs) ToEntitlementFilterPrincipalRolePrincipalIdentityCenterOutputWithContext(ctx context.Context) EntitlementFilterPrincipalRolePrincipalIdentityCenterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementFilterPrincipalRolePrincipalIdentityCenterOutput)
+}
+
+func (i EntitlementFilterPrincipalRolePrincipalIdentityCenterArgs) ToEntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutput() EntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutput {
+	return i.ToEntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutputWithContext(context.Background())
+}
+
+func (i EntitlementFilterPrincipalRolePrincipalIdentityCenterArgs) ToEntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutputWithContext(ctx context.Context) EntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementFilterPrincipalRolePrincipalIdentityCenterOutput).ToEntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutputWithContext(ctx)
+}
+
+// EntitlementFilterPrincipalRolePrincipalIdentityCenterPtrInput is an input type that accepts EntitlementFilterPrincipalRolePrincipalIdentityCenterArgs, EntitlementFilterPrincipalRolePrincipalIdentityCenterPtr and EntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutput values.
+// You can construct a concrete instance of `EntitlementFilterPrincipalRolePrincipalIdentityCenterPtrInput` via:
+//
+//	        EntitlementFilterPrincipalRolePrincipalIdentityCenterArgs{...}
+//
+//	or:
+//
+//	        nil
+type EntitlementFilterPrincipalRolePrincipalIdentityCenterPtrInput interface {
+	pulumi.Input
+
+	ToEntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutput() EntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutput
+	ToEntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutputWithContext(context.Context) EntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutput
+}
+
+type entitlementFilterPrincipalRolePrincipalIdentityCenterPtrType EntitlementFilterPrincipalRolePrincipalIdentityCenterArgs
+
+func EntitlementFilterPrincipalRolePrincipalIdentityCenterPtr(v *EntitlementFilterPrincipalRolePrincipalIdentityCenterArgs) EntitlementFilterPrincipalRolePrincipalIdentityCenterPtrInput {
+	return (*entitlementFilterPrincipalRolePrincipalIdentityCenterPtrType)(v)
+}
+
+func (*entitlementFilterPrincipalRolePrincipalIdentityCenterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntitlementFilterPrincipalRolePrincipalIdentityCenter)(nil)).Elem()
+}
+
+func (i *entitlementFilterPrincipalRolePrincipalIdentityCenterPtrType) ToEntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutput() EntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutput {
+	return i.ToEntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutputWithContext(context.Background())
+}
+
+func (i *entitlementFilterPrincipalRolePrincipalIdentityCenterPtrType) ToEntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutputWithContext(ctx context.Context) EntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutput)
+}
+
+type EntitlementFilterPrincipalRolePrincipalIdentityCenterOutput struct{ *pulumi.OutputState }
+
+func (EntitlementFilterPrincipalRolePrincipalIdentityCenterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntitlementFilterPrincipalRolePrincipalIdentityCenter)(nil)).Elem()
+}
+
+func (o EntitlementFilterPrincipalRolePrincipalIdentityCenterOutput) ToEntitlementFilterPrincipalRolePrincipalIdentityCenterOutput() EntitlementFilterPrincipalRolePrincipalIdentityCenterOutput {
+	return o
+}
+
+func (o EntitlementFilterPrincipalRolePrincipalIdentityCenterOutput) ToEntitlementFilterPrincipalRolePrincipalIdentityCenterOutputWithContext(ctx context.Context) EntitlementFilterPrincipalRolePrincipalIdentityCenterOutput {
+	return o
+}
+
+func (o EntitlementFilterPrincipalRolePrincipalIdentityCenterOutput) ToEntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutput() EntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutput {
+	return o.ToEntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutputWithContext(context.Background())
+}
+
+func (o EntitlementFilterPrincipalRolePrincipalIdentityCenterOutput) ToEntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutputWithContext(ctx context.Context) EntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntitlementFilterPrincipalRolePrincipalIdentityCenter) *EntitlementFilterPrincipalRolePrincipalIdentityCenter {
+		return &v
+	}).(EntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutput)
+}
+
+// IAM Identity Center group ID.
+func (o EntitlementFilterPrincipalRolePrincipalIdentityCenterOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EntitlementFilterPrincipalRolePrincipalIdentityCenter) *string { return v.GroupId }).(pulumi.StringPtrOutput)
+}
+
+// IAM Identity Center user ID.
+func (o EntitlementFilterPrincipalRolePrincipalIdentityCenterOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EntitlementFilterPrincipalRolePrincipalIdentityCenter) *string { return v.UserId }).(pulumi.StringPtrOutput)
+}
+
+type EntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutput struct{ *pulumi.OutputState }
+
+func (EntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntitlementFilterPrincipalRolePrincipalIdentityCenter)(nil)).Elem()
+}
+
+func (o EntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutput) ToEntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutput() EntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutput {
+	return o
+}
+
+func (o EntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutput) ToEntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutputWithContext(ctx context.Context) EntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutput {
+	return o
+}
+
+func (o EntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutput) Elem() EntitlementFilterPrincipalRolePrincipalIdentityCenterOutput {
+	return o.ApplyT(func(v *EntitlementFilterPrincipalRolePrincipalIdentityCenter) EntitlementFilterPrincipalRolePrincipalIdentityCenter {
+		if v != nil {
+			return *v
+		}
+		var ret EntitlementFilterPrincipalRolePrincipalIdentityCenter
+		return ret
+	}).(EntitlementFilterPrincipalRolePrincipalIdentityCenterOutput)
+}
+
+// IAM Identity Center group ID.
+func (o EntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EntitlementFilterPrincipalRolePrincipalIdentityCenter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+// IAM Identity Center user ID.
+func (o EntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EntitlementFilterPrincipalRolePrincipalIdentityCenter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserId
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetApplicationIdentitySource struct {
+	// IAM Identity Center instance used as the identity source. See `identityCenter` Block below.
+	IdentityCenters []GetApplicationIdentitySourceIdentityCenter `pulumi:"identityCenters"`
+}
+
+// GetApplicationIdentitySourceInput is an input type that accepts GetApplicationIdentitySourceArgs and GetApplicationIdentitySourceOutput values.
+// You can construct a concrete instance of `GetApplicationIdentitySourceInput` via:
+//
+//	GetApplicationIdentitySourceArgs{...}
+type GetApplicationIdentitySourceInput interface {
+	pulumi.Input
+
+	ToGetApplicationIdentitySourceOutput() GetApplicationIdentitySourceOutput
+	ToGetApplicationIdentitySourceOutputWithContext(context.Context) GetApplicationIdentitySourceOutput
+}
+
+type GetApplicationIdentitySourceArgs struct {
+	// IAM Identity Center instance used as the identity source. See `identityCenter` Block below.
+	IdentityCenters GetApplicationIdentitySourceIdentityCenterArrayInput `pulumi:"identityCenters"`
+}
+
+func (GetApplicationIdentitySourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationIdentitySource)(nil)).Elem()
+}
+
+func (i GetApplicationIdentitySourceArgs) ToGetApplicationIdentitySourceOutput() GetApplicationIdentitySourceOutput {
+	return i.ToGetApplicationIdentitySourceOutputWithContext(context.Background())
+}
+
+func (i GetApplicationIdentitySourceArgs) ToGetApplicationIdentitySourceOutputWithContext(ctx context.Context) GetApplicationIdentitySourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationIdentitySourceOutput)
+}
+
+// GetApplicationIdentitySourceArrayInput is an input type that accepts GetApplicationIdentitySourceArray and GetApplicationIdentitySourceArrayOutput values.
+// You can construct a concrete instance of `GetApplicationIdentitySourceArrayInput` via:
+//
+//	GetApplicationIdentitySourceArray{ GetApplicationIdentitySourceArgs{...} }
+type GetApplicationIdentitySourceArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationIdentitySourceArrayOutput() GetApplicationIdentitySourceArrayOutput
+	ToGetApplicationIdentitySourceArrayOutputWithContext(context.Context) GetApplicationIdentitySourceArrayOutput
+}
+
+type GetApplicationIdentitySourceArray []GetApplicationIdentitySourceInput
+
+func (GetApplicationIdentitySourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationIdentitySource)(nil)).Elem()
+}
+
+func (i GetApplicationIdentitySourceArray) ToGetApplicationIdentitySourceArrayOutput() GetApplicationIdentitySourceArrayOutput {
+	return i.ToGetApplicationIdentitySourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationIdentitySourceArray) ToGetApplicationIdentitySourceArrayOutputWithContext(ctx context.Context) GetApplicationIdentitySourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationIdentitySourceArrayOutput)
+}
+
+type GetApplicationIdentitySourceOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationIdentitySourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationIdentitySource)(nil)).Elem()
+}
+
+func (o GetApplicationIdentitySourceOutput) ToGetApplicationIdentitySourceOutput() GetApplicationIdentitySourceOutput {
+	return o
+}
+
+func (o GetApplicationIdentitySourceOutput) ToGetApplicationIdentitySourceOutputWithContext(ctx context.Context) GetApplicationIdentitySourceOutput {
+	return o
+}
+
+// IAM Identity Center instance used as the identity source. See `identityCenter` Block below.
+func (o GetApplicationIdentitySourceOutput) IdentityCenters() GetApplicationIdentitySourceIdentityCenterArrayOutput {
+	return o.ApplyT(func(v GetApplicationIdentitySource) []GetApplicationIdentitySourceIdentityCenter {
+		return v.IdentityCenters
+	}).(GetApplicationIdentitySourceIdentityCenterArrayOutput)
+}
+
+type GetApplicationIdentitySourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationIdentitySourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationIdentitySource)(nil)).Elem()
+}
+
+func (o GetApplicationIdentitySourceArrayOutput) ToGetApplicationIdentitySourceArrayOutput() GetApplicationIdentitySourceArrayOutput {
+	return o
+}
+
+func (o GetApplicationIdentitySourceArrayOutput) ToGetApplicationIdentitySourceArrayOutputWithContext(ctx context.Context) GetApplicationIdentitySourceArrayOutput {
+	return o
+}
+
+func (o GetApplicationIdentitySourceArrayOutput) Index(i pulumi.IntInput) GetApplicationIdentitySourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationIdentitySource {
+		return vs[0].([]GetApplicationIdentitySource)[vs[1].(int)]
+	}).(GetApplicationIdentitySourceOutput)
+}
+
+type GetApplicationIdentitySourceIdentityCenter struct {
+	// ARN of the IAM Identity Center application for this account access manager application.
+	ApplicationArn string `pulumi:"applicationArn"`
+	// ARN of the IAM Identity Center instance.
+	InstanceArn string `pulumi:"instanceArn"`
+}
+
+// GetApplicationIdentitySourceIdentityCenterInput is an input type that accepts GetApplicationIdentitySourceIdentityCenterArgs and GetApplicationIdentitySourceIdentityCenterOutput values.
+// You can construct a concrete instance of `GetApplicationIdentitySourceIdentityCenterInput` via:
+//
+//	GetApplicationIdentitySourceIdentityCenterArgs{...}
+type GetApplicationIdentitySourceIdentityCenterInput interface {
+	pulumi.Input
+
+	ToGetApplicationIdentitySourceIdentityCenterOutput() GetApplicationIdentitySourceIdentityCenterOutput
+	ToGetApplicationIdentitySourceIdentityCenterOutputWithContext(context.Context) GetApplicationIdentitySourceIdentityCenterOutput
+}
+
+type GetApplicationIdentitySourceIdentityCenterArgs struct {
+	// ARN of the IAM Identity Center application for this account access manager application.
+	ApplicationArn pulumi.StringInput `pulumi:"applicationArn"`
+	// ARN of the IAM Identity Center instance.
+	InstanceArn pulumi.StringInput `pulumi:"instanceArn"`
+}
+
+func (GetApplicationIdentitySourceIdentityCenterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationIdentitySourceIdentityCenter)(nil)).Elem()
+}
+
+func (i GetApplicationIdentitySourceIdentityCenterArgs) ToGetApplicationIdentitySourceIdentityCenterOutput() GetApplicationIdentitySourceIdentityCenterOutput {
+	return i.ToGetApplicationIdentitySourceIdentityCenterOutputWithContext(context.Background())
+}
+
+func (i GetApplicationIdentitySourceIdentityCenterArgs) ToGetApplicationIdentitySourceIdentityCenterOutputWithContext(ctx context.Context) GetApplicationIdentitySourceIdentityCenterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationIdentitySourceIdentityCenterOutput)
+}
+
+// GetApplicationIdentitySourceIdentityCenterArrayInput is an input type that accepts GetApplicationIdentitySourceIdentityCenterArray and GetApplicationIdentitySourceIdentityCenterArrayOutput values.
+// You can construct a concrete instance of `GetApplicationIdentitySourceIdentityCenterArrayInput` via:
+//
+//	GetApplicationIdentitySourceIdentityCenterArray{ GetApplicationIdentitySourceIdentityCenterArgs{...} }
+type GetApplicationIdentitySourceIdentityCenterArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationIdentitySourceIdentityCenterArrayOutput() GetApplicationIdentitySourceIdentityCenterArrayOutput
+	ToGetApplicationIdentitySourceIdentityCenterArrayOutputWithContext(context.Context) GetApplicationIdentitySourceIdentityCenterArrayOutput
+}
+
+type GetApplicationIdentitySourceIdentityCenterArray []GetApplicationIdentitySourceIdentityCenterInput
+
+func (GetApplicationIdentitySourceIdentityCenterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationIdentitySourceIdentityCenter)(nil)).Elem()
+}
+
+func (i GetApplicationIdentitySourceIdentityCenterArray) ToGetApplicationIdentitySourceIdentityCenterArrayOutput() GetApplicationIdentitySourceIdentityCenterArrayOutput {
+	return i.ToGetApplicationIdentitySourceIdentityCenterArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationIdentitySourceIdentityCenterArray) ToGetApplicationIdentitySourceIdentityCenterArrayOutputWithContext(ctx context.Context) GetApplicationIdentitySourceIdentityCenterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationIdentitySourceIdentityCenterArrayOutput)
+}
+
+type GetApplicationIdentitySourceIdentityCenterOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationIdentitySourceIdentityCenterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationIdentitySourceIdentityCenter)(nil)).Elem()
+}
+
+func (o GetApplicationIdentitySourceIdentityCenterOutput) ToGetApplicationIdentitySourceIdentityCenterOutput() GetApplicationIdentitySourceIdentityCenterOutput {
+	return o
+}
+
+func (o GetApplicationIdentitySourceIdentityCenterOutput) ToGetApplicationIdentitySourceIdentityCenterOutputWithContext(ctx context.Context) GetApplicationIdentitySourceIdentityCenterOutput {
+	return o
+}
+
+// ARN of the IAM Identity Center application for this account access manager application.
+func (o GetApplicationIdentitySourceIdentityCenterOutput) ApplicationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationIdentitySourceIdentityCenter) string { return v.ApplicationArn }).(pulumi.StringOutput)
+}
+
+// ARN of the IAM Identity Center instance.
+func (o GetApplicationIdentitySourceIdentityCenterOutput) InstanceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationIdentitySourceIdentityCenter) string { return v.InstanceArn }).(pulumi.StringOutput)
+}
+
+type GetApplicationIdentitySourceIdentityCenterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationIdentitySourceIdentityCenterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationIdentitySourceIdentityCenter)(nil)).Elem()
+}
+
+func (o GetApplicationIdentitySourceIdentityCenterArrayOutput) ToGetApplicationIdentitySourceIdentityCenterArrayOutput() GetApplicationIdentitySourceIdentityCenterArrayOutput {
+	return o
+}
+
+func (o GetApplicationIdentitySourceIdentityCenterArrayOutput) ToGetApplicationIdentitySourceIdentityCenterArrayOutputWithContext(ctx context.Context) GetApplicationIdentitySourceIdentityCenterArrayOutput {
+	return o
+}
+
+func (o GetApplicationIdentitySourceIdentityCenterArrayOutput) Index(i pulumi.IntInput) GetApplicationIdentitySourceIdentityCenterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationIdentitySourceIdentityCenter {
+		return vs[0].([]GetApplicationIdentitySourceIdentityCenter)[vs[1].(int)]
+	}).(GetApplicationIdentitySourceIdentityCenterOutput)
+}
+
+type GetEntitlementsEntitlement struct {
+	// Date and time when the Entitlement was created in RFC 3339 format.
+	CreatedAt string `pulumi:"createdAt"`
+	// Service-assigned unique identifier for the Entitlement.
+	EntitlementId string `pulumi:"entitlementId"`
+	// Principal-role entitlement configuration. See `entitlements.entitlement` Block below.
+	Entitlements []GetEntitlementsEntitlementEntitlement `pulumi:"entitlements"`
+}
+
+// GetEntitlementsEntitlementInput is an input type that accepts GetEntitlementsEntitlementArgs and GetEntitlementsEntitlementOutput values.
+// You can construct a concrete instance of `GetEntitlementsEntitlementInput` via:
+//
+//	GetEntitlementsEntitlementArgs{...}
+type GetEntitlementsEntitlementInput interface {
+	pulumi.Input
+
+	ToGetEntitlementsEntitlementOutput() GetEntitlementsEntitlementOutput
+	ToGetEntitlementsEntitlementOutputWithContext(context.Context) GetEntitlementsEntitlementOutput
+}
+
+type GetEntitlementsEntitlementArgs struct {
+	// Date and time when the Entitlement was created in RFC 3339 format.
+	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
+	// Service-assigned unique identifier for the Entitlement.
+	EntitlementId pulumi.StringInput `pulumi:"entitlementId"`
+	// Principal-role entitlement configuration. See `entitlements.entitlement` Block below.
+	Entitlements GetEntitlementsEntitlementEntitlementArrayInput `pulumi:"entitlements"`
+}
+
+func (GetEntitlementsEntitlementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntitlementsEntitlement)(nil)).Elem()
+}
+
+func (i GetEntitlementsEntitlementArgs) ToGetEntitlementsEntitlementOutput() GetEntitlementsEntitlementOutput {
+	return i.ToGetEntitlementsEntitlementOutputWithContext(context.Background())
+}
+
+func (i GetEntitlementsEntitlementArgs) ToGetEntitlementsEntitlementOutputWithContext(ctx context.Context) GetEntitlementsEntitlementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementsEntitlementOutput)
+}
+
+// GetEntitlementsEntitlementArrayInput is an input type that accepts GetEntitlementsEntitlementArray and GetEntitlementsEntitlementArrayOutput values.
+// You can construct a concrete instance of `GetEntitlementsEntitlementArrayInput` via:
+//
+//	GetEntitlementsEntitlementArray{ GetEntitlementsEntitlementArgs{...} }
+type GetEntitlementsEntitlementArrayInput interface {
+	pulumi.Input
+
+	ToGetEntitlementsEntitlementArrayOutput() GetEntitlementsEntitlementArrayOutput
+	ToGetEntitlementsEntitlementArrayOutputWithContext(context.Context) GetEntitlementsEntitlementArrayOutput
+}
+
+type GetEntitlementsEntitlementArray []GetEntitlementsEntitlementInput
+
+func (GetEntitlementsEntitlementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEntitlementsEntitlement)(nil)).Elem()
+}
+
+func (i GetEntitlementsEntitlementArray) ToGetEntitlementsEntitlementArrayOutput() GetEntitlementsEntitlementArrayOutput {
+	return i.ToGetEntitlementsEntitlementArrayOutputWithContext(context.Background())
+}
+
+func (i GetEntitlementsEntitlementArray) ToGetEntitlementsEntitlementArrayOutputWithContext(ctx context.Context) GetEntitlementsEntitlementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementsEntitlementArrayOutput)
+}
+
+type GetEntitlementsEntitlementOutput struct{ *pulumi.OutputState }
+
+func (GetEntitlementsEntitlementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntitlementsEntitlement)(nil)).Elem()
+}
+
+func (o GetEntitlementsEntitlementOutput) ToGetEntitlementsEntitlementOutput() GetEntitlementsEntitlementOutput {
+	return o
+}
+
+func (o GetEntitlementsEntitlementOutput) ToGetEntitlementsEntitlementOutputWithContext(ctx context.Context) GetEntitlementsEntitlementOutput {
+	return o
+}
+
+// Date and time when the Entitlement was created in RFC 3339 format.
+func (o GetEntitlementsEntitlementOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntitlementsEntitlement) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Service-assigned unique identifier for the Entitlement.
+func (o GetEntitlementsEntitlementOutput) EntitlementId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntitlementsEntitlement) string { return v.EntitlementId }).(pulumi.StringOutput)
+}
+
+// Principal-role entitlement configuration. See `entitlements.entitlement` Block below.
+func (o GetEntitlementsEntitlementOutput) Entitlements() GetEntitlementsEntitlementEntitlementArrayOutput {
+	return o.ApplyT(func(v GetEntitlementsEntitlement) []GetEntitlementsEntitlementEntitlement { return v.Entitlements }).(GetEntitlementsEntitlementEntitlementArrayOutput)
+}
+
+type GetEntitlementsEntitlementArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEntitlementsEntitlementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEntitlementsEntitlement)(nil)).Elem()
+}
+
+func (o GetEntitlementsEntitlementArrayOutput) ToGetEntitlementsEntitlementArrayOutput() GetEntitlementsEntitlementArrayOutput {
+	return o
+}
+
+func (o GetEntitlementsEntitlementArrayOutput) ToGetEntitlementsEntitlementArrayOutputWithContext(ctx context.Context) GetEntitlementsEntitlementArrayOutput {
+	return o
+}
+
+func (o GetEntitlementsEntitlementArrayOutput) Index(i pulumi.IntInput) GetEntitlementsEntitlementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEntitlementsEntitlement {
+		return vs[0].([]GetEntitlementsEntitlement)[vs[1].(int)]
+	}).(GetEntitlementsEntitlementOutput)
+}
+
+type GetEntitlementsEntitlementEntitlement struct {
+	// Principal-role entitlement configuration. See `entitlements.entitlement.principal_role` Block below.
+	PrincipalRoles []GetEntitlementsEntitlementEntitlementPrincipalRole `pulumi:"principalRoles"`
+}
+
+// GetEntitlementsEntitlementEntitlementInput is an input type that accepts GetEntitlementsEntitlementEntitlementArgs and GetEntitlementsEntitlementEntitlementOutput values.
+// You can construct a concrete instance of `GetEntitlementsEntitlementEntitlementInput` via:
+//
+//	GetEntitlementsEntitlementEntitlementArgs{...}
+type GetEntitlementsEntitlementEntitlementInput interface {
+	pulumi.Input
+
+	ToGetEntitlementsEntitlementEntitlementOutput() GetEntitlementsEntitlementEntitlementOutput
+	ToGetEntitlementsEntitlementEntitlementOutputWithContext(context.Context) GetEntitlementsEntitlementEntitlementOutput
+}
+
+type GetEntitlementsEntitlementEntitlementArgs struct {
+	// Principal-role entitlement configuration. See `entitlements.entitlement.principal_role` Block below.
+	PrincipalRoles GetEntitlementsEntitlementEntitlementPrincipalRoleArrayInput `pulumi:"principalRoles"`
+}
+
+func (GetEntitlementsEntitlementEntitlementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntitlementsEntitlementEntitlement)(nil)).Elem()
+}
+
+func (i GetEntitlementsEntitlementEntitlementArgs) ToGetEntitlementsEntitlementEntitlementOutput() GetEntitlementsEntitlementEntitlementOutput {
+	return i.ToGetEntitlementsEntitlementEntitlementOutputWithContext(context.Background())
+}
+
+func (i GetEntitlementsEntitlementEntitlementArgs) ToGetEntitlementsEntitlementEntitlementOutputWithContext(ctx context.Context) GetEntitlementsEntitlementEntitlementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementsEntitlementEntitlementOutput)
+}
+
+// GetEntitlementsEntitlementEntitlementArrayInput is an input type that accepts GetEntitlementsEntitlementEntitlementArray and GetEntitlementsEntitlementEntitlementArrayOutput values.
+// You can construct a concrete instance of `GetEntitlementsEntitlementEntitlementArrayInput` via:
+//
+//	GetEntitlementsEntitlementEntitlementArray{ GetEntitlementsEntitlementEntitlementArgs{...} }
+type GetEntitlementsEntitlementEntitlementArrayInput interface {
+	pulumi.Input
+
+	ToGetEntitlementsEntitlementEntitlementArrayOutput() GetEntitlementsEntitlementEntitlementArrayOutput
+	ToGetEntitlementsEntitlementEntitlementArrayOutputWithContext(context.Context) GetEntitlementsEntitlementEntitlementArrayOutput
+}
+
+type GetEntitlementsEntitlementEntitlementArray []GetEntitlementsEntitlementEntitlementInput
+
+func (GetEntitlementsEntitlementEntitlementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEntitlementsEntitlementEntitlement)(nil)).Elem()
+}
+
+func (i GetEntitlementsEntitlementEntitlementArray) ToGetEntitlementsEntitlementEntitlementArrayOutput() GetEntitlementsEntitlementEntitlementArrayOutput {
+	return i.ToGetEntitlementsEntitlementEntitlementArrayOutputWithContext(context.Background())
+}
+
+func (i GetEntitlementsEntitlementEntitlementArray) ToGetEntitlementsEntitlementEntitlementArrayOutputWithContext(ctx context.Context) GetEntitlementsEntitlementEntitlementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementsEntitlementEntitlementArrayOutput)
+}
+
+type GetEntitlementsEntitlementEntitlementOutput struct{ *pulumi.OutputState }
+
+func (GetEntitlementsEntitlementEntitlementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntitlementsEntitlementEntitlement)(nil)).Elem()
+}
+
+func (o GetEntitlementsEntitlementEntitlementOutput) ToGetEntitlementsEntitlementEntitlementOutput() GetEntitlementsEntitlementEntitlementOutput {
+	return o
+}
+
+func (o GetEntitlementsEntitlementEntitlementOutput) ToGetEntitlementsEntitlementEntitlementOutputWithContext(ctx context.Context) GetEntitlementsEntitlementEntitlementOutput {
+	return o
+}
+
+// Principal-role entitlement configuration. See `entitlements.entitlement.principal_role` Block below.
+func (o GetEntitlementsEntitlementEntitlementOutput) PrincipalRoles() GetEntitlementsEntitlementEntitlementPrincipalRoleArrayOutput {
+	return o.ApplyT(func(v GetEntitlementsEntitlementEntitlement) []GetEntitlementsEntitlementEntitlementPrincipalRole {
+		return v.PrincipalRoles
+	}).(GetEntitlementsEntitlementEntitlementPrincipalRoleArrayOutput)
+}
+
+type GetEntitlementsEntitlementEntitlementArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEntitlementsEntitlementEntitlementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEntitlementsEntitlementEntitlement)(nil)).Elem()
+}
+
+func (o GetEntitlementsEntitlementEntitlementArrayOutput) ToGetEntitlementsEntitlementEntitlementArrayOutput() GetEntitlementsEntitlementEntitlementArrayOutput {
+	return o
+}
+
+func (o GetEntitlementsEntitlementEntitlementArrayOutput) ToGetEntitlementsEntitlementEntitlementArrayOutputWithContext(ctx context.Context) GetEntitlementsEntitlementEntitlementArrayOutput {
+	return o
+}
+
+func (o GetEntitlementsEntitlementEntitlementArrayOutput) Index(i pulumi.IntInput) GetEntitlementsEntitlementEntitlementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEntitlementsEntitlementEntitlement {
+		return vs[0].([]GetEntitlementsEntitlementEntitlement)[vs[1].(int)]
+	}).(GetEntitlementsEntitlementEntitlementOutput)
+}
+
+type GetEntitlementsEntitlementEntitlementPrincipalRole struct {
+	// 12-digit AWS account ID for the target role.
+	AccountId string `pulumi:"accountId"`
+	// Human-readable name of the target account.
+	AccountName string `pulumi:"accountName"`
+	// IAM Identity Center principal granted access. See `entitlements.entitlement.principal_role.principal` Block below.
+	Principals []GetEntitlementsEntitlementEntitlementPrincipalRolePrincipal `pulumi:"principals"`
+	// Target IAM role ARN.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// GetEntitlementsEntitlementEntitlementPrincipalRoleInput is an input type that accepts GetEntitlementsEntitlementEntitlementPrincipalRoleArgs and GetEntitlementsEntitlementEntitlementPrincipalRoleOutput values.
+// You can construct a concrete instance of `GetEntitlementsEntitlementEntitlementPrincipalRoleInput` via:
+//
+//	GetEntitlementsEntitlementEntitlementPrincipalRoleArgs{...}
+type GetEntitlementsEntitlementEntitlementPrincipalRoleInput interface {
+	pulumi.Input
+
+	ToGetEntitlementsEntitlementEntitlementPrincipalRoleOutput() GetEntitlementsEntitlementEntitlementPrincipalRoleOutput
+	ToGetEntitlementsEntitlementEntitlementPrincipalRoleOutputWithContext(context.Context) GetEntitlementsEntitlementEntitlementPrincipalRoleOutput
+}
+
+type GetEntitlementsEntitlementEntitlementPrincipalRoleArgs struct {
+	// 12-digit AWS account ID for the target role.
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+	// Human-readable name of the target account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// IAM Identity Center principal granted access. See `entitlements.entitlement.principal_role.principal` Block below.
+	Principals GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArrayInput `pulumi:"principals"`
+	// Target IAM role ARN.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (GetEntitlementsEntitlementEntitlementPrincipalRoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntitlementsEntitlementEntitlementPrincipalRole)(nil)).Elem()
+}
+
+func (i GetEntitlementsEntitlementEntitlementPrincipalRoleArgs) ToGetEntitlementsEntitlementEntitlementPrincipalRoleOutput() GetEntitlementsEntitlementEntitlementPrincipalRoleOutput {
+	return i.ToGetEntitlementsEntitlementEntitlementPrincipalRoleOutputWithContext(context.Background())
+}
+
+func (i GetEntitlementsEntitlementEntitlementPrincipalRoleArgs) ToGetEntitlementsEntitlementEntitlementPrincipalRoleOutputWithContext(ctx context.Context) GetEntitlementsEntitlementEntitlementPrincipalRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementsEntitlementEntitlementPrincipalRoleOutput)
+}
+
+// GetEntitlementsEntitlementEntitlementPrincipalRoleArrayInput is an input type that accepts GetEntitlementsEntitlementEntitlementPrincipalRoleArray and GetEntitlementsEntitlementEntitlementPrincipalRoleArrayOutput values.
+// You can construct a concrete instance of `GetEntitlementsEntitlementEntitlementPrincipalRoleArrayInput` via:
+//
+//	GetEntitlementsEntitlementEntitlementPrincipalRoleArray{ GetEntitlementsEntitlementEntitlementPrincipalRoleArgs{...} }
+type GetEntitlementsEntitlementEntitlementPrincipalRoleArrayInput interface {
+	pulumi.Input
+
+	ToGetEntitlementsEntitlementEntitlementPrincipalRoleArrayOutput() GetEntitlementsEntitlementEntitlementPrincipalRoleArrayOutput
+	ToGetEntitlementsEntitlementEntitlementPrincipalRoleArrayOutputWithContext(context.Context) GetEntitlementsEntitlementEntitlementPrincipalRoleArrayOutput
+}
+
+type GetEntitlementsEntitlementEntitlementPrincipalRoleArray []GetEntitlementsEntitlementEntitlementPrincipalRoleInput
+
+func (GetEntitlementsEntitlementEntitlementPrincipalRoleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEntitlementsEntitlementEntitlementPrincipalRole)(nil)).Elem()
+}
+
+func (i GetEntitlementsEntitlementEntitlementPrincipalRoleArray) ToGetEntitlementsEntitlementEntitlementPrincipalRoleArrayOutput() GetEntitlementsEntitlementEntitlementPrincipalRoleArrayOutput {
+	return i.ToGetEntitlementsEntitlementEntitlementPrincipalRoleArrayOutputWithContext(context.Background())
+}
+
+func (i GetEntitlementsEntitlementEntitlementPrincipalRoleArray) ToGetEntitlementsEntitlementEntitlementPrincipalRoleArrayOutputWithContext(ctx context.Context) GetEntitlementsEntitlementEntitlementPrincipalRoleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementsEntitlementEntitlementPrincipalRoleArrayOutput)
+}
+
+type GetEntitlementsEntitlementEntitlementPrincipalRoleOutput struct{ *pulumi.OutputState }
+
+func (GetEntitlementsEntitlementEntitlementPrincipalRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntitlementsEntitlementEntitlementPrincipalRole)(nil)).Elem()
+}
+
+func (o GetEntitlementsEntitlementEntitlementPrincipalRoleOutput) ToGetEntitlementsEntitlementEntitlementPrincipalRoleOutput() GetEntitlementsEntitlementEntitlementPrincipalRoleOutput {
+	return o
+}
+
+func (o GetEntitlementsEntitlementEntitlementPrincipalRoleOutput) ToGetEntitlementsEntitlementEntitlementPrincipalRoleOutputWithContext(ctx context.Context) GetEntitlementsEntitlementEntitlementPrincipalRoleOutput {
+	return o
+}
+
+// 12-digit AWS account ID for the target role.
+func (o GetEntitlementsEntitlementEntitlementPrincipalRoleOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntitlementsEntitlementEntitlementPrincipalRole) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// Human-readable name of the target account.
+func (o GetEntitlementsEntitlementEntitlementPrincipalRoleOutput) AccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntitlementsEntitlementEntitlementPrincipalRole) string { return v.AccountName }).(pulumi.StringOutput)
+}
+
+// IAM Identity Center principal granted access. See `entitlements.entitlement.principal_role.principal` Block below.
+func (o GetEntitlementsEntitlementEntitlementPrincipalRoleOutput) Principals() GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArrayOutput {
+	return o.ApplyT(func(v GetEntitlementsEntitlementEntitlementPrincipalRole) []GetEntitlementsEntitlementEntitlementPrincipalRolePrincipal {
+		return v.Principals
+	}).(GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArrayOutput)
+}
+
+// Target IAM role ARN.
+func (o GetEntitlementsEntitlementEntitlementPrincipalRoleOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntitlementsEntitlementEntitlementPrincipalRole) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type GetEntitlementsEntitlementEntitlementPrincipalRoleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEntitlementsEntitlementEntitlementPrincipalRoleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEntitlementsEntitlementEntitlementPrincipalRole)(nil)).Elem()
+}
+
+func (o GetEntitlementsEntitlementEntitlementPrincipalRoleArrayOutput) ToGetEntitlementsEntitlementEntitlementPrincipalRoleArrayOutput() GetEntitlementsEntitlementEntitlementPrincipalRoleArrayOutput {
+	return o
+}
+
+func (o GetEntitlementsEntitlementEntitlementPrincipalRoleArrayOutput) ToGetEntitlementsEntitlementEntitlementPrincipalRoleArrayOutputWithContext(ctx context.Context) GetEntitlementsEntitlementEntitlementPrincipalRoleArrayOutput {
+	return o
+}
+
+func (o GetEntitlementsEntitlementEntitlementPrincipalRoleArrayOutput) Index(i pulumi.IntInput) GetEntitlementsEntitlementEntitlementPrincipalRoleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEntitlementsEntitlementEntitlementPrincipalRole {
+		return vs[0].([]GetEntitlementsEntitlementEntitlementPrincipalRole)[vs[1].(int)]
+	}).(GetEntitlementsEntitlementEntitlementPrincipalRoleOutput)
+}
+
+type GetEntitlementsEntitlementEntitlementPrincipalRolePrincipal struct {
+	// IAM Identity Center principal. See `entitlements.entitlement.principal_role.principal.identity_center` Block below.
+	IdentityCenters []GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenter `pulumi:"identityCenters"`
+}
+
+// GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalInput is an input type that accepts GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArgs and GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalOutput values.
+// You can construct a concrete instance of `GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalInput` via:
+//
+//	GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArgs{...}
+type GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalInput interface {
+	pulumi.Input
+
+	ToGetEntitlementsEntitlementEntitlementPrincipalRolePrincipalOutput() GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalOutput
+	ToGetEntitlementsEntitlementEntitlementPrincipalRolePrincipalOutputWithContext(context.Context) GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalOutput
+}
+
+type GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArgs struct {
+	// IAM Identity Center principal. See `entitlements.entitlement.principal_role.principal.identity_center` Block below.
+	IdentityCenters GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArrayInput `pulumi:"identityCenters"`
+}
+
+func (GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntitlementsEntitlementEntitlementPrincipalRolePrincipal)(nil)).Elem()
+}
+
+func (i GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArgs) ToGetEntitlementsEntitlementEntitlementPrincipalRolePrincipalOutput() GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalOutput {
+	return i.ToGetEntitlementsEntitlementEntitlementPrincipalRolePrincipalOutputWithContext(context.Background())
+}
+
+func (i GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArgs) ToGetEntitlementsEntitlementEntitlementPrincipalRolePrincipalOutputWithContext(ctx context.Context) GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalOutput)
+}
+
+// GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArrayInput is an input type that accepts GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArray and GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArrayOutput values.
+// You can construct a concrete instance of `GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArrayInput` via:
+//
+//	GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArray{ GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArgs{...} }
+type GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArrayInput interface {
+	pulumi.Input
+
+	ToGetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArrayOutput() GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArrayOutput
+	ToGetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArrayOutputWithContext(context.Context) GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArrayOutput
+}
+
+type GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArray []GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalInput
+
+func (GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEntitlementsEntitlementEntitlementPrincipalRolePrincipal)(nil)).Elem()
+}
+
+func (i GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArray) ToGetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArrayOutput() GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArrayOutput {
+	return i.ToGetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArrayOutputWithContext(context.Background())
+}
+
+func (i GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArray) ToGetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArrayOutputWithContext(ctx context.Context) GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArrayOutput)
+}
+
+type GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalOutput struct{ *pulumi.OutputState }
+
+func (GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntitlementsEntitlementEntitlementPrincipalRolePrincipal)(nil)).Elem()
+}
+
+func (o GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalOutput) ToGetEntitlementsEntitlementEntitlementPrincipalRolePrincipalOutput() GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalOutput {
+	return o
+}
+
+func (o GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalOutput) ToGetEntitlementsEntitlementEntitlementPrincipalRolePrincipalOutputWithContext(ctx context.Context) GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalOutput {
+	return o
+}
+
+// IAM Identity Center principal. See `entitlements.entitlement.principal_role.principal.identity_center` Block below.
+func (o GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalOutput) IdentityCenters() GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArrayOutput {
+	return o.ApplyT(func(v GetEntitlementsEntitlementEntitlementPrincipalRolePrincipal) []GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenter {
+		return v.IdentityCenters
+	}).(GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArrayOutput)
+}
+
+type GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEntitlementsEntitlementEntitlementPrincipalRolePrincipal)(nil)).Elem()
+}
+
+func (o GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArrayOutput) ToGetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArrayOutput() GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArrayOutput {
+	return o
+}
+
+func (o GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArrayOutput) ToGetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArrayOutputWithContext(ctx context.Context) GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArrayOutput {
+	return o
+}
+
+func (o GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArrayOutput) Index(i pulumi.IntInput) GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEntitlementsEntitlementEntitlementPrincipalRolePrincipal {
+		return vs[0].([]GetEntitlementsEntitlementEntitlementPrincipalRolePrincipal)[vs[1].(int)]
+	}).(GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalOutput)
+}
+
+type GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenter struct {
+	// IAM Identity Center group ID.
+	GroupId string `pulumi:"groupId"`
+	// IAM Identity Center user ID.
+	UserId string `pulumi:"userId"`
+}
+
+// GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterInput is an input type that accepts GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs and GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput values.
+// You can construct a concrete instance of `GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterInput` via:
+//
+//	GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs{...}
+type GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterInput interface {
+	pulumi.Input
+
+	ToGetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput() GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput
+	ToGetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutputWithContext(context.Context) GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput
+}
+
+type GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs struct {
+	// IAM Identity Center group ID.
+	GroupId pulumi.StringInput `pulumi:"groupId"`
+	// IAM Identity Center user ID.
+	UserId pulumi.StringInput `pulumi:"userId"`
+}
+
+func (GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenter)(nil)).Elem()
+}
+
+func (i GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs) ToGetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput() GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput {
+	return i.ToGetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutputWithContext(context.Background())
+}
+
+func (i GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs) ToGetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutputWithContext(ctx context.Context) GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput)
+}
+
+// GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArrayInput is an input type that accepts GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArray and GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArrayOutput values.
+// You can construct a concrete instance of `GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArrayInput` via:
+//
+//	GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArray{ GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs{...} }
+type GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArrayInput interface {
+	pulumi.Input
+
+	ToGetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArrayOutput() GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArrayOutput
+	ToGetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArrayOutputWithContext(context.Context) GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArrayOutput
+}
+
+type GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArray []GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterInput
+
+func (GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenter)(nil)).Elem()
+}
+
+func (i GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArray) ToGetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArrayOutput() GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArrayOutput {
+	return i.ToGetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArrayOutputWithContext(context.Background())
+}
+
+func (i GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArray) ToGetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArrayOutputWithContext(ctx context.Context) GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArrayOutput)
+}
+
+type GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput struct{ *pulumi.OutputState }
+
+func (GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenter)(nil)).Elem()
+}
+
+func (o GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput) ToGetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput() GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput {
+	return o
+}
+
+func (o GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput) ToGetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutputWithContext(ctx context.Context) GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput {
+	return o
+}
+
+// IAM Identity Center group ID.
+func (o GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenter) string {
+		return v.GroupId
+	}).(pulumi.StringOutput)
+}
+
+// IAM Identity Center user ID.
+func (o GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenter) string {
+		return v.UserId
+	}).(pulumi.StringOutput)
+}
+
+type GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenter)(nil)).Elem()
+}
+
+func (o GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArrayOutput) ToGetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArrayOutput() GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArrayOutput {
+	return o
+}
+
+func (o GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArrayOutput) ToGetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArrayOutputWithContext(ctx context.Context) GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArrayOutput {
+	return o
+}
+
+func (o GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArrayOutput) Index(i pulumi.IntInput) GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenter {
+		return vs[0].([]GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenter)[vs[1].(int)]
+	}).(GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput)
+}
+
+type GetEntitlementsFilter struct {
+	// principal-to-role filter criteria for narrowing entitlement results. See `filter.principal_role` Block below.
+	PrincipalRole *GetEntitlementsFilterPrincipalRole `pulumi:"principalRole"`
+}
+
+// GetEntitlementsFilterInput is an input type that accepts GetEntitlementsFilterArgs and GetEntitlementsFilterOutput values.
+// You can construct a concrete instance of `GetEntitlementsFilterInput` via:
+//
+//	GetEntitlementsFilterArgs{...}
+type GetEntitlementsFilterInput interface {
+	pulumi.Input
+
+	ToGetEntitlementsFilterOutput() GetEntitlementsFilterOutput
+	ToGetEntitlementsFilterOutputWithContext(context.Context) GetEntitlementsFilterOutput
+}
+
+type GetEntitlementsFilterArgs struct {
+	// principal-to-role filter criteria for narrowing entitlement results. See `filter.principal_role` Block below.
+	PrincipalRole GetEntitlementsFilterPrincipalRolePtrInput `pulumi:"principalRole"`
+}
+
+func (GetEntitlementsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntitlementsFilter)(nil)).Elem()
+}
+
+func (i GetEntitlementsFilterArgs) ToGetEntitlementsFilterOutput() GetEntitlementsFilterOutput {
+	return i.ToGetEntitlementsFilterOutputWithContext(context.Background())
+}
+
+func (i GetEntitlementsFilterArgs) ToGetEntitlementsFilterOutputWithContext(ctx context.Context) GetEntitlementsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementsFilterOutput)
+}
+
+type GetEntitlementsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetEntitlementsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntitlementsFilter)(nil)).Elem()
+}
+
+func (o GetEntitlementsFilterOutput) ToGetEntitlementsFilterOutput() GetEntitlementsFilterOutput {
+	return o
+}
+
+func (o GetEntitlementsFilterOutput) ToGetEntitlementsFilterOutputWithContext(ctx context.Context) GetEntitlementsFilterOutput {
+	return o
+}
+
+// principal-to-role filter criteria for narrowing entitlement results. See `filter.principal_role` Block below.
+func (o GetEntitlementsFilterOutput) PrincipalRole() GetEntitlementsFilterPrincipalRolePtrOutput {
+	return o.ApplyT(func(v GetEntitlementsFilter) *GetEntitlementsFilterPrincipalRole { return v.PrincipalRole }).(GetEntitlementsFilterPrincipalRolePtrOutput)
+}
+
+type GetEntitlementsFilterPrincipalRole struct {
+	// AWS account ID to filter entitlements by.
+	AccountId *string `pulumi:"accountId"`
+	// principal to filter entitlements by. See `filter.principal_role.principal` Block below.
+	Principal *GetEntitlementsFilterPrincipalRolePrincipal `pulumi:"principal"`
+	// IAM role ARN to filter entitlements by.
+	RoleArn *string `pulumi:"roleArn"`
+}
+
+// GetEntitlementsFilterPrincipalRoleInput is an input type that accepts GetEntitlementsFilterPrincipalRoleArgs and GetEntitlementsFilterPrincipalRoleOutput values.
+// You can construct a concrete instance of `GetEntitlementsFilterPrincipalRoleInput` via:
+//
+//	GetEntitlementsFilterPrincipalRoleArgs{...}
+type GetEntitlementsFilterPrincipalRoleInput interface {
+	pulumi.Input
+
+	ToGetEntitlementsFilterPrincipalRoleOutput() GetEntitlementsFilterPrincipalRoleOutput
+	ToGetEntitlementsFilterPrincipalRoleOutputWithContext(context.Context) GetEntitlementsFilterPrincipalRoleOutput
+}
+
+type GetEntitlementsFilterPrincipalRoleArgs struct {
+	// AWS account ID to filter entitlements by.
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
+	// principal to filter entitlements by. See `filter.principal_role.principal` Block below.
+	Principal GetEntitlementsFilterPrincipalRolePrincipalPtrInput `pulumi:"principal"`
+	// IAM role ARN to filter entitlements by.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+}
+
+func (GetEntitlementsFilterPrincipalRoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntitlementsFilterPrincipalRole)(nil)).Elem()
+}
+
+func (i GetEntitlementsFilterPrincipalRoleArgs) ToGetEntitlementsFilterPrincipalRoleOutput() GetEntitlementsFilterPrincipalRoleOutput {
+	return i.ToGetEntitlementsFilterPrincipalRoleOutputWithContext(context.Background())
+}
+
+func (i GetEntitlementsFilterPrincipalRoleArgs) ToGetEntitlementsFilterPrincipalRoleOutputWithContext(ctx context.Context) GetEntitlementsFilterPrincipalRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementsFilterPrincipalRoleOutput)
+}
+
+func (i GetEntitlementsFilterPrincipalRoleArgs) ToGetEntitlementsFilterPrincipalRolePtrOutput() GetEntitlementsFilterPrincipalRolePtrOutput {
+	return i.ToGetEntitlementsFilterPrincipalRolePtrOutputWithContext(context.Background())
+}
+
+func (i GetEntitlementsFilterPrincipalRoleArgs) ToGetEntitlementsFilterPrincipalRolePtrOutputWithContext(ctx context.Context) GetEntitlementsFilterPrincipalRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementsFilterPrincipalRoleOutput).ToGetEntitlementsFilterPrincipalRolePtrOutputWithContext(ctx)
+}
+
+// GetEntitlementsFilterPrincipalRolePtrInput is an input type that accepts GetEntitlementsFilterPrincipalRoleArgs, GetEntitlementsFilterPrincipalRolePtr and GetEntitlementsFilterPrincipalRolePtrOutput values.
+// You can construct a concrete instance of `GetEntitlementsFilterPrincipalRolePtrInput` via:
+//
+//	        GetEntitlementsFilterPrincipalRoleArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetEntitlementsFilterPrincipalRolePtrInput interface {
+	pulumi.Input
+
+	ToGetEntitlementsFilterPrincipalRolePtrOutput() GetEntitlementsFilterPrincipalRolePtrOutput
+	ToGetEntitlementsFilterPrincipalRolePtrOutputWithContext(context.Context) GetEntitlementsFilterPrincipalRolePtrOutput
+}
+
+type getEntitlementsFilterPrincipalRolePtrType GetEntitlementsFilterPrincipalRoleArgs
+
+func GetEntitlementsFilterPrincipalRolePtr(v *GetEntitlementsFilterPrincipalRoleArgs) GetEntitlementsFilterPrincipalRolePtrInput {
+	return (*getEntitlementsFilterPrincipalRolePtrType)(v)
+}
+
+func (*getEntitlementsFilterPrincipalRolePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetEntitlementsFilterPrincipalRole)(nil)).Elem()
+}
+
+func (i *getEntitlementsFilterPrincipalRolePtrType) ToGetEntitlementsFilterPrincipalRolePtrOutput() GetEntitlementsFilterPrincipalRolePtrOutput {
+	return i.ToGetEntitlementsFilterPrincipalRolePtrOutputWithContext(context.Background())
+}
+
+func (i *getEntitlementsFilterPrincipalRolePtrType) ToGetEntitlementsFilterPrincipalRolePtrOutputWithContext(ctx context.Context) GetEntitlementsFilterPrincipalRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementsFilterPrincipalRolePtrOutput)
+}
+
+type GetEntitlementsFilterPrincipalRoleOutput struct{ *pulumi.OutputState }
+
+func (GetEntitlementsFilterPrincipalRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntitlementsFilterPrincipalRole)(nil)).Elem()
+}
+
+func (o GetEntitlementsFilterPrincipalRoleOutput) ToGetEntitlementsFilterPrincipalRoleOutput() GetEntitlementsFilterPrincipalRoleOutput {
+	return o
+}
+
+func (o GetEntitlementsFilterPrincipalRoleOutput) ToGetEntitlementsFilterPrincipalRoleOutputWithContext(ctx context.Context) GetEntitlementsFilterPrincipalRoleOutput {
+	return o
+}
+
+func (o GetEntitlementsFilterPrincipalRoleOutput) ToGetEntitlementsFilterPrincipalRolePtrOutput() GetEntitlementsFilterPrincipalRolePtrOutput {
+	return o.ToGetEntitlementsFilterPrincipalRolePtrOutputWithContext(context.Background())
+}
+
+func (o GetEntitlementsFilterPrincipalRoleOutput) ToGetEntitlementsFilterPrincipalRolePtrOutputWithContext(ctx context.Context) GetEntitlementsFilterPrincipalRolePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetEntitlementsFilterPrincipalRole) *GetEntitlementsFilterPrincipalRole {
+		return &v
+	}).(GetEntitlementsFilterPrincipalRolePtrOutput)
+}
+
+// AWS account ID to filter entitlements by.
+func (o GetEntitlementsFilterPrincipalRoleOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEntitlementsFilterPrincipalRole) *string { return v.AccountId }).(pulumi.StringPtrOutput)
+}
+
+// principal to filter entitlements by. See `filter.principal_role.principal` Block below.
+func (o GetEntitlementsFilterPrincipalRoleOutput) Principal() GetEntitlementsFilterPrincipalRolePrincipalPtrOutput {
+	return o.ApplyT(func(v GetEntitlementsFilterPrincipalRole) *GetEntitlementsFilterPrincipalRolePrincipal {
+		return v.Principal
+	}).(GetEntitlementsFilterPrincipalRolePrincipalPtrOutput)
+}
+
+// IAM role ARN to filter entitlements by.
+func (o GetEntitlementsFilterPrincipalRoleOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEntitlementsFilterPrincipalRole) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+type GetEntitlementsFilterPrincipalRolePtrOutput struct{ *pulumi.OutputState }
+
+func (GetEntitlementsFilterPrincipalRolePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetEntitlementsFilterPrincipalRole)(nil)).Elem()
+}
+
+func (o GetEntitlementsFilterPrincipalRolePtrOutput) ToGetEntitlementsFilterPrincipalRolePtrOutput() GetEntitlementsFilterPrincipalRolePtrOutput {
+	return o
+}
+
+func (o GetEntitlementsFilterPrincipalRolePtrOutput) ToGetEntitlementsFilterPrincipalRolePtrOutputWithContext(ctx context.Context) GetEntitlementsFilterPrincipalRolePtrOutput {
+	return o
+}
+
+func (o GetEntitlementsFilterPrincipalRolePtrOutput) Elem() GetEntitlementsFilterPrincipalRoleOutput {
+	return o.ApplyT(func(v *GetEntitlementsFilterPrincipalRole) GetEntitlementsFilterPrincipalRole {
+		if v != nil {
+			return *v
+		}
+		var ret GetEntitlementsFilterPrincipalRole
+		return ret
+	}).(GetEntitlementsFilterPrincipalRoleOutput)
+}
+
+// AWS account ID to filter entitlements by.
+func (o GetEntitlementsFilterPrincipalRolePtrOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetEntitlementsFilterPrincipalRole) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// principal to filter entitlements by. See `filter.principal_role.principal` Block below.
+func (o GetEntitlementsFilterPrincipalRolePtrOutput) Principal() GetEntitlementsFilterPrincipalRolePrincipalPtrOutput {
+	return o.ApplyT(func(v *GetEntitlementsFilterPrincipalRole) *GetEntitlementsFilterPrincipalRolePrincipal {
+		if v == nil {
+			return nil
+		}
+		return v.Principal
+	}).(GetEntitlementsFilterPrincipalRolePrincipalPtrOutput)
+}
+
+// IAM role ARN to filter entitlements by.
+func (o GetEntitlementsFilterPrincipalRolePtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetEntitlementsFilterPrincipalRole) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetEntitlementsFilterPrincipalRolePrincipal struct {
+	// IAM Identity Center principal filter criteria. See `filter.principal_role.principal.identity_center` Block below.
+	IdentityCenter *GetEntitlementsFilterPrincipalRolePrincipalIdentityCenter `pulumi:"identityCenter"`
+}
+
+// GetEntitlementsFilterPrincipalRolePrincipalInput is an input type that accepts GetEntitlementsFilterPrincipalRolePrincipalArgs and GetEntitlementsFilterPrincipalRolePrincipalOutput values.
+// You can construct a concrete instance of `GetEntitlementsFilterPrincipalRolePrincipalInput` via:
+//
+//	GetEntitlementsFilterPrincipalRolePrincipalArgs{...}
+type GetEntitlementsFilterPrincipalRolePrincipalInput interface {
+	pulumi.Input
+
+	ToGetEntitlementsFilterPrincipalRolePrincipalOutput() GetEntitlementsFilterPrincipalRolePrincipalOutput
+	ToGetEntitlementsFilterPrincipalRolePrincipalOutputWithContext(context.Context) GetEntitlementsFilterPrincipalRolePrincipalOutput
+}
+
+type GetEntitlementsFilterPrincipalRolePrincipalArgs struct {
+	// IAM Identity Center principal filter criteria. See `filter.principal_role.principal.identity_center` Block below.
+	IdentityCenter GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrInput `pulumi:"identityCenter"`
+}
+
+func (GetEntitlementsFilterPrincipalRolePrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntitlementsFilterPrincipalRolePrincipal)(nil)).Elem()
+}
+
+func (i GetEntitlementsFilterPrincipalRolePrincipalArgs) ToGetEntitlementsFilterPrincipalRolePrincipalOutput() GetEntitlementsFilterPrincipalRolePrincipalOutput {
+	return i.ToGetEntitlementsFilterPrincipalRolePrincipalOutputWithContext(context.Background())
+}
+
+func (i GetEntitlementsFilterPrincipalRolePrincipalArgs) ToGetEntitlementsFilterPrincipalRolePrincipalOutputWithContext(ctx context.Context) GetEntitlementsFilterPrincipalRolePrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementsFilterPrincipalRolePrincipalOutput)
+}
+
+func (i GetEntitlementsFilterPrincipalRolePrincipalArgs) ToGetEntitlementsFilterPrincipalRolePrincipalPtrOutput() GetEntitlementsFilterPrincipalRolePrincipalPtrOutput {
+	return i.ToGetEntitlementsFilterPrincipalRolePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i GetEntitlementsFilterPrincipalRolePrincipalArgs) ToGetEntitlementsFilterPrincipalRolePrincipalPtrOutputWithContext(ctx context.Context) GetEntitlementsFilterPrincipalRolePrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementsFilterPrincipalRolePrincipalOutput).ToGetEntitlementsFilterPrincipalRolePrincipalPtrOutputWithContext(ctx)
+}
+
+// GetEntitlementsFilterPrincipalRolePrincipalPtrInput is an input type that accepts GetEntitlementsFilterPrincipalRolePrincipalArgs, GetEntitlementsFilterPrincipalRolePrincipalPtr and GetEntitlementsFilterPrincipalRolePrincipalPtrOutput values.
+// You can construct a concrete instance of `GetEntitlementsFilterPrincipalRolePrincipalPtrInput` via:
+//
+//	        GetEntitlementsFilterPrincipalRolePrincipalArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetEntitlementsFilterPrincipalRolePrincipalPtrInput interface {
+	pulumi.Input
+
+	ToGetEntitlementsFilterPrincipalRolePrincipalPtrOutput() GetEntitlementsFilterPrincipalRolePrincipalPtrOutput
+	ToGetEntitlementsFilterPrincipalRolePrincipalPtrOutputWithContext(context.Context) GetEntitlementsFilterPrincipalRolePrincipalPtrOutput
+}
+
+type getEntitlementsFilterPrincipalRolePrincipalPtrType GetEntitlementsFilterPrincipalRolePrincipalArgs
+
+func GetEntitlementsFilterPrincipalRolePrincipalPtr(v *GetEntitlementsFilterPrincipalRolePrincipalArgs) GetEntitlementsFilterPrincipalRolePrincipalPtrInput {
+	return (*getEntitlementsFilterPrincipalRolePrincipalPtrType)(v)
+}
+
+func (*getEntitlementsFilterPrincipalRolePrincipalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetEntitlementsFilterPrincipalRolePrincipal)(nil)).Elem()
+}
+
+func (i *getEntitlementsFilterPrincipalRolePrincipalPtrType) ToGetEntitlementsFilterPrincipalRolePrincipalPtrOutput() GetEntitlementsFilterPrincipalRolePrincipalPtrOutput {
+	return i.ToGetEntitlementsFilterPrincipalRolePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i *getEntitlementsFilterPrincipalRolePrincipalPtrType) ToGetEntitlementsFilterPrincipalRolePrincipalPtrOutputWithContext(ctx context.Context) GetEntitlementsFilterPrincipalRolePrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementsFilterPrincipalRolePrincipalPtrOutput)
+}
+
+type GetEntitlementsFilterPrincipalRolePrincipalOutput struct{ *pulumi.OutputState }
+
+func (GetEntitlementsFilterPrincipalRolePrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntitlementsFilterPrincipalRolePrincipal)(nil)).Elem()
+}
+
+func (o GetEntitlementsFilterPrincipalRolePrincipalOutput) ToGetEntitlementsFilterPrincipalRolePrincipalOutput() GetEntitlementsFilterPrincipalRolePrincipalOutput {
+	return o
+}
+
+func (o GetEntitlementsFilterPrincipalRolePrincipalOutput) ToGetEntitlementsFilterPrincipalRolePrincipalOutputWithContext(ctx context.Context) GetEntitlementsFilterPrincipalRolePrincipalOutput {
+	return o
+}
+
+func (o GetEntitlementsFilterPrincipalRolePrincipalOutput) ToGetEntitlementsFilterPrincipalRolePrincipalPtrOutput() GetEntitlementsFilterPrincipalRolePrincipalPtrOutput {
+	return o.ToGetEntitlementsFilterPrincipalRolePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (o GetEntitlementsFilterPrincipalRolePrincipalOutput) ToGetEntitlementsFilterPrincipalRolePrincipalPtrOutputWithContext(ctx context.Context) GetEntitlementsFilterPrincipalRolePrincipalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetEntitlementsFilterPrincipalRolePrincipal) *GetEntitlementsFilterPrincipalRolePrincipal {
+		return &v
+	}).(GetEntitlementsFilterPrincipalRolePrincipalPtrOutput)
+}
+
+// IAM Identity Center principal filter criteria. See `filter.principal_role.principal.identity_center` Block below.
+func (o GetEntitlementsFilterPrincipalRolePrincipalOutput) IdentityCenter() GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutput {
+	return o.ApplyT(func(v GetEntitlementsFilterPrincipalRolePrincipal) *GetEntitlementsFilterPrincipalRolePrincipalIdentityCenter {
+		return v.IdentityCenter
+	}).(GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutput)
+}
+
+type GetEntitlementsFilterPrincipalRolePrincipalPtrOutput struct{ *pulumi.OutputState }
+
+func (GetEntitlementsFilterPrincipalRolePrincipalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetEntitlementsFilterPrincipalRolePrincipal)(nil)).Elem()
+}
+
+func (o GetEntitlementsFilterPrincipalRolePrincipalPtrOutput) ToGetEntitlementsFilterPrincipalRolePrincipalPtrOutput() GetEntitlementsFilterPrincipalRolePrincipalPtrOutput {
+	return o
+}
+
+func (o GetEntitlementsFilterPrincipalRolePrincipalPtrOutput) ToGetEntitlementsFilterPrincipalRolePrincipalPtrOutputWithContext(ctx context.Context) GetEntitlementsFilterPrincipalRolePrincipalPtrOutput {
+	return o
+}
+
+func (o GetEntitlementsFilterPrincipalRolePrincipalPtrOutput) Elem() GetEntitlementsFilterPrincipalRolePrincipalOutput {
+	return o.ApplyT(func(v *GetEntitlementsFilterPrincipalRolePrincipal) GetEntitlementsFilterPrincipalRolePrincipal {
+		if v != nil {
+			return *v
+		}
+		var ret GetEntitlementsFilterPrincipalRolePrincipal
+		return ret
+	}).(GetEntitlementsFilterPrincipalRolePrincipalOutput)
+}
+
+// IAM Identity Center principal filter criteria. See `filter.principal_role.principal.identity_center` Block below.
+func (o GetEntitlementsFilterPrincipalRolePrincipalPtrOutput) IdentityCenter() GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutput {
+	return o.ApplyT(func(v *GetEntitlementsFilterPrincipalRolePrincipal) *GetEntitlementsFilterPrincipalRolePrincipalIdentityCenter {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityCenter
+	}).(GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutput)
+}
+
+type GetEntitlementsFilterPrincipalRolePrincipalIdentityCenter struct {
+	// IAM Identity Center group ID.
+	GroupId *string `pulumi:"groupId"`
+	// IAM Identity Center user ID.
+	UserId *string `pulumi:"userId"`
+}
+
+// GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterInput is an input type that accepts GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterArgs and GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterOutput values.
+// You can construct a concrete instance of `GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterInput` via:
+//
+//	GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterArgs{...}
+type GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterInput interface {
+	pulumi.Input
+
+	ToGetEntitlementsFilterPrincipalRolePrincipalIdentityCenterOutput() GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterOutput
+	ToGetEntitlementsFilterPrincipalRolePrincipalIdentityCenterOutputWithContext(context.Context) GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterOutput
+}
+
+type GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterArgs struct {
+	// IAM Identity Center group ID.
+	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
+	// IAM Identity Center user ID.
+	UserId pulumi.StringPtrInput `pulumi:"userId"`
+}
+
+func (GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntitlementsFilterPrincipalRolePrincipalIdentityCenter)(nil)).Elem()
+}
+
+func (i GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterArgs) ToGetEntitlementsFilterPrincipalRolePrincipalIdentityCenterOutput() GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterOutput {
+	return i.ToGetEntitlementsFilterPrincipalRolePrincipalIdentityCenterOutputWithContext(context.Background())
+}
+
+func (i GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterArgs) ToGetEntitlementsFilterPrincipalRolePrincipalIdentityCenterOutputWithContext(ctx context.Context) GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterOutput)
+}
+
+func (i GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterArgs) ToGetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutput() GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutput {
+	return i.ToGetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutputWithContext(context.Background())
+}
+
+func (i GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterArgs) ToGetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutputWithContext(ctx context.Context) GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterOutput).ToGetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutputWithContext(ctx)
+}
+
+// GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrInput is an input type that accepts GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterArgs, GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtr and GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutput values.
+// You can construct a concrete instance of `GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrInput` via:
+//
+//	        GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrInput interface {
+	pulumi.Input
+
+	ToGetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutput() GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutput
+	ToGetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutputWithContext(context.Context) GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutput
+}
+
+type getEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrType GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterArgs
+
+func GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtr(v *GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterArgs) GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrInput {
+	return (*getEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrType)(v)
+}
+
+func (*getEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetEntitlementsFilterPrincipalRolePrincipalIdentityCenter)(nil)).Elem()
+}
+
+func (i *getEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrType) ToGetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutput() GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutput {
+	return i.ToGetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutputWithContext(context.Background())
+}
+
+func (i *getEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrType) ToGetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutputWithContext(ctx context.Context) GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutput)
+}
+
+type GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterOutput struct{ *pulumi.OutputState }
+
+func (GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntitlementsFilterPrincipalRolePrincipalIdentityCenter)(nil)).Elem()
+}
+
+func (o GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterOutput) ToGetEntitlementsFilterPrincipalRolePrincipalIdentityCenterOutput() GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterOutput {
+	return o
+}
+
+func (o GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterOutput) ToGetEntitlementsFilterPrincipalRolePrincipalIdentityCenterOutputWithContext(ctx context.Context) GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterOutput {
+	return o
+}
+
+func (o GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterOutput) ToGetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutput() GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutput {
+	return o.ToGetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutputWithContext(context.Background())
+}
+
+func (o GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterOutput) ToGetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutputWithContext(ctx context.Context) GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetEntitlementsFilterPrincipalRolePrincipalIdentityCenter) *GetEntitlementsFilterPrincipalRolePrincipalIdentityCenter {
+		return &v
+	}).(GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutput)
+}
+
+// IAM Identity Center group ID.
+func (o GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEntitlementsFilterPrincipalRolePrincipalIdentityCenter) *string { return v.GroupId }).(pulumi.StringPtrOutput)
+}
+
+// IAM Identity Center user ID.
+func (o GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEntitlementsFilterPrincipalRolePrincipalIdentityCenter) *string { return v.UserId }).(pulumi.StringPtrOutput)
+}
+
+type GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutput struct{ *pulumi.OutputState }
+
+func (GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetEntitlementsFilterPrincipalRolePrincipalIdentityCenter)(nil)).Elem()
+}
+
+func (o GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutput) ToGetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutput() GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutput {
+	return o
+}
+
+func (o GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutput) ToGetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutputWithContext(ctx context.Context) GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutput {
+	return o
+}
+
+func (o GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutput) Elem() GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterOutput {
+	return o.ApplyT(func(v *GetEntitlementsFilterPrincipalRolePrincipalIdentityCenter) GetEntitlementsFilterPrincipalRolePrincipalIdentityCenter {
+		if v != nil {
+			return *v
+		}
+		var ret GetEntitlementsFilterPrincipalRolePrincipalIdentityCenter
+		return ret
+	}).(GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterOutput)
+}
+
+// IAM Identity Center group ID.
+func (o GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetEntitlementsFilterPrincipalRolePrincipalIdentityCenter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+// IAM Identity Center user ID.
+func (o GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetEntitlementsFilterPrincipalRolePrincipalIdentityCenter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserId
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationIdentitySourceInput)(nil)).Elem(), ApplicationIdentitySourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationIdentitySourcePtrInput)(nil)).Elem(), ApplicationIdentitySourceArgs{})
@@ -469,10 +2893,82 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationIdentitySourceIdentityCenterPtrInput)(nil)).Elem(), ApplicationIdentitySourceIdentityCenterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTimeoutsInput)(nil)).Elem(), ApplicationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTimeoutsPtrInput)(nil)).Elem(), ApplicationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntitlementEntitlementInput)(nil)).Elem(), EntitlementEntitlementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntitlementEntitlementPtrInput)(nil)).Elem(), EntitlementEntitlementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntitlementEntitlementPrincipalRoleInput)(nil)).Elem(), EntitlementEntitlementPrincipalRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntitlementEntitlementPrincipalRolePtrInput)(nil)).Elem(), EntitlementEntitlementPrincipalRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntitlementEntitlementPrincipalRolePrincipalInput)(nil)).Elem(), EntitlementEntitlementPrincipalRolePrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntitlementEntitlementPrincipalRolePrincipalPtrInput)(nil)).Elem(), EntitlementEntitlementPrincipalRolePrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntitlementEntitlementPrincipalRolePrincipalIdentityCenterInput)(nil)).Elem(), EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrInput)(nil)).Elem(), EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntitlementFilterInput)(nil)).Elem(), EntitlementFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntitlementFilterPrincipalRoleInput)(nil)).Elem(), EntitlementFilterPrincipalRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntitlementFilterPrincipalRolePtrInput)(nil)).Elem(), EntitlementFilterPrincipalRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntitlementFilterPrincipalRolePrincipalInput)(nil)).Elem(), EntitlementFilterPrincipalRolePrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntitlementFilterPrincipalRolePrincipalPtrInput)(nil)).Elem(), EntitlementFilterPrincipalRolePrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntitlementFilterPrincipalRolePrincipalIdentityCenterInput)(nil)).Elem(), EntitlementFilterPrincipalRolePrincipalIdentityCenterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntitlementFilterPrincipalRolePrincipalIdentityCenterPtrInput)(nil)).Elem(), EntitlementFilterPrincipalRolePrincipalIdentityCenterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationIdentitySourceInput)(nil)).Elem(), GetApplicationIdentitySourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationIdentitySourceArrayInput)(nil)).Elem(), GetApplicationIdentitySourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationIdentitySourceIdentityCenterInput)(nil)).Elem(), GetApplicationIdentitySourceIdentityCenterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationIdentitySourceIdentityCenterArrayInput)(nil)).Elem(), GetApplicationIdentitySourceIdentityCenterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEntitlementsEntitlementInput)(nil)).Elem(), GetEntitlementsEntitlementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEntitlementsEntitlementArrayInput)(nil)).Elem(), GetEntitlementsEntitlementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEntitlementsEntitlementEntitlementInput)(nil)).Elem(), GetEntitlementsEntitlementEntitlementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEntitlementsEntitlementEntitlementArrayInput)(nil)).Elem(), GetEntitlementsEntitlementEntitlementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEntitlementsEntitlementEntitlementPrincipalRoleInput)(nil)).Elem(), GetEntitlementsEntitlementEntitlementPrincipalRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEntitlementsEntitlementEntitlementPrincipalRoleArrayInput)(nil)).Elem(), GetEntitlementsEntitlementEntitlementPrincipalRoleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalInput)(nil)).Elem(), GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArrayInput)(nil)).Elem(), GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterInput)(nil)).Elem(), GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArrayInput)(nil)).Elem(), GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEntitlementsFilterInput)(nil)).Elem(), GetEntitlementsFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEntitlementsFilterPrincipalRoleInput)(nil)).Elem(), GetEntitlementsFilterPrincipalRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEntitlementsFilterPrincipalRolePtrInput)(nil)).Elem(), GetEntitlementsFilterPrincipalRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEntitlementsFilterPrincipalRolePrincipalInput)(nil)).Elem(), GetEntitlementsFilterPrincipalRolePrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEntitlementsFilterPrincipalRolePrincipalPtrInput)(nil)).Elem(), GetEntitlementsFilterPrincipalRolePrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterInput)(nil)).Elem(), GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrInput)(nil)).Elem(), GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterArgs{})
 	pulumi.RegisterOutputType(ApplicationIdentitySourceOutput{})
 	pulumi.RegisterOutputType(ApplicationIdentitySourcePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationIdentitySourceIdentityCenterOutput{})
 	pulumi.RegisterOutputType(ApplicationIdentitySourceIdentityCenterPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationTimeoutsOutput{})
 	pulumi.RegisterOutputType(ApplicationTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(EntitlementEntitlementOutput{})
+	pulumi.RegisterOutputType(EntitlementEntitlementPtrOutput{})
+	pulumi.RegisterOutputType(EntitlementEntitlementPrincipalRoleOutput{})
+	pulumi.RegisterOutputType(EntitlementEntitlementPrincipalRolePtrOutput{})
+	pulumi.RegisterOutputType(EntitlementEntitlementPrincipalRolePrincipalOutput{})
+	pulumi.RegisterOutputType(EntitlementEntitlementPrincipalRolePrincipalPtrOutput{})
+	pulumi.RegisterOutputType(EntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput{})
+	pulumi.RegisterOutputType(EntitlementEntitlementPrincipalRolePrincipalIdentityCenterPtrOutput{})
+	pulumi.RegisterOutputType(EntitlementFilterOutput{})
+	pulumi.RegisterOutputType(EntitlementFilterPrincipalRoleOutput{})
+	pulumi.RegisterOutputType(EntitlementFilterPrincipalRolePtrOutput{})
+	pulumi.RegisterOutputType(EntitlementFilterPrincipalRolePrincipalOutput{})
+	pulumi.RegisterOutputType(EntitlementFilterPrincipalRolePrincipalPtrOutput{})
+	pulumi.RegisterOutputType(EntitlementFilterPrincipalRolePrincipalIdentityCenterOutput{})
+	pulumi.RegisterOutputType(EntitlementFilterPrincipalRolePrincipalIdentityCenterPtrOutput{})
+	pulumi.RegisterOutputType(GetApplicationIdentitySourceOutput{})
+	pulumi.RegisterOutputType(GetApplicationIdentitySourceArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationIdentitySourceIdentityCenterOutput{})
+	pulumi.RegisterOutputType(GetApplicationIdentitySourceIdentityCenterArrayOutput{})
+	pulumi.RegisterOutputType(GetEntitlementsEntitlementOutput{})
+	pulumi.RegisterOutputType(GetEntitlementsEntitlementArrayOutput{})
+	pulumi.RegisterOutputType(GetEntitlementsEntitlementEntitlementOutput{})
+	pulumi.RegisterOutputType(GetEntitlementsEntitlementEntitlementArrayOutput{})
+	pulumi.RegisterOutputType(GetEntitlementsEntitlementEntitlementPrincipalRoleOutput{})
+	pulumi.RegisterOutputType(GetEntitlementsEntitlementEntitlementPrincipalRoleArrayOutput{})
+	pulumi.RegisterOutputType(GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalOutput{})
+	pulumi.RegisterOutputType(GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalArrayOutput{})
+	pulumi.RegisterOutputType(GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterOutput{})
+	pulumi.RegisterOutputType(GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenterArrayOutput{})
+	pulumi.RegisterOutputType(GetEntitlementsFilterOutput{})
+	pulumi.RegisterOutputType(GetEntitlementsFilterPrincipalRoleOutput{})
+	pulumi.RegisterOutputType(GetEntitlementsFilterPrincipalRolePtrOutput{})
+	pulumi.RegisterOutputType(GetEntitlementsFilterPrincipalRolePrincipalOutput{})
+	pulumi.RegisterOutputType(GetEntitlementsFilterPrincipalRolePrincipalPtrOutput{})
+	pulumi.RegisterOutputType(GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterOutput{})
+	pulumi.RegisterOutputType(GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterPtrOutput{})
 }
