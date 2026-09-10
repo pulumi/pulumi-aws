@@ -43,6 +43,7 @@ __all__ = [
     'GetClusterMasterUserSecretResult',
     'GetClustersFilterResult',
     'GetEngineVersionFilterResult',
+    'GetEventsEventResult',
     'GetGlobalClusterMemberResult',
     'GetInstanceMasterUserSecretResult',
     'GetInstancesFilterResult',
@@ -1594,6 +1595,79 @@ class GetEngineVersionFilterResult(dict):
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetEventsEventResult(dict):
+    def __init__(__self__, *,
+                 date: _builtins.str,
+                 event_categories: Sequence[_builtins.str],
+                 message: _builtins.str,
+                 source_arn: _builtins.str,
+                 source_identifier: _builtins.str,
+                 source_type: _builtins.str):
+        """
+        :param _builtins.str date: Date and time of the event, in RFC3339 format.
+        :param Sequence[_builtins.str] event_categories: Set of event categories to filter on, e.g. `failure`, `maintenance`, `configuration change`. Defaults to all categories.
+        :param _builtins.str message: Text of the event.
+        :param _builtins.str source_arn: ARN of the event source.
+        :param _builtins.str source_identifier: Identifier of the source, such as a DB instance or DB cluster identifier. Requires `source_type` to also be set.
+        :param _builtins.str source_type: Type of source. Valid values include `db-instance`, `db-cluster`, `db-snapshot`, `db-parameter-group`, `db-security-group`, `db-cluster-snapshot`, `custom-engine-version`, `db-proxy`, `blue-green-deployment`, `db-shard-group`, and `zero-etl`.
+        """
+        pulumi.set(__self__, "date", date)
+        pulumi.set(__self__, "event_categories", event_categories)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "source_arn", source_arn)
+        pulumi.set(__self__, "source_identifier", source_identifier)
+        pulumi.set(__self__, "source_type", source_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def date(self) -> _builtins.str:
+        """
+        Date and time of the event, in RFC3339 format.
+        """
+        return pulumi.get(self, "date")
+
+    @_builtins.property
+    @pulumi.getter(name="eventCategories")
+    def event_categories(self) -> Sequence[_builtins.str]:
+        """
+        Set of event categories to filter on, e.g. `failure`, `maintenance`, `configuration change`. Defaults to all categories.
+        """
+        return pulumi.get(self, "event_categories")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> _builtins.str:
+        """
+        Text of the event.
+        """
+        return pulumi.get(self, "message")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceArn")
+    def source_arn(self) -> _builtins.str:
+        """
+        ARN of the event source.
+        """
+        return pulumi.get(self, "source_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceIdentifier")
+    def source_identifier(self) -> _builtins.str:
+        """
+        Identifier of the source, such as a DB instance or DB cluster identifier. Requires `source_type` to also be set.
+        """
+        return pulumi.get(self, "source_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> _builtins.str:
+        """
+        Type of source. Valid values include `db-instance`, `db-cluster`, `db-snapshot`, `db-parameter-group`, `db-security-group`, `db-cluster-snapshot`, `custom-engine-version`, `db-proxy`, `blue-green-deployment`, `db-shard-group`, and `zero-etl`.
+        """
+        return pulumi.get(self, "source_type")
 
 
 @pulumi.output_type

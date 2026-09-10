@@ -25,6 +25,12 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<Inputs.AgentcoreHarnessModelGeminiModelConfigArgs>? GeminiModelConfig { get; set; }
 
         /// <summary>
+        /// LiteLLM model configuration. See `LitellmModelConfig` Block below.
+        /// </summary>
+        [Input("litellmModelConfig")]
+        public Input<Inputs.AgentcoreHarnessModelLitellmModelConfigArgs>? LitellmModelConfig { get; set; }
+
+        /// <summary>
         /// OpenAI model configuration. See `OpenaiModelConfig` Block below.
         /// </summary>
         [Input("openaiModelConfig")]

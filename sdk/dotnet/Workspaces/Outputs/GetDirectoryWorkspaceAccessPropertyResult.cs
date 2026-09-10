@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Workspaces.Outputs
     public sealed class GetDirectoryWorkspaceAccessPropertyResult
     {
         /// <summary>
+        /// Configuration for accessing WorkSpaces through VPC endpoints instead of the public internet.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDirectoryWorkspaceAccessPropertyAccessEndpointConfigResult> AccessEndpointConfigs;
+        /// <summary>
         /// (Optional) Indicates whether users can use Android devices to access their WorkSpaces.
         /// </summary>
         public readonly string DeviceTypeAndroid;
@@ -48,6 +52,8 @@ namespace Pulumi.Aws.Workspaces.Outputs
 
         [OutputConstructor]
         private GetDirectoryWorkspaceAccessPropertyResult(
+            ImmutableArray<Outputs.GetDirectoryWorkspaceAccessPropertyAccessEndpointConfigResult> accessEndpointConfigs,
+
             string deviceTypeAndroid,
 
             string deviceTypeChromeos,
@@ -64,6 +70,7 @@ namespace Pulumi.Aws.Workspaces.Outputs
 
             string deviceTypeZeroclient)
         {
+            AccessEndpointConfigs = accessEndpointConfigs;
             DeviceTypeAndroid = deviceTypeAndroid;
             DeviceTypeChromeos = deviceTypeChromeos;
             DeviceTypeIos = deviceTypeIos;

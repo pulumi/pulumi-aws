@@ -87,7 +87,8 @@ class ClusterArgs:
                  storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
                  storage_type: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 warning_event_categories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
 
@@ -164,6 +165,7 @@ class ClusterArgs:
         :param pulumi.Input[_builtins.str] storage_type: (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2`, `gp3` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] warning_event_categories: Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this cluster during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
                
                For more detailed documentation about each argument, refer to
                the AWS official documentation:
@@ -302,6 +304,8 @@ class ClusterArgs:
             pulumi.set(__self__, "tags", tags)
         if vpc_security_group_ids is not None:
             pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+        if warning_event_categories is not None:
+            pulumi.set(__self__, "warning_event_categories", warning_event_categories)
 
     @_builtins.property
     @pulumi.getter
@@ -1093,6 +1097,18 @@ class ClusterArgs:
     def vpc_security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of VPC security groups to associate with the Cluster
+        """
+        return pulumi.get(self, "vpc_security_group_ids")
+
+    @vpc_security_group_ids.setter
+    def vpc_security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "vpc_security_group_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="warningEventCategories")
+    def warning_event_categories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this cluster during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
 
         For more detailed documentation about each argument, refer to
         the AWS official documentation:
@@ -1100,11 +1116,11 @@ class ClusterArgs:
         * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
         * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
         """
-        return pulumi.get(self, "vpc_security_group_ids")
+        return pulumi.get(self, "warning_event_categories")
 
-    @vpc_security_group_ids.setter
-    def vpc_security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "vpc_security_group_ids", value)
+    @warning_event_categories.setter
+    def warning_event_categories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "warning_event_categories", value)
 
 
 @pulumi.input_type
@@ -1185,7 +1201,8 @@ class _ClusterState:
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  upgrade_rollout_order: pulumi.Input[Optional[_builtins.str]] = None,
-                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 warning_event_categories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
 
@@ -1273,6 +1290,7 @@ class _ClusterState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] upgrade_rollout_order: Order in which the clusters are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] warning_event_categories: Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this cluster during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
                
                For more detailed documentation about each argument, refer to
                the AWS official documentation:
@@ -1432,6 +1450,8 @@ class _ClusterState:
             pulumi.set(__self__, "upgrade_rollout_order", upgrade_rollout_order)
         if vpc_security_group_ids is not None:
             pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+        if warning_event_categories is not None:
+            pulumi.set(__self__, "warning_event_categories", warning_event_categories)
 
     @_builtins.property
     @pulumi.getter(name="allocatedStorage")
@@ -2344,6 +2364,18 @@ class _ClusterState:
     def vpc_security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of VPC security groups to associate with the Cluster
+        """
+        return pulumi.get(self, "vpc_security_group_ids")
+
+    @vpc_security_group_ids.setter
+    def vpc_security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "vpc_security_group_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="warningEventCategories")
+    def warning_event_categories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this cluster during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
 
         For more detailed documentation about each argument, refer to
         the AWS official documentation:
@@ -2351,11 +2383,11 @@ class _ClusterState:
         * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
         * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
         """
-        return pulumi.get(self, "vpc_security_group_ids")
+        return pulumi.get(self, "warning_event_categories")
 
-    @vpc_security_group_ids.setter
-    def vpc_security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "vpc_security_group_ids", value)
+    @warning_event_categories.setter
+    def warning_event_categories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "warning_event_categories", value)
 
 
 @pulumi.type_token("aws:rds/cluster:Cluster")
@@ -2430,6 +2462,7 @@ class Cluster(pulumi.CustomResource):
                  storage_type: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 warning_event_categories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a [RDS Aurora Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Aurora.html) or a [RDS Multi-AZ DB Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html). To manage cluster instances that inherit configuration from the cluster (when not running the cluster in `serverless` engine mode), see the `rds.ClusterInstance` resource. To manage non-Aurora DB instances (e.g., MySQL, PostgreSQL, SQL Server, etc.), see the `rds.Instance` resource.
@@ -2753,6 +2786,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] storage_type: (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2`, `gp3` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] warning_event_categories: Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this cluster during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
                
                For more detailed documentation about each argument, refer to
                the AWS official documentation:
@@ -3094,6 +3128,7 @@ class Cluster(pulumi.CustomResource):
                  storage_type: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 warning_event_categories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -3171,6 +3206,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["storage_type"] = storage_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
+            __props__.__dict__["warning_event_categories"] = warning_event_categories
             __props__.__dict__["arn"] = None
             __props__.__dict__["ca_certificate_valid_till"] = None
             __props__.__dict__["cluster_resource_id"] = None
@@ -3268,7 +3304,8 @@ class Cluster(pulumi.CustomResource):
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             upgrade_rollout_order: pulumi.Input[Optional[_builtins.str]] = None,
-            vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Cluster':
+            vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            warning_event_categories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Cluster':
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -3360,6 +3397,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] upgrade_rollout_order: Order in which the clusters are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] warning_event_categories: Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this cluster during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
                
                For more detailed documentation about each argument, refer to
                the AWS official documentation:
@@ -3447,6 +3485,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["upgrade_rollout_order"] = upgrade_rollout_order
         __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
+        __props__.__dict__["warning_event_categories"] = warning_event_categories
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -4060,6 +4099,14 @@ class Cluster(pulumi.CustomResource):
     def vpc_security_group_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
         List of VPC security groups to associate with the Cluster
+        """
+        return pulumi.get(self, "vpc_security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="warningEventCategories")
+    def warning_event_categories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this cluster during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
 
         For more detailed documentation about each argument, refer to
         the AWS official documentation:
@@ -4067,5 +4114,5 @@ class Cluster(pulumi.CustomResource):
         * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
         * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
         """
-        return pulumi.get(self, "vpc_security_group_ids")
+        return pulumi.get(self, "warning_event_categories")
 

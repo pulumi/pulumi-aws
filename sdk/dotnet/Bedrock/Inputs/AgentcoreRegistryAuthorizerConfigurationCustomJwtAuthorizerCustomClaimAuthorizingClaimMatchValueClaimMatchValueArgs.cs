@@ -12,11 +12,18 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// String value to match for. Must be specified when `ClaimMatchOperator` is `EQUALS` or `CONTAINS`. Exactly one of `MatchValueString` or `MatchValueStringList` must be specified.
+        /// </summary>
         [Input("matchValueString")]
         public Input<string>? MatchValueString { get; set; }
 
         [Input("matchValueStringLists")]
         private InputList<string>? _matchValueStringLists;
+
+        /// <summary>
+        /// List of strings to check for a match. Must be specified when `ClaimMatchOperator` is `CONTAINS_ANY`. Exactly one of `MatchValueString` or `MatchValueStringList` must be specified.
+        /// </summary>
         public InputList<string> MatchValueStringLists
         {
             get => _matchValueStringLists ?? (_matchValueStringLists = new InputList<string>());

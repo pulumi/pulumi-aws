@@ -5,6 +5,7 @@ package com.pulumi.aws.bedrock.inputs;
 
 import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessModelBedrockModelConfigArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessModelGeminiModelConfigArgs;
+import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessModelLitellmModelConfigArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessModelOpenaiModelConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -48,6 +49,21 @@ public final class AgentcoreHarnessModelArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * LiteLLM model configuration. See `litellmModelConfig` Block below.
+     * 
+     */
+    @Import(name="litellmModelConfig")
+    private @Nullable Output<AgentcoreHarnessModelLitellmModelConfigArgs> litellmModelConfig;
+
+    /**
+     * @return LiteLLM model configuration. See `litellmModelConfig` Block below.
+     * 
+     */
+    public Optional<Output<AgentcoreHarnessModelLitellmModelConfigArgs>> litellmModelConfig() {
+        return Optional.ofNullable(this.litellmModelConfig);
+    }
+
+    /**
      * OpenAI model configuration. See `openaiModelConfig` Block below.
      * 
      */
@@ -67,6 +83,7 @@ public final class AgentcoreHarnessModelArgs extends com.pulumi.resources.Resour
     private AgentcoreHarnessModelArgs(AgentcoreHarnessModelArgs $) {
         this.bedrockModelConfig = $.bedrockModelConfig;
         this.geminiModelConfig = $.geminiModelConfig;
+        this.litellmModelConfig = $.litellmModelConfig;
         this.openaiModelConfig = $.openaiModelConfig;
     }
 
@@ -128,6 +145,27 @@ public final class AgentcoreHarnessModelArgs extends com.pulumi.resources.Resour
          */
         public Builder geminiModelConfig(AgentcoreHarnessModelGeminiModelConfigArgs geminiModelConfig) {
             return geminiModelConfig(Output.of(geminiModelConfig));
+        }
+
+        /**
+         * @param litellmModelConfig LiteLLM model configuration. See `litellmModelConfig` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder litellmModelConfig(@Nullable Output<AgentcoreHarnessModelLitellmModelConfigArgs> litellmModelConfig) {
+            $.litellmModelConfig = litellmModelConfig;
+            return this;
+        }
+
+        /**
+         * @param litellmModelConfig LiteLLM model configuration. See `litellmModelConfig` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder litellmModelConfig(AgentcoreHarnessModelLitellmModelConfigArgs litellmModelConfig) {
+            return litellmModelConfig(Output.of(litellmModelConfig));
         }
 
         /**

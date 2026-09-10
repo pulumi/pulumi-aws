@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint {
+    /**
+     * @return Managed VPC resource configuration. See `managedVpcResource` below.
+     * 
+     */
     private @Nullable AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource managedVpcResource;
+    /**
+     * @return Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+     * 
+     */
     private @Nullable AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource selfManagedLatticeResource;
 
     private AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint() {}
+    /**
+     * @return Managed VPC resource configuration. See `managedVpcResource` below.
+     * 
+     */
     public Optional<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource> managedVpcResource() {
         return Optional.ofNullable(this.managedVpcResource);
     }
+    /**
+     * @return Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+     * 
+     */
     public Optional<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource> selfManagedLatticeResource() {
         return Optional.ofNullable(this.selfManagedLatticeResource);
     }

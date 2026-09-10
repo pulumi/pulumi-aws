@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreRegistryAuthorizerConfiguration
     {
+        /// <summary>
+        /// JWT-based authorization configuration block. See `CustomJwtAuthorizer` below.
+        /// </summary>
         public readonly Outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer? CustomJwtAuthorizer;
 
         [OutputConstructor]

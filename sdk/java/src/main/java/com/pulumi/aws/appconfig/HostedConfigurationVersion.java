@@ -256,6 +256,20 @@ public class HostedConfigurationVersion extends com.pulumi.resources.CustomResou
         return this.region;
     }
     /**
+     * User-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character.
+     * 
+     */
+    @Export(name="versionLabel", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> versionLabel;
+
+    /**
+     * @return User-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character.
+     * 
+     */
+    public Output<Optional<String>> versionLabel() {
+        return Codegen.optional(this.versionLabel);
+    }
+    /**
      * Version number of the hosted configuration.
      * 
      */

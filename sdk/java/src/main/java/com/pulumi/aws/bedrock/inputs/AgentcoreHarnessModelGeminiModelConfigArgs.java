@@ -19,6 +19,21 @@ public final class AgentcoreHarnessModelGeminiModelConfigArgs extends com.pulumi
     public static final AgentcoreHarnessModelGeminiModelConfigArgs Empty = new AgentcoreHarnessModelGeminiModelConfigArgs();
 
     /**
+     * JSON string containing provider-specific parameters to pass through to the Gemini model provider unchanged.
+     * 
+     */
+    @Import(name="additionalParams")
+    private @Nullable Output<String> additionalParams;
+
+    /**
+     * @return JSON string containing provider-specific parameters to pass through to the Gemini model provider unchanged.
+     * 
+     */
+    public Optional<Output<String>> additionalParams() {
+        return Optional.ofNullable(this.additionalParams);
+    }
+
+    /**
      * ARN of the secret containing the API key.
      * 
      */
@@ -111,6 +126,7 @@ public final class AgentcoreHarnessModelGeminiModelConfigArgs extends com.pulumi
     private AgentcoreHarnessModelGeminiModelConfigArgs() {}
 
     private AgentcoreHarnessModelGeminiModelConfigArgs(AgentcoreHarnessModelGeminiModelConfigArgs $) {
+        this.additionalParams = $.additionalParams;
         this.apiKeyArn = $.apiKeyArn;
         this.maxTokens = $.maxTokens;
         this.modelId = $.modelId;
@@ -135,6 +151,27 @@ public final class AgentcoreHarnessModelGeminiModelConfigArgs extends com.pulumi
 
         public Builder(AgentcoreHarnessModelGeminiModelConfigArgs defaults) {
             $ = new AgentcoreHarnessModelGeminiModelConfigArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param additionalParams JSON string containing provider-specific parameters to pass through to the Gemini model provider unchanged.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder additionalParams(@Nullable Output<String> additionalParams) {
+            $.additionalParams = additionalParams;
+            return this;
+        }
+
+        /**
+         * @param additionalParams JSON string containing provider-specific parameters to pass through to the Gemini model provider unchanged.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder additionalParams(String additionalParams) {
+            return additionalParams(Output.of(additionalParams));
         }
 
         /**

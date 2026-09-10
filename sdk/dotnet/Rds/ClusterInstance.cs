@@ -279,9 +279,6 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Map of tags to assign to the instance. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// For more detailed documentation about each argument, refer to
-        /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -291,6 +288,15 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// Set of RDS event categories (for example `Failure`, `Maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+        /// 
+        /// For more detailed documentation about each argument, refer to
+        /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
+        /// </summary>
+        [Output("warningEventCategories")]
+        public Output<ImmutableArray<string>> WarningEventCategories { get; private set; } = null!;
 
         /// <summary>
         /// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
@@ -500,14 +506,26 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Map of tags to assign to the instance. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// For more detailed documentation about each argument, refer to
-        /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
         /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("warningEventCategories")]
+        private InputList<string>? _warningEventCategories;
+
+        /// <summary>
+        /// Set of RDS event categories (for example `Failure`, `Maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+        /// 
+        /// For more detailed documentation about each argument, refer to
+        /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
+        /// </summary>
+        public InputList<string> WarningEventCategories
+        {
+            get => _warningEventCategories ?? (_warningEventCategories = new InputList<string>());
+            set => _warningEventCategories = value;
         }
 
         public ClusterInstanceArgs()
@@ -722,9 +740,6 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Map of tags to assign to the instance. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// For more detailed documentation about each argument, refer to
-        /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
         /// </summary>
         public InputMap<string> Tags
         {
@@ -742,6 +757,21 @@ namespace Pulumi.Aws.Rds
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
+        }
+
+        [Input("warningEventCategories")]
+        private InputList<string>? _warningEventCategories;
+
+        /// <summary>
+        /// Set of RDS event categories (for example `Failure`, `Maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+        /// 
+        /// For more detailed documentation about each argument, refer to
+        /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
+        /// </summary>
+        public InputList<string> WarningEventCategories
+        {
+            get => _warningEventCategories ?? (_warningEventCategories = new InputList<string>());
+            set => _warningEventCategories = value;
         }
 
         /// <summary>

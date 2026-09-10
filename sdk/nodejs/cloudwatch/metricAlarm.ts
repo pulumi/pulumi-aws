@@ -227,6 +227,29 @@ import {Topic} from "../sns";
  * });
  * ```
  *
+ * ### With a Warm-Up Period
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.cloudwatch.MetricAlarm("example", {
+ *     warmUpConfiguration: {
+ *         warmUpPeriodDurationInMinutes: 30,
+ *     },
+ *     name: "example-service-errors",
+ *     comparisonOperator: "GreaterThanThreshold",
+ *     evaluationPeriods: 3,
+ *     metricName: "Errors",
+ *     namespace: "ExampleApp",
+ *     period: 60,
+ *     statistic: "Sum",
+ *     threshold: 0,
+ *     treatMissingData: "breaching",
+ *     alarmActions: [exampleAwsSnsTopic.arn],
+ * });
+ * ```
+ *
  * > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extendedStatistic` parameters.
  * You must choose one or the other.
  *
@@ -397,6 +420,10 @@ export class MetricAlarm extends pulumi.CustomResource {
      * The unit for the alarm's associated metric.
      */
     declare public readonly unit: pulumi.Output<string | undefined>;
+    /**
+     * Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warmUpConfiguration` below.
+     */
+    declare public readonly warmUpConfiguration: pulumi.Output<outputs.cloudwatch.MetricAlarmWarmUpConfiguration | undefined>;
 
     /**
      * Create a MetricAlarm resource with the given unique name, arguments, and options.
@@ -438,6 +465,7 @@ export class MetricAlarm extends pulumi.CustomResource {
             resourceInputs["thresholdMetricId"] = state?.thresholdMetricId;
             resourceInputs["treatMissingData"] = state?.treatMissingData;
             resourceInputs["unit"] = state?.unit;
+            resourceInputs["warmUpConfiguration"] = state?.warmUpConfiguration;
         } else {
             const args = argsOrState as MetricAlarmArgs | undefined;
             resourceInputs["actionsEnabled"] = args?.actionsEnabled;
@@ -465,6 +493,7 @@ export class MetricAlarm extends pulumi.CustomResource {
             resourceInputs["thresholdMetricId"] = args?.thresholdMetricId;
             resourceInputs["treatMissingData"] = args?.treatMissingData;
             resourceInputs["unit"] = args?.unit;
+            resourceInputs["warmUpConfiguration"] = args?.warmUpConfiguration;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -597,6 +626,10 @@ export interface MetricAlarmState {
      * The unit for the alarm's associated metric.
      */
     unit?: pulumi.Input<string | undefined>;
+    /**
+     * Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warmUpConfiguration` below.
+     */
+    warmUpConfiguration?: pulumi.Input<inputs.cloudwatch.MetricAlarmWarmUpConfiguration | undefined>;
 }
 
 /**
@@ -715,4 +748,8 @@ export interface MetricAlarmArgs {
      * The unit for the alarm's associated metric.
      */
     unit?: pulumi.Input<string | undefined>;
+    /**
+     * Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warmUpConfiguration` below.
+     */
+    warmUpConfiguration?: pulumi.Input<inputs.cloudwatch.MetricAlarmWarmUpConfiguration | undefined>;
 }

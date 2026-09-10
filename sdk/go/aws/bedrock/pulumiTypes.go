@@ -60331,12 +60331,12 @@ type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment struct {
 	// Name of the agent runtime the service derives for the harness.
 	AgentRuntimeName string `pulumi:"agentRuntimeName"`
 	// Filesystem configurations. See `filesystemConfiguration` Block below.
-	//
-	// The following attributes are exported under `agentcoreRuntimeEnvironment`:
 	FilesystemConfigurations []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration `pulumi:"filesystemConfigurations"`
 	// Lifecycle configuration. See `lifecycleConfiguration` Block below.
 	LifecycleConfigurations []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration `pulumi:"lifecycleConfigurations"`
 	// Network configuration. See `networkConfiguration` Block below.
+	//
+	// The following attributes are exported under `agentcoreRuntimeEnvironment`:
 	NetworkConfigurations []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration `pulumi:"networkConfigurations"`
 }
 
@@ -60359,12 +60359,12 @@ type AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentArgs struct {
 	// Name of the agent runtime the service derives for the harness.
 	AgentRuntimeName pulumi.StringInput `pulumi:"agentRuntimeName"`
 	// Filesystem configurations. See `filesystemConfiguration` Block below.
-	//
-	// The following attributes are exported under `agentcoreRuntimeEnvironment`:
 	FilesystemConfigurations AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayInput `pulumi:"filesystemConfigurations"`
 	// Lifecycle configuration. See `lifecycleConfiguration` Block below.
 	LifecycleConfigurations AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayInput `pulumi:"lifecycleConfigurations"`
 	// Network configuration. See `networkConfiguration` Block below.
+	//
+	// The following attributes are exported under `agentcoreRuntimeEnvironment`:
 	NetworkConfigurations AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayInput `pulumi:"networkConfigurations"`
 }
 
@@ -60435,8 +60435,6 @@ func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput) Agen
 }
 
 // Filesystem configurations. See `filesystemConfiguration` Block below.
-//
-// The following attributes are exported under `agentcoreRuntimeEnvironment`:
 func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput) FilesystemConfigurations() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayOutput {
 	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment) []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration {
 		return v.FilesystemConfigurations
@@ -60451,6 +60449,8 @@ func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput) Life
 }
 
 // Network configuration. See `networkConfiguration` Block below.
+//
+// The following attributes are exported under `agentcoreRuntimeEnvironment`:
 func (o AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentOutput) NetworkConfigurations() AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfigurationArrayOutput {
 	return o.ApplyT(func(v AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironment) []AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration {
 		return v.NetworkConfigurations
@@ -61266,12 +61266,12 @@ type AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment struct {
 	// Name of the agent runtime the service derives for the harness.
 	AgentRuntimeName *string `pulumi:"agentRuntimeName"`
 	// Filesystem configurations. See `filesystemConfiguration` Block below.
-	//
-	// The following attributes are exported under `agentcoreRuntimeEnvironment`:
 	FilesystemConfigurations []AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration `pulumi:"filesystemConfigurations"`
 	// Lifecycle configuration. See `lifecycleConfiguration` Block below.
 	LifecycleConfigurations []AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfiguration `pulumi:"lifecycleConfigurations"`
 	// Network configuration. See `networkConfiguration` Block below.
+	//
+	// The following attributes are exported under `agentcoreRuntimeEnvironment`:
 	NetworkConfigurations []AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration `pulumi:"networkConfigurations"`
 }
 
@@ -61294,12 +61294,12 @@ type AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs struct {
 	// Name of the agent runtime the service derives for the harness.
 	AgentRuntimeName pulumi.StringPtrInput `pulumi:"agentRuntimeName"`
 	// Filesystem configurations. See `filesystemConfiguration` Block below.
-	//
-	// The following attributes are exported under `agentcoreRuntimeEnvironment`:
 	FilesystemConfigurations AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayInput `pulumi:"filesystemConfigurations"`
 	// Lifecycle configuration. See `lifecycleConfiguration` Block below.
 	LifecycleConfigurations AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfigurationArrayInput `pulumi:"lifecycleConfigurations"`
 	// Network configuration. See `networkConfiguration` Block below.
+	//
+	// The following attributes are exported under `agentcoreRuntimeEnvironment`:
 	NetworkConfigurations AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArrayInput `pulumi:"networkConfigurations"`
 }
 
@@ -61370,8 +61370,6 @@ func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentOutput) AgentRunti
 }
 
 // Filesystem configurations. See `filesystemConfiguration` Block below.
-//
-// The following attributes are exported under `agentcoreRuntimeEnvironment`:
 func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentOutput) FilesystemConfigurations() AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArrayOutput {
 	return o.ApplyT(func(v AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment) []AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration {
 		return v.FilesystemConfigurations
@@ -61386,6 +61384,8 @@ func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentOutput) LifecycleC
 }
 
 // Network configuration. See `networkConfiguration` Block below.
+//
+// The following attributes are exported under `agentcoreRuntimeEnvironment`:
 func (o AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentOutput) NetworkConfigurations() AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArrayOutput {
 	return o.ApplyT(func(v AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment) []AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration {
 		return v.NetworkConfigurations
@@ -63958,6 +63958,8 @@ type AgentcoreHarnessModel struct {
 	BedrockModelConfig *AgentcoreHarnessModelBedrockModelConfig `pulumi:"bedrockModelConfig"`
 	// Gemini model configuration. See `geminiModelConfig` Block below.
 	GeminiModelConfig *AgentcoreHarnessModelGeminiModelConfig `pulumi:"geminiModelConfig"`
+	// LiteLLM model configuration. See `litellmModelConfig` Block below.
+	LitellmModelConfig *AgentcoreHarnessModelLitellmModelConfig `pulumi:"litellmModelConfig"`
 	// OpenAI model configuration. See `openaiModelConfig` Block below.
 	OpenaiModelConfig *AgentcoreHarnessModelOpenaiModelConfig `pulumi:"openaiModelConfig"`
 }
@@ -63978,6 +63980,8 @@ type AgentcoreHarnessModelArgs struct {
 	BedrockModelConfig AgentcoreHarnessModelBedrockModelConfigPtrInput `pulumi:"bedrockModelConfig"`
 	// Gemini model configuration. See `geminiModelConfig` Block below.
 	GeminiModelConfig AgentcoreHarnessModelGeminiModelConfigPtrInput `pulumi:"geminiModelConfig"`
+	// LiteLLM model configuration. See `litellmModelConfig` Block below.
+	LitellmModelConfig AgentcoreHarnessModelLitellmModelConfigPtrInput `pulumi:"litellmModelConfig"`
 	// OpenAI model configuration. See `openaiModelConfig` Block below.
 	OpenaiModelConfig AgentcoreHarnessModelOpenaiModelConfigPtrInput `pulumi:"openaiModelConfig"`
 }
@@ -64069,6 +64073,11 @@ func (o AgentcoreHarnessModelOutput) GeminiModelConfig() AgentcoreHarnessModelGe
 	return o.ApplyT(func(v AgentcoreHarnessModel) *AgentcoreHarnessModelGeminiModelConfig { return v.GeminiModelConfig }).(AgentcoreHarnessModelGeminiModelConfigPtrOutput)
 }
 
+// LiteLLM model configuration. See `litellmModelConfig` Block below.
+func (o AgentcoreHarnessModelOutput) LitellmModelConfig() AgentcoreHarnessModelLitellmModelConfigPtrOutput {
+	return o.ApplyT(func(v AgentcoreHarnessModel) *AgentcoreHarnessModelLitellmModelConfig { return v.LitellmModelConfig }).(AgentcoreHarnessModelLitellmModelConfigPtrOutput)
+}
+
 // OpenAI model configuration. See `openaiModelConfig` Block below.
 func (o AgentcoreHarnessModelOutput) OpenaiModelConfig() AgentcoreHarnessModelOpenaiModelConfigPtrOutput {
 	return o.ApplyT(func(v AgentcoreHarnessModel) *AgentcoreHarnessModelOpenaiModelConfig { return v.OpenaiModelConfig }).(AgentcoreHarnessModelOpenaiModelConfigPtrOutput)
@@ -64118,6 +64127,16 @@ func (o AgentcoreHarnessModelPtrOutput) GeminiModelConfig() AgentcoreHarnessMode
 	}).(AgentcoreHarnessModelGeminiModelConfigPtrOutput)
 }
 
+// LiteLLM model configuration. See `litellmModelConfig` Block below.
+func (o AgentcoreHarnessModelPtrOutput) LitellmModelConfig() AgentcoreHarnessModelLitellmModelConfigPtrOutput {
+	return o.ApplyT(func(v *AgentcoreHarnessModel) *AgentcoreHarnessModelLitellmModelConfig {
+		if v == nil {
+			return nil
+		}
+		return v.LitellmModelConfig
+	}).(AgentcoreHarnessModelLitellmModelConfigPtrOutput)
+}
+
 // OpenAI model configuration. See `openaiModelConfig` Block below.
 func (o AgentcoreHarnessModelPtrOutput) OpenaiModelConfig() AgentcoreHarnessModelOpenaiModelConfigPtrOutput {
 	return o.ApplyT(func(v *AgentcoreHarnessModel) *AgentcoreHarnessModelOpenaiModelConfig {
@@ -64129,6 +64148,10 @@ func (o AgentcoreHarnessModelPtrOutput) OpenaiModelConfig() AgentcoreHarnessMode
 }
 
 type AgentcoreHarnessModelBedrockModelConfig struct {
+	// JSON string containing provider-specific parameters to pass through to the Bedrock model provider unchanged.
+	AdditionalParams *string `pulumi:"additionalParams"`
+	// API format for the model. Valid values are `converseStream`, `responses`, and `chatCompletions`.
+	ApiFormat *string `pulumi:"apiFormat"`
 	// Maximum number of tokens to generate.
 	MaxTokens *int `pulumi:"maxTokens"`
 	// Bedrock model ID (e.g., `anthropic.claude-sonnet-4-20250514`).
@@ -64151,6 +64174,10 @@ type AgentcoreHarnessModelBedrockModelConfigInput interface {
 }
 
 type AgentcoreHarnessModelBedrockModelConfigArgs struct {
+	// JSON string containing provider-specific parameters to pass through to the Bedrock model provider unchanged.
+	AdditionalParams pulumi.StringPtrInput `pulumi:"additionalParams"`
+	// API format for the model. Valid values are `converseStream`, `responses`, and `chatCompletions`.
+	ApiFormat pulumi.StringPtrInput `pulumi:"apiFormat"`
 	// Maximum number of tokens to generate.
 	MaxTokens pulumi.IntPtrInput `pulumi:"maxTokens"`
 	// Bedrock model ID (e.g., `anthropic.claude-sonnet-4-20250514`).
@@ -64238,6 +64265,16 @@ func (o AgentcoreHarnessModelBedrockModelConfigOutput) ToAgentcoreHarnessModelBe
 	}).(AgentcoreHarnessModelBedrockModelConfigPtrOutput)
 }
 
+// JSON string containing provider-specific parameters to pass through to the Bedrock model provider unchanged.
+func (o AgentcoreHarnessModelBedrockModelConfigOutput) AdditionalParams() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreHarnessModelBedrockModelConfig) *string { return v.AdditionalParams }).(pulumi.StringPtrOutput)
+}
+
+// API format for the model. Valid values are `converseStream`, `responses`, and `chatCompletions`.
+func (o AgentcoreHarnessModelBedrockModelConfigOutput) ApiFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreHarnessModelBedrockModelConfig) *string { return v.ApiFormat }).(pulumi.StringPtrOutput)
+}
+
 // Maximum number of tokens to generate.
 func (o AgentcoreHarnessModelBedrockModelConfigOutput) MaxTokens() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AgentcoreHarnessModelBedrockModelConfig) *int { return v.MaxTokens }).(pulumi.IntPtrOutput)
@@ -64282,6 +64319,26 @@ func (o AgentcoreHarnessModelBedrockModelConfigPtrOutput) Elem() AgentcoreHarnes
 	}).(AgentcoreHarnessModelBedrockModelConfigOutput)
 }
 
+// JSON string containing provider-specific parameters to pass through to the Bedrock model provider unchanged.
+func (o AgentcoreHarnessModelBedrockModelConfigPtrOutput) AdditionalParams() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreHarnessModelBedrockModelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalParams
+	}).(pulumi.StringPtrOutput)
+}
+
+// API format for the model. Valid values are `converseStream`, `responses`, and `chatCompletions`.
+func (o AgentcoreHarnessModelBedrockModelConfigPtrOutput) ApiFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreHarnessModelBedrockModelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApiFormat
+	}).(pulumi.StringPtrOutput)
+}
+
 // Maximum number of tokens to generate.
 func (o AgentcoreHarnessModelBedrockModelConfigPtrOutput) MaxTokens() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AgentcoreHarnessModelBedrockModelConfig) *int {
@@ -64323,6 +64380,8 @@ func (o AgentcoreHarnessModelBedrockModelConfigPtrOutput) TopP() pulumi.Float64P
 }
 
 type AgentcoreHarnessModelGeminiModelConfig struct {
+	// JSON string containing provider-specific parameters to pass through to the Gemini model provider unchanged.
+	AdditionalParams *string `pulumi:"additionalParams"`
 	// ARN of the secret containing the API key.
 	ApiKeyArn string `pulumi:"apiKeyArn"`
 	// Maximum number of tokens to generate.
@@ -64349,6 +64408,8 @@ type AgentcoreHarnessModelGeminiModelConfigInput interface {
 }
 
 type AgentcoreHarnessModelGeminiModelConfigArgs struct {
+	// JSON string containing provider-specific parameters to pass through to the Gemini model provider unchanged.
+	AdditionalParams pulumi.StringPtrInput `pulumi:"additionalParams"`
 	// ARN of the secret containing the API key.
 	ApiKeyArn pulumi.StringInput `pulumi:"apiKeyArn"`
 	// Maximum number of tokens to generate.
@@ -64440,6 +64501,11 @@ func (o AgentcoreHarnessModelGeminiModelConfigOutput) ToAgentcoreHarnessModelGem
 	}).(AgentcoreHarnessModelGeminiModelConfigPtrOutput)
 }
 
+// JSON string containing provider-specific parameters to pass through to the Gemini model provider unchanged.
+func (o AgentcoreHarnessModelGeminiModelConfigOutput) AdditionalParams() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreHarnessModelGeminiModelConfig) *string { return v.AdditionalParams }).(pulumi.StringPtrOutput)
+}
+
 // ARN of the secret containing the API key.
 func (o AgentcoreHarnessModelGeminiModelConfigOutput) ApiKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreHarnessModelGeminiModelConfig) string { return v.ApiKeyArn }).(pulumi.StringOutput)
@@ -64492,6 +64558,16 @@ func (o AgentcoreHarnessModelGeminiModelConfigPtrOutput) Elem() AgentcoreHarness
 		var ret AgentcoreHarnessModelGeminiModelConfig
 		return ret
 	}).(AgentcoreHarnessModelGeminiModelConfigOutput)
+}
+
+// JSON string containing provider-specific parameters to pass through to the Gemini model provider unchanged.
+func (o AgentcoreHarnessModelGeminiModelConfigPtrOutput) AdditionalParams() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreHarnessModelGeminiModelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalParams
+	}).(pulumi.StringPtrOutput)
 }
 
 // ARN of the secret containing the API key.
@@ -64554,7 +64630,262 @@ func (o AgentcoreHarnessModelGeminiModelConfigPtrOutput) TopP() pulumi.Float64Pt
 	}).(pulumi.Float64PtrOutput)
 }
 
+type AgentcoreHarnessModelLitellmModelConfig struct {
+	// JSON string containing provider-specific parameters to pass through to the LiteLLM model provider unchanged.
+	AdditionalParams *string `pulumi:"additionalParams"`
+	// Base URL of the LiteLLM-compatible API endpoint.
+	ApiBase *string `pulumi:"apiBase"`
+	// ARN of the secret containing the API key.
+	ApiKeyArn *string `pulumi:"apiKeyArn"`
+	// Maximum number of tokens to generate.
+	MaxTokens *int `pulumi:"maxTokens"`
+	// LiteLLM model ID.
+	ModelId string `pulumi:"modelId"`
+	// Temperature for sampling. Must be between 0 and 2.
+	Temperature *float64 `pulumi:"temperature"`
+	// Top-p sampling parameter. Must be between 0 and 1.
+	TopP *float64 `pulumi:"topP"`
+}
+
+// AgentcoreHarnessModelLitellmModelConfigInput is an input type that accepts AgentcoreHarnessModelLitellmModelConfigArgs and AgentcoreHarnessModelLitellmModelConfigOutput values.
+// You can construct a concrete instance of `AgentcoreHarnessModelLitellmModelConfigInput` via:
+//
+//	AgentcoreHarnessModelLitellmModelConfigArgs{...}
+type AgentcoreHarnessModelLitellmModelConfigInput interface {
+	pulumi.Input
+
+	ToAgentcoreHarnessModelLitellmModelConfigOutput() AgentcoreHarnessModelLitellmModelConfigOutput
+	ToAgentcoreHarnessModelLitellmModelConfigOutputWithContext(context.Context) AgentcoreHarnessModelLitellmModelConfigOutput
+}
+
+type AgentcoreHarnessModelLitellmModelConfigArgs struct {
+	// JSON string containing provider-specific parameters to pass through to the LiteLLM model provider unchanged.
+	AdditionalParams pulumi.StringPtrInput `pulumi:"additionalParams"`
+	// Base URL of the LiteLLM-compatible API endpoint.
+	ApiBase pulumi.StringPtrInput `pulumi:"apiBase"`
+	// ARN of the secret containing the API key.
+	ApiKeyArn pulumi.StringPtrInput `pulumi:"apiKeyArn"`
+	// Maximum number of tokens to generate.
+	MaxTokens pulumi.IntPtrInput `pulumi:"maxTokens"`
+	// LiteLLM model ID.
+	ModelId pulumi.StringInput `pulumi:"modelId"`
+	// Temperature for sampling. Must be between 0 and 2.
+	Temperature pulumi.Float64PtrInput `pulumi:"temperature"`
+	// Top-p sampling parameter. Must be between 0 and 1.
+	TopP pulumi.Float64PtrInput `pulumi:"topP"`
+}
+
+func (AgentcoreHarnessModelLitellmModelConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreHarnessModelLitellmModelConfig)(nil)).Elem()
+}
+
+func (i AgentcoreHarnessModelLitellmModelConfigArgs) ToAgentcoreHarnessModelLitellmModelConfigOutput() AgentcoreHarnessModelLitellmModelConfigOutput {
+	return i.ToAgentcoreHarnessModelLitellmModelConfigOutputWithContext(context.Background())
+}
+
+func (i AgentcoreHarnessModelLitellmModelConfigArgs) ToAgentcoreHarnessModelLitellmModelConfigOutputWithContext(ctx context.Context) AgentcoreHarnessModelLitellmModelConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessModelLitellmModelConfigOutput)
+}
+
+func (i AgentcoreHarnessModelLitellmModelConfigArgs) ToAgentcoreHarnessModelLitellmModelConfigPtrOutput() AgentcoreHarnessModelLitellmModelConfigPtrOutput {
+	return i.ToAgentcoreHarnessModelLitellmModelConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreHarnessModelLitellmModelConfigArgs) ToAgentcoreHarnessModelLitellmModelConfigPtrOutputWithContext(ctx context.Context) AgentcoreHarnessModelLitellmModelConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessModelLitellmModelConfigOutput).ToAgentcoreHarnessModelLitellmModelConfigPtrOutputWithContext(ctx)
+}
+
+// AgentcoreHarnessModelLitellmModelConfigPtrInput is an input type that accepts AgentcoreHarnessModelLitellmModelConfigArgs, AgentcoreHarnessModelLitellmModelConfigPtr and AgentcoreHarnessModelLitellmModelConfigPtrOutput values.
+// You can construct a concrete instance of `AgentcoreHarnessModelLitellmModelConfigPtrInput` via:
+//
+//	        AgentcoreHarnessModelLitellmModelConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreHarnessModelLitellmModelConfigPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreHarnessModelLitellmModelConfigPtrOutput() AgentcoreHarnessModelLitellmModelConfigPtrOutput
+	ToAgentcoreHarnessModelLitellmModelConfigPtrOutputWithContext(context.Context) AgentcoreHarnessModelLitellmModelConfigPtrOutput
+}
+
+type agentcoreHarnessModelLitellmModelConfigPtrType AgentcoreHarnessModelLitellmModelConfigArgs
+
+func AgentcoreHarnessModelLitellmModelConfigPtr(v *AgentcoreHarnessModelLitellmModelConfigArgs) AgentcoreHarnessModelLitellmModelConfigPtrInput {
+	return (*agentcoreHarnessModelLitellmModelConfigPtrType)(v)
+}
+
+func (*agentcoreHarnessModelLitellmModelConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreHarnessModelLitellmModelConfig)(nil)).Elem()
+}
+
+func (i *agentcoreHarnessModelLitellmModelConfigPtrType) ToAgentcoreHarnessModelLitellmModelConfigPtrOutput() AgentcoreHarnessModelLitellmModelConfigPtrOutput {
+	return i.ToAgentcoreHarnessModelLitellmModelConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreHarnessModelLitellmModelConfigPtrType) ToAgentcoreHarnessModelLitellmModelConfigPtrOutputWithContext(ctx context.Context) AgentcoreHarnessModelLitellmModelConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessModelLitellmModelConfigPtrOutput)
+}
+
+type AgentcoreHarnessModelLitellmModelConfigOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreHarnessModelLitellmModelConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreHarnessModelLitellmModelConfig)(nil)).Elem()
+}
+
+func (o AgentcoreHarnessModelLitellmModelConfigOutput) ToAgentcoreHarnessModelLitellmModelConfigOutput() AgentcoreHarnessModelLitellmModelConfigOutput {
+	return o
+}
+
+func (o AgentcoreHarnessModelLitellmModelConfigOutput) ToAgentcoreHarnessModelLitellmModelConfigOutputWithContext(ctx context.Context) AgentcoreHarnessModelLitellmModelConfigOutput {
+	return o
+}
+
+func (o AgentcoreHarnessModelLitellmModelConfigOutput) ToAgentcoreHarnessModelLitellmModelConfigPtrOutput() AgentcoreHarnessModelLitellmModelConfigPtrOutput {
+	return o.ToAgentcoreHarnessModelLitellmModelConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreHarnessModelLitellmModelConfigOutput) ToAgentcoreHarnessModelLitellmModelConfigPtrOutputWithContext(ctx context.Context) AgentcoreHarnessModelLitellmModelConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreHarnessModelLitellmModelConfig) *AgentcoreHarnessModelLitellmModelConfig {
+		return &v
+	}).(AgentcoreHarnessModelLitellmModelConfigPtrOutput)
+}
+
+// JSON string containing provider-specific parameters to pass through to the LiteLLM model provider unchanged.
+func (o AgentcoreHarnessModelLitellmModelConfigOutput) AdditionalParams() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreHarnessModelLitellmModelConfig) *string { return v.AdditionalParams }).(pulumi.StringPtrOutput)
+}
+
+// Base URL of the LiteLLM-compatible API endpoint.
+func (o AgentcoreHarnessModelLitellmModelConfigOutput) ApiBase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreHarnessModelLitellmModelConfig) *string { return v.ApiBase }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the secret containing the API key.
+func (o AgentcoreHarnessModelLitellmModelConfigOutput) ApiKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreHarnessModelLitellmModelConfig) *string { return v.ApiKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// Maximum number of tokens to generate.
+func (o AgentcoreHarnessModelLitellmModelConfigOutput) MaxTokens() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AgentcoreHarnessModelLitellmModelConfig) *int { return v.MaxTokens }).(pulumi.IntPtrOutput)
+}
+
+// LiteLLM model ID.
+func (o AgentcoreHarnessModelLitellmModelConfigOutput) ModelId() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreHarnessModelLitellmModelConfig) string { return v.ModelId }).(pulumi.StringOutput)
+}
+
+// Temperature for sampling. Must be between 0 and 2.
+func (o AgentcoreHarnessModelLitellmModelConfigOutput) Temperature() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AgentcoreHarnessModelLitellmModelConfig) *float64 { return v.Temperature }).(pulumi.Float64PtrOutput)
+}
+
+// Top-p sampling parameter. Must be between 0 and 1.
+func (o AgentcoreHarnessModelLitellmModelConfigOutput) TopP() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AgentcoreHarnessModelLitellmModelConfig) *float64 { return v.TopP }).(pulumi.Float64PtrOutput)
+}
+
+type AgentcoreHarnessModelLitellmModelConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreHarnessModelLitellmModelConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreHarnessModelLitellmModelConfig)(nil)).Elem()
+}
+
+func (o AgentcoreHarnessModelLitellmModelConfigPtrOutput) ToAgentcoreHarnessModelLitellmModelConfigPtrOutput() AgentcoreHarnessModelLitellmModelConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreHarnessModelLitellmModelConfigPtrOutput) ToAgentcoreHarnessModelLitellmModelConfigPtrOutputWithContext(ctx context.Context) AgentcoreHarnessModelLitellmModelConfigPtrOutput {
+	return o
+}
+
+func (o AgentcoreHarnessModelLitellmModelConfigPtrOutput) Elem() AgentcoreHarnessModelLitellmModelConfigOutput {
+	return o.ApplyT(func(v *AgentcoreHarnessModelLitellmModelConfig) AgentcoreHarnessModelLitellmModelConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreHarnessModelLitellmModelConfig
+		return ret
+	}).(AgentcoreHarnessModelLitellmModelConfigOutput)
+}
+
+// JSON string containing provider-specific parameters to pass through to the LiteLLM model provider unchanged.
+func (o AgentcoreHarnessModelLitellmModelConfigPtrOutput) AdditionalParams() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreHarnessModelLitellmModelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalParams
+	}).(pulumi.StringPtrOutput)
+}
+
+// Base URL of the LiteLLM-compatible API endpoint.
+func (o AgentcoreHarnessModelLitellmModelConfigPtrOutput) ApiBase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreHarnessModelLitellmModelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApiBase
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the secret containing the API key.
+func (o AgentcoreHarnessModelLitellmModelConfigPtrOutput) ApiKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreHarnessModelLitellmModelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApiKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Maximum number of tokens to generate.
+func (o AgentcoreHarnessModelLitellmModelConfigPtrOutput) MaxTokens() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentcoreHarnessModelLitellmModelConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxTokens
+	}).(pulumi.IntPtrOutput)
+}
+
+// LiteLLM model ID.
+func (o AgentcoreHarnessModelLitellmModelConfigPtrOutput) ModelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreHarnessModelLitellmModelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Temperature for sampling. Must be between 0 and 2.
+func (o AgentcoreHarnessModelLitellmModelConfigPtrOutput) Temperature() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AgentcoreHarnessModelLitellmModelConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Temperature
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Top-p sampling parameter. Must be between 0 and 1.
+func (o AgentcoreHarnessModelLitellmModelConfigPtrOutput) TopP() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AgentcoreHarnessModelLitellmModelConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.TopP
+	}).(pulumi.Float64PtrOutput)
+}
+
 type AgentcoreHarnessModelOpenaiModelConfig struct {
+	// JSON string containing provider-specific parameters to pass through to the OpenAI model provider unchanged.
+	AdditionalParams *string `pulumi:"additionalParams"`
+	// API format for the model. Valid values are `responses` and `chatCompletions`.
+	ApiFormat *string `pulumi:"apiFormat"`
 	// ARN of the secret containing the API key.
 	ApiKeyArn string `pulumi:"apiKeyArn"`
 	// Maximum number of tokens to generate.
@@ -64579,6 +64910,10 @@ type AgentcoreHarnessModelOpenaiModelConfigInput interface {
 }
 
 type AgentcoreHarnessModelOpenaiModelConfigArgs struct {
+	// JSON string containing provider-specific parameters to pass through to the OpenAI model provider unchanged.
+	AdditionalParams pulumi.StringPtrInput `pulumi:"additionalParams"`
+	// API format for the model. Valid values are `responses` and `chatCompletions`.
+	ApiFormat pulumi.StringPtrInput `pulumi:"apiFormat"`
 	// ARN of the secret containing the API key.
 	ApiKeyArn pulumi.StringInput `pulumi:"apiKeyArn"`
 	// Maximum number of tokens to generate.
@@ -64668,6 +65003,16 @@ func (o AgentcoreHarnessModelOpenaiModelConfigOutput) ToAgentcoreHarnessModelOpe
 	}).(AgentcoreHarnessModelOpenaiModelConfigPtrOutput)
 }
 
+// JSON string containing provider-specific parameters to pass through to the OpenAI model provider unchanged.
+func (o AgentcoreHarnessModelOpenaiModelConfigOutput) AdditionalParams() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreHarnessModelOpenaiModelConfig) *string { return v.AdditionalParams }).(pulumi.StringPtrOutput)
+}
+
+// API format for the model. Valid values are `responses` and `chatCompletions`.
+func (o AgentcoreHarnessModelOpenaiModelConfigOutput) ApiFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreHarnessModelOpenaiModelConfig) *string { return v.ApiFormat }).(pulumi.StringPtrOutput)
+}
+
 // ARN of the secret containing the API key.
 func (o AgentcoreHarnessModelOpenaiModelConfigOutput) ApiKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentcoreHarnessModelOpenaiModelConfig) string { return v.ApiKeyArn }).(pulumi.StringOutput)
@@ -64715,6 +65060,26 @@ func (o AgentcoreHarnessModelOpenaiModelConfigPtrOutput) Elem() AgentcoreHarness
 		var ret AgentcoreHarnessModelOpenaiModelConfig
 		return ret
 	}).(AgentcoreHarnessModelOpenaiModelConfigOutput)
+}
+
+// JSON string containing provider-specific parameters to pass through to the OpenAI model provider unchanged.
+func (o AgentcoreHarnessModelOpenaiModelConfigPtrOutput) AdditionalParams() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreHarnessModelOpenaiModelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalParams
+	}).(pulumi.StringPtrOutput)
+}
+
+// API format for the model. Valid values are `responses` and `chatCompletions`.
+func (o AgentcoreHarnessModelOpenaiModelConfigPtrOutput) ApiFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreHarnessModelOpenaiModelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApiFormat
+	}).(pulumi.StringPtrOutput)
 }
 
 // ARN of the secret containing the API key.
@@ -64768,8 +65133,14 @@ func (o AgentcoreHarnessModelOpenaiModelConfigPtrOutput) TopP() pulumi.Float64Pt
 }
 
 type AgentcoreHarnessSkill struct {
+	// AWS Skills baked into the harness's underlying runtime. See `awsSkills` Block below.
+	AwsSkills *AgentcoreHarnessSkillAwsSkills `pulumi:"awsSkills"`
+	// Git repository source for the skill. See `git` Block below.
+	Git *AgentcoreHarnessSkillGit `pulumi:"git"`
 	// Path to the skill.
-	Path string `pulumi:"path"`
+	Path *string `pulumi:"path"`
+	// S3 source for the skill. See `s3` Block below.
+	S3 *AgentcoreHarnessSkillS3 `pulumi:"s3"`
 }
 
 // AgentcoreHarnessSkillInput is an input type that accepts AgentcoreHarnessSkillArgs and AgentcoreHarnessSkillOutput values.
@@ -64784,8 +65155,14 @@ type AgentcoreHarnessSkillInput interface {
 }
 
 type AgentcoreHarnessSkillArgs struct {
+	// AWS Skills baked into the harness's underlying runtime. See `awsSkills` Block below.
+	AwsSkills AgentcoreHarnessSkillAwsSkillsPtrInput `pulumi:"awsSkills"`
+	// Git repository source for the skill. See `git` Block below.
+	Git AgentcoreHarnessSkillGitPtrInput `pulumi:"git"`
 	// Path to the skill.
-	Path pulumi.StringInput `pulumi:"path"`
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// S3 source for the skill. See `s3` Block below.
+	S3 AgentcoreHarnessSkillS3PtrInput `pulumi:"s3"`
 }
 
 func (AgentcoreHarnessSkillArgs) ElementType() reflect.Type {
@@ -64839,9 +65216,24 @@ func (o AgentcoreHarnessSkillOutput) ToAgentcoreHarnessSkillOutputWithContext(ct
 	return o
 }
 
+// AWS Skills baked into the harness's underlying runtime. See `awsSkills` Block below.
+func (o AgentcoreHarnessSkillOutput) AwsSkills() AgentcoreHarnessSkillAwsSkillsPtrOutput {
+	return o.ApplyT(func(v AgentcoreHarnessSkill) *AgentcoreHarnessSkillAwsSkills { return v.AwsSkills }).(AgentcoreHarnessSkillAwsSkillsPtrOutput)
+}
+
+// Git repository source for the skill. See `git` Block below.
+func (o AgentcoreHarnessSkillOutput) Git() AgentcoreHarnessSkillGitPtrOutput {
+	return o.ApplyT(func(v AgentcoreHarnessSkill) *AgentcoreHarnessSkillGit { return v.Git }).(AgentcoreHarnessSkillGitPtrOutput)
+}
+
 // Path to the skill.
-func (o AgentcoreHarnessSkillOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentcoreHarnessSkill) string { return v.Path }).(pulumi.StringOutput)
+func (o AgentcoreHarnessSkillOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreHarnessSkill) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// S3 source for the skill. See `s3` Block below.
+func (o AgentcoreHarnessSkillOutput) S3() AgentcoreHarnessSkillS3PtrOutput {
+	return o.ApplyT(func(v AgentcoreHarnessSkill) *AgentcoreHarnessSkillS3 { return v.S3 }).(AgentcoreHarnessSkillS3PtrOutput)
 }
 
 type AgentcoreHarnessSkillArrayOutput struct{ *pulumi.OutputState }
@@ -64864,9 +65256,614 @@ func (o AgentcoreHarnessSkillArrayOutput) Index(i pulumi.IntInput) AgentcoreHarn
 	}).(AgentcoreHarnessSkillOutput)
 }
 
+type AgentcoreHarnessSkillAwsSkills struct {
+	// List of glob patterns to filter allowed skills (e.g., `["core-skills/*"]`).
+	Paths []string `pulumi:"paths"`
+}
+
+// AgentcoreHarnessSkillAwsSkillsInput is an input type that accepts AgentcoreHarnessSkillAwsSkillsArgs and AgentcoreHarnessSkillAwsSkillsOutput values.
+// You can construct a concrete instance of `AgentcoreHarnessSkillAwsSkillsInput` via:
+//
+//	AgentcoreHarnessSkillAwsSkillsArgs{...}
+type AgentcoreHarnessSkillAwsSkillsInput interface {
+	pulumi.Input
+
+	ToAgentcoreHarnessSkillAwsSkillsOutput() AgentcoreHarnessSkillAwsSkillsOutput
+	ToAgentcoreHarnessSkillAwsSkillsOutputWithContext(context.Context) AgentcoreHarnessSkillAwsSkillsOutput
+}
+
+type AgentcoreHarnessSkillAwsSkillsArgs struct {
+	// List of glob patterns to filter allowed skills (e.g., `["core-skills/*"]`).
+	Paths pulumi.StringArrayInput `pulumi:"paths"`
+}
+
+func (AgentcoreHarnessSkillAwsSkillsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreHarnessSkillAwsSkills)(nil)).Elem()
+}
+
+func (i AgentcoreHarnessSkillAwsSkillsArgs) ToAgentcoreHarnessSkillAwsSkillsOutput() AgentcoreHarnessSkillAwsSkillsOutput {
+	return i.ToAgentcoreHarnessSkillAwsSkillsOutputWithContext(context.Background())
+}
+
+func (i AgentcoreHarnessSkillAwsSkillsArgs) ToAgentcoreHarnessSkillAwsSkillsOutputWithContext(ctx context.Context) AgentcoreHarnessSkillAwsSkillsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessSkillAwsSkillsOutput)
+}
+
+func (i AgentcoreHarnessSkillAwsSkillsArgs) ToAgentcoreHarnessSkillAwsSkillsPtrOutput() AgentcoreHarnessSkillAwsSkillsPtrOutput {
+	return i.ToAgentcoreHarnessSkillAwsSkillsPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreHarnessSkillAwsSkillsArgs) ToAgentcoreHarnessSkillAwsSkillsPtrOutputWithContext(ctx context.Context) AgentcoreHarnessSkillAwsSkillsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessSkillAwsSkillsOutput).ToAgentcoreHarnessSkillAwsSkillsPtrOutputWithContext(ctx)
+}
+
+// AgentcoreHarnessSkillAwsSkillsPtrInput is an input type that accepts AgentcoreHarnessSkillAwsSkillsArgs, AgentcoreHarnessSkillAwsSkillsPtr and AgentcoreHarnessSkillAwsSkillsPtrOutput values.
+// You can construct a concrete instance of `AgentcoreHarnessSkillAwsSkillsPtrInput` via:
+//
+//	        AgentcoreHarnessSkillAwsSkillsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreHarnessSkillAwsSkillsPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreHarnessSkillAwsSkillsPtrOutput() AgentcoreHarnessSkillAwsSkillsPtrOutput
+	ToAgentcoreHarnessSkillAwsSkillsPtrOutputWithContext(context.Context) AgentcoreHarnessSkillAwsSkillsPtrOutput
+}
+
+type agentcoreHarnessSkillAwsSkillsPtrType AgentcoreHarnessSkillAwsSkillsArgs
+
+func AgentcoreHarnessSkillAwsSkillsPtr(v *AgentcoreHarnessSkillAwsSkillsArgs) AgentcoreHarnessSkillAwsSkillsPtrInput {
+	return (*agentcoreHarnessSkillAwsSkillsPtrType)(v)
+}
+
+func (*agentcoreHarnessSkillAwsSkillsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreHarnessSkillAwsSkills)(nil)).Elem()
+}
+
+func (i *agentcoreHarnessSkillAwsSkillsPtrType) ToAgentcoreHarnessSkillAwsSkillsPtrOutput() AgentcoreHarnessSkillAwsSkillsPtrOutput {
+	return i.ToAgentcoreHarnessSkillAwsSkillsPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreHarnessSkillAwsSkillsPtrType) ToAgentcoreHarnessSkillAwsSkillsPtrOutputWithContext(ctx context.Context) AgentcoreHarnessSkillAwsSkillsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessSkillAwsSkillsPtrOutput)
+}
+
+type AgentcoreHarnessSkillAwsSkillsOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreHarnessSkillAwsSkillsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreHarnessSkillAwsSkills)(nil)).Elem()
+}
+
+func (o AgentcoreHarnessSkillAwsSkillsOutput) ToAgentcoreHarnessSkillAwsSkillsOutput() AgentcoreHarnessSkillAwsSkillsOutput {
+	return o
+}
+
+func (o AgentcoreHarnessSkillAwsSkillsOutput) ToAgentcoreHarnessSkillAwsSkillsOutputWithContext(ctx context.Context) AgentcoreHarnessSkillAwsSkillsOutput {
+	return o
+}
+
+func (o AgentcoreHarnessSkillAwsSkillsOutput) ToAgentcoreHarnessSkillAwsSkillsPtrOutput() AgentcoreHarnessSkillAwsSkillsPtrOutput {
+	return o.ToAgentcoreHarnessSkillAwsSkillsPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreHarnessSkillAwsSkillsOutput) ToAgentcoreHarnessSkillAwsSkillsPtrOutputWithContext(ctx context.Context) AgentcoreHarnessSkillAwsSkillsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreHarnessSkillAwsSkills) *AgentcoreHarnessSkillAwsSkills {
+		return &v
+	}).(AgentcoreHarnessSkillAwsSkillsPtrOutput)
+}
+
+// List of glob patterns to filter allowed skills (e.g., `["core-skills/*"]`).
+func (o AgentcoreHarnessSkillAwsSkillsOutput) Paths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentcoreHarnessSkillAwsSkills) []string { return v.Paths }).(pulumi.StringArrayOutput)
+}
+
+type AgentcoreHarnessSkillAwsSkillsPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreHarnessSkillAwsSkillsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreHarnessSkillAwsSkills)(nil)).Elem()
+}
+
+func (o AgentcoreHarnessSkillAwsSkillsPtrOutput) ToAgentcoreHarnessSkillAwsSkillsPtrOutput() AgentcoreHarnessSkillAwsSkillsPtrOutput {
+	return o
+}
+
+func (o AgentcoreHarnessSkillAwsSkillsPtrOutput) ToAgentcoreHarnessSkillAwsSkillsPtrOutputWithContext(ctx context.Context) AgentcoreHarnessSkillAwsSkillsPtrOutput {
+	return o
+}
+
+func (o AgentcoreHarnessSkillAwsSkillsPtrOutput) Elem() AgentcoreHarnessSkillAwsSkillsOutput {
+	return o.ApplyT(func(v *AgentcoreHarnessSkillAwsSkills) AgentcoreHarnessSkillAwsSkills {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreHarnessSkillAwsSkills
+		return ret
+	}).(AgentcoreHarnessSkillAwsSkillsOutput)
+}
+
+// List of glob patterns to filter allowed skills (e.g., `["core-skills/*"]`).
+func (o AgentcoreHarnessSkillAwsSkillsPtrOutput) Paths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreHarnessSkillAwsSkills) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Paths
+	}).(pulumi.StringArrayOutput)
+}
+
+type AgentcoreHarnessSkillGit struct {
+	// Authentication configuration for private repositories. See `auth` Block below.
+	Auth *AgentcoreHarnessSkillGitAuth `pulumi:"auth"`
+	// Subdirectory within the repository containing the skill.
+	Path *string `pulumi:"path"`
+	// HTTPS URL of the git repository.
+	Url string `pulumi:"url"`
+}
+
+// AgentcoreHarnessSkillGitInput is an input type that accepts AgentcoreHarnessSkillGitArgs and AgentcoreHarnessSkillGitOutput values.
+// You can construct a concrete instance of `AgentcoreHarnessSkillGitInput` via:
+//
+//	AgentcoreHarnessSkillGitArgs{...}
+type AgentcoreHarnessSkillGitInput interface {
+	pulumi.Input
+
+	ToAgentcoreHarnessSkillGitOutput() AgentcoreHarnessSkillGitOutput
+	ToAgentcoreHarnessSkillGitOutputWithContext(context.Context) AgentcoreHarnessSkillGitOutput
+}
+
+type AgentcoreHarnessSkillGitArgs struct {
+	// Authentication configuration for private repositories. See `auth` Block below.
+	Auth AgentcoreHarnessSkillGitAuthPtrInput `pulumi:"auth"`
+	// Subdirectory within the repository containing the skill.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// HTTPS URL of the git repository.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (AgentcoreHarnessSkillGitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreHarnessSkillGit)(nil)).Elem()
+}
+
+func (i AgentcoreHarnessSkillGitArgs) ToAgentcoreHarnessSkillGitOutput() AgentcoreHarnessSkillGitOutput {
+	return i.ToAgentcoreHarnessSkillGitOutputWithContext(context.Background())
+}
+
+func (i AgentcoreHarnessSkillGitArgs) ToAgentcoreHarnessSkillGitOutputWithContext(ctx context.Context) AgentcoreHarnessSkillGitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessSkillGitOutput)
+}
+
+func (i AgentcoreHarnessSkillGitArgs) ToAgentcoreHarnessSkillGitPtrOutput() AgentcoreHarnessSkillGitPtrOutput {
+	return i.ToAgentcoreHarnessSkillGitPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreHarnessSkillGitArgs) ToAgentcoreHarnessSkillGitPtrOutputWithContext(ctx context.Context) AgentcoreHarnessSkillGitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessSkillGitOutput).ToAgentcoreHarnessSkillGitPtrOutputWithContext(ctx)
+}
+
+// AgentcoreHarnessSkillGitPtrInput is an input type that accepts AgentcoreHarnessSkillGitArgs, AgentcoreHarnessSkillGitPtr and AgentcoreHarnessSkillGitPtrOutput values.
+// You can construct a concrete instance of `AgentcoreHarnessSkillGitPtrInput` via:
+//
+//	        AgentcoreHarnessSkillGitArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreHarnessSkillGitPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreHarnessSkillGitPtrOutput() AgentcoreHarnessSkillGitPtrOutput
+	ToAgentcoreHarnessSkillGitPtrOutputWithContext(context.Context) AgentcoreHarnessSkillGitPtrOutput
+}
+
+type agentcoreHarnessSkillGitPtrType AgentcoreHarnessSkillGitArgs
+
+func AgentcoreHarnessSkillGitPtr(v *AgentcoreHarnessSkillGitArgs) AgentcoreHarnessSkillGitPtrInput {
+	return (*agentcoreHarnessSkillGitPtrType)(v)
+}
+
+func (*agentcoreHarnessSkillGitPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreHarnessSkillGit)(nil)).Elem()
+}
+
+func (i *agentcoreHarnessSkillGitPtrType) ToAgentcoreHarnessSkillGitPtrOutput() AgentcoreHarnessSkillGitPtrOutput {
+	return i.ToAgentcoreHarnessSkillGitPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreHarnessSkillGitPtrType) ToAgentcoreHarnessSkillGitPtrOutputWithContext(ctx context.Context) AgentcoreHarnessSkillGitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessSkillGitPtrOutput)
+}
+
+type AgentcoreHarnessSkillGitOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreHarnessSkillGitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreHarnessSkillGit)(nil)).Elem()
+}
+
+func (o AgentcoreHarnessSkillGitOutput) ToAgentcoreHarnessSkillGitOutput() AgentcoreHarnessSkillGitOutput {
+	return o
+}
+
+func (o AgentcoreHarnessSkillGitOutput) ToAgentcoreHarnessSkillGitOutputWithContext(ctx context.Context) AgentcoreHarnessSkillGitOutput {
+	return o
+}
+
+func (o AgentcoreHarnessSkillGitOutput) ToAgentcoreHarnessSkillGitPtrOutput() AgentcoreHarnessSkillGitPtrOutput {
+	return o.ToAgentcoreHarnessSkillGitPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreHarnessSkillGitOutput) ToAgentcoreHarnessSkillGitPtrOutputWithContext(ctx context.Context) AgentcoreHarnessSkillGitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreHarnessSkillGit) *AgentcoreHarnessSkillGit {
+		return &v
+	}).(AgentcoreHarnessSkillGitPtrOutput)
+}
+
+// Authentication configuration for private repositories. See `auth` Block below.
+func (o AgentcoreHarnessSkillGitOutput) Auth() AgentcoreHarnessSkillGitAuthPtrOutput {
+	return o.ApplyT(func(v AgentcoreHarnessSkillGit) *AgentcoreHarnessSkillGitAuth { return v.Auth }).(AgentcoreHarnessSkillGitAuthPtrOutput)
+}
+
+// Subdirectory within the repository containing the skill.
+func (o AgentcoreHarnessSkillGitOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreHarnessSkillGit) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// HTTPS URL of the git repository.
+func (o AgentcoreHarnessSkillGitOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreHarnessSkillGit) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type AgentcoreHarnessSkillGitPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreHarnessSkillGitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreHarnessSkillGit)(nil)).Elem()
+}
+
+func (o AgentcoreHarnessSkillGitPtrOutput) ToAgentcoreHarnessSkillGitPtrOutput() AgentcoreHarnessSkillGitPtrOutput {
+	return o
+}
+
+func (o AgentcoreHarnessSkillGitPtrOutput) ToAgentcoreHarnessSkillGitPtrOutputWithContext(ctx context.Context) AgentcoreHarnessSkillGitPtrOutput {
+	return o
+}
+
+func (o AgentcoreHarnessSkillGitPtrOutput) Elem() AgentcoreHarnessSkillGitOutput {
+	return o.ApplyT(func(v *AgentcoreHarnessSkillGit) AgentcoreHarnessSkillGit {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreHarnessSkillGit
+		return ret
+	}).(AgentcoreHarnessSkillGitOutput)
+}
+
+// Authentication configuration for private repositories. See `auth` Block below.
+func (o AgentcoreHarnessSkillGitPtrOutput) Auth() AgentcoreHarnessSkillGitAuthPtrOutput {
+	return o.ApplyT(func(v *AgentcoreHarnessSkillGit) *AgentcoreHarnessSkillGitAuth {
+		if v == nil {
+			return nil
+		}
+		return v.Auth
+	}).(AgentcoreHarnessSkillGitAuthPtrOutput)
+}
+
+// Subdirectory within the repository containing the skill.
+func (o AgentcoreHarnessSkillGitPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreHarnessSkillGit) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// HTTPS URL of the git repository.
+func (o AgentcoreHarnessSkillGitPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreHarnessSkillGit) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreHarnessSkillGitAuth struct {
+	// ARN of the credential in AgentCore Identity containing the password or personal access token.
+	CredentialArn string `pulumi:"credentialArn"`
+	// Username for authentication. Defaults to `oauth2` if not specified.
+	Username *string `pulumi:"username"`
+}
+
+// AgentcoreHarnessSkillGitAuthInput is an input type that accepts AgentcoreHarnessSkillGitAuthArgs and AgentcoreHarnessSkillGitAuthOutput values.
+// You can construct a concrete instance of `AgentcoreHarnessSkillGitAuthInput` via:
+//
+//	AgentcoreHarnessSkillGitAuthArgs{...}
+type AgentcoreHarnessSkillGitAuthInput interface {
+	pulumi.Input
+
+	ToAgentcoreHarnessSkillGitAuthOutput() AgentcoreHarnessSkillGitAuthOutput
+	ToAgentcoreHarnessSkillGitAuthOutputWithContext(context.Context) AgentcoreHarnessSkillGitAuthOutput
+}
+
+type AgentcoreHarnessSkillGitAuthArgs struct {
+	// ARN of the credential in AgentCore Identity containing the password or personal access token.
+	CredentialArn pulumi.StringInput `pulumi:"credentialArn"`
+	// Username for authentication. Defaults to `oauth2` if not specified.
+	Username pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (AgentcoreHarnessSkillGitAuthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreHarnessSkillGitAuth)(nil)).Elem()
+}
+
+func (i AgentcoreHarnessSkillGitAuthArgs) ToAgentcoreHarnessSkillGitAuthOutput() AgentcoreHarnessSkillGitAuthOutput {
+	return i.ToAgentcoreHarnessSkillGitAuthOutputWithContext(context.Background())
+}
+
+func (i AgentcoreHarnessSkillGitAuthArgs) ToAgentcoreHarnessSkillGitAuthOutputWithContext(ctx context.Context) AgentcoreHarnessSkillGitAuthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessSkillGitAuthOutput)
+}
+
+func (i AgentcoreHarnessSkillGitAuthArgs) ToAgentcoreHarnessSkillGitAuthPtrOutput() AgentcoreHarnessSkillGitAuthPtrOutput {
+	return i.ToAgentcoreHarnessSkillGitAuthPtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreHarnessSkillGitAuthArgs) ToAgentcoreHarnessSkillGitAuthPtrOutputWithContext(ctx context.Context) AgentcoreHarnessSkillGitAuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessSkillGitAuthOutput).ToAgentcoreHarnessSkillGitAuthPtrOutputWithContext(ctx)
+}
+
+// AgentcoreHarnessSkillGitAuthPtrInput is an input type that accepts AgentcoreHarnessSkillGitAuthArgs, AgentcoreHarnessSkillGitAuthPtr and AgentcoreHarnessSkillGitAuthPtrOutput values.
+// You can construct a concrete instance of `AgentcoreHarnessSkillGitAuthPtrInput` via:
+//
+//	        AgentcoreHarnessSkillGitAuthArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreHarnessSkillGitAuthPtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreHarnessSkillGitAuthPtrOutput() AgentcoreHarnessSkillGitAuthPtrOutput
+	ToAgentcoreHarnessSkillGitAuthPtrOutputWithContext(context.Context) AgentcoreHarnessSkillGitAuthPtrOutput
+}
+
+type agentcoreHarnessSkillGitAuthPtrType AgentcoreHarnessSkillGitAuthArgs
+
+func AgentcoreHarnessSkillGitAuthPtr(v *AgentcoreHarnessSkillGitAuthArgs) AgentcoreHarnessSkillGitAuthPtrInput {
+	return (*agentcoreHarnessSkillGitAuthPtrType)(v)
+}
+
+func (*agentcoreHarnessSkillGitAuthPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreHarnessSkillGitAuth)(nil)).Elem()
+}
+
+func (i *agentcoreHarnessSkillGitAuthPtrType) ToAgentcoreHarnessSkillGitAuthPtrOutput() AgentcoreHarnessSkillGitAuthPtrOutput {
+	return i.ToAgentcoreHarnessSkillGitAuthPtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreHarnessSkillGitAuthPtrType) ToAgentcoreHarnessSkillGitAuthPtrOutputWithContext(ctx context.Context) AgentcoreHarnessSkillGitAuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessSkillGitAuthPtrOutput)
+}
+
+type AgentcoreHarnessSkillGitAuthOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreHarnessSkillGitAuthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreHarnessSkillGitAuth)(nil)).Elem()
+}
+
+func (o AgentcoreHarnessSkillGitAuthOutput) ToAgentcoreHarnessSkillGitAuthOutput() AgentcoreHarnessSkillGitAuthOutput {
+	return o
+}
+
+func (o AgentcoreHarnessSkillGitAuthOutput) ToAgentcoreHarnessSkillGitAuthOutputWithContext(ctx context.Context) AgentcoreHarnessSkillGitAuthOutput {
+	return o
+}
+
+func (o AgentcoreHarnessSkillGitAuthOutput) ToAgentcoreHarnessSkillGitAuthPtrOutput() AgentcoreHarnessSkillGitAuthPtrOutput {
+	return o.ToAgentcoreHarnessSkillGitAuthPtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreHarnessSkillGitAuthOutput) ToAgentcoreHarnessSkillGitAuthPtrOutputWithContext(ctx context.Context) AgentcoreHarnessSkillGitAuthPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreHarnessSkillGitAuth) *AgentcoreHarnessSkillGitAuth {
+		return &v
+	}).(AgentcoreHarnessSkillGitAuthPtrOutput)
+}
+
+// ARN of the credential in AgentCore Identity containing the password or personal access token.
+func (o AgentcoreHarnessSkillGitAuthOutput) CredentialArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreHarnessSkillGitAuth) string { return v.CredentialArn }).(pulumi.StringOutput)
+}
+
+// Username for authentication. Defaults to `oauth2` if not specified.
+func (o AgentcoreHarnessSkillGitAuthOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreHarnessSkillGitAuth) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreHarnessSkillGitAuthPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreHarnessSkillGitAuthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreHarnessSkillGitAuth)(nil)).Elem()
+}
+
+func (o AgentcoreHarnessSkillGitAuthPtrOutput) ToAgentcoreHarnessSkillGitAuthPtrOutput() AgentcoreHarnessSkillGitAuthPtrOutput {
+	return o
+}
+
+func (o AgentcoreHarnessSkillGitAuthPtrOutput) ToAgentcoreHarnessSkillGitAuthPtrOutputWithContext(ctx context.Context) AgentcoreHarnessSkillGitAuthPtrOutput {
+	return o
+}
+
+func (o AgentcoreHarnessSkillGitAuthPtrOutput) Elem() AgentcoreHarnessSkillGitAuthOutput {
+	return o.ApplyT(func(v *AgentcoreHarnessSkillGitAuth) AgentcoreHarnessSkillGitAuth {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreHarnessSkillGitAuth
+		return ret
+	}).(AgentcoreHarnessSkillGitAuthOutput)
+}
+
+// ARN of the credential in AgentCore Identity containing the password or personal access token.
+func (o AgentcoreHarnessSkillGitAuthPtrOutput) CredentialArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreHarnessSkillGitAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CredentialArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Username for authentication. Defaults to `oauth2` if not specified.
+func (o AgentcoreHarnessSkillGitAuthPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreHarnessSkillGitAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentcoreHarnessSkillS3 struct {
+	// S3 URI of the skill source. Must begin with `s3://`.
+	Uri string `pulumi:"uri"`
+}
+
+// AgentcoreHarnessSkillS3Input is an input type that accepts AgentcoreHarnessSkillS3Args and AgentcoreHarnessSkillS3Output values.
+// You can construct a concrete instance of `AgentcoreHarnessSkillS3Input` via:
+//
+//	AgentcoreHarnessSkillS3Args{...}
+type AgentcoreHarnessSkillS3Input interface {
+	pulumi.Input
+
+	ToAgentcoreHarnessSkillS3Output() AgentcoreHarnessSkillS3Output
+	ToAgentcoreHarnessSkillS3OutputWithContext(context.Context) AgentcoreHarnessSkillS3Output
+}
+
+type AgentcoreHarnessSkillS3Args struct {
+	// S3 URI of the skill source. Must begin with `s3://`.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (AgentcoreHarnessSkillS3Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreHarnessSkillS3)(nil)).Elem()
+}
+
+func (i AgentcoreHarnessSkillS3Args) ToAgentcoreHarnessSkillS3Output() AgentcoreHarnessSkillS3Output {
+	return i.ToAgentcoreHarnessSkillS3OutputWithContext(context.Background())
+}
+
+func (i AgentcoreHarnessSkillS3Args) ToAgentcoreHarnessSkillS3OutputWithContext(ctx context.Context) AgentcoreHarnessSkillS3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessSkillS3Output)
+}
+
+func (i AgentcoreHarnessSkillS3Args) ToAgentcoreHarnessSkillS3PtrOutput() AgentcoreHarnessSkillS3PtrOutput {
+	return i.ToAgentcoreHarnessSkillS3PtrOutputWithContext(context.Background())
+}
+
+func (i AgentcoreHarnessSkillS3Args) ToAgentcoreHarnessSkillS3PtrOutputWithContext(ctx context.Context) AgentcoreHarnessSkillS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessSkillS3Output).ToAgentcoreHarnessSkillS3PtrOutputWithContext(ctx)
+}
+
+// AgentcoreHarnessSkillS3PtrInput is an input type that accepts AgentcoreHarnessSkillS3Args, AgentcoreHarnessSkillS3Ptr and AgentcoreHarnessSkillS3PtrOutput values.
+// You can construct a concrete instance of `AgentcoreHarnessSkillS3PtrInput` via:
+//
+//	        AgentcoreHarnessSkillS3Args{...}
+//
+//	or:
+//
+//	        nil
+type AgentcoreHarnessSkillS3PtrInput interface {
+	pulumi.Input
+
+	ToAgentcoreHarnessSkillS3PtrOutput() AgentcoreHarnessSkillS3PtrOutput
+	ToAgentcoreHarnessSkillS3PtrOutputWithContext(context.Context) AgentcoreHarnessSkillS3PtrOutput
+}
+
+type agentcoreHarnessSkillS3PtrType AgentcoreHarnessSkillS3Args
+
+func AgentcoreHarnessSkillS3Ptr(v *AgentcoreHarnessSkillS3Args) AgentcoreHarnessSkillS3PtrInput {
+	return (*agentcoreHarnessSkillS3PtrType)(v)
+}
+
+func (*agentcoreHarnessSkillS3PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreHarnessSkillS3)(nil)).Elem()
+}
+
+func (i *agentcoreHarnessSkillS3PtrType) ToAgentcoreHarnessSkillS3PtrOutput() AgentcoreHarnessSkillS3PtrOutput {
+	return i.ToAgentcoreHarnessSkillS3PtrOutputWithContext(context.Background())
+}
+
+func (i *agentcoreHarnessSkillS3PtrType) ToAgentcoreHarnessSkillS3PtrOutputWithContext(ctx context.Context) AgentcoreHarnessSkillS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreHarnessSkillS3PtrOutput)
+}
+
+type AgentcoreHarnessSkillS3Output struct{ *pulumi.OutputState }
+
+func (AgentcoreHarnessSkillS3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentcoreHarnessSkillS3)(nil)).Elem()
+}
+
+func (o AgentcoreHarnessSkillS3Output) ToAgentcoreHarnessSkillS3Output() AgentcoreHarnessSkillS3Output {
+	return o
+}
+
+func (o AgentcoreHarnessSkillS3Output) ToAgentcoreHarnessSkillS3OutputWithContext(ctx context.Context) AgentcoreHarnessSkillS3Output {
+	return o
+}
+
+func (o AgentcoreHarnessSkillS3Output) ToAgentcoreHarnessSkillS3PtrOutput() AgentcoreHarnessSkillS3PtrOutput {
+	return o.ToAgentcoreHarnessSkillS3PtrOutputWithContext(context.Background())
+}
+
+func (o AgentcoreHarnessSkillS3Output) ToAgentcoreHarnessSkillS3PtrOutputWithContext(ctx context.Context) AgentcoreHarnessSkillS3PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreHarnessSkillS3) *AgentcoreHarnessSkillS3 {
+		return &v
+	}).(AgentcoreHarnessSkillS3PtrOutput)
+}
+
+// S3 URI of the skill source. Must begin with `s3://`.
+func (o AgentcoreHarnessSkillS3Output) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentcoreHarnessSkillS3) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type AgentcoreHarnessSkillS3PtrOutput struct{ *pulumi.OutputState }
+
+func (AgentcoreHarnessSkillS3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentcoreHarnessSkillS3)(nil)).Elem()
+}
+
+func (o AgentcoreHarnessSkillS3PtrOutput) ToAgentcoreHarnessSkillS3PtrOutput() AgentcoreHarnessSkillS3PtrOutput {
+	return o
+}
+
+func (o AgentcoreHarnessSkillS3PtrOutput) ToAgentcoreHarnessSkillS3PtrOutputWithContext(ctx context.Context) AgentcoreHarnessSkillS3PtrOutput {
+	return o
+}
+
+func (o AgentcoreHarnessSkillS3PtrOutput) Elem() AgentcoreHarnessSkillS3Output {
+	return o.ApplyT(func(v *AgentcoreHarnessSkillS3) AgentcoreHarnessSkillS3 {
+		if v != nil {
+			return *v
+		}
+		var ret AgentcoreHarnessSkillS3
+		return ret
+	}).(AgentcoreHarnessSkillS3Output)
+}
+
+// S3 URI of the skill source. Must begin with `s3://`.
+func (o AgentcoreHarnessSkillS3PtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentcoreHarnessSkillS3) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
 type AgentcoreHarnessSystemPrompt struct {
 	// Text content of the system prompt.
-	Text string `pulumi:"text"`
+	Text *string `pulumi:"text"`
 }
 
 // AgentcoreHarnessSystemPromptInput is an input type that accepts AgentcoreHarnessSystemPromptArgs and AgentcoreHarnessSystemPromptOutput values.
@@ -64882,7 +65879,7 @@ type AgentcoreHarnessSystemPromptInput interface {
 
 type AgentcoreHarnessSystemPromptArgs struct {
 	// Text content of the system prompt.
-	Text pulumi.StringInput `pulumi:"text"`
+	Text pulumi.StringPtrInput `pulumi:"text"`
 }
 
 func (AgentcoreHarnessSystemPromptArgs) ElementType() reflect.Type {
@@ -64937,8 +65934,8 @@ func (o AgentcoreHarnessSystemPromptOutput) ToAgentcoreHarnessSystemPromptOutput
 }
 
 // Text content of the system prompt.
-func (o AgentcoreHarnessSystemPromptOutput) Text() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentcoreHarnessSystemPrompt) string { return v.Text }).(pulumi.StringOutput)
+func (o AgentcoreHarnessSystemPromptOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentcoreHarnessSystemPrompt) *string { return v.Text }).(pulumi.StringPtrOutput)
 }
 
 type AgentcoreHarnessSystemPromptArrayOutput struct{ *pulumi.OutputState }
@@ -74743,629 +75740,6 @@ func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2Provider
 	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryOutput)
 }
 
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata struct {
-	// OAuth2 authorization endpoint URL.
-	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`
-	// OAuth2 authorization server issuer identifier.
-	Issuer string `pulumi:"issuer"`
-	// Set of OAuth2 response types supported by the authorization server.
-	ResponseTypes []string `pulumi:"responseTypes"`
-	// OAuth2 token endpoint URL.
-	TokenEndpoint string `pulumi:"tokenEndpoint"`
-}
-
-// AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs and AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput values.
-// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput` via:
-//
-//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs{...}
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput interface {
-	pulumi.Input
-
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs struct {
-	// OAuth2 authorization endpoint URL.
-	AuthorizationEndpoint pulumi.StringInput `pulumi:"authorizationEndpoint"`
-	// OAuth2 authorization server issuer identifier.
-	Issuer pulumi.StringInput `pulumi:"issuer"`
-	// Set of OAuth2 response types supported by the authorization server.
-	ResponseTypes pulumi.StringArrayInput `pulumi:"responseTypes"`
-	// OAuth2 token endpoint URL.
-	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
-}
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
-	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(context.Background())
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput)
-}
-
-// AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput is an input type that accepts AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray and AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput values.
-// You can construct a concrete instance of `AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput` via:
-//
-//	AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray{ AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs{...} }
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput interface {
-	pulumi.Input
-
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput
-	ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutputWithContext(context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray []AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
-	return i.ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutputWithContext(context.Background())
-}
-
-func (i AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput)
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
-	return o
-}
-
-// OAuth2 authorization endpoint URL.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) AuthorizationEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) string {
-		return v.AuthorizationEndpoint
-	}).(pulumi.StringOutput)
-}
-
-// OAuth2 authorization server issuer identifier.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) Issuer() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) string {
-		return v.Issuer
-	}).(pulumi.StringOutput)
-}
-
-// Set of OAuth2 response types supported by the authorization server.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) ResponseTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) []string {
-		return v.ResponseTypes
-	}).(pulumi.StringArrayOutput)
-}
-
-// OAuth2 token endpoint URL.
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput) TokenEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata) string {
-		return v.TokenEndpoint
-	}).(pulumi.StringOutput)
-}
-
-type AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)(nil)).Elem()
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput() AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput) ToAgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutputWithContext(ctx context.Context) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput {
-	return o
-}
-
-func (o AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput) Index(i pulumi.IntInput) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
-		return vs[0].([]AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata)[vs[1].(int)]
-	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput)
-}
-
-type AgentcoreOnlineEvaluationConfigDataSourceConfig struct {
-	// CloudWatch logs configuration for reading agent traces. See `cloudwatchLogs` Block below.
-	CloudwatchLogs *AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs `pulumi:"cloudwatchLogs"`
-}
-
-// AgentcoreOnlineEvaluationConfigDataSourceConfigInput is an input type that accepts AgentcoreOnlineEvaluationConfigDataSourceConfigArgs and AgentcoreOnlineEvaluationConfigDataSourceConfigOutput values.
-// You can construct a concrete instance of `AgentcoreOnlineEvaluationConfigDataSourceConfigInput` via:
-//
-//	AgentcoreOnlineEvaluationConfigDataSourceConfigArgs{...}
-type AgentcoreOnlineEvaluationConfigDataSourceConfigInput interface {
-	pulumi.Input
-
-	ToAgentcoreOnlineEvaluationConfigDataSourceConfigOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigOutput
-	ToAgentcoreOnlineEvaluationConfigDataSourceConfigOutputWithContext(context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigOutput
-}
-
-type AgentcoreOnlineEvaluationConfigDataSourceConfigArgs struct {
-	// CloudWatch logs configuration for reading agent traces. See `cloudwatchLogs` Block below.
-	CloudwatchLogs AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrInput `pulumi:"cloudwatchLogs"`
-}
-
-func (AgentcoreOnlineEvaluationConfigDataSourceConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreOnlineEvaluationConfigDataSourceConfig)(nil)).Elem()
-}
-
-func (i AgentcoreOnlineEvaluationConfigDataSourceConfigArgs) ToAgentcoreOnlineEvaluationConfigDataSourceConfigOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigOutput {
-	return i.ToAgentcoreOnlineEvaluationConfigDataSourceConfigOutputWithContext(context.Background())
-}
-
-func (i AgentcoreOnlineEvaluationConfigDataSourceConfigArgs) ToAgentcoreOnlineEvaluationConfigDataSourceConfigOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigDataSourceConfigOutput)
-}
-
-func (i AgentcoreOnlineEvaluationConfigDataSourceConfigArgs) ToAgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput {
-	return i.ToAgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutputWithContext(context.Background())
-}
-
-func (i AgentcoreOnlineEvaluationConfigDataSourceConfigArgs) ToAgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigDataSourceConfigOutput).ToAgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutputWithContext(ctx)
-}
-
-// AgentcoreOnlineEvaluationConfigDataSourceConfigPtrInput is an input type that accepts AgentcoreOnlineEvaluationConfigDataSourceConfigArgs, AgentcoreOnlineEvaluationConfigDataSourceConfigPtr and AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput values.
-// You can construct a concrete instance of `AgentcoreOnlineEvaluationConfigDataSourceConfigPtrInput` via:
-//
-//	        AgentcoreOnlineEvaluationConfigDataSourceConfigArgs{...}
-//
-//	or:
-//
-//	        nil
-type AgentcoreOnlineEvaluationConfigDataSourceConfigPtrInput interface {
-	pulumi.Input
-
-	ToAgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput
-	ToAgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutputWithContext(context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput
-}
-
-type agentcoreOnlineEvaluationConfigDataSourceConfigPtrType AgentcoreOnlineEvaluationConfigDataSourceConfigArgs
-
-func AgentcoreOnlineEvaluationConfigDataSourceConfigPtr(v *AgentcoreOnlineEvaluationConfigDataSourceConfigArgs) AgentcoreOnlineEvaluationConfigDataSourceConfigPtrInput {
-	return (*agentcoreOnlineEvaluationConfigDataSourceConfigPtrType)(v)
-}
-
-func (*agentcoreOnlineEvaluationConfigDataSourceConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreOnlineEvaluationConfigDataSourceConfig)(nil)).Elem()
-}
-
-func (i *agentcoreOnlineEvaluationConfigDataSourceConfigPtrType) ToAgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput {
-	return i.ToAgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *agentcoreOnlineEvaluationConfigDataSourceConfigPtrType) ToAgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput)
-}
-
-type AgentcoreOnlineEvaluationConfigDataSourceConfigOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreOnlineEvaluationConfigDataSourceConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreOnlineEvaluationConfigDataSourceConfig)(nil)).Elem()
-}
-
-func (o AgentcoreOnlineEvaluationConfigDataSourceConfigOutput) ToAgentcoreOnlineEvaluationConfigDataSourceConfigOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigOutput {
-	return o
-}
-
-func (o AgentcoreOnlineEvaluationConfigDataSourceConfigOutput) ToAgentcoreOnlineEvaluationConfigDataSourceConfigOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigOutput {
-	return o
-}
-
-func (o AgentcoreOnlineEvaluationConfigDataSourceConfigOutput) ToAgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput {
-	return o.ToAgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutputWithContext(context.Background())
-}
-
-func (o AgentcoreOnlineEvaluationConfigDataSourceConfigOutput) ToAgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreOnlineEvaluationConfigDataSourceConfig) *AgentcoreOnlineEvaluationConfigDataSourceConfig {
-		return &v
-	}).(AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput)
-}
-
-// CloudWatch logs configuration for reading agent traces. See `cloudwatchLogs` Block below.
-func (o AgentcoreOnlineEvaluationConfigDataSourceConfigOutput) CloudwatchLogs() AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput {
-	return o.ApplyT(func(v AgentcoreOnlineEvaluationConfigDataSourceConfig) *AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs {
-		return v.CloudwatchLogs
-	}).(AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput)
-}
-
-type AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreOnlineEvaluationConfigDataSourceConfig)(nil)).Elem()
-}
-
-func (o AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput) ToAgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput {
-	return o
-}
-
-func (o AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput) ToAgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput {
-	return o
-}
-
-func (o AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput) Elem() AgentcoreOnlineEvaluationConfigDataSourceConfigOutput {
-	return o.ApplyT(func(v *AgentcoreOnlineEvaluationConfigDataSourceConfig) AgentcoreOnlineEvaluationConfigDataSourceConfig {
-		if v != nil {
-			return *v
-		}
-		var ret AgentcoreOnlineEvaluationConfigDataSourceConfig
-		return ret
-	}).(AgentcoreOnlineEvaluationConfigDataSourceConfigOutput)
-}
-
-// CloudWatch logs configuration for reading agent traces. See `cloudwatchLogs` Block below.
-func (o AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput) CloudwatchLogs() AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput {
-	return o.ApplyT(func(v *AgentcoreOnlineEvaluationConfigDataSourceConfig) *AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs {
-		if v == nil {
-			return nil
-		}
-		return v.CloudwatchLogs
-	}).(AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput)
-}
-
-type AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs struct {
-	// List of CloudWatch log group names to monitor for agent traces. Maximum 5.
-	LogGroupNames []string `pulumi:"logGroupNames"`
-	// List of service names to filter traces within the specified log groups.
-	ServiceNames []string `pulumi:"serviceNames"`
-}
-
-// AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsInput is an input type that accepts AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs and AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput values.
-// You can construct a concrete instance of `AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsInput` via:
-//
-//	AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs{...}
-type AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsInput interface {
-	pulumi.Input
-
-	ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput
-	ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutputWithContext(context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput
-}
-
-type AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs struct {
-	// List of CloudWatch log group names to monitor for agent traces. Maximum 5.
-	LogGroupNames pulumi.StringArrayInput `pulumi:"logGroupNames"`
-	// List of service names to filter traces within the specified log groups.
-	ServiceNames pulumi.StringArrayInput `pulumi:"serviceNames"`
-}
-
-func (AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs)(nil)).Elem()
-}
-
-func (i AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs) ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput {
-	return i.ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutputWithContext(context.Background())
-}
-
-func (i AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs) ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput)
-}
-
-func (i AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs) ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput {
-	return i.ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutputWithContext(context.Background())
-}
-
-func (i AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs) ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput).ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutputWithContext(ctx)
-}
-
-// AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrInput is an input type that accepts AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs, AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtr and AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput values.
-// You can construct a concrete instance of `AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrInput` via:
-//
-//	        AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs{...}
-//
-//	or:
-//
-//	        nil
-type AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrInput interface {
-	pulumi.Input
-
-	ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput
-	ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutputWithContext(context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput
-}
-
-type agentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrType AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs
-
-func AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtr(v *AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs) AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrInput {
-	return (*agentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrType)(v)
-}
-
-func (*agentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs)(nil)).Elem()
-}
-
-func (i *agentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrType) ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput {
-	return i.ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutputWithContext(context.Background())
-}
-
-func (i *agentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrType) ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput)
-}
-
-type AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs)(nil)).Elem()
-}
-
-func (o AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput) ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput {
-	return o
-}
-
-func (o AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput) ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput {
-	return o
-}
-
-func (o AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput) ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput {
-	return o.ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutputWithContext(context.Background())
-}
-
-func (o AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput) ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs) *AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs {
-		return &v
-	}).(AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput)
-}
-
-// List of CloudWatch log group names to monitor for agent traces. Maximum 5.
-func (o AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput) LogGroupNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs) []string { return v.LogGroupNames }).(pulumi.StringArrayOutput)
-}
-
-// List of service names to filter traces within the specified log groups.
-func (o AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput) ServiceNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs) []string { return v.ServiceNames }).(pulumi.StringArrayOutput)
-}
-
-type AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs)(nil)).Elem()
-}
-
-func (o AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput) ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput() AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput {
-	return o
-}
-
-func (o AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput) ToAgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput {
-	return o
-}
-
-func (o AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput) Elem() AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput {
-	return o.ApplyT(func(v *AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs) AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs {
-		if v != nil {
-			return *v
-		}
-		var ret AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs
-		return ret
-	}).(AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput)
-}
-
-// List of CloudWatch log group names to monitor for agent traces. Maximum 5.
-func (o AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput) LogGroupNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs) []string {
-		if v == nil {
-			return nil
-		}
-		return v.LogGroupNames
-	}).(pulumi.StringArrayOutput)
-}
-
-// List of service names to filter traces within the specified log groups.
-func (o AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput) ServiceNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceNames
-	}).(pulumi.StringArrayOutput)
-}
-
-type AgentcoreOnlineEvaluationConfigEvaluator struct {
-	// Unique identifier of the evaluator. Can reference builtin evaluators (e.g., `Builtin.Helpfulness`, `Builtin.GoalSuccessRate`) or custom evaluator IDs.
-	EvaluatorId string `pulumi:"evaluatorId"`
-}
-
-// AgentcoreOnlineEvaluationConfigEvaluatorInput is an input type that accepts AgentcoreOnlineEvaluationConfigEvaluatorArgs and AgentcoreOnlineEvaluationConfigEvaluatorOutput values.
-// You can construct a concrete instance of `AgentcoreOnlineEvaluationConfigEvaluatorInput` via:
-//
-//	AgentcoreOnlineEvaluationConfigEvaluatorArgs{...}
-type AgentcoreOnlineEvaluationConfigEvaluatorInput interface {
-	pulumi.Input
-
-	ToAgentcoreOnlineEvaluationConfigEvaluatorOutput() AgentcoreOnlineEvaluationConfigEvaluatorOutput
-	ToAgentcoreOnlineEvaluationConfigEvaluatorOutputWithContext(context.Context) AgentcoreOnlineEvaluationConfigEvaluatorOutput
-}
-
-type AgentcoreOnlineEvaluationConfigEvaluatorArgs struct {
-	// Unique identifier of the evaluator. Can reference builtin evaluators (e.g., `Builtin.Helpfulness`, `Builtin.GoalSuccessRate`) or custom evaluator IDs.
-	EvaluatorId pulumi.StringInput `pulumi:"evaluatorId"`
-}
-
-func (AgentcoreOnlineEvaluationConfigEvaluatorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreOnlineEvaluationConfigEvaluator)(nil)).Elem()
-}
-
-func (i AgentcoreOnlineEvaluationConfigEvaluatorArgs) ToAgentcoreOnlineEvaluationConfigEvaluatorOutput() AgentcoreOnlineEvaluationConfigEvaluatorOutput {
-	return i.ToAgentcoreOnlineEvaluationConfigEvaluatorOutputWithContext(context.Background())
-}
-
-func (i AgentcoreOnlineEvaluationConfigEvaluatorArgs) ToAgentcoreOnlineEvaluationConfigEvaluatorOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigEvaluatorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigEvaluatorOutput)
-}
-
-// AgentcoreOnlineEvaluationConfigEvaluatorArrayInput is an input type that accepts AgentcoreOnlineEvaluationConfigEvaluatorArray and AgentcoreOnlineEvaluationConfigEvaluatorArrayOutput values.
-// You can construct a concrete instance of `AgentcoreOnlineEvaluationConfigEvaluatorArrayInput` via:
-//
-//	AgentcoreOnlineEvaluationConfigEvaluatorArray{ AgentcoreOnlineEvaluationConfigEvaluatorArgs{...} }
-type AgentcoreOnlineEvaluationConfigEvaluatorArrayInput interface {
-	pulumi.Input
-
-	ToAgentcoreOnlineEvaluationConfigEvaluatorArrayOutput() AgentcoreOnlineEvaluationConfigEvaluatorArrayOutput
-	ToAgentcoreOnlineEvaluationConfigEvaluatorArrayOutputWithContext(context.Context) AgentcoreOnlineEvaluationConfigEvaluatorArrayOutput
-}
-
-type AgentcoreOnlineEvaluationConfigEvaluatorArray []AgentcoreOnlineEvaluationConfigEvaluatorInput
-
-func (AgentcoreOnlineEvaluationConfigEvaluatorArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AgentcoreOnlineEvaluationConfigEvaluator)(nil)).Elem()
-}
-
-func (i AgentcoreOnlineEvaluationConfigEvaluatorArray) ToAgentcoreOnlineEvaluationConfigEvaluatorArrayOutput() AgentcoreOnlineEvaluationConfigEvaluatorArrayOutput {
-	return i.ToAgentcoreOnlineEvaluationConfigEvaluatorArrayOutputWithContext(context.Background())
-}
-
-func (i AgentcoreOnlineEvaluationConfigEvaluatorArray) ToAgentcoreOnlineEvaluationConfigEvaluatorArrayOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigEvaluatorArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigEvaluatorArrayOutput)
-}
-
-type AgentcoreOnlineEvaluationConfigEvaluatorOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreOnlineEvaluationConfigEvaluatorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreOnlineEvaluationConfigEvaluator)(nil)).Elem()
-}
-
-func (o AgentcoreOnlineEvaluationConfigEvaluatorOutput) ToAgentcoreOnlineEvaluationConfigEvaluatorOutput() AgentcoreOnlineEvaluationConfigEvaluatorOutput {
-	return o
-}
-
-func (o AgentcoreOnlineEvaluationConfigEvaluatorOutput) ToAgentcoreOnlineEvaluationConfigEvaluatorOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigEvaluatorOutput {
-	return o
-}
-
-// Unique identifier of the evaluator. Can reference builtin evaluators (e.g., `Builtin.Helpfulness`, `Builtin.GoalSuccessRate`) or custom evaluator IDs.
-func (o AgentcoreOnlineEvaluationConfigEvaluatorOutput) EvaluatorId() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentcoreOnlineEvaluationConfigEvaluator) string { return v.EvaluatorId }).(pulumi.StringOutput)
-}
-
-type AgentcoreOnlineEvaluationConfigEvaluatorArrayOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreOnlineEvaluationConfigEvaluatorArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AgentcoreOnlineEvaluationConfigEvaluator)(nil)).Elem()
-}
-
-func (o AgentcoreOnlineEvaluationConfigEvaluatorArrayOutput) ToAgentcoreOnlineEvaluationConfigEvaluatorArrayOutput() AgentcoreOnlineEvaluationConfigEvaluatorArrayOutput {
-	return o
-}
-
-func (o AgentcoreOnlineEvaluationConfigEvaluatorArrayOutput) ToAgentcoreOnlineEvaluationConfigEvaluatorArrayOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigEvaluatorArrayOutput {
-	return o
-}
-
-func (o AgentcoreOnlineEvaluationConfigEvaluatorArrayOutput) Index(i pulumi.IntInput) AgentcoreOnlineEvaluationConfigEvaluatorOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreOnlineEvaluationConfigEvaluator {
-		return vs[0].([]AgentcoreOnlineEvaluationConfigEvaluator)[vs[1].(int)]
-	}).(AgentcoreOnlineEvaluationConfigEvaluatorOutput)
-}
-
-type AgentcoreOnlineEvaluationConfigOutputConfig struct {
-	// CloudWatch configuration for evaluation results. See `cloudwatchConfig` Block below.
-	CloudwatchConfigs []AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfig `pulumi:"cloudwatchConfigs"`
-}
-
-// AgentcoreOnlineEvaluationConfigOutputConfigInput is an input type that accepts AgentcoreOnlineEvaluationConfigOutputConfigArgs and AgentcoreOnlineEvaluationConfigOutputConfigOutput values.
-// You can construct a concrete instance of `AgentcoreOnlineEvaluationConfigOutputConfigInput` via:
-//
-//	AgentcoreOnlineEvaluationConfigOutputConfigArgs{...}
-type AgentcoreOnlineEvaluationConfigOutputConfigInput interface {
-	pulumi.Input
-
-	ToAgentcoreOnlineEvaluationConfigOutputConfigOutput() AgentcoreOnlineEvaluationConfigOutputConfigOutput
-	ToAgentcoreOnlineEvaluationConfigOutputConfigOutputWithContext(context.Context) AgentcoreOnlineEvaluationConfigOutputConfigOutput
-}
-
-type AgentcoreOnlineEvaluationConfigOutputConfigArgs struct {
-	// CloudWatch configuration for evaluation results. See `cloudwatchConfig` Block below.
-	CloudwatchConfigs AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayInput `pulumi:"cloudwatchConfigs"`
-}
-
-func (AgentcoreOnlineEvaluationConfigOutputConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreOnlineEvaluationConfigOutputConfig)(nil)).Elem()
-}
-
-func (i AgentcoreOnlineEvaluationConfigOutputConfigArgs) ToAgentcoreOnlineEvaluationConfigOutputConfigOutput() AgentcoreOnlineEvaluationConfigOutputConfigOutput {
-	return i.ToAgentcoreOnlineEvaluationConfigOutputConfigOutputWithContext(context.Background())
-}
-
-func (i AgentcoreOnlineEvaluationConfigOutputConfigArgs) ToAgentcoreOnlineEvaluationConfigOutputConfigOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigOutputConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigOutputConfigOutput)
-}
-
-// AgentcoreOnlineEvaluationConfigOutputConfigArrayInput is an input type that accepts AgentcoreOnlineEvaluationConfigOutputConfigArray and AgentcoreOnlineEvaluationConfigOutputConfigArrayOutput values.
-// You can construct a concrete instance of `AgentcoreOnlineEvaluationConfigOutputConfigArrayInput` via:
-//
-//	AgentcoreOnlineEvaluationConfigOutputConfigArray{ AgentcoreOnlineEvaluationConfigOutputConfigArgs{...} }
-type AgentcoreOnlineEvaluationConfigOutputConfigArrayInput interface {
-	pulumi.Input
-
-	ToAgentcoreOnlineEvaluationConfigOutputConfigArrayOutput() AgentcoreOnlineEvaluationConfigOutputConfigArrayOutput
-	ToAgentcoreOnlineEvaluationConfigOutputConfigArrayOutputWithContext(context.Context) AgentcoreOnlineEvaluationConfigOutputConfigArrayOutput
-}
-
-type AgentcoreOnlineEvaluationConfigOutputConfigArray []AgentcoreOnlineEvaluationConfigOutputConfigInput
-
-func (AgentcoreOnlineEvaluationConfigOutputConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AgentcoreOnlineEvaluationConfigOutputConfig)(nil)).Elem()
-}
-
-func (i AgentcoreOnlineEvaluationConfigOutputConfigArray) ToAgentcoreOnlineEvaluationConfigOutputConfigArrayOutput() AgentcoreOnlineEvaluationConfigOutputConfigArrayOutput {
-	return i.ToAgentcoreOnlineEvaluationConfigOutputConfigArrayOutputWithContext(context.Background())
-}
-
-func (i AgentcoreOnlineEvaluationConfigOutputConfigArray) ToAgentcoreOnlineEvaluationConfigOutputConfigArrayOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigOutputConfigArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreOnlineEvaluationConfigOutputConfigArrayOutput)
-}
-
-type AgentcoreOnlineEvaluationConfigOutputConfigOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreOnlineEvaluationConfigOutputConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentcoreOnlineEvaluationConfigOutputConfig)(nil)).Elem()
-}
-
-func (o AgentcoreOnlineEvaluationConfigOutputConfigOutput) ToAgentcoreOnlineEvaluationConfigOutputConfigOutput() AgentcoreOnlineEvaluationConfigOutputConfigOutput {
-	return o
-}
-
-func (o AgentcoreOnlineEvaluationConfigOutputConfigOutput) ToAgentcoreOnlineEvaluationConfigOutputConfigOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigOutputConfigOutput {
-	return o
-}
-
-// CloudWatch configuration for evaluation results. See `cloudwatchConfig` Block below.
-func (o AgentcoreOnlineEvaluationConfigOutputConfigOutput) CloudwatchConfigs() AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayOutput {
-	return o.ApplyT(func(v AgentcoreOnlineEvaluationConfigOutputConfig) []AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfig {
-		return v.CloudwatchConfigs
-	}).(AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArrayOutput)
-}
-
-type AgentcoreOnlineEvaluationConfigOutputConfigArrayOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreOnlineEvaluationConfigOutputConfigArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AgentcoreOnlineEvaluationConfigOutputConfig)(nil)).Elem()
-}
-
-func (o AgentcoreOnlineEvaluationConfigOutputConfigArrayOutput) ToAgentcoreOnlineEvaluationConfigOutputConfigArrayOutput() AgentcoreOnlineEvaluationConfigOutputConfigArrayOutput {
-	return o
-}
-
-func (o AgentcoreOnlineEvaluationConfigOutputConfigArrayOutput) ToAgentcoreOnlineEvaluationConfigOutputConfigArrayOutputWithContext(ctx context.Context) AgentcoreOnlineEvaluationConfigOutputConfigArrayOutput {
-	return o
-}
-
-func (o AgentcoreOnlineEvaluationConfigOutputConfigArrayOutput) Index(i pulumi.IntInput) AgentcoreOnlineEvaluationConfigOutputConfigOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentcoreOnlineEvaluationConfigOutputConfig {
-		return vs[0].([]AgentcoreOnlineEvaluationConfigOutputConfig)[vs[1].(int)]
-	}).(AgentcoreOnlineEvaluationConfigOutputConfigOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupActionGroupExecutorInput)(nil)).Elem(), AgentAgentActionGroupActionGroupExecutorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupActionGroupExecutorPtrInput)(nil)).Elem(), AgentAgentActionGroupActionGroupExecutorArgs{})
@@ -76211,10 +76585,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessModelBedrockModelConfigPtrInput)(nil)).Elem(), AgentcoreHarnessModelBedrockModelConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessModelGeminiModelConfigInput)(nil)).Elem(), AgentcoreHarnessModelGeminiModelConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessModelGeminiModelConfigPtrInput)(nil)).Elem(), AgentcoreHarnessModelGeminiModelConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessModelLitellmModelConfigInput)(nil)).Elem(), AgentcoreHarnessModelLitellmModelConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessModelLitellmModelConfigPtrInput)(nil)).Elem(), AgentcoreHarnessModelLitellmModelConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessModelOpenaiModelConfigInput)(nil)).Elem(), AgentcoreHarnessModelOpenaiModelConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessModelOpenaiModelConfigPtrInput)(nil)).Elem(), AgentcoreHarnessModelOpenaiModelConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessSkillInput)(nil)).Elem(), AgentcoreHarnessSkillArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessSkillArrayInput)(nil)).Elem(), AgentcoreHarnessSkillArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessSkillAwsSkillsInput)(nil)).Elem(), AgentcoreHarnessSkillAwsSkillsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessSkillAwsSkillsPtrInput)(nil)).Elem(), AgentcoreHarnessSkillAwsSkillsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessSkillGitInput)(nil)).Elem(), AgentcoreHarnessSkillGitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessSkillGitPtrInput)(nil)).Elem(), AgentcoreHarnessSkillGitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessSkillGitAuthInput)(nil)).Elem(), AgentcoreHarnessSkillGitAuthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessSkillGitAuthPtrInput)(nil)).Elem(), AgentcoreHarnessSkillGitAuthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessSkillS3Input)(nil)).Elem(), AgentcoreHarnessSkillS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessSkillS3PtrInput)(nil)).Elem(), AgentcoreHarnessSkillS3Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessSystemPromptInput)(nil)).Elem(), AgentcoreHarnessSystemPromptArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessSystemPromptArrayInput)(nil)).Elem(), AgentcoreHarnessSystemPromptArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreHarnessTimeoutsInput)(nil)).Elem(), AgentcoreHarnessTimeoutsArgs{})
@@ -76343,16 +76727,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayInput)(nil)).Elem(), AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigDataSourceConfigInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigDataSourceConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigDataSourceConfigPtrInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigDataSourceConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigEvaluatorInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigEvaluatorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigEvaluatorArrayInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigEvaluatorArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigOutputConfigInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigOutputConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreOnlineEvaluationConfigOutputConfigArrayInput)(nil)).Elem(), AgentcoreOnlineEvaluationConfigOutputConfigArray{})
 	pulumi.RegisterOutputType(AgentAgentActionGroupActionGroupExecutorOutput{})
 	pulumi.RegisterOutputType(AgentAgentActionGroupActionGroupExecutorPtrOutput{})
 	pulumi.RegisterOutputType(AgentAgentActionGroupApiSchemaOutput{})
@@ -77197,10 +77571,20 @@ func init() {
 	pulumi.RegisterOutputType(AgentcoreHarnessModelBedrockModelConfigPtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreHarnessModelGeminiModelConfigOutput{})
 	pulumi.RegisterOutputType(AgentcoreHarnessModelGeminiModelConfigPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreHarnessModelLitellmModelConfigOutput{})
+	pulumi.RegisterOutputType(AgentcoreHarnessModelLitellmModelConfigPtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreHarnessModelOpenaiModelConfigOutput{})
 	pulumi.RegisterOutputType(AgentcoreHarnessModelOpenaiModelConfigPtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreHarnessSkillOutput{})
 	pulumi.RegisterOutputType(AgentcoreHarnessSkillArrayOutput{})
+	pulumi.RegisterOutputType(AgentcoreHarnessSkillAwsSkillsOutput{})
+	pulumi.RegisterOutputType(AgentcoreHarnessSkillAwsSkillsPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreHarnessSkillGitOutput{})
+	pulumi.RegisterOutputType(AgentcoreHarnessSkillGitPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreHarnessSkillGitAuthOutput{})
+	pulumi.RegisterOutputType(AgentcoreHarnessSkillGitAuthPtrOutput{})
+	pulumi.RegisterOutputType(AgentcoreHarnessSkillS3Output{})
+	pulumi.RegisterOutputType(AgentcoreHarnessSkillS3PtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreHarnessSystemPromptOutput{})
 	pulumi.RegisterOutputType(AgentcoreHarnessSystemPromptArrayOutput{})
 	pulumi.RegisterOutputType(AgentcoreHarnessTimeoutsOutput{})
@@ -77329,14 +77713,4 @@ func init() {
 	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigPtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryOutput{})
 	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArrayOutput{})
-	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataOutput{})
-	pulumi.RegisterOutputType(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArrayOutput{})
-	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigDataSourceConfigOutput{})
-	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigDataSourceConfigPtrOutput{})
-	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsOutput{})
-	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsPtrOutput{})
-	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigEvaluatorOutput{})
-	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigEvaluatorArrayOutput{})
-	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigOutputConfigOutput{})
-	pulumi.RegisterOutputType(AgentcoreOnlineEvaluationConfigOutputConfigArrayOutput{})
 }

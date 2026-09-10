@@ -141,10 +141,21 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Bedrock AgentCore OAuth2 Credential Provider using the provider name. For example:
+// ### Identity Schema
+//
+// #### Required
+//
+// * `name` (String) OAuth2 credential provider name.
+//
+// #### Optional
+//
+// * `accountId` (String) Account ID where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
+// Using `pulumi import`, import Bedrock AgentCore OAuth2 Credential Provider using `name`. For example:
 //
 // ```sh
-// $ pulumi import aws:bedrock/agentcoreOauth2CredentialProvider:AgentcoreOauth2CredentialProvider example oauth2-provider-name
+// $ pulumi import aws:bedrock/agentcoreOauth2CredentialProvider:AgentcoreOauth2CredentialProvider example example-oauth2-provider
 // ```
 type AgentcoreOauth2CredentialProvider struct {
 	pulumi.CustomResourceState
@@ -166,7 +177,8 @@ type AgentcoreOauth2CredentialProvider struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TagsAll  pulumi.StringMapOutput                             `pulumi:"tagsAll"`
+	Timeouts AgentcoreOauth2CredentialProviderTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewAgentcoreOauth2CredentialProvider registers a new resource with the given unique name, arguments, and options.
@@ -219,7 +231,8 @@ type agentcoreOauth2CredentialProviderState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	TagsAll  map[string]string                          `pulumi:"tagsAll"`
+	Timeouts *AgentcoreOauth2CredentialProviderTimeouts `pulumi:"timeouts"`
 }
 
 type AgentcoreOauth2CredentialProviderState struct {
@@ -240,7 +253,8 @@ type AgentcoreOauth2CredentialProviderState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	TagsAll  pulumi.StringMapInput
+	Timeouts AgentcoreOauth2CredentialProviderTimeoutsPtrInput
 }
 
 func (AgentcoreOauth2CredentialProviderState) ElementType() reflect.Type {
@@ -259,7 +273,8 @@ type agentcoreOauth2CredentialProviderArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Tags     map[string]string                          `pulumi:"tags"`
+	Timeouts *AgentcoreOauth2CredentialProviderTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a AgentcoreOauth2CredentialProvider resource.
@@ -275,7 +290,8 @@ type AgentcoreOauth2CredentialProviderArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags     pulumi.StringMapInput
+	Timeouts AgentcoreOauth2CredentialProviderTimeoutsPtrInput
 }
 
 func (AgentcoreOauth2CredentialProviderArgs) ElementType() reflect.Type {
@@ -409,6 +425,12 @@ func (o AgentcoreOauth2CredentialProviderOutput) Tags() pulumi.StringMapOutput {
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AgentcoreOauth2CredentialProviderOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProvider) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+func (o AgentcoreOauth2CredentialProviderOutput) Timeouts() AgentcoreOauth2CredentialProviderTimeoutsPtrOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProvider) AgentcoreOauth2CredentialProviderTimeoutsPtrOutput {
+		return v.Timeouts
+	}).(AgentcoreOauth2CredentialProviderTimeoutsPtrOutput)
 }
 
 type AgentcoreOauth2CredentialProviderArrayOutput struct{ *pulumi.OutputState }

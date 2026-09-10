@@ -69,6 +69,16 @@ __all__ = [
     'ReplicatorKafkaClusterArgsDict',
     'ReplicatorKafkaClusterAmazonMskClusterArgs',
     'ReplicatorKafkaClusterAmazonMskClusterArgsDict',
+    'ReplicatorKafkaClusterApacheKafkaClusterArgs',
+    'ReplicatorKafkaClusterApacheKafkaClusterArgsDict',
+    'ReplicatorKafkaClusterClientAuthenticationArgs',
+    'ReplicatorKafkaClusterClientAuthenticationArgsDict',
+    'ReplicatorKafkaClusterClientAuthenticationMtlsArgs',
+    'ReplicatorKafkaClusterClientAuthenticationMtlsArgsDict',
+    'ReplicatorKafkaClusterClientAuthenticationSaslScramArgs',
+    'ReplicatorKafkaClusterClientAuthenticationSaslScramArgsDict',
+    'ReplicatorKafkaClusterEncryptionInTransitArgs',
+    'ReplicatorKafkaClusterEncryptionInTransitArgsDict',
     'ReplicatorKafkaClusterVpcConfigArgs',
     'ReplicatorKafkaClusterVpcConfigArgsDict',
     'ReplicatorLogDeliveryArgs',
@@ -1242,49 +1252,111 @@ class ClusterRebalancingArgs:
 
 
 class ReplicatorKafkaClusterArgsDict(TypedDict):
-    amazon_msk_cluster: pulumi.Input['ReplicatorKafkaClusterAmazonMskClusterArgsDict']
+    amazon_msk_cluster: NotRequired[pulumi.Input[Optional['ReplicatorKafkaClusterAmazonMskClusterArgsDict']]]
     """
-    Details of an Amazon MSK cluster.
+    Details of an Amazon MSK cluster. Exactly one of `amazon_msk_cluster` or `apache_kafka_cluster` must be specified. Detailed below.
     """
-    vpc_config: pulumi.Input['ReplicatorKafkaClusterVpcConfigArgsDict']
+    apache_kafka_cluster: NotRequired[pulumi.Input[Optional['ReplicatorKafkaClusterApacheKafkaClusterArgsDict']]]
     """
-    Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+    Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazon_msk_cluster` or `apache_kafka_cluster` must be specified. Detailed below.
+    """
+    client_authentication: NotRequired[pulumi.Input[Optional['ReplicatorKafkaClusterClientAuthenticationArgsDict']]]
+    """
+    Details of the client authentication used by the Kafka cluster. Only valid for an `apache_kafka_cluster`. Detailed below.
+    """
+    encryption_in_transit: NotRequired[pulumi.Input[Optional['ReplicatorKafkaClusterEncryptionInTransitArgsDict']]]
+    """
+    Details of encryption in transit to the Kafka cluster. Only valid for an `apache_kafka_cluster`. TLS encryption in transit is always applied to an `apache_kafka_cluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). Detailed below.
+    """
+    vpc_config: NotRequired[pulumi.Input[Optional['ReplicatorKafkaClusterVpcConfigArgsDict']]]
+    """
+    Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazon_msk_cluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC.
     """
 
 @pulumi.input_type
 class ReplicatorKafkaClusterArgs:
     def __init__(__self__, *,
-                 amazon_msk_cluster: pulumi.Input['ReplicatorKafkaClusterAmazonMskClusterArgs'],
-                 vpc_config: pulumi.Input['ReplicatorKafkaClusterVpcConfigArgs']):
+                 amazon_msk_cluster: pulumi.Input[Optional['ReplicatorKafkaClusterAmazonMskClusterArgs']] = None,
+                 apache_kafka_cluster: pulumi.Input[Optional['ReplicatorKafkaClusterApacheKafkaClusterArgs']] = None,
+                 client_authentication: pulumi.Input[Optional['ReplicatorKafkaClusterClientAuthenticationArgs']] = None,
+                 encryption_in_transit: pulumi.Input[Optional['ReplicatorKafkaClusterEncryptionInTransitArgs']] = None,
+                 vpc_config: pulumi.Input[Optional['ReplicatorKafkaClusterVpcConfigArgs']] = None):
         """
-        :param pulumi.Input['ReplicatorKafkaClusterAmazonMskClusterArgs'] amazon_msk_cluster: Details of an Amazon MSK cluster.
-        :param pulumi.Input['ReplicatorKafkaClusterVpcConfigArgs'] vpc_config: Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+        :param pulumi.Input['ReplicatorKafkaClusterAmazonMskClusterArgs'] amazon_msk_cluster: Details of an Amazon MSK cluster. Exactly one of `amazon_msk_cluster` or `apache_kafka_cluster` must be specified. Detailed below.
+        :param pulumi.Input['ReplicatorKafkaClusterApacheKafkaClusterArgs'] apache_kafka_cluster: Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazon_msk_cluster` or `apache_kafka_cluster` must be specified. Detailed below.
+        :param pulumi.Input['ReplicatorKafkaClusterClientAuthenticationArgs'] client_authentication: Details of the client authentication used by the Kafka cluster. Only valid for an `apache_kafka_cluster`. Detailed below.
+        :param pulumi.Input['ReplicatorKafkaClusterEncryptionInTransitArgs'] encryption_in_transit: Details of encryption in transit to the Kafka cluster. Only valid for an `apache_kafka_cluster`. TLS encryption in transit is always applied to an `apache_kafka_cluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). Detailed below.
+        :param pulumi.Input['ReplicatorKafkaClusterVpcConfigArgs'] vpc_config: Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazon_msk_cluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC.
         """
-        pulumi.set(__self__, "amazon_msk_cluster", amazon_msk_cluster)
-        pulumi.set(__self__, "vpc_config", vpc_config)
+        if amazon_msk_cluster is not None:
+            pulumi.set(__self__, "amazon_msk_cluster", amazon_msk_cluster)
+        if apache_kafka_cluster is not None:
+            pulumi.set(__self__, "apache_kafka_cluster", apache_kafka_cluster)
+        if client_authentication is not None:
+            pulumi.set(__self__, "client_authentication", client_authentication)
+        if encryption_in_transit is not None:
+            pulumi.set(__self__, "encryption_in_transit", encryption_in_transit)
+        if vpc_config is not None:
+            pulumi.set(__self__, "vpc_config", vpc_config)
 
     @_builtins.property
     @pulumi.getter(name="amazonMskCluster")
-    def amazon_msk_cluster(self) -> pulumi.Input['ReplicatorKafkaClusterAmazonMskClusterArgs']:
+    def amazon_msk_cluster(self) -> pulumi.Input[Optional['ReplicatorKafkaClusterAmazonMskClusterArgs']]:
         """
-        Details of an Amazon MSK cluster.
+        Details of an Amazon MSK cluster. Exactly one of `amazon_msk_cluster` or `apache_kafka_cluster` must be specified. Detailed below.
         """
         return pulumi.get(self, "amazon_msk_cluster")
 
     @amazon_msk_cluster.setter
-    def amazon_msk_cluster(self, value: pulumi.Input['ReplicatorKafkaClusterAmazonMskClusterArgs']):
+    def amazon_msk_cluster(self, value: pulumi.Input[Optional['ReplicatorKafkaClusterAmazonMskClusterArgs']]):
         pulumi.set(self, "amazon_msk_cluster", value)
 
     @_builtins.property
-    @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> pulumi.Input['ReplicatorKafkaClusterVpcConfigArgs']:
+    @pulumi.getter(name="apacheKafkaCluster")
+    def apache_kafka_cluster(self) -> pulumi.Input[Optional['ReplicatorKafkaClusterApacheKafkaClusterArgs']]:
         """
-        Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+        Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazon_msk_cluster` or `apache_kafka_cluster` must be specified. Detailed below.
+        """
+        return pulumi.get(self, "apache_kafka_cluster")
+
+    @apache_kafka_cluster.setter
+    def apache_kafka_cluster(self, value: pulumi.Input[Optional['ReplicatorKafkaClusterApacheKafkaClusterArgs']]):
+        pulumi.set(self, "apache_kafka_cluster", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientAuthentication")
+    def client_authentication(self) -> pulumi.Input[Optional['ReplicatorKafkaClusterClientAuthenticationArgs']]:
+        """
+        Details of the client authentication used by the Kafka cluster. Only valid for an `apache_kafka_cluster`. Detailed below.
+        """
+        return pulumi.get(self, "client_authentication")
+
+    @client_authentication.setter
+    def client_authentication(self, value: pulumi.Input[Optional['ReplicatorKafkaClusterClientAuthenticationArgs']]):
+        pulumi.set(self, "client_authentication", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionInTransit")
+    def encryption_in_transit(self) -> pulumi.Input[Optional['ReplicatorKafkaClusterEncryptionInTransitArgs']]:
+        """
+        Details of encryption in transit to the Kafka cluster. Only valid for an `apache_kafka_cluster`. TLS encryption in transit is always applied to an `apache_kafka_cluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). Detailed below.
+        """
+        return pulumi.get(self, "encryption_in_transit")
+
+    @encryption_in_transit.setter
+    def encryption_in_transit(self, value: pulumi.Input[Optional['ReplicatorKafkaClusterEncryptionInTransitArgs']]):
+        pulumi.set(self, "encryption_in_transit", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcConfig")
+    def vpc_config(self) -> pulumi.Input[Optional['ReplicatorKafkaClusterVpcConfigArgs']]:
+        """
+        Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazon_msk_cluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC.
         """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
-    def vpc_config(self, value: pulumi.Input['ReplicatorKafkaClusterVpcConfigArgs']):
+    def vpc_config(self, value: pulumi.Input[Optional['ReplicatorKafkaClusterVpcConfigArgs']]):
         pulumi.set(self, "vpc_config", value)
 
 
@@ -1316,6 +1388,205 @@ class ReplicatorKafkaClusterAmazonMskClusterArgs:
         pulumi.set(self, "msk_cluster_arn", value)
 
 
+class ReplicatorKafkaClusterApacheKafkaClusterArgsDict(TypedDict):
+    apache_kafka_cluster_id: pulumi.Input[_builtins.str]
+    """
+    The Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
+    """
+    bootstrap_broker_string: pulumi.Input[_builtins.str]
+    """
+    The bootstrap broker connection string used to connect to the Apache Kafka cluster.
+    """
+
+@pulumi.input_type
+class ReplicatorKafkaClusterApacheKafkaClusterArgs:
+    def __init__(__self__, *,
+                 apache_kafka_cluster_id: pulumi.Input[_builtins.str],
+                 bootstrap_broker_string: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] apache_kafka_cluster_id: The Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
+        :param pulumi.Input[_builtins.str] bootstrap_broker_string: The bootstrap broker connection string used to connect to the Apache Kafka cluster.
+        """
+        pulumi.set(__self__, "apache_kafka_cluster_id", apache_kafka_cluster_id)
+        pulumi.set(__self__, "bootstrap_broker_string", bootstrap_broker_string)
+
+    @_builtins.property
+    @pulumi.getter(name="apacheKafkaClusterId")
+    def apache_kafka_cluster_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
+        """
+        return pulumi.get(self, "apache_kafka_cluster_id")
+
+    @apache_kafka_cluster_id.setter
+    def apache_kafka_cluster_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "apache_kafka_cluster_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bootstrapBrokerString")
+    def bootstrap_broker_string(self) -> pulumi.Input[_builtins.str]:
+        """
+        The bootstrap broker connection string used to connect to the Apache Kafka cluster.
+        """
+        return pulumi.get(self, "bootstrap_broker_string")
+
+    @bootstrap_broker_string.setter
+    def bootstrap_broker_string(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bootstrap_broker_string", value)
+
+
+class ReplicatorKafkaClusterClientAuthenticationArgsDict(TypedDict):
+    mtls: NotRequired[pulumi.Input[Optional['ReplicatorKafkaClusterClientAuthenticationMtlsArgsDict']]]
+    """
+    Details of the mTLS client authentication used by the Kafka cluster. Detailed below.
+    """
+    sasl_scram: NotRequired[pulumi.Input[Optional['ReplicatorKafkaClusterClientAuthenticationSaslScramArgsDict']]]
+    """
+    Details of the SASL/SCRAM client authentication used by the Kafka cluster. Detailed below.
+    """
+
+@pulumi.input_type
+class ReplicatorKafkaClusterClientAuthenticationArgs:
+    def __init__(__self__, *,
+                 mtls: pulumi.Input[Optional['ReplicatorKafkaClusterClientAuthenticationMtlsArgs']] = None,
+                 sasl_scram: pulumi.Input[Optional['ReplicatorKafkaClusterClientAuthenticationSaslScramArgs']] = None):
+        """
+        :param pulumi.Input['ReplicatorKafkaClusterClientAuthenticationMtlsArgs'] mtls: Details of the mTLS client authentication used by the Kafka cluster. Detailed below.
+        :param pulumi.Input['ReplicatorKafkaClusterClientAuthenticationSaslScramArgs'] sasl_scram: Details of the SASL/SCRAM client authentication used by the Kafka cluster. Detailed below.
+        """
+        if mtls is not None:
+            pulumi.set(__self__, "mtls", mtls)
+        if sasl_scram is not None:
+            pulumi.set(__self__, "sasl_scram", sasl_scram)
+
+    @_builtins.property
+    @pulumi.getter
+    def mtls(self) -> pulumi.Input[Optional['ReplicatorKafkaClusterClientAuthenticationMtlsArgs']]:
+        """
+        Details of the mTLS client authentication used by the Kafka cluster. Detailed below.
+        """
+        return pulumi.get(self, "mtls")
+
+    @mtls.setter
+    def mtls(self, value: pulumi.Input[Optional['ReplicatorKafkaClusterClientAuthenticationMtlsArgs']]):
+        pulumi.set(self, "mtls", value)
+
+    @_builtins.property
+    @pulumi.getter(name="saslScram")
+    def sasl_scram(self) -> pulumi.Input[Optional['ReplicatorKafkaClusterClientAuthenticationSaslScramArgs']]:
+        """
+        Details of the SASL/SCRAM client authentication used by the Kafka cluster. Detailed below.
+        """
+        return pulumi.get(self, "sasl_scram")
+
+    @sasl_scram.setter
+    def sasl_scram(self, value: pulumi.Input[Optional['ReplicatorKafkaClusterClientAuthenticationSaslScramArgs']]):
+        pulumi.set(self, "sasl_scram", value)
+
+
+class ReplicatorKafkaClusterClientAuthenticationMtlsArgsDict(TypedDict):
+    secret_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+    """
+
+@pulumi.input_type
+class ReplicatorKafkaClusterClientAuthenticationMtlsArgs:
+    def __init__(__self__, *,
+                 secret_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] secret_arn: The ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+        """
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_arn", value)
+
+
+class ReplicatorKafkaClusterClientAuthenticationSaslScramArgsDict(TypedDict):
+    mechanism: pulumi.Input[_builtins.str]
+    """
+    The SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
+    """
+    secret_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+    """
+
+@pulumi.input_type
+class ReplicatorKafkaClusterClientAuthenticationSaslScramArgs:
+    def __init__(__self__, *,
+                 mechanism: pulumi.Input[_builtins.str],
+                 secret_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] mechanism: The SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
+        :param pulumi.Input[_builtins.str] secret_arn: The ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+        """
+        pulumi.set(__self__, "mechanism", mechanism)
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def mechanism(self) -> pulumi.Input[_builtins.str]:
+        """
+        The SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
+        """
+        return pulumi.get(self, "mechanism")
+
+    @mechanism.setter
+    def mechanism(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "mechanism", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_arn", value)
+
+
+class ReplicatorKafkaClusterEncryptionInTransitArgsDict(TypedDict):
+    root_ca_certificate: pulumi.Input[_builtins.str]
+    """
+    The ARN of the AWS Secrets Manager secret that stores the custom root CA certificate chain used to trust the certificate authority of the Apache Kafka cluster. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+    """
+
+@pulumi.input_type
+class ReplicatorKafkaClusterEncryptionInTransitArgs:
+    def __init__(__self__, *,
+                 root_ca_certificate: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] root_ca_certificate: The ARN of the AWS Secrets Manager secret that stores the custom root CA certificate chain used to trust the certificate authority of the Apache Kafka cluster. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+        """
+        pulumi.set(__self__, "root_ca_certificate", root_ca_certificate)
+
+    @_builtins.property
+    @pulumi.getter(name="rootCaCertificate")
+    def root_ca_certificate(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the AWS Secrets Manager secret that stores the custom root CA certificate chain used to trust the certificate authority of the Apache Kafka cluster. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+        """
+        return pulumi.get(self, "root_ca_certificate")
+
+    @root_ca_certificate.setter
+    def root_ca_certificate(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "root_ca_certificate", value)
+
+
 class ReplicatorKafkaClusterVpcConfigArgsDict(TypedDict):
     subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
@@ -1324,6 +1595,8 @@ class ReplicatorKafkaClusterVpcConfigArgsDict(TypedDict):
     security_groups_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
+
+    > **Note:** When an `apache_kafka_cluster` uses `client_authentication`, the replicator's network interfaces (created in these subnets, with private IPs only) must be able to reach AWS Secrets Manager and AWS KMS to retrieve and decrypt the credentials. Ensure the subnets have egress to those services via a NAT gateway or Secrets Manager and KMS interface VPC endpoints; otherwise the replicator times out connecting to the source cluster.
     """
 
 @pulumi.input_type
@@ -1334,6 +1607,8 @@ class ReplicatorKafkaClusterVpcConfigArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnets to connect to in the VPC. AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups_ids: The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
+               
+               > **Note:** When an `apache_kafka_cluster` uses `client_authentication`, the replicator's network interfaces (created in these subnets, with private IPs only) must be able to reach AWS Secrets Manager and AWS KMS to retrieve and decrypt the credentials. Ensure the subnets have egress to those services via a NAT gateway or Secrets Manager and KMS interface VPC endpoints; otherwise the replicator times out connecting to the source cluster.
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if security_groups_ids is not None:
@@ -1356,6 +1631,8 @@ class ReplicatorKafkaClusterVpcConfigArgs:
     def security_groups_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
+
+        > **Note:** When an `apache_kafka_cluster` uses `client_authentication`, the replicator's network interfaces (created in these subnets, with private IPs only) must be able to reach AWS Secrets Manager and AWS KMS to retrieve and decrypt the credentials. Ensure the subnets have egress to those services via a NAT gateway or Secrets Manager and KMS interface VPC endpoints; otherwise the replicator times out connecting to the source cluster.
         """
         return pulumi.get(self, "security_groups_ids")
 
@@ -1631,51 +1908,69 @@ class ReplicatorReplicationInfoListArgsDict(TypedDict):
     """
     Configuration relating to consumer group replication.
     """
-    source_kafka_cluster_arn: pulumi.Input[_builtins.str]
-    """
-    The ARN of the source Kafka cluster.
-    """
     target_compression_type: pulumi.Input[_builtins.str]
     """
     The type of compression to use writing records to target Kafka cluster.
-    """
-    target_kafka_cluster_arn: pulumi.Input[_builtins.str]
-    """
-    The ARN of the target Kafka cluster.
     """
     topic_replications: pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationArgsDict']]]
     """
     Configuration relating to topic replication.
     """
     source_kafka_cluster_alias: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    source_kafka_cluster_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `source_kafka_cluster_arn` or `source_kafka_cluster_id` must be specified.
+    """
+    source_kafka_cluster_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apache_kafka_cluster_id`). Exactly one of `source_kafka_cluster_arn` or `source_kafka_cluster_id` must be specified.
+    """
     target_kafka_cluster_alias: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    target_kafka_cluster_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `target_kafka_cluster_arn` or `target_kafka_cluster_id` must be specified.
+    """
+    target_kafka_cluster_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apache_kafka_cluster_id`). Exactly one of `target_kafka_cluster_arn` or `target_kafka_cluster_id` must be specified.
+    """
 
 @pulumi.input_type
 class ReplicatorReplicationInfoListArgs:
     def __init__(__self__, *,
                  consumer_group_replications: pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListConsumerGroupReplicationArgs']]],
-                 source_kafka_cluster_arn: pulumi.Input[_builtins.str],
                  target_compression_type: pulumi.Input[_builtins.str],
-                 target_kafka_cluster_arn: pulumi.Input[_builtins.str],
                  topic_replications: pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationArgs']]],
                  source_kafka_cluster_alias: pulumi.Input[Optional[_builtins.str]] = None,
-                 target_kafka_cluster_alias: pulumi.Input[Optional[_builtins.str]] = None):
+                 source_kafka_cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_kafka_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_kafka_cluster_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_kafka_cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_kafka_cluster_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListConsumerGroupReplicationArgs']]] consumer_group_replications: Configuration relating to consumer group replication.
-        :param pulumi.Input[_builtins.str] source_kafka_cluster_arn: The ARN of the source Kafka cluster.
         :param pulumi.Input[_builtins.str] target_compression_type: The type of compression to use writing records to target Kafka cluster.
-        :param pulumi.Input[_builtins.str] target_kafka_cluster_arn: The ARN of the target Kafka cluster.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationArgs']]] topic_replications: Configuration relating to topic replication.
+        :param pulumi.Input[_builtins.str] source_kafka_cluster_arn: The ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `source_kafka_cluster_arn` or `source_kafka_cluster_id` must be specified.
+        :param pulumi.Input[_builtins.str] source_kafka_cluster_id: The identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apache_kafka_cluster_id`). Exactly one of `source_kafka_cluster_arn` or `source_kafka_cluster_id` must be specified.
+        :param pulumi.Input[_builtins.str] target_kafka_cluster_arn: The ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `target_kafka_cluster_arn` or `target_kafka_cluster_id` must be specified.
+        :param pulumi.Input[_builtins.str] target_kafka_cluster_id: The identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apache_kafka_cluster_id`). Exactly one of `target_kafka_cluster_arn` or `target_kafka_cluster_id` must be specified.
         """
         pulumi.set(__self__, "consumer_group_replications", consumer_group_replications)
-        pulumi.set(__self__, "source_kafka_cluster_arn", source_kafka_cluster_arn)
         pulumi.set(__self__, "target_compression_type", target_compression_type)
-        pulumi.set(__self__, "target_kafka_cluster_arn", target_kafka_cluster_arn)
         pulumi.set(__self__, "topic_replications", topic_replications)
         if source_kafka_cluster_alias is not None:
             pulumi.set(__self__, "source_kafka_cluster_alias", source_kafka_cluster_alias)
+        if source_kafka_cluster_arn is not None:
+            pulumi.set(__self__, "source_kafka_cluster_arn", source_kafka_cluster_arn)
+        if source_kafka_cluster_id is not None:
+            pulumi.set(__self__, "source_kafka_cluster_id", source_kafka_cluster_id)
         if target_kafka_cluster_alias is not None:
             pulumi.set(__self__, "target_kafka_cluster_alias", target_kafka_cluster_alias)
+        if target_kafka_cluster_arn is not None:
+            pulumi.set(__self__, "target_kafka_cluster_arn", target_kafka_cluster_arn)
+        if target_kafka_cluster_id is not None:
+            pulumi.set(__self__, "target_kafka_cluster_id", target_kafka_cluster_id)
 
     @_builtins.property
     @pulumi.getter(name="consumerGroupReplications")
@@ -1690,18 +1985,6 @@ class ReplicatorReplicationInfoListArgs:
         pulumi.set(self, "consumer_group_replications", value)
 
     @_builtins.property
-    @pulumi.getter(name="sourceKafkaClusterArn")
-    def source_kafka_cluster_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the source Kafka cluster.
-        """
-        return pulumi.get(self, "source_kafka_cluster_arn")
-
-    @source_kafka_cluster_arn.setter
-    def source_kafka_cluster_arn(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "source_kafka_cluster_arn", value)
-
-    @_builtins.property
     @pulumi.getter(name="targetCompressionType")
     def target_compression_type(self) -> pulumi.Input[_builtins.str]:
         """
@@ -1712,18 +1995,6 @@ class ReplicatorReplicationInfoListArgs:
     @target_compression_type.setter
     def target_compression_type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "target_compression_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="targetKafkaClusterArn")
-    def target_kafka_cluster_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the target Kafka cluster.
-        """
-        return pulumi.get(self, "target_kafka_cluster_arn")
-
-    @target_kafka_cluster_arn.setter
-    def target_kafka_cluster_arn(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "target_kafka_cluster_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="topicReplications")
@@ -1747,6 +2018,30 @@ class ReplicatorReplicationInfoListArgs:
         pulumi.set(self, "source_kafka_cluster_alias", value)
 
     @_builtins.property
+    @pulumi.getter(name="sourceKafkaClusterArn")
+    def source_kafka_cluster_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `source_kafka_cluster_arn` or `source_kafka_cluster_id` must be specified.
+        """
+        return pulumi.get(self, "source_kafka_cluster_arn")
+
+    @source_kafka_cluster_arn.setter
+    def source_kafka_cluster_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "source_kafka_cluster_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceKafkaClusterId")
+    def source_kafka_cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apache_kafka_cluster_id`). Exactly one of `source_kafka_cluster_arn` or `source_kafka_cluster_id` must be specified.
+        """
+        return pulumi.get(self, "source_kafka_cluster_id")
+
+    @source_kafka_cluster_id.setter
+    def source_kafka_cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "source_kafka_cluster_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="targetKafkaClusterAlias")
     def target_kafka_cluster_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "target_kafka_cluster_alias")
@@ -1754,6 +2049,30 @@ class ReplicatorReplicationInfoListArgs:
     @target_kafka_cluster_alias.setter
     def target_kafka_cluster_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_kafka_cluster_alias", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetKafkaClusterArn")
+    def target_kafka_cluster_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `target_kafka_cluster_arn` or `target_kafka_cluster_id` must be specified.
+        """
+        return pulumi.get(self, "target_kafka_cluster_arn")
+
+    @target_kafka_cluster_arn.setter
+    def target_kafka_cluster_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "target_kafka_cluster_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetKafkaClusterId")
+    def target_kafka_cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apache_kafka_cluster_id`). Exactly one of `target_kafka_cluster_arn` or `target_kafka_cluster_id` must be specified.
+        """
+        return pulumi.get(self, "target_kafka_cluster_id")
+
+    @target_kafka_cluster_id.setter
+    def target_kafka_cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "target_kafka_cluster_id", value)
 
 
 class ReplicatorReplicationInfoListConsumerGroupReplicationArgsDict(TypedDict):

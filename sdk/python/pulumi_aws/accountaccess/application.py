@@ -223,9 +223,11 @@ class Application(pulumi.CustomResource):
                  timeouts: pulumi.Input[Optional[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Manages an AWS Account Access Application bound to an IAM Identity Center instance.
+        Manages an AWS Account Access Application. An Application binds Account Access to an IAM Identity Center instance and serves as the parent container for entitlements that grant principals access to roles in target accounts.
 
-        > **NOTE:** AWS Account Access allows only one Application per Identity Center instance. Attempting to create a second Application for the same instance will fail. Use `pulumi import` to bring an existing Application under management.
+        > **Note:** Only one Application may exist per IAM Identity Center instance. Attempting to create a second Application for the same instance produces an error directing you to import the existing resource.
+
+        > **Note:** Granting access to roles in target accounts is done with `accountaccess.Entitlement`. Each target role must trust the Account Access service in its `assume_role_policy` — see that resource's documentation for the required trust policy.
 
         ## Example Usage
 
@@ -291,9 +293,11 @@ class Application(pulumi.CustomResource):
                  args: ApplicationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS Account Access Application bound to an IAM Identity Center instance.
+        Manages an AWS Account Access Application. An Application binds Account Access to an IAM Identity Center instance and serves as the parent container for entitlements that grant principals access to roles in target accounts.
 
-        > **NOTE:** AWS Account Access allows only one Application per Identity Center instance. Attempting to create a second Application for the same instance will fail. Use `pulumi import` to bring an existing Application under management.
+        > **Note:** Only one Application may exist per IAM Identity Center instance. Attempting to create a second Application for the same instance produces an error directing you to import the existing resource.
+
+        > **Note:** Granting access to roles in target accounts is done with `accountaccess.Entitlement`. Each target role must trust the Account Access service in its `assume_role_policy` — see that resource's documentation for the required trust policy.
 
         ## Example Usage
 

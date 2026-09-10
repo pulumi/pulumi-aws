@@ -1566,12 +1566,6 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     /**
      * List of VPC security groups to associate with the Cluster
      * 
-     * For more detailed documentation about each argument, refer to
-     * the AWS official documentation:
-     * 
-     * * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
-     * * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
-     * 
      */
     @Export(name="vpcSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> vpcSecurityGroupIds;
@@ -1579,6 +1573,13 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     /**
      * @return List of VPC security groups to associate with the Cluster
      * 
+     */
+    public Output<List<String>> vpcSecurityGroupIds() {
+        return this.vpcSecurityGroupIds;
+    }
+    /**
+     * Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this cluster during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+     * 
      * For more detailed documentation about each argument, refer to
      * the AWS official documentation:
      * 
@@ -1586,8 +1587,21 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
      * 
      */
-    public Output<List<String>> vpcSecurityGroupIds() {
-        return this.vpcSecurityGroupIds;
+    @Export(name="warningEventCategories", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> warningEventCategories;
+
+    /**
+     * @return Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this cluster during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+     * 
+     * For more detailed documentation about each argument, refer to
+     * the AWS official documentation:
+     * 
+     * * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
+     * * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
+     * 
+     */
+    public Output<Optional<List<String>>> warningEventCategories() {
+        return Codegen.optional(this.warningEventCategories);
     }
 
     /**

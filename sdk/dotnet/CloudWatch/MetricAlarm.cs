@@ -311,6 +311,40 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// 
+    /// ### With a Warm-Up Period
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.CloudWatch.MetricAlarm("example", new()
+    ///     {
+    ///         WarmUpConfiguration = new Aws.CloudWatch.Inputs.MetricAlarmWarmUpConfigurationArgs
+    ///         {
+    ///             WarmUpPeriodDurationInMinutes = 30,
+    ///         },
+    ///         Name = "example-service-errors",
+    ///         ComparisonOperator = "GreaterThanThreshold",
+    ///         EvaluationPeriods = 3,
+    ///         MetricName = "Errors",
+    ///         Namespace = "ExampleApp",
+    ///         Period = 60,
+    ///         Statistic = "Sum",
+    ///         Threshold = 0,
+    ///         TreatMissingData = "breaching",
+    ///         AlarmActions = 
+    ///         {
+    ///             exampleAwsSnsTopic.Arn,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// &gt; **NOTE:**  You cannot create a metric alarm consisting of both `Statistic` and `ExtendedStatistic` parameters.
     /// You must choose one or the other.
     /// 
@@ -509,6 +543,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Output("unit")]
         public Output<string?> Unit { get; private set; } = null!;
+
+        /// <summary>
+        /// Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `WarmUpConfiguration` below.
+        /// </summary>
+        [Output("warmUpConfiguration")]
+        public Output<Outputs.MetricAlarmWarmUpConfiguration?> WarmUpConfiguration { get; private set; } = null!;
 
 
         /// <summary>
@@ -754,6 +794,12 @@ namespace Pulumi.Aws.CloudWatch
         [Input("unit")]
         public Input<string>? Unit { get; set; }
 
+        /// <summary>
+        /// Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `WarmUpConfiguration` below.
+        /// </summary>
+        [Input("warmUpConfiguration")]
+        public Input<Inputs.MetricAlarmWarmUpConfigurationArgs>? WarmUpConfiguration { get; set; }
+
         public MetricAlarmArgs()
         {
         }
@@ -977,6 +1023,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("unit")]
         public Input<string>? Unit { get; set; }
+
+        /// <summary>
+        /// Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `WarmUpConfiguration` below.
+        /// </summary>
+        [Input("warmUpConfiguration")]
+        public Input<Inputs.MetricAlarmWarmUpConfigurationGetArgs>? WarmUpConfiguration { get; set; }
 
         public MetricAlarmState()
         {

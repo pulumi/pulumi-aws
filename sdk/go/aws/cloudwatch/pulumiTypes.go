@@ -13068,6 +13068,170 @@ func (o MetricAlarmMetricQueryMetricPtrOutput) Unit() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type MetricAlarmWarmUpConfiguration struct {
+	// Whether to wait for the full warm-up period before evaluation begins, even if metric data arrives earlier. When `false`, the warm-up period ends early as soon as the alarm has enough data to fill its evaluation window. Defaults to `false`.
+	//
+	// > **Note:** The warm-up period applies once, when the alarm is created. Changing the warm-up configuration after the warm-up period ends does not start a new warm-up period. See [Alarm warm-up periods](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-warm-up.html) in the Amazon CloudWatch User Guide.
+	OnlyStartEvaluatingAfterWarmUpPeriodEnds *bool `pulumi:"onlyStartEvaluatingAfterWarmUpPeriodEnds"`
+	// Length of the warm-up period, in minutes. Valid values are `1` to `2880`.
+	WarmUpPeriodDurationInMinutes int `pulumi:"warmUpPeriodDurationInMinutes"`
+}
+
+// MetricAlarmWarmUpConfigurationInput is an input type that accepts MetricAlarmWarmUpConfigurationArgs and MetricAlarmWarmUpConfigurationOutput values.
+// You can construct a concrete instance of `MetricAlarmWarmUpConfigurationInput` via:
+//
+//	MetricAlarmWarmUpConfigurationArgs{...}
+type MetricAlarmWarmUpConfigurationInput interface {
+	pulumi.Input
+
+	ToMetricAlarmWarmUpConfigurationOutput() MetricAlarmWarmUpConfigurationOutput
+	ToMetricAlarmWarmUpConfigurationOutputWithContext(context.Context) MetricAlarmWarmUpConfigurationOutput
+}
+
+type MetricAlarmWarmUpConfigurationArgs struct {
+	// Whether to wait for the full warm-up period before evaluation begins, even if metric data arrives earlier. When `false`, the warm-up period ends early as soon as the alarm has enough data to fill its evaluation window. Defaults to `false`.
+	//
+	// > **Note:** The warm-up period applies once, when the alarm is created. Changing the warm-up configuration after the warm-up period ends does not start a new warm-up period. See [Alarm warm-up periods](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-warm-up.html) in the Amazon CloudWatch User Guide.
+	OnlyStartEvaluatingAfterWarmUpPeriodEnds pulumi.BoolPtrInput `pulumi:"onlyStartEvaluatingAfterWarmUpPeriodEnds"`
+	// Length of the warm-up period, in minutes. Valid values are `1` to `2880`.
+	WarmUpPeriodDurationInMinutes pulumi.IntInput `pulumi:"warmUpPeriodDurationInMinutes"`
+}
+
+func (MetricAlarmWarmUpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAlarmWarmUpConfiguration)(nil)).Elem()
+}
+
+func (i MetricAlarmWarmUpConfigurationArgs) ToMetricAlarmWarmUpConfigurationOutput() MetricAlarmWarmUpConfigurationOutput {
+	return i.ToMetricAlarmWarmUpConfigurationOutputWithContext(context.Background())
+}
+
+func (i MetricAlarmWarmUpConfigurationArgs) ToMetricAlarmWarmUpConfigurationOutputWithContext(ctx context.Context) MetricAlarmWarmUpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlarmWarmUpConfigurationOutput)
+}
+
+func (i MetricAlarmWarmUpConfigurationArgs) ToMetricAlarmWarmUpConfigurationPtrOutput() MetricAlarmWarmUpConfigurationPtrOutput {
+	return i.ToMetricAlarmWarmUpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i MetricAlarmWarmUpConfigurationArgs) ToMetricAlarmWarmUpConfigurationPtrOutputWithContext(ctx context.Context) MetricAlarmWarmUpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlarmWarmUpConfigurationOutput).ToMetricAlarmWarmUpConfigurationPtrOutputWithContext(ctx)
+}
+
+// MetricAlarmWarmUpConfigurationPtrInput is an input type that accepts MetricAlarmWarmUpConfigurationArgs, MetricAlarmWarmUpConfigurationPtr and MetricAlarmWarmUpConfigurationPtrOutput values.
+// You can construct a concrete instance of `MetricAlarmWarmUpConfigurationPtrInput` via:
+//
+//	        MetricAlarmWarmUpConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type MetricAlarmWarmUpConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToMetricAlarmWarmUpConfigurationPtrOutput() MetricAlarmWarmUpConfigurationPtrOutput
+	ToMetricAlarmWarmUpConfigurationPtrOutputWithContext(context.Context) MetricAlarmWarmUpConfigurationPtrOutput
+}
+
+type metricAlarmWarmUpConfigurationPtrType MetricAlarmWarmUpConfigurationArgs
+
+func MetricAlarmWarmUpConfigurationPtr(v *MetricAlarmWarmUpConfigurationArgs) MetricAlarmWarmUpConfigurationPtrInput {
+	return (*metricAlarmWarmUpConfigurationPtrType)(v)
+}
+
+func (*metricAlarmWarmUpConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricAlarmWarmUpConfiguration)(nil)).Elem()
+}
+
+func (i *metricAlarmWarmUpConfigurationPtrType) ToMetricAlarmWarmUpConfigurationPtrOutput() MetricAlarmWarmUpConfigurationPtrOutput {
+	return i.ToMetricAlarmWarmUpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *metricAlarmWarmUpConfigurationPtrType) ToMetricAlarmWarmUpConfigurationPtrOutputWithContext(ctx context.Context) MetricAlarmWarmUpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlarmWarmUpConfigurationPtrOutput)
+}
+
+type MetricAlarmWarmUpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MetricAlarmWarmUpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAlarmWarmUpConfiguration)(nil)).Elem()
+}
+
+func (o MetricAlarmWarmUpConfigurationOutput) ToMetricAlarmWarmUpConfigurationOutput() MetricAlarmWarmUpConfigurationOutput {
+	return o
+}
+
+func (o MetricAlarmWarmUpConfigurationOutput) ToMetricAlarmWarmUpConfigurationOutputWithContext(ctx context.Context) MetricAlarmWarmUpConfigurationOutput {
+	return o
+}
+
+func (o MetricAlarmWarmUpConfigurationOutput) ToMetricAlarmWarmUpConfigurationPtrOutput() MetricAlarmWarmUpConfigurationPtrOutput {
+	return o.ToMetricAlarmWarmUpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o MetricAlarmWarmUpConfigurationOutput) ToMetricAlarmWarmUpConfigurationPtrOutputWithContext(ctx context.Context) MetricAlarmWarmUpConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetricAlarmWarmUpConfiguration) *MetricAlarmWarmUpConfiguration {
+		return &v
+	}).(MetricAlarmWarmUpConfigurationPtrOutput)
+}
+
+// Whether to wait for the full warm-up period before evaluation begins, even if metric data arrives earlier. When `false`, the warm-up period ends early as soon as the alarm has enough data to fill its evaluation window. Defaults to `false`.
+//
+// > **Note:** The warm-up period applies once, when the alarm is created. Changing the warm-up configuration after the warm-up period ends does not start a new warm-up period. See [Alarm warm-up periods](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-warm-up.html) in the Amazon CloudWatch User Guide.
+func (o MetricAlarmWarmUpConfigurationOutput) OnlyStartEvaluatingAfterWarmUpPeriodEnds() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MetricAlarmWarmUpConfiguration) *bool { return v.OnlyStartEvaluatingAfterWarmUpPeriodEnds }).(pulumi.BoolPtrOutput)
+}
+
+// Length of the warm-up period, in minutes. Valid values are `1` to `2880`.
+func (o MetricAlarmWarmUpConfigurationOutput) WarmUpPeriodDurationInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v MetricAlarmWarmUpConfiguration) int { return v.WarmUpPeriodDurationInMinutes }).(pulumi.IntOutput)
+}
+
+type MetricAlarmWarmUpConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (MetricAlarmWarmUpConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricAlarmWarmUpConfiguration)(nil)).Elem()
+}
+
+func (o MetricAlarmWarmUpConfigurationPtrOutput) ToMetricAlarmWarmUpConfigurationPtrOutput() MetricAlarmWarmUpConfigurationPtrOutput {
+	return o
+}
+
+func (o MetricAlarmWarmUpConfigurationPtrOutput) ToMetricAlarmWarmUpConfigurationPtrOutputWithContext(ctx context.Context) MetricAlarmWarmUpConfigurationPtrOutput {
+	return o
+}
+
+func (o MetricAlarmWarmUpConfigurationPtrOutput) Elem() MetricAlarmWarmUpConfigurationOutput {
+	return o.ApplyT(func(v *MetricAlarmWarmUpConfiguration) MetricAlarmWarmUpConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret MetricAlarmWarmUpConfiguration
+		return ret
+	}).(MetricAlarmWarmUpConfigurationOutput)
+}
+
+// Whether to wait for the full warm-up period before evaluation begins, even if metric data arrives earlier. When `false`, the warm-up period ends early as soon as the alarm has enough data to fill its evaluation window. Defaults to `false`.
+//
+// > **Note:** The warm-up period applies once, when the alarm is created. Changing the warm-up configuration after the warm-up period ends does not start a new warm-up period. See [Alarm warm-up periods](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-warm-up.html) in the Amazon CloudWatch User Guide.
+func (o MetricAlarmWarmUpConfigurationPtrOutput) OnlyStartEvaluatingAfterWarmUpPeriodEnds() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MetricAlarmWarmUpConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.OnlyStartEvaluatingAfterWarmUpPeriodEnds
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Length of the warm-up period, in minutes. Valid values are `1` to `2880`.
+func (o MetricAlarmWarmUpConfigurationPtrOutput) WarmUpPeriodDurationInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MetricAlarmWarmUpConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.WarmUpPeriodDurationInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
 type MetricStreamExcludeFilter struct {
 	// An array that defines the metrics you want to exclude for this metric namespace
 	MetricNames []string `pulumi:"metricNames"`
@@ -15989,6 +16153,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmMetricQueryArrayInput)(nil)).Elem(), MetricAlarmMetricQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmMetricQueryMetricInput)(nil)).Elem(), MetricAlarmMetricQueryMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmMetricQueryMetricPtrInput)(nil)).Elem(), MetricAlarmMetricQueryMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmWarmUpConfigurationInput)(nil)).Elem(), MetricAlarmWarmUpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmWarmUpConfigurationPtrInput)(nil)).Elem(), MetricAlarmWarmUpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamExcludeFilterInput)(nil)).Elem(), MetricStreamExcludeFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamExcludeFilterArrayInput)(nil)).Elem(), MetricStreamExcludeFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamIncludeFilterInput)(nil)).Elem(), MetricStreamIncludeFilterArgs{})
@@ -16212,6 +16378,8 @@ func init() {
 	pulumi.RegisterOutputType(MetricAlarmMetricQueryArrayOutput{})
 	pulumi.RegisterOutputType(MetricAlarmMetricQueryMetricOutput{})
 	pulumi.RegisterOutputType(MetricAlarmMetricQueryMetricPtrOutput{})
+	pulumi.RegisterOutputType(MetricAlarmWarmUpConfigurationOutput{})
+	pulumi.RegisterOutputType(MetricAlarmWarmUpConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(MetricStreamExcludeFilterOutput{})
 	pulumi.RegisterOutputType(MetricStreamExcludeFilterArrayOutput{})
 	pulumi.RegisterOutputType(MetricStreamIncludeFilterOutput{})

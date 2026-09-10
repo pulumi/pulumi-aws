@@ -15,6 +15,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreHarnessModelGeminiModelConfig {
     /**
+     * @return JSON string containing provider-specific parameters to pass through to the Gemini model provider unchanged.
+     * 
+     */
+    private @Nullable String additionalParams;
+    /**
      * @return ARN of the secret containing the API key.
      * 
      */
@@ -46,6 +51,13 @@ public final class AgentcoreHarnessModelGeminiModelConfig {
     private @Nullable Double topP;
 
     private AgentcoreHarnessModelGeminiModelConfig() {}
+    /**
+     * @return JSON string containing provider-specific parameters to pass through to the Gemini model provider unchanged.
+     * 
+     */
+    public Optional<String> additionalParams() {
+        return Optional.ofNullable(this.additionalParams);
+    }
     /**
      * @return ARN of the secret containing the API key.
      * 
@@ -98,6 +110,7 @@ public final class AgentcoreHarnessModelGeminiModelConfig {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String additionalParams;
         private String apiKeyArn;
         private @Nullable Integer maxTokens;
         private String modelId;
@@ -107,6 +120,7 @@ public final class AgentcoreHarnessModelGeminiModelConfig {
         public Builder() {}
         public Builder(AgentcoreHarnessModelGeminiModelConfig defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.additionalParams = defaults.additionalParams;
     	      this.apiKeyArn = defaults.apiKeyArn;
     	      this.maxTokens = defaults.maxTokens;
     	      this.modelId = defaults.modelId;
@@ -115,6 +129,12 @@ public final class AgentcoreHarnessModelGeminiModelConfig {
     	      this.topP = defaults.topP;
         }
 
+        @CustomType.Setter
+        public Builder additionalParams(@Nullable String additionalParams) {
+
+            this.additionalParams = additionalParams;
+            return this;
+        }
         @CustomType.Setter
         public Builder apiKeyArn(String apiKeyArn) {
             if (apiKeyArn == null) {
@@ -157,6 +177,7 @@ public final class AgentcoreHarnessModelGeminiModelConfig {
         }
         public AgentcoreHarnessModelGeminiModelConfig build() {
             final var _resultValue = new AgentcoreHarnessModelGeminiModelConfig();
+            _resultValue.additionalParams = additionalParams;
             _resultValue.apiKeyArn = apiKeyArn;
             _resultValue.maxTokens = maxTokens;
             _resultValue.modelId = modelId;

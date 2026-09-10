@@ -592,13 +592,15 @@ type Cluster struct {
 	// Order in which the clusters are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
 	UpgradeRolloutOrder pulumi.StringOutput `pulumi:"upgradeRolloutOrder"`
 	// List of VPC security groups to associate with the Cluster
+	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
+	// Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this cluster during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
 	//
 	// For more detailed documentation about each argument, refer to
 	// the AWS official documentation:
 	//
 	// * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
 	// * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
-	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
+	WarningEventCategories pulumi.StringArrayOutput `pulumi:"warningEventCategories"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -804,13 +806,15 @@ type clusterState struct {
 	// Order in which the clusters are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
 	UpgradeRolloutOrder *string `pulumi:"upgradeRolloutOrder"`
 	// List of VPC security groups to associate with the Cluster
+	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
+	// Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this cluster during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
 	//
 	// For more detailed documentation about each argument, refer to
 	// the AWS official documentation:
 	//
 	// * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
 	// * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
-	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
+	WarningEventCategories []string `pulumi:"warningEventCategories"`
 }
 
 type ClusterState struct {
@@ -973,13 +977,15 @@ type ClusterState struct {
 	// Order in which the clusters are upgraded (`first`, `second`, `last`). See [the AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Maintenance.AMVU.UpgradeRollout.html) for details.
 	UpgradeRolloutOrder pulumi.StringPtrInput
 	// List of VPC security groups to associate with the Cluster
+	VpcSecurityGroupIds pulumi.StringArrayInput
+	// Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this cluster during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
 	//
 	// For more detailed documentation about each argument, refer to
 	// the AWS official documentation:
 	//
 	// * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
 	// * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
-	VpcSecurityGroupIds pulumi.StringArrayInput
+	WarningEventCategories pulumi.StringArrayInput
 }
 
 func (ClusterState) ElementType() reflect.Type {
@@ -1125,13 +1131,15 @@ type clusterArgs struct {
 	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// List of VPC security groups to associate with the Cluster
+	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
+	// Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this cluster during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
 	//
 	// For more detailed documentation about each argument, refer to
 	// the AWS official documentation:
 	//
 	// * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
 	// * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
-	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
+	WarningEventCategories []string `pulumi:"warningEventCategories"`
 }
 
 // The set of arguments for constructing a Cluster resource.
@@ -1274,13 +1282,15 @@ type ClusterArgs struct {
 	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// List of VPC security groups to associate with the Cluster
+	VpcSecurityGroupIds pulumi.StringArrayInput
+	// Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this cluster during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
 	//
 	// For more detailed documentation about each argument, refer to
 	// the AWS official documentation:
 	//
 	// * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
 	// * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
-	VpcSecurityGroupIds pulumi.StringArrayInput
+	WarningEventCategories pulumi.StringArrayInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {
@@ -1756,14 +1766,19 @@ func (o ClusterOutput) UpgradeRolloutOrder() pulumi.StringOutput {
 }
 
 // List of VPC security groups to associate with the Cluster
+func (o ClusterOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this cluster during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
 //
 // For more detailed documentation about each argument, refer to
 // the AWS official documentation:
 //
 // * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
 // * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
-func (o ClusterOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
+func (o ClusterOutput) WarningEventCategories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.WarningEventCategories }).(pulumi.StringArrayOutput)
 }
 
 type ClusterArrayOutput struct{ *pulumi.OutputState }

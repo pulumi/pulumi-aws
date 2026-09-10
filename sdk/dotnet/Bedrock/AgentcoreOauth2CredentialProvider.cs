@@ -128,10 +128,21 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Bedrock AgentCore OAuth2 Credential Provider using the provider name. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Name` (String) OAuth2 credential provider name.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) Account ID where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import Bedrock AgentCore OAuth2 Credential Provider using `Name`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:bedrock/agentcoreOauth2CredentialProvider:AgentcoreOauth2CredentialProvider example oauth2-provider-name
+    /// $ pulumi import aws:bedrock/agentcoreOauth2CredentialProvider:AgentcoreOauth2CredentialProvider example example-oauth2-provider
     /// ```
     /// </summary>
     [AwsResourceType("aws:bedrock/agentcoreOauth2CredentialProvider:AgentcoreOauth2CredentialProvider")]
@@ -186,6 +197,9 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        [Output("timeouts")]
+        public Output<Outputs.AgentcoreOauth2CredentialProviderTimeouts?> Timeouts { get; private set; } = null!;
 
 
         /// <summary>
@@ -271,6 +285,9 @@ namespace Pulumi.Aws.Bedrock
             set => _tags = value;
         }
 
+        [Input("timeouts")]
+        public Input<Inputs.AgentcoreOauth2CredentialProviderTimeoutsArgs>? Timeouts { get; set; }
+
         public AgentcoreOauth2CredentialProviderArgs()
         {
         }
@@ -346,6 +363,9 @@ namespace Pulumi.Aws.Bedrock
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        [Input("timeouts")]
+        public Input<Inputs.AgentcoreOauth2CredentialProviderTimeoutsGetArgs>? Timeouts { get; set; }
 
         public AgentcoreOauth2CredentialProviderState()
         {

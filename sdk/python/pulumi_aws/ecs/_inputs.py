@@ -21,6 +21,8 @@ __all__ = [
     'CapacityProviderAutoScalingGroupProviderManagedScalingArgsDict',
     'CapacityProviderManagedInstancesProviderArgs',
     'CapacityProviderManagedInstancesProviderArgsDict',
+    'CapacityProviderManagedInstancesProviderAutoRepairConfigurationArgs',
+    'CapacityProviderManagedInstancesProviderAutoRepairConfigurationArgsDict',
     'CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs',
     'CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgsDict',
     'CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs',
@@ -453,6 +455,10 @@ class CapacityProviderManagedInstancesProviderArgsDict(TypedDict):
     """
     Launch template configuration that specifies how Amazon ECS should launch Amazon EC2 instances. This includes the instance profile, network configuration, storage settings, and instance requirements for attribute-based instance type selection. For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the Amazon EC2 User Guide. Detailed below.
     """
+    auto_repair_configuration: NotRequired[pulumi.Input[Optional['CapacityProviderManagedInstancesProviderAutoRepairConfigurationArgsDict']]]
+    """
+    Configuration block for the auto repair configuration. Detailed below.
+    """
     infrastructure_optimization: NotRequired[pulumi.Input[Optional['CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgsDict']]]
     """
     Configuration block for how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider, including whether to turn optimization on or off and how long to delay optimizing idle EC2 instances. Detailed below.
@@ -467,16 +473,20 @@ class CapacityProviderManagedInstancesProviderArgs:
     def __init__(__self__, *,
                  infrastructure_role_arn: pulumi.Input[_builtins.str],
                  instance_launch_template: pulumi.Input['CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs'],
+                 auto_repair_configuration: pulumi.Input[Optional['CapacityProviderManagedInstancesProviderAutoRepairConfigurationArgs']] = None,
                  infrastructure_optimization: pulumi.Input[Optional['CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs']] = None,
                  propagate_tags: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] infrastructure_role_arn: ARN of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
         :param pulumi.Input['CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs'] instance_launch_template: Launch template configuration that specifies how Amazon ECS should launch Amazon EC2 instances. This includes the instance profile, network configuration, storage settings, and instance requirements for attribute-based instance type selection. For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the Amazon EC2 User Guide. Detailed below.
+        :param pulumi.Input['CapacityProviderManagedInstancesProviderAutoRepairConfigurationArgs'] auto_repair_configuration: Configuration block for the auto repair configuration. Detailed below.
         :param pulumi.Input['CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs'] infrastructure_optimization: Configuration block for how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider, including whether to turn optimization on or off and how long to delay optimizing idle EC2 instances. Detailed below.
         :param pulumi.Input[_builtins.str] propagate_tags: Whether to propagate tags from the capacity provider to the Amazon ECS Managed Instances. When enabled, tags applied to the capacity provider are automatically applied to all instances launched by this provider. Valid values are `CAPACITY_PROVIDER` and `NONE`.
         """
         pulumi.set(__self__, "infrastructure_role_arn", infrastructure_role_arn)
         pulumi.set(__self__, "instance_launch_template", instance_launch_template)
+        if auto_repair_configuration is not None:
+            pulumi.set(__self__, "auto_repair_configuration", auto_repair_configuration)
         if infrastructure_optimization is not None:
             pulumi.set(__self__, "infrastructure_optimization", infrastructure_optimization)
         if propagate_tags is not None:
@@ -507,6 +517,18 @@ class CapacityProviderManagedInstancesProviderArgs:
         pulumi.set(self, "instance_launch_template", value)
 
     @_builtins.property
+    @pulumi.getter(name="autoRepairConfiguration")
+    def auto_repair_configuration(self) -> pulumi.Input[Optional['CapacityProviderManagedInstancesProviderAutoRepairConfigurationArgs']]:
+        """
+        Configuration block for the auto repair configuration. Detailed below.
+        """
+        return pulumi.get(self, "auto_repair_configuration")
+
+    @auto_repair_configuration.setter
+    def auto_repair_configuration(self, value: pulumi.Input[Optional['CapacityProviderManagedInstancesProviderAutoRepairConfigurationArgs']]):
+        pulumi.set(self, "auto_repair_configuration", value)
+
+    @_builtins.property
     @pulumi.getter(name="infrastructureOptimization")
     def infrastructure_optimization(self) -> pulumi.Input[Optional['CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs']]:
         """
@@ -529,6 +551,35 @@ class CapacityProviderManagedInstancesProviderArgs:
     @propagate_tags.setter
     def propagate_tags(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "propagate_tags", value)
+
+
+class CapacityProviderManagedInstancesProviderAutoRepairConfigurationArgsDict(TypedDict):
+    actions_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Whether to use Amazon ECS managed auto repair. Valid values are `ENABLED` and `DISABLED`.
+    """
+
+@pulumi.input_type
+class CapacityProviderManagedInstancesProviderAutoRepairConfigurationArgs:
+    def __init__(__self__, *,
+                 actions_status: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] actions_status: Whether to use Amazon ECS managed auto repair. Valid values are `ENABLED` and `DISABLED`.
+        """
+        if actions_status is not None:
+            pulumi.set(__self__, "actions_status", actions_status)
+
+    @_builtins.property
+    @pulumi.getter(name="actionsStatus")
+    def actions_status(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether to use Amazon ECS managed auto repair. Valid values are `ENABLED` and `DISABLED`.
+        """
+        return pulumi.get(self, "actions_status")
+
+    @actions_status.setter
+    def actions_status(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "actions_status", value)
 
 
 class CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgsDict(TypedDict):

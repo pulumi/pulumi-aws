@@ -2235,6 +2235,318 @@ func (o ExperimentTemplateTargetResourceTagArrayOutput) Index(i pulumi.IntInput)
 	}).(ExperimentTemplateTargetResourceTagOutput)
 }
 
+type SafetyLeverStateStateType struct {
+	// Reason for the current status of the safety lever.
+	Reason string `pulumi:"reason"`
+	// Status of the safety lever. Valid values: `engaged`, `disengaged`. Engaging the lever immediately stops all running experiments in the account and Region, and prevents new ones from starting.
+	Status string `pulumi:"status"`
+}
+
+// SafetyLeverStateStateTypeInput is an input type that accepts SafetyLeverStateStateTypeArgs and SafetyLeverStateStateTypeOutput values.
+// You can construct a concrete instance of `SafetyLeverStateStateTypeInput` via:
+//
+//	SafetyLeverStateStateTypeArgs{...}
+type SafetyLeverStateStateTypeInput interface {
+	pulumi.Input
+
+	ToSafetyLeverStateStateTypeOutput() SafetyLeverStateStateTypeOutput
+	ToSafetyLeverStateStateTypeOutputWithContext(context.Context) SafetyLeverStateStateTypeOutput
+}
+
+type SafetyLeverStateStateTypeArgs struct {
+	// Reason for the current status of the safety lever.
+	Reason pulumi.StringInput `pulumi:"reason"`
+	// Status of the safety lever. Valid values: `engaged`, `disengaged`. Engaging the lever immediately stops all running experiments in the account and Region, and prevents new ones from starting.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (SafetyLeverStateStateTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SafetyLeverStateStateType)(nil)).Elem()
+}
+
+func (i SafetyLeverStateStateTypeArgs) ToSafetyLeverStateStateTypeOutput() SafetyLeverStateStateTypeOutput {
+	return i.ToSafetyLeverStateStateTypeOutputWithContext(context.Background())
+}
+
+func (i SafetyLeverStateStateTypeArgs) ToSafetyLeverStateStateTypeOutputWithContext(ctx context.Context) SafetyLeverStateStateTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SafetyLeverStateStateTypeOutput)
+}
+
+func (i SafetyLeverStateStateTypeArgs) ToSafetyLeverStateStateTypePtrOutput() SafetyLeverStateStateTypePtrOutput {
+	return i.ToSafetyLeverStateStateTypePtrOutputWithContext(context.Background())
+}
+
+func (i SafetyLeverStateStateTypeArgs) ToSafetyLeverStateStateTypePtrOutputWithContext(ctx context.Context) SafetyLeverStateStateTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SafetyLeverStateStateTypeOutput).ToSafetyLeverStateStateTypePtrOutputWithContext(ctx)
+}
+
+// SafetyLeverStateStateTypePtrInput is an input type that accepts SafetyLeverStateStateTypeArgs, SafetyLeverStateStateTypePtr and SafetyLeverStateStateTypePtrOutput values.
+// You can construct a concrete instance of `SafetyLeverStateStateTypePtrInput` via:
+//
+//	        SafetyLeverStateStateTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type SafetyLeverStateStateTypePtrInput interface {
+	pulumi.Input
+
+	ToSafetyLeverStateStateTypePtrOutput() SafetyLeverStateStateTypePtrOutput
+	ToSafetyLeverStateStateTypePtrOutputWithContext(context.Context) SafetyLeverStateStateTypePtrOutput
+}
+
+type safetyLeverStateStateTypePtrType SafetyLeverStateStateTypeArgs
+
+func SafetyLeverStateStateTypePtr(v *SafetyLeverStateStateTypeArgs) SafetyLeverStateStateTypePtrInput {
+	return (*safetyLeverStateStateTypePtrType)(v)
+}
+
+func (*safetyLeverStateStateTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SafetyLeverStateStateType)(nil)).Elem()
+}
+
+func (i *safetyLeverStateStateTypePtrType) ToSafetyLeverStateStateTypePtrOutput() SafetyLeverStateStateTypePtrOutput {
+	return i.ToSafetyLeverStateStateTypePtrOutputWithContext(context.Background())
+}
+
+func (i *safetyLeverStateStateTypePtrType) ToSafetyLeverStateStateTypePtrOutputWithContext(ctx context.Context) SafetyLeverStateStateTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SafetyLeverStateStateTypePtrOutput)
+}
+
+type SafetyLeverStateStateTypeOutput struct{ *pulumi.OutputState }
+
+func (SafetyLeverStateStateTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SafetyLeverStateStateType)(nil)).Elem()
+}
+
+func (o SafetyLeverStateStateTypeOutput) ToSafetyLeverStateStateTypeOutput() SafetyLeverStateStateTypeOutput {
+	return o
+}
+
+func (o SafetyLeverStateStateTypeOutput) ToSafetyLeverStateStateTypeOutputWithContext(ctx context.Context) SafetyLeverStateStateTypeOutput {
+	return o
+}
+
+func (o SafetyLeverStateStateTypeOutput) ToSafetyLeverStateStateTypePtrOutput() SafetyLeverStateStateTypePtrOutput {
+	return o.ToSafetyLeverStateStateTypePtrOutputWithContext(context.Background())
+}
+
+func (o SafetyLeverStateStateTypeOutput) ToSafetyLeverStateStateTypePtrOutputWithContext(ctx context.Context) SafetyLeverStateStateTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SafetyLeverStateStateType) *SafetyLeverStateStateType {
+		return &v
+	}).(SafetyLeverStateStateTypePtrOutput)
+}
+
+// Reason for the current status of the safety lever.
+func (o SafetyLeverStateStateTypeOutput) Reason() pulumi.StringOutput {
+	return o.ApplyT(func(v SafetyLeverStateStateType) string { return v.Reason }).(pulumi.StringOutput)
+}
+
+// Status of the safety lever. Valid values: `engaged`, `disengaged`. Engaging the lever immediately stops all running experiments in the account and Region, and prevents new ones from starting.
+func (o SafetyLeverStateStateTypeOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v SafetyLeverStateStateType) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type SafetyLeverStateStateTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SafetyLeverStateStateTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SafetyLeverStateStateType)(nil)).Elem()
+}
+
+func (o SafetyLeverStateStateTypePtrOutput) ToSafetyLeverStateStateTypePtrOutput() SafetyLeverStateStateTypePtrOutput {
+	return o
+}
+
+func (o SafetyLeverStateStateTypePtrOutput) ToSafetyLeverStateStateTypePtrOutputWithContext(ctx context.Context) SafetyLeverStateStateTypePtrOutput {
+	return o
+}
+
+func (o SafetyLeverStateStateTypePtrOutput) Elem() SafetyLeverStateStateTypeOutput {
+	return o.ApplyT(func(v *SafetyLeverStateStateType) SafetyLeverStateStateType {
+		if v != nil {
+			return *v
+		}
+		var ret SafetyLeverStateStateType
+		return ret
+	}).(SafetyLeverStateStateTypeOutput)
+}
+
+// Reason for the current status of the safety lever.
+func (o SafetyLeverStateStateTypePtrOutput) Reason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SafetyLeverStateStateType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Reason
+	}).(pulumi.StringPtrOutput)
+}
+
+// Status of the safety lever. Valid values: `engaged`, `disengaged`. Engaging the lever immediately stops all running experiments in the account and Region, and prevents new ones from starting.
+func (o SafetyLeverStateStateTypePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SafetyLeverStateStateType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type SafetyLeverStateTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// SafetyLeverStateTimeoutsInput is an input type that accepts SafetyLeverStateTimeoutsArgs and SafetyLeverStateTimeoutsOutput values.
+// You can construct a concrete instance of `SafetyLeverStateTimeoutsInput` via:
+//
+//	SafetyLeverStateTimeoutsArgs{...}
+type SafetyLeverStateTimeoutsInput interface {
+	pulumi.Input
+
+	ToSafetyLeverStateTimeoutsOutput() SafetyLeverStateTimeoutsOutput
+	ToSafetyLeverStateTimeoutsOutputWithContext(context.Context) SafetyLeverStateTimeoutsOutput
+}
+
+type SafetyLeverStateTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (SafetyLeverStateTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SafetyLeverStateTimeouts)(nil)).Elem()
+}
+
+func (i SafetyLeverStateTimeoutsArgs) ToSafetyLeverStateTimeoutsOutput() SafetyLeverStateTimeoutsOutput {
+	return i.ToSafetyLeverStateTimeoutsOutputWithContext(context.Background())
+}
+
+func (i SafetyLeverStateTimeoutsArgs) ToSafetyLeverStateTimeoutsOutputWithContext(ctx context.Context) SafetyLeverStateTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SafetyLeverStateTimeoutsOutput)
+}
+
+func (i SafetyLeverStateTimeoutsArgs) ToSafetyLeverStateTimeoutsPtrOutput() SafetyLeverStateTimeoutsPtrOutput {
+	return i.ToSafetyLeverStateTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i SafetyLeverStateTimeoutsArgs) ToSafetyLeverStateTimeoutsPtrOutputWithContext(ctx context.Context) SafetyLeverStateTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SafetyLeverStateTimeoutsOutput).ToSafetyLeverStateTimeoutsPtrOutputWithContext(ctx)
+}
+
+// SafetyLeverStateTimeoutsPtrInput is an input type that accepts SafetyLeverStateTimeoutsArgs, SafetyLeverStateTimeoutsPtr and SafetyLeverStateTimeoutsPtrOutput values.
+// You can construct a concrete instance of `SafetyLeverStateTimeoutsPtrInput` via:
+//
+//	        SafetyLeverStateTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SafetyLeverStateTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToSafetyLeverStateTimeoutsPtrOutput() SafetyLeverStateTimeoutsPtrOutput
+	ToSafetyLeverStateTimeoutsPtrOutputWithContext(context.Context) SafetyLeverStateTimeoutsPtrOutput
+}
+
+type safetyLeverStateTimeoutsPtrType SafetyLeverStateTimeoutsArgs
+
+func SafetyLeverStateTimeoutsPtr(v *SafetyLeverStateTimeoutsArgs) SafetyLeverStateTimeoutsPtrInput {
+	return (*safetyLeverStateTimeoutsPtrType)(v)
+}
+
+func (*safetyLeverStateTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SafetyLeverStateTimeouts)(nil)).Elem()
+}
+
+func (i *safetyLeverStateTimeoutsPtrType) ToSafetyLeverStateTimeoutsPtrOutput() SafetyLeverStateTimeoutsPtrOutput {
+	return i.ToSafetyLeverStateTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *safetyLeverStateTimeoutsPtrType) ToSafetyLeverStateTimeoutsPtrOutputWithContext(ctx context.Context) SafetyLeverStateTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SafetyLeverStateTimeoutsPtrOutput)
+}
+
+type SafetyLeverStateTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (SafetyLeverStateTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SafetyLeverStateTimeouts)(nil)).Elem()
+}
+
+func (o SafetyLeverStateTimeoutsOutput) ToSafetyLeverStateTimeoutsOutput() SafetyLeverStateTimeoutsOutput {
+	return o
+}
+
+func (o SafetyLeverStateTimeoutsOutput) ToSafetyLeverStateTimeoutsOutputWithContext(ctx context.Context) SafetyLeverStateTimeoutsOutput {
+	return o
+}
+
+func (o SafetyLeverStateTimeoutsOutput) ToSafetyLeverStateTimeoutsPtrOutput() SafetyLeverStateTimeoutsPtrOutput {
+	return o.ToSafetyLeverStateTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o SafetyLeverStateTimeoutsOutput) ToSafetyLeverStateTimeoutsPtrOutputWithContext(ctx context.Context) SafetyLeverStateTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SafetyLeverStateTimeouts) *SafetyLeverStateTimeouts {
+		return &v
+	}).(SafetyLeverStateTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o SafetyLeverStateTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SafetyLeverStateTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o SafetyLeverStateTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SafetyLeverStateTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type SafetyLeverStateTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (SafetyLeverStateTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SafetyLeverStateTimeouts)(nil)).Elem()
+}
+
+func (o SafetyLeverStateTimeoutsPtrOutput) ToSafetyLeverStateTimeoutsPtrOutput() SafetyLeverStateTimeoutsPtrOutput {
+	return o
+}
+
+func (o SafetyLeverStateTimeoutsPtrOutput) ToSafetyLeverStateTimeoutsPtrOutputWithContext(ctx context.Context) SafetyLeverStateTimeoutsPtrOutput {
+	return o
+}
+
+func (o SafetyLeverStateTimeoutsPtrOutput) Elem() SafetyLeverStateTimeoutsOutput {
+	return o.ApplyT(func(v *SafetyLeverStateTimeouts) SafetyLeverStateTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret SafetyLeverStateTimeouts
+		return ret
+	}).(SafetyLeverStateTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o SafetyLeverStateTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SafetyLeverStateTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o SafetyLeverStateTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SafetyLeverStateTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateActionInput)(nil)).Elem(), ExperimentTemplateActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateActionArrayInput)(nil)).Elem(), ExperimentTemplateActionArray{})
@@ -2268,6 +2580,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateTargetFilterArrayInput)(nil)).Elem(), ExperimentTemplateTargetFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateTargetResourceTagInput)(nil)).Elem(), ExperimentTemplateTargetResourceTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateTargetResourceTagArrayInput)(nil)).Elem(), ExperimentTemplateTargetResourceTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SafetyLeverStateStateTypeInput)(nil)).Elem(), SafetyLeverStateStateTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SafetyLeverStateStateTypePtrInput)(nil)).Elem(), SafetyLeverStateStateTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SafetyLeverStateTimeoutsInput)(nil)).Elem(), SafetyLeverStateTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SafetyLeverStateTimeoutsPtrInput)(nil)).Elem(), SafetyLeverStateTimeoutsArgs{})
 	pulumi.RegisterOutputType(ExperimentTemplateActionOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateActionArrayOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateActionParameterOutput{})
@@ -2300,4 +2616,8 @@ func init() {
 	pulumi.RegisterOutputType(ExperimentTemplateTargetFilterArrayOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateTargetResourceTagOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateTargetResourceTagArrayOutput{})
+	pulumi.RegisterOutputType(SafetyLeverStateStateTypeOutput{})
+	pulumi.RegisterOutputType(SafetyLeverStateStateTypePtrOutput{})
+	pulumi.RegisterOutputType(SafetyLeverStateTimeoutsOutput{})
+	pulumi.RegisterOutputType(SafetyLeverStateTimeoutsPtrOutput{})
 }

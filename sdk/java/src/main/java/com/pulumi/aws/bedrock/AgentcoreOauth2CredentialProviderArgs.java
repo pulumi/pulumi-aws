@@ -4,6 +4,7 @@
 package com.pulumi.aws.bedrock;
 
 import com.pulumi.aws.bedrock.inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs;
+import com.pulumi.aws.bedrock.inputs.AgentcoreOauth2CredentialProviderTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -97,6 +98,13 @@ public final class AgentcoreOauth2CredentialProviderArgs extends com.pulumi.reso
         return Optional.ofNullable(this.tags);
     }
 
+    @Import(name="timeouts")
+    private @Nullable Output<AgentcoreOauth2CredentialProviderTimeoutsArgs> timeouts;
+
+    public Optional<Output<AgentcoreOauth2CredentialProviderTimeoutsArgs>> timeouts() {
+        return Optional.ofNullable(this.timeouts);
+    }
+
     private AgentcoreOauth2CredentialProviderArgs() {}
 
     private AgentcoreOauth2CredentialProviderArgs(AgentcoreOauth2CredentialProviderArgs $) {
@@ -105,6 +113,7 @@ public final class AgentcoreOauth2CredentialProviderArgs extends com.pulumi.reso
         this.oauth2ProviderConfig = $.oauth2ProviderConfig;
         this.region = $.region;
         this.tags = $.tags;
+        this.timeouts = $.timeouts;
     }
 
     public static Builder builder() {
@@ -232,6 +241,15 @@ public final class AgentcoreOauth2CredentialProviderArgs extends com.pulumi.reso
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        public Builder timeouts(@Nullable Output<AgentcoreOauth2CredentialProviderTimeoutsArgs> timeouts) {
+            $.timeouts = timeouts;
+            return this;
+        }
+
+        public Builder timeouts(AgentcoreOauth2CredentialProviderTimeoutsArgs timeouts) {
+            return timeouts(Output.of(timeouts));
         }
 
         public AgentcoreOauth2CredentialProviderArgs build() {

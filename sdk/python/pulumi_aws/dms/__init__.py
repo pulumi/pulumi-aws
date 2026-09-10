@@ -7,6 +7,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .certificate import *
+from .data_provider import *
 from .endpoint import *
 from .event_subscription import *
 from .get_certificate import *
@@ -14,6 +15,7 @@ from .get_endpoint import *
 from .get_replication_instance import *
 from .get_replication_subnet_group import *
 from .get_replication_task import *
+from .instance_profile import *
 from .replication_config import *
 from .replication_instance import *
 from .replication_subnet_group import *

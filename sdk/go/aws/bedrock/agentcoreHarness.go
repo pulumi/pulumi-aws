@@ -287,20 +287,20 @@ type AgentcoreHarness struct {
 	// Maximum number of iterations the agent loop can perform.
 	MaxIterations pulumi.IntOutput `pulumi:"maxIterations"`
 	// Maximum number of tokens in the model response.
-	MaxTokens pulumi.IntPtrOutput `pulumi:"maxTokens"`
+	MaxTokens pulumi.IntOutput `pulumi:"maxTokens"`
 	// Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
 	Memory AgentcoreHarnessMemoryPtrOutput `pulumi:"memory"`
 	// Actual deployed memory configuration.
 	MemoryActuals AgentcoreHarnessMemoryActualArrayOutput `pulumi:"memoryActuals"`
 	// Model configuration for the harness. See `model` Block below.
-	//
-	// The following arguments are optional:
 	Model AgentcoreHarnessModelOutput `pulumi:"model"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Skill configurations. See `skill` Block below.
 	Skills AgentcoreHarnessSkillArrayOutput `pulumi:"skills"`
 	// System prompt blocks for the harness. See `systemPrompt` Block below.
+	//
+	// The following arguments are optional:
 	SystemPrompts AgentcoreHarnessSystemPromptArrayOutput `pulumi:"systemPrompts"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -330,6 +330,9 @@ func NewAgentcoreHarness(ctx *pulumi.Context,
 	}
 	if args.Model == nil {
 		return nil, errors.New("invalid value for required argument 'Model'")
+	}
+	if args.SystemPrompts == nil {
+		return nil, errors.New("invalid value for required argument 'SystemPrompts'")
 	}
 	if args.EnvironmentVariables != nil {
 		args.EnvironmentVariables = pulumi.ToSecret(args.EnvironmentVariables).(pulumi.StringMapInput)
@@ -390,14 +393,14 @@ type agentcoreHarnessState struct {
 	// Actual deployed memory configuration.
 	MemoryActuals []AgentcoreHarnessMemoryActual `pulumi:"memoryActuals"`
 	// Model configuration for the harness. See `model` Block below.
-	//
-	// The following arguments are optional:
 	Model *AgentcoreHarnessModel `pulumi:"model"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Skill configurations. See `skill` Block below.
 	Skills []AgentcoreHarnessSkill `pulumi:"skills"`
 	// System prompt blocks for the harness. See `systemPrompt` Block below.
+	//
+	// The following arguments are optional:
 	SystemPrompts []AgentcoreHarnessSystemPrompt `pulumi:"systemPrompts"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -442,14 +445,14 @@ type AgentcoreHarnessState struct {
 	// Actual deployed memory configuration.
 	MemoryActuals AgentcoreHarnessMemoryActualArrayInput
 	// Model configuration for the harness. See `model` Block below.
-	//
-	// The following arguments are optional:
 	Model AgentcoreHarnessModelPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Skill configurations. See `skill` Block below.
 	Skills AgentcoreHarnessSkillArrayInput
 	// System prompt blocks for the harness. See `systemPrompt` Block below.
+	//
+	// The following arguments are optional:
 	SystemPrompts AgentcoreHarnessSystemPromptArrayInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -490,14 +493,14 @@ type agentcoreHarnessArgs struct {
 	// Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
 	Memory *AgentcoreHarnessMemory `pulumi:"memory"`
 	// Model configuration for the harness. See `model` Block below.
-	//
-	// The following arguments are optional:
 	Model AgentcoreHarnessModel `pulumi:"model"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Skill configurations. See `skill` Block below.
 	Skills []AgentcoreHarnessSkill `pulumi:"skills"`
 	// System prompt blocks for the harness. See `systemPrompt` Block below.
+	//
+	// The following arguments are optional:
 	SystemPrompts []AgentcoreHarnessSystemPrompt `pulumi:"systemPrompts"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -533,14 +536,14 @@ type AgentcoreHarnessArgs struct {
 	// Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
 	Memory AgentcoreHarnessMemoryPtrInput
 	// Model configuration for the harness. See `model` Block below.
-	//
-	// The following arguments are optional:
 	Model AgentcoreHarnessModelInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Skill configurations. See `skill` Block below.
 	Skills AgentcoreHarnessSkillArrayInput
 	// System prompt blocks for the harness. See `systemPrompt` Block below.
+	//
+	// The following arguments are optional:
 	SystemPrompts AgentcoreHarnessSystemPromptArrayInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -698,8 +701,8 @@ func (o AgentcoreHarnessOutput) MaxIterations() pulumi.IntOutput {
 }
 
 // Maximum number of tokens in the model response.
-func (o AgentcoreHarnessOutput) MaxTokens() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AgentcoreHarness) pulumi.IntPtrOutput { return v.MaxTokens }).(pulumi.IntPtrOutput)
+func (o AgentcoreHarnessOutput) MaxTokens() pulumi.IntOutput {
+	return o.ApplyT(func(v *AgentcoreHarness) pulumi.IntOutput { return v.MaxTokens }).(pulumi.IntOutput)
 }
 
 // Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
@@ -713,8 +716,6 @@ func (o AgentcoreHarnessOutput) MemoryActuals() AgentcoreHarnessMemoryActualArra
 }
 
 // Model configuration for the harness. See `model` Block below.
-//
-// The following arguments are optional:
 func (o AgentcoreHarnessOutput) Model() AgentcoreHarnessModelOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) AgentcoreHarnessModelOutput { return v.Model }).(AgentcoreHarnessModelOutput)
 }
@@ -730,6 +731,8 @@ func (o AgentcoreHarnessOutput) Skills() AgentcoreHarnessSkillArrayOutput {
 }
 
 // System prompt blocks for the harness. See `systemPrompt` Block below.
+//
+// The following arguments are optional:
 func (o AgentcoreHarnessOutput) SystemPrompts() AgentcoreHarnessSystemPromptArrayOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) AgentcoreHarnessSystemPromptArrayOutput { return v.SystemPrompts }).(AgentcoreHarnessSystemPromptArrayOutput)
 }

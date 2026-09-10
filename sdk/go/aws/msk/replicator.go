@@ -91,6 +91,174 @@ import (
 // }
 // ```
 //
+// ### Self-Managed Apache Kafka Cluster Target
+//
+// Replicate from an Amazon MSK cluster to a self-managed or on-premises Apache Kafka cluster, authenticating to the Apache Kafka cluster with SASL/SCRAM and trusting a custom root CA chain.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/msk"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := msk.NewReplicator(ctx, "test", &msk.ReplicatorArgs{
+// ReplicationInfoList: &msk.ReplicatorReplicationInfoListArgs{
+// ConsumerGroupReplications: msk.ReplicatorReplicationInfoListConsumerGroupReplicationArray{
+// &msk.ReplicatorReplicationInfoListConsumerGroupReplicationArgs{
+// ConsumerGroupsToReplicates: pulumi.StringArray{
+// pulumi.String(".*"),
+// },
+// },
+// },
+// TopicReplications: msk.ReplicatorReplicationInfoListTopicReplicationArray{
+// &msk.ReplicatorReplicationInfoListTopicReplicationArgs{
+// TopicNameConfiguration: &msk.ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs{
+// Type: pulumi.String("PREFIXED_WITH_SOURCE_CLUSTER_ALIAS"),
+// },
+// StartingPosition: &msk.ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs{
+// Type: pulumi.String("LATEST"),
+// },
+// TopicsToReplicates: pulumi.StringArray{
+// pulumi.String(".*"),
+// },
+// },
+// },
+// SourceKafkaClusterArn: pulumi.Any(source.Arn),
+// TargetKafkaClusterId: pulumi.String("target-apache-kafka-cluster"),
+// TargetCompressionType: pulumi.String("NONE"),
+// },
+// KafkaClusters: msk.ReplicatorKafkaClusterArray{
+// &msk.ReplicatorKafkaClusterArgs{
+// AmazonMskCluster: &msk.ReplicatorKafkaClusterAmazonMskClusterArgs{
+// MskClusterArn: pulumi.Any(source.Arn),
+// },
+// VpcConfig: &msk.ReplicatorKafkaClusterVpcConfigArgs{
+// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:23,27-48)),
+// SecurityGroupsIds: pulumi.StringArray{
+// sourceAwsSecurityGroup.Id,
+// },
+// },
+// },
+// &msk.ReplicatorKafkaClusterArgs{
+// ApacheKafkaCluster: &msk.ReplicatorKafkaClusterApacheKafkaClusterArgs{
+// ApacheKafkaClusterId: pulumi.String("target-apache-kafka-cluster"),
+// BootstrapBrokerString: pulumi.String("b-1.example.com:9096,b-2.example.com:9096"),
+// },
+// ClientAuthentication: &msk.ReplicatorKafkaClusterClientAuthenticationArgs{
+// SaslScram: &msk.ReplicatorKafkaClusterClientAuthenticationSaslScramArgs{
+// Mechanism: pulumi.String("SHA512"),
+// SecretArn: pulumi.Any(target.Arn),
+// },
+// },
+// EncryptionInTransit: &msk.ReplicatorKafkaClusterEncryptionInTransitArgs{
+// RootCaCertificate: pulumi.Any(rootCa.Arn),
+// },
+// },
+// },
+// ReplicatorName: pulumi.String("test-name"),
+// Description: pulumi.String("test-description"),
+// ServiceExecutionRoleArn: pulumi.Any(sourceAwsIamRole.Arn),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
+// ### With Log Delivery
+//
+// Deliver replicator logs to CloudWatch Logs, Amazon Data Firehose, and Amazon S3.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/msk"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := msk.NewReplicator(ctx, "test", &msk.ReplicatorArgs{
+// ReplicationInfoList: &msk.ReplicatorReplicationInfoListArgs{
+// ConsumerGroupReplications: msk.ReplicatorReplicationInfoListConsumerGroupReplicationArray{
+// &msk.ReplicatorReplicationInfoListConsumerGroupReplicationArgs{
+// ConsumerGroupsToReplicates: pulumi.StringArray{
+// pulumi.String(".*"),
+// },
+// },
+// },
+// TopicReplications: msk.ReplicatorReplicationInfoListTopicReplicationArray{
+// &msk.ReplicatorReplicationInfoListTopicReplicationArgs{
+// TopicsToReplicates: pulumi.StringArray{
+// pulumi.String(".*"),
+// },
+// },
+// },
+// SourceKafkaClusterArn: pulumi.Any(source.Arn),
+// TargetKafkaClusterArn: pulumi.Any(target.Arn),
+// TargetCompressionType: pulumi.String("NONE"),
+// },
+// LogDelivery: &msk.ReplicatorLogDeliveryArgs{
+// ReplicatorLogDelivery: &msk.ReplicatorLogDeliveryReplicatorLogDeliveryArgs{
+// CloudwatchLogs: &msk.ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs{
+// Enabled: pulumi.Bool(true),
+// LogGroup: pulumi.Any(testAwsCloudwatchLogGroup.Name),
+// },
+// Firehose: &msk.ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs{
+// Enabled: pulumi.Bool(true),
+// DeliveryStream: pulumi.Any(testAwsKinesisFirehoseDeliveryStream.Name),
+// },
+// S3: &msk.ReplicatorLogDeliveryReplicatorLogDeliveryS3Args{
+// Enabled: pulumi.Bool(true),
+// Bucket: pulumi.Any(testAwsS3Bucket.Bucket),
+// Prefix: pulumi.String("replicator-logs"),
+// },
+// },
+// },
+// KafkaClusters: msk.ReplicatorKafkaClusterArray{
+// &msk.ReplicatorKafkaClusterArgs{
+// AmazonMskCluster: &msk.ReplicatorKafkaClusterAmazonMskClusterArgs{
+// MskClusterArn: pulumi.Any(source.Arn),
+// },
+// VpcConfig: &msk.ReplicatorKafkaClusterVpcConfigArgs{
+// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:34,27-48)),
+// SecurityGroupsIds: pulumi.StringArray{
+// sourceAwsSecurityGroup.Id,
+// },
+// },
+// },
+// &msk.ReplicatorKafkaClusterArgs{
+// AmazonMskCluster: &msk.ReplicatorKafkaClusterAmazonMskClusterArgs{
+// MskClusterArn: pulumi.Any(target.Arn),
+// },
+// VpcConfig: &msk.ReplicatorKafkaClusterVpcConfigArgs{
+// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:42,27-48)),
+// SecurityGroupsIds: pulumi.StringArray{
+// targetAwsSecurityGroup.Id,
+// },
+// },
+// },
+// },
+// ReplicatorName: pulumi.String("test-name"),
+// ServiceExecutionRoleArn: pulumi.Any(sourceAwsIamRole.Arn),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
 // ### Identity Schema
@@ -112,7 +280,7 @@ type Replicator struct {
 	CurrentVersion pulumi.StringOutput `pulumi:"currentVersion"`
 	// A summary description of the replicator.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A list of Kafka clusters which are targets of the replicator.
+	// The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
 	KafkaClusters ReplicatorKafkaClusterArrayOutput `pulumi:"kafkaClusters"`
 	// Configuration block for delivering replicator logs to customer destinations. Detailed below.
 	LogDelivery ReplicatorLogDeliveryPtrOutput `pulumi:"logDelivery"`
@@ -177,7 +345,7 @@ type replicatorState struct {
 	CurrentVersion *string `pulumi:"currentVersion"`
 	// A summary description of the replicator.
 	Description *string `pulumi:"description"`
-	// A list of Kafka clusters which are targets of the replicator.
+	// The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
 	KafkaClusters []ReplicatorKafkaCluster `pulumi:"kafkaClusters"`
 	// Configuration block for delivering replicator logs to customer destinations. Detailed below.
 	LogDelivery *ReplicatorLogDelivery `pulumi:"logDelivery"`
@@ -201,7 +369,7 @@ type ReplicatorState struct {
 	CurrentVersion pulumi.StringPtrInput
 	// A summary description of the replicator.
 	Description pulumi.StringPtrInput
-	// A list of Kafka clusters which are targets of the replicator.
+	// The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
 	KafkaClusters ReplicatorKafkaClusterArrayInput
 	// Configuration block for delivering replicator logs to customer destinations. Detailed below.
 	LogDelivery ReplicatorLogDeliveryPtrInput
@@ -226,7 +394,7 @@ func (ReplicatorState) ElementType() reflect.Type {
 type replicatorArgs struct {
 	// A summary description of the replicator.
 	Description *string `pulumi:"description"`
-	// A list of Kafka clusters which are targets of the replicator.
+	// The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
 	KafkaClusters []ReplicatorKafkaCluster `pulumi:"kafkaClusters"`
 	// Configuration block for delivering replicator logs to customer destinations. Detailed below.
 	LogDelivery *ReplicatorLogDelivery `pulumi:"logDelivery"`
@@ -246,7 +414,7 @@ type replicatorArgs struct {
 type ReplicatorArgs struct {
 	// A summary description of the replicator.
 	Description pulumi.StringPtrInput
-	// A list of Kafka clusters which are targets of the replicator.
+	// The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
 	KafkaClusters ReplicatorKafkaClusterArrayInput
 	// Configuration block for delivering replicator logs to customer destinations. Detailed below.
 	LogDelivery ReplicatorLogDeliveryPtrInput
@@ -363,7 +531,7 @@ func (o ReplicatorOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Replicator) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// A list of Kafka clusters which are targets of the replicator.
+// The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
 func (o ReplicatorOutput) KafkaClusters() ReplicatorKafkaClusterArrayOutput {
 	return o.ApplyT(func(v *Replicator) ReplicatorKafkaClusterArrayOutput { return v.KafkaClusters }).(ReplicatorKafkaClusterArrayOutput)
 }

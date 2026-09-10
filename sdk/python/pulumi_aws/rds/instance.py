@@ -93,7 +93,8 @@ class InstanceArgs:
                  timezone: pulumi.Input[Optional[_builtins.str]] = None,
                  upgrade_storage_config: pulumi.Input[Optional[_builtins.bool]] = None,
                  username: pulumi.Input[Optional[_builtins.str]] = None,
-                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 warning_event_categories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Instance resource.
 
@@ -251,6 +252,7 @@ class InstanceArgs:
                is provided) Username for the master DB user. Cannot be specified for a replica.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security groups to
                associate.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] warning_event_categories: Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
         """
         pulumi.set(__self__, "instance_class", instance_class)
         if allocated_storage is not None:
@@ -395,6 +397,8 @@ class InstanceArgs:
             pulumi.set(__self__, "username", username)
         if vpc_security_group_ids is not None:
             pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+        if warning_event_categories is not None:
+            pulumi.set(__self__, "warning_event_categories", warning_event_categories)
 
     @_builtins.property
     @pulumi.getter(name="instanceClass")
@@ -1342,6 +1346,18 @@ class InstanceArgs:
     def vpc_security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vpc_security_group_ids", value)
 
+    @_builtins.property
+    @pulumi.getter(name="warningEventCategories")
+    def warning_event_categories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+        """
+        return pulumi.get(self, "warning_event_categories")
+
+    @warning_event_categories.setter
+    def warning_event_categories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "warning_event_categories", value)
+
 
 @pulumi.input_type
 class _InstanceState:
@@ -1430,7 +1446,8 @@ class _InstanceState:
                  upgrade_rollout_order: pulumi.Input[Optional[_builtins.str]] = None,
                  upgrade_storage_config: pulumi.Input[Optional[_builtins.bool]] = None,
                  username: pulumi.Input[Optional[_builtins.str]] = None,
-                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 warning_event_categories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Instance resources.
 
@@ -1600,6 +1617,7 @@ class _InstanceState:
                is provided) Username for the master DB user. Cannot be specified for a replica.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security groups to
                associate.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] warning_event_categories: Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -1771,6 +1789,8 @@ class _InstanceState:
             pulumi.set(__self__, "username", username)
         if vpc_security_group_ids is not None:
             pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+        if warning_event_categories is not None:
+            pulumi.set(__self__, "warning_event_categories", warning_event_categories)
 
     @_builtins.property
     @pulumi.getter
@@ -2871,6 +2891,18 @@ class _InstanceState:
     def vpc_security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vpc_security_group_ids", value)
 
+    @_builtins.property
+    @pulumi.getter(name="warningEventCategories")
+    def warning_event_categories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+        """
+        return pulumi.get(self, "warning_event_categories")
+
+    @warning_event_categories.setter
+    def warning_event_categories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "warning_event_categories", value)
+
 
 @pulumi.type_token("aws:rds/instance:Instance")
 class Instance(pulumi.CustomResource):
@@ -2950,6 +2982,7 @@ class Instance(pulumi.CustomResource):
                  upgrade_storage_config: pulumi.Input[Optional[_builtins.bool]] = None,
                  username: pulumi.Input[Optional[_builtins.str]] = None,
                  vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 warning_event_categories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides an RDS instance resource.  A DB instance is an isolated database
@@ -3385,6 +3418,7 @@ class Instance(pulumi.CustomResource):
                is provided) Username for the master DB user. Cannot be specified for a replica.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security groups to
                associate.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] warning_event_categories: Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
         """
         ...
     @overload
@@ -3757,6 +3791,7 @@ class Instance(pulumi.CustomResource):
                  upgrade_storage_config: pulumi.Input[Optional[_builtins.bool]] = None,
                  username: pulumi.Input[Optional[_builtins.str]] = None,
                  vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 warning_event_categories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -3840,6 +3875,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["upgrade_storage_config"] = upgrade_storage_config
             __props__.__dict__["username"] = username
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
+            __props__.__dict__["warning_event_categories"] = warning_event_categories
             __props__.__dict__["address"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["endpoint"] = None
@@ -3949,7 +3985,8 @@ class Instance(pulumi.CustomResource):
             upgrade_rollout_order: pulumi.Input[Optional[_builtins.str]] = None,
             upgrade_storage_config: pulumi.Input[Optional[_builtins.bool]] = None,
             username: pulumi.Input[Optional[_builtins.str]] = None,
-            vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Instance':
+            vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            warning_event_categories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Instance':
         """
         Get an existing Instance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -4123,6 +4160,7 @@ class Instance(pulumi.CustomResource):
                is provided) Username for the master DB user. Cannot be specified for a replica.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security groups to
                associate.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] warning_event_categories: Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -4213,6 +4251,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["upgrade_storage_config"] = upgrade_storage_config
         __props__.__dict__["username"] = username
         __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
+        __props__.__dict__["warning_event_categories"] = warning_event_categories
         return Instance(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -4973,4 +5012,12 @@ class Instance(pulumi.CustomResource):
         associate.
         """
         return pulumi.get(self, "vpc_security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="warningEventCategories")
+    def warning_event_categories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+        """
+        return pulumi.get(self, "warning_event_categories")
 

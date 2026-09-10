@@ -45,7 +45,8 @@ class ClusterInstanceArgs:
                  promotion_tier: pulumi.Input[Optional[_builtins.int]] = None,
                  publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 warning_event_categories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ClusterInstance resource.
 
@@ -76,6 +77,7 @@ class ClusterInstanceArgs:
         :param pulumi.Input[_builtins.bool] publicly_accessible: Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] warning_event_categories: Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
                
                For more detailed documentation about each argument, refer to
                the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
@@ -129,6 +131,8 @@ class ClusterInstanceArgs:
             pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if warning_event_categories is not None:
+            pulumi.set(__self__, "warning_event_categories", warning_event_categories)
 
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
@@ -436,15 +440,27 @@ class ClusterInstanceArgs:
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        For more detailed documentation about each argument, refer to
-        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="warningEventCategories")
+    def warning_event_categories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+
+        For more detailed documentation about each argument, refer to
+        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
+        """
+        return pulumi.get(self, "warning_event_categories")
+
+    @warning_event_categories.setter
+    def warning_event_categories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "warning_event_categories", value)
 
 
 @pulumi.input_type
@@ -485,6 +501,7 @@ class _ClusterInstanceState:
                  storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 warning_event_categories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  writer: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ClusterInstance resources.
@@ -524,10 +541,11 @@ class _ClusterInstanceState:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] storage_encrypted: Specifies whether the DB cluster is encrypted.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] warning_event_categories: Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
                
                For more detailed documentation about each argument, refer to
                the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.bool] writer: Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
         """
         if apply_immediately is not None:
@@ -600,6 +618,8 @@ class _ClusterInstanceState:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if warning_event_categories is not None:
+            pulumi.set(__self__, "warning_event_categories", warning_event_categories)
         if writer is not None:
             pulumi.set(__self__, "writer", writer)
 
@@ -1005,9 +1025,6 @@ class _ClusterInstanceState:
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        For more detailed documentation about each argument, refer to
-        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
         """
         return pulumi.get(self, "tags")
 
@@ -1026,6 +1043,21 @@ class _ClusterInstanceState:
     @tags_all.setter
     def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
+
+    @_builtins.property
+    @pulumi.getter(name="warningEventCategories")
+    def warning_event_categories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+
+        For more detailed documentation about each argument, refer to
+        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
+        """
+        return pulumi.get(self, "warning_event_categories")
+
+    @warning_event_categories.setter
+    def warning_event_categories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "warning_event_categories", value)
 
     @_builtins.property
     @pulumi.getter
@@ -1072,6 +1104,7 @@ class ClusterInstance(pulumi.CustomResource):
                  publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 warning_event_categories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides an RDS Cluster Instance Resource. A Cluster Instance Resource defines
@@ -1156,6 +1189,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] publicly_accessible: Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] warning_event_categories: Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
                
                For more detailed documentation about each argument, refer to
                the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
@@ -1261,6 +1295,7 @@ class ClusterInstance(pulumi.CustomResource):
                  publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 warning_event_categories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1302,6 +1337,7 @@ class ClusterInstance(pulumi.CustomResource):
             __props__.__dict__["publicly_accessible"] = publicly_accessible
             __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["warning_event_categories"] = warning_event_categories
             __props__.__dict__["arn"] = None
             __props__.__dict__["dbi_resource_id"] = None
             __props__.__dict__["endpoint"] = None
@@ -1357,6 +1393,7 @@ class ClusterInstance(pulumi.CustomResource):
             storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            warning_event_categories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             writer: pulumi.Input[Optional[_builtins.bool]] = None) -> 'ClusterInstance':
         """
         Get an existing ClusterInstance resource's state with the given name, id, and optional extra
@@ -1400,10 +1437,11 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] storage_encrypted: Specifies whether the DB cluster is encrypted.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] warning_event_categories: Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
                
                For more detailed documentation about each argument, refer to
                the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.bool] writer: Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1445,6 +1483,7 @@ class ClusterInstance(pulumi.CustomResource):
         __props__.__dict__["storage_encrypted"] = storage_encrypted
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["warning_event_categories"] = warning_event_categories
         __props__.__dict__["writer"] = writer
         return ClusterInstance(resource_name, opts=opts, __props__=__props__)
 
@@ -1718,9 +1757,6 @@ class ClusterInstance(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
         Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        For more detailed documentation about each argument, refer to
-        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
         """
         return pulumi.get(self, "tags")
 
@@ -1731,6 +1767,17 @@ class ClusterInstance(pulumi.CustomResource):
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
+
+    @_builtins.property
+    @pulumi.getter(name="warningEventCategories")
+    def warning_event_categories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+
+        For more detailed documentation about each argument, refer to
+        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
+        """
+        return pulumi.get(self, "warning_event_categories")
 
     @_builtins.property
     @pulumi.getter

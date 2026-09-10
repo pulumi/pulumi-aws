@@ -225,15 +225,19 @@ export class ClusterInstance extends pulumi.CustomResource {
     declare public /*out*/ readonly storageEncrypted: pulumi.Output<boolean>;
     /**
      * Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+     *
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
+     */
+    declare public readonly warningEventCategories: pulumi.Output<string[] | undefined>;
     /**
      * Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
      */
@@ -287,6 +291,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             resourceInputs["storageEncrypted"] = state?.storageEncrypted;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["warningEventCategories"] = state?.warningEventCategories;
             resourceInputs["writer"] = state?.writer;
         } else {
             const args = argsOrState as ClusterInstanceArgs | undefined;
@@ -325,6 +330,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             resourceInputs["publiclyAccessible"] = args?.publiclyAccessible;
             resourceInputs["region"] = args?.region;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["warningEventCategories"] = args?.warningEventCategories;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dbiResourceId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
@@ -480,15 +486,19 @@ export interface ClusterInstanceState {
     storageEncrypted?: pulumi.Input<boolean | undefined>;
     /**
      * Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    /**
+     * Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+     *
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
+     */
+    warningEventCategories?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
      */
@@ -602,9 +612,13 @@ export interface ClusterInstanceArgs {
     region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    /**
+     * Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
      *
      * For more detailed documentation about each argument, refer to
      * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    warningEventCategories?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

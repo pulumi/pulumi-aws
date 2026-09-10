@@ -16,16 +16,32 @@ public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPr
 
     public static final AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs Empty = new AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs();
 
+    /**
+     * Managed VPC resource configuration. See `managedVpcResource` below.
+     * 
+     */
     @Import(name="managedVpcResource")
     private @Nullable Output<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs> managedVpcResource;
 
+    /**
+     * @return Managed VPC resource configuration. See `managedVpcResource` below.
+     * 
+     */
     public Optional<Output<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs>> managedVpcResource() {
         return Optional.ofNullable(this.managedVpcResource);
     }
 
+    /**
+     * Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+     * 
+     */
     @Import(name="selfManagedLatticeResource")
     private @Nullable Output<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs> selfManagedLatticeResource;
 
+    /**
+     * @return Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+     * 
+     */
     public Optional<Output<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs>> selfManagedLatticeResource() {
         return Optional.ofNullable(this.selfManagedLatticeResource);
     }
@@ -55,20 +71,44 @@ public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPr
             $ = new AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param managedVpcResource Managed VPC resource configuration. See `managedVpcResource` below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder managedVpcResource(@Nullable Output<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs> managedVpcResource) {
             $.managedVpcResource = managedVpcResource;
             return this;
         }
 
+        /**
+         * @param managedVpcResource Managed VPC resource configuration. See `managedVpcResource` below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder managedVpcResource(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs managedVpcResource) {
             return managedVpcResource(Output.of(managedVpcResource));
         }
 
+        /**
+         * @param selfManagedLatticeResource Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder selfManagedLatticeResource(@Nullable Output<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs> selfManagedLatticeResource) {
             $.selfManagedLatticeResource = selfManagedLatticeResource;
             return this;
         }
 
+        /**
+         * @param selfManagedLatticeResource Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder selfManagedLatticeResource(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs selfManagedLatticeResource) {
             return selfManagedLatticeResource(Output.of(selfManagedLatticeResource));
         }

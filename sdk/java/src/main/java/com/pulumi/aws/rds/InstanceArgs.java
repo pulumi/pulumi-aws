@@ -1270,6 +1270,21 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.vpcSecurityGroupIds);
     }
 
+    /**
+     * Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+     * 
+     */
+    @Import(name="warningEventCategories")
+    private @Nullable Output<List<String>> warningEventCategories;
+
+    /**
+     * @return Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+     * 
+     */
+    public Optional<Output<List<String>>> warningEventCategories() {
+        return Optional.ofNullable(this.warningEventCategories);
+    }
+
     private InstanceArgs() {}
 
     private InstanceArgs(InstanceArgs $) {
@@ -1345,6 +1360,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         this.upgradeStorageConfig = $.upgradeStorageConfig;
         this.username = $.username;
         this.vpcSecurityGroupIds = $.vpcSecurityGroupIds;
+        this.warningEventCategories = $.warningEventCategories;
     }
 
     public static Builder builder() {
@@ -3116,6 +3132,37 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder vpcSecurityGroupIds(String... vpcSecurityGroupIds) {
             return vpcSecurityGroupIds(List.of(vpcSecurityGroupIds));
+        }
+
+        /**
+         * @param warningEventCategories Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder warningEventCategories(@Nullable Output<List<String>> warningEventCategories) {
+            $.warningEventCategories = warningEventCategories;
+            return this;
+        }
+
+        /**
+         * @param warningEventCategories Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder warningEventCategories(List<String> warningEventCategories) {
+            return warningEventCategories(Output.of(warningEventCategories));
+        }
+
+        /**
+         * @param warningEventCategories Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder warningEventCategories(String... warningEventCategories) {
+            return warningEventCategories(List.of(warningEventCategories));
         }
 
         public InstanceArgs build() {

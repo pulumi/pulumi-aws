@@ -23,10 +23,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:dms/certificate:Certificate":
 		r = &Certificate{}
+	case "aws:dms/dataProvider:DataProvider":
+		r = &DataProvider{}
 	case "aws:dms/endpoint:Endpoint":
 		r = &Endpoint{}
 	case "aws:dms/eventSubscription:EventSubscription":
 		r = &EventSubscription{}
+	case "aws:dms/instanceProfile:InstanceProfile":
+		r = &InstanceProfile{}
 	case "aws:dms/replicationConfig:ReplicationConfig":
 		r = &ReplicationConfig{}
 	case "aws:dms/replicationInstance:ReplicationInstance":
@@ -57,12 +61,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"dms/dataProvider",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"dms/endpoint",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"dms/eventSubscription",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"dms/instanceProfile",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

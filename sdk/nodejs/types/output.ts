@@ -180,6 +180,167 @@ export namespace accountaccess {
         delete?: string;
     }
 
+    export interface EntitlementEntitlement {
+        /**
+         * Principal role entitlement configuration. See `entitlement.principal_role` Block below.
+         */
+        principalRole?: outputs.accountaccess.EntitlementEntitlementPrincipalRole;
+    }
+
+    export interface EntitlementEntitlementPrincipalRole {
+        /**
+         * Target AWS account ID.
+         */
+        accountId: string;
+        /**
+         * Target AWS account name.
+         */
+        accountName: string;
+        /**
+         * Principal configuration. See `entitlement.principal_role.principal` Block below.
+         */
+        principal: outputs.accountaccess.EntitlementEntitlementPrincipalRolePrincipal;
+        /**
+         * ARN of the IAM role in the target AWS account that the principal is granted access to.
+         */
+        roleArn: string;
+    }
+
+    export interface EntitlementEntitlementPrincipalRolePrincipal {
+        /**
+         * IAM Identity Center principal configuration. See `entitlement.principal_role.principal.identity_center` Block below.
+         */
+        identityCenter?: outputs.accountaccess.EntitlementEntitlementPrincipalRolePrincipalIdentityCenter;
+    }
+
+    export interface EntitlementEntitlementPrincipalRolePrincipalIdentityCenter {
+        /**
+         * IAM Identity Center group ID.
+         */
+        groupId?: string;
+        /**
+         * IAM Identity Center user ID.
+         */
+        userId?: string;
+    }
+
+    export interface GetApplicationIdentitySource {
+        /**
+         * IAM Identity Center instance used as the identity source. See `identityCenter` Block below.
+         */
+        identityCenters: outputs.accountaccess.GetApplicationIdentitySourceIdentityCenter[];
+    }
+
+    export interface GetApplicationIdentitySourceIdentityCenter {
+        /**
+         * ARN of the IAM Identity Center application for this account access manager application.
+         */
+        applicationArn: string;
+        /**
+         * ARN of the IAM Identity Center instance.
+         */
+        instanceArn: string;
+    }
+
+    export interface GetEntitlementsEntitlement {
+        /**
+         * Date and time when the Entitlement was created in RFC 3339 format.
+         */
+        createdAt: string;
+        /**
+         * Service-assigned unique identifier for the Entitlement.
+         */
+        entitlementId: string;
+        /**
+         * Principal-role entitlement configuration. See `entitlements.entitlement` Block below.
+         */
+        entitlements: outputs.accountaccess.GetEntitlementsEntitlementEntitlement[];
+    }
+
+    export interface GetEntitlementsEntitlementEntitlement {
+        /**
+         * Principal-role entitlement configuration. See `entitlements.entitlement.principal_role` Block below.
+         */
+        principalRoles: outputs.accountaccess.GetEntitlementsEntitlementEntitlementPrincipalRole[];
+    }
+
+    export interface GetEntitlementsEntitlementEntitlementPrincipalRole {
+        /**
+         * 12-digit AWS account ID for the target role.
+         */
+        accountId: string;
+        /**
+         * Human-readable name of the target account.
+         */
+        accountName: string;
+        /**
+         * IAM Identity Center principal granted access. See `entitlements.entitlement.principal_role.principal` Block below.
+         */
+        principals: outputs.accountaccess.GetEntitlementsEntitlementEntitlementPrincipalRolePrincipal[];
+        /**
+         * Target IAM role ARN.
+         */
+        roleArn: string;
+    }
+
+    export interface GetEntitlementsEntitlementEntitlementPrincipalRolePrincipal {
+        /**
+         * IAM Identity Center principal. See `entitlements.entitlement.principal_role.principal.identity_center` Block below.
+         */
+        identityCenters: outputs.accountaccess.GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenter[];
+    }
+
+    export interface GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenter {
+        /**
+         * IAM Identity Center group ID.
+         */
+        groupId: string;
+        /**
+         * IAM Identity Center user ID.
+         */
+        userId: string;
+    }
+
+    export interface GetEntitlementsFilter {
+        /**
+         * principal-to-role filter criteria for narrowing entitlement results. See `filter.principal_role` Block below.
+         */
+        principalRole?: outputs.accountaccess.GetEntitlementsFilterPrincipalRole;
+    }
+
+    export interface GetEntitlementsFilterPrincipalRole {
+        /**
+         * AWS account ID to filter entitlements by.
+         */
+        accountId?: string;
+        /**
+         * principal to filter entitlements by. See `filter.principal_role.principal` Block below.
+         */
+        principal?: outputs.accountaccess.GetEntitlementsFilterPrincipalRolePrincipal;
+        /**
+         * IAM role ARN to filter entitlements by.
+         */
+        roleArn?: string;
+    }
+
+    export interface GetEntitlementsFilterPrincipalRolePrincipal {
+        /**
+         * IAM Identity Center principal filter criteria. See `filter.principal_role.principal.identity_center` Block below.
+         */
+        identityCenter?: outputs.accountaccess.GetEntitlementsFilterPrincipalRolePrincipalIdentityCenter;
+    }
+
+    export interface GetEntitlementsFilterPrincipalRolePrincipalIdentityCenter {
+        /**
+         * IAM Identity Center group ID.
+         */
+        groupId?: string;
+        /**
+         * IAM Identity Center user ID.
+         */
+        userId?: string;
+    }
+
 }
 
 export namespace acm {
@@ -417,6 +578,194 @@ export namespace acmpca {
          * A CNAME specifying a customized OCSP domain.
          */
         ocspCustomCname: string;
+    }
+
+}
+
+export namespace agentregistry {
+    export interface GetRegistryApprovalConfiguration {
+        /**
+         * Set of rules that determine which registry records are automatically approved on submission. When empty, submitted records require manual review.
+         */
+        autoApprovalRules: string[];
+    }
+
+    export interface GetRegistryDiscoveryConfiguration {
+        /**
+         * Authorizer configuration for the registry. Present when `authorizerType` is `CUSTOM_JWT`. See below.
+         */
+        authorizerConfigurations: outputs.agentregistry.GetRegistryDiscoveryConfigurationAuthorizerConfiguration[];
+        /**
+         * Type of authorizer that controls how consumers access the registry's search and MCP invoke operations. Valid values: `AWS_IAM`, `CUSTOM_JWT`.
+         */
+        authorizerType: string;
+    }
+
+    export interface GetRegistryDiscoveryConfigurationAuthorizerConfiguration {
+        /**
+         * Configuration for a custom JWT authorizer. See below.
+         */
+        customJwtAuthorizers: outputs.agentregistry.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer[];
+    }
+
+    export interface GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer {
+        /**
+         * Audience values accepted during JWT validation.
+         */
+        allowedAudiences: string[];
+        /**
+         * Client identifiers accepted during JWT validation.
+         */
+        allowedClients: string[];
+        /**
+         * Scopes accepted during JWT validation.
+         */
+        allowedScopes: string[];
+        /**
+         * Custom claims for additional JWT validation beyond standard OIDC claims. See below.
+         */
+        customClaims: outputs.agentregistry.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaim[];
+        /**
+         * OpenID Connect discovery URL used to retrieve the identity provider's metadata and signing keys.
+         */
+        discoveryUrl: string;
+    }
+
+    export interface GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaim {
+        /**
+         * Claim match criteria. See below.
+         */
+        authorizingClaimMatchValues: outputs.agentregistry.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue[];
+        /**
+         * Name of the claim validated in the inbound JWT token.
+         */
+        inboundTokenClaimName: string;
+        /**
+         * Type of the claim value. Valid values: `STRING`, `STRING_ARRAY`.
+         */
+        inboundTokenClaimValueType: string;
+    }
+
+    export interface GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue {
+        /**
+         * Operator used to match claim values. Valid values: `EQUALS`, `CONTAINS`, `CONTAINS_ANY`.
+         */
+        claimMatchOperator: string;
+        /**
+         * Value matched against. See below.
+         */
+        claimMatchValues: outputs.agentregistry.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue[];
+    }
+
+    export interface GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue {
+        /**
+         * Single string value to match.
+         */
+        matchValueString: string;
+        /**
+         * Set of string values to match.
+         */
+        matchValueStringLists: string[];
+    }
+
+    export interface RegistryApprovalConfiguration {
+        /**
+         * Set of rules that determine which registry records are automatically approved on submission. Valid values: `APPROVE_ALL`. When omitted or empty, submitted records require manual review.
+         */
+        autoApprovalRules?: string[];
+    }
+
+    export interface RegistryDiscoveryConfiguration {
+        /**
+         * Authorizer configuration for the registry. Required when `authorizerType` is `CUSTOM_JWT`. See below.
+         */
+        authorizerConfiguration?: outputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfiguration;
+        /**
+         * Type of authorizer that controls how consumers access the registry's search and MCP invoke operations. Valid values: `AWS_IAM`, `CUSTOM_JWT`.
+         */
+        authorizerType: string;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfiguration {
+        /**
+         * Configuration for a custom JWT authorizer.
+         */
+        customJwtAuthorizer?: outputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer {
+        /**
+         * Audience values accepted during JWT validation. A token is rejected if none of its audience claims match.
+         */
+        allowedAudiences?: string[];
+        /**
+         * Client identifiers accepted during JWT validation. A token is rejected if it was not issued to one of these clients.
+         */
+        allowedClients?: string[];
+        /**
+         * Scopes accepted during JWT validation. A token is rejected if it does not carry one of these scopes.
+         */
+        allowedScopes?: string[];
+        /**
+         * Custom claims for additional JWT validation beyond standard OIDC claims. See below.
+         */
+        customClaims?: outputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaim[];
+        /**
+         * OpenID Connect discovery URL used to retrieve the identity provider's metadata and signing keys.
+         */
+        discoveryUrl: string;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaim {
+        /**
+         * Claim match criteria. See below.
+         */
+        authorizingClaimMatchValue: outputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue;
+        /**
+         * Name of the claim to validate in the inbound JWT token. Must contain only letters, numbers, and the characters `_`, `.`, `-`, `:`.
+         */
+        inboundTokenClaimName: string;
+        /**
+         * Type of the claim value. Valid values: `STRING`, `STRING_ARRAY`.
+         */
+        inboundTokenClaimValueType: string;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue {
+        /**
+         * Operator used to match claim values. Valid values: `EQUALS`, `CONTAINS`, `CONTAINS_ANY`.
+         */
+        claimMatchOperator: string;
+        /**
+         * Value to match against. See below.
+         */
+        claimMatchValue: outputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue {
+        /**
+         * Single string value to match. Must contain only letters, numbers, and the characters `_`, `.`, `-`, `:`.
+         */
+        matchValueString?: string;
+        /**
+         * Set of string values to match. Each value must contain only letters, numbers, and the characters `_`, `.`, `-`, `:`.
+         */
+        matchValueStringLists?: string[];
+    }
+
+    export interface RegistryTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
     }
 
 }
@@ -19779,8 +20128,6 @@ export namespace bedrock {
         agentRuntimeName: string;
         /**
          * Filesystem configurations. See `filesystemConfiguration` Block below.
-         *
-         * The following attributes are exported under `agentcoreRuntimeEnvironment`:
          */
         filesystemConfigurations: outputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration[];
         /**
@@ -19789,6 +20136,8 @@ export namespace bedrock {
         lifecycleConfigurations: outputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration[];
         /**
          * Network configuration. See `networkConfiguration` Block below.
+         *
+         * The following attributes are exported under `agentcoreRuntimeEnvironment`:
          */
         networkConfigurations: outputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration[];
     }
@@ -19889,8 +20238,6 @@ export namespace bedrock {
         agentRuntimeName: string;
         /**
          * Filesystem configurations. See `filesystemConfiguration` Block below.
-         *
-         * The following attributes are exported under `agentcoreRuntimeEnvironment`:
          */
         filesystemConfigurations?: outputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration[];
         /**
@@ -19899,6 +20246,8 @@ export namespace bedrock {
         lifecycleConfigurations: outputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfiguration[];
         /**
          * Network configuration. See `networkConfiguration` Block below.
+         *
+         * The following attributes are exported under `agentcoreRuntimeEnvironment`:
          */
         networkConfigurations?: outputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration[];
     }
@@ -20162,12 +20511,24 @@ export namespace bedrock {
          */
         geminiModelConfig?: outputs.bedrock.AgentcoreHarnessModelGeminiModelConfig;
         /**
+         * LiteLLM model configuration. See `litellmModelConfig` Block below.
+         */
+        litellmModelConfig?: outputs.bedrock.AgentcoreHarnessModelLitellmModelConfig;
+        /**
          * OpenAI model configuration. See `openaiModelConfig` Block below.
          */
         openaiModelConfig?: outputs.bedrock.AgentcoreHarnessModelOpenaiModelConfig;
     }
 
     export interface AgentcoreHarnessModelBedrockModelConfig {
+        /**
+         * JSON string containing provider-specific parameters to pass through to the Bedrock model provider unchanged.
+         */
+        additionalParams?: string;
+        /**
+         * API format for the model. Valid values are `converseStream`, `responses`, and `chatCompletions`.
+         */
+        apiFormat: string;
         /**
          * Maximum number of tokens to generate.
          */
@@ -20187,6 +20548,10 @@ export namespace bedrock {
     }
 
     export interface AgentcoreHarnessModelGeminiModelConfig {
+        /**
+         * JSON string containing provider-specific parameters to pass through to the Gemini model provider unchanged.
+         */
+        additionalParams?: string;
         /**
          * ARN of the secret containing the API key.
          */
@@ -20213,7 +20578,46 @@ export namespace bedrock {
         topP?: number;
     }
 
+    export interface AgentcoreHarnessModelLitellmModelConfig {
+        /**
+         * JSON string containing provider-specific parameters to pass through to the LiteLLM model provider unchanged.
+         */
+        additionalParams?: string;
+        /**
+         * Base URL of the LiteLLM-compatible API endpoint.
+         */
+        apiBase?: string;
+        /**
+         * ARN of the secret containing the API key.
+         */
+        apiKeyArn?: string;
+        /**
+         * Maximum number of tokens to generate.
+         */
+        maxTokens?: number;
+        /**
+         * LiteLLM model ID.
+         */
+        modelId: string;
+        /**
+         * Temperature for sampling. Must be between 0 and 2.
+         */
+        temperature?: number;
+        /**
+         * Top-p sampling parameter. Must be between 0 and 1.
+         */
+        topP?: number;
+    }
+
     export interface AgentcoreHarnessModelOpenaiModelConfig {
+        /**
+         * JSON string containing provider-specific parameters to pass through to the OpenAI model provider unchanged.
+         */
+        additionalParams?: string;
+        /**
+         * API format for the model. Valid values are `responses` and `chatCompletions`.
+         */
+        apiFormat: string;
         /**
          * ARN of the secret containing the API key.
          */
@@ -20238,16 +20642,68 @@ export namespace bedrock {
 
     export interface AgentcoreHarnessSkill {
         /**
+         * AWS Skills baked into the harness's underlying runtime. See `awsSkills` Block below.
+         */
+        awsSkills?: outputs.bedrock.AgentcoreHarnessSkillAwsSkills;
+        /**
+         * Git repository source for the skill. See `git` Block below.
+         */
+        git?: outputs.bedrock.AgentcoreHarnessSkillGit;
+        /**
          * Path to the skill.
          */
-        path: string;
+        path?: string;
+        /**
+         * S3 source for the skill. See `s3` Block below.
+         */
+        s3?: outputs.bedrock.AgentcoreHarnessSkillS3;
+    }
+
+    export interface AgentcoreHarnessSkillAwsSkills {
+        /**
+         * List of glob patterns to filter allowed skills (e.g., `["core-skills/*"]`).
+         */
+        paths?: string[];
+    }
+
+    export interface AgentcoreHarnessSkillGit {
+        /**
+         * Authentication configuration for private repositories. See `auth` Block below.
+         */
+        auth?: outputs.bedrock.AgentcoreHarnessSkillGitAuth;
+        /**
+         * Subdirectory within the repository containing the skill.
+         */
+        path?: string;
+        /**
+         * HTTPS URL of the git repository.
+         */
+        url: string;
+    }
+
+    export interface AgentcoreHarnessSkillGitAuth {
+        /**
+         * ARN of the credential in AgentCore Identity containing the password or personal access token.
+         */
+        credentialArn: string;
+        /**
+         * Username for authentication. Defaults to `oauth2` if not specified.
+         */
+        username?: string;
+    }
+
+    export interface AgentcoreHarnessSkillS3 {
+        /**
+         * S3 URI of the skill source. Must begin with `s3://`.
+         */
+        uri: string;
     }
 
     export interface AgentcoreHarnessSystemPrompt {
         /**
          * Text content of the system prompt.
          */
-        text: string;
+        text?: string;
     }
 
     export interface AgentcoreHarnessTimeouts {
@@ -21107,6 +21563,21 @@ export namespace bedrock {
         tokenEndpoint: string;
     }
 
+    export interface AgentcoreOauth2CredentialProviderTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
+    }
+
     export interface AgentcoreOnlineEvaluationConfigDataSourceConfig {
         /**
          * CloudWatch logs configuration for reading agent traces. See `cloudwatchLogs` Block below.
@@ -21265,87 +21736,207 @@ export namespace bedrock {
     }
 
     export interface AgentcoreRegistryApprovalConfiguration {
+        /**
+         * Whether registry records are auto-approved. When set to `true`, records are automatically approved upon creation. When set to `false` (the default), records require explicit approval.
+         */
         autoApproval: boolean;
     }
 
     export interface AgentcoreRegistryAuthorizerConfiguration {
+        /**
+         * JWT-based authorization configuration block. See `customJwtAuthorizer` below.
+         */
         customJwtAuthorizer?: outputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer {
+        /**
+         * Set of allowed audience values for JWT token validation.
+         */
         allowedAudiences?: string[];
+        /**
+         * Set of allowed client IDs for JWT token validation.
+         */
         allowedClients?: string[];
+        /**
+         * Set of scopes that are allowed to access the token.
+         */
         allowedScopes?: string[];
+        /**
+         * Configuration restricting which workloads may use this authorizer. See `allowedWorkloadConfiguration` below.
+         */
         allowedWorkloadConfiguration?: outputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration;
+        /**
+         * Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+         */
         customClaims?: outputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim[];
+        /**
+         * URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
+         */
         discoveryUrl: string;
+        /**
+         * Private endpoint used to reach the authorization server. See `privateEndpoint` below.
+         */
         privateEndpoint?: outputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint;
+        /**
+         * Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` below.
+         */
         privateEndpointOverrides?: outputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride[];
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration {
+        /**
+         * Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hostingEnvironment` below.
+         */
         hostingEnvironments?: outputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment[];
+        /**
+         * List of workload identity names allowed to use the authorizer. Between 1 and 10 entries.
+         */
         workloadIdentities?: string[];
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment {
+        /**
+         * ARN of the hosting environment.
+         */
         arn: string;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim {
+        /**
+         * Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` below.
+         */
         authorizingClaimMatchValue: outputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue;
+        /**
+         * Name of the custom claim field to check.
+         */
         inboundTokenClaimName: string;
+        /**
+         * Data type of the claim value to check for. Valid values are `STRING` and `STRING_ARRAY`.
+         */
         inboundTokenClaimValueType: string;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue {
+        /**
+         * Relationship between the claim field value and the value or values to match for. Valid values are `EQUALS`, `CONTAINS`, and `CONTAINS_ANY`. `EQUALS` can be used only when `inboundTokenClaimValueType` is `STRING`. `CONTAINS` or `CONTAINS_ANY` can be used only when `inboundTokenClaimValueType` is `STRING_ARRAY`.
+         */
         claimMatchOperator: string;
+        /**
+         * Value or values to match for. See `claimMatchValue` below.
+         */
         claimMatchValue: outputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue {
+        /**
+         * String value to match for. Must be specified when `claimMatchOperator` is `EQUALS` or `CONTAINS`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+         */
         matchValueString?: string;
+        /**
+         * List of strings to check for a match. Must be specified when `claimMatchOperator` is `CONTAINS_ANY`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+         */
         matchValueStringLists?: string[];
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint {
+        /**
+         * Managed VPC resource configuration. See `managedVpcResource` below.
+         */
         managedVpcResource?: outputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource;
+        /**
+         * Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+         */
         selfManagedLatticeResource?: outputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource {
+        /**
+         * IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+         */
         endpointIpAddressType: string;
+        /**
+         * Routing domain for the endpoint.
+         */
         routingDomain?: string;
+        /**
+         * IDs of the security groups for the endpoint.
+         */
         securityGroupIds?: string[];
+        /**
+         * IDs of the subnets for the endpoint.
+         */
         subnetIds: string[];
+        /**
+         * Tags to assign to the managed VPC resource.
+         */
         tags?: {[key: string]: string};
+        /**
+         * Identifier of the VPC for the endpoint.
+         */
         vpcIdentifier: string;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride {
+        /**
+         * Domain the override applies to.
+         */
         domain: string;
+        /**
+         * Private endpoint configuration. See `privateEndpoint` below.
+         */
         privateEndpoint: outputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint {
+        /**
+         * Managed VPC resource configuration. See `managedVpcResource` below.
+         */
         managedVpcResource?: outputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource;
+        /**
+         * Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+         */
         selfManagedLatticeResource?: outputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource {
+        /**
+         * IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+         */
         endpointIpAddressType: string;
+        /**
+         * Routing domain for the endpoint.
+         */
         routingDomain?: string;
+        /**
+         * IDs of the security groups for the endpoint.
+         */
         securityGroupIds?: string[];
+        /**
+         * IDs of the subnets for the endpoint.
+         */
         subnetIds: string[];
+        /**
+         * Tags to assign to the managed VPC resource.
+         */
         tags?: {[key: string]: string};
+        /**
+         * Identifier of the VPC for the endpoint.
+         */
         vpcIdentifier: string;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource {
+        /**
+         * Identifier of the VPC Lattice resource configuration.
+         */
         resourceConfigurationIdentifier?: string;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
+        /**
+         * Identifier of the VPC Lattice resource configuration.
+         */
         resourceConfigurationIdentifier?: string;
     }
 
@@ -22424,6 +23015,72 @@ export namespace bedrockfoundation {
 }
 
 export namespace bedrockmodel {
+    export interface InvocationJobInputDataConfig {
+        /**
+         * Location of the S3 input data. See `s3InputDataConfig` Block below.
+         */
+        s3InputDataConfig: outputs.bedrockmodel.InvocationJobInputDataConfigS3InputDataConfig;
+    }
+
+    export interface InvocationJobInputDataConfigS3InputDataConfig {
+        /**
+         * ID of the AWS account that owns the S3 bucket containing the input data.
+         */
+        s3BucketOwner: string;
+        /**
+         * Format of the input data. Valid values: `JSONL`.
+         */
+        s3InputFormat: string;
+        /**
+         * S3 location of the input data.
+         */
+        s3Uri: string;
+    }
+
+    export interface InvocationJobOutputDataConfig {
+        /**
+         * Location of the S3 output data. See `s3OutputDataConfig` Block below.
+         */
+        s3OutputDataConfig: outputs.bedrockmodel.InvocationJobOutputDataConfigS3OutputDataConfig;
+    }
+
+    export interface InvocationJobOutputDataConfigS3OutputDataConfig {
+        /**
+         * ID of the AWS account that owns the S3 bucket containing the output data.
+         */
+        s3BucketOwner: string;
+        /**
+         * ARN of the KMS key that encrypts the S3 location of the output data.
+         */
+        s3EncryptionKeyId: string;
+        /**
+         * S3 location where the results of the batch inference job are stored.
+         */
+        s3Uri: string;
+    }
+
+    export interface InvocationJobTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+    }
+
+    export interface InvocationJobVpcConfig {
+        /**
+         * IDs of the security groups in the VPC to use.
+         */
+        securityGroupIds: string[];
+        /**
+         * IDs of the subnets in the VPC to use.
+         */
+        subnetIds: string[];
+    }
+
     export interface InvocationLoggingConfigurationLoggingConfig {
         /**
          * CloudWatch logging configuration. See `cloudwatchConfig` Block for details.
@@ -28501,6 +29158,19 @@ export namespace cloudwatch {
          * The unit for this metric.
          */
         unit?: string;
+    }
+
+    export interface MetricAlarmWarmUpConfiguration {
+        /**
+         * Whether to wait for the full warm-up period before evaluation begins, even if metric data arrives earlier. When `false`, the warm-up period ends early as soon as the alarm has enough data to fill its evaluation window. Defaults to `false`.
+         *
+         * > **Note:** The warm-up period applies once, when the alarm is created. Changing the warm-up configuration after the warm-up period ends does not start a new warm-up period. See [Alarm warm-up periods](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-warm-up.html) in the Amazon CloudWatch User Guide.
+         */
+        onlyStartEvaluatingAfterWarmUpPeriodEnds?: boolean;
+        /**
+         * Length of the warm-up period, in minutes. Valid values are `1` to `2880`.
+         */
+        warmUpPeriodDurationInMinutes: number;
     }
 
     export interface MetricStreamExcludeFilter {
@@ -38681,6 +39351,398 @@ export namespace dlm {
 }
 
 export namespace dms {
+    export interface DataProviderSettings {
+        /**
+         * Settings for the `docdb` engine. See `docDbSettings` Block below.
+         */
+        docDbSettings?: outputs.dms.DataProviderSettingsDocDbSettings;
+        /**
+         * Settings for the `db2` engine. See `ibmDb2LuwSettings` Block below.
+         */
+        ibmDb2LuwSettings?: outputs.dms.DataProviderSettingsIbmDb2LuwSettings;
+        /**
+         * Settings for the `db2-zos` engine. See `ibmDb2ZosSettings` Block below.
+         */
+        ibmDb2ZosSettings?: outputs.dms.DataProviderSettingsIbmDb2ZosSettings;
+        /**
+         * Settings for the `mariadb` engine. See `mariaDbSettings` Block below.
+         */
+        mariaDbSettings?: outputs.dms.DataProviderSettingsMariaDbSettings;
+        /**
+         * Settings for the `sqlserver` engine. See `microsoftSqlServerSettings` Block below.
+         */
+        microsoftSqlServerSettings?: outputs.dms.DataProviderSettingsMicrosoftSqlServerSettings;
+        /**
+         * Settings for the `mongodb` engine. See `mongoDbSettings` Block below.
+         */
+        mongoDbSettings?: outputs.dms.DataProviderSettingsMongoDbSettings;
+        /**
+         * Settings for the `mysql` and `aurora` engines. See `mysqlSettings` Block below.
+         */
+        mysqlSettings?: outputs.dms.DataProviderSettingsMysqlSettings;
+        /**
+         * Settings for the `oracle` engine. See `oracleSettings` Block below.
+         */
+        oracleSettings?: outputs.dms.DataProviderSettingsOracleSettings;
+        /**
+         * Settings for the `postgres` and `aurora-postgresql` engines. See `postgresqlSettings` Block below.
+         */
+        postgresqlSettings?: outputs.dms.DataProviderSettingsPostgresqlSettings;
+        /**
+         * Settings for the `redshift` engine. See `redshiftSettings` Block below.
+         */
+        redshiftSettings?: outputs.dms.DataProviderSettingsRedshiftSettings;
+        /**
+         * Settings for the `sybase` engine. See `sybaseAseSettings` Block below.
+         */
+        sybaseAseSettings?: outputs.dms.DataProviderSettingsSybaseAseSettings;
+    }
+
+    export interface DataProviderSettingsDocDbSettings {
+        /**
+         * ARN of the DMS certificate used for the SSL connection.
+         */
+        certificateArn?: string;
+        /**
+         * Database name on the DocumentDB data provider.
+         */
+        databaseName?: string;
+        /**
+         * Port of the DocumentDB server. Valid values are between `1` and `65535`.
+         */
+        port?: number;
+        /**
+         * Hostname of the DocumentDB server.
+         */
+        serverName?: string;
+        /**
+         * SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+         */
+        sslMode: string;
+    }
+
+    export interface DataProviderSettingsIbmDb2LuwSettings {
+        /**
+         * ARN of the DMS certificate used for the SSL connection.
+         */
+        certificateArn?: string;
+        /**
+         * Database name on the IBM DB2 LUW data provider.
+         */
+        databaseName?: string;
+        /**
+         * Integer identifying the encryption algorithm for the connection. When omitted, AWS uses its default behavior.
+         */
+        encryptionAlgorithm: number;
+        /**
+         * Port of the IBM DB2 LUW server. Valid values are between `1` and `65535`.
+         */
+        port?: number;
+        /**
+         * ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+         */
+        s3AccessRoleArn?: string;
+        /**
+         * S3 path containing the user-defined schema.
+         */
+        s3Path?: string;
+        /**
+         * Integer identifying the authentication mechanism for the connection. When omitted, AWS uses its default behavior.
+         */
+        securityMechanism: number;
+        /**
+         * Hostname of the IBM DB2 LUW server.
+         */
+        serverName?: string;
+        /**
+         * SSL mode for the connection. Valid values: `none` and `verify-ca`. Defaults to `none`.
+         */
+        sslMode: string;
+    }
+
+    export interface DataProviderSettingsIbmDb2ZosSettings {
+        /**
+         * ARN of the DMS certificate used for the SSL connection.
+         */
+        certificateArn?: string;
+        /**
+         * Database name on the IBM DB2 for z/OS data provider.
+         */
+        databaseName?: string;
+        /**
+         * Port of the IBM DB2 for z/OS server. Valid values are between `1` and `65535`.
+         */
+        port?: number;
+        /**
+         * ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+         */
+        s3AccessRoleArn?: string;
+        /**
+         * S3 path containing the user-defined schema.
+         */
+        s3Path?: string;
+        /**
+         * Hostname of the IBM DB2 for z/OS server.
+         */
+        serverName?: string;
+        /**
+         * SSL mode for the connection. Valid values: `none` and `verify-ca`. Defaults to `none`.
+         */
+        sslMode: string;
+    }
+
+    export interface DataProviderSettingsMariaDbSettings {
+        /**
+         * ARN of the DMS certificate used for the SSL connection.
+         */
+        certificateArn?: string;
+        /**
+         * Port of the MariaDB server. Valid values are between `1` and `65535`.
+         */
+        port?: number;
+        /**
+         * ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+         */
+        s3AccessRoleArn?: string;
+        /**
+         * S3 path containing the user-defined schema.
+         */
+        s3Path?: string;
+        /**
+         * Hostname of the MariaDB server.
+         */
+        serverName?: string;
+        /**
+         * SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+         */
+        sslMode: string;
+    }
+
+    export interface DataProviderSettingsMicrosoftSqlServerSettings {
+        /**
+         * ARN of the DMS certificate used for the SSL connection.
+         */
+        certificateArn?: string;
+        /**
+         * Database name on the Microsoft SQL Server data provider.
+         */
+        databaseName?: string;
+        /**
+         * Port of the Microsoft SQL Server instance. Valid values are between `1` and `65535`.
+         */
+        port?: number;
+        /**
+         * ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+         */
+        s3AccessRoleArn?: string;
+        /**
+         * S3 path containing the user-defined schema.
+         */
+        s3Path?: string;
+        /**
+         * Hostname of the Microsoft SQL Server instance.
+         */
+        serverName?: string;
+        /**
+         * SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+         */
+        sslMode: string;
+    }
+
+    export interface DataProviderSettingsMongoDbSettings {
+        /**
+         * Authentication mechanism for the connection. Valid values: `default`, `mongodbCr`, and `scramSha1`.
+         */
+        authMechanism: string;
+        /**
+         * Database used to verify credentials. Defaults to `admin`. Not used when `authType` is `no`.
+         */
+        authSource: string;
+        /**
+         * Authentication type for the connection. Valid values: `no` and `password`.
+         */
+        authType: string;
+        /**
+         * ARN of the DMS certificate used for the SSL connection.
+         */
+        certificateArn?: string;
+        /**
+         * Database name on the MongoDB data provider.
+         */
+        databaseName?: string;
+        /**
+         * Port of the MongoDB server. Valid values are between `1` and `65535`.
+         */
+        port?: number;
+        /**
+         * Hostname of the MongoDB server.
+         */
+        serverName?: string;
+        /**
+         * SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+         */
+        sslMode: string;
+    }
+
+    export interface DataProviderSettingsMysqlSettings {
+        /**
+         * ARN of the DMS certificate used for the SSL connection.
+         */
+        certificateArn?: string;
+        /**
+         * Port of the MySQL server. Valid values are between `1` and `65535`.
+         */
+        port?: number;
+        /**
+         * ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+         */
+        s3AccessRoleArn?: string;
+        /**
+         * S3 path containing the user-defined schema.
+         */
+        s3Path?: string;
+        /**
+         * Hostname of the MySQL server.
+         */
+        serverName?: string;
+        /**
+         * SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+         */
+        sslMode: string;
+    }
+
+    export interface DataProviderSettingsOracleSettings {
+        /**
+         * Address of the Oracle Automatic Storage Management (ASM) server used with Binary Reader. See [Oracle change data capture configuration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration).
+         */
+        asmServer?: string;
+        /**
+         * ARN of the DMS certificate used for the SSL connection.
+         */
+        certificateArn?: string;
+        /**
+         * Database name on the Oracle data provider.
+         */
+        databaseName?: string;
+        /**
+         * Port of the Oracle server. Valid values are between `1` and `65535`.
+         */
+        port?: number;
+        /**
+         * ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+         */
+        s3AccessRoleArn?: string;
+        /**
+         * S3 path containing the user-defined schema.
+         */
+        s3Path?: string;
+        /**
+         * ARN of the IAM role that grants access to the Secrets Manager secret containing Oracle ASM connection details.
+         */
+        secretsManagerOracleAsmAccessRoleArn?: string;
+        /**
+         * Identifier of the Secrets Manager secret containing Oracle ASM connection details. Required when the data provider uses an Oracle ASM server.
+         */
+        secretsManagerOracleAsmSecretId?: string;
+        /**
+         * ARN of the IAM role that grants access to the Secrets Manager secret containing the transparent data encryption (TDE) password.
+         */
+        secretsManagerSecurityDbEncryptionAccessRoleArn?: string;
+        /**
+         * Identifier of the Secrets Manager secret containing the TDE password used by Binary Reader to access encrypted Oracle redo logs.
+         */
+        secretsManagerSecurityDbEncryptionSecretId?: string;
+        /**
+         * Hostname of the Oracle server.
+         */
+        serverName?: string;
+        /**
+         * SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+         */
+        sslMode: string;
+    }
+
+    export interface DataProviderSettingsPostgresqlSettings {
+        /**
+         * ARN of the DMS certificate used for the SSL connection.
+         */
+        certificateArn?: string;
+        /**
+         * Database name on the PostgreSQL data provider.
+         */
+        databaseName?: string;
+        /**
+         * Port of the PostgreSQL server. Valid values are between `1` and `65535`.
+         */
+        port?: number;
+        /**
+         * ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+         */
+        s3AccessRoleArn?: string;
+        /**
+         * S3 path containing the user-defined schema.
+         */
+        s3Path?: string;
+        /**
+         * Hostname of the PostgreSQL server.
+         */
+        serverName?: string;
+        /**
+         * SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+         */
+        sslMode: string;
+    }
+
+    export interface DataProviderSettingsRedshiftSettings {
+        /**
+         * Database name on the Amazon Redshift data provider.
+         */
+        databaseName?: string;
+        /**
+         * Port of the Amazon Redshift server. Valid values are between `1` and `65535`.
+         */
+        port?: number;
+        /**
+         * ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+         */
+        s3AccessRoleArn?: string;
+        /**
+         * S3 path containing the user-defined schema.
+         */
+        s3Path?: string;
+        /**
+         * Hostname of the Amazon Redshift server.
+         */
+        serverName?: string;
+    }
+
+    export interface DataProviderSettingsSybaseAseSettings {
+        /**
+         * ARN of the DMS certificate used for the SSL connection.
+         */
+        certificateArn?: string;
+        /**
+         * Database name on the SAP ASE data provider.
+         */
+        databaseName?: string;
+        /**
+         * Whether to encrypt the connection password during transmission. Defaults to `true`.
+         */
+        encryptPassword: boolean;
+        /**
+         * Port of the SAP ASE server. Valid values are between `1` and `65535`.
+         */
+        port?: number;
+        /**
+         * Hostname of the SAP ASE server.
+         */
+        serverName?: string;
+        /**
+         * SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+         */
+        sslMode: string;
+    }
+
     export interface EndpointElasticsearchSettings {
         /**
          * Endpoint for the OpenSearch cluster.
@@ -48681,6 +49743,10 @@ export namespace ecs {
 
     export interface CapacityProviderManagedInstancesProvider {
         /**
+         * Configuration block for the auto repair configuration. Detailed below.
+         */
+        autoRepairConfiguration: outputs.ecs.CapacityProviderManagedInstancesProviderAutoRepairConfiguration;
+        /**
          * Configuration block for how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider, including whether to turn optimization on or off and how long to delay optimizing idle EC2 instances. Detailed below.
          */
         infrastructureOptimization?: outputs.ecs.CapacityProviderManagedInstancesProviderInfrastructureOptimization;
@@ -48696,6 +49762,13 @@ export namespace ecs {
          * Whether to propagate tags from the capacity provider to the Amazon ECS Managed Instances. When enabled, tags applied to the capacity provider are automatically applied to all instances launched by this provider. Valid values are `CAPACITY_PROVIDER` and `NONE`.
          */
         propagateTags?: string;
+    }
+
+    export interface CapacityProviderManagedInstancesProviderAutoRepairConfiguration {
+        /**
+         * Whether to use Amazon ECS managed auto repair. Valid values are `ENABLED` and `DISABLED`.
+         */
+        actionsStatus: string;
     }
 
     export interface CapacityProviderManagedInstancesProviderInfrastructureOptimization {
@@ -55893,6 +56966,28 @@ export namespace fis {
          * Tag value.
          */
         value: string;
+    }
+
+    export interface SafetyLeverStateState {
+        /**
+         * Reason for the current status of the safety lever.
+         */
+        reason: string;
+        /**
+         * Status of the safety lever. Valid values: `engaged`, `disengaged`. Engaging the lever immediately stops all running experiments in the account and Region, and prevents new ones from starting.
+         */
+        status: string;
+    }
+
+    export interface SafetyLeverStateTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
     }
 
 }
@@ -89087,13 +90182,25 @@ export namespace msk {
 
     export interface ReplicatorKafkaCluster {
         /**
-         * Details of an Amazon MSK cluster.
+         * Details of an Amazon MSK cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
          */
-        amazonMskCluster: outputs.msk.ReplicatorKafkaClusterAmazonMskCluster;
+        amazonMskCluster?: outputs.msk.ReplicatorKafkaClusterAmazonMskCluster;
         /**
-         * Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+         * Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
          */
-        vpcConfig: outputs.msk.ReplicatorKafkaClusterVpcConfig;
+        apacheKafkaCluster?: outputs.msk.ReplicatorKafkaClusterApacheKafkaCluster;
+        /**
+         * Details of the client authentication used by the Kafka cluster. Only valid for an `apacheKafkaCluster`. Detailed below.
+         */
+        clientAuthentication?: outputs.msk.ReplicatorKafkaClusterClientAuthentication;
+        /**
+         * Details of encryption in transit to the Kafka cluster. Only valid for an `apacheKafkaCluster`. TLS encryption in transit is always applied to an `apacheKafkaCluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). Detailed below.
+         */
+        encryptionInTransit?: outputs.msk.ReplicatorKafkaClusterEncryptionInTransit;
+        /**
+         * Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazonMskCluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC.
+         */
+        vpcConfig?: outputs.msk.ReplicatorKafkaClusterVpcConfig;
     }
 
     export interface ReplicatorKafkaClusterAmazonMskCluster {
@@ -89103,9 +90210,58 @@ export namespace msk {
         mskClusterArn: string;
     }
 
+    export interface ReplicatorKafkaClusterApacheKafkaCluster {
+        /**
+         * The Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
+         */
+        apacheKafkaClusterId: string;
+        /**
+         * The bootstrap broker connection string used to connect to the Apache Kafka cluster.
+         */
+        bootstrapBrokerString: string;
+    }
+
+    export interface ReplicatorKafkaClusterClientAuthentication {
+        /**
+         * Details of the mTLS client authentication used by the Kafka cluster. Detailed below.
+         */
+        mtls?: outputs.msk.ReplicatorKafkaClusterClientAuthenticationMtls;
+        /**
+         * Details of the SASL/SCRAM client authentication used by the Kafka cluster. Detailed below.
+         */
+        saslScram?: outputs.msk.ReplicatorKafkaClusterClientAuthenticationSaslScram;
+    }
+
+    export interface ReplicatorKafkaClusterClientAuthenticationMtls {
+        /**
+         * The ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+         */
+        secretArn: string;
+    }
+
+    export interface ReplicatorKafkaClusterClientAuthenticationSaslScram {
+        /**
+         * The SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
+         */
+        mechanism: string;
+        /**
+         * The ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+         */
+        secretArn: string;
+    }
+
+    export interface ReplicatorKafkaClusterEncryptionInTransit {
+        /**
+         * The ARN of the AWS Secrets Manager secret that stores the custom root CA certificate chain used to trust the certificate authority of the Apache Kafka cluster. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+         */
+        rootCaCertificate: string;
+    }
+
     export interface ReplicatorKafkaClusterVpcConfig {
         /**
          * The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
+         *
+         * > **Note:** When an `apacheKafkaCluster` uses `clientAuthentication`, the replicator's network interfaces (created in these subnets, with private IPs only) must be able to reach AWS Secrets Manager and AWS KMS to retrieve and decrypt the credentials. Ensure the subnets have egress to those services via a NAT gateway or Secrets Manager and KMS interface VPC endpoints; otherwise the replicator times out connecting to the source cluster.
          */
         securityGroupsIds?: string[];
         /**
@@ -89180,18 +90336,26 @@ export namespace msk {
         consumerGroupReplications: outputs.msk.ReplicatorReplicationInfoListConsumerGroupReplication[];
         sourceKafkaClusterAlias: string;
         /**
-         * The ARN of the source Kafka cluster.
+         * The ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
          */
-        sourceKafkaClusterArn: string;
+        sourceKafkaClusterArn?: string;
+        /**
+         * The identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apacheKafkaClusterId`). Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+         */
+        sourceKafkaClusterId?: string;
         /**
          * The type of compression to use writing records to target Kafka cluster.
          */
         targetCompressionType: string;
         targetKafkaClusterAlias: string;
         /**
-         * The ARN of the target Kafka cluster.
+         * The ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
          */
-        targetKafkaClusterArn: string;
+        targetKafkaClusterArn?: string;
+        /**
+         * The identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apacheKafkaClusterId`). Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+         */
+        targetKafkaClusterId?: string;
         /**
          * Configuration relating to topic replication.
          */
@@ -98566,6 +99730,33 @@ export namespace rds {
     export interface GetEngineVersionFilter {
         name: string;
         values: string[];
+    }
+
+    export interface GetEventsEvent {
+        /**
+         * Date and time of the event, in RFC3339 format.
+         */
+        date: string;
+        /**
+         * Set of event categories to filter on, e.g. `failure`, `maintenance`, `configuration change`. Defaults to all categories.
+         */
+        eventCategories: string[];
+        /**
+         * Text of the event.
+         */
+        message: string;
+        /**
+         * ARN of the event source.
+         */
+        sourceArn: string;
+        /**
+         * Identifier of the source, such as a DB instance or DB cluster identifier. Requires `sourceType` to also be set.
+         */
+        sourceIdentifier: string;
+        /**
+         * Type of source. Valid values include `db-instance`, `db-cluster`, `db-snapshot`, `db-parameter-group`, `db-security-group`, `db-cluster-snapshot`, `custom-engine-version`, `db-proxy`, `blue-green-deployment`, `db-shard-group`, and `zero-etl`.
+         */
+        sourceType: string;
     }
 
     export interface GetGlobalClusterMember {
@@ -131081,6 +132272,10 @@ export namespace workspaces {
 
     export interface GetDirectoryWorkspaceAccessProperty {
         /**
+         * Configuration for accessing WorkSpaces through VPC endpoints instead of the public internet.
+         */
+        accessEndpointConfigs: outputs.workspaces.GetDirectoryWorkspaceAccessPropertyAccessEndpointConfig[];
+        /**
          * (Optional) Indicates whether users can use Android devices to access their WorkSpaces.
          */
         deviceTypeAndroid: string;
@@ -131112,6 +132307,28 @@ export namespace workspaces {
          * (Optional) Indicates whether users can use zero client devices to access their WorkSpaces.
          */
         deviceTypeZeroclient: string;
+    }
+
+    export interface GetDirectoryWorkspaceAccessPropertyAccessEndpointConfig {
+        /**
+         * Set of access endpoints used to control the network paths that users use to access their WorkSpaces.
+         */
+        accessEndpoints: outputs.workspaces.GetDirectoryWorkspaceAccessPropertyAccessEndpointConfigAccessEndpoint[];
+        /**
+         * List of protocols that fall back to the public internet when streaming over a VPC endpoint is unavailable.
+         */
+        internetFallbackProtocols: string[];
+    }
+
+    export interface GetDirectoryWorkspaceAccessPropertyAccessEndpointConfigAccessEndpoint {
+        /**
+         * Type of access endpoint.
+         */
+        accessEndpointType: string;
+        /**
+         * Identifier of the VPC endpoint that the access endpoint uses.
+         */
+        vpcEndpointId: string;
     }
 
     export interface GetDirectoryWorkspaceCreationProperty {

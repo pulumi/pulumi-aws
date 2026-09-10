@@ -3,13 +3,20 @@
 
 package com.pulumi.aws.workspaces.outputs;
 
+import com.pulumi.aws.workspaces.outputs.GetDirectoryWorkspaceAccessPropertyAccessEndpointConfig;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetDirectoryWorkspaceAccessProperty {
+    /**
+     * @return Configuration for accessing WorkSpaces through VPC endpoints instead of the public internet.
+     * 
+     */
+    private List<GetDirectoryWorkspaceAccessPropertyAccessEndpointConfig> accessEndpointConfigs;
     /**
      * @return (Optional) Indicates whether users can use Android devices to access their WorkSpaces.
      * 
@@ -52,6 +59,13 @@ public final class GetDirectoryWorkspaceAccessProperty {
     private String deviceTypeZeroclient;
 
     private GetDirectoryWorkspaceAccessProperty() {}
+    /**
+     * @return Configuration for accessing WorkSpaces through VPC endpoints instead of the public internet.
+     * 
+     */
+    public List<GetDirectoryWorkspaceAccessPropertyAccessEndpointConfig> accessEndpointConfigs() {
+        return this.accessEndpointConfigs;
+    }
     /**
      * @return (Optional) Indicates whether users can use Android devices to access their WorkSpaces.
      * 
@@ -118,6 +132,7 @@ public final class GetDirectoryWorkspaceAccessProperty {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<GetDirectoryWorkspaceAccessPropertyAccessEndpointConfig> accessEndpointConfigs;
         private String deviceTypeAndroid;
         private String deviceTypeChromeos;
         private String deviceTypeIos;
@@ -129,6 +144,7 @@ public final class GetDirectoryWorkspaceAccessProperty {
         public Builder() {}
         public Builder(GetDirectoryWorkspaceAccessProperty defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.accessEndpointConfigs = defaults.accessEndpointConfigs;
     	      this.deviceTypeAndroid = defaults.deviceTypeAndroid;
     	      this.deviceTypeChromeos = defaults.deviceTypeChromeos;
     	      this.deviceTypeIos = defaults.deviceTypeIos;
@@ -139,6 +155,17 @@ public final class GetDirectoryWorkspaceAccessProperty {
     	      this.deviceTypeZeroclient = defaults.deviceTypeZeroclient;
         }
 
+        @CustomType.Setter
+        public Builder accessEndpointConfigs(List<GetDirectoryWorkspaceAccessPropertyAccessEndpointConfig> accessEndpointConfigs) {
+            if (accessEndpointConfigs == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryWorkspaceAccessProperty", "accessEndpointConfigs");
+            }
+            this.accessEndpointConfigs = accessEndpointConfigs;
+            return this;
+        }
+        public Builder accessEndpointConfigs(GetDirectoryWorkspaceAccessPropertyAccessEndpointConfig... accessEndpointConfigs) {
+            return accessEndpointConfigs(List.of(accessEndpointConfigs));
+        }
         @CustomType.Setter
         public Builder deviceTypeAndroid(String deviceTypeAndroid) {
             if (deviceTypeAndroid == null) {
@@ -205,6 +232,7 @@ public final class GetDirectoryWorkspaceAccessProperty {
         }
         public GetDirectoryWorkspaceAccessProperty build() {
             final var _resultValue = new GetDirectoryWorkspaceAccessProperty();
+            _resultValue.accessEndpointConfigs = accessEndpointConfigs;
             _resultValue.deviceTypeAndroid = deviceTypeAndroid;
             _resultValue.deviceTypeChromeos = deviceTypeChromeos;
             _resultValue.deviceTypeIos = deviceTypeIos;

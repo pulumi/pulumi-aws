@@ -159,12 +159,14 @@ type ClusterInstance struct {
 	// Specifies whether the DB cluster is encrypted.
 	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
 	// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// For more detailed documentation about each argument, refer to
-	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
+	WarningEventCategories pulumi.StringArrayOutput `pulumi:"warningEventCategories"`
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
 	Writer pulumi.BoolOutput `pulumi:"writer"`
 }
@@ -276,12 +278,14 @@ type clusterInstanceState struct {
 	// Specifies whether the DB cluster is encrypted.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
 	// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// For more detailed documentation about each argument, refer to
-	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
+	WarningEventCategories []string `pulumi:"warningEventCategories"`
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
 	Writer *bool `pulumi:"writer"`
 }
@@ -355,12 +359,14 @@ type ClusterInstanceState struct {
 	// Specifies whether the DB cluster is encrypted.
 	StorageEncrypted pulumi.BoolPtrInput
 	// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// For more detailed documentation about each argument, refer to
-	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
+	// Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
+	WarningEventCategories pulumi.StringArrayInput
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
 	Writer pulumi.BoolPtrInput
 }
@@ -422,10 +428,12 @@ type clusterInstanceArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
 	//
 	// For more detailed documentation about each argument, refer to
 	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
-	Tags map[string]string `pulumi:"tags"`
+	WarningEventCategories []string `pulumi:"warningEventCategories"`
 }
 
 // The set of arguments for constructing a ClusterInstance resource.
@@ -482,10 +490,12 @@ type ClusterInstanceArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
 	//
 	// For more detailed documentation about each argument, refer to
 	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
-	Tags pulumi.StringMapInput
+	WarningEventCategories pulumi.StringArrayInput
 }
 
 func (ClusterInstanceArgs) ElementType() reflect.Type {
@@ -742,9 +752,6 @@ func (o ClusterInstanceOutput) StorageEncrypted() pulumi.BoolOutput {
 }
 
 // Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-//
-// For more detailed documentation about each argument, refer to
-// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
 func (o ClusterInstanceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -752,6 +759,14 @@ func (o ClusterInstanceOutput) Tags() pulumi.StringMapOutput {
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ClusterInstanceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+//
+// For more detailed documentation about each argument, refer to
+// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
+func (o ClusterInstanceOutput) WarningEventCategories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringArrayOutput { return v.WarningEventCategories }).(pulumi.StringArrayOutput)
 }
 
 // Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.

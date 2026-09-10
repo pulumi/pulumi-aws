@@ -13,6 +13,9 @@
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
   },
+  "aws_accountaccess_entitlement": {
+    "hasUsableRegion": true
+  },
   "aws_acm_certificate": {
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
@@ -35,6 +38,11 @@
   },
   "aws_acmpca_policy": {
     "hasUsableRegion": true
+  },
+  "aws_agentregistry_registry": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
   },
   "aws_alb": {
     "hasInputName": true,
@@ -665,6 +673,9 @@
     "hasInputName": true,
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
+  },
+  "aws_bedrock_model_invocation_job": {
+    "hasUsableRegion": true
   },
   "aws_bedrock_model_invocation_logging_configuration": {
     "hasUsableRegion": true
@@ -1782,11 +1793,21 @@
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
   },
+  "aws_dms_data_provider": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
   "aws_dms_endpoint": {
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
   },
   "aws_dms_event_subscription": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_dms_instance_profile": {
     "hasInputName": true,
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
@@ -2547,6 +2568,9 @@
   "aws_fis_experiment_template": {
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
+  },
+  "aws_fis_safety_lever_state": {
+    "hasUsableRegion": true
   },
   "aws_fis_target_account_configuration": {
     "hasUsableRegion": true

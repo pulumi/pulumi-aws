@@ -39,6 +39,8 @@ if typing.TYPE_CHECKING:
     acm = __acm
     import pulumi_aws.acmpca as __acmpca
     acmpca = __acmpca
+    import pulumi_aws.agentregistry as __agentregistry
+    agentregistry = __agentregistry
     import pulumi_aws.alb as __alb
     alb = __alb
     import pulumi_aws.amp as __amp
@@ -505,6 +507,7 @@ else:
     accountaccess = _utilities.lazy_import('pulumi_aws.accountaccess')
     acm = _utilities.lazy_import('pulumi_aws.acm')
     acmpca = _utilities.lazy_import('pulumi_aws.acmpca')
+    agentregistry = _utilities.lazy_import('pulumi_aws.agentregistry')
     alb = _utilities.lazy_import('pulumi_aws.alb')
     amp = _utilities.lazy_import('pulumi_aws.amp')
     amplify = _utilities.lazy_import('pulumi_aws.amplify')
@@ -789,6 +792,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "accountaccess/entitlement",
+  "fqn": "pulumi_aws.accountaccess",
+  "classes": {
+   "aws:accountaccess/entitlement:Entitlement": "Entitlement"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "acm/certificate",
   "fqn": "pulumi_aws.acm",
   "classes": {
@@ -841,6 +852,14 @@ _utilities.register(
   "fqn": "pulumi_aws.acmpca",
   "classes": {
    "aws:acmpca/policy:Policy": "Policy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "agentregistry/registry",
+  "fqn": "pulumi_aws.agentregistry",
+  "classes": {
+   "aws:agentregistry/registry:Registry": "Registry"
   }
  },
  {
@@ -2417,6 +2436,14 @@ _utilities.register(
   "fqn": "pulumi_aws.bedrockfoundation",
   "classes": {
    "aws:bedrockfoundation/modelAgreement:ModelAgreement": "ModelAgreement"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "bedrockmodel/invocationJob",
+  "fqn": "pulumi_aws.bedrockmodel",
+  "classes": {
+   "aws:bedrockmodel/invocationJob:InvocationJob": "InvocationJob"
   }
  },
  {
@@ -4549,6 +4576,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "dms/dataProvider",
+  "fqn": "pulumi_aws.dms",
+  "classes": {
+   "aws:dms/dataProvider:DataProvider": "DataProvider"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "dms/endpoint",
   "fqn": "pulumi_aws.dms",
   "classes": {
@@ -4561,6 +4596,14 @@ _utilities.register(
   "fqn": "pulumi_aws.dms",
   "classes": {
    "aws:dms/eventSubscription:EventSubscription": "EventSubscription"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "dms/instanceProfile",
+  "fqn": "pulumi_aws.dms",
+  "classes": {
+   "aws:dms/instanceProfile:InstanceProfile": "InstanceProfile"
   }
  },
  {
@@ -6673,6 +6716,14 @@ _utilities.register(
   "fqn": "pulumi_aws.fis",
   "classes": {
    "aws:fis/experimentTemplate:ExperimentTemplate": "ExperimentTemplate"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "fis/safetyLeverState",
+  "fqn": "pulumi_aws.fis",
+  "classes": {
+   "aws:fis/safetyLeverState:SafetyLeverState": "SafetyLeverState"
   }
  },
  {

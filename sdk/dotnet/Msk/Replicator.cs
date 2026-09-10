@@ -101,6 +101,202 @@ namespace Pulumi.Aws.Msk
     /// });
     /// ```
     /// 
+    /// ### Self-Managed Apache Kafka Cluster Target
+    /// 
+    /// Replicate from an Amazon MSK cluster to a self-managed or on-premises Apache Kafka cluster, authenticating to the Apache Kafka cluster with SASL/SCRAM and trusting a custom root CA chain.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Msk.Replicator("test", new()
+    ///     {
+    ///         ReplicationInfoList = new Aws.Msk.Inputs.ReplicatorReplicationInfoListArgs
+    ///         {
+    ///             ConsumerGroupReplications = new[]
+    ///             {
+    ///                 new Aws.Msk.Inputs.ReplicatorReplicationInfoListConsumerGroupReplicationArgs
+    ///                 {
+    ///                     ConsumerGroupsToReplicates = new[]
+    ///                     {
+    ///                         ".*",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             TopicReplications = new[]
+    ///             {
+    ///                 new Aws.Msk.Inputs.ReplicatorReplicationInfoListTopicReplicationArgs
+    ///                 {
+    ///                     TopicNameConfiguration = new Aws.Msk.Inputs.ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs
+    ///                     {
+    ///                         Type = "PREFIXED_WITH_SOURCE_CLUSTER_ALIAS",
+    ///                     },
+    ///                     StartingPosition = new Aws.Msk.Inputs.ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs
+    ///                     {
+    ///                         Type = "LATEST",
+    ///                     },
+    ///                     TopicsToReplicates = new[]
+    ///                     {
+    ///                         ".*",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             SourceKafkaClusterArn = source.Arn,
+    ///             TargetKafkaClusterId = "target-apache-kafka-cluster",
+    ///             TargetCompressionType = "NONE",
+    ///         },
+    ///         KafkaClusters = new[]
+    ///         {
+    ///             new Aws.Msk.Inputs.ReplicatorKafkaClusterArgs
+    ///             {
+    ///                 AmazonMskCluster = new Aws.Msk.Inputs.ReplicatorKafkaClusterAmazonMskClusterArgs
+    ///                 {
+    ///                     MskClusterArn = source.Arn,
+    ///                 },
+    ///                 VpcConfig = new Aws.Msk.Inputs.ReplicatorKafkaClusterVpcConfigArgs
+    ///                 {
+    ///                     SubnetIds = sourceAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
+    ///                     SecurityGroupsIds = new[]
+    ///                     {
+    ///                         sourceAwsSecurityGroup.Id,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Aws.Msk.Inputs.ReplicatorKafkaClusterArgs
+    ///             {
+    ///                 ApacheKafkaCluster = new Aws.Msk.Inputs.ReplicatorKafkaClusterApacheKafkaClusterArgs
+    ///                 {
+    ///                     ApacheKafkaClusterId = "target-apache-kafka-cluster",
+    ///                     BootstrapBrokerString = "b-1.example.com:9096,b-2.example.com:9096",
+    ///                 },
+    ///                 ClientAuthentication = new Aws.Msk.Inputs.ReplicatorKafkaClusterClientAuthenticationArgs
+    ///                 {
+    ///                     SaslScram = new Aws.Msk.Inputs.ReplicatorKafkaClusterClientAuthenticationSaslScramArgs
+    ///                     {
+    ///                         Mechanism = "SHA512",
+    ///                         SecretArn = target.Arn,
+    ///                     },
+    ///                 },
+    ///                 EncryptionInTransit = new Aws.Msk.Inputs.ReplicatorKafkaClusterEncryptionInTransitArgs
+    ///                 {
+    ///                     RootCaCertificate = rootCa.Arn,
+    ///                 },
+    ///             },
+    ///         },
+    ///         ReplicatorName = "test-name",
+    ///         Description = "test-description",
+    ///         ServiceExecutionRoleArn = sourceAwsIamRole.Arn,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### With Log Delivery
+    /// 
+    /// Deliver replicator logs to CloudWatch Logs, Amazon Data Firehose, and Amazon S3.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Msk.Replicator("test", new()
+    ///     {
+    ///         ReplicationInfoList = new Aws.Msk.Inputs.ReplicatorReplicationInfoListArgs
+    ///         {
+    ///             ConsumerGroupReplications = new[]
+    ///             {
+    ///                 new Aws.Msk.Inputs.ReplicatorReplicationInfoListConsumerGroupReplicationArgs
+    ///                 {
+    ///                     ConsumerGroupsToReplicates = new[]
+    ///                     {
+    ///                         ".*",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             TopicReplications = new[]
+    ///             {
+    ///                 new Aws.Msk.Inputs.ReplicatorReplicationInfoListTopicReplicationArgs
+    ///                 {
+    ///                     TopicsToReplicates = new[]
+    ///                     {
+    ///                         ".*",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             SourceKafkaClusterArn = source.Arn,
+    ///             TargetKafkaClusterArn = target.Arn,
+    ///             TargetCompressionType = "NONE",
+    ///         },
+    ///         LogDelivery = new Aws.Msk.Inputs.ReplicatorLogDeliveryArgs
+    ///         {
+    ///             LogDelivery = new Aws.Msk.Inputs.ReplicatorLogDeliveryReplicatorLogDeliveryArgs
+    ///             {
+    ///                 CloudwatchLogs = new Aws.Msk.Inputs.ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                     LogGroup = testAwsCloudwatchLogGroup.Name,
+    ///                 },
+    ///                 Firehose = new Aws.Msk.Inputs.ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                     DeliveryStream = testAwsKinesisFirehoseDeliveryStream.Name,
+    ///                 },
+    ///                 S3 = new Aws.Msk.Inputs.ReplicatorLogDeliveryReplicatorLogDeliveryS3Args
+    ///                 {
+    ///                     Enabled = true,
+    ///                     Bucket = testAwsS3Bucket.Bucket,
+    ///                     Prefix = "replicator-logs",
+    ///                 },
+    ///             },
+    ///         },
+    ///         KafkaClusters = new[]
+    ///         {
+    ///             new Aws.Msk.Inputs.ReplicatorKafkaClusterArgs
+    ///             {
+    ///                 AmazonMskCluster = new Aws.Msk.Inputs.ReplicatorKafkaClusterAmazonMskClusterArgs
+    ///                 {
+    ///                     MskClusterArn = source.Arn,
+    ///                 },
+    ///                 VpcConfig = new Aws.Msk.Inputs.ReplicatorKafkaClusterVpcConfigArgs
+    ///                 {
+    ///                     SubnetIds = sourceAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
+    ///                     SecurityGroupsIds = new[]
+    ///                     {
+    ///                         sourceAwsSecurityGroup.Id,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Aws.Msk.Inputs.ReplicatorKafkaClusterArgs
+    ///             {
+    ///                 AmazonMskCluster = new Aws.Msk.Inputs.ReplicatorKafkaClusterAmazonMskClusterArgs
+    ///                 {
+    ///                     MskClusterArn = target.Arn,
+    ///                 },
+    ///                 VpcConfig = new Aws.Msk.Inputs.ReplicatorKafkaClusterVpcConfigArgs
+    ///                 {
+    ///                     SubnetIds = targetAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
+    ///                     SecurityGroupsIds = new[]
+    ///                     {
+    ///                         targetAwsSecurityGroup.Id,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ReplicatorName = "test-name",
+    ///         ServiceExecutionRoleArn = sourceAwsIamRole.Arn,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ### Identity Schema
@@ -134,7 +330,7 @@ namespace Pulumi.Aws.Msk
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A list of Kafka clusters which are targets of the replicator.
+        /// The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
         /// </summary>
         [Output("kafkaClusters")]
         public Output<ImmutableArray<Outputs.ReplicatorKafkaCluster>> KafkaClusters { get; private set; } = null!;
@@ -237,7 +433,7 @@ namespace Pulumi.Aws.Msk
         private InputList<Inputs.ReplicatorKafkaClusterArgs>? _kafkaClusters;
 
         /// <summary>
-        /// A list of Kafka clusters which are targets of the replicator.
+        /// The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
         /// </summary>
         public InputList<Inputs.ReplicatorKafkaClusterArgs> KafkaClusters
         {
@@ -314,7 +510,7 @@ namespace Pulumi.Aws.Msk
         private InputList<Inputs.ReplicatorKafkaClusterGetArgs>? _kafkaClusters;
 
         /// <summary>
-        /// A list of Kafka clusters which are targets of the replicator.
+        /// The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
         /// </summary>
         public InputList<Inputs.ReplicatorKafkaClusterGetArgs> KafkaClusters
         {

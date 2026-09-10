@@ -62,6 +62,126 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Self-Managed Apache Kafka Cluster Target
+ *
+ * Replicate from an Amazon MSK cluster to a self-managed or on-premises Apache Kafka cluster, authenticating to the Apache Kafka cluster with SASL/SCRAM and trusting a custom root CA chain.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.msk.Replicator("test", {
+ *     replicationInfoList: {
+ *         consumerGroupReplications: [{
+ *             consumerGroupsToReplicates: [".*"],
+ *         }],
+ *         topicReplications: [{
+ *             topicNameConfiguration: {
+ *                 type: "PREFIXED_WITH_SOURCE_CLUSTER_ALIAS",
+ *             },
+ *             startingPosition: {
+ *                 type: "LATEST",
+ *             },
+ *             topicsToReplicates: [".*"],
+ *         }],
+ *         sourceKafkaClusterArn: source.arn,
+ *         targetKafkaClusterId: "target-apache-kafka-cluster",
+ *         targetCompressionType: "NONE",
+ *     },
+ *     kafkaClusters: [
+ *         {
+ *             amazonMskCluster: {
+ *                 mskClusterArn: source.arn,
+ *             },
+ *             vpcConfig: {
+ *                 subnetIds: sourceAwsSubnet.map(__item => __item.id),
+ *                 securityGroupsIds: [sourceAwsSecurityGroup.id],
+ *             },
+ *         },
+ *         {
+ *             apacheKafkaCluster: {
+ *                 apacheKafkaClusterId: "target-apache-kafka-cluster",
+ *                 bootstrapBrokerString: "b-1.example.com:9096,b-2.example.com:9096",
+ *             },
+ *             clientAuthentication: {
+ *                 saslScram: {
+ *                     mechanism: "SHA512",
+ *                     secretArn: target.arn,
+ *                 },
+ *             },
+ *             encryptionInTransit: {
+ *                 rootCaCertificate: rootCa.arn,
+ *             },
+ *         },
+ *     ],
+ *     replicatorName: "test-name",
+ *     description: "test-description",
+ *     serviceExecutionRoleArn: sourceAwsIamRole.arn,
+ * });
+ * ```
+ *
+ * ### With Log Delivery
+ *
+ * Deliver replicator logs to CloudWatch Logs, Amazon Data Firehose, and Amazon S3.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.msk.Replicator("test", {
+ *     replicationInfoList: {
+ *         consumerGroupReplications: [{
+ *             consumerGroupsToReplicates: [".*"],
+ *         }],
+ *         topicReplications: [{
+ *             topicsToReplicates: [".*"],
+ *         }],
+ *         sourceKafkaClusterArn: source.arn,
+ *         targetKafkaClusterArn: target.arn,
+ *         targetCompressionType: "NONE",
+ *     },
+ *     logDelivery: {
+ *         replicatorLogDelivery: {
+ *             cloudwatchLogs: {
+ *                 enabled: true,
+ *                 logGroup: testAwsCloudwatchLogGroup.name,
+ *             },
+ *             firehose: {
+ *                 enabled: true,
+ *                 deliveryStream: testAwsKinesisFirehoseDeliveryStream.name,
+ *             },
+ *             s3: {
+ *                 enabled: true,
+ *                 bucket: testAwsS3Bucket.bucket,
+ *                 prefix: "replicator-logs",
+ *             },
+ *         },
+ *     },
+ *     kafkaClusters: [
+ *         {
+ *             amazonMskCluster: {
+ *                 mskClusterArn: source.arn,
+ *             },
+ *             vpcConfig: {
+ *                 subnetIds: sourceAwsSubnet.map(__item => __item.id),
+ *                 securityGroupsIds: [sourceAwsSecurityGroup.id],
+ *             },
+ *         },
+ *         {
+ *             amazonMskCluster: {
+ *                 mskClusterArn: target.arn,
+ *             },
+ *             vpcConfig: {
+ *                 subnetIds: targetAwsSubnet.map(__item => __item.id),
+ *                 securityGroupsIds: [targetAwsSecurityGroup.id],
+ *             },
+ *         },
+ *     ],
+ *     replicatorName: "test-name",
+ *     serviceExecutionRoleArn: sourceAwsIamRole.arn,
+ * });
+ * ```
+ *
  * ## Import
  *
  * ### Identity Schema
@@ -114,7 +234,7 @@ export class Replicator extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * A list of Kafka clusters which are targets of the replicator.
+     * The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
      */
     declare public readonly kafkaClusters: pulumi.Output<outputs.msk.ReplicatorKafkaCluster[]>;
     /**
@@ -215,7 +335,7 @@ export interface ReplicatorState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * A list of Kafka clusters which are targets of the replicator.
+     * The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
      */
     kafkaClusters?: pulumi.Input<pulumi.Input<inputs.msk.ReplicatorKafkaCluster>[] | undefined>;
     /**
@@ -257,7 +377,7 @@ export interface ReplicatorArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * A list of Kafka clusters which are targets of the replicator.
+     * The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
      */
     kafkaClusters: pulumi.Input<pulumi.Input<inputs.msk.ReplicatorKafkaCluster>[]>;
     /**

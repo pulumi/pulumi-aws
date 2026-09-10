@@ -117,10 +117,22 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// ## Import
     /// 
-    /// For backwards compatibility, the following legacy `pulumi import` command is also supported:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `FunctionName` (String) Name or ARN of the Lambda function.
+    /// * `Name` (String) Name of the alias.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import Lambda Function Aliases using `function_name/alias`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:lambda/alias:Alias example example/production
+    /// $ pulumi import aws:lambda/alias:Alias example example-function/production
     /// ```
     /// </summary>
     [AwsResourceType("aws:lambda/alias:Alias")]

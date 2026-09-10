@@ -982,6 +982,12 @@ namespace Pulumi.Aws.Rds
         [Output("vpcSecurityGroupIds")]
         public Output<ImmutableArray<string>> VpcSecurityGroupIds { get; private set; } = null!;
 
+        /// <summary>
+        /// Set of RDS event categories (for example `Failure`, `Maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+        /// </summary>
+        [Output("warningEventCategories")]
+        public Output<ImmutableArray<string>> WarningEventCategories { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Instance resource with the given unique name, arguments, and options.
@@ -1589,6 +1595,18 @@ namespace Pulumi.Aws.Rds
         {
             get => _vpcSecurityGroupIds ?? (_vpcSecurityGroupIds = new InputList<string>());
             set => _vpcSecurityGroupIds = value;
+        }
+
+        [Input("warningEventCategories")]
+        private InputList<string>? _warningEventCategories;
+
+        /// <summary>
+        /// Set of RDS event categories (for example `Failure`, `Maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+        /// </summary>
+        public InputList<string> WarningEventCategories
+        {
+            get => _warningEventCategories ?? (_warningEventCategories = new InputList<string>());
+            set => _warningEventCategories = value;
         }
 
         public InstanceArgs()
@@ -2253,6 +2271,18 @@ namespace Pulumi.Aws.Rds
         {
             get => _vpcSecurityGroupIds ?? (_vpcSecurityGroupIds = new InputList<string>());
             set => _vpcSecurityGroupIds = value;
+        }
+
+        [Input("warningEventCategories")]
+        private InputList<string>? _warningEventCategories;
+
+        /// <summary>
+        /// Set of RDS event categories (for example `Failure`, `Maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+        /// </summary>
+        public InputList<string> WarningEventCategories
+        {
+            get => _warningEventCategories ?? (_warningEventCategories = new InputList<string>());
+            set => _warningEventCategories = value;
         }
 
         public InstanceState()

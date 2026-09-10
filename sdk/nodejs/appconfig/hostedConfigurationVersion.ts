@@ -189,6 +189,10 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
+     * User-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character.
+     */
+    declare public readonly versionLabel: pulumi.Output<string | undefined>;
+    /**
      * Version number of the hosted configuration.
      */
     declare public /*out*/ readonly versionNumber: pulumi.Output<number>;
@@ -213,6 +217,7 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
             resourceInputs["contentType"] = state?.contentType;
             resourceInputs["description"] = state?.description;
             resourceInputs["region"] = state?.region;
+            resourceInputs["versionLabel"] = state?.versionLabel;
             resourceInputs["versionNumber"] = state?.versionNumber;
         } else {
             const args = argsOrState as HostedConfigurationVersionArgs | undefined;
@@ -234,6 +239,7 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
             resourceInputs["contentType"] = args?.contentType;
             resourceInputs["description"] = args?.description;
             resourceInputs["region"] = args?.region;
+            resourceInputs["versionLabel"] = args?.versionLabel;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["versionNumber"] = undefined /*out*/;
         }
@@ -277,6 +283,10 @@ export interface HostedConfigurationVersionState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
+     * User-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character.
+     */
+    versionLabel?: pulumi.Input<string | undefined>;
+    /**
      * Version number of the hosted configuration.
      */
     versionNumber?: pulumi.Input<number | undefined>;
@@ -310,4 +320,8 @@ export interface HostedConfigurationVersionArgs {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
+    /**
+     * User-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character.
+     */
+    versionLabel?: pulumi.Input<string | undefined>;
 }

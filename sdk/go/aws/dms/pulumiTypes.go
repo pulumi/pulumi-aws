@@ -13,6 +13,3119 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type DataProviderSettings struct {
+	// Settings for the `docdb` engine. See `docDbSettings` Block below.
+	DocDbSettings *DataProviderSettingsDocDbSettings `pulumi:"docDbSettings"`
+	// Settings for the `db2` engine. See `ibmDb2LuwSettings` Block below.
+	IbmDb2LuwSettings *DataProviderSettingsIbmDb2LuwSettings `pulumi:"ibmDb2LuwSettings"`
+	// Settings for the `db2-zos` engine. See `ibmDb2ZosSettings` Block below.
+	IbmDb2ZosSettings *DataProviderSettingsIbmDb2ZosSettings `pulumi:"ibmDb2ZosSettings"`
+	// Settings for the `mariadb` engine. See `mariaDbSettings` Block below.
+	MariaDbSettings *DataProviderSettingsMariaDbSettings `pulumi:"mariaDbSettings"`
+	// Settings for the `sqlserver` engine. See `microsoftSqlServerSettings` Block below.
+	MicrosoftSqlServerSettings *DataProviderSettingsMicrosoftSqlServerSettings `pulumi:"microsoftSqlServerSettings"`
+	// Settings for the `mongodb` engine. See `mongoDbSettings` Block below.
+	MongoDbSettings *DataProviderSettingsMongoDbSettings `pulumi:"mongoDbSettings"`
+	// Settings for the `mysql` and `aurora` engines. See `mysqlSettings` Block below.
+	MysqlSettings *DataProviderSettingsMysqlSettings `pulumi:"mysqlSettings"`
+	// Settings for the `oracle` engine. See `oracleSettings` Block below.
+	OracleSettings *DataProviderSettingsOracleSettings `pulumi:"oracleSettings"`
+	// Settings for the `postgres` and `aurora-postgresql` engines. See `postgresqlSettings` Block below.
+	PostgresqlSettings *DataProviderSettingsPostgresqlSettings `pulumi:"postgresqlSettings"`
+	// Settings for the `redshift` engine. See `redshiftSettings` Block below.
+	RedshiftSettings *DataProviderSettingsRedshiftSettings `pulumi:"redshiftSettings"`
+	// Settings for the `sybase` engine. See `sybaseAseSettings` Block below.
+	SybaseAseSettings *DataProviderSettingsSybaseAseSettings `pulumi:"sybaseAseSettings"`
+}
+
+// DataProviderSettingsInput is an input type that accepts DataProviderSettingsArgs and DataProviderSettingsOutput values.
+// You can construct a concrete instance of `DataProviderSettingsInput` via:
+//
+//	DataProviderSettingsArgs{...}
+type DataProviderSettingsInput interface {
+	pulumi.Input
+
+	ToDataProviderSettingsOutput() DataProviderSettingsOutput
+	ToDataProviderSettingsOutputWithContext(context.Context) DataProviderSettingsOutput
+}
+
+type DataProviderSettingsArgs struct {
+	// Settings for the `docdb` engine. See `docDbSettings` Block below.
+	DocDbSettings DataProviderSettingsDocDbSettingsPtrInput `pulumi:"docDbSettings"`
+	// Settings for the `db2` engine. See `ibmDb2LuwSettings` Block below.
+	IbmDb2LuwSettings DataProviderSettingsIbmDb2LuwSettingsPtrInput `pulumi:"ibmDb2LuwSettings"`
+	// Settings for the `db2-zos` engine. See `ibmDb2ZosSettings` Block below.
+	IbmDb2ZosSettings DataProviderSettingsIbmDb2ZosSettingsPtrInput `pulumi:"ibmDb2ZosSettings"`
+	// Settings for the `mariadb` engine. See `mariaDbSettings` Block below.
+	MariaDbSettings DataProviderSettingsMariaDbSettingsPtrInput `pulumi:"mariaDbSettings"`
+	// Settings for the `sqlserver` engine. See `microsoftSqlServerSettings` Block below.
+	MicrosoftSqlServerSettings DataProviderSettingsMicrosoftSqlServerSettingsPtrInput `pulumi:"microsoftSqlServerSettings"`
+	// Settings for the `mongodb` engine. See `mongoDbSettings` Block below.
+	MongoDbSettings DataProviderSettingsMongoDbSettingsPtrInput `pulumi:"mongoDbSettings"`
+	// Settings for the `mysql` and `aurora` engines. See `mysqlSettings` Block below.
+	MysqlSettings DataProviderSettingsMysqlSettingsPtrInput `pulumi:"mysqlSettings"`
+	// Settings for the `oracle` engine. See `oracleSettings` Block below.
+	OracleSettings DataProviderSettingsOracleSettingsPtrInput `pulumi:"oracleSettings"`
+	// Settings for the `postgres` and `aurora-postgresql` engines. See `postgresqlSettings` Block below.
+	PostgresqlSettings DataProviderSettingsPostgresqlSettingsPtrInput `pulumi:"postgresqlSettings"`
+	// Settings for the `redshift` engine. See `redshiftSettings` Block below.
+	RedshiftSettings DataProviderSettingsRedshiftSettingsPtrInput `pulumi:"redshiftSettings"`
+	// Settings for the `sybase` engine. See `sybaseAseSettings` Block below.
+	SybaseAseSettings DataProviderSettingsSybaseAseSettingsPtrInput `pulumi:"sybaseAseSettings"`
+}
+
+func (DataProviderSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderSettings)(nil)).Elem()
+}
+
+func (i DataProviderSettingsArgs) ToDataProviderSettingsOutput() DataProviderSettingsOutput {
+	return i.ToDataProviderSettingsOutputWithContext(context.Background())
+}
+
+func (i DataProviderSettingsArgs) ToDataProviderSettingsOutputWithContext(ctx context.Context) DataProviderSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsOutput)
+}
+
+func (i DataProviderSettingsArgs) ToDataProviderSettingsPtrOutput() DataProviderSettingsPtrOutput {
+	return i.ToDataProviderSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DataProviderSettingsArgs) ToDataProviderSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsOutput).ToDataProviderSettingsPtrOutputWithContext(ctx)
+}
+
+// DataProviderSettingsPtrInput is an input type that accepts DataProviderSettingsArgs, DataProviderSettingsPtr and DataProviderSettingsPtrOutput values.
+// You can construct a concrete instance of `DataProviderSettingsPtrInput` via:
+//
+//	        DataProviderSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataProviderSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDataProviderSettingsPtrOutput() DataProviderSettingsPtrOutput
+	ToDataProviderSettingsPtrOutputWithContext(context.Context) DataProviderSettingsPtrOutput
+}
+
+type dataProviderSettingsPtrType DataProviderSettingsArgs
+
+func DataProviderSettingsPtr(v *DataProviderSettingsArgs) DataProviderSettingsPtrInput {
+	return (*dataProviderSettingsPtrType)(v)
+}
+
+func (*dataProviderSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProviderSettings)(nil)).Elem()
+}
+
+func (i *dataProviderSettingsPtrType) ToDataProviderSettingsPtrOutput() DataProviderSettingsPtrOutput {
+	return i.ToDataProviderSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataProviderSettingsPtrType) ToDataProviderSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsPtrOutput)
+}
+
+type DataProviderSettingsOutput struct{ *pulumi.OutputState }
+
+func (DataProviderSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderSettings)(nil)).Elem()
+}
+
+func (o DataProviderSettingsOutput) ToDataProviderSettingsOutput() DataProviderSettingsOutput {
+	return o
+}
+
+func (o DataProviderSettingsOutput) ToDataProviderSettingsOutputWithContext(ctx context.Context) DataProviderSettingsOutput {
+	return o
+}
+
+func (o DataProviderSettingsOutput) ToDataProviderSettingsPtrOutput() DataProviderSettingsPtrOutput {
+	return o.ToDataProviderSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DataProviderSettingsOutput) ToDataProviderSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataProviderSettings) *DataProviderSettings {
+		return &v
+	}).(DataProviderSettingsPtrOutput)
+}
+
+// Settings for the `docdb` engine. See `docDbSettings` Block below.
+func (o DataProviderSettingsOutput) DocDbSettings() DataProviderSettingsDocDbSettingsPtrOutput {
+	return o.ApplyT(func(v DataProviderSettings) *DataProviderSettingsDocDbSettings { return v.DocDbSettings }).(DataProviderSettingsDocDbSettingsPtrOutput)
+}
+
+// Settings for the `db2` engine. See `ibmDb2LuwSettings` Block below.
+func (o DataProviderSettingsOutput) IbmDb2LuwSettings() DataProviderSettingsIbmDb2LuwSettingsPtrOutput {
+	return o.ApplyT(func(v DataProviderSettings) *DataProviderSettingsIbmDb2LuwSettings { return v.IbmDb2LuwSettings }).(DataProviderSettingsIbmDb2LuwSettingsPtrOutput)
+}
+
+// Settings for the `db2-zos` engine. See `ibmDb2ZosSettings` Block below.
+func (o DataProviderSettingsOutput) IbmDb2ZosSettings() DataProviderSettingsIbmDb2ZosSettingsPtrOutput {
+	return o.ApplyT(func(v DataProviderSettings) *DataProviderSettingsIbmDb2ZosSettings { return v.IbmDb2ZosSettings }).(DataProviderSettingsIbmDb2ZosSettingsPtrOutput)
+}
+
+// Settings for the `mariadb` engine. See `mariaDbSettings` Block below.
+func (o DataProviderSettingsOutput) MariaDbSettings() DataProviderSettingsMariaDbSettingsPtrOutput {
+	return o.ApplyT(func(v DataProviderSettings) *DataProviderSettingsMariaDbSettings { return v.MariaDbSettings }).(DataProviderSettingsMariaDbSettingsPtrOutput)
+}
+
+// Settings for the `sqlserver` engine. See `microsoftSqlServerSettings` Block below.
+func (o DataProviderSettingsOutput) MicrosoftSqlServerSettings() DataProviderSettingsMicrosoftSqlServerSettingsPtrOutput {
+	return o.ApplyT(func(v DataProviderSettings) *DataProviderSettingsMicrosoftSqlServerSettings {
+		return v.MicrosoftSqlServerSettings
+	}).(DataProviderSettingsMicrosoftSqlServerSettingsPtrOutput)
+}
+
+// Settings for the `mongodb` engine. See `mongoDbSettings` Block below.
+func (o DataProviderSettingsOutput) MongoDbSettings() DataProviderSettingsMongoDbSettingsPtrOutput {
+	return o.ApplyT(func(v DataProviderSettings) *DataProviderSettingsMongoDbSettings { return v.MongoDbSettings }).(DataProviderSettingsMongoDbSettingsPtrOutput)
+}
+
+// Settings for the `mysql` and `aurora` engines. See `mysqlSettings` Block below.
+func (o DataProviderSettingsOutput) MysqlSettings() DataProviderSettingsMysqlSettingsPtrOutput {
+	return o.ApplyT(func(v DataProviderSettings) *DataProviderSettingsMysqlSettings { return v.MysqlSettings }).(DataProviderSettingsMysqlSettingsPtrOutput)
+}
+
+// Settings for the `oracle` engine. See `oracleSettings` Block below.
+func (o DataProviderSettingsOutput) OracleSettings() DataProviderSettingsOracleSettingsPtrOutput {
+	return o.ApplyT(func(v DataProviderSettings) *DataProviderSettingsOracleSettings { return v.OracleSettings }).(DataProviderSettingsOracleSettingsPtrOutput)
+}
+
+// Settings for the `postgres` and `aurora-postgresql` engines. See `postgresqlSettings` Block below.
+func (o DataProviderSettingsOutput) PostgresqlSettings() DataProviderSettingsPostgresqlSettingsPtrOutput {
+	return o.ApplyT(func(v DataProviderSettings) *DataProviderSettingsPostgresqlSettings { return v.PostgresqlSettings }).(DataProviderSettingsPostgresqlSettingsPtrOutput)
+}
+
+// Settings for the `redshift` engine. See `redshiftSettings` Block below.
+func (o DataProviderSettingsOutput) RedshiftSettings() DataProviderSettingsRedshiftSettingsPtrOutput {
+	return o.ApplyT(func(v DataProviderSettings) *DataProviderSettingsRedshiftSettings { return v.RedshiftSettings }).(DataProviderSettingsRedshiftSettingsPtrOutput)
+}
+
+// Settings for the `sybase` engine. See `sybaseAseSettings` Block below.
+func (o DataProviderSettingsOutput) SybaseAseSettings() DataProviderSettingsSybaseAseSettingsPtrOutput {
+	return o.ApplyT(func(v DataProviderSettings) *DataProviderSettingsSybaseAseSettings { return v.SybaseAseSettings }).(DataProviderSettingsSybaseAseSettingsPtrOutput)
+}
+
+type DataProviderSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataProviderSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProviderSettings)(nil)).Elem()
+}
+
+func (o DataProviderSettingsPtrOutput) ToDataProviderSettingsPtrOutput() DataProviderSettingsPtrOutput {
+	return o
+}
+
+func (o DataProviderSettingsPtrOutput) ToDataProviderSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsPtrOutput {
+	return o
+}
+
+func (o DataProviderSettingsPtrOutput) Elem() DataProviderSettingsOutput {
+	return o.ApplyT(func(v *DataProviderSettings) DataProviderSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DataProviderSettings
+		return ret
+	}).(DataProviderSettingsOutput)
+}
+
+// Settings for the `docdb` engine. See `docDbSettings` Block below.
+func (o DataProviderSettingsPtrOutput) DocDbSettings() DataProviderSettingsDocDbSettingsPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettings) *DataProviderSettingsDocDbSettings {
+		if v == nil {
+			return nil
+		}
+		return v.DocDbSettings
+	}).(DataProviderSettingsDocDbSettingsPtrOutput)
+}
+
+// Settings for the `db2` engine. See `ibmDb2LuwSettings` Block below.
+func (o DataProviderSettingsPtrOutput) IbmDb2LuwSettings() DataProviderSettingsIbmDb2LuwSettingsPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettings) *DataProviderSettingsIbmDb2LuwSettings {
+		if v == nil {
+			return nil
+		}
+		return v.IbmDb2LuwSettings
+	}).(DataProviderSettingsIbmDb2LuwSettingsPtrOutput)
+}
+
+// Settings for the `db2-zos` engine. See `ibmDb2ZosSettings` Block below.
+func (o DataProviderSettingsPtrOutput) IbmDb2ZosSettings() DataProviderSettingsIbmDb2ZosSettingsPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettings) *DataProviderSettingsIbmDb2ZosSettings {
+		if v == nil {
+			return nil
+		}
+		return v.IbmDb2ZosSettings
+	}).(DataProviderSettingsIbmDb2ZosSettingsPtrOutput)
+}
+
+// Settings for the `mariadb` engine. See `mariaDbSettings` Block below.
+func (o DataProviderSettingsPtrOutput) MariaDbSettings() DataProviderSettingsMariaDbSettingsPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettings) *DataProviderSettingsMariaDbSettings {
+		if v == nil {
+			return nil
+		}
+		return v.MariaDbSettings
+	}).(DataProviderSettingsMariaDbSettingsPtrOutput)
+}
+
+// Settings for the `sqlserver` engine. See `microsoftSqlServerSettings` Block below.
+func (o DataProviderSettingsPtrOutput) MicrosoftSqlServerSettings() DataProviderSettingsMicrosoftSqlServerSettingsPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettings) *DataProviderSettingsMicrosoftSqlServerSettings {
+		if v == nil {
+			return nil
+		}
+		return v.MicrosoftSqlServerSettings
+	}).(DataProviderSettingsMicrosoftSqlServerSettingsPtrOutput)
+}
+
+// Settings for the `mongodb` engine. See `mongoDbSettings` Block below.
+func (o DataProviderSettingsPtrOutput) MongoDbSettings() DataProviderSettingsMongoDbSettingsPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettings) *DataProviderSettingsMongoDbSettings {
+		if v == nil {
+			return nil
+		}
+		return v.MongoDbSettings
+	}).(DataProviderSettingsMongoDbSettingsPtrOutput)
+}
+
+// Settings for the `mysql` and `aurora` engines. See `mysqlSettings` Block below.
+func (o DataProviderSettingsPtrOutput) MysqlSettings() DataProviderSettingsMysqlSettingsPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettings) *DataProviderSettingsMysqlSettings {
+		if v == nil {
+			return nil
+		}
+		return v.MysqlSettings
+	}).(DataProviderSettingsMysqlSettingsPtrOutput)
+}
+
+// Settings for the `oracle` engine. See `oracleSettings` Block below.
+func (o DataProviderSettingsPtrOutput) OracleSettings() DataProviderSettingsOracleSettingsPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettings) *DataProviderSettingsOracleSettings {
+		if v == nil {
+			return nil
+		}
+		return v.OracleSettings
+	}).(DataProviderSettingsOracleSettingsPtrOutput)
+}
+
+// Settings for the `postgres` and `aurora-postgresql` engines. See `postgresqlSettings` Block below.
+func (o DataProviderSettingsPtrOutput) PostgresqlSettings() DataProviderSettingsPostgresqlSettingsPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettings) *DataProviderSettingsPostgresqlSettings {
+		if v == nil {
+			return nil
+		}
+		return v.PostgresqlSettings
+	}).(DataProviderSettingsPostgresqlSettingsPtrOutput)
+}
+
+// Settings for the `redshift` engine. See `redshiftSettings` Block below.
+func (o DataProviderSettingsPtrOutput) RedshiftSettings() DataProviderSettingsRedshiftSettingsPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettings) *DataProviderSettingsRedshiftSettings {
+		if v == nil {
+			return nil
+		}
+		return v.RedshiftSettings
+	}).(DataProviderSettingsRedshiftSettingsPtrOutput)
+}
+
+// Settings for the `sybase` engine. See `sybaseAseSettings` Block below.
+func (o DataProviderSettingsPtrOutput) SybaseAseSettings() DataProviderSettingsSybaseAseSettingsPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettings) *DataProviderSettingsSybaseAseSettings {
+		if v == nil {
+			return nil
+		}
+		return v.SybaseAseSettings
+	}).(DataProviderSettingsSybaseAseSettingsPtrOutput)
+}
+
+type DataProviderSettingsDocDbSettings struct {
+	// ARN of the DMS certificate used for the SSL connection.
+	CertificateArn *string `pulumi:"certificateArn"`
+	// Database name on the DocumentDB data provider.
+	DatabaseName *string `pulumi:"databaseName"`
+	// Port of the DocumentDB server. Valid values are between `1` and `65535`.
+	Port *int `pulumi:"port"`
+	// Hostname of the DocumentDB server.
+	ServerName *string `pulumi:"serverName"`
+	// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+	SslMode *string `pulumi:"sslMode"`
+}
+
+// DataProviderSettingsDocDbSettingsInput is an input type that accepts DataProviderSettingsDocDbSettingsArgs and DataProviderSettingsDocDbSettingsOutput values.
+// You can construct a concrete instance of `DataProviderSettingsDocDbSettingsInput` via:
+//
+//	DataProviderSettingsDocDbSettingsArgs{...}
+type DataProviderSettingsDocDbSettingsInput interface {
+	pulumi.Input
+
+	ToDataProviderSettingsDocDbSettingsOutput() DataProviderSettingsDocDbSettingsOutput
+	ToDataProviderSettingsDocDbSettingsOutputWithContext(context.Context) DataProviderSettingsDocDbSettingsOutput
+}
+
+type DataProviderSettingsDocDbSettingsArgs struct {
+	// ARN of the DMS certificate used for the SSL connection.
+	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
+	// Database name on the DocumentDB data provider.
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	// Port of the DocumentDB server. Valid values are between `1` and `65535`.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// Hostname of the DocumentDB server.
+	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
+	// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+	SslMode pulumi.StringPtrInput `pulumi:"sslMode"`
+}
+
+func (DataProviderSettingsDocDbSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderSettingsDocDbSettings)(nil)).Elem()
+}
+
+func (i DataProviderSettingsDocDbSettingsArgs) ToDataProviderSettingsDocDbSettingsOutput() DataProviderSettingsDocDbSettingsOutput {
+	return i.ToDataProviderSettingsDocDbSettingsOutputWithContext(context.Background())
+}
+
+func (i DataProviderSettingsDocDbSettingsArgs) ToDataProviderSettingsDocDbSettingsOutputWithContext(ctx context.Context) DataProviderSettingsDocDbSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsDocDbSettingsOutput)
+}
+
+func (i DataProviderSettingsDocDbSettingsArgs) ToDataProviderSettingsDocDbSettingsPtrOutput() DataProviderSettingsDocDbSettingsPtrOutput {
+	return i.ToDataProviderSettingsDocDbSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DataProviderSettingsDocDbSettingsArgs) ToDataProviderSettingsDocDbSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsDocDbSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsDocDbSettingsOutput).ToDataProviderSettingsDocDbSettingsPtrOutputWithContext(ctx)
+}
+
+// DataProviderSettingsDocDbSettingsPtrInput is an input type that accepts DataProviderSettingsDocDbSettingsArgs, DataProviderSettingsDocDbSettingsPtr and DataProviderSettingsDocDbSettingsPtrOutput values.
+// You can construct a concrete instance of `DataProviderSettingsDocDbSettingsPtrInput` via:
+//
+//	        DataProviderSettingsDocDbSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataProviderSettingsDocDbSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDataProviderSettingsDocDbSettingsPtrOutput() DataProviderSettingsDocDbSettingsPtrOutput
+	ToDataProviderSettingsDocDbSettingsPtrOutputWithContext(context.Context) DataProviderSettingsDocDbSettingsPtrOutput
+}
+
+type dataProviderSettingsDocDbSettingsPtrType DataProviderSettingsDocDbSettingsArgs
+
+func DataProviderSettingsDocDbSettingsPtr(v *DataProviderSettingsDocDbSettingsArgs) DataProviderSettingsDocDbSettingsPtrInput {
+	return (*dataProviderSettingsDocDbSettingsPtrType)(v)
+}
+
+func (*dataProviderSettingsDocDbSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProviderSettingsDocDbSettings)(nil)).Elem()
+}
+
+func (i *dataProviderSettingsDocDbSettingsPtrType) ToDataProviderSettingsDocDbSettingsPtrOutput() DataProviderSettingsDocDbSettingsPtrOutput {
+	return i.ToDataProviderSettingsDocDbSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataProviderSettingsDocDbSettingsPtrType) ToDataProviderSettingsDocDbSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsDocDbSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsDocDbSettingsPtrOutput)
+}
+
+type DataProviderSettingsDocDbSettingsOutput struct{ *pulumi.OutputState }
+
+func (DataProviderSettingsDocDbSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderSettingsDocDbSettings)(nil)).Elem()
+}
+
+func (o DataProviderSettingsDocDbSettingsOutput) ToDataProviderSettingsDocDbSettingsOutput() DataProviderSettingsDocDbSettingsOutput {
+	return o
+}
+
+func (o DataProviderSettingsDocDbSettingsOutput) ToDataProviderSettingsDocDbSettingsOutputWithContext(ctx context.Context) DataProviderSettingsDocDbSettingsOutput {
+	return o
+}
+
+func (o DataProviderSettingsDocDbSettingsOutput) ToDataProviderSettingsDocDbSettingsPtrOutput() DataProviderSettingsDocDbSettingsPtrOutput {
+	return o.ToDataProviderSettingsDocDbSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DataProviderSettingsDocDbSettingsOutput) ToDataProviderSettingsDocDbSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsDocDbSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataProviderSettingsDocDbSettings) *DataProviderSettingsDocDbSettings {
+		return &v
+	}).(DataProviderSettingsDocDbSettingsPtrOutput)
+}
+
+// ARN of the DMS certificate used for the SSL connection.
+func (o DataProviderSettingsDocDbSettingsOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsDocDbSettings) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
+}
+
+// Database name on the DocumentDB data provider.
+func (o DataProviderSettingsDocDbSettingsOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsDocDbSettings) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// Port of the DocumentDB server. Valid values are between `1` and `65535`.
+func (o DataProviderSettingsDocDbSettingsOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsDocDbSettings) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// Hostname of the DocumentDB server.
+func (o DataProviderSettingsDocDbSettingsOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsDocDbSettings) *string { return v.ServerName }).(pulumi.StringPtrOutput)
+}
+
+// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+func (o DataProviderSettingsDocDbSettingsOutput) SslMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsDocDbSettings) *string { return v.SslMode }).(pulumi.StringPtrOutput)
+}
+
+type DataProviderSettingsDocDbSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataProviderSettingsDocDbSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProviderSettingsDocDbSettings)(nil)).Elem()
+}
+
+func (o DataProviderSettingsDocDbSettingsPtrOutput) ToDataProviderSettingsDocDbSettingsPtrOutput() DataProviderSettingsDocDbSettingsPtrOutput {
+	return o
+}
+
+func (o DataProviderSettingsDocDbSettingsPtrOutput) ToDataProviderSettingsDocDbSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsDocDbSettingsPtrOutput {
+	return o
+}
+
+func (o DataProviderSettingsDocDbSettingsPtrOutput) Elem() DataProviderSettingsDocDbSettingsOutput {
+	return o.ApplyT(func(v *DataProviderSettingsDocDbSettings) DataProviderSettingsDocDbSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DataProviderSettingsDocDbSettings
+		return ret
+	}).(DataProviderSettingsDocDbSettingsOutput)
+}
+
+// ARN of the DMS certificate used for the SSL connection.
+func (o DataProviderSettingsDocDbSettingsPtrOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsDocDbSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Database name on the DocumentDB data provider.
+func (o DataProviderSettingsDocDbSettingsPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsDocDbSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Port of the DocumentDB server. Valid values are between `1` and `65535`.
+func (o DataProviderSettingsDocDbSettingsPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsDocDbSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// Hostname of the DocumentDB server.
+func (o DataProviderSettingsDocDbSettingsPtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsDocDbSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+func (o DataProviderSettingsDocDbSettingsPtrOutput) SslMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsDocDbSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SslMode
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataProviderSettingsIbmDb2LuwSettings struct {
+	// ARN of the DMS certificate used for the SSL connection.
+	CertificateArn *string `pulumi:"certificateArn"`
+	// Database name on the IBM DB2 LUW data provider.
+	DatabaseName *string `pulumi:"databaseName"`
+	// Integer identifying the encryption algorithm for the connection. When omitted, AWS uses its default behavior.
+	EncryptionAlgorithm *int `pulumi:"encryptionAlgorithm"`
+	// Port of the IBM DB2 LUW server. Valid values are between `1` and `65535`.
+	Port *int `pulumi:"port"`
+	// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+	S3AccessRoleArn *string `pulumi:"s3AccessRoleArn"`
+	// S3 path containing the user-defined schema.
+	S3Path *string `pulumi:"s3Path"`
+	// Integer identifying the authentication mechanism for the connection. When omitted, AWS uses its default behavior.
+	SecurityMechanism *int `pulumi:"securityMechanism"`
+	// Hostname of the IBM DB2 LUW server.
+	ServerName *string `pulumi:"serverName"`
+	// SSL mode for the connection. Valid values: `none` and `verify-ca`. Defaults to `none`.
+	SslMode *string `pulumi:"sslMode"`
+}
+
+// DataProviderSettingsIbmDb2LuwSettingsInput is an input type that accepts DataProviderSettingsIbmDb2LuwSettingsArgs and DataProviderSettingsIbmDb2LuwSettingsOutput values.
+// You can construct a concrete instance of `DataProviderSettingsIbmDb2LuwSettingsInput` via:
+//
+//	DataProviderSettingsIbmDb2LuwSettingsArgs{...}
+type DataProviderSettingsIbmDb2LuwSettingsInput interface {
+	pulumi.Input
+
+	ToDataProviderSettingsIbmDb2LuwSettingsOutput() DataProviderSettingsIbmDb2LuwSettingsOutput
+	ToDataProviderSettingsIbmDb2LuwSettingsOutputWithContext(context.Context) DataProviderSettingsIbmDb2LuwSettingsOutput
+}
+
+type DataProviderSettingsIbmDb2LuwSettingsArgs struct {
+	// ARN of the DMS certificate used for the SSL connection.
+	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
+	// Database name on the IBM DB2 LUW data provider.
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	// Integer identifying the encryption algorithm for the connection. When omitted, AWS uses its default behavior.
+	EncryptionAlgorithm pulumi.IntPtrInput `pulumi:"encryptionAlgorithm"`
+	// Port of the IBM DB2 LUW server. Valid values are between `1` and `65535`.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+	S3AccessRoleArn pulumi.StringPtrInput `pulumi:"s3AccessRoleArn"`
+	// S3 path containing the user-defined schema.
+	S3Path pulumi.StringPtrInput `pulumi:"s3Path"`
+	// Integer identifying the authentication mechanism for the connection. When omitted, AWS uses its default behavior.
+	SecurityMechanism pulumi.IntPtrInput `pulumi:"securityMechanism"`
+	// Hostname of the IBM DB2 LUW server.
+	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
+	// SSL mode for the connection. Valid values: `none` and `verify-ca`. Defaults to `none`.
+	SslMode pulumi.StringPtrInput `pulumi:"sslMode"`
+}
+
+func (DataProviderSettingsIbmDb2LuwSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderSettingsIbmDb2LuwSettings)(nil)).Elem()
+}
+
+func (i DataProviderSettingsIbmDb2LuwSettingsArgs) ToDataProviderSettingsIbmDb2LuwSettingsOutput() DataProviderSettingsIbmDb2LuwSettingsOutput {
+	return i.ToDataProviderSettingsIbmDb2LuwSettingsOutputWithContext(context.Background())
+}
+
+func (i DataProviderSettingsIbmDb2LuwSettingsArgs) ToDataProviderSettingsIbmDb2LuwSettingsOutputWithContext(ctx context.Context) DataProviderSettingsIbmDb2LuwSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsIbmDb2LuwSettingsOutput)
+}
+
+func (i DataProviderSettingsIbmDb2LuwSettingsArgs) ToDataProviderSettingsIbmDb2LuwSettingsPtrOutput() DataProviderSettingsIbmDb2LuwSettingsPtrOutput {
+	return i.ToDataProviderSettingsIbmDb2LuwSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DataProviderSettingsIbmDb2LuwSettingsArgs) ToDataProviderSettingsIbmDb2LuwSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsIbmDb2LuwSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsIbmDb2LuwSettingsOutput).ToDataProviderSettingsIbmDb2LuwSettingsPtrOutputWithContext(ctx)
+}
+
+// DataProviderSettingsIbmDb2LuwSettingsPtrInput is an input type that accepts DataProviderSettingsIbmDb2LuwSettingsArgs, DataProviderSettingsIbmDb2LuwSettingsPtr and DataProviderSettingsIbmDb2LuwSettingsPtrOutput values.
+// You can construct a concrete instance of `DataProviderSettingsIbmDb2LuwSettingsPtrInput` via:
+//
+//	        DataProviderSettingsIbmDb2LuwSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataProviderSettingsIbmDb2LuwSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDataProviderSettingsIbmDb2LuwSettingsPtrOutput() DataProviderSettingsIbmDb2LuwSettingsPtrOutput
+	ToDataProviderSettingsIbmDb2LuwSettingsPtrOutputWithContext(context.Context) DataProviderSettingsIbmDb2LuwSettingsPtrOutput
+}
+
+type dataProviderSettingsIbmDb2LuwSettingsPtrType DataProviderSettingsIbmDb2LuwSettingsArgs
+
+func DataProviderSettingsIbmDb2LuwSettingsPtr(v *DataProviderSettingsIbmDb2LuwSettingsArgs) DataProviderSettingsIbmDb2LuwSettingsPtrInput {
+	return (*dataProviderSettingsIbmDb2LuwSettingsPtrType)(v)
+}
+
+func (*dataProviderSettingsIbmDb2LuwSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProviderSettingsIbmDb2LuwSettings)(nil)).Elem()
+}
+
+func (i *dataProviderSettingsIbmDb2LuwSettingsPtrType) ToDataProviderSettingsIbmDb2LuwSettingsPtrOutput() DataProviderSettingsIbmDb2LuwSettingsPtrOutput {
+	return i.ToDataProviderSettingsIbmDb2LuwSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataProviderSettingsIbmDb2LuwSettingsPtrType) ToDataProviderSettingsIbmDb2LuwSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsIbmDb2LuwSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsIbmDb2LuwSettingsPtrOutput)
+}
+
+type DataProviderSettingsIbmDb2LuwSettingsOutput struct{ *pulumi.OutputState }
+
+func (DataProviderSettingsIbmDb2LuwSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderSettingsIbmDb2LuwSettings)(nil)).Elem()
+}
+
+func (o DataProviderSettingsIbmDb2LuwSettingsOutput) ToDataProviderSettingsIbmDb2LuwSettingsOutput() DataProviderSettingsIbmDb2LuwSettingsOutput {
+	return o
+}
+
+func (o DataProviderSettingsIbmDb2LuwSettingsOutput) ToDataProviderSettingsIbmDb2LuwSettingsOutputWithContext(ctx context.Context) DataProviderSettingsIbmDb2LuwSettingsOutput {
+	return o
+}
+
+func (o DataProviderSettingsIbmDb2LuwSettingsOutput) ToDataProviderSettingsIbmDb2LuwSettingsPtrOutput() DataProviderSettingsIbmDb2LuwSettingsPtrOutput {
+	return o.ToDataProviderSettingsIbmDb2LuwSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DataProviderSettingsIbmDb2LuwSettingsOutput) ToDataProviderSettingsIbmDb2LuwSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsIbmDb2LuwSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataProviderSettingsIbmDb2LuwSettings) *DataProviderSettingsIbmDb2LuwSettings {
+		return &v
+	}).(DataProviderSettingsIbmDb2LuwSettingsPtrOutput)
+}
+
+// ARN of the DMS certificate used for the SSL connection.
+func (o DataProviderSettingsIbmDb2LuwSettingsOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsIbmDb2LuwSettings) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
+}
+
+// Database name on the IBM DB2 LUW data provider.
+func (o DataProviderSettingsIbmDb2LuwSettingsOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsIbmDb2LuwSettings) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// Integer identifying the encryption algorithm for the connection. When omitted, AWS uses its default behavior.
+func (o DataProviderSettingsIbmDb2LuwSettingsOutput) EncryptionAlgorithm() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsIbmDb2LuwSettings) *int { return v.EncryptionAlgorithm }).(pulumi.IntPtrOutput)
+}
+
+// Port of the IBM DB2 LUW server. Valid values are between `1` and `65535`.
+func (o DataProviderSettingsIbmDb2LuwSettingsOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsIbmDb2LuwSettings) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+func (o DataProviderSettingsIbmDb2LuwSettingsOutput) S3AccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsIbmDb2LuwSettings) *string { return v.S3AccessRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// S3 path containing the user-defined schema.
+func (o DataProviderSettingsIbmDb2LuwSettingsOutput) S3Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsIbmDb2LuwSettings) *string { return v.S3Path }).(pulumi.StringPtrOutput)
+}
+
+// Integer identifying the authentication mechanism for the connection. When omitted, AWS uses its default behavior.
+func (o DataProviderSettingsIbmDb2LuwSettingsOutput) SecurityMechanism() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsIbmDb2LuwSettings) *int { return v.SecurityMechanism }).(pulumi.IntPtrOutput)
+}
+
+// Hostname of the IBM DB2 LUW server.
+func (o DataProviderSettingsIbmDb2LuwSettingsOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsIbmDb2LuwSettings) *string { return v.ServerName }).(pulumi.StringPtrOutput)
+}
+
+// SSL mode for the connection. Valid values: `none` and `verify-ca`. Defaults to `none`.
+func (o DataProviderSettingsIbmDb2LuwSettingsOutput) SslMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsIbmDb2LuwSettings) *string { return v.SslMode }).(pulumi.StringPtrOutput)
+}
+
+type DataProviderSettingsIbmDb2LuwSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataProviderSettingsIbmDb2LuwSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProviderSettingsIbmDb2LuwSettings)(nil)).Elem()
+}
+
+func (o DataProviderSettingsIbmDb2LuwSettingsPtrOutput) ToDataProviderSettingsIbmDb2LuwSettingsPtrOutput() DataProviderSettingsIbmDb2LuwSettingsPtrOutput {
+	return o
+}
+
+func (o DataProviderSettingsIbmDb2LuwSettingsPtrOutput) ToDataProviderSettingsIbmDb2LuwSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsIbmDb2LuwSettingsPtrOutput {
+	return o
+}
+
+func (o DataProviderSettingsIbmDb2LuwSettingsPtrOutput) Elem() DataProviderSettingsIbmDb2LuwSettingsOutput {
+	return o.ApplyT(func(v *DataProviderSettingsIbmDb2LuwSettings) DataProviderSettingsIbmDb2LuwSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DataProviderSettingsIbmDb2LuwSettings
+		return ret
+	}).(DataProviderSettingsIbmDb2LuwSettingsOutput)
+}
+
+// ARN of the DMS certificate used for the SSL connection.
+func (o DataProviderSettingsIbmDb2LuwSettingsPtrOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsIbmDb2LuwSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Database name on the IBM DB2 LUW data provider.
+func (o DataProviderSettingsIbmDb2LuwSettingsPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsIbmDb2LuwSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Integer identifying the encryption algorithm for the connection. When omitted, AWS uses its default behavior.
+func (o DataProviderSettingsIbmDb2LuwSettingsPtrOutput) EncryptionAlgorithm() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsIbmDb2LuwSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionAlgorithm
+	}).(pulumi.IntPtrOutput)
+}
+
+// Port of the IBM DB2 LUW server. Valid values are between `1` and `65535`.
+func (o DataProviderSettingsIbmDb2LuwSettingsPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsIbmDb2LuwSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+func (o DataProviderSettingsIbmDb2LuwSettingsPtrOutput) S3AccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsIbmDb2LuwSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3AccessRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 path containing the user-defined schema.
+func (o DataProviderSettingsIbmDb2LuwSettingsPtrOutput) S3Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsIbmDb2LuwSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// Integer identifying the authentication mechanism for the connection. When omitted, AWS uses its default behavior.
+func (o DataProviderSettingsIbmDb2LuwSettingsPtrOutput) SecurityMechanism() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsIbmDb2LuwSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityMechanism
+	}).(pulumi.IntPtrOutput)
+}
+
+// Hostname of the IBM DB2 LUW server.
+func (o DataProviderSettingsIbmDb2LuwSettingsPtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsIbmDb2LuwSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// SSL mode for the connection. Valid values: `none` and `verify-ca`. Defaults to `none`.
+func (o DataProviderSettingsIbmDb2LuwSettingsPtrOutput) SslMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsIbmDb2LuwSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SslMode
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataProviderSettingsIbmDb2ZosSettings struct {
+	// ARN of the DMS certificate used for the SSL connection.
+	CertificateArn *string `pulumi:"certificateArn"`
+	// Database name on the IBM DB2 for z/OS data provider.
+	DatabaseName *string `pulumi:"databaseName"`
+	// Port of the IBM DB2 for z/OS server. Valid values are between `1` and `65535`.
+	Port *int `pulumi:"port"`
+	// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+	S3AccessRoleArn *string `pulumi:"s3AccessRoleArn"`
+	// S3 path containing the user-defined schema.
+	S3Path *string `pulumi:"s3Path"`
+	// Hostname of the IBM DB2 for z/OS server.
+	ServerName *string `pulumi:"serverName"`
+	// SSL mode for the connection. Valid values: `none` and `verify-ca`. Defaults to `none`.
+	SslMode *string `pulumi:"sslMode"`
+}
+
+// DataProviderSettingsIbmDb2ZosSettingsInput is an input type that accepts DataProviderSettingsIbmDb2ZosSettingsArgs and DataProviderSettingsIbmDb2ZosSettingsOutput values.
+// You can construct a concrete instance of `DataProviderSettingsIbmDb2ZosSettingsInput` via:
+//
+//	DataProviderSettingsIbmDb2ZosSettingsArgs{...}
+type DataProviderSettingsIbmDb2ZosSettingsInput interface {
+	pulumi.Input
+
+	ToDataProviderSettingsIbmDb2ZosSettingsOutput() DataProviderSettingsIbmDb2ZosSettingsOutput
+	ToDataProviderSettingsIbmDb2ZosSettingsOutputWithContext(context.Context) DataProviderSettingsIbmDb2ZosSettingsOutput
+}
+
+type DataProviderSettingsIbmDb2ZosSettingsArgs struct {
+	// ARN of the DMS certificate used for the SSL connection.
+	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
+	// Database name on the IBM DB2 for z/OS data provider.
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	// Port of the IBM DB2 for z/OS server. Valid values are between `1` and `65535`.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+	S3AccessRoleArn pulumi.StringPtrInput `pulumi:"s3AccessRoleArn"`
+	// S3 path containing the user-defined schema.
+	S3Path pulumi.StringPtrInput `pulumi:"s3Path"`
+	// Hostname of the IBM DB2 for z/OS server.
+	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
+	// SSL mode for the connection. Valid values: `none` and `verify-ca`. Defaults to `none`.
+	SslMode pulumi.StringPtrInput `pulumi:"sslMode"`
+}
+
+func (DataProviderSettingsIbmDb2ZosSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderSettingsIbmDb2ZosSettings)(nil)).Elem()
+}
+
+func (i DataProviderSettingsIbmDb2ZosSettingsArgs) ToDataProviderSettingsIbmDb2ZosSettingsOutput() DataProviderSettingsIbmDb2ZosSettingsOutput {
+	return i.ToDataProviderSettingsIbmDb2ZosSettingsOutputWithContext(context.Background())
+}
+
+func (i DataProviderSettingsIbmDb2ZosSettingsArgs) ToDataProviderSettingsIbmDb2ZosSettingsOutputWithContext(ctx context.Context) DataProviderSettingsIbmDb2ZosSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsIbmDb2ZosSettingsOutput)
+}
+
+func (i DataProviderSettingsIbmDb2ZosSettingsArgs) ToDataProviderSettingsIbmDb2ZosSettingsPtrOutput() DataProviderSettingsIbmDb2ZosSettingsPtrOutput {
+	return i.ToDataProviderSettingsIbmDb2ZosSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DataProviderSettingsIbmDb2ZosSettingsArgs) ToDataProviderSettingsIbmDb2ZosSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsIbmDb2ZosSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsIbmDb2ZosSettingsOutput).ToDataProviderSettingsIbmDb2ZosSettingsPtrOutputWithContext(ctx)
+}
+
+// DataProviderSettingsIbmDb2ZosSettingsPtrInput is an input type that accepts DataProviderSettingsIbmDb2ZosSettingsArgs, DataProviderSettingsIbmDb2ZosSettingsPtr and DataProviderSettingsIbmDb2ZosSettingsPtrOutput values.
+// You can construct a concrete instance of `DataProviderSettingsIbmDb2ZosSettingsPtrInput` via:
+//
+//	        DataProviderSettingsIbmDb2ZosSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataProviderSettingsIbmDb2ZosSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDataProviderSettingsIbmDb2ZosSettingsPtrOutput() DataProviderSettingsIbmDb2ZosSettingsPtrOutput
+	ToDataProviderSettingsIbmDb2ZosSettingsPtrOutputWithContext(context.Context) DataProviderSettingsIbmDb2ZosSettingsPtrOutput
+}
+
+type dataProviderSettingsIbmDb2ZosSettingsPtrType DataProviderSettingsIbmDb2ZosSettingsArgs
+
+func DataProviderSettingsIbmDb2ZosSettingsPtr(v *DataProviderSettingsIbmDb2ZosSettingsArgs) DataProviderSettingsIbmDb2ZosSettingsPtrInput {
+	return (*dataProviderSettingsIbmDb2ZosSettingsPtrType)(v)
+}
+
+func (*dataProviderSettingsIbmDb2ZosSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProviderSettingsIbmDb2ZosSettings)(nil)).Elem()
+}
+
+func (i *dataProviderSettingsIbmDb2ZosSettingsPtrType) ToDataProviderSettingsIbmDb2ZosSettingsPtrOutput() DataProviderSettingsIbmDb2ZosSettingsPtrOutput {
+	return i.ToDataProviderSettingsIbmDb2ZosSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataProviderSettingsIbmDb2ZosSettingsPtrType) ToDataProviderSettingsIbmDb2ZosSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsIbmDb2ZosSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsIbmDb2ZosSettingsPtrOutput)
+}
+
+type DataProviderSettingsIbmDb2ZosSettingsOutput struct{ *pulumi.OutputState }
+
+func (DataProviderSettingsIbmDb2ZosSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderSettingsIbmDb2ZosSettings)(nil)).Elem()
+}
+
+func (o DataProviderSettingsIbmDb2ZosSettingsOutput) ToDataProviderSettingsIbmDb2ZosSettingsOutput() DataProviderSettingsIbmDb2ZosSettingsOutput {
+	return o
+}
+
+func (o DataProviderSettingsIbmDb2ZosSettingsOutput) ToDataProviderSettingsIbmDb2ZosSettingsOutputWithContext(ctx context.Context) DataProviderSettingsIbmDb2ZosSettingsOutput {
+	return o
+}
+
+func (o DataProviderSettingsIbmDb2ZosSettingsOutput) ToDataProviderSettingsIbmDb2ZosSettingsPtrOutput() DataProviderSettingsIbmDb2ZosSettingsPtrOutput {
+	return o.ToDataProviderSettingsIbmDb2ZosSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DataProviderSettingsIbmDb2ZosSettingsOutput) ToDataProviderSettingsIbmDb2ZosSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsIbmDb2ZosSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataProviderSettingsIbmDb2ZosSettings) *DataProviderSettingsIbmDb2ZosSettings {
+		return &v
+	}).(DataProviderSettingsIbmDb2ZosSettingsPtrOutput)
+}
+
+// ARN of the DMS certificate used for the SSL connection.
+func (o DataProviderSettingsIbmDb2ZosSettingsOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsIbmDb2ZosSettings) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
+}
+
+// Database name on the IBM DB2 for z/OS data provider.
+func (o DataProviderSettingsIbmDb2ZosSettingsOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsIbmDb2ZosSettings) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// Port of the IBM DB2 for z/OS server. Valid values are between `1` and `65535`.
+func (o DataProviderSettingsIbmDb2ZosSettingsOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsIbmDb2ZosSettings) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+func (o DataProviderSettingsIbmDb2ZosSettingsOutput) S3AccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsIbmDb2ZosSettings) *string { return v.S3AccessRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// S3 path containing the user-defined schema.
+func (o DataProviderSettingsIbmDb2ZosSettingsOutput) S3Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsIbmDb2ZosSettings) *string { return v.S3Path }).(pulumi.StringPtrOutput)
+}
+
+// Hostname of the IBM DB2 for z/OS server.
+func (o DataProviderSettingsIbmDb2ZosSettingsOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsIbmDb2ZosSettings) *string { return v.ServerName }).(pulumi.StringPtrOutput)
+}
+
+// SSL mode for the connection. Valid values: `none` and `verify-ca`. Defaults to `none`.
+func (o DataProviderSettingsIbmDb2ZosSettingsOutput) SslMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsIbmDb2ZosSettings) *string { return v.SslMode }).(pulumi.StringPtrOutput)
+}
+
+type DataProviderSettingsIbmDb2ZosSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataProviderSettingsIbmDb2ZosSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProviderSettingsIbmDb2ZosSettings)(nil)).Elem()
+}
+
+func (o DataProviderSettingsIbmDb2ZosSettingsPtrOutput) ToDataProviderSettingsIbmDb2ZosSettingsPtrOutput() DataProviderSettingsIbmDb2ZosSettingsPtrOutput {
+	return o
+}
+
+func (o DataProviderSettingsIbmDb2ZosSettingsPtrOutput) ToDataProviderSettingsIbmDb2ZosSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsIbmDb2ZosSettingsPtrOutput {
+	return o
+}
+
+func (o DataProviderSettingsIbmDb2ZosSettingsPtrOutput) Elem() DataProviderSettingsIbmDb2ZosSettingsOutput {
+	return o.ApplyT(func(v *DataProviderSettingsIbmDb2ZosSettings) DataProviderSettingsIbmDb2ZosSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DataProviderSettingsIbmDb2ZosSettings
+		return ret
+	}).(DataProviderSettingsIbmDb2ZosSettingsOutput)
+}
+
+// ARN of the DMS certificate used for the SSL connection.
+func (o DataProviderSettingsIbmDb2ZosSettingsPtrOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsIbmDb2ZosSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Database name on the IBM DB2 for z/OS data provider.
+func (o DataProviderSettingsIbmDb2ZosSettingsPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsIbmDb2ZosSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Port of the IBM DB2 for z/OS server. Valid values are between `1` and `65535`.
+func (o DataProviderSettingsIbmDb2ZosSettingsPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsIbmDb2ZosSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+func (o DataProviderSettingsIbmDb2ZosSettingsPtrOutput) S3AccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsIbmDb2ZosSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3AccessRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 path containing the user-defined schema.
+func (o DataProviderSettingsIbmDb2ZosSettingsPtrOutput) S3Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsIbmDb2ZosSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// Hostname of the IBM DB2 for z/OS server.
+func (o DataProviderSettingsIbmDb2ZosSettingsPtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsIbmDb2ZosSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// SSL mode for the connection. Valid values: `none` and `verify-ca`. Defaults to `none`.
+func (o DataProviderSettingsIbmDb2ZosSettingsPtrOutput) SslMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsIbmDb2ZosSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SslMode
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataProviderSettingsMariaDbSettings struct {
+	// ARN of the DMS certificate used for the SSL connection.
+	CertificateArn *string `pulumi:"certificateArn"`
+	// Port of the MariaDB server. Valid values are between `1` and `65535`.
+	Port *int `pulumi:"port"`
+	// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+	S3AccessRoleArn *string `pulumi:"s3AccessRoleArn"`
+	// S3 path containing the user-defined schema.
+	S3Path *string `pulumi:"s3Path"`
+	// Hostname of the MariaDB server.
+	ServerName *string `pulumi:"serverName"`
+	// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+	SslMode *string `pulumi:"sslMode"`
+}
+
+// DataProviderSettingsMariaDbSettingsInput is an input type that accepts DataProviderSettingsMariaDbSettingsArgs and DataProviderSettingsMariaDbSettingsOutput values.
+// You can construct a concrete instance of `DataProviderSettingsMariaDbSettingsInput` via:
+//
+//	DataProviderSettingsMariaDbSettingsArgs{...}
+type DataProviderSettingsMariaDbSettingsInput interface {
+	pulumi.Input
+
+	ToDataProviderSettingsMariaDbSettingsOutput() DataProviderSettingsMariaDbSettingsOutput
+	ToDataProviderSettingsMariaDbSettingsOutputWithContext(context.Context) DataProviderSettingsMariaDbSettingsOutput
+}
+
+type DataProviderSettingsMariaDbSettingsArgs struct {
+	// ARN of the DMS certificate used for the SSL connection.
+	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
+	// Port of the MariaDB server. Valid values are between `1` and `65535`.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+	S3AccessRoleArn pulumi.StringPtrInput `pulumi:"s3AccessRoleArn"`
+	// S3 path containing the user-defined schema.
+	S3Path pulumi.StringPtrInput `pulumi:"s3Path"`
+	// Hostname of the MariaDB server.
+	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
+	// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+	SslMode pulumi.StringPtrInput `pulumi:"sslMode"`
+}
+
+func (DataProviderSettingsMariaDbSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderSettingsMariaDbSettings)(nil)).Elem()
+}
+
+func (i DataProviderSettingsMariaDbSettingsArgs) ToDataProviderSettingsMariaDbSettingsOutput() DataProviderSettingsMariaDbSettingsOutput {
+	return i.ToDataProviderSettingsMariaDbSettingsOutputWithContext(context.Background())
+}
+
+func (i DataProviderSettingsMariaDbSettingsArgs) ToDataProviderSettingsMariaDbSettingsOutputWithContext(ctx context.Context) DataProviderSettingsMariaDbSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsMariaDbSettingsOutput)
+}
+
+func (i DataProviderSettingsMariaDbSettingsArgs) ToDataProviderSettingsMariaDbSettingsPtrOutput() DataProviderSettingsMariaDbSettingsPtrOutput {
+	return i.ToDataProviderSettingsMariaDbSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DataProviderSettingsMariaDbSettingsArgs) ToDataProviderSettingsMariaDbSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsMariaDbSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsMariaDbSettingsOutput).ToDataProviderSettingsMariaDbSettingsPtrOutputWithContext(ctx)
+}
+
+// DataProviderSettingsMariaDbSettingsPtrInput is an input type that accepts DataProviderSettingsMariaDbSettingsArgs, DataProviderSettingsMariaDbSettingsPtr and DataProviderSettingsMariaDbSettingsPtrOutput values.
+// You can construct a concrete instance of `DataProviderSettingsMariaDbSettingsPtrInput` via:
+//
+//	        DataProviderSettingsMariaDbSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataProviderSettingsMariaDbSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDataProviderSettingsMariaDbSettingsPtrOutput() DataProviderSettingsMariaDbSettingsPtrOutput
+	ToDataProviderSettingsMariaDbSettingsPtrOutputWithContext(context.Context) DataProviderSettingsMariaDbSettingsPtrOutput
+}
+
+type dataProviderSettingsMariaDbSettingsPtrType DataProviderSettingsMariaDbSettingsArgs
+
+func DataProviderSettingsMariaDbSettingsPtr(v *DataProviderSettingsMariaDbSettingsArgs) DataProviderSettingsMariaDbSettingsPtrInput {
+	return (*dataProviderSettingsMariaDbSettingsPtrType)(v)
+}
+
+func (*dataProviderSettingsMariaDbSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProviderSettingsMariaDbSettings)(nil)).Elem()
+}
+
+func (i *dataProviderSettingsMariaDbSettingsPtrType) ToDataProviderSettingsMariaDbSettingsPtrOutput() DataProviderSettingsMariaDbSettingsPtrOutput {
+	return i.ToDataProviderSettingsMariaDbSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataProviderSettingsMariaDbSettingsPtrType) ToDataProviderSettingsMariaDbSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsMariaDbSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsMariaDbSettingsPtrOutput)
+}
+
+type DataProviderSettingsMariaDbSettingsOutput struct{ *pulumi.OutputState }
+
+func (DataProviderSettingsMariaDbSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderSettingsMariaDbSettings)(nil)).Elem()
+}
+
+func (o DataProviderSettingsMariaDbSettingsOutput) ToDataProviderSettingsMariaDbSettingsOutput() DataProviderSettingsMariaDbSettingsOutput {
+	return o
+}
+
+func (o DataProviderSettingsMariaDbSettingsOutput) ToDataProviderSettingsMariaDbSettingsOutputWithContext(ctx context.Context) DataProviderSettingsMariaDbSettingsOutput {
+	return o
+}
+
+func (o DataProviderSettingsMariaDbSettingsOutput) ToDataProviderSettingsMariaDbSettingsPtrOutput() DataProviderSettingsMariaDbSettingsPtrOutput {
+	return o.ToDataProviderSettingsMariaDbSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DataProviderSettingsMariaDbSettingsOutput) ToDataProviderSettingsMariaDbSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsMariaDbSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataProviderSettingsMariaDbSettings) *DataProviderSettingsMariaDbSettings {
+		return &v
+	}).(DataProviderSettingsMariaDbSettingsPtrOutput)
+}
+
+// ARN of the DMS certificate used for the SSL connection.
+func (o DataProviderSettingsMariaDbSettingsOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsMariaDbSettings) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
+}
+
+// Port of the MariaDB server. Valid values are between `1` and `65535`.
+func (o DataProviderSettingsMariaDbSettingsOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsMariaDbSettings) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+func (o DataProviderSettingsMariaDbSettingsOutput) S3AccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsMariaDbSettings) *string { return v.S3AccessRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// S3 path containing the user-defined schema.
+func (o DataProviderSettingsMariaDbSettingsOutput) S3Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsMariaDbSettings) *string { return v.S3Path }).(pulumi.StringPtrOutput)
+}
+
+// Hostname of the MariaDB server.
+func (o DataProviderSettingsMariaDbSettingsOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsMariaDbSettings) *string { return v.ServerName }).(pulumi.StringPtrOutput)
+}
+
+// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+func (o DataProviderSettingsMariaDbSettingsOutput) SslMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsMariaDbSettings) *string { return v.SslMode }).(pulumi.StringPtrOutput)
+}
+
+type DataProviderSettingsMariaDbSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataProviderSettingsMariaDbSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProviderSettingsMariaDbSettings)(nil)).Elem()
+}
+
+func (o DataProviderSettingsMariaDbSettingsPtrOutput) ToDataProviderSettingsMariaDbSettingsPtrOutput() DataProviderSettingsMariaDbSettingsPtrOutput {
+	return o
+}
+
+func (o DataProviderSettingsMariaDbSettingsPtrOutput) ToDataProviderSettingsMariaDbSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsMariaDbSettingsPtrOutput {
+	return o
+}
+
+func (o DataProviderSettingsMariaDbSettingsPtrOutput) Elem() DataProviderSettingsMariaDbSettingsOutput {
+	return o.ApplyT(func(v *DataProviderSettingsMariaDbSettings) DataProviderSettingsMariaDbSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DataProviderSettingsMariaDbSettings
+		return ret
+	}).(DataProviderSettingsMariaDbSettingsOutput)
+}
+
+// ARN of the DMS certificate used for the SSL connection.
+func (o DataProviderSettingsMariaDbSettingsPtrOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsMariaDbSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Port of the MariaDB server. Valid values are between `1` and `65535`.
+func (o DataProviderSettingsMariaDbSettingsPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsMariaDbSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+func (o DataProviderSettingsMariaDbSettingsPtrOutput) S3AccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsMariaDbSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3AccessRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 path containing the user-defined schema.
+func (o DataProviderSettingsMariaDbSettingsPtrOutput) S3Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsMariaDbSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// Hostname of the MariaDB server.
+func (o DataProviderSettingsMariaDbSettingsPtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsMariaDbSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+func (o DataProviderSettingsMariaDbSettingsPtrOutput) SslMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsMariaDbSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SslMode
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataProviderSettingsMicrosoftSqlServerSettings struct {
+	// ARN of the DMS certificate used for the SSL connection.
+	CertificateArn *string `pulumi:"certificateArn"`
+	// Database name on the Microsoft SQL Server data provider.
+	DatabaseName *string `pulumi:"databaseName"`
+	// Port of the Microsoft SQL Server instance. Valid values are between `1` and `65535`.
+	Port *int `pulumi:"port"`
+	// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+	S3AccessRoleArn *string `pulumi:"s3AccessRoleArn"`
+	// S3 path containing the user-defined schema.
+	S3Path *string `pulumi:"s3Path"`
+	// Hostname of the Microsoft SQL Server instance.
+	ServerName *string `pulumi:"serverName"`
+	// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+	SslMode *string `pulumi:"sslMode"`
+}
+
+// DataProviderSettingsMicrosoftSqlServerSettingsInput is an input type that accepts DataProviderSettingsMicrosoftSqlServerSettingsArgs and DataProviderSettingsMicrosoftSqlServerSettingsOutput values.
+// You can construct a concrete instance of `DataProviderSettingsMicrosoftSqlServerSettingsInput` via:
+//
+//	DataProviderSettingsMicrosoftSqlServerSettingsArgs{...}
+type DataProviderSettingsMicrosoftSqlServerSettingsInput interface {
+	pulumi.Input
+
+	ToDataProviderSettingsMicrosoftSqlServerSettingsOutput() DataProviderSettingsMicrosoftSqlServerSettingsOutput
+	ToDataProviderSettingsMicrosoftSqlServerSettingsOutputWithContext(context.Context) DataProviderSettingsMicrosoftSqlServerSettingsOutput
+}
+
+type DataProviderSettingsMicrosoftSqlServerSettingsArgs struct {
+	// ARN of the DMS certificate used for the SSL connection.
+	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
+	// Database name on the Microsoft SQL Server data provider.
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	// Port of the Microsoft SQL Server instance. Valid values are between `1` and `65535`.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+	S3AccessRoleArn pulumi.StringPtrInput `pulumi:"s3AccessRoleArn"`
+	// S3 path containing the user-defined schema.
+	S3Path pulumi.StringPtrInput `pulumi:"s3Path"`
+	// Hostname of the Microsoft SQL Server instance.
+	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
+	// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+	SslMode pulumi.StringPtrInput `pulumi:"sslMode"`
+}
+
+func (DataProviderSettingsMicrosoftSqlServerSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderSettingsMicrosoftSqlServerSettings)(nil)).Elem()
+}
+
+func (i DataProviderSettingsMicrosoftSqlServerSettingsArgs) ToDataProviderSettingsMicrosoftSqlServerSettingsOutput() DataProviderSettingsMicrosoftSqlServerSettingsOutput {
+	return i.ToDataProviderSettingsMicrosoftSqlServerSettingsOutputWithContext(context.Background())
+}
+
+func (i DataProviderSettingsMicrosoftSqlServerSettingsArgs) ToDataProviderSettingsMicrosoftSqlServerSettingsOutputWithContext(ctx context.Context) DataProviderSettingsMicrosoftSqlServerSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsMicrosoftSqlServerSettingsOutput)
+}
+
+func (i DataProviderSettingsMicrosoftSqlServerSettingsArgs) ToDataProviderSettingsMicrosoftSqlServerSettingsPtrOutput() DataProviderSettingsMicrosoftSqlServerSettingsPtrOutput {
+	return i.ToDataProviderSettingsMicrosoftSqlServerSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DataProviderSettingsMicrosoftSqlServerSettingsArgs) ToDataProviderSettingsMicrosoftSqlServerSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsMicrosoftSqlServerSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsMicrosoftSqlServerSettingsOutput).ToDataProviderSettingsMicrosoftSqlServerSettingsPtrOutputWithContext(ctx)
+}
+
+// DataProviderSettingsMicrosoftSqlServerSettingsPtrInput is an input type that accepts DataProviderSettingsMicrosoftSqlServerSettingsArgs, DataProviderSettingsMicrosoftSqlServerSettingsPtr and DataProviderSettingsMicrosoftSqlServerSettingsPtrOutput values.
+// You can construct a concrete instance of `DataProviderSettingsMicrosoftSqlServerSettingsPtrInput` via:
+//
+//	        DataProviderSettingsMicrosoftSqlServerSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataProviderSettingsMicrosoftSqlServerSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDataProviderSettingsMicrosoftSqlServerSettingsPtrOutput() DataProviderSettingsMicrosoftSqlServerSettingsPtrOutput
+	ToDataProviderSettingsMicrosoftSqlServerSettingsPtrOutputWithContext(context.Context) DataProviderSettingsMicrosoftSqlServerSettingsPtrOutput
+}
+
+type dataProviderSettingsMicrosoftSqlServerSettingsPtrType DataProviderSettingsMicrosoftSqlServerSettingsArgs
+
+func DataProviderSettingsMicrosoftSqlServerSettingsPtr(v *DataProviderSettingsMicrosoftSqlServerSettingsArgs) DataProviderSettingsMicrosoftSqlServerSettingsPtrInput {
+	return (*dataProviderSettingsMicrosoftSqlServerSettingsPtrType)(v)
+}
+
+func (*dataProviderSettingsMicrosoftSqlServerSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProviderSettingsMicrosoftSqlServerSettings)(nil)).Elem()
+}
+
+func (i *dataProviderSettingsMicrosoftSqlServerSettingsPtrType) ToDataProviderSettingsMicrosoftSqlServerSettingsPtrOutput() DataProviderSettingsMicrosoftSqlServerSettingsPtrOutput {
+	return i.ToDataProviderSettingsMicrosoftSqlServerSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataProviderSettingsMicrosoftSqlServerSettingsPtrType) ToDataProviderSettingsMicrosoftSqlServerSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsMicrosoftSqlServerSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsMicrosoftSqlServerSettingsPtrOutput)
+}
+
+type DataProviderSettingsMicrosoftSqlServerSettingsOutput struct{ *pulumi.OutputState }
+
+func (DataProviderSettingsMicrosoftSqlServerSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderSettingsMicrosoftSqlServerSettings)(nil)).Elem()
+}
+
+func (o DataProviderSettingsMicrosoftSqlServerSettingsOutput) ToDataProviderSettingsMicrosoftSqlServerSettingsOutput() DataProviderSettingsMicrosoftSqlServerSettingsOutput {
+	return o
+}
+
+func (o DataProviderSettingsMicrosoftSqlServerSettingsOutput) ToDataProviderSettingsMicrosoftSqlServerSettingsOutputWithContext(ctx context.Context) DataProviderSettingsMicrosoftSqlServerSettingsOutput {
+	return o
+}
+
+func (o DataProviderSettingsMicrosoftSqlServerSettingsOutput) ToDataProviderSettingsMicrosoftSqlServerSettingsPtrOutput() DataProviderSettingsMicrosoftSqlServerSettingsPtrOutput {
+	return o.ToDataProviderSettingsMicrosoftSqlServerSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DataProviderSettingsMicrosoftSqlServerSettingsOutput) ToDataProviderSettingsMicrosoftSqlServerSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsMicrosoftSqlServerSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataProviderSettingsMicrosoftSqlServerSettings) *DataProviderSettingsMicrosoftSqlServerSettings {
+		return &v
+	}).(DataProviderSettingsMicrosoftSqlServerSettingsPtrOutput)
+}
+
+// ARN of the DMS certificate used for the SSL connection.
+func (o DataProviderSettingsMicrosoftSqlServerSettingsOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsMicrosoftSqlServerSettings) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
+}
+
+// Database name on the Microsoft SQL Server data provider.
+func (o DataProviderSettingsMicrosoftSqlServerSettingsOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsMicrosoftSqlServerSettings) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// Port of the Microsoft SQL Server instance. Valid values are between `1` and `65535`.
+func (o DataProviderSettingsMicrosoftSqlServerSettingsOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsMicrosoftSqlServerSettings) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+func (o DataProviderSettingsMicrosoftSqlServerSettingsOutput) S3AccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsMicrosoftSqlServerSettings) *string { return v.S3AccessRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// S3 path containing the user-defined schema.
+func (o DataProviderSettingsMicrosoftSqlServerSettingsOutput) S3Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsMicrosoftSqlServerSettings) *string { return v.S3Path }).(pulumi.StringPtrOutput)
+}
+
+// Hostname of the Microsoft SQL Server instance.
+func (o DataProviderSettingsMicrosoftSqlServerSettingsOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsMicrosoftSqlServerSettings) *string { return v.ServerName }).(pulumi.StringPtrOutput)
+}
+
+// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+func (o DataProviderSettingsMicrosoftSqlServerSettingsOutput) SslMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsMicrosoftSqlServerSettings) *string { return v.SslMode }).(pulumi.StringPtrOutput)
+}
+
+type DataProviderSettingsMicrosoftSqlServerSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataProviderSettingsMicrosoftSqlServerSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProviderSettingsMicrosoftSqlServerSettings)(nil)).Elem()
+}
+
+func (o DataProviderSettingsMicrosoftSqlServerSettingsPtrOutput) ToDataProviderSettingsMicrosoftSqlServerSettingsPtrOutput() DataProviderSettingsMicrosoftSqlServerSettingsPtrOutput {
+	return o
+}
+
+func (o DataProviderSettingsMicrosoftSqlServerSettingsPtrOutput) ToDataProviderSettingsMicrosoftSqlServerSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsMicrosoftSqlServerSettingsPtrOutput {
+	return o
+}
+
+func (o DataProviderSettingsMicrosoftSqlServerSettingsPtrOutput) Elem() DataProviderSettingsMicrosoftSqlServerSettingsOutput {
+	return o.ApplyT(func(v *DataProviderSettingsMicrosoftSqlServerSettings) DataProviderSettingsMicrosoftSqlServerSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DataProviderSettingsMicrosoftSqlServerSettings
+		return ret
+	}).(DataProviderSettingsMicrosoftSqlServerSettingsOutput)
+}
+
+// ARN of the DMS certificate used for the SSL connection.
+func (o DataProviderSettingsMicrosoftSqlServerSettingsPtrOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsMicrosoftSqlServerSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Database name on the Microsoft SQL Server data provider.
+func (o DataProviderSettingsMicrosoftSqlServerSettingsPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsMicrosoftSqlServerSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Port of the Microsoft SQL Server instance. Valid values are between `1` and `65535`.
+func (o DataProviderSettingsMicrosoftSqlServerSettingsPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsMicrosoftSqlServerSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+func (o DataProviderSettingsMicrosoftSqlServerSettingsPtrOutput) S3AccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsMicrosoftSqlServerSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3AccessRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 path containing the user-defined schema.
+func (o DataProviderSettingsMicrosoftSqlServerSettingsPtrOutput) S3Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsMicrosoftSqlServerSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// Hostname of the Microsoft SQL Server instance.
+func (o DataProviderSettingsMicrosoftSqlServerSettingsPtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsMicrosoftSqlServerSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+func (o DataProviderSettingsMicrosoftSqlServerSettingsPtrOutput) SslMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsMicrosoftSqlServerSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SslMode
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataProviderSettingsMongoDbSettings struct {
+	// Authentication mechanism for the connection. Valid values: `default`, `mongodbCr`, and `scramSha1`.
+	AuthMechanism *string `pulumi:"authMechanism"`
+	// Database used to verify credentials. Defaults to `admin`. Not used when `authType` is `no`.
+	AuthSource *string `pulumi:"authSource"`
+	// Authentication type for the connection. Valid values: `no` and `password`.
+	AuthType *string `pulumi:"authType"`
+	// ARN of the DMS certificate used for the SSL connection.
+	CertificateArn *string `pulumi:"certificateArn"`
+	// Database name on the MongoDB data provider.
+	DatabaseName *string `pulumi:"databaseName"`
+	// Port of the MongoDB server. Valid values are between `1` and `65535`.
+	Port *int `pulumi:"port"`
+	// Hostname of the MongoDB server.
+	ServerName *string `pulumi:"serverName"`
+	// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+	SslMode *string `pulumi:"sslMode"`
+}
+
+// DataProviderSettingsMongoDbSettingsInput is an input type that accepts DataProviderSettingsMongoDbSettingsArgs and DataProviderSettingsMongoDbSettingsOutput values.
+// You can construct a concrete instance of `DataProviderSettingsMongoDbSettingsInput` via:
+//
+//	DataProviderSettingsMongoDbSettingsArgs{...}
+type DataProviderSettingsMongoDbSettingsInput interface {
+	pulumi.Input
+
+	ToDataProviderSettingsMongoDbSettingsOutput() DataProviderSettingsMongoDbSettingsOutput
+	ToDataProviderSettingsMongoDbSettingsOutputWithContext(context.Context) DataProviderSettingsMongoDbSettingsOutput
+}
+
+type DataProviderSettingsMongoDbSettingsArgs struct {
+	// Authentication mechanism for the connection. Valid values: `default`, `mongodbCr`, and `scramSha1`.
+	AuthMechanism pulumi.StringPtrInput `pulumi:"authMechanism"`
+	// Database used to verify credentials. Defaults to `admin`. Not used when `authType` is `no`.
+	AuthSource pulumi.StringPtrInput `pulumi:"authSource"`
+	// Authentication type for the connection. Valid values: `no` and `password`.
+	AuthType pulumi.StringPtrInput `pulumi:"authType"`
+	// ARN of the DMS certificate used for the SSL connection.
+	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
+	// Database name on the MongoDB data provider.
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	// Port of the MongoDB server. Valid values are between `1` and `65535`.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// Hostname of the MongoDB server.
+	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
+	// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+	SslMode pulumi.StringPtrInput `pulumi:"sslMode"`
+}
+
+func (DataProviderSettingsMongoDbSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderSettingsMongoDbSettings)(nil)).Elem()
+}
+
+func (i DataProviderSettingsMongoDbSettingsArgs) ToDataProviderSettingsMongoDbSettingsOutput() DataProviderSettingsMongoDbSettingsOutput {
+	return i.ToDataProviderSettingsMongoDbSettingsOutputWithContext(context.Background())
+}
+
+func (i DataProviderSettingsMongoDbSettingsArgs) ToDataProviderSettingsMongoDbSettingsOutputWithContext(ctx context.Context) DataProviderSettingsMongoDbSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsMongoDbSettingsOutput)
+}
+
+func (i DataProviderSettingsMongoDbSettingsArgs) ToDataProviderSettingsMongoDbSettingsPtrOutput() DataProviderSettingsMongoDbSettingsPtrOutput {
+	return i.ToDataProviderSettingsMongoDbSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DataProviderSettingsMongoDbSettingsArgs) ToDataProviderSettingsMongoDbSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsMongoDbSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsMongoDbSettingsOutput).ToDataProviderSettingsMongoDbSettingsPtrOutputWithContext(ctx)
+}
+
+// DataProviderSettingsMongoDbSettingsPtrInput is an input type that accepts DataProviderSettingsMongoDbSettingsArgs, DataProviderSettingsMongoDbSettingsPtr and DataProviderSettingsMongoDbSettingsPtrOutput values.
+// You can construct a concrete instance of `DataProviderSettingsMongoDbSettingsPtrInput` via:
+//
+//	        DataProviderSettingsMongoDbSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataProviderSettingsMongoDbSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDataProviderSettingsMongoDbSettingsPtrOutput() DataProviderSettingsMongoDbSettingsPtrOutput
+	ToDataProviderSettingsMongoDbSettingsPtrOutputWithContext(context.Context) DataProviderSettingsMongoDbSettingsPtrOutput
+}
+
+type dataProviderSettingsMongoDbSettingsPtrType DataProviderSettingsMongoDbSettingsArgs
+
+func DataProviderSettingsMongoDbSettingsPtr(v *DataProviderSettingsMongoDbSettingsArgs) DataProviderSettingsMongoDbSettingsPtrInput {
+	return (*dataProviderSettingsMongoDbSettingsPtrType)(v)
+}
+
+func (*dataProviderSettingsMongoDbSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProviderSettingsMongoDbSettings)(nil)).Elem()
+}
+
+func (i *dataProviderSettingsMongoDbSettingsPtrType) ToDataProviderSettingsMongoDbSettingsPtrOutput() DataProviderSettingsMongoDbSettingsPtrOutput {
+	return i.ToDataProviderSettingsMongoDbSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataProviderSettingsMongoDbSettingsPtrType) ToDataProviderSettingsMongoDbSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsMongoDbSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsMongoDbSettingsPtrOutput)
+}
+
+type DataProviderSettingsMongoDbSettingsOutput struct{ *pulumi.OutputState }
+
+func (DataProviderSettingsMongoDbSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderSettingsMongoDbSettings)(nil)).Elem()
+}
+
+func (o DataProviderSettingsMongoDbSettingsOutput) ToDataProviderSettingsMongoDbSettingsOutput() DataProviderSettingsMongoDbSettingsOutput {
+	return o
+}
+
+func (o DataProviderSettingsMongoDbSettingsOutput) ToDataProviderSettingsMongoDbSettingsOutputWithContext(ctx context.Context) DataProviderSettingsMongoDbSettingsOutput {
+	return o
+}
+
+func (o DataProviderSettingsMongoDbSettingsOutput) ToDataProviderSettingsMongoDbSettingsPtrOutput() DataProviderSettingsMongoDbSettingsPtrOutput {
+	return o.ToDataProviderSettingsMongoDbSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DataProviderSettingsMongoDbSettingsOutput) ToDataProviderSettingsMongoDbSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsMongoDbSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataProviderSettingsMongoDbSettings) *DataProviderSettingsMongoDbSettings {
+		return &v
+	}).(DataProviderSettingsMongoDbSettingsPtrOutput)
+}
+
+// Authentication mechanism for the connection. Valid values: `default`, `mongodbCr`, and `scramSha1`.
+func (o DataProviderSettingsMongoDbSettingsOutput) AuthMechanism() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsMongoDbSettings) *string { return v.AuthMechanism }).(pulumi.StringPtrOutput)
+}
+
+// Database used to verify credentials. Defaults to `admin`. Not used when `authType` is `no`.
+func (o DataProviderSettingsMongoDbSettingsOutput) AuthSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsMongoDbSettings) *string { return v.AuthSource }).(pulumi.StringPtrOutput)
+}
+
+// Authentication type for the connection. Valid values: `no` and `password`.
+func (o DataProviderSettingsMongoDbSettingsOutput) AuthType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsMongoDbSettings) *string { return v.AuthType }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the DMS certificate used for the SSL connection.
+func (o DataProviderSettingsMongoDbSettingsOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsMongoDbSettings) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
+}
+
+// Database name on the MongoDB data provider.
+func (o DataProviderSettingsMongoDbSettingsOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsMongoDbSettings) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// Port of the MongoDB server. Valid values are between `1` and `65535`.
+func (o DataProviderSettingsMongoDbSettingsOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsMongoDbSettings) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// Hostname of the MongoDB server.
+func (o DataProviderSettingsMongoDbSettingsOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsMongoDbSettings) *string { return v.ServerName }).(pulumi.StringPtrOutput)
+}
+
+// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+func (o DataProviderSettingsMongoDbSettingsOutput) SslMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsMongoDbSettings) *string { return v.SslMode }).(pulumi.StringPtrOutput)
+}
+
+type DataProviderSettingsMongoDbSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataProviderSettingsMongoDbSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProviderSettingsMongoDbSettings)(nil)).Elem()
+}
+
+func (o DataProviderSettingsMongoDbSettingsPtrOutput) ToDataProviderSettingsMongoDbSettingsPtrOutput() DataProviderSettingsMongoDbSettingsPtrOutput {
+	return o
+}
+
+func (o DataProviderSettingsMongoDbSettingsPtrOutput) ToDataProviderSettingsMongoDbSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsMongoDbSettingsPtrOutput {
+	return o
+}
+
+func (o DataProviderSettingsMongoDbSettingsPtrOutput) Elem() DataProviderSettingsMongoDbSettingsOutput {
+	return o.ApplyT(func(v *DataProviderSettingsMongoDbSettings) DataProviderSettingsMongoDbSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DataProviderSettingsMongoDbSettings
+		return ret
+	}).(DataProviderSettingsMongoDbSettingsOutput)
+}
+
+// Authentication mechanism for the connection. Valid values: `default`, `mongodbCr`, and `scramSha1`.
+func (o DataProviderSettingsMongoDbSettingsPtrOutput) AuthMechanism() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsMongoDbSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthMechanism
+	}).(pulumi.StringPtrOutput)
+}
+
+// Database used to verify credentials. Defaults to `admin`. Not used when `authType` is `no`.
+func (o DataProviderSettingsMongoDbSettingsPtrOutput) AuthSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsMongoDbSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// Authentication type for the connection. Valid values: `no` and `password`.
+func (o DataProviderSettingsMongoDbSettingsPtrOutput) AuthType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsMongoDbSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthType
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the DMS certificate used for the SSL connection.
+func (o DataProviderSettingsMongoDbSettingsPtrOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsMongoDbSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Database name on the MongoDB data provider.
+func (o DataProviderSettingsMongoDbSettingsPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsMongoDbSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Port of the MongoDB server. Valid values are between `1` and `65535`.
+func (o DataProviderSettingsMongoDbSettingsPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsMongoDbSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// Hostname of the MongoDB server.
+func (o DataProviderSettingsMongoDbSettingsPtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsMongoDbSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+func (o DataProviderSettingsMongoDbSettingsPtrOutput) SslMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsMongoDbSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SslMode
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataProviderSettingsMysqlSettings struct {
+	// ARN of the DMS certificate used for the SSL connection.
+	CertificateArn *string `pulumi:"certificateArn"`
+	// Port of the MySQL server. Valid values are between `1` and `65535`.
+	Port *int `pulumi:"port"`
+	// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+	S3AccessRoleArn *string `pulumi:"s3AccessRoleArn"`
+	// S3 path containing the user-defined schema.
+	S3Path *string `pulumi:"s3Path"`
+	// Hostname of the MySQL server.
+	ServerName *string `pulumi:"serverName"`
+	// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+	SslMode *string `pulumi:"sslMode"`
+}
+
+// DataProviderSettingsMysqlSettingsInput is an input type that accepts DataProviderSettingsMysqlSettingsArgs and DataProviderSettingsMysqlSettingsOutput values.
+// You can construct a concrete instance of `DataProviderSettingsMysqlSettingsInput` via:
+//
+//	DataProviderSettingsMysqlSettingsArgs{...}
+type DataProviderSettingsMysqlSettingsInput interface {
+	pulumi.Input
+
+	ToDataProviderSettingsMysqlSettingsOutput() DataProviderSettingsMysqlSettingsOutput
+	ToDataProviderSettingsMysqlSettingsOutputWithContext(context.Context) DataProviderSettingsMysqlSettingsOutput
+}
+
+type DataProviderSettingsMysqlSettingsArgs struct {
+	// ARN of the DMS certificate used for the SSL connection.
+	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
+	// Port of the MySQL server. Valid values are between `1` and `65535`.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+	S3AccessRoleArn pulumi.StringPtrInput `pulumi:"s3AccessRoleArn"`
+	// S3 path containing the user-defined schema.
+	S3Path pulumi.StringPtrInput `pulumi:"s3Path"`
+	// Hostname of the MySQL server.
+	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
+	// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+	SslMode pulumi.StringPtrInput `pulumi:"sslMode"`
+}
+
+func (DataProviderSettingsMysqlSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderSettingsMysqlSettings)(nil)).Elem()
+}
+
+func (i DataProviderSettingsMysqlSettingsArgs) ToDataProviderSettingsMysqlSettingsOutput() DataProviderSettingsMysqlSettingsOutput {
+	return i.ToDataProviderSettingsMysqlSettingsOutputWithContext(context.Background())
+}
+
+func (i DataProviderSettingsMysqlSettingsArgs) ToDataProviderSettingsMysqlSettingsOutputWithContext(ctx context.Context) DataProviderSettingsMysqlSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsMysqlSettingsOutput)
+}
+
+func (i DataProviderSettingsMysqlSettingsArgs) ToDataProviderSettingsMysqlSettingsPtrOutput() DataProviderSettingsMysqlSettingsPtrOutput {
+	return i.ToDataProviderSettingsMysqlSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DataProviderSettingsMysqlSettingsArgs) ToDataProviderSettingsMysqlSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsMysqlSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsMysqlSettingsOutput).ToDataProviderSettingsMysqlSettingsPtrOutputWithContext(ctx)
+}
+
+// DataProviderSettingsMysqlSettingsPtrInput is an input type that accepts DataProviderSettingsMysqlSettingsArgs, DataProviderSettingsMysqlSettingsPtr and DataProviderSettingsMysqlSettingsPtrOutput values.
+// You can construct a concrete instance of `DataProviderSettingsMysqlSettingsPtrInput` via:
+//
+//	        DataProviderSettingsMysqlSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataProviderSettingsMysqlSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDataProviderSettingsMysqlSettingsPtrOutput() DataProviderSettingsMysqlSettingsPtrOutput
+	ToDataProviderSettingsMysqlSettingsPtrOutputWithContext(context.Context) DataProviderSettingsMysqlSettingsPtrOutput
+}
+
+type dataProviderSettingsMysqlSettingsPtrType DataProviderSettingsMysqlSettingsArgs
+
+func DataProviderSettingsMysqlSettingsPtr(v *DataProviderSettingsMysqlSettingsArgs) DataProviderSettingsMysqlSettingsPtrInput {
+	return (*dataProviderSettingsMysqlSettingsPtrType)(v)
+}
+
+func (*dataProviderSettingsMysqlSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProviderSettingsMysqlSettings)(nil)).Elem()
+}
+
+func (i *dataProviderSettingsMysqlSettingsPtrType) ToDataProviderSettingsMysqlSettingsPtrOutput() DataProviderSettingsMysqlSettingsPtrOutput {
+	return i.ToDataProviderSettingsMysqlSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataProviderSettingsMysqlSettingsPtrType) ToDataProviderSettingsMysqlSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsMysqlSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsMysqlSettingsPtrOutput)
+}
+
+type DataProviderSettingsMysqlSettingsOutput struct{ *pulumi.OutputState }
+
+func (DataProviderSettingsMysqlSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderSettingsMysqlSettings)(nil)).Elem()
+}
+
+func (o DataProviderSettingsMysqlSettingsOutput) ToDataProviderSettingsMysqlSettingsOutput() DataProviderSettingsMysqlSettingsOutput {
+	return o
+}
+
+func (o DataProviderSettingsMysqlSettingsOutput) ToDataProviderSettingsMysqlSettingsOutputWithContext(ctx context.Context) DataProviderSettingsMysqlSettingsOutput {
+	return o
+}
+
+func (o DataProviderSettingsMysqlSettingsOutput) ToDataProviderSettingsMysqlSettingsPtrOutput() DataProviderSettingsMysqlSettingsPtrOutput {
+	return o.ToDataProviderSettingsMysqlSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DataProviderSettingsMysqlSettingsOutput) ToDataProviderSettingsMysqlSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsMysqlSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataProviderSettingsMysqlSettings) *DataProviderSettingsMysqlSettings {
+		return &v
+	}).(DataProviderSettingsMysqlSettingsPtrOutput)
+}
+
+// ARN of the DMS certificate used for the SSL connection.
+func (o DataProviderSettingsMysqlSettingsOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsMysqlSettings) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
+}
+
+// Port of the MySQL server. Valid values are between `1` and `65535`.
+func (o DataProviderSettingsMysqlSettingsOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsMysqlSettings) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+func (o DataProviderSettingsMysqlSettingsOutput) S3AccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsMysqlSettings) *string { return v.S3AccessRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// S3 path containing the user-defined schema.
+func (o DataProviderSettingsMysqlSettingsOutput) S3Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsMysqlSettings) *string { return v.S3Path }).(pulumi.StringPtrOutput)
+}
+
+// Hostname of the MySQL server.
+func (o DataProviderSettingsMysqlSettingsOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsMysqlSettings) *string { return v.ServerName }).(pulumi.StringPtrOutput)
+}
+
+// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+func (o DataProviderSettingsMysqlSettingsOutput) SslMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsMysqlSettings) *string { return v.SslMode }).(pulumi.StringPtrOutput)
+}
+
+type DataProviderSettingsMysqlSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataProviderSettingsMysqlSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProviderSettingsMysqlSettings)(nil)).Elem()
+}
+
+func (o DataProviderSettingsMysqlSettingsPtrOutput) ToDataProviderSettingsMysqlSettingsPtrOutput() DataProviderSettingsMysqlSettingsPtrOutput {
+	return o
+}
+
+func (o DataProviderSettingsMysqlSettingsPtrOutput) ToDataProviderSettingsMysqlSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsMysqlSettingsPtrOutput {
+	return o
+}
+
+func (o DataProviderSettingsMysqlSettingsPtrOutput) Elem() DataProviderSettingsMysqlSettingsOutput {
+	return o.ApplyT(func(v *DataProviderSettingsMysqlSettings) DataProviderSettingsMysqlSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DataProviderSettingsMysqlSettings
+		return ret
+	}).(DataProviderSettingsMysqlSettingsOutput)
+}
+
+// ARN of the DMS certificate used for the SSL connection.
+func (o DataProviderSettingsMysqlSettingsPtrOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsMysqlSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Port of the MySQL server. Valid values are between `1` and `65535`.
+func (o DataProviderSettingsMysqlSettingsPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsMysqlSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+func (o DataProviderSettingsMysqlSettingsPtrOutput) S3AccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsMysqlSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3AccessRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 path containing the user-defined schema.
+func (o DataProviderSettingsMysqlSettingsPtrOutput) S3Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsMysqlSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// Hostname of the MySQL server.
+func (o DataProviderSettingsMysqlSettingsPtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsMysqlSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+func (o DataProviderSettingsMysqlSettingsPtrOutput) SslMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsMysqlSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SslMode
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataProviderSettingsOracleSettings struct {
+	// Address of the Oracle Automatic Storage Management (ASM) server used with Binary Reader. See [Oracle change data capture configuration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration).
+	AsmServer *string `pulumi:"asmServer"`
+	// ARN of the DMS certificate used for the SSL connection.
+	CertificateArn *string `pulumi:"certificateArn"`
+	// Database name on the Oracle data provider.
+	DatabaseName *string `pulumi:"databaseName"`
+	// Port of the Oracle server. Valid values are between `1` and `65535`.
+	Port *int `pulumi:"port"`
+	// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+	S3AccessRoleArn *string `pulumi:"s3AccessRoleArn"`
+	// S3 path containing the user-defined schema.
+	S3Path *string `pulumi:"s3Path"`
+	// ARN of the IAM role that grants access to the Secrets Manager secret containing Oracle ASM connection details.
+	SecretsManagerOracleAsmAccessRoleArn *string `pulumi:"secretsManagerOracleAsmAccessRoleArn"`
+	// Identifier of the Secrets Manager secret containing Oracle ASM connection details. Required when the data provider uses an Oracle ASM server.
+	SecretsManagerOracleAsmSecretId *string `pulumi:"secretsManagerOracleAsmSecretId"`
+	// ARN of the IAM role that grants access to the Secrets Manager secret containing the transparent data encryption (TDE) password.
+	SecretsManagerSecurityDbEncryptionAccessRoleArn *string `pulumi:"secretsManagerSecurityDbEncryptionAccessRoleArn"`
+	// Identifier of the Secrets Manager secret containing the TDE password used by Binary Reader to access encrypted Oracle redo logs.
+	SecretsManagerSecurityDbEncryptionSecretId *string `pulumi:"secretsManagerSecurityDbEncryptionSecretId"`
+	// Hostname of the Oracle server.
+	ServerName *string `pulumi:"serverName"`
+	// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+	SslMode *string `pulumi:"sslMode"`
+}
+
+// DataProviderSettingsOracleSettingsInput is an input type that accepts DataProviderSettingsOracleSettingsArgs and DataProviderSettingsOracleSettingsOutput values.
+// You can construct a concrete instance of `DataProviderSettingsOracleSettingsInput` via:
+//
+//	DataProviderSettingsOracleSettingsArgs{...}
+type DataProviderSettingsOracleSettingsInput interface {
+	pulumi.Input
+
+	ToDataProviderSettingsOracleSettingsOutput() DataProviderSettingsOracleSettingsOutput
+	ToDataProviderSettingsOracleSettingsOutputWithContext(context.Context) DataProviderSettingsOracleSettingsOutput
+}
+
+type DataProviderSettingsOracleSettingsArgs struct {
+	// Address of the Oracle Automatic Storage Management (ASM) server used with Binary Reader. See [Oracle change data capture configuration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration).
+	AsmServer pulumi.StringPtrInput `pulumi:"asmServer"`
+	// ARN of the DMS certificate used for the SSL connection.
+	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
+	// Database name on the Oracle data provider.
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	// Port of the Oracle server. Valid values are between `1` and `65535`.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+	S3AccessRoleArn pulumi.StringPtrInput `pulumi:"s3AccessRoleArn"`
+	// S3 path containing the user-defined schema.
+	S3Path pulumi.StringPtrInput `pulumi:"s3Path"`
+	// ARN of the IAM role that grants access to the Secrets Manager secret containing Oracle ASM connection details.
+	SecretsManagerOracleAsmAccessRoleArn pulumi.StringPtrInput `pulumi:"secretsManagerOracleAsmAccessRoleArn"`
+	// Identifier of the Secrets Manager secret containing Oracle ASM connection details. Required when the data provider uses an Oracle ASM server.
+	SecretsManagerOracleAsmSecretId pulumi.StringPtrInput `pulumi:"secretsManagerOracleAsmSecretId"`
+	// ARN of the IAM role that grants access to the Secrets Manager secret containing the transparent data encryption (TDE) password.
+	SecretsManagerSecurityDbEncryptionAccessRoleArn pulumi.StringPtrInput `pulumi:"secretsManagerSecurityDbEncryptionAccessRoleArn"`
+	// Identifier of the Secrets Manager secret containing the TDE password used by Binary Reader to access encrypted Oracle redo logs.
+	SecretsManagerSecurityDbEncryptionSecretId pulumi.StringPtrInput `pulumi:"secretsManagerSecurityDbEncryptionSecretId"`
+	// Hostname of the Oracle server.
+	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
+	// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+	SslMode pulumi.StringPtrInput `pulumi:"sslMode"`
+}
+
+func (DataProviderSettingsOracleSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderSettingsOracleSettings)(nil)).Elem()
+}
+
+func (i DataProviderSettingsOracleSettingsArgs) ToDataProviderSettingsOracleSettingsOutput() DataProviderSettingsOracleSettingsOutput {
+	return i.ToDataProviderSettingsOracleSettingsOutputWithContext(context.Background())
+}
+
+func (i DataProviderSettingsOracleSettingsArgs) ToDataProviderSettingsOracleSettingsOutputWithContext(ctx context.Context) DataProviderSettingsOracleSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsOracleSettingsOutput)
+}
+
+func (i DataProviderSettingsOracleSettingsArgs) ToDataProviderSettingsOracleSettingsPtrOutput() DataProviderSettingsOracleSettingsPtrOutput {
+	return i.ToDataProviderSettingsOracleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DataProviderSettingsOracleSettingsArgs) ToDataProviderSettingsOracleSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsOracleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsOracleSettingsOutput).ToDataProviderSettingsOracleSettingsPtrOutputWithContext(ctx)
+}
+
+// DataProviderSettingsOracleSettingsPtrInput is an input type that accepts DataProviderSettingsOracleSettingsArgs, DataProviderSettingsOracleSettingsPtr and DataProviderSettingsOracleSettingsPtrOutput values.
+// You can construct a concrete instance of `DataProviderSettingsOracleSettingsPtrInput` via:
+//
+//	        DataProviderSettingsOracleSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataProviderSettingsOracleSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDataProviderSettingsOracleSettingsPtrOutput() DataProviderSettingsOracleSettingsPtrOutput
+	ToDataProviderSettingsOracleSettingsPtrOutputWithContext(context.Context) DataProviderSettingsOracleSettingsPtrOutput
+}
+
+type dataProviderSettingsOracleSettingsPtrType DataProviderSettingsOracleSettingsArgs
+
+func DataProviderSettingsOracleSettingsPtr(v *DataProviderSettingsOracleSettingsArgs) DataProviderSettingsOracleSettingsPtrInput {
+	return (*dataProviderSettingsOracleSettingsPtrType)(v)
+}
+
+func (*dataProviderSettingsOracleSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProviderSettingsOracleSettings)(nil)).Elem()
+}
+
+func (i *dataProviderSettingsOracleSettingsPtrType) ToDataProviderSettingsOracleSettingsPtrOutput() DataProviderSettingsOracleSettingsPtrOutput {
+	return i.ToDataProviderSettingsOracleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataProviderSettingsOracleSettingsPtrType) ToDataProviderSettingsOracleSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsOracleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsOracleSettingsPtrOutput)
+}
+
+type DataProviderSettingsOracleSettingsOutput struct{ *pulumi.OutputState }
+
+func (DataProviderSettingsOracleSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderSettingsOracleSettings)(nil)).Elem()
+}
+
+func (o DataProviderSettingsOracleSettingsOutput) ToDataProviderSettingsOracleSettingsOutput() DataProviderSettingsOracleSettingsOutput {
+	return o
+}
+
+func (o DataProviderSettingsOracleSettingsOutput) ToDataProviderSettingsOracleSettingsOutputWithContext(ctx context.Context) DataProviderSettingsOracleSettingsOutput {
+	return o
+}
+
+func (o DataProviderSettingsOracleSettingsOutput) ToDataProviderSettingsOracleSettingsPtrOutput() DataProviderSettingsOracleSettingsPtrOutput {
+	return o.ToDataProviderSettingsOracleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DataProviderSettingsOracleSettingsOutput) ToDataProviderSettingsOracleSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsOracleSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataProviderSettingsOracleSettings) *DataProviderSettingsOracleSettings {
+		return &v
+	}).(DataProviderSettingsOracleSettingsPtrOutput)
+}
+
+// Address of the Oracle Automatic Storage Management (ASM) server used with Binary Reader. See [Oracle change data capture configuration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration).
+func (o DataProviderSettingsOracleSettingsOutput) AsmServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsOracleSettings) *string { return v.AsmServer }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the DMS certificate used for the SSL connection.
+func (o DataProviderSettingsOracleSettingsOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsOracleSettings) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
+}
+
+// Database name on the Oracle data provider.
+func (o DataProviderSettingsOracleSettingsOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsOracleSettings) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// Port of the Oracle server. Valid values are between `1` and `65535`.
+func (o DataProviderSettingsOracleSettingsOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsOracleSettings) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+func (o DataProviderSettingsOracleSettingsOutput) S3AccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsOracleSettings) *string { return v.S3AccessRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// S3 path containing the user-defined schema.
+func (o DataProviderSettingsOracleSettingsOutput) S3Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsOracleSettings) *string { return v.S3Path }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM role that grants access to the Secrets Manager secret containing Oracle ASM connection details.
+func (o DataProviderSettingsOracleSettingsOutput) SecretsManagerOracleAsmAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsOracleSettings) *string { return v.SecretsManagerOracleAsmAccessRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the Secrets Manager secret containing Oracle ASM connection details. Required when the data provider uses an Oracle ASM server.
+func (o DataProviderSettingsOracleSettingsOutput) SecretsManagerOracleAsmSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsOracleSettings) *string { return v.SecretsManagerOracleAsmSecretId }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM role that grants access to the Secrets Manager secret containing the transparent data encryption (TDE) password.
+func (o DataProviderSettingsOracleSettingsOutput) SecretsManagerSecurityDbEncryptionAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsOracleSettings) *string {
+		return v.SecretsManagerSecurityDbEncryptionAccessRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the Secrets Manager secret containing the TDE password used by Binary Reader to access encrypted Oracle redo logs.
+func (o DataProviderSettingsOracleSettingsOutput) SecretsManagerSecurityDbEncryptionSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsOracleSettings) *string {
+		return v.SecretsManagerSecurityDbEncryptionSecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Hostname of the Oracle server.
+func (o DataProviderSettingsOracleSettingsOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsOracleSettings) *string { return v.ServerName }).(pulumi.StringPtrOutput)
+}
+
+// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+func (o DataProviderSettingsOracleSettingsOutput) SslMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsOracleSettings) *string { return v.SslMode }).(pulumi.StringPtrOutput)
+}
+
+type DataProviderSettingsOracleSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataProviderSettingsOracleSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProviderSettingsOracleSettings)(nil)).Elem()
+}
+
+func (o DataProviderSettingsOracleSettingsPtrOutput) ToDataProviderSettingsOracleSettingsPtrOutput() DataProviderSettingsOracleSettingsPtrOutput {
+	return o
+}
+
+func (o DataProviderSettingsOracleSettingsPtrOutput) ToDataProviderSettingsOracleSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsOracleSettingsPtrOutput {
+	return o
+}
+
+func (o DataProviderSettingsOracleSettingsPtrOutput) Elem() DataProviderSettingsOracleSettingsOutput {
+	return o.ApplyT(func(v *DataProviderSettingsOracleSettings) DataProviderSettingsOracleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DataProviderSettingsOracleSettings
+		return ret
+	}).(DataProviderSettingsOracleSettingsOutput)
+}
+
+// Address of the Oracle Automatic Storage Management (ASM) server used with Binary Reader. See [Oracle change data capture configuration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration).
+func (o DataProviderSettingsOracleSettingsPtrOutput) AsmServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AsmServer
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the DMS certificate used for the SSL connection.
+func (o DataProviderSettingsOracleSettingsPtrOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Database name on the Oracle data provider.
+func (o DataProviderSettingsOracleSettingsPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Port of the Oracle server. Valid values are between `1` and `65535`.
+func (o DataProviderSettingsOracleSettingsPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsOracleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+func (o DataProviderSettingsOracleSettingsPtrOutput) S3AccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3AccessRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 path containing the user-defined schema.
+func (o DataProviderSettingsOracleSettingsPtrOutput) S3Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM role that grants access to the Secrets Manager secret containing Oracle ASM connection details.
+func (o DataProviderSettingsOracleSettingsPtrOutput) SecretsManagerOracleAsmAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretsManagerOracleAsmAccessRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the Secrets Manager secret containing Oracle ASM connection details. Required when the data provider uses an Oracle ASM server.
+func (o DataProviderSettingsOracleSettingsPtrOutput) SecretsManagerOracleAsmSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretsManagerOracleAsmSecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM role that grants access to the Secrets Manager secret containing the transparent data encryption (TDE) password.
+func (o DataProviderSettingsOracleSettingsPtrOutput) SecretsManagerSecurityDbEncryptionAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretsManagerSecurityDbEncryptionAccessRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the Secrets Manager secret containing the TDE password used by Binary Reader to access encrypted Oracle redo logs.
+func (o DataProviderSettingsOracleSettingsPtrOutput) SecretsManagerSecurityDbEncryptionSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretsManagerSecurityDbEncryptionSecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Hostname of the Oracle server.
+func (o DataProviderSettingsOracleSettingsPtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+func (o DataProviderSettingsOracleSettingsPtrOutput) SslMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SslMode
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataProviderSettingsPostgresqlSettings struct {
+	// ARN of the DMS certificate used for the SSL connection.
+	CertificateArn *string `pulumi:"certificateArn"`
+	// Database name on the PostgreSQL data provider.
+	DatabaseName *string `pulumi:"databaseName"`
+	// Port of the PostgreSQL server. Valid values are between `1` and `65535`.
+	Port *int `pulumi:"port"`
+	// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+	S3AccessRoleArn *string `pulumi:"s3AccessRoleArn"`
+	// S3 path containing the user-defined schema.
+	S3Path *string `pulumi:"s3Path"`
+	// Hostname of the PostgreSQL server.
+	ServerName *string `pulumi:"serverName"`
+	// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+	SslMode *string `pulumi:"sslMode"`
+}
+
+// DataProviderSettingsPostgresqlSettingsInput is an input type that accepts DataProviderSettingsPostgresqlSettingsArgs and DataProviderSettingsPostgresqlSettingsOutput values.
+// You can construct a concrete instance of `DataProviderSettingsPostgresqlSettingsInput` via:
+//
+//	DataProviderSettingsPostgresqlSettingsArgs{...}
+type DataProviderSettingsPostgresqlSettingsInput interface {
+	pulumi.Input
+
+	ToDataProviderSettingsPostgresqlSettingsOutput() DataProviderSettingsPostgresqlSettingsOutput
+	ToDataProviderSettingsPostgresqlSettingsOutputWithContext(context.Context) DataProviderSettingsPostgresqlSettingsOutput
+}
+
+type DataProviderSettingsPostgresqlSettingsArgs struct {
+	// ARN of the DMS certificate used for the SSL connection.
+	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
+	// Database name on the PostgreSQL data provider.
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	// Port of the PostgreSQL server. Valid values are between `1` and `65535`.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+	S3AccessRoleArn pulumi.StringPtrInput `pulumi:"s3AccessRoleArn"`
+	// S3 path containing the user-defined schema.
+	S3Path pulumi.StringPtrInput `pulumi:"s3Path"`
+	// Hostname of the PostgreSQL server.
+	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
+	// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+	SslMode pulumi.StringPtrInput `pulumi:"sslMode"`
+}
+
+func (DataProviderSettingsPostgresqlSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderSettingsPostgresqlSettings)(nil)).Elem()
+}
+
+func (i DataProviderSettingsPostgresqlSettingsArgs) ToDataProviderSettingsPostgresqlSettingsOutput() DataProviderSettingsPostgresqlSettingsOutput {
+	return i.ToDataProviderSettingsPostgresqlSettingsOutputWithContext(context.Background())
+}
+
+func (i DataProviderSettingsPostgresqlSettingsArgs) ToDataProviderSettingsPostgresqlSettingsOutputWithContext(ctx context.Context) DataProviderSettingsPostgresqlSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsPostgresqlSettingsOutput)
+}
+
+func (i DataProviderSettingsPostgresqlSettingsArgs) ToDataProviderSettingsPostgresqlSettingsPtrOutput() DataProviderSettingsPostgresqlSettingsPtrOutput {
+	return i.ToDataProviderSettingsPostgresqlSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DataProviderSettingsPostgresqlSettingsArgs) ToDataProviderSettingsPostgresqlSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsPostgresqlSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsPostgresqlSettingsOutput).ToDataProviderSettingsPostgresqlSettingsPtrOutputWithContext(ctx)
+}
+
+// DataProviderSettingsPostgresqlSettingsPtrInput is an input type that accepts DataProviderSettingsPostgresqlSettingsArgs, DataProviderSettingsPostgresqlSettingsPtr and DataProviderSettingsPostgresqlSettingsPtrOutput values.
+// You can construct a concrete instance of `DataProviderSettingsPostgresqlSettingsPtrInput` via:
+//
+//	        DataProviderSettingsPostgresqlSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataProviderSettingsPostgresqlSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDataProviderSettingsPostgresqlSettingsPtrOutput() DataProviderSettingsPostgresqlSettingsPtrOutput
+	ToDataProviderSettingsPostgresqlSettingsPtrOutputWithContext(context.Context) DataProviderSettingsPostgresqlSettingsPtrOutput
+}
+
+type dataProviderSettingsPostgresqlSettingsPtrType DataProviderSettingsPostgresqlSettingsArgs
+
+func DataProviderSettingsPostgresqlSettingsPtr(v *DataProviderSettingsPostgresqlSettingsArgs) DataProviderSettingsPostgresqlSettingsPtrInput {
+	return (*dataProviderSettingsPostgresqlSettingsPtrType)(v)
+}
+
+func (*dataProviderSettingsPostgresqlSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProviderSettingsPostgresqlSettings)(nil)).Elem()
+}
+
+func (i *dataProviderSettingsPostgresqlSettingsPtrType) ToDataProviderSettingsPostgresqlSettingsPtrOutput() DataProviderSettingsPostgresqlSettingsPtrOutput {
+	return i.ToDataProviderSettingsPostgresqlSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataProviderSettingsPostgresqlSettingsPtrType) ToDataProviderSettingsPostgresqlSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsPostgresqlSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsPostgresqlSettingsPtrOutput)
+}
+
+type DataProviderSettingsPostgresqlSettingsOutput struct{ *pulumi.OutputState }
+
+func (DataProviderSettingsPostgresqlSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderSettingsPostgresqlSettings)(nil)).Elem()
+}
+
+func (o DataProviderSettingsPostgresqlSettingsOutput) ToDataProviderSettingsPostgresqlSettingsOutput() DataProviderSettingsPostgresqlSettingsOutput {
+	return o
+}
+
+func (o DataProviderSettingsPostgresqlSettingsOutput) ToDataProviderSettingsPostgresqlSettingsOutputWithContext(ctx context.Context) DataProviderSettingsPostgresqlSettingsOutput {
+	return o
+}
+
+func (o DataProviderSettingsPostgresqlSettingsOutput) ToDataProviderSettingsPostgresqlSettingsPtrOutput() DataProviderSettingsPostgresqlSettingsPtrOutput {
+	return o.ToDataProviderSettingsPostgresqlSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DataProviderSettingsPostgresqlSettingsOutput) ToDataProviderSettingsPostgresqlSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsPostgresqlSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataProviderSettingsPostgresqlSettings) *DataProviderSettingsPostgresqlSettings {
+		return &v
+	}).(DataProviderSettingsPostgresqlSettingsPtrOutput)
+}
+
+// ARN of the DMS certificate used for the SSL connection.
+func (o DataProviderSettingsPostgresqlSettingsOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsPostgresqlSettings) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
+}
+
+// Database name on the PostgreSQL data provider.
+func (o DataProviderSettingsPostgresqlSettingsOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsPostgresqlSettings) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// Port of the PostgreSQL server. Valid values are between `1` and `65535`.
+func (o DataProviderSettingsPostgresqlSettingsOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsPostgresqlSettings) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+func (o DataProviderSettingsPostgresqlSettingsOutput) S3AccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsPostgresqlSettings) *string { return v.S3AccessRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// S3 path containing the user-defined schema.
+func (o DataProviderSettingsPostgresqlSettingsOutput) S3Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsPostgresqlSettings) *string { return v.S3Path }).(pulumi.StringPtrOutput)
+}
+
+// Hostname of the PostgreSQL server.
+func (o DataProviderSettingsPostgresqlSettingsOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsPostgresqlSettings) *string { return v.ServerName }).(pulumi.StringPtrOutput)
+}
+
+// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+func (o DataProviderSettingsPostgresqlSettingsOutput) SslMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsPostgresqlSettings) *string { return v.SslMode }).(pulumi.StringPtrOutput)
+}
+
+type DataProviderSettingsPostgresqlSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataProviderSettingsPostgresqlSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProviderSettingsPostgresqlSettings)(nil)).Elem()
+}
+
+func (o DataProviderSettingsPostgresqlSettingsPtrOutput) ToDataProviderSettingsPostgresqlSettingsPtrOutput() DataProviderSettingsPostgresqlSettingsPtrOutput {
+	return o
+}
+
+func (o DataProviderSettingsPostgresqlSettingsPtrOutput) ToDataProviderSettingsPostgresqlSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsPostgresqlSettingsPtrOutput {
+	return o
+}
+
+func (o DataProviderSettingsPostgresqlSettingsPtrOutput) Elem() DataProviderSettingsPostgresqlSettingsOutput {
+	return o.ApplyT(func(v *DataProviderSettingsPostgresqlSettings) DataProviderSettingsPostgresqlSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DataProviderSettingsPostgresqlSettings
+		return ret
+	}).(DataProviderSettingsPostgresqlSettingsOutput)
+}
+
+// ARN of the DMS certificate used for the SSL connection.
+func (o DataProviderSettingsPostgresqlSettingsPtrOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsPostgresqlSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Database name on the PostgreSQL data provider.
+func (o DataProviderSettingsPostgresqlSettingsPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsPostgresqlSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Port of the PostgreSQL server. Valid values are between `1` and `65535`.
+func (o DataProviderSettingsPostgresqlSettingsPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsPostgresqlSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+func (o DataProviderSettingsPostgresqlSettingsPtrOutput) S3AccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsPostgresqlSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3AccessRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 path containing the user-defined schema.
+func (o DataProviderSettingsPostgresqlSettingsPtrOutput) S3Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsPostgresqlSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// Hostname of the PostgreSQL server.
+func (o DataProviderSettingsPostgresqlSettingsPtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsPostgresqlSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+func (o DataProviderSettingsPostgresqlSettingsPtrOutput) SslMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsPostgresqlSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SslMode
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataProviderSettingsRedshiftSettings struct {
+	// Database name on the Amazon Redshift data provider.
+	DatabaseName *string `pulumi:"databaseName"`
+	// Port of the Amazon Redshift server. Valid values are between `1` and `65535`.
+	Port *int `pulumi:"port"`
+	// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+	S3AccessRoleArn *string `pulumi:"s3AccessRoleArn"`
+	// S3 path containing the user-defined schema.
+	S3Path *string `pulumi:"s3Path"`
+	// Hostname of the Amazon Redshift server.
+	ServerName *string `pulumi:"serverName"`
+}
+
+// DataProviderSettingsRedshiftSettingsInput is an input type that accepts DataProviderSettingsRedshiftSettingsArgs and DataProviderSettingsRedshiftSettingsOutput values.
+// You can construct a concrete instance of `DataProviderSettingsRedshiftSettingsInput` via:
+//
+//	DataProviderSettingsRedshiftSettingsArgs{...}
+type DataProviderSettingsRedshiftSettingsInput interface {
+	pulumi.Input
+
+	ToDataProviderSettingsRedshiftSettingsOutput() DataProviderSettingsRedshiftSettingsOutput
+	ToDataProviderSettingsRedshiftSettingsOutputWithContext(context.Context) DataProviderSettingsRedshiftSettingsOutput
+}
+
+type DataProviderSettingsRedshiftSettingsArgs struct {
+	// Database name on the Amazon Redshift data provider.
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	// Port of the Amazon Redshift server. Valid values are between `1` and `65535`.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+	S3AccessRoleArn pulumi.StringPtrInput `pulumi:"s3AccessRoleArn"`
+	// S3 path containing the user-defined schema.
+	S3Path pulumi.StringPtrInput `pulumi:"s3Path"`
+	// Hostname of the Amazon Redshift server.
+	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
+}
+
+func (DataProviderSettingsRedshiftSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderSettingsRedshiftSettings)(nil)).Elem()
+}
+
+func (i DataProviderSettingsRedshiftSettingsArgs) ToDataProviderSettingsRedshiftSettingsOutput() DataProviderSettingsRedshiftSettingsOutput {
+	return i.ToDataProviderSettingsRedshiftSettingsOutputWithContext(context.Background())
+}
+
+func (i DataProviderSettingsRedshiftSettingsArgs) ToDataProviderSettingsRedshiftSettingsOutputWithContext(ctx context.Context) DataProviderSettingsRedshiftSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsRedshiftSettingsOutput)
+}
+
+func (i DataProviderSettingsRedshiftSettingsArgs) ToDataProviderSettingsRedshiftSettingsPtrOutput() DataProviderSettingsRedshiftSettingsPtrOutput {
+	return i.ToDataProviderSettingsRedshiftSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DataProviderSettingsRedshiftSettingsArgs) ToDataProviderSettingsRedshiftSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsRedshiftSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsRedshiftSettingsOutput).ToDataProviderSettingsRedshiftSettingsPtrOutputWithContext(ctx)
+}
+
+// DataProviderSettingsRedshiftSettingsPtrInput is an input type that accepts DataProviderSettingsRedshiftSettingsArgs, DataProviderSettingsRedshiftSettingsPtr and DataProviderSettingsRedshiftSettingsPtrOutput values.
+// You can construct a concrete instance of `DataProviderSettingsRedshiftSettingsPtrInput` via:
+//
+//	        DataProviderSettingsRedshiftSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataProviderSettingsRedshiftSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDataProviderSettingsRedshiftSettingsPtrOutput() DataProviderSettingsRedshiftSettingsPtrOutput
+	ToDataProviderSettingsRedshiftSettingsPtrOutputWithContext(context.Context) DataProviderSettingsRedshiftSettingsPtrOutput
+}
+
+type dataProviderSettingsRedshiftSettingsPtrType DataProviderSettingsRedshiftSettingsArgs
+
+func DataProviderSettingsRedshiftSettingsPtr(v *DataProviderSettingsRedshiftSettingsArgs) DataProviderSettingsRedshiftSettingsPtrInput {
+	return (*dataProviderSettingsRedshiftSettingsPtrType)(v)
+}
+
+func (*dataProviderSettingsRedshiftSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProviderSettingsRedshiftSettings)(nil)).Elem()
+}
+
+func (i *dataProviderSettingsRedshiftSettingsPtrType) ToDataProviderSettingsRedshiftSettingsPtrOutput() DataProviderSettingsRedshiftSettingsPtrOutput {
+	return i.ToDataProviderSettingsRedshiftSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataProviderSettingsRedshiftSettingsPtrType) ToDataProviderSettingsRedshiftSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsRedshiftSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsRedshiftSettingsPtrOutput)
+}
+
+type DataProviderSettingsRedshiftSettingsOutput struct{ *pulumi.OutputState }
+
+func (DataProviderSettingsRedshiftSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderSettingsRedshiftSettings)(nil)).Elem()
+}
+
+func (o DataProviderSettingsRedshiftSettingsOutput) ToDataProviderSettingsRedshiftSettingsOutput() DataProviderSettingsRedshiftSettingsOutput {
+	return o
+}
+
+func (o DataProviderSettingsRedshiftSettingsOutput) ToDataProviderSettingsRedshiftSettingsOutputWithContext(ctx context.Context) DataProviderSettingsRedshiftSettingsOutput {
+	return o
+}
+
+func (o DataProviderSettingsRedshiftSettingsOutput) ToDataProviderSettingsRedshiftSettingsPtrOutput() DataProviderSettingsRedshiftSettingsPtrOutput {
+	return o.ToDataProviderSettingsRedshiftSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DataProviderSettingsRedshiftSettingsOutput) ToDataProviderSettingsRedshiftSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsRedshiftSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataProviderSettingsRedshiftSettings) *DataProviderSettingsRedshiftSettings {
+		return &v
+	}).(DataProviderSettingsRedshiftSettingsPtrOutput)
+}
+
+// Database name on the Amazon Redshift data provider.
+func (o DataProviderSettingsRedshiftSettingsOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsRedshiftSettings) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// Port of the Amazon Redshift server. Valid values are between `1` and `65535`.
+func (o DataProviderSettingsRedshiftSettingsOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsRedshiftSettings) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+func (o DataProviderSettingsRedshiftSettingsOutput) S3AccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsRedshiftSettings) *string { return v.S3AccessRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// S3 path containing the user-defined schema.
+func (o DataProviderSettingsRedshiftSettingsOutput) S3Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsRedshiftSettings) *string { return v.S3Path }).(pulumi.StringPtrOutput)
+}
+
+// Hostname of the Amazon Redshift server.
+func (o DataProviderSettingsRedshiftSettingsOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsRedshiftSettings) *string { return v.ServerName }).(pulumi.StringPtrOutput)
+}
+
+type DataProviderSettingsRedshiftSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataProviderSettingsRedshiftSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProviderSettingsRedshiftSettings)(nil)).Elem()
+}
+
+func (o DataProviderSettingsRedshiftSettingsPtrOutput) ToDataProviderSettingsRedshiftSettingsPtrOutput() DataProviderSettingsRedshiftSettingsPtrOutput {
+	return o
+}
+
+func (o DataProviderSettingsRedshiftSettingsPtrOutput) ToDataProviderSettingsRedshiftSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsRedshiftSettingsPtrOutput {
+	return o
+}
+
+func (o DataProviderSettingsRedshiftSettingsPtrOutput) Elem() DataProviderSettingsRedshiftSettingsOutput {
+	return o.ApplyT(func(v *DataProviderSettingsRedshiftSettings) DataProviderSettingsRedshiftSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DataProviderSettingsRedshiftSettings
+		return ret
+	}).(DataProviderSettingsRedshiftSettingsOutput)
+}
+
+// Database name on the Amazon Redshift data provider.
+func (o DataProviderSettingsRedshiftSettingsPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsRedshiftSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Port of the Amazon Redshift server. Valid values are between `1` and `65535`.
+func (o DataProviderSettingsRedshiftSettingsPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsRedshiftSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+func (o DataProviderSettingsRedshiftSettingsPtrOutput) S3AccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsRedshiftSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3AccessRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 path containing the user-defined schema.
+func (o DataProviderSettingsRedshiftSettingsPtrOutput) S3Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsRedshiftSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// Hostname of the Amazon Redshift server.
+func (o DataProviderSettingsRedshiftSettingsPtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsRedshiftSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerName
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataProviderSettingsSybaseAseSettings struct {
+	// ARN of the DMS certificate used for the SSL connection.
+	CertificateArn *string `pulumi:"certificateArn"`
+	// Database name on the SAP ASE data provider.
+	DatabaseName *string `pulumi:"databaseName"`
+	// Whether to encrypt the connection password during transmission. Defaults to `true`.
+	EncryptPassword *bool `pulumi:"encryptPassword"`
+	// Port of the SAP ASE server. Valid values are between `1` and `65535`.
+	Port *int `pulumi:"port"`
+	// Hostname of the SAP ASE server.
+	ServerName *string `pulumi:"serverName"`
+	// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+	SslMode *string `pulumi:"sslMode"`
+}
+
+// DataProviderSettingsSybaseAseSettingsInput is an input type that accepts DataProviderSettingsSybaseAseSettingsArgs and DataProviderSettingsSybaseAseSettingsOutput values.
+// You can construct a concrete instance of `DataProviderSettingsSybaseAseSettingsInput` via:
+//
+//	DataProviderSettingsSybaseAseSettingsArgs{...}
+type DataProviderSettingsSybaseAseSettingsInput interface {
+	pulumi.Input
+
+	ToDataProviderSettingsSybaseAseSettingsOutput() DataProviderSettingsSybaseAseSettingsOutput
+	ToDataProviderSettingsSybaseAseSettingsOutputWithContext(context.Context) DataProviderSettingsSybaseAseSettingsOutput
+}
+
+type DataProviderSettingsSybaseAseSettingsArgs struct {
+	// ARN of the DMS certificate used for the SSL connection.
+	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
+	// Database name on the SAP ASE data provider.
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	// Whether to encrypt the connection password during transmission. Defaults to `true`.
+	EncryptPassword pulumi.BoolPtrInput `pulumi:"encryptPassword"`
+	// Port of the SAP ASE server. Valid values are between `1` and `65535`.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// Hostname of the SAP ASE server.
+	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
+	// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+	SslMode pulumi.StringPtrInput `pulumi:"sslMode"`
+}
+
+func (DataProviderSettingsSybaseAseSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderSettingsSybaseAseSettings)(nil)).Elem()
+}
+
+func (i DataProviderSettingsSybaseAseSettingsArgs) ToDataProviderSettingsSybaseAseSettingsOutput() DataProviderSettingsSybaseAseSettingsOutput {
+	return i.ToDataProviderSettingsSybaseAseSettingsOutputWithContext(context.Background())
+}
+
+func (i DataProviderSettingsSybaseAseSettingsArgs) ToDataProviderSettingsSybaseAseSettingsOutputWithContext(ctx context.Context) DataProviderSettingsSybaseAseSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsSybaseAseSettingsOutput)
+}
+
+func (i DataProviderSettingsSybaseAseSettingsArgs) ToDataProviderSettingsSybaseAseSettingsPtrOutput() DataProviderSettingsSybaseAseSettingsPtrOutput {
+	return i.ToDataProviderSettingsSybaseAseSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DataProviderSettingsSybaseAseSettingsArgs) ToDataProviderSettingsSybaseAseSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsSybaseAseSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsSybaseAseSettingsOutput).ToDataProviderSettingsSybaseAseSettingsPtrOutputWithContext(ctx)
+}
+
+// DataProviderSettingsSybaseAseSettingsPtrInput is an input type that accepts DataProviderSettingsSybaseAseSettingsArgs, DataProviderSettingsSybaseAseSettingsPtr and DataProviderSettingsSybaseAseSettingsPtrOutput values.
+// You can construct a concrete instance of `DataProviderSettingsSybaseAseSettingsPtrInput` via:
+//
+//	        DataProviderSettingsSybaseAseSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataProviderSettingsSybaseAseSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDataProviderSettingsSybaseAseSettingsPtrOutput() DataProviderSettingsSybaseAseSettingsPtrOutput
+	ToDataProviderSettingsSybaseAseSettingsPtrOutputWithContext(context.Context) DataProviderSettingsSybaseAseSettingsPtrOutput
+}
+
+type dataProviderSettingsSybaseAseSettingsPtrType DataProviderSettingsSybaseAseSettingsArgs
+
+func DataProviderSettingsSybaseAseSettingsPtr(v *DataProviderSettingsSybaseAseSettingsArgs) DataProviderSettingsSybaseAseSettingsPtrInput {
+	return (*dataProviderSettingsSybaseAseSettingsPtrType)(v)
+}
+
+func (*dataProviderSettingsSybaseAseSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProviderSettingsSybaseAseSettings)(nil)).Elem()
+}
+
+func (i *dataProviderSettingsSybaseAseSettingsPtrType) ToDataProviderSettingsSybaseAseSettingsPtrOutput() DataProviderSettingsSybaseAseSettingsPtrOutput {
+	return i.ToDataProviderSettingsSybaseAseSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataProviderSettingsSybaseAseSettingsPtrType) ToDataProviderSettingsSybaseAseSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsSybaseAseSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderSettingsSybaseAseSettingsPtrOutput)
+}
+
+type DataProviderSettingsSybaseAseSettingsOutput struct{ *pulumi.OutputState }
+
+func (DataProviderSettingsSybaseAseSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderSettingsSybaseAseSettings)(nil)).Elem()
+}
+
+func (o DataProviderSettingsSybaseAseSettingsOutput) ToDataProviderSettingsSybaseAseSettingsOutput() DataProviderSettingsSybaseAseSettingsOutput {
+	return o
+}
+
+func (o DataProviderSettingsSybaseAseSettingsOutput) ToDataProviderSettingsSybaseAseSettingsOutputWithContext(ctx context.Context) DataProviderSettingsSybaseAseSettingsOutput {
+	return o
+}
+
+func (o DataProviderSettingsSybaseAseSettingsOutput) ToDataProviderSettingsSybaseAseSettingsPtrOutput() DataProviderSettingsSybaseAseSettingsPtrOutput {
+	return o.ToDataProviderSettingsSybaseAseSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DataProviderSettingsSybaseAseSettingsOutput) ToDataProviderSettingsSybaseAseSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsSybaseAseSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataProviderSettingsSybaseAseSettings) *DataProviderSettingsSybaseAseSettings {
+		return &v
+	}).(DataProviderSettingsSybaseAseSettingsPtrOutput)
+}
+
+// ARN of the DMS certificate used for the SSL connection.
+func (o DataProviderSettingsSybaseAseSettingsOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsSybaseAseSettings) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
+}
+
+// Database name on the SAP ASE data provider.
+func (o DataProviderSettingsSybaseAseSettingsOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsSybaseAseSettings) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// Whether to encrypt the connection password during transmission. Defaults to `true`.
+func (o DataProviderSettingsSybaseAseSettingsOutput) EncryptPassword() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsSybaseAseSettings) *bool { return v.EncryptPassword }).(pulumi.BoolPtrOutput)
+}
+
+// Port of the SAP ASE server. Valid values are between `1` and `65535`.
+func (o DataProviderSettingsSybaseAseSettingsOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsSybaseAseSettings) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// Hostname of the SAP ASE server.
+func (o DataProviderSettingsSybaseAseSettingsOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsSybaseAseSettings) *string { return v.ServerName }).(pulumi.StringPtrOutput)
+}
+
+// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+func (o DataProviderSettingsSybaseAseSettingsOutput) SslMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataProviderSettingsSybaseAseSettings) *string { return v.SslMode }).(pulumi.StringPtrOutput)
+}
+
+type DataProviderSettingsSybaseAseSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataProviderSettingsSybaseAseSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProviderSettingsSybaseAseSettings)(nil)).Elem()
+}
+
+func (o DataProviderSettingsSybaseAseSettingsPtrOutput) ToDataProviderSettingsSybaseAseSettingsPtrOutput() DataProviderSettingsSybaseAseSettingsPtrOutput {
+	return o
+}
+
+func (o DataProviderSettingsSybaseAseSettingsPtrOutput) ToDataProviderSettingsSybaseAseSettingsPtrOutputWithContext(ctx context.Context) DataProviderSettingsSybaseAseSettingsPtrOutput {
+	return o
+}
+
+func (o DataProviderSettingsSybaseAseSettingsPtrOutput) Elem() DataProviderSettingsSybaseAseSettingsOutput {
+	return o.ApplyT(func(v *DataProviderSettingsSybaseAseSettings) DataProviderSettingsSybaseAseSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DataProviderSettingsSybaseAseSettings
+		return ret
+	}).(DataProviderSettingsSybaseAseSettingsOutput)
+}
+
+// ARN of the DMS certificate used for the SSL connection.
+func (o DataProviderSettingsSybaseAseSettingsPtrOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsSybaseAseSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Database name on the SAP ASE data provider.
+func (o DataProviderSettingsSybaseAseSettingsPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsSybaseAseSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to encrypt the connection password during transmission. Defaults to `true`.
+func (o DataProviderSettingsSybaseAseSettingsPtrOutput) EncryptPassword() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsSybaseAseSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptPassword
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Port of the SAP ASE server. Valid values are between `1` and `65535`.
+func (o DataProviderSettingsSybaseAseSettingsPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsSybaseAseSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// Hostname of the SAP ASE server.
+func (o DataProviderSettingsSybaseAseSettingsPtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsSybaseAseSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+func (o DataProviderSettingsSybaseAseSettingsPtrOutput) SslMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataProviderSettingsSybaseAseSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SslMode
+	}).(pulumi.StringPtrOutput)
+}
+
 type EndpointElasticsearchSettings struct {
 	// Endpoint for the OpenSearch cluster.
 	EndpointUri string `pulumi:"endpointUri"`
@@ -5308,6 +8421,30 @@ func (o GetEndpointS3SettingArrayOutput) Index(i pulumi.IntInput) GetEndpointS3S
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderSettingsInput)(nil)).Elem(), DataProviderSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderSettingsPtrInput)(nil)).Elem(), DataProviderSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderSettingsDocDbSettingsInput)(nil)).Elem(), DataProviderSettingsDocDbSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderSettingsDocDbSettingsPtrInput)(nil)).Elem(), DataProviderSettingsDocDbSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderSettingsIbmDb2LuwSettingsInput)(nil)).Elem(), DataProviderSettingsIbmDb2LuwSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderSettingsIbmDb2LuwSettingsPtrInput)(nil)).Elem(), DataProviderSettingsIbmDb2LuwSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderSettingsIbmDb2ZosSettingsInput)(nil)).Elem(), DataProviderSettingsIbmDb2ZosSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderSettingsIbmDb2ZosSettingsPtrInput)(nil)).Elem(), DataProviderSettingsIbmDb2ZosSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderSettingsMariaDbSettingsInput)(nil)).Elem(), DataProviderSettingsMariaDbSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderSettingsMariaDbSettingsPtrInput)(nil)).Elem(), DataProviderSettingsMariaDbSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderSettingsMicrosoftSqlServerSettingsInput)(nil)).Elem(), DataProviderSettingsMicrosoftSqlServerSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderSettingsMicrosoftSqlServerSettingsPtrInput)(nil)).Elem(), DataProviderSettingsMicrosoftSqlServerSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderSettingsMongoDbSettingsInput)(nil)).Elem(), DataProviderSettingsMongoDbSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderSettingsMongoDbSettingsPtrInput)(nil)).Elem(), DataProviderSettingsMongoDbSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderSettingsMysqlSettingsInput)(nil)).Elem(), DataProviderSettingsMysqlSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderSettingsMysqlSettingsPtrInput)(nil)).Elem(), DataProviderSettingsMysqlSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderSettingsOracleSettingsInput)(nil)).Elem(), DataProviderSettingsOracleSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderSettingsOracleSettingsPtrInput)(nil)).Elem(), DataProviderSettingsOracleSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderSettingsPostgresqlSettingsInput)(nil)).Elem(), DataProviderSettingsPostgresqlSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderSettingsPostgresqlSettingsPtrInput)(nil)).Elem(), DataProviderSettingsPostgresqlSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderSettingsRedshiftSettingsInput)(nil)).Elem(), DataProviderSettingsRedshiftSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderSettingsRedshiftSettingsPtrInput)(nil)).Elem(), DataProviderSettingsRedshiftSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderSettingsSybaseAseSettingsInput)(nil)).Elem(), DataProviderSettingsSybaseAseSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderSettingsSybaseAseSettingsPtrInput)(nil)).Elem(), DataProviderSettingsSybaseAseSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointElasticsearchSettingsInput)(nil)).Elem(), EndpointElasticsearchSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointElasticsearchSettingsPtrInput)(nil)).Elem(), EndpointElasticsearchSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointKafkaSettingsInput)(nil)).Elem(), EndpointKafkaSettingsArgs{})
@@ -5348,6 +8485,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointRedshiftSettingArrayInput)(nil)).Elem(), GetEndpointRedshiftSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointS3SettingInput)(nil)).Elem(), GetEndpointS3SettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointS3SettingArrayInput)(nil)).Elem(), GetEndpointS3SettingArray{})
+	pulumi.RegisterOutputType(DataProviderSettingsOutput{})
+	pulumi.RegisterOutputType(DataProviderSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DataProviderSettingsDocDbSettingsOutput{})
+	pulumi.RegisterOutputType(DataProviderSettingsDocDbSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DataProviderSettingsIbmDb2LuwSettingsOutput{})
+	pulumi.RegisterOutputType(DataProviderSettingsIbmDb2LuwSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DataProviderSettingsIbmDb2ZosSettingsOutput{})
+	pulumi.RegisterOutputType(DataProviderSettingsIbmDb2ZosSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DataProviderSettingsMariaDbSettingsOutput{})
+	pulumi.RegisterOutputType(DataProviderSettingsMariaDbSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DataProviderSettingsMicrosoftSqlServerSettingsOutput{})
+	pulumi.RegisterOutputType(DataProviderSettingsMicrosoftSqlServerSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DataProviderSettingsMongoDbSettingsOutput{})
+	pulumi.RegisterOutputType(DataProviderSettingsMongoDbSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DataProviderSettingsMysqlSettingsOutput{})
+	pulumi.RegisterOutputType(DataProviderSettingsMysqlSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DataProviderSettingsOracleSettingsOutput{})
+	pulumi.RegisterOutputType(DataProviderSettingsOracleSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DataProviderSettingsPostgresqlSettingsOutput{})
+	pulumi.RegisterOutputType(DataProviderSettingsPostgresqlSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DataProviderSettingsRedshiftSettingsOutput{})
+	pulumi.RegisterOutputType(DataProviderSettingsRedshiftSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DataProviderSettingsSybaseAseSettingsOutput{})
+	pulumi.RegisterOutputType(DataProviderSettingsSybaseAseSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointElasticsearchSettingsOutput{})
 	pulumi.RegisterOutputType(EndpointElasticsearchSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointKafkaSettingsOutput{})

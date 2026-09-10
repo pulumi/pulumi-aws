@@ -17,37 +17,101 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer {
+    /**
+     * @return Set of allowed audience values for JWT token validation.
+     * 
+     */
     private @Nullable List<String> allowedAudiences;
+    /**
+     * @return Set of allowed client IDs for JWT token validation.
+     * 
+     */
     private @Nullable List<String> allowedClients;
+    /**
+     * @return Set of scopes that are allowed to access the token.
+     * 
+     */
     private @Nullable List<String> allowedScopes;
+    /**
+     * @return Configuration restricting which workloads may use this authorizer. See `allowedWorkloadConfiguration` below.
+     * 
+     */
     private @Nullable AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration allowedWorkloadConfiguration;
+    /**
+     * @return Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+     * 
+     */
     private @Nullable List<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim> customClaims;
+    /**
+     * @return URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
+     * 
+     */
     private String discoveryUrl;
+    /**
+     * @return Private endpoint used to reach the authorization server. See `privateEndpoint` below.
+     * 
+     */
     private @Nullable AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint privateEndpoint;
+    /**
+     * @return Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` below.
+     * 
+     */
     private @Nullable List<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride> privateEndpointOverrides;
 
     private AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer() {}
+    /**
+     * @return Set of allowed audience values for JWT token validation.
+     * 
+     */
     public List<String> allowedAudiences() {
         return this.allowedAudiences == null ? List.of() : this.allowedAudiences;
     }
+    /**
+     * @return Set of allowed client IDs for JWT token validation.
+     * 
+     */
     public List<String> allowedClients() {
         return this.allowedClients == null ? List.of() : this.allowedClients;
     }
+    /**
+     * @return Set of scopes that are allowed to access the token.
+     * 
+     */
     public List<String> allowedScopes() {
         return this.allowedScopes == null ? List.of() : this.allowedScopes;
     }
+    /**
+     * @return Configuration restricting which workloads may use this authorizer. See `allowedWorkloadConfiguration` below.
+     * 
+     */
     public Optional<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration> allowedWorkloadConfiguration() {
         return Optional.ofNullable(this.allowedWorkloadConfiguration);
     }
+    /**
+     * @return Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+     * 
+     */
     public List<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim> customClaims() {
         return this.customClaims == null ? List.of() : this.customClaims;
     }
+    /**
+     * @return URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
+     * 
+     */
     public String discoveryUrl() {
         return this.discoveryUrl;
     }
+    /**
+     * @return Private endpoint used to reach the authorization server. See `privateEndpoint` below.
+     * 
+     */
     public Optional<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint> privateEndpoint() {
         return Optional.ofNullable(this.privateEndpoint);
     }
+    /**
+     * @return Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` below.
+     * 
+     */
     public List<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride> privateEndpointOverrides() {
         return this.privateEndpointOverrides == null ? List.of() : this.privateEndpointOverrides;
     }

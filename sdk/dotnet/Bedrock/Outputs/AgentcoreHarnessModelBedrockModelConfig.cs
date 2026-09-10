@@ -14,6 +14,14 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreHarnessModelBedrockModelConfig
     {
         /// <summary>
+        /// JSON string containing provider-specific parameters to pass through to the Bedrock model provider unchanged.
+        /// </summary>
+        public readonly string? AdditionalParams;
+        /// <summary>
+        /// API format for the model. Valid values are `ConverseStream`, `Responses`, and `ChatCompletions`.
+        /// </summary>
+        public readonly string? ApiFormat;
+        /// <summary>
         /// Maximum number of tokens to generate.
         /// </summary>
         public readonly int? MaxTokens;
@@ -32,6 +40,10 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
         [OutputConstructor]
         private AgentcoreHarnessModelBedrockModelConfig(
+            string? additionalParams,
+
+            string? apiFormat,
+
             int? maxTokens,
 
             string modelId,
@@ -40,6 +52,8 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
             double? topP)
         {
+            AdditionalParams = additionalParams;
+            ApiFormat = apiFormat;
             MaxTokens = maxTokens;
             ModelId = modelId;
             Temperature = temperature;

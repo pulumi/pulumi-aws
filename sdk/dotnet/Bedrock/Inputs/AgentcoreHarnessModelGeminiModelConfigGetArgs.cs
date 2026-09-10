@@ -13,6 +13,12 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreHarnessModelGeminiModelConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// JSON string containing provider-specific parameters to pass through to the Gemini model provider unchanged.
+        /// </summary>
+        [Input("additionalParams")]
+        public Input<string>? AdditionalParams { get; set; }
+
+        /// <summary>
         /// ARN of the secret containing the API key.
         /// </summary>
         [Input("apiKeyArn", required: true)]

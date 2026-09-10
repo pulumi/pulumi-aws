@@ -21,6 +21,22 @@ __all__ = [
     'ApplicationIdentitySourceIdentityCenterArgsDict',
     'ApplicationTimeoutsArgs',
     'ApplicationTimeoutsArgsDict',
+    'EntitlementEntitlementArgs',
+    'EntitlementEntitlementArgsDict',
+    'EntitlementEntitlementPrincipalRoleArgs',
+    'EntitlementEntitlementPrincipalRoleArgsDict',
+    'EntitlementEntitlementPrincipalRolePrincipalArgs',
+    'EntitlementEntitlementPrincipalRolePrincipalArgsDict',
+    'EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs',
+    'EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgsDict',
+    'GetEntitlementsFilterArgs',
+    'GetEntitlementsFilterArgsDict',
+    'GetEntitlementsFilterPrincipalRoleArgs',
+    'GetEntitlementsFilterPrincipalRoleArgsDict',
+    'GetEntitlementsFilterPrincipalRolePrincipalArgs',
+    'GetEntitlementsFilterPrincipalRolePrincipalArgsDict',
+    'GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterArgs',
+    'GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterArgsDict',
 ]
 
 class ApplicationIdentitySourceArgsDict(TypedDict):
@@ -147,5 +163,375 @@ class ApplicationTimeoutsArgs:
     @delete.setter
     def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
+
+
+class EntitlementEntitlementArgsDict(TypedDict):
+    principal_role: NotRequired[pulumi.Input[Optional['EntitlementEntitlementPrincipalRoleArgsDict']]]
+    """
+    Principal role entitlement configuration. See `entitlement.principal_role` Block below.
+    """
+
+@pulumi.input_type
+class EntitlementEntitlementArgs:
+    def __init__(__self__, *,
+                 principal_role: pulumi.Input[Optional['EntitlementEntitlementPrincipalRoleArgs']] = None):
+        """
+        :param pulumi.Input['EntitlementEntitlementPrincipalRoleArgs'] principal_role: Principal role entitlement configuration. See `entitlement.principal_role` Block below.
+        """
+        if principal_role is not None:
+            pulumi.set(__self__, "principal_role", principal_role)
+
+    @_builtins.property
+    @pulumi.getter(name="principalRole")
+    def principal_role(self) -> pulumi.Input[Optional['EntitlementEntitlementPrincipalRoleArgs']]:
+        """
+        Principal role entitlement configuration. See `entitlement.principal_role` Block below.
+        """
+        return pulumi.get(self, "principal_role")
+
+    @principal_role.setter
+    def principal_role(self, value: pulumi.Input[Optional['EntitlementEntitlementPrincipalRoleArgs']]):
+        pulumi.set(self, "principal_role", value)
+
+
+class EntitlementEntitlementPrincipalRoleArgsDict(TypedDict):
+    principal: pulumi.Input['EntitlementEntitlementPrincipalRolePrincipalArgsDict']
+    """
+    Principal configuration. See `entitlement.principal_role.principal` Block below.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the IAM role in the target AWS account that the principal is granted access to.
+    """
+    account_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Target AWS account ID.
+    """
+    account_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Target AWS account name.
+    """
+
+@pulumi.input_type
+class EntitlementEntitlementPrincipalRoleArgs:
+    def __init__(__self__, *,
+                 principal: pulumi.Input['EntitlementEntitlementPrincipalRolePrincipalArgs'],
+                 role_arn: pulumi.Input[_builtins.str],
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input['EntitlementEntitlementPrincipalRolePrincipalArgs'] principal: Principal configuration. See `entitlement.principal_role.principal` Block below.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role in the target AWS account that the principal is granted access to.
+        :param pulumi.Input[_builtins.str] account_id: Target AWS account ID.
+        :param pulumi.Input[_builtins.str] account_name: Target AWS account name.
+        """
+        pulumi.set(__self__, "principal", principal)
+        pulumi.set(__self__, "role_arn", role_arn)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def principal(self) -> pulumi.Input['EntitlementEntitlementPrincipalRolePrincipalArgs']:
+        """
+        Principal configuration. See `entitlement.principal_role.principal` Block below.
+        """
+        return pulumi.get(self, "principal")
+
+    @principal.setter
+    def principal(self, value: pulumi.Input['EntitlementEntitlementPrincipalRolePrincipalArgs']):
+        pulumi.set(self, "principal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the IAM role in the target AWS account that the principal is granted access to.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Target AWS account ID.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "account_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Target AWS account name.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "account_name", value)
+
+
+class EntitlementEntitlementPrincipalRolePrincipalArgsDict(TypedDict):
+    identity_center: NotRequired[pulumi.Input[Optional['EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgsDict']]]
+    """
+    IAM Identity Center principal configuration. See `entitlement.principal_role.principal.identity_center` Block below.
+    """
+
+@pulumi.input_type
+class EntitlementEntitlementPrincipalRolePrincipalArgs:
+    def __init__(__self__, *,
+                 identity_center: pulumi.Input[Optional['EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs']] = None):
+        """
+        :param pulumi.Input['EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs'] identity_center: IAM Identity Center principal configuration. See `entitlement.principal_role.principal.identity_center` Block below.
+        """
+        if identity_center is not None:
+            pulumi.set(__self__, "identity_center", identity_center)
+
+    @_builtins.property
+    @pulumi.getter(name="identityCenter")
+    def identity_center(self) -> pulumi.Input[Optional['EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs']]:
+        """
+        IAM Identity Center principal configuration. See `entitlement.principal_role.principal.identity_center` Block below.
+        """
+        return pulumi.get(self, "identity_center")
+
+    @identity_center.setter
+    def identity_center(self, value: pulumi.Input[Optional['EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs']]):
+        pulumi.set(self, "identity_center", value)
+
+
+class EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgsDict(TypedDict):
+    group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    IAM Identity Center group ID.
+    """
+    user_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    IAM Identity Center user ID.
+    """
+
+@pulumi.input_type
+class EntitlementEntitlementPrincipalRolePrincipalIdentityCenterArgs:
+    def __init__(__self__, *,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] group_id: IAM Identity Center group ID.
+        :param pulumi.Input[_builtins.str] user_id: IAM Identity Center user ID.
+        """
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
+        if user_id is not None:
+            pulumi.set(__self__, "user_id", user_id)
+
+    @_builtins.property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        IAM Identity Center group ID.
+        """
+        return pulumi.get(self, "group_id")
+
+    @group_id.setter
+    def group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "group_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        IAM Identity Center user ID.
+        """
+        return pulumi.get(self, "user_id")
+
+    @user_id.setter
+    def user_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "user_id", value)
+
+
+class GetEntitlementsFilterArgsDict(TypedDict):
+    principal_role: NotRequired['GetEntitlementsFilterPrincipalRoleArgsDict']
+    """
+    principal-to-role filter criteria for narrowing entitlement results. See `filter.principal_role` Block below.
+    """
+
+@pulumi.input_type
+class GetEntitlementsFilterArgs:
+    def __init__(__self__, *,
+                 principal_role: Optional['GetEntitlementsFilterPrincipalRoleArgs'] = None):
+        """
+        :param 'GetEntitlementsFilterPrincipalRoleArgs' principal_role: principal-to-role filter criteria for narrowing entitlement results. See `filter.principal_role` Block below.
+        """
+        if principal_role is not None:
+            pulumi.set(__self__, "principal_role", principal_role)
+
+    @_builtins.property
+    @pulumi.getter(name="principalRole")
+    def principal_role(self) -> Optional['GetEntitlementsFilterPrincipalRoleArgs']:
+        """
+        principal-to-role filter criteria for narrowing entitlement results. See `filter.principal_role` Block below.
+        """
+        return pulumi.get(self, "principal_role")
+
+    @principal_role.setter
+    def principal_role(self, value: Optional['GetEntitlementsFilterPrincipalRoleArgs']):
+        pulumi.set(self, "principal_role", value)
+
+
+class GetEntitlementsFilterPrincipalRoleArgsDict(TypedDict):
+    account_id: NotRequired[_builtins.str]
+    """
+    AWS account ID to filter entitlements by.
+    """
+    principal: NotRequired['GetEntitlementsFilterPrincipalRolePrincipalArgsDict']
+    """
+    principal to filter entitlements by. See `filter.principal_role.principal` Block below.
+    """
+    role_arn: NotRequired[_builtins.str]
+    """
+    IAM role ARN to filter entitlements by.
+    """
+
+@pulumi.input_type
+class GetEntitlementsFilterPrincipalRoleArgs:
+    def __init__(__self__, *,
+                 account_id: Optional[_builtins.str] = None,
+                 principal: Optional['GetEntitlementsFilterPrincipalRolePrincipalArgs'] = None,
+                 role_arn: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str account_id: AWS account ID to filter entitlements by.
+        :param 'GetEntitlementsFilterPrincipalRolePrincipalArgs' principal: principal to filter entitlements by. See `filter.principal_role.principal` Block below.
+        :param _builtins.str role_arn: IAM role ARN to filter entitlements by.
+        """
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if principal is not None:
+            pulumi.set(__self__, "principal", principal)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[_builtins.str]:
+        """
+        AWS account ID to filter entitlements by.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "account_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def principal(self) -> Optional['GetEntitlementsFilterPrincipalRolePrincipalArgs']:
+        """
+        principal to filter entitlements by. See `filter.principal_role.principal` Block below.
+        """
+        return pulumi.get(self, "principal")
+
+    @principal.setter
+    def principal(self, value: Optional['GetEntitlementsFilterPrincipalRolePrincipalArgs']):
+        pulumi.set(self, "principal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[_builtins.str]:
+        """
+        IAM role ARN to filter entitlements by.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "role_arn", value)
+
+
+class GetEntitlementsFilterPrincipalRolePrincipalArgsDict(TypedDict):
+    identity_center: NotRequired['GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterArgsDict']
+    """
+    IAM Identity Center principal filter criteria. See `filter.principal_role.principal.identity_center` Block below.
+    """
+
+@pulumi.input_type
+class GetEntitlementsFilterPrincipalRolePrincipalArgs:
+    def __init__(__self__, *,
+                 identity_center: Optional['GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterArgs'] = None):
+        """
+        :param 'GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterArgs' identity_center: IAM Identity Center principal filter criteria. See `filter.principal_role.principal.identity_center` Block below.
+        """
+        if identity_center is not None:
+            pulumi.set(__self__, "identity_center", identity_center)
+
+    @_builtins.property
+    @pulumi.getter(name="identityCenter")
+    def identity_center(self) -> Optional['GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterArgs']:
+        """
+        IAM Identity Center principal filter criteria. See `filter.principal_role.principal.identity_center` Block below.
+        """
+        return pulumi.get(self, "identity_center")
+
+    @identity_center.setter
+    def identity_center(self, value: Optional['GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterArgs']):
+        pulumi.set(self, "identity_center", value)
+
+
+class GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterArgsDict(TypedDict):
+    group_id: NotRequired[_builtins.str]
+    """
+    IAM Identity Center group ID.
+    """
+    user_id: NotRequired[_builtins.str]
+    """
+    IAM Identity Center user ID.
+    """
+
+@pulumi.input_type
+class GetEntitlementsFilterPrincipalRolePrincipalIdentityCenterArgs:
+    def __init__(__self__, *,
+                 group_id: Optional[_builtins.str] = None,
+                 user_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str group_id: IAM Identity Center group ID.
+        :param _builtins.str user_id: IAM Identity Center user ID.
+        """
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
+        if user_id is not None:
+            pulumi.set(__self__, "user_id", user_id)
+
+    @_builtins.property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[_builtins.str]:
+        """
+        IAM Identity Center group ID.
+        """
+        return pulumi.get(self, "group_id")
+
+    @group_id.setter
+    def group_id(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "group_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> Optional[_builtins.str]:
+        """
+        IAM Identity Center user ID.
+        """
+        return pulumi.get(self, "user_id")
+
+    @user_id.setter
+    def user_id(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "user_id", value)
 
 

@@ -15,6 +15,8 @@ namespace Pulumi.Aws.Msk.Outputs
     {
         /// <summary>
         /// The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
+        /// 
+        /// &gt; **Note:** When an `ApacheKafkaCluster` uses `ClientAuthentication`, the replicator's network interfaces (created in these subnets, with private IPs only) must be able to reach AWS Secrets Manager and AWS KMS to retrieve and decrypt the credentials. Ensure the subnets have egress to those services via a NAT gateway or Secrets Manager and KMS interface VPC endpoints; otherwise the replicator times out connecting to the source cluster.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupsIds;
         /// <summary>

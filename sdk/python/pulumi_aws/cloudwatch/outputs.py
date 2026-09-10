@@ -106,6 +106,7 @@ __all__ = [
     'MetricAlarmEvaluationCriteriaPromqlCriteria',
     'MetricAlarmMetricQuery',
     'MetricAlarmMetricQueryMetric',
+    'MetricAlarmWarmUpConfiguration',
     'MetricStreamExcludeFilter',
     'MetricStreamIncludeFilter',
     'MetricStreamStatisticsConfiguration',
@@ -4660,6 +4661,59 @@ class MetricAlarmMetricQueryMetric(dict):
         The unit for this metric.
         """
         return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class MetricAlarmWarmUpConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "warmUpPeriodDurationInMinutes":
+            suggest = "warm_up_period_duration_in_minutes"
+        elif key == "onlyStartEvaluatingAfterWarmUpPeriodEnds":
+            suggest = "only_start_evaluating_after_warm_up_period_ends"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetricAlarmWarmUpConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetricAlarmWarmUpConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetricAlarmWarmUpConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 warm_up_period_duration_in_minutes: _builtins.int,
+                 only_start_evaluating_after_warm_up_period_ends: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.int warm_up_period_duration_in_minutes: Length of the warm-up period, in minutes. Valid values are `1` to `2880`.
+        :param _builtins.bool only_start_evaluating_after_warm_up_period_ends: Whether to wait for the full warm-up period before evaluation begins, even if metric data arrives earlier. When `false`, the warm-up period ends early as soon as the alarm has enough data to fill its evaluation window. Defaults to `false`.
+               
+               > **Note:** The warm-up period applies once, when the alarm is created. Changing the warm-up configuration after the warm-up period ends does not start a new warm-up period. See [Alarm warm-up periods](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-warm-up.html) in the Amazon CloudWatch User Guide.
+        """
+        pulumi.set(__self__, "warm_up_period_duration_in_minutes", warm_up_period_duration_in_minutes)
+        if only_start_evaluating_after_warm_up_period_ends is not None:
+            pulumi.set(__self__, "only_start_evaluating_after_warm_up_period_ends", only_start_evaluating_after_warm_up_period_ends)
+
+    @_builtins.property
+    @pulumi.getter(name="warmUpPeriodDurationInMinutes")
+    def warm_up_period_duration_in_minutes(self) -> _builtins.int:
+        """
+        Length of the warm-up period, in minutes. Valid values are `1` to `2880`.
+        """
+        return pulumi.get(self, "warm_up_period_duration_in_minutes")
+
+    @_builtins.property
+    @pulumi.getter(name="onlyStartEvaluatingAfterWarmUpPeriodEnds")
+    def only_start_evaluating_after_warm_up_period_ends(self) -> Optional[_builtins.bool]:
+        """
+        Whether to wait for the full warm-up period before evaluation begins, even if metric data arrives earlier. When `false`, the warm-up period ends early as soon as the alarm has enough data to fill its evaluation window. Defaults to `false`.
+
+        > **Note:** The warm-up period applies once, when the alarm is created. Changing the warm-up configuration after the warm-up period ends does not start a new warm-up period. See [Alarm warm-up periods](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-warm-up.html) in the Amazon CloudWatch User Guide.
+        """
+        return pulumi.get(self, "only_start_evaluating_after_warm_up_period_ends")
 
 
 @pulumi.output_type

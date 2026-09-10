@@ -4,11 +4,15 @@
 package com.pulumi.aws.msk.inputs;
 
 import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterAmazonMskClusterArgs;
+import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterApacheKafkaClusterArgs;
+import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterClientAuthenticationArgs;
+import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterEncryptionInTransitArgs;
 import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterVpcConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ReplicatorKafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
@@ -16,39 +20,87 @@ public final class ReplicatorKafkaClusterArgs extends com.pulumi.resources.Resou
     public static final ReplicatorKafkaClusterArgs Empty = new ReplicatorKafkaClusterArgs();
 
     /**
-     * Details of an Amazon MSK cluster.
+     * Details of an Amazon MSK cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
      * 
      */
-    @Import(name="amazonMskCluster", required=true)
-    private Output<ReplicatorKafkaClusterAmazonMskClusterArgs> amazonMskCluster;
+    @Import(name="amazonMskCluster")
+    private @Nullable Output<ReplicatorKafkaClusterAmazonMskClusterArgs> amazonMskCluster;
 
     /**
-     * @return Details of an Amazon MSK cluster.
+     * @return Details of an Amazon MSK cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
      * 
      */
-    public Output<ReplicatorKafkaClusterAmazonMskClusterArgs> amazonMskCluster() {
-        return this.amazonMskCluster;
+    public Optional<Output<ReplicatorKafkaClusterAmazonMskClusterArgs>> amazonMskCluster() {
+        return Optional.ofNullable(this.amazonMskCluster);
     }
 
     /**
-     * Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+     * Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
      * 
      */
-    @Import(name="vpcConfig", required=true)
-    private Output<ReplicatorKafkaClusterVpcConfigArgs> vpcConfig;
+    @Import(name="apacheKafkaCluster")
+    private @Nullable Output<ReplicatorKafkaClusterApacheKafkaClusterArgs> apacheKafkaCluster;
 
     /**
-     * @return Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+     * @return Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
      * 
      */
-    public Output<ReplicatorKafkaClusterVpcConfigArgs> vpcConfig() {
-        return this.vpcConfig;
+    public Optional<Output<ReplicatorKafkaClusterApacheKafkaClusterArgs>> apacheKafkaCluster() {
+        return Optional.ofNullable(this.apacheKafkaCluster);
+    }
+
+    /**
+     * Details of the client authentication used by the Kafka cluster. Only valid for an `apacheKafkaCluster`. Detailed below.
+     * 
+     */
+    @Import(name="clientAuthentication")
+    private @Nullable Output<ReplicatorKafkaClusterClientAuthenticationArgs> clientAuthentication;
+
+    /**
+     * @return Details of the client authentication used by the Kafka cluster. Only valid for an `apacheKafkaCluster`. Detailed below.
+     * 
+     */
+    public Optional<Output<ReplicatorKafkaClusterClientAuthenticationArgs>> clientAuthentication() {
+        return Optional.ofNullable(this.clientAuthentication);
+    }
+
+    /**
+     * Details of encryption in transit to the Kafka cluster. Only valid for an `apacheKafkaCluster`. TLS encryption in transit is always applied to an `apacheKafkaCluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). Detailed below.
+     * 
+     */
+    @Import(name="encryptionInTransit")
+    private @Nullable Output<ReplicatorKafkaClusterEncryptionInTransitArgs> encryptionInTransit;
+
+    /**
+     * @return Details of encryption in transit to the Kafka cluster. Only valid for an `apacheKafkaCluster`. TLS encryption in transit is always applied to an `apacheKafkaCluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). Detailed below.
+     * 
+     */
+    public Optional<Output<ReplicatorKafkaClusterEncryptionInTransitArgs>> encryptionInTransit() {
+        return Optional.ofNullable(this.encryptionInTransit);
+    }
+
+    /**
+     * Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazonMskCluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC.
+     * 
+     */
+    @Import(name="vpcConfig")
+    private @Nullable Output<ReplicatorKafkaClusterVpcConfigArgs> vpcConfig;
+
+    /**
+     * @return Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazonMskCluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC.
+     * 
+     */
+    public Optional<Output<ReplicatorKafkaClusterVpcConfigArgs>> vpcConfig() {
+        return Optional.ofNullable(this.vpcConfig);
     }
 
     private ReplicatorKafkaClusterArgs() {}
 
     private ReplicatorKafkaClusterArgs(ReplicatorKafkaClusterArgs $) {
         this.amazonMskCluster = $.amazonMskCluster;
+        this.apacheKafkaCluster = $.apacheKafkaCluster;
+        this.clientAuthentication = $.clientAuthentication;
+        this.encryptionInTransit = $.encryptionInTransit;
         this.vpcConfig = $.vpcConfig;
     }
 
@@ -71,18 +123,18 @@ public final class ReplicatorKafkaClusterArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param amazonMskCluster Details of an Amazon MSK cluster.
+         * @param amazonMskCluster Details of an Amazon MSK cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder amazonMskCluster(Output<ReplicatorKafkaClusterAmazonMskClusterArgs> amazonMskCluster) {
+        public Builder amazonMskCluster(@Nullable Output<ReplicatorKafkaClusterAmazonMskClusterArgs> amazonMskCluster) {
             $.amazonMskCluster = amazonMskCluster;
             return this;
         }
 
         /**
-         * @param amazonMskCluster Details of an Amazon MSK cluster.
+         * @param amazonMskCluster Details of an Amazon MSK cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
          * 
          * @return builder
          * 
@@ -92,18 +144,81 @@ public final class ReplicatorKafkaClusterArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param vpcConfig Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+         * @param apacheKafkaCluster Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder vpcConfig(Output<ReplicatorKafkaClusterVpcConfigArgs> vpcConfig) {
+        public Builder apacheKafkaCluster(@Nullable Output<ReplicatorKafkaClusterApacheKafkaClusterArgs> apacheKafkaCluster) {
+            $.apacheKafkaCluster = apacheKafkaCluster;
+            return this;
+        }
+
+        /**
+         * @param apacheKafkaCluster Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apacheKafkaCluster(ReplicatorKafkaClusterApacheKafkaClusterArgs apacheKafkaCluster) {
+            return apacheKafkaCluster(Output.of(apacheKafkaCluster));
+        }
+
+        /**
+         * @param clientAuthentication Details of the client authentication used by the Kafka cluster. Only valid for an `apacheKafkaCluster`. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientAuthentication(@Nullable Output<ReplicatorKafkaClusterClientAuthenticationArgs> clientAuthentication) {
+            $.clientAuthentication = clientAuthentication;
+            return this;
+        }
+
+        /**
+         * @param clientAuthentication Details of the client authentication used by the Kafka cluster. Only valid for an `apacheKafkaCluster`. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientAuthentication(ReplicatorKafkaClusterClientAuthenticationArgs clientAuthentication) {
+            return clientAuthentication(Output.of(clientAuthentication));
+        }
+
+        /**
+         * @param encryptionInTransit Details of encryption in transit to the Kafka cluster. Only valid for an `apacheKafkaCluster`. TLS encryption in transit is always applied to an `apacheKafkaCluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionInTransit(@Nullable Output<ReplicatorKafkaClusterEncryptionInTransitArgs> encryptionInTransit) {
+            $.encryptionInTransit = encryptionInTransit;
+            return this;
+        }
+
+        /**
+         * @param encryptionInTransit Details of encryption in transit to the Kafka cluster. Only valid for an `apacheKafkaCluster`. TLS encryption in transit is always applied to an `apacheKafkaCluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionInTransit(ReplicatorKafkaClusterEncryptionInTransitArgs encryptionInTransit) {
+            return encryptionInTransit(Output.of(encryptionInTransit));
+        }
+
+        /**
+         * @param vpcConfig Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazonMskCluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vpcConfig(@Nullable Output<ReplicatorKafkaClusterVpcConfigArgs> vpcConfig) {
             $.vpcConfig = vpcConfig;
             return this;
         }
 
         /**
-         * @param vpcConfig Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+         * @param vpcConfig Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazonMskCluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC.
          * 
          * @return builder
          * 
@@ -113,12 +228,6 @@ public final class ReplicatorKafkaClusterArgs extends com.pulumi.resources.Resou
         }
 
         public ReplicatorKafkaClusterArgs build() {
-            if ($.amazonMskCluster == null) {
-                throw new MissingRequiredPropertyException("ReplicatorKafkaClusterArgs", "amazonMskCluster");
-            }
-            if ($.vpcConfig == null) {
-                throw new MissingRequiredPropertyException("ReplicatorKafkaClusterArgs", "vpcConfig");
-            }
             return $;
         }
     }

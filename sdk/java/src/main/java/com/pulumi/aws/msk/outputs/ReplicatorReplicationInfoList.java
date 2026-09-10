@@ -22,10 +22,15 @@ public final class ReplicatorReplicationInfoList {
     private List<ReplicatorReplicationInfoListConsumerGroupReplication> consumerGroupReplications;
     private @Nullable String sourceKafkaClusterAlias;
     /**
-     * @return The ARN of the source Kafka cluster.
+     * @return The ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
      * 
      */
-    private String sourceKafkaClusterArn;
+    private @Nullable String sourceKafkaClusterArn;
+    /**
+     * @return The identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apacheKafkaClusterId`). Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+     * 
+     */
+    private @Nullable String sourceKafkaClusterId;
     /**
      * @return The type of compression to use writing records to target Kafka cluster.
      * 
@@ -33,10 +38,15 @@ public final class ReplicatorReplicationInfoList {
     private String targetCompressionType;
     private @Nullable String targetKafkaClusterAlias;
     /**
-     * @return The ARN of the target Kafka cluster.
+     * @return The ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
      * 
      */
-    private String targetKafkaClusterArn;
+    private @Nullable String targetKafkaClusterArn;
+    /**
+     * @return The identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apacheKafkaClusterId`). Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+     * 
+     */
+    private @Nullable String targetKafkaClusterId;
     /**
      * @return Configuration relating to topic replication.
      * 
@@ -55,11 +65,18 @@ public final class ReplicatorReplicationInfoList {
         return Optional.ofNullable(this.sourceKafkaClusterAlias);
     }
     /**
-     * @return The ARN of the source Kafka cluster.
+     * @return The ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
      * 
      */
-    public String sourceKafkaClusterArn() {
-        return this.sourceKafkaClusterArn;
+    public Optional<String> sourceKafkaClusterArn() {
+        return Optional.ofNullable(this.sourceKafkaClusterArn);
+    }
+    /**
+     * @return The identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apacheKafkaClusterId`). Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+     * 
+     */
+    public Optional<String> sourceKafkaClusterId() {
+        return Optional.ofNullable(this.sourceKafkaClusterId);
     }
     /**
      * @return The type of compression to use writing records to target Kafka cluster.
@@ -72,11 +89,18 @@ public final class ReplicatorReplicationInfoList {
         return Optional.ofNullable(this.targetKafkaClusterAlias);
     }
     /**
-     * @return The ARN of the target Kafka cluster.
+     * @return The ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
      * 
      */
-    public String targetKafkaClusterArn() {
-        return this.targetKafkaClusterArn;
+    public Optional<String> targetKafkaClusterArn() {
+        return Optional.ofNullable(this.targetKafkaClusterArn);
+    }
+    /**
+     * @return The identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apacheKafkaClusterId`). Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+     * 
+     */
+    public Optional<String> targetKafkaClusterId() {
+        return Optional.ofNullable(this.targetKafkaClusterId);
     }
     /**
      * @return Configuration relating to topic replication.
@@ -97,10 +121,12 @@ public final class ReplicatorReplicationInfoList {
     public static final class Builder {
         private List<ReplicatorReplicationInfoListConsumerGroupReplication> consumerGroupReplications;
         private @Nullable String sourceKafkaClusterAlias;
-        private String sourceKafkaClusterArn;
+        private @Nullable String sourceKafkaClusterArn;
+        private @Nullable String sourceKafkaClusterId;
         private String targetCompressionType;
         private @Nullable String targetKafkaClusterAlias;
-        private String targetKafkaClusterArn;
+        private @Nullable String targetKafkaClusterArn;
+        private @Nullable String targetKafkaClusterId;
         private List<ReplicatorReplicationInfoListTopicReplication> topicReplications;
         public Builder() {}
         public Builder(ReplicatorReplicationInfoList defaults) {
@@ -108,9 +134,11 @@ public final class ReplicatorReplicationInfoList {
     	      this.consumerGroupReplications = defaults.consumerGroupReplications;
     	      this.sourceKafkaClusterAlias = defaults.sourceKafkaClusterAlias;
     	      this.sourceKafkaClusterArn = defaults.sourceKafkaClusterArn;
+    	      this.sourceKafkaClusterId = defaults.sourceKafkaClusterId;
     	      this.targetCompressionType = defaults.targetCompressionType;
     	      this.targetKafkaClusterAlias = defaults.targetKafkaClusterAlias;
     	      this.targetKafkaClusterArn = defaults.targetKafkaClusterArn;
+    	      this.targetKafkaClusterId = defaults.targetKafkaClusterId;
     	      this.topicReplications = defaults.topicReplications;
         }
 
@@ -132,11 +160,15 @@ public final class ReplicatorReplicationInfoList {
             return this;
         }
         @CustomType.Setter
-        public Builder sourceKafkaClusterArn(String sourceKafkaClusterArn) {
-            if (sourceKafkaClusterArn == null) {
-              throw new MissingRequiredPropertyException("ReplicatorReplicationInfoList", "sourceKafkaClusterArn");
-            }
+        public Builder sourceKafkaClusterArn(@Nullable String sourceKafkaClusterArn) {
+
             this.sourceKafkaClusterArn = sourceKafkaClusterArn;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder sourceKafkaClusterId(@Nullable String sourceKafkaClusterId) {
+
+            this.sourceKafkaClusterId = sourceKafkaClusterId;
             return this;
         }
         @CustomType.Setter
@@ -154,11 +186,15 @@ public final class ReplicatorReplicationInfoList {
             return this;
         }
         @CustomType.Setter
-        public Builder targetKafkaClusterArn(String targetKafkaClusterArn) {
-            if (targetKafkaClusterArn == null) {
-              throw new MissingRequiredPropertyException("ReplicatorReplicationInfoList", "targetKafkaClusterArn");
-            }
+        public Builder targetKafkaClusterArn(@Nullable String targetKafkaClusterArn) {
+
             this.targetKafkaClusterArn = targetKafkaClusterArn;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder targetKafkaClusterId(@Nullable String targetKafkaClusterId) {
+
+            this.targetKafkaClusterId = targetKafkaClusterId;
             return this;
         }
         @CustomType.Setter
@@ -177,9 +213,11 @@ public final class ReplicatorReplicationInfoList {
             _resultValue.consumerGroupReplications = consumerGroupReplications;
             _resultValue.sourceKafkaClusterAlias = sourceKafkaClusterAlias;
             _resultValue.sourceKafkaClusterArn = sourceKafkaClusterArn;
+            _resultValue.sourceKafkaClusterId = sourceKafkaClusterId;
             _resultValue.targetCompressionType = targetCompressionType;
             _resultValue.targetKafkaClusterAlias = targetKafkaClusterAlias;
             _resultValue.targetKafkaClusterArn = targetKafkaClusterArn;
+            _resultValue.targetKafkaClusterId = targetKafkaClusterId;
             _resultValue.topicReplications = topicReplications;
             return _resultValue;
         }

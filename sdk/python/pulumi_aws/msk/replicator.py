@@ -32,7 +32,7 @@ class ReplicatorArgs:
         """
         The set of arguments for constructing a Replicator resource.
 
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]] kafka_clusters: A list of Kafka clusters which are targets of the replicator.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]] kafka_clusters: The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
         :param pulumi.Input['ReplicatorReplicationInfoListArgs'] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         :param pulumi.Input[_builtins.str] replicator_name: The name of the replicator.
         :param pulumi.Input[_builtins.str] service_execution_role_arn: The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
@@ -58,7 +58,7 @@ class ReplicatorArgs:
     @pulumi.getter(name="kafkaClusters")
     def kafka_clusters(self) -> pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]]:
         """
-        A list of Kafka clusters which are targets of the replicator.
+        The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
         """
         return pulumi.get(self, "kafka_clusters")
 
@@ -170,7 +170,7 @@ class _ReplicatorState:
 
         :param pulumi.Input[_builtins.str] arn: ARN of the Replicator.
         :param pulumi.Input[_builtins.str] description: A summary description of the replicator.
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]] kafka_clusters: A list of Kafka clusters which are targets of the replicator.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]] kafka_clusters: The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
         :param pulumi.Input['ReplicatorLogDeliveryArgs'] log_delivery: Configuration block for delivering replicator logs to customer destinations. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ReplicatorReplicationInfoListArgs'] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
@@ -239,7 +239,7 @@ class _ReplicatorState:
     @pulumi.getter(name="kafkaClusters")
     def kafka_clusters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]]]:
         """
-        A list of Kafka clusters which are targets of the replicator.
+        The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
         """
         return pulumi.get(self, "kafka_clusters")
 
@@ -401,6 +401,124 @@ class Replicator(pulumi.CustomResource):
             service_execution_role_arn=source_aws_iam_role["arn"])
         ```
 
+        ### Self-Managed Apache Kafka Cluster Target
+
+        Replicate from an Amazon MSK cluster to a self-managed or on-premises Apache Kafka cluster, authenticating to the Apache Kafka cluster with SASL/SCRAM and trusting a custom root CA chain.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.msk.Replicator("test",
+            replication_info_list={
+                "consumer_group_replications": [{
+                    "consumer_groups_to_replicates": [".*"],
+                }],
+                "topic_replications": [{
+                    "topic_name_configuration": {
+                        "type": "PREFIXED_WITH_SOURCE_CLUSTER_ALIAS",
+                    },
+                    "starting_position": {
+                        "type": "LATEST",
+                    },
+                    "topics_to_replicates": [".*"],
+                }],
+                "source_kafka_cluster_arn": source["arn"],
+                "target_kafka_cluster_id": "target-apache-kafka-cluster",
+                "target_compression_type": "NONE",
+            },
+            kafka_clusters=[
+                {
+                    "amazon_msk_cluster": {
+                        "msk_cluster_arn": source["arn"],
+                    },
+                    "vpc_config": {
+                        "subnet_ids": [__item["id"] for __item in source_aws_subnet],
+                        "security_groups_ids": [source_aws_security_group["id"]],
+                    },
+                },
+                {
+                    "apache_kafka_cluster": {
+                        "apache_kafka_cluster_id": "target-apache-kafka-cluster",
+                        "bootstrap_broker_string": "b-1.example.com:9096,b-2.example.com:9096",
+                    },
+                    "client_authentication": {
+                        "sasl_scram": {
+                            "mechanism": "SHA512",
+                            "secret_arn": target["arn"],
+                        },
+                    },
+                    "encryption_in_transit": {
+                        "root_ca_certificate": root_ca["arn"],
+                    },
+                },
+            ],
+            replicator_name="test-name",
+            description="test-description",
+            service_execution_role_arn=source_aws_iam_role["arn"])
+        ```
+
+        ### With Log Delivery
+
+        Deliver replicator logs to CloudWatch Logs, Amazon Data Firehose, and Amazon S3.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.msk.Replicator("test",
+            replication_info_list={
+                "consumer_group_replications": [{
+                    "consumer_groups_to_replicates": [".*"],
+                }],
+                "topic_replications": [{
+                    "topics_to_replicates": [".*"],
+                }],
+                "source_kafka_cluster_arn": source["arn"],
+                "target_kafka_cluster_arn": target["arn"],
+                "target_compression_type": "NONE",
+            },
+            log_delivery={
+                "replicator_log_delivery": {
+                    "cloudwatch_logs": {
+                        "enabled": True,
+                        "log_group": test_aws_cloudwatch_log_group["name"],
+                    },
+                    "firehose": {
+                        "enabled": True,
+                        "delivery_stream": test_aws_kinesis_firehose_delivery_stream["name"],
+                    },
+                    "s3": {
+                        "enabled": True,
+                        "bucket": test_aws_s3_bucket["bucket"],
+                        "prefix": "replicator-logs",
+                    },
+                },
+            },
+            kafka_clusters=[
+                {
+                    "amazon_msk_cluster": {
+                        "msk_cluster_arn": source["arn"],
+                    },
+                    "vpc_config": {
+                        "subnet_ids": [__item["id"] for __item in source_aws_subnet],
+                        "security_groups_ids": [source_aws_security_group["id"]],
+                    },
+                },
+                {
+                    "amazon_msk_cluster": {
+                        "msk_cluster_arn": target["arn"],
+                    },
+                    "vpc_config": {
+                        "subnet_ids": [__item["id"] for __item in target_aws_subnet],
+                        "security_groups_ids": [target_aws_security_group["id"]],
+                    },
+                },
+            ],
+            replicator_name="test-name",
+            service_execution_role_arn=source_aws_iam_role["arn"])
+        ```
+
         ## Import
 
         ### Identity Schema
@@ -419,7 +537,7 @@ class Replicator(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A summary description of the replicator.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]] kafka_clusters: A list of Kafka clusters which are targets of the replicator.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]] kafka_clusters: The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
         :param pulumi.Input[Union['ReplicatorLogDeliveryArgs', 'ReplicatorLogDeliveryArgsDict']] log_delivery: Configuration block for delivering replicator logs to customer destinations. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ReplicatorReplicationInfoListArgs', 'ReplicatorReplicationInfoListArgsDict']] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
@@ -484,6 +602,124 @@ class Replicator(pulumi.CustomResource):
             ],
             replicator_name="test-name",
             description="test-description",
+            service_execution_role_arn=source_aws_iam_role["arn"])
+        ```
+
+        ### Self-Managed Apache Kafka Cluster Target
+
+        Replicate from an Amazon MSK cluster to a self-managed or on-premises Apache Kafka cluster, authenticating to the Apache Kafka cluster with SASL/SCRAM and trusting a custom root CA chain.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.msk.Replicator("test",
+            replication_info_list={
+                "consumer_group_replications": [{
+                    "consumer_groups_to_replicates": [".*"],
+                }],
+                "topic_replications": [{
+                    "topic_name_configuration": {
+                        "type": "PREFIXED_WITH_SOURCE_CLUSTER_ALIAS",
+                    },
+                    "starting_position": {
+                        "type": "LATEST",
+                    },
+                    "topics_to_replicates": [".*"],
+                }],
+                "source_kafka_cluster_arn": source["arn"],
+                "target_kafka_cluster_id": "target-apache-kafka-cluster",
+                "target_compression_type": "NONE",
+            },
+            kafka_clusters=[
+                {
+                    "amazon_msk_cluster": {
+                        "msk_cluster_arn": source["arn"],
+                    },
+                    "vpc_config": {
+                        "subnet_ids": [__item["id"] for __item in source_aws_subnet],
+                        "security_groups_ids": [source_aws_security_group["id"]],
+                    },
+                },
+                {
+                    "apache_kafka_cluster": {
+                        "apache_kafka_cluster_id": "target-apache-kafka-cluster",
+                        "bootstrap_broker_string": "b-1.example.com:9096,b-2.example.com:9096",
+                    },
+                    "client_authentication": {
+                        "sasl_scram": {
+                            "mechanism": "SHA512",
+                            "secret_arn": target["arn"],
+                        },
+                    },
+                    "encryption_in_transit": {
+                        "root_ca_certificate": root_ca["arn"],
+                    },
+                },
+            ],
+            replicator_name="test-name",
+            description="test-description",
+            service_execution_role_arn=source_aws_iam_role["arn"])
+        ```
+
+        ### With Log Delivery
+
+        Deliver replicator logs to CloudWatch Logs, Amazon Data Firehose, and Amazon S3.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.msk.Replicator("test",
+            replication_info_list={
+                "consumer_group_replications": [{
+                    "consumer_groups_to_replicates": [".*"],
+                }],
+                "topic_replications": [{
+                    "topics_to_replicates": [".*"],
+                }],
+                "source_kafka_cluster_arn": source["arn"],
+                "target_kafka_cluster_arn": target["arn"],
+                "target_compression_type": "NONE",
+            },
+            log_delivery={
+                "replicator_log_delivery": {
+                    "cloudwatch_logs": {
+                        "enabled": True,
+                        "log_group": test_aws_cloudwatch_log_group["name"],
+                    },
+                    "firehose": {
+                        "enabled": True,
+                        "delivery_stream": test_aws_kinesis_firehose_delivery_stream["name"],
+                    },
+                    "s3": {
+                        "enabled": True,
+                        "bucket": test_aws_s3_bucket["bucket"],
+                        "prefix": "replicator-logs",
+                    },
+                },
+            },
+            kafka_clusters=[
+                {
+                    "amazon_msk_cluster": {
+                        "msk_cluster_arn": source["arn"],
+                    },
+                    "vpc_config": {
+                        "subnet_ids": [__item["id"] for __item in source_aws_subnet],
+                        "security_groups_ids": [source_aws_security_group["id"]],
+                    },
+                },
+                {
+                    "amazon_msk_cluster": {
+                        "msk_cluster_arn": target["arn"],
+                    },
+                    "vpc_config": {
+                        "subnet_ids": [__item["id"] for __item in target_aws_subnet],
+                        "security_groups_ids": [target_aws_security_group["id"]],
+                    },
+                },
+            ],
+            replicator_name="test-name",
             service_execution_role_arn=source_aws_iam_role["arn"])
         ```
 
@@ -583,7 +819,7 @@ class Replicator(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Replicator.
         :param pulumi.Input[_builtins.str] description: A summary description of the replicator.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]] kafka_clusters: A list of Kafka clusters which are targets of the replicator.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]] kafka_clusters: The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
         :param pulumi.Input[Union['ReplicatorLogDeliveryArgs', 'ReplicatorLogDeliveryArgsDict']] log_delivery: Configuration block for delivering replicator logs to customer destinations. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ReplicatorReplicationInfoListArgs', 'ReplicatorReplicationInfoListArgsDict']] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
@@ -634,7 +870,7 @@ class Replicator(pulumi.CustomResource):
     @pulumi.getter(name="kafkaClusters")
     def kafka_clusters(self) -> pulumi.Output[Sequence['outputs.ReplicatorKafkaCluster']]:
         """
-        A list of Kafka clusters which are targets of the replicator.
+        The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
         """
         return pulumi.get(self, "kafka_clusters")
 

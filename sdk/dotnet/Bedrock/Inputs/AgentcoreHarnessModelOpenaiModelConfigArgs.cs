@@ -13,6 +13,18 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreHarnessModelOpenaiModelConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// JSON string containing provider-specific parameters to pass through to the OpenAI model provider unchanged.
+        /// </summary>
+        [Input("additionalParams")]
+        public Input<string>? AdditionalParams { get; set; }
+
+        /// <summary>
+        /// API format for the model. Valid values are `Responses` and `ChatCompletions`.
+        /// </summary>
+        [Input("apiFormat")]
+        public Input<string>? ApiFormat { get; set; }
+
+        /// <summary>
         /// ARN of the secret containing the API key.
         /// </summary>
         [Input("apiKeyArn", required: true)]

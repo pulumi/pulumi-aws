@@ -581,6 +581,10 @@
     {
       "old": "-> **Note:** Write-Only argument `password_wo` is available to use in place of `password`. Write-Only arguments are supported in HashiCorp Terraform 1.11.0 and later. Learn more.\n",
       "new": ""
+    },
+    {
+      "old": "* `warning_event_categories` - (Optional) Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, Terraform describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws_rds_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.\n",
+      "new": "* `warning_event_categories` - (Optional) Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws_rds_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.\n"
     }
   ],
   "db_option_group.html.markdown": [
@@ -1923,6 +1927,10 @@
     {
       "old": "-> **Note:** Write-Only argument `master_password_wo` is available to use in place of `master_password`. Write-Only arguments are supported in HashiCorp Terraform 1.11.0 and later. Learn more.\n",
       "new": ""
+    },
+    {
+      "old": "* `warning_event_categories` - (Optional) Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, Terraform describes RDS events reported for this cluster during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws_rds_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.\n",
+      "new": "* `warning_event_categories` - (Optional) Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this cluster during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws_rds_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.\n"
     }
   ],
   "rds_cluster_activity_stream.html.markdown": [
@@ -1951,6 +1959,10 @@
     {
       "old": "attributes that are specific to a single instance in a [RDS Cluster][3],",
       "new": "attributes that are specific to a single instance in a RDS Cluster,"
+    },
+    {
+      "old": "* `warning_event_categories` - (Optional) Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, Terraform describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws_rds_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.\n",
+      "new": "* `warning_event_categories` - (Optional) Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws_rds_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.\n"
     }
   ],
   "rds_cluster_parameter_group.html.markdown": [
