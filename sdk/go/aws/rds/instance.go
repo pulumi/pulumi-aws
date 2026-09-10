@@ -719,7 +719,7 @@ type Instance struct {
 	// List of VPC security groups to
 	// associate.
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
-	// Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, Terraform describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+	// Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
 	WarningEventCategories pulumi.StringArrayOutput `pulumi:"warningEventCategories"`
 }
 
@@ -1018,7 +1018,7 @@ type instanceState struct {
 	// List of VPC security groups to
 	// associate.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
-	// Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, Terraform describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+	// Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
 	WarningEventCategories []string `pulumi:"warningEventCategories"`
 }
 
@@ -1274,7 +1274,7 @@ type InstanceState struct {
 	// List of VPC security groups to
 	// associate.
 	VpcSecurityGroupIds pulumi.StringArrayInput
-	// Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, Terraform describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+	// Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
 	WarningEventCategories pulumi.StringArrayInput
 }
 
@@ -1509,7 +1509,7 @@ type instanceArgs struct {
 	// List of VPC security groups to
 	// associate.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
-	// Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, Terraform describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+	// Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
 	WarningEventCategories []string `pulumi:"warningEventCategories"`
 }
 
@@ -1741,7 +1741,7 @@ type InstanceArgs struct {
 	// List of VPC security groups to
 	// associate.
 	VpcSecurityGroupIds pulumi.StringArrayInput
-	// Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, Terraform describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+	// Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
 	WarningEventCategories pulumi.StringArrayInput
 }
 
@@ -2338,7 +2338,7 @@ func (o InstanceOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringArrayOutput { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, Terraform describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+// Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
 func (o InstanceOutput) WarningEventCategories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringArrayOutput { return v.WarningEventCategories }).(pulumi.StringArrayOutput)
 }

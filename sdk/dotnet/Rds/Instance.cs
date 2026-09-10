@@ -983,7 +983,7 @@ namespace Pulumi.Aws.Rds
         public Output<ImmutableArray<string>> VpcSecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// Set of RDS event categories (for example `Failure`, `Maintenance`) to check for after create and update operations. If set, Terraform describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+        /// Set of RDS event categories (for example `Failure`, `Maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
         /// </summary>
         [Output("warningEventCategories")]
         public Output<ImmutableArray<string>> WarningEventCategories { get; private set; } = null!;
@@ -1601,7 +1601,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _warningEventCategories;
 
         /// <summary>
-        /// Set of RDS event categories (for example `Failure`, `Maintenance`) to check for after create and update operations. If set, Terraform describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+        /// Set of RDS event categories (for example `Failure`, `Maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
         /// </summary>
         public InputList<string> WarningEventCategories
         {
@@ -2277,7 +2277,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _warningEventCategories;
 
         /// <summary>
-        /// Set of RDS event categories (for example `Failure`, `Maintenance`) to check for after create and update operations. If set, Terraform describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+        /// Set of RDS event categories (for example `Failure`, `Maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
         /// </summary>
         public InputList<string> WarningEventCategories
         {

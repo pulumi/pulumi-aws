@@ -30,7 +30,7 @@ namespace Pulumi.Aws.AccountAccess
     /// {
     ///     var example = new Aws.AccountAccess.Entitlement("example", new()
     ///     {
-    ///         Entitlement = new Aws.AccountAccess.Inputs.EntitlementEntitlementArgs
+    ///         EntitlementDetails = new Aws.AccountAccess.Inputs.EntitlementEntitlementArgs
     ///         {
     ///             PrincipalRole = new Aws.AccountAccess.Inputs.EntitlementEntitlementPrincipalRoleArgs
     ///             {
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.AccountAccess
     /// {
     ///     var example = new Aws.AccountAccess.Entitlement("example", new()
     ///     {
-    ///         Entitlement = new Aws.AccountAccess.Inputs.EntitlementEntitlementArgs
+    ///         EntitlementDetails = new Aws.AccountAccess.Inputs.EntitlementEntitlementArgs
     ///         {
     ///             PrincipalRole = new Aws.AccountAccess.Inputs.EntitlementEntitlementPrincipalRoleArgs
     ///             {
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.AccountAccess
     /// 
     ///     var exampleEntitlement = new Aws.AccountAccess.Entitlement("example", new()
     ///     {
-    ///         Entitlement = new Aws.AccountAccess.Inputs.EntitlementEntitlementArgs
+    ///         EntitlementDetails = new Aws.AccountAccess.Inputs.EntitlementEntitlementArgs
     ///         {
     ///             PrincipalRole = new Aws.AccountAccess.Inputs.EntitlementEntitlementPrincipalRoleArgs
     ///             {
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.AccountAccess
         /// The following arguments are optional:
         /// </summary>
         [Output("entitlement")]
-        public Output<Outputs.EntitlementEntitlement> Entitlement { get; private set; } = null!;
+        public Output<Outputs.EntitlementEntitlement> EntitlementDetails { get; private set; } = null!;
 
         /// <summary>
         /// Service-assigned unique identifier for this Entitlement.
@@ -265,7 +265,7 @@ namespace Pulumi.Aws.AccountAccess
         /// The following arguments are optional:
         /// </summary>
         [Input("entitlement", required: true)]
-        public Input<Inputs.EntitlementEntitlementArgs> Entitlement { get; set; } = null!;
+        public Input<Inputs.EntitlementEntitlementArgs> EntitlementDetails { get; set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -293,7 +293,7 @@ namespace Pulumi.Aws.AccountAccess
         /// The following arguments are optional:
         /// </summary>
         [Input("entitlement")]
-        public Input<Inputs.EntitlementEntitlementGetArgs>? Entitlement { get; set; }
+        public Input<Inputs.EntitlementEntitlementGetArgs>? EntitlementDetails { get; set; }
 
         /// <summary>
         /// Service-assigned unique identifier for this Entitlement.

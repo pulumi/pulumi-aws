@@ -252,7 +252,7 @@ class InstanceArgs:
                is provided) Username for the master DB user. Cannot be specified for a replica.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security groups to
                associate.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] warning_event_categories: Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, Terraform describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] warning_event_categories: Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
         """
         pulumi.set(__self__, "instance_class", instance_class)
         if allocated_storage is not None:
@@ -1350,7 +1350,7 @@ class InstanceArgs:
     @pulumi.getter(name="warningEventCategories")
     def warning_event_categories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, Terraform describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+        Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
         """
         return pulumi.get(self, "warning_event_categories")
 
@@ -1617,7 +1617,7 @@ class _InstanceState:
                is provided) Username for the master DB user. Cannot be specified for a replica.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security groups to
                associate.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] warning_event_categories: Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, Terraform describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] warning_event_categories: Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -2895,7 +2895,7 @@ class _InstanceState:
     @pulumi.getter(name="warningEventCategories")
     def warning_event_categories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, Terraform describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+        Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
         """
         return pulumi.get(self, "warning_event_categories")
 
@@ -3418,7 +3418,7 @@ class Instance(pulumi.CustomResource):
                is provided) Username for the master DB user. Cannot be specified for a replica.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security groups to
                associate.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] warning_event_categories: Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, Terraform describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] warning_event_categories: Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
         """
         ...
     @overload
@@ -4160,7 +4160,7 @@ class Instance(pulumi.CustomResource):
                is provided) Username for the master DB user. Cannot be specified for a replica.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: List of VPC security groups to
                associate.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] warning_event_categories: Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, Terraform describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] warning_event_categories: Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -5017,7 +5017,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="warningEventCategories")
     def warning_event_categories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, Terraform describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+        Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
         """
         return pulumi.get(self, "warning_event_categories")
 
