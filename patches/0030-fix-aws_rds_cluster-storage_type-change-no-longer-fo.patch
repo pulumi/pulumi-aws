@@ -20,7 +20,7 @@ index 000000000000..48d992326af3
 +resource/aws_rds_cluster: Fix `storage_type` changes incorrectly forcing resource replacement for non-Aurora clusters
 +```
 diff --git a/internal/service/rds/cluster.go b/internal/service/rds/cluster.go
-index a1b8a7e922b7..7adfe40c45d9 100644
+index 7b21fa1ad645..f13977ff2538 100644
 --- a/internal/service/rds/cluster.go
 +++ b/internal/service/rds/cluster.go
 @@ -20,7 +20,6 @@ import (
@@ -31,7 +31,7 @@ index a1b8a7e922b7..7adfe40c45d9 100644
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
  	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-@@ -716,27 +715,19 @@ func resourceCluster() *schema.Resource {
+@@ -721,27 +720,19 @@ func resourceCluster() *schema.Resource {
  			}
  		},
  
@@ -71,7 +71,7 @@ index a1b8a7e922b7..7adfe40c45d9 100644
  	}
  }
  
-@@ -1729,7 +1720,20 @@ func resourceClusterUpdate(ctx context.Context, d *schema.ResourceData, meta any
+@@ -1741,7 +1732,20 @@ func resourceClusterUpdate(ctx context.Context, d *schema.ResourceData, meta any
  		}
  
  		if d.HasChange(names.AttrStorageType) {
@@ -94,7 +94,7 @@ index a1b8a7e922b7..7adfe40c45d9 100644
  
  		if d.HasChange(names.AttrVPCSecurityGroupIDs) {
 diff --git a/internal/service/rds/cluster_test.go b/internal/service/rds/cluster_test.go
-index 4bd48a8698d5..714a87a5ea7b 100644
+index 2a1037b860a6..d3852956423f 100644
 --- a/internal/service/rds/cluster_test.go
 +++ b/internal/service/rds/cluster_test.go
 @@ -864,6 +864,91 @@ func TestAccRDSCluster_storageTypeAuroraIopt1UpdateAurora(t *testing.T) {
@@ -189,7 +189,7 @@ index 4bd48a8698d5..714a87a5ea7b 100644
  func TestAccRDSCluster_iops(t *testing.T) {
  	if testing.Short() {
  		t.Skip("skipping long-running test in short mode")
-@@ -4722,6 +4807,42 @@ resource "aws_rds_cluster" "test" {
+@@ -4757,6 +4842,42 @@ resource "aws_rds_cluster" "test" {
  `, tfrds.ClusterEngineMySQL, mainInstanceClasses, rName, sType))
  }
  
