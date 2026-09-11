@@ -2,6 +2,7 @@ package provider
 
 import (
 	"fmt"
+	"maps"
 	"regexp"
 	"strings"
 	"sync"
@@ -592,9 +593,7 @@ func upstreamModuleMap() (map[string]string, error) {
 			modules[prefix] = service.ProviderNameUpper()
 		}
 	}
-	for prefix, module := range moduleOverrides {
-		modules[prefix] = module
-	}
+	maps.Copy(modules, moduleOverrides)
 	return modules, nil
 }
 
