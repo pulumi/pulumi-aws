@@ -197,6 +197,9 @@ func postProcessCallbackFunction(spec *schema.PackageSpec) {
 // It applies post processing steps to overlays. e.g. copying input properties from another resource
 func postProcessOverlays(spec *schema.PackageSpec) {
 	postProcessCallbackFunction(spec)
+	// Opt into the `pulumi new` credentials preflight and point users at the configuration docs.
+	spec.ValidateCredentialsOnNew = true
+	spec.ConfigurationDocsURL = "https://www.pulumi.com/registry/packages/aws/installation-configuration/"
 }
 
 func init() {
