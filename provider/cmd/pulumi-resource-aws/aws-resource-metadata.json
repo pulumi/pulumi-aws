@@ -1812,6 +1812,11 @@
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
   },
+  "aws_dms_migration_project": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
   "aws_dms_replication_config": {
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
@@ -2193,6 +2198,9 @@
     "hasTagsAndTagsAll": true
   },
   "aws_ec2_transit_gateway_policy_table_association": {
+    "hasUsableRegion": true
+  },
+  "aws_ec2_transit_gateway_policy_table_entry": {
     "hasUsableRegion": true
   },
   "aws_ec2_transit_gateway_prefix_list_reference": {
@@ -3299,6 +3307,9 @@
     "hasUsableRegion": true
   },
   "aws_lambda_provisioned_concurrency_config": {
+    "hasUsableRegion": true
+  },
+  "aws_lambda_resource_policy": {
     "hasUsableRegion": true
   },
   "aws_lambda_runtime_management_config": {

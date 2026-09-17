@@ -1931,6 +1931,14 @@
     {
       "old": "* `warning_event_categories` - (Optional) Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, Terraform describes RDS events reported for this cluster during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws_rds_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.\n",
       "new": "* `warning_event_categories` - (Optional) Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this cluster during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws_rds_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.\n"
+    },
+    {
+      "old": "* `cluster_identifier` - (Optional, Forces new resources) Cluster identifier. If omitted, Terraform will assign a random, unique identifier.\n",
+      "new": "* `cluster_identifier` - (Optional, Forces new resources) Cluster identifier. If omitted, TODO will assign a random, unique identifier.\n"
+    },
+    {
+      "old": "* `storage_encrypted` - (Optional) Whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. Terraform will only perform drift detection if a configuration value is provided.\n",
+      "new": "* `storage_encrypted` - (Optional) Whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. TODO will only perform drift detection if a configuration value is provided.\n"
     }
   ],
   "rds_cluster_activity_stream.html.markdown": [
@@ -1995,6 +2003,10 @@
     {
       "old": "* `source_db_cluster_identifier` - (Optional) ARN to use as the primary DB Cluster of the Global Cluster on creation. Terraform cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engine_version`. This allows upgrading the engine version of the Global Cluster.\n",
       "new": "* `source_db_cluster_identifier` - (Optional) ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engine_version`. This allows upgrading the engine version of the Global Cluster.\n"
+    },
+    {
+      "old": "* `storage_encrypted` - (Optional, Forces new resources) Whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. Terraform will only perform drift detection if a configuration value is provided.\n",
+      "new": "* `storage_encrypted` - (Optional, Forces new resources) Whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. TODO will only perform drift detection if a configuration value is provided.\n"
     }
   ],
   "route.html.markdown": [
@@ -2751,6 +2763,10 @@
     {
       "old": "In Terraform v1.12.0 and later, the `import` block can be used with the `identity` attribute. For example:\n",
       "new": ""
+    },
+    {
+      "old": "* `value_wo` - (Optional, Write-Only, exactly one of `value`, `value_wo` or `insecure_value` is required) Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `value_wo_version`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.\n",
+      "new": "* `value_wo` - (Optional, Write-Only, exactly one of `value`, `value_wo` or `insecure_value` is required) Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `value_wo_version`. In TODO CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the TODO v0.15 Upgrade Guide.\n"
     }
   ],
   "ssmcontacts_contact.html.markdown": [
